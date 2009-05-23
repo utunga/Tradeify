@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DumbMessageParser.cs" />
+    <Compile Include="TestMessageListSerializer.cs" />
     <Compile Include="TwitterTestModule.cs" />
     <Compile Include="TestTwitterProvider.cs" />
     <Compile Include="MockUserPointer.cs" />
