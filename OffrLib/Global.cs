@@ -15,11 +15,11 @@ namespace Offr
         {
             lock (_syncLock)
             {
-                if (_ninjectKernel != null)
+                if (_ninjectKernel == null)
                 {
-                    throw new ApplicationException("Kernel already initialized");
+                    _ninjectKernel = new StandardKernel(configuration);
+                    //FIXME log that it was already initialized
                 }
-                _ninjectKernel = new StandardKernel(configuration);
             }
         }
 
