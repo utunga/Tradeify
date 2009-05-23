@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Offr.Message.OfferMessage">
+    <Position X="5.5" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAABABACAAIAAAAAAAIAAQAAQAAAACAAAAAAAgAAAAI=</HashCode>
+      <FileName>Message\OfferMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Message.BaseMessage">
+    <Position X="3" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAAACAgkAEAAAEAAgAIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>Message\BaseMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tags" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Text.RawMessagea">
+    <Position X="19" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAIIAAAQAAAAAAAACAAAAAAAAAAAAAEAACAAAAgE=</HashCode>
+      <FileName>Text\RawMessagea.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pointer" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Query.LinqMessageQueryExecutor">
+    <Position X="8.75" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Query\LinqMessageQueryExecutor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_messageProvider" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Message.MemoryMessageProvider">
+    <Position X="12.25" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAMAAAAAAAAAAAAgBAAAACAAAIAEAAABAEAAAA=</HashCode>
+      <FileName>Message\MemMessageProvider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_sourceProvider" />
+      <Field Name="_messageParser" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Query.MessageQuery">
+    <Position X="6.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Query\MessageQuery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Location.GoogleLocationProvider">
+    <Position X="12.75" Y="11" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Location\GoogleLocationProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Location.Location">
+    <Position X="8.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAgAIAABAIAAAAAAEAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Location\Location.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Offr.Message.IMessagePointer">
+    <Position X="21.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAACAAAAAAAABAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IMessagePointer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ResolvedURL" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Offr.Text.IRawMessage">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAACAAAAAAAAAAAAAAAACAAAAAE=</HashCode>
+      <FileName>Text\IRawMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IMessage">
+    <Position X="2.75" Y="0.5" Width="1.25" />
+    <AssociationLine Name="CreatedBy" Type="Offr.Text.IUserPointer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="1.5" />
+        <Point X="4.375" Y="1.5" />
+        <Point X="4.375" Y="2.569" />
+        <Point X="5.967" Y="2.569" Type="JumpStart" />
+        <Point X="6.133" Y="2.569" Type="JumpEnd" />
+        <Point X="6.25" Y="2.569" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAACAggAEAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>Message\IMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Source" />
+      <Property Name="CreatedBy" />
+      <Property Name="MessageType" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Offr.Message.IOfferMessage" Collapsed="true">
+    <Position X="5.5" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAABAAACAAIAAAAAAAIAAAAAQAAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>Message\IOfferMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IOfferResponse" Collapsed="true">
+    <Position X="2" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Message\IOfferResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IOfferFeedback" Collapsed="true">
+    <Position X="1.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAQAA=</HashCode>
+      <FileName>Message\IOfferResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IOfferRecipientFeedback" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IOfferResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IOfferSellerFeedback" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IOfferResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IOfferTaken" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IOfferResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Text.ITag">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Text\ITag.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Text.IResolvedURI">
+    <Position X="21.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Text\IResolvedURI.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Query.IMessageQuery" Collapsed="true">
+    <Position X="6.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Query\IMessageQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Location.ILocationProvider" Collapsed="true">
+    <Position X="10.75" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Location\ILocationProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Location.ILocation" Collapsed="true">
+    <Position X="8.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAgAIAABAIAAAAAAEAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Location\ILocation.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Text.IUserPointer">
+    <Position X="6.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAACAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Text\IUserPointer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Text.IRawMessageProvider" Collapsed="true">
+    <Position X="15.75" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAABAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Text\IRawMessageProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IMessageParser">
+    <Position X="16.25" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IMessageParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IMessageProvider" Collapsed="true">
+    <Position X="12.25" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAIAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IMessageProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Query.IMessageQueryExecutor" Collapsed="true">
+    <Position X="8.75" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Query\IMessageQueryExecutor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Offr.Message.MessageType">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAIAIAEAAAAAiAAAAAAAA=</HashCode>
+      <FileName>Message\MessageType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Offr.Text.TagType">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAACAAAIAAACAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Text\TagType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="css/reset.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Twade Me</title>
+
+<style>
+
+.warning_explanation
+{
+		display:none;
+}
+.menu_boxes, 
+.pullout_boxes,
+.smaller_links {
+		float:right;
+}
+#main_wrapper {
+	float:left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner"> 
+<!-- tweety bird background or some such -->
+<h1>Twade Me</h1>
+<h2>  Open Source Local Trading
+  </h2> 
+
+</div>
+
+
+<div class="warning">
+<!-- cat chasing the tweety bird-->
+For Trades In Person <a href="#">( why? )</a>
+  <div class="warning_explanation">
+		You are free to do what you like, but we recommend that you complete your trades in person. 
+		
+		We believe in our community, and we known that most people are good - but - caveat emptor -  buyer beware.
+
+		That means its up to you to make sure things go smoothly - and one of the best ways to do that is to meet people in person.
+
+		Twade me is all about the free and simple,but a part of that means its on you to make it work.Pay attention to people's reputation scores and have a good look at their web page (if they have one).
+		
+		And finally, if you get scammed, please let other's know via the reputation feedback, and we'll be sorry to hear it, but we cannot be held liable.
+	</div>
+</div>
+
+<ul class="pullout_boxes">
+	<li>
+		<h4>100% free and open source</h4>
+        <p>Twade me is our gift to you. <a href="/about/free">Why?</a>
+    </li>
+	<li>
+		<h4>100% open data</h4>
+         <p>Twade me parses the public twitter stream so there is nothing to sign up for. <a href="/about/how">How?</a>
+    </li>
+</ul>   
+    <div>
+        <div class="twitter_auth">    
+		    <a href="/auth/signin"><img src="images/sign_in_with_twitter.png" /></a>
+        </div>
+</div>
+
+
+ 	
+	<li>
+		<h4>How does it work?</h4>
+		<p>Its <span class="free_and_simple">simple!</span></p>
+		<p>, but you'll need a twitter <!-- (or facebook) --> account to post offers or feedback. That's it, really, but <a href="file:///C|/projects/Personal/how.html">Find out more here</a>.</p>
+	</li>
+</ul>
+<ul class="menu_boxes">
+	<li>
+		<a href="#" id="open_post_offer"><h4>Post your own offer</h4></a>
+	</li>		
+	<li>
+		<a href="#" id="open_post_feedback"><h4>Post feedback</h4></a>
+	</li>
+</ul>
+<ul class="smaller_links"><!-- uh yeah -open protocols so someone else writes all this stuff - i wish! --->
+	<li>
+		<a href="file:///C|/projects/Personal/about_us.html" >About us</a>
+	</li>
+	<li>
+		<a href="file:///C|/projects/Personal/offr_api.html" title="All about the twade me open api">The Open API</a>
+	</li>
+	<li>
+		<a href="file:///C|/projects/Personal/put_twademe_on.html#your_blog" id="on_blog" >Put twade me on your blog</a>
+	</li>
+	<li>
+		<a href="file:///C|/projects/Personal/put_twademe_on.html#your_facebook" id="on_facebook" >Put twade me on your facebook</a>
+	</li>
+	<li>
+		<a href="file:///C|/projects/Personal/put_twademe_on.html#your_iphone" id="on_iphone">Put twade me on your iPhone</a>
+	</li>
+	<li>
+		<a href="file:///C|/projects/Personal/put_twademe_on.html#your_facebook" id="on_opensocial">Put twade me on your ning / orkut / other</a>
+	</li>
+</ul>
+
+<div id="main_wrapper">
+
+	<div id="search">
+		<!-- layout all the way across -->
+		Look for <input type="text" id=search_text"> near <p id="location_search">L:you</p>
+		<input type="submit" id="go" value="go">
+	</div>
+	<div id="content_wrapper">
+	
+		<div id="main_results">
+			<div id="sort_by">
+				<select id="sort_by"><option></select>
+			</div>
+			<div id="results">
+				<div id="on_map">
+				</div>
+				<div id="as_table">
+				</div>
+			</div>
+		</div>
+		<div id="facet_refine">
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

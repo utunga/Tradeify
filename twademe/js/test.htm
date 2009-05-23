@@ -1,0 +1,95 @@
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Micro_template test</title>
+  <script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script>
+  <script src="jquery.micro_template.js"></script>
+</head>
+ 
+<body>
+Welcolm, <span id="username"></span><br><br>
+
+<span style="display:none;">Take care, you must use "/* ... */" in onclick property etc. to avoid errors poped in ie.</span>
+<div id="test1" class="users">
+     <!for (var i=0;i<users.length;++i)
+           {!>
+<div onMouseOver="/*=users[i].color?'this.style.color=\''+users[i].color+'\';':''*/" id="user_<!=i!>" class='user'>Name:<a href="<!=users[i].name!>"><!=users[i].name!></a></div>
+           <!}
+     !>
+<pre>'somthing\'
+else ...</pre>
+</div>
+
+You have received a message: <span id="message"></span><br><br>
+
+<div id="test2" class="users">
+</div><br>
+
+<span style="display:none;">Take care, currently you must use comparison operator "<" or "%3e", not ">"!</span>
+<div id="test3" class="names">
+     <!for (var i=0;i<json.length;++i){!>
+     <!if (0<i){write.push('<hr%3e');}!>
+     <!=json[i].name!><br>
+     <!}!>
+</div><br>
+
+<span style="display:none;">Take care, you must use '*="' at both begin and end in tag property location, if you have more tag property, start with more star signs!</span>
+<div id="test4" class="checks">
+     <input type="checkbox" name="is_done" *="<!=json[0]?'checked':''!>*="  **="<!='title=%22kkk%22'!>*="value="1">
+     <input type="checkbox" name="is_gone" *="<!=json[1]?'checked':''!>*=" value="1">
+     <input type="checkbox" name="is_post" *="<!=json[2]?'checked':''!>*=" value="1">
+</div><br>
+
+<span style="display:none;">Take care, you must use '*="' when setting style property!</span>
+<div id="test5" class="bids">
+<!for (var i=0;i<json.length;++i){!>
+Bid price:<span *="<!if (json[i]['bid']%3e=1) {write.push('style=%22color:red;'+(json[i]['bid']%3e=5?'font-weight:bold;':'')+'%22');}!>*="><!=json[i]['bid']!></span><br>
+<!}!>
+</div><br>
+
+<span style="display:none;">Take care, you must use "%3c" and "%3e" instead of "<" and ">" in "select" element in ie6 and ie7 while keep another standard copy for firefox!</span>
+<select id="test6" class="select">
+        %3c!for (var i=0;i%3cjson.length;++i){!%3e
+        <!for (var i=0;i<json.length;++i){!>
+        <option value="<!=json[i].ID!>">%3c!=json[i].ChannelName!%3e</option>
+        <!}!>
+        %3c!}!%3e
+</select><br><br>
+
+This page has been viewed <span id="visit_times"></span>&nbsp;times.
+
+<script>
+$('.user').drink();
+
+var data1={users:[{name:'name1.1'},
+                  {name:'name1.2', color:'yellow'}
+                 ]
+          };
+$('#test1').drink(data1);
+
+var data2={users:[{name:'name2.1', color:'red'},
+                  {name:'name2.2', color:'yellow'}
+                 ]
+          };
+$('#test2').drink(data2);
+
+data1.users[1].name='name1.2.changed';
+$('#test1 #user_1').drink($.extend(data1, {i:1}));
+
+var data3=[{name:'name3.1'}, {name:'name3.2'}];
+$('#test3').drink(data3);
+
+var data4=[1, 0, 1];
+$('#test4').drink(data4);
+
+var data5=[{bid:2.3}, {bid:5.3}, {bid:0.9}];
+$('#test5').drink(data5);
+
+var data6=[{ID:2332,ChannelName:'channel1'}, {ID:2332,ChannelName:'channel2'}, {ID:2332,ChannelName:'channel3'}];
+$('#test6').drink(data6);
+
+var data_odds={username:'diyism', message:'Peter nudged you.', visit_times:54321};
+$('#username,#message,#visit_times').drink(data_odds);
+</script>
+</body>
+</html>
