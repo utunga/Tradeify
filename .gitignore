@@ -1,0 +1,9 @@
+OAuthExample*
+*resharper*
+obj/
+*.user
+tmp/
+TwitterFirehose*
+*.psess
+*.suo
+_ReSharper*
