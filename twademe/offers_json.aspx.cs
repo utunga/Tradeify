@@ -14,13 +14,13 @@ namespace twademe
 {
     public partial class offers_json : System.Web.UI.Page
     {
-        private TagProvider _tagProvider;
+        private ITagProvider _tagProvider;
 
         private const int DEFAULT_COUNT = 10;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _tagProvider = Global.Kernel.Get<TagProvider>();
+            _tagProvider = Global.Kernel.Get<ITagProvider>();
 
             MessageQuery query = MessageQueryFromNameValCollection(Request.QueryString);
             Response.ContentType = "application/json"; 

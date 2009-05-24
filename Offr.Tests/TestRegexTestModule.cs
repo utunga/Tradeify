@@ -20,7 +20,7 @@ namespace Offr.Tests
             //    IMessageProvider
             //    IMessageQueryProvider
             Bind<ITagProvider>().To<TagProvider>(); 
-            Bind<IMessageParser>().To<RegexParser>(); // <-- same as TestModule except for this
+            Bind<IMessageParser>().To<RegexMessageParser>(); // <-- same as TestModule except for this
             Bind<IRawMessageProvider>().To<MockRawMessageProvider>();
             Bind<IMessageProvider>().To<MemoryMessageProvider>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>();

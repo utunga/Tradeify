@@ -8,5 +8,6 @@ namespace Offr.Text
     public interface ITagProvider
     {
         ITag FromString(string match_tag);
+        ITag FromTypeAndText(TagType tagType, string tagText);
     }
 }

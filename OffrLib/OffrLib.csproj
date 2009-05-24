@@ -77,7 +77,7 @@
     <Compile Include="Message\MessageProviderForKeywords.cs" />
     <Compile Include="Message\OfferMessage.cs" />
     <Compile Include="DefaultNinjectConfig.cs" />
-    <Compile Include="Message\RegexParser.cs" />
+    <Compile Include="Message\RegexMessageParser.cs" />
     <Compile Include="OAuth\OAuthBase.cs" />
     <Compile Include="OAuth\TwitterAuth.cs" />
     <Compile Include="OAuth\OAuthTwitter.cs" />

@@ -111,8 +111,8 @@ namespace Offr.Tests
             {
                 raw.Tags.Add(locationTag);
             }
+            raw.Text = raw.ToString();
             RawMessages.Add(raw);
-
            
             //--------- 1
 
@@ -133,6 +133,7 @@ namespace Offr.Tests
             {
                 raw.Tags.Add(locationTag);
             }
+            raw.Text = raw.ToString();
             RawMessages.Add(raw);
 
             //--------- 2
@@ -154,6 +155,7 @@ namespace Offr.Tests
             {
                 raw.Tags.Add(locationTag);
             }
+            raw.Text = raw.ToString();
             RawMessages.Add(raw);
 
             //--------- 3
@@ -170,11 +172,12 @@ namespace Offr.Tests
             };
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
-            raw.Tags.Add(new Tag(TagType.tag, Offers[3]));
+            raw.Tags.Add(new Tag(TagType.tag, "garden_supplies")); 
             foreach (ITag locationTag in Location0.LocationTags)
             {
                 raw.Tags.Add(locationTag);
             }
+            raw.Text = raw.ToString();
             RawMessages.Add(raw);
 
             //--------- 4 
@@ -196,6 +199,7 @@ namespace Offr.Tests
             {
                 raw.Tags.Add(locationTag);
             }
+            raw.Text = raw.ToString();
             RawMessages.Add(raw);
 
             //--------- 5
@@ -216,6 +220,7 @@ namespace Offr.Tests
             {
                 raw.Tags.Add(locationTag);
             }
+            raw.Text = raw.ToString();
             RawMessages.Add(raw);
 
             if (RawMessages.Count != MSG_COUNT)

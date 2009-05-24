@@ -13,7 +13,7 @@ namespace Offr
     {
         public override void Load()
         {
-            Bind<IMessageParser>().To<DumbMessageParser>();//FIXME
+            Bind<IMessageParser>().To<RegexMessageParser>(); //promoted regexparser to full value
             Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>();
             Bind<IMessageProvider>().To<MemoryMessageProvider>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>();
