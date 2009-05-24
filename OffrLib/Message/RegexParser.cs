@@ -9,19 +9,18 @@ namespace Offr.Message
 {
     public class RegexParser : IMessageParser
     {
-
-        ITagProvider _tagProvider;
-
+        readonly ITagProvider _tagProvider;
         public RegexParser(ITagProvider tagProvider)
         {
             _tagProvider = tagProvider;
-            // above is the DI way - but for quick  test, use this
-            //  _tagProvider = Global.Kernel.Get<ITagProvider>();
         }
 
         public static List<string> GetTags(string sourceText, out string offerText)
         {
-            
+
+            offerText = sourceText;
+            return new List<string>();
+
             Regex re = new Regex("(#[a-zA-Z0-9]+)");
             MatchCollection results = re.Matches(sourceText);
             //string marray = results[0].Groups[1].Value;

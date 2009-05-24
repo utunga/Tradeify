@@ -76,11 +76,19 @@ namespace Offr.Tests
         //        query.Facets.Add(facet);
                 
         //        TagCounts results = _target.GetTagCountsForQuery(query);
-        //        foreach(ITag foundTag in results.Tags.Values)
+        //        foreach(TagWithCount foundTag in results.Tags)
         //        {
         //            if (foundTag.Equals(facet))
         //            {
-        //                Assert.AreEqual(results.Total,);
+        //                Assert.AreEqual(results.Total, foundTag.count, "Expected anything that is in the query to have max counts");
+        //            }
+        //        }
+
+        //        foreach(TagWithCount foundTag in results.Tags)
+        //        {
+        //            if (foundTag.Equals(facet))
+        //            {
+        //                Assert.AreEqual(results.Total, foundTag.count, "Expected anything that is in the query to have max counts");
         //            }
         //        }
         //        Assert.GreaterOrEqual(results., 1, "Received no results for query:" + query);

@@ -110,13 +110,20 @@ namespace Offr.Query
         public TagCounts GetTagCounts()
         {
             int total = 0;
-            var results = new List<TagWithCount>();
-
+            
+            SortedList<int, ITag> sortedTags = new SortedList<int, ITag>();
             foreach (ITag tag in _index.Keys)
             {
                 int count = _index[tag].Count;
-                results.Add(new TagWithCount() { count = count, tag = tag });
+                sortedTags.Add(count, tag);
                 total += count;
+            }
+            
+            // now we have the counts, return in reverse sort order (most common tags first)
+            var results = new List<TagWithCount>();
+            foreach (KeyValuePair<int, ITag> tagCount in sortedTags.Reverse())
+            {
+                results.Add(new TagWithCount() { count = tagCount.Key, tag = tagCount.Value });
             }
             return new TagCounts() {Tags = results, Total = total };
         }
