@@ -51,9 +51,8 @@ namespace Offr.Text
         {
             TwitterMessagePointer msgPointer = new TwitterMessagePointer(status.id);
             TwitterUserPointer createdBy = new TwitterUserPointer(status.from_user);
-            createdBy.ProfileImageUrl = status.profile_image_url;
+            createdBy.ProfilePicUrl = status.profile_image_url;
             createdBy.ScreenName = status.from_user;
-            createdBy.MoreInfoUrl = string.Format("http://www.twitter.com/{0}", status.from_user);
 
             RawMessage msg = new RawMessage(status.text, msgPointer, createdBy, status.created_at );
             return msg;

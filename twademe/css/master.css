@@ -238,7 +238,7 @@ h3 {
 	background: #EBF2C9 ;
 	/* background: #; */
 }
-	/*fixme these rules should be on class sorted-tags, not #column h3 */
+	/*fixme these rules should be on class sorted_tags, not #column h3 */
 	#column h3 {
 		margin-bottom: 10px;
 		font-size: 120%;
@@ -664,27 +664,27 @@ p#intro {
 ----------------------------------------------------------------------------- */
 
 /* Tags SORT ------------------- */
-#main .sorted-tags {
+#main .sorted_tags {
 	background: #fff;
 	padding: 0 10px;
 	margin-bottom: 20px;
 }
-.sorted-tags h4 {
+.sorted_tags h4 {
 	font-size: 110%;
 	margin-bottom: 5px;
 }
-.sorted-tags label.categories {
+.sorted_tags label.categories {
 	font-size: 110%;
 	font-weight: bold;
 }
-.sorted-tags select {
+.sorted_tags select {
 	width: 260px;
 	border: 1px solid #ccc;
 	margin-top: 3px;
 	margin-left: 10px;
 	margin-bottom: 15px;
 }
-.sorted-tags .tags-sort li {
+.sorted_tags .tags_sort li {
 	float: left;
 	width: 18%;
 	margin-bottom: 4px;
@@ -694,10 +694,10 @@ p#intro {
 	height: 1.5em;
 	line-height: 1.5em;
 }
-	#column .sorted-tags .tags-sort li {
+	#column .sorted_tags .tags_sort li {
 		width: 48%;
 	}
-.sorted-tags .tags-sort li em {
+.sorted_tags .tags_sort li em {
 	position: absolute;
 	top: 0;
 	left: 18px;
@@ -708,7 +708,7 @@ p#intro {
 	line-height: 1.3em;
 	z-index: 0;
 }
-.sorted-tags .tags-sort li span {
+.sorted_tags .tags_sort li span {
 	position: absolute;
 	left: 20px; /* don't sit over top of checkbox */
  	top: -2px; 
@@ -721,7 +721,7 @@ p#intro {
 
 	/* font-weight: bold; */
 }
-.sorted-tags .tags-sort li input {
+.sorted_tags .tags_sort li input {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -948,7 +948,7 @@ fieldset .container-signin span {
 fieldset:after,
 .nav:after,
 .box:after,
-.tags-sort:after,
+.tags_sort:after,
 h3:after {
 	content: ".";
 	display: block;

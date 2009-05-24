@@ -5,5 +5,5 @@ using System.Text;
 
 namespace Offr.Text
 {
-    public enum TagType { text, hash, currency, location, community, }
+    public enum TagType { text, tag, type, loc, group, }
 }

@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using Offr.Location;
+using Offr.Text;
 
 namespace Offr.Query
 {
@@ -11,33 +12,25 @@ namespace Offr.Query
     {
         public string Keywords { get; set; }
         //public ILocation Location { get; set; }
-        public List<string> Facets { get; set; }
+        public List<ITag> Facets { get; set; }
 
         public MessageQuery()
         {
-            Facets = new List<string>();
+            Facets = new List<ITag>();
         }
 
         public override string ToString()
         {
-            return "query<keyword:" + Keywords + " facets:" + string.Join(",", Facets.ToArray()) + ">";
+            string toString = "query<keyword:" + Keywords;
+            toString += " facets:";
+            foreach (ITag tag in Facets)
+            {
+                 toString += tag.match_tag;
+            }
+            toString += ">";
+            return toString;
         }
 
-        //FIXME really we want to do this with MVC routing, but for now..
-        public static MessageQuery FromNameValCollection(NameValueCollection nameVals)
-        {
-            MessageQuery query = new MessageQuery();
-            if (nameVals["q"]!=null)
-            {
-                query.Keywords = nameVals["q"];
-            }
-            if (nameVals.GetValues("f")!=null) {
-                foreach (string facet in nameVals.GetValues("f"))
-                {
-                    query.Facets.Add(facet);
-                }
-            }
-            return query;
-        }
+        
     }
 }

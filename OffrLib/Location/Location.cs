@@ -16,10 +16,10 @@ namespace Offr.Location
         public IEnumerable<ITag> LocationTags
         {
             get { 
-                yield return new Tag(TagType.location, City);
-                yield return new Tag(TagType.location, Region);
-                yield return new Tag(TagType.location, Country);
-                yield return new Tag(TagType.location, CountryCode);
+                yield return new Tag(TagType.loc, City);
+                yield return new Tag(TagType.loc, Region);
+                yield return new Tag(TagType.loc, Country);
+                yield return new Tag(TagType.loc, CountryCode);
             }
         }
     }

@@ -13,19 +13,24 @@ namespace Offr.Query
     public class TagDex : IMemCache, IMessageReceiver
     {
         private readonly IMessageProvider _messageProvider;
-        private readonly ITagProvider _tagProvider;
+        private readonly IEnumerable<IMessage> _explicitMessages;
 
         private Dictionary<ITag, List<IMessage>> _index;
         private Dictionary<string, List<IMessage>> _doubleTagIndex;
 
-        public TagDex(IMessageProvider messageProvider, ITagProvider tagProvider)
+        public TagDex(IMessageProvider messageProvider)
         {
             _messageProvider = messageProvider;
-            _tagProvider = tagProvider;
-            Invalidate(); // call invalidate to initialize data with basic messages
+            Invalidate(); // call invalidate to initialize data with messageProvider.AllMessages() // *will receive updates from then on
         }
 
-        public List<IMessage> MessagesForTags(List<string> facets)
+        public TagDex(IEnumerable<IMessage> explicitMessages)
+        {
+            _explicitMessages = explicitMessages;
+            Invalidate(); // call invalidate to initialize data with explictly provided messages, won't update past this point
+        }
+
+        public List<IMessage> MessagesForTags(List<ITag> tags)
         {
             if (_messageProvider != null)
             {
@@ -33,10 +38,14 @@ namespace Offr.Query
                 // may end up calling back into the 'process' method here
             }
 
-            List<ITag> intersectionTags = new List<ITag>();
-            foreach (string facet in facets)
+            List<ITag> intersectTags = new List<ITag>();
+            foreach (ITag tag in tags)
             {
-                intersectionTags.Add(_tagProvider.FromString(facet));
+                if ((tag.type == TagType.tag)
+                    || (tag.type == TagType.group))
+                {
+                    intersectTags.Add(tag);
+                }
             }
 
             ////FIXME this could be a bunch smarter
@@ -46,26 +55,38 @@ namespace Offr.Query
             //    tags.Sort(TagCountSorter);
             //}
 
-            IList<IMessage> candidates;
-            if (intersectionTags.Count > 1)
+            IEnumerable<IMessage> candidates;
+            if (intersectTags.Count > 1)
             {
-                string doubleKey = GetDoubleKey(intersectionTags[0], intersectionTags[1]);
+                string doubleKey = GetDoubleKey(intersectTags[0], intersectTags[1]);
                 candidates = _doubleTagIndex.ContainsKey(doubleKey) ? _doubleTagIndex[doubleKey] : new List<IMessage>();
             }
-            else if (intersectionTags.Count > 0)
+            else if (intersectTags.Count > 0)
             {
-                candidates = _index.ContainsKey(intersectionTags[0]) ? _index[intersectionTags[0]] : new List<IMessage>();
+                candidates = _index.ContainsKey(intersectTags[0]) ? _index[intersectTags[0]] : new List<IMessage>();
             }
             else
             {
-                candidates = _messageProvider.AllMessages;
+                if (_messageProvider != null)
+                {
+                    // may end up calling back into the 'process new messages' method here
+                    candidates = _messageProvider.AllMessages;
+                }
+                else if (_explicitMessages != null)
+                {
+                    candidates = _explicitMessages;
+                }
+                else
+                {
+                    candidates = new List<IMessage>(); // no candidates
+                }
             }
 
             List<IMessage> results = new List<IMessage>();
             foreach (IMessage message in candidates)
             {
                 bool include = true;
-                foreach (ITag tag in intersectionTags)
+                foreach (ITag tag in intersectTags)
                 {
                     if (!message.HasTag(tag))
                     {
@@ -89,15 +110,15 @@ namespace Offr.Query
         public TagCounts GetTagCounts()
         {
             int total = 0;
-            var results = new SortedList<string, TagWithCount>();
+            var results = new List<TagWithCount>();
 
             foreach (ITag tag in _index.Keys)
             {
                 int count = _index[tag].Count;
-                results.Add(tag.match_tag, new TagWithCount() { tag = tag, count = count });
+                results.Add(new TagWithCount() { count = count, tag = tag });
                 total += count;
             }
-            return new TagCounts() { Tags = results, Total = total };
+            return new TagCounts() {Tags = results, Total = total };
         }
 
         public void Process(IEnumerable<IMessage> messages)
@@ -140,7 +161,16 @@ namespace Offr.Query
         {
             _index = new Dictionary<ITag, List<IMessage>>();
             _doubleTagIndex = new Dictionary<string, List<IMessage>>();
-            Process(_messageProvider.AllMessages);
+
+            //FIXME: definitely should be split into two sepeate classes
+            if (_messageProvider != null)
+            {
+                Process(_messageProvider.AllMessages);
+            }
+            else if (_explicitMessages != null)
+            {
+                Process(_explicitMessages);
+            }
         }
 
         #endregion

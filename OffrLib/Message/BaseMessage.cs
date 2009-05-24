@@ -47,12 +47,12 @@ namespace Offr.Message
       
         public ReadOnlyCollection<ITag> HashTags
         {
-            get { return _tags.TagsOfType(TagType.hash); }
+            get { return _tags.TagsOfType(TagType.tag); }
         }
 
         public ReadOnlyCollection<ITag> CommunityTags
         {
-            get { return _tags.TagsOfType(TagType.community); }
+            get { return _tags.TagsOfType(TagType.group); }
         }
 
         private MessageType _messageType;

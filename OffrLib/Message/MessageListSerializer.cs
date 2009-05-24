@@ -5,12 +5,17 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
+using Offr.Text;
+using Offr.Users;
 
 namespace Offr.Message
 {
    public class MessageListSerializer : JavaScriptConverter
     {
-
+        public const int FAKE_POS_COUNT = 2;
+        public const int FAKE_NEG_COUNT = 1;
+        public const int FAKE_INC_COUNT = 10;
+                                
         public override IEnumerable<Type> SupportedTypes
         {
             //Define the ListItemCollection as a supported type.
@@ -71,8 +76,25 @@ namespace Offr.Message
                             {
                                 {"screen_name", offer.CreatedBy.ProviderUserName}
                             };
+                            if (offer.CreatedBy is IEnhancedUserPointer)
+                            {
+                                userDict.Add("more_info_url", ((IEnhancedUserPointer)offer.CreatedBy).MoreInfoUrl);
+                                userDict.Add("profile_pic_url", ((IEnhancedUserPointer)offer.CreatedBy).ProfilePicUrl);
+                                userDict.Add("ratings_pos_count", FAKE_POS_COUNT);
+                                userDict.Add("ratings_neg_count", FAKE_NEG_COUNT);
+                                userDict.Add("ratings_inc_count", FAKE_INC_COUNT);
+                            }
+                            dict.Add("user", userDict);
 
-                            userDict.Add("user", userDict);
+                            List<Dictionary<string, object>> tags = new List<Dictionary<string, object>>();
+                            foreach (ITag tag in offer.Tags)
+                            {
+                                tags.Add(new Dictionary<string, object>()
+                                {
+                                    {"tag", tag.tag}
+                                });
+                            }
+                            dict.Add("tags", tags);
                             
                             messagesList.Add(dict);
                             break;

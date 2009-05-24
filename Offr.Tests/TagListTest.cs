@@ -22,13 +22,13 @@ namespace Offr.Tests
 
             _target = new TagList
             {
-              new Tag(TagType.currency,"foo"),
-              new Tag(TagType.currency,"bar"),
-              new Tag(TagType.currency,"baz"),
-              new Tag(TagType.hash,"rep1"),
-              new Tag(TagType.hash,"rep1"),
-              new Tag(TagType.location,"wellington"),
-              new Tag(TagType.location,"nz")
+              new Tag(TagType.type,"foo"),
+              new Tag(TagType.type,"bar"),
+              new Tag(TagType.type,"baz"),
+              new Tag(TagType.tag,"rep1"),
+              new Tag(TagType.tag,"rep1"),
+              new Tag(TagType.loc,"wellington"),
+              new Tag(TagType.loc,"nz")
             };
         }
 
@@ -38,17 +38,17 @@ namespace Offr.Tests
             ITag tag = _target[2];
             // just check we are on same page
             Assert.AreEqual("baz", tag.tag);
-            Assert.AreEqual(TagType.currency, tag.type);
+            Assert.AreEqual(TagType.type, tag.type);
         }
 
         [Test]
         public void TestFilterOnSetup()
         {
-            IList<ITag> currencies = _target.TagsOfType(TagType.currency);
+            IList<ITag> currencies = _target.TagsOfType(TagType.type);
             Assert.AreEqual(3, currencies.Count);
             foreach (ITag currency in currencies)
             {
-                Assert.AreEqual(TagType.currency, currency.type);
+                Assert.AreEqual(TagType.type, currency.type);
             }
         }
 
@@ -61,12 +61,12 @@ namespace Offr.Tests
             ITag tag = _target[2];
             // just check we are on same page to start
             Assert.AreEqual("baz", tag.tag);
-            Assert.AreEqual(TagType.currency, tag.type);
+            Assert.AreEqual(TagType.type, tag.type);
 
-            _target[2] = new Tag(TagType.hash, "bah");
+            _target[2] = new Tag(TagType.tag, "bah");
             
             ITag tag2 = _target[2];
-            Assert.AreEqual(TagType.hash, tag2.type);
+            Assert.AreEqual(TagType.tag, tag2.type);
             Assert.AreEqual("bah", tag2.tag);
         }
 
@@ -78,23 +78,23 @@ namespace Offr.Tests
             int startCount = _target.Count;
             //Assert.AreEqual(6, startCount);
 
-            int startHashCount = _target.TagsOfType(TagType.hash).Count;
+            int startHashCount = _target.TagsOfType(TagType.tag).Count;
             
-            _target.Add(new Tag(TagType.hash, "bah"));
-            _target.Add(new Tag(TagType.hash, "bah"));
-            _target.Add(new Tag(TagType.hash, "bah"));
+            _target.Add(new Tag(TagType.tag, "bah"));
+            _target.Add(new Tag(TagType.tag, "bah"));
+            _target.Add(new Tag(TagType.tag, "bah"));
 
             Assert.AreEqual(startCount + 1, _target.Count, "Expected to add only the one tag, given that it alrady exists");
 
-            Assert.AreEqual(startHashCount + 1, _target.TagsOfType(TagType.hash).Count, "Expected to add only the one tag to hash tags, given that it alrady exists");
+            Assert.AreEqual(startHashCount + 1, _target.TagsOfType(TagType.tag).Count, "Expected to add only the one tag to hash tags, given that it alrady exists");
         }
 
         [Test]
         public void TagEqualityTest()
         {
-            Assert.AreEqual(new Tag(TagType.hash, "bah"), new Tag(TagType.hash, "bah"));
-            Assert.AreNotEqual(new Tag(TagType.currency, "bah"), new Tag(TagType.hash, "bah"));
-            Assert.AreNotEqual(new Tag(TagType.hash, "baz"), new Tag(TagType.hash, "bah"));
+            Assert.AreEqual(new Tag(TagType.tag, "bah"), new Tag(TagType.tag, "bah"));
+            Assert.AreNotEqual(new Tag(TagType.type, "bah"), new Tag(TagType.tag, "bah"));
+            Assert.AreNotEqual(new Tag(TagType.tag, "baz"), new Tag(TagType.tag, "bah"));
         }
 
         ///// <summary>
@@ -106,9 +106,9 @@ namespace Offr.Tests
             ITag tag = _target[2];
             // just check we are on same page to start
             Assert.AreEqual("baz", tag.tag);
-            Assert.AreEqual(TagType.currency, tag.type);
+            Assert.AreEqual(TagType.type, tag.type);
 
-            _target[2] = new Tag(TagType.hash, "bah");
+            _target[2] = new Tag(TagType.tag, "bah");
 
         }
 

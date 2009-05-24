@@ -45,19 +45,19 @@ namespace Offr.Tests
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("#").Append(MessageType.offr_test).Append(" ");
-            foreach (ITag tag in _tags.TagsOfType(TagType.community))
+            foreach (ITag tag in _tags.TagsOfType(TagType.group))
             {
                 builder.Append("#").Append(tag.tag).Append(" ");
             }
             builder.Append(this.OfferText).Append(" ");
             builder.Append("in L:").Append(Location.SourceText).Append(" ");
             builder.Append("for ");
-            foreach (ITag tag in _tags.TagsOfType(TagType.currency))
+            foreach (ITag tag in _tags.TagsOfType(TagType.type))
             {
                 builder.Append("#").Append(tag.tag).Append(" ");
             }
             builder.Append(MoreInfoURL).Append(" ");
-            foreach (ITag tag in _tags.TagsOfType(TagType.hash))
+            foreach (ITag tag in _tags.TagsOfType(TagType.tag))
             {
                 builder.Append("#").Append(tag.tag).Append(" ");
             }

@@ -11,12 +11,10 @@ namespace Offr.Query
 {
     public class TagDexQueryExecutor : IMessageQueryExecutor
     {
-       
-        private TagDex _globalTagIndex;
-
+        private readonly TagDex _globalTagIndex;
         public TagDexQueryExecutor(TagDex globalTagIndex)
         {
-           _globalTagIndex = globalTagIndex;
+           _globalTagIndex = globalTagIndex; //FIXME should be provided by the Kernel as a singleton i guess?
         }
 
         public IEnumerable<IMessage> GetMessagesForQuery(IMessageQuery query)
@@ -29,14 +27,20 @@ namespace Offr.Query
             }
             else
             {
-                //throw new NotImplementedException("Not implemented yet");
-                //// we can't use the cached data FIXME(This kinda sucks)
-                MessageProviderForKeywords keywordProvider = Global.Kernel.Get<MessageProviderForKeywords>(With.Parameters.ConstructorArgument("keywords", query.Keywords));
-                tagDex = new TagDex(keywordProvider, Global.Kernel.Get<ITagProvider>());
+                // theoretically if we were caching all these objects this provider would update every time
+                // new messages were published against this keyword
+                MessageProviderForKeywords keywordMessageProvider = Global.Kernel.Get<MessageProviderForKeywords>(With.Parameters.ConstructorArgument("keywords", query.Keywords));
+                tagDex = new TagDex(keywordMessageProvider);
             }
 
             return tagDex.MessagesForTags(query.Facets);
         }
 
+        public TagCounts GetTagCountsForQuery(IMessageQuery query)
+        {
+            IEnumerable<IMessage> messages = GetMessagesForQuery(query);
+            TagDex tagDex = new TagDex(messages);
+            return tagDex.GetTagCounts();
+        }
     }
 }

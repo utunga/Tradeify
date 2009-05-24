@@ -48,7 +48,7 @@ namespace Offr.Tests
         [Test]
         public void TestSingleFacetQuery()
         {
-            foreach (string facet in MockData.UsedFacets)
+            foreach (Tag facet in MockData.UsedTags)
             {
                 IMessageQuery query = new MessageQuery();
                 query.Facets.Add(facet);
@@ -61,13 +61,40 @@ namespace Offr.Tests
                     Assert.That(message is IOfferMessage);
                     IOfferMessage offer = message as IOfferMessage;
                     Assert.IsNotNull(offer);
-                    ITag tag = _tagProvider.FromString(facet);
-                    Assert.That(offer.Tags.Contains(tag), "Expected to find results that contain facet:" + facet + " in message:" + message);
+                    Assert.That(offer.Tags.Contains(facet), "Expected to find results that contain facet:" + facet + " in message:" + message);
                     Console.Out.WriteLine("\tfound " + message.ToString());
                 }
             }
         }
 
+        //[Test]
+        //public void TestTagCounts()
+        //{
+        //    foreach (Tag facet in MockData.UsedTags)
+        //    {
+        //        IMessageQuery query = new MessageQuery();
+        //        query.Facets.Add(facet);
+                
+        //        TagCounts results = _target.GetTagCountsForQuery(query);
+        //        foreach(ITag foundTag in results.Tags.Values)
+        //        {
+        //            if (foundTag.Equals(facet))
+        //            {
+        //                Assert.AreEqual(results.Total,);
+        //            }
+        //        }
+        //        Assert.GreaterOrEqual(results., 1, "Received no results for query:" + query);
+        //        Console.Out.WriteLine("For " + query.ToString() + ":");
+        //        foreach (IMessage message in results)
+        //        {
+        //            Assert.That(message is IOfferMessage);
+        //            IOfferMessage offer = message as IOfferMessage;
+        //            Assert.IsNotNull(offer);
+        //            Assert.That(offer.Tags.Contains(facet), "Expected to find results that contain facet:" + facet + " in message:" + message);
+        //            Console.Out.WriteLine("\tfound " + message.ToString());
+        //        }
+        //    }
+        //}
 
         [Test]
         public void TestMultiFacetQuery()
@@ -75,11 +102,11 @@ namespace Offr.Tests
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             int queryCount =0;
-            foreach (string facet1 in MockData.UsedFacets)
+            foreach (Tag facet1 in MockData.UsedTags)
             {
-                foreach (string facet2 in MockData.UsedFacets)
+                foreach (Tag facet2 in MockData.UsedTags)
                 {
-                    foreach (string facet3 in MockData.UsedFacets)
+                    foreach (Tag facet3 in MockData.UsedTags)
                     {
                         IMessageQuery query = new MessageQuery();
                         query.Facets.Add(facet1);
@@ -93,9 +120,9 @@ namespace Offr.Tests
                             Assert.That(message is IOfferMessage);
                             IOfferMessage offer = message as IOfferMessage;
                             Assert.IsNotNull(offer);
-                            Assert.That(offer.Tags.Contains(_tagProvider.FromString(facet1)), "Expected to find results that specified facet1:" + facet1 + " in message:" + message);
-                            Assert.That(offer.Tags.Contains(_tagProvider.FromString(facet2)), "Expected to find results that specified facet2:" + facet2 + " in message:" + message);
-                            Assert.That(offer.Tags.Contains(_tagProvider.FromString(facet3)), "Expected to find results that specified facet3:" + facet3 + " in message:" + message);
+                            Assert.That(offer.Tags.Contains(facet1), "Expected to find results that specified facet1:" + facet1 + " in message:" + message);
+                            Assert.That(offer.Tags.Contains(facet2), "Expected to find results that specified facet2:" + facet2 + " in message:" + message);
+                            Assert.That(offer.Tags.Contains(facet3), "Expected to find results that specified facet3:" + facet3 + " in message:" + message);
                             //Console.Out.WriteLine("For " + query.ToString() + ":"); 
                             //Console.Out.WriteLine("\tfound " + message.ToString());
                         }

@@ -7,73 +7,81 @@
 <script type="text/javascript" src="js/purePacked.js"></script>
 <script type="text/javascript">
 
-    function submitQuery() {
-        $(".tags-sort li input").each(function() {
-            alert($(this).value());
-        });
-    }
+//    function submitQuery() {
+//        $(".tags_sort li input").each(function() {
+//            alert($(this).value());
+//        });
+//    }
 
-    $(document).ready(function() {
-        $(".tags-sort li input").click(submitQuery);
-        $(".tags-sort li a").click(submitQuery);
-    });
+//    $(document).ready(function() {
+//        $(".tags_sort li input").click(submitQuery);
+//        $(".tags_sort li a").click(submitQuery);
+//    });
 
-    $(document).ready(function() {
-        var context = {
-            offers: [
-			{ "date": "12/12/2009",
-			    "offer_text": "Hey someting",
-			    "more_info_url": "http://foobar.com/html",
-			    "tags": [{ "tag": "foo" }, { "tag": "bar" }, { "tag": "baz"}],
-			    user: {
-			        "screen_name": "utunga",
-			        "profile_pic_url": "/images/foo.jpg",
-			        "more_info_url": "http://www.foo.bar.com/",
-			        "ratings_pos_count": 2,
-			        "ratings_neg_count": 0,
-			        "ratings_inc_count": 12
-			    }
-			},
-			{ "date": "12/12/2009",
-			    "offer_text": "Hey sometingq",
-			    "more_info_url": "http://foobar.com/html",
-			    "tags": [{ "tag": "fxxoo" },{ "tag":  "bddar"},{ "tag":  "baz"}],
-			    user: {
-			        "screen_name": "shelly",
-			        "profile_pic_url": "/images/foo.jpg",
-			        "more_info_url": "http://www.foo.bar.com/",
-			        "ratings_pos_count": 4,
-			        "ratings_neg_count": 2,
-			        "ratings_inc_count": 1
-			    }
-			}
-			 ]
-        };
+
+    function compile_offers_render_fn() {
 
         var offers = $('#results_by_date').mapDirective({
-            'div.offer': 'offer <- offers',
+            'div.offer': 'offer <- messages',
             '.date': 'offer.date',
             '.user a[href]': 'offer.user.more_info_url',
             '.user img[src]': 'offer.user.profile_pic_url',
             '.user h4': 'offer.user.screen_name',
             '.msg .text': 'offer.offer_text',
             '.msg a.more_info_link[href]': '#{offer.more_info_url}',
-            '.ratings .screen_name': 'offer.user.screen_name',
+            '.ratings .screen_name': 'offer.user.screen_name',       
             '.ratings .pos_count': 'offer.user.ratings_pos_count',
             '.ratings .neg_count': 'offer.user.ratings_neg_count',
             '.ratings .inc_count': 'offer.user.ratings_inc_count'
         });
-
+    
         var tagsList = $('div.tags', offers).mapDirective({
-        '.tag': 'tag <- offer.tags',
-        'a[href]': 'tag.tag',
-        'a+': 'tag.tag'
+            '.tag': 'tag <- offer.tags',
+            'a[href]': 'tag.tag',
+            'a+': 'tag.tag'
         });
 
         $('div.tags', offers).html(tagsList); //place sub-template tagsList into offers template
         $p.compile(offers, 'offers_render_fn'); //compile to a function
-        $('#results_by_date').html($p.render('offers_render_fn', context));
+    };
 
+    function get_offers() {
+        var json_url = build_search_query();
+        $.getJSON(json_url, function(context) {
+            //alert("context:" + context);
+            $('#results_by_date').html($p.render('offers_render_fn', context));
+        });
+    }
+
+    function build_search_query() {
+
+        //tag, location, type, group
+
+        var tags = $(".sorted_tags .tag input:checked").map(function() {
+            return "tag=" + escape($(this).val());
+        }).get().join("&");
+
+        var types = $(".sorted_tags .type input:checked").map(function() {
+            return "type=" + escape($(this).val());
+        }).get().join("&");
+
+        var groups = $(".sorted_tags .group input:checked").map(function() {
+            return "group=" + escape($(this).val());
+        }).get().join("&");
+
+        var locations = $(".sorted_tags .loc input:checked").map(function() {
+            return "loc=" + escape($(this).val());
+        }).get().join("&");
+
+        var query = tags + "&" + types + "&" + groups + "&" + locations;
+        return "/offers_json.aspx?" + query;
+    }
+    
+    $(document).ready(function() {
+        compile_offers_render_fn();
+        get_offers();
+        $(".tags_sort input").click(get_offers);    
+        //$("#content-offers").click(doOffersRender);
     });
 
 	</script>  
@@ -103,7 +111,7 @@
                     <div class="date"></div><!-- /date -->
                     <div class="user">
                         <a href="#">
-                        	<img src="#"/>
+                        	<img alt="" src="#" />
                             <h4></h4>
                         </a>                                                                                                        
                     </div>
@@ -132,7 +140,7 @@
                 </div> <!-- ratings-->
             </div><!--/offer -->
 		
-    <div class="offer">
+    <%--<div class="offer">
 	            
                 <div class="offer_left">
                     <div class="date">12 Jun 09</div><!-- /date -->
@@ -245,7 +253,7 @@
                     <span class="rating">2 Incomplete <a href="#">*</a></span>
 					<a href="#">(how this works)</a>
                 </div> <!-- ratings-->
-            </div><!--/offer -->
+            </div>--%><!--/offer -->
 
 			<%--offer.date
             offer.offer_text
@@ -336,9 +344,9 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="RightContent" runat="server">
-    <div class="sorted-tags box">
+    <div class="sorted_tags box">
             <h3 class="section"><span>Filter by Tag</span></h3>
-            <ol class="tags-sort">
+            <ol class="tags_sort tag">
                 <li>
                     <input type="checkbox" checked="checked" value="garden" />
                     <em style="width: 70px;"></em><a href="/offers/oooby/waiheke/"><span >garden</span></a></li>
@@ -357,9 +365,9 @@
                 
             </ol>
         </div>
-        <div class="sorted-tags box">
+        <div class="sorted_tags box">
             <h3><span>Filter by Location</span></h3>
-            <ol class="tags-sort">
+            <ol class="tags_sort location">
                 <li>
                     <input type="checkbox" checked="checked" value="nz" />
                     <em style="width: 80px;"></em><a href="/offers/oooby/nz/"><span >nz</span></a></li>
@@ -389,11 +397,11 @@
         </div>
 	</div>    
 	<div id="column_1" class="public">
-    <div class="sorted-tags box">
+    <div class="sorted_tags box">
         <h3><span>Filter by Type</span>
             <span class="any"><input type="checkbox" checked="checked" value="any_type" />Any</span>
 		</h3>
-        <ol class="tags-sort">
+        <ol class="tags_sort type">
             <li>
                 <input type="checkbox" checked="checked" value="cash_only" />
                 <em style="width: 70px;"></em><a href="/offers/oooby/waiheke/"><span >cash only</span></a></li>
@@ -409,11 +417,11 @@
         </ol>
     </div>
 
-    <div class="sorted-tags box">
+    <div class="sorted_tags box">
         <h3><span>Filter by Group</span>
-				  <span class="any"><input type="checkbox" checked="checked" value="any_group	" />Any</span>
+				  <span class="any"><input type="checkbox" checked="checked" value="any_group" />Any</span>
 			</h3>
-        <ol class="tags-sort">
+        <ol class="tags_sort group">
             <li>
                 <input type="checkbox" checked="checked" value="garden" />
                 <em style="width: 70px;"></em><a href="/offers/oooby/waiheke/"><span >ooooby</span></a></li>

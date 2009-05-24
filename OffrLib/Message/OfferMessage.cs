@@ -25,12 +25,12 @@ namespace Offr.Message
 
         public ReadOnlyCollection<ITag> Currencies
         {
-            get { return _tags.TagsOfType(TagType.currency); }
+            get { return _tags.TagsOfType(TagType.type); }
         }
 
         public ReadOnlyCollection<ITag> LocationTags
         {
-            get { return _tags.TagsOfType(TagType.location); }
+            get { return _tags.TagsOfType(TagType.loc); }
         }
 
         public DateTime? EndBy { get; private set; }
