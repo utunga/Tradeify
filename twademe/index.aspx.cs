@@ -14,7 +14,7 @@ namespace twademe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["next_redirect"] = "/";
         }
 
         //[WebMethod]

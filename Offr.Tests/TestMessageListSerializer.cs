@@ -6,6 +6,7 @@ using System.Text;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using NUnit.Framework;
+using Offr.Json;
 using Offr.Message;
 using Offr.Query;
 using Offr.Twitter;

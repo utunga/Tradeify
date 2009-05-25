@@ -11,7 +11,7 @@ namespace Offr.OAuth
     public static class TwitterAuth
     {
         const string AUTH_KEY = "oauth";
-        const string USER_KEY = "oauth";
+        const string USER_KEY = "oauth_user";
 
         public static void StoreSession(OAuthTwitter twitterAuth)
         {

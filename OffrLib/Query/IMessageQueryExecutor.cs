@@ -11,5 +11,6 @@ namespace Offr.Query
     {
         IEnumerable<IMessage> GetMessagesForQuery(IMessageQuery messageQuery);
         TagCounts GetTagCountsForQuery(IMessageQuery query);
+        TagCounts GetTagCountsForTags(List<ITag> tags);
     }
 }

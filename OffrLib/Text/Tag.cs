@@ -23,7 +23,7 @@ namespace Offr.Text
         internal Tag(TagType type, string tag)
         {
             this.type = type;
-            this.tag = tag;
+            this.tag = tag.ToLowerInvariant();
         }
 
         //IEquatable<ITag>.equals

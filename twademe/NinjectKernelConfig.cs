@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Ninject.Core;
+using Ninject.Core.Behavior;
 using Offr.Message;
 using Offr.Query;
 using Offr.Tests;
@@ -15,22 +16,19 @@ namespace twademe
 
         public override void Load()
         {
-            //    IMessageParser
-            //    ILocationProvider
-            //    ISourceTextProvider
-            //    IMessageProvider
-            //    IMessageQueryProvider
 
             //use fake data
-            Bind<IMessageParser>().To<MockMessageParser>();
-            Bind<IRawMessageProvider>().To<MockRawMessageProvider>();
+            //Bind<IMessageParser>().To<MockMessageParser>();
+            //Bind<IRawMessageProvider>().To<MockRawMessageProvider>();
 
-            //Bind<IMessageParser>().To<DumbMessageParser>(); //NEEDS MES ONE OF THESE
-            //Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>();
-            Bind<IMessageProvider>().To<MemoryMessageProvider>();
-            Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>();
-            Bind<ITagProvider>().To<TagProvider>();
+            // use live data
+            Bind<IMessageParser>().To<RegexMessageParser>();
+            Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>().Using<SingletonBehavior>();
+            Bind<IMessageProvider>().To<MemoryMessageProvider>().Using<SingletonBehavior>();
+            Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
+            Bind<ITagProvider>().To<TagProvider>().Using<SingletonBehavior>();
             Bind<MessageProviderForKeywords>().ToSelf();
+
         }
     }
 }

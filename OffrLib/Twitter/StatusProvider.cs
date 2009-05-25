@@ -60,7 +60,7 @@ namespace Offr.Twitter
             {
                 query += "+" + HttpUtility.UrlEncode(keywordQuery);
             }
-            string url = String.Format(WebRequest.TWITTER_SEARCH_URI, 0, query); // query back to beginning of time
+            string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query); // query back as far as we can go for these keywords 
 
             string responseData = WebRequest.RetrieveContent(url);
             JSONResultSet resultSet = (new JavaScriptSerializer()).Deserialize<JSONResultSet>(responseData);
@@ -89,7 +89,9 @@ namespace Offr.Twitter
 
             // always require the "hash tag of the messages we are interested in "
             string query = "%23" + _forType;
-            string url = String.Format(WebRequest.TWITTER_SEARCH_URI, _last_id, query);
+            string url = _last_id == 0 ? 
+                String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query) :
+                String.Format(WebRequest.TWITTER_SEARCH_POLL_URI, _last_id, query);
 
             string responseData = WebRequest.RetrieveContent(url);
             JSONResultSet resultSet = (new JavaScriptSerializer()).Deserialize<JSONResultSet>(responseData);

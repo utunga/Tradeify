@@ -31,6 +31,35 @@ namespace Offr.Query
             return toString;
         }
 
-        
+
+
+        public static MessageQuery MessageQueryFromNameValCollection(ITagProvider tagProvider, NameValueCollection nameVals)
+        {
+            MessageQuery query = new MessageQuery();
+            if (nameVals["q"]!=null)
+            {
+                query.Keywords = nameVals["q"];
+            }
+            query.Facets = ParseTagsFromNameVals(tagProvider, nameVals);
+            return query;
+        }
+
+        public static List<ITag> ParseTagsFromNameVals(ITagProvider tagProvider, NameValueCollection nameVals)
+        {
+           
+            List<ITag> tags = new List<ITag>();
+            foreach (TagType tagType in Enum.GetValues(typeof(TagType)))
+            {
+                if (nameVals.GetValues(tagType.ToString()) != null)
+                {
+                    foreach (string tagText in nameVals.GetValues(tagType.ToString()))
+                    {
+                        ITag tag = tagProvider.FromTypeAndText(tagType, tagText);
+                        tags.Add(tag);
+                    }
+                }
+            }
+            return tags;
+        }
     }
 }

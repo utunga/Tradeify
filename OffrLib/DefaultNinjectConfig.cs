@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Ninject.Core;
+using Ninject.Core.Behavior;
 using Offr.Message;
 using Offr.Query;
 using Offr.Text;
@@ -13,11 +14,12 @@ namespace Offr
     {
         public override void Load()
         {
-            Bind<IMessageParser>().To<RegexMessageParser>(); //promoted regexparser to full value
-            Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>();
-            Bind<IMessageProvider>().To<MemoryMessageProvider>();
-            Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>();
-            Bind<ITagProvider>().To<TagProvider>();
+            //regexparser is *almost* good enough but not quite
+            Bind<IMessageParser>().To<RegexMessageParser>();
+            Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>().Using<SingletonBehavior>();
+            Bind<IMessageProvider>().To<MemoryMessageProvider>().Using<SingletonBehavior>();
+            Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
+            Bind<ITagProvider>().To<TagProvider>().Using<SingletonBehavior>();
             Bind<MessageProviderForKeywords>().ToSelf();
         }
     }

@@ -7,38 +7,33 @@ using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Offr.Json;
-using Offr.Message;
 using Offr.Query;
 using Offr.Text;
 
 namespace twademe
 {
-    public partial class offers_json : System.Web.UI.Page
+    public partial class tagcounts_json : System.Web.UI.Page
     {
         private ITagProvider _tagProvider;
 
-        private const int DEFAULT_COUNT = 10;
-
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             _tagProvider = Global.Kernel.Get<ITagProvider>();
-
-            MessageQuery query = MessageQuery.MessageQueryFromNameValCollection(_tagProvider, Request.QueryString); 
+            List<ITag> usedTags = MessageQuery.ParseTagsFromNameVals(_tagProvider, Request.QueryString);
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
-            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForQuery(query);
-
+            TagCounts tagCounts = queryExecutor.GetTagCountsForTags(usedTags);
             Response.ContentType = "application/json";
-            SendJSON(messages, DEFAULT_COUNT);
+            SendJSON(tagCounts);
         }
 
-        private void SendJSON(IEnumerable<IMessage> messages, int count)
+        private void SendJSON(TagCounts tagCounts)
         {
-
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             // Register the custom converter.
-            serializer.RegisterConverters(new JavaScriptConverter[] {new MessageListSerializer()});
-            List<IMessage> messagesToSend = new List<IMessage>(messages.Take(count));
-            Response.Write(serializer.Serialize(messagesToSend));
+            serializer.RegisterConverters(new JavaScriptConverter[] {new TagCountsSerializer()});
+            //  List<IMessage> messagesToSend = new List<IMessage>(messages.Take(count));
+            Response.Write(serializer.Serialize(tagCounts));
         }
     }
 }

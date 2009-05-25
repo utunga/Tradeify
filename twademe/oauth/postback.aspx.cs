@@ -12,8 +12,6 @@ namespace twademe.oauth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string url = "";
-            string xml = "";
             OAuthTwitter oAuth = new OAuthTwitter();
 
             if (Request["oauth_token"] != null)
@@ -27,7 +25,9 @@ namespace twademe.oauth
                     //xml = oAuth.oAuthWebRequest(OAuthTwitter.Method.GET, url, String.Empty);
                     //apiResponse.InnerHtml = Server.HtmlEncode(xml);
                     TwitterAuth.StoreSession(oAuth);
-                    Response.Redirect("/");
+                    string redirect = Session["next_redirect"] as string;
+                    redirect = redirect ?? "/";
+                    Response.Redirect(redirect);
                     ////POST Test
                     //url = "http://twitter.com/statuses/update.xml";
                     //xml = oAuth.oAuthWebRequest(OAuthTwitter.Method.POST, url, "status=" + Server.UrlEncode("Hello @swhitley - Testing the .NET oAuth API"));

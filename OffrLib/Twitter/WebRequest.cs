@@ -9,7 +9,8 @@ namespace Offr.Twitter
 {
     public static class WebRequest
     {
-        public const string TWITTER_SEARCH_URI = "http://search.twitter.com/search.json?since_id={0}&q={1}";
+        public const string TWITTER_SEARCH_INIT_URI = "http://search.twitter.com/search.json?q={0}&rpp=100";
+        public const string TWITTER_SEARCH_POLL_URI = "http://search.twitter.com/search.json?since_id={0}&q={1}";
         public const string TWITTER_USER_URI = "http://twitter.com/users/show/{0}.xml";
         public const string TWITTER_STATUS_URI = "http://twitter.com/statuses/show/{0}.xml";
         

@@ -68,6 +68,27 @@
     <Compile Include="controls\twitter_auth.ascx.designer.cs">
       <DependentUpon>twitter_auth.ascx</DependentUpon>
     </Compile>
+    <Compile Include="post_offer.aspx.cs">
+      <DependentUpon>post_offer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="post_offer.aspx.designer.cs">
+      <DependentUpon>post_offer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tagcounts_json.aspx.cs">
+      <DependentUpon>tagcounts_json.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tagcounts_json.aspx.designer.cs">
+      <DependentUpon>tagcounts_json.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tags_json.aspx.cs">
+      <DependentUpon>tags_json.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tags_json.aspx.designer.cs">
+      <DependentUpon>tags_json.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -121,6 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="controls\twitter_auth.ascx" />
+    <Content Include="css\forms.css" />
+    <Content Include="post_offer.aspx" />
+    <Content Include="tagcounts_json.aspx" />
+    <Content Include="tags_json.aspx" />
     <Content Include="css\ie.css" />
     <Content Include="css\master.css" />
     <Content Include="Global.asax" />

@@ -76,7 +76,8 @@ namespace Offr.Tests
             UsedTags.Add(new Tag(TagType.type, "barter"));
             foreach (string offer in Offers)
             {
-                UsedTags.Add(new Tag(TagType.tag, offer));
+                string tagText = offer.Replace(" ", "_");
+                UsedTags.Add(new Tag(TagType.tag, tagText));
             }
             foreach(ILocation location in new ILocation[] {Location0,Location1,Location2 })
             {

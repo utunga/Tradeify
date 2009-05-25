@@ -5,12 +5,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
+using Offr.Message;
 using Offr.Text;
 using Offr.Users;
 
-namespace Offr.Message
+namespace Offr.Json
 {
-   public class MessageListSerializer : JavaScriptConverter
+    public class MessageListSerializer : JavaScriptConverter
     {
         public const int FAKE_POS_COUNT = 2;
         public const int FAKE_NEG_COUNT = 1;
@@ -21,34 +22,7 @@ namespace Offr.Message
             //Define the ListItemCollection as a supported type.
             get { return new ReadOnlyCollection<Type>(new List<Type>(new Type[] { typeof(List<IMessage>) })); }
         }
-          //offers: [
-          //  { "date": "12/12/2009",
-          //      "offer_text": "Hey someting",
-          //      "more_info_url": "http://foobar.com/html",
-          //      "tags": [{ "tag": "foo" }, { "tag": "bar" }, { "tag": "baz"}],
-          //      user: {
-          //          "screen_name": "utunga",
-          //          "profile_pic_url": "/images/foo.jpg",
-          //          "more_info_url": "http://www.foo.bar.com/",
-          //          "ratings_pos_count": 2,
-          //          "ratings_neg_count": 0,
-          //          "ratings_inc_count": 12
-          //      }
-          //  },
-          //  { "date": "12/12/2009",
-          //      "offer_text": "Hey sometingq",
-          //      "more_info_url": "http://foobar.com/html",
-          //      "tags": [{ "tag": "fxxoo" },{ "tag":  "bddar"},{ "tag":  "baz"}],
-          //      user: {
-          //          "screen_name": "shelly",
-          //          "profile_pic_url": "/images/foo.jpg",
-          //          "more_info_url": "http://www.foo.bar.com/",
-          //          "ratings_pos_count": 4,
-          //          "ratings_neg_count": 2,
-          //          "ratings_inc_count": 1
-          //      }
-          //  }
-
+       
         public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
         {
             IEnumerable<IMessage> messages = obj as IEnumerable<IMessage>;
@@ -67,15 +41,15 @@ namespace Offr.Message
                         case MessageType.offr:
                             OfferMessage offer = (OfferMessage) msg;
                             dict = new Dictionary<string, object>() {
-                                {"offer_text", offer.OfferText}, 
-                                {"more_info_url", offer.MoreInfoURL},
-                                {"date", offer.Source.Timestamp},
-                            };
+                                                                        {"offer_text", offer.OfferText}, 
+                                                                        {"more_info_url", offer.MoreInfoURL},
+                                                                        {"date", offer.Source.Timestamp.Substring(0, "Fri, 15 May".Length)}, //FIXME terrible date hackery
+                                                                    };
 
                             Dictionary<string, object> userDict = new Dictionary<string, object>() 
-                            {
-                                {"screen_name", offer.CreatedBy.ProviderUserName}
-                            };
+                                                                      {
+                                                                          {"screen_name", offer.CreatedBy.ProviderUserName}
+                                                                      };
                             if (offer.CreatedBy is IEnhancedUserPointer)
                             {
                                 userDict.Add("more_info_url", ((IEnhancedUserPointer)offer.CreatedBy).MoreInfoUrl);
@@ -89,10 +63,14 @@ namespace Offr.Message
                             List<Dictionary<string, object>> tags = new List<Dictionary<string, object>>();
                             foreach (ITag tag in offer.Tags)
                             {
-                                tags.Add(new Dictionary<string, object>()
+                                if ((tag.type != TagType.msg_type) &&
+                                    (tag.type != TagType.loc))
                                 {
-                                    {"tag", tag.tag}
-                                });
+                                    tags.Add(new Dictionary<string, object>()
+                                                 {
+                                                     {"tag", tag.tag}
+                                                 });
+                                }
                             }
                             dict.Add("tags", tags);
                             

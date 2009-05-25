@@ -66,43 +66,40 @@ namespace Offr.Tests
                 }
             }
         }
-
-        //[Test]
-        //public void TestTagCounts()
-        //{
-        //    foreach (Tag facet in MockData.UsedTags)
-        //    {
-        //        IMessageQuery query = new MessageQuery();
-        //        query.Facets.Add(facet);
+        
+        [Test]
+        public void TestTagCounts()
+        {
+            TagCounts allResults = _target.GetTagCountsForQuery(new MessageQuery());
+            Assert.AreEqual(MockData.MSG_COUNT, allResults.Total, "Expected total count to equal message count for blank query");
+            foreach (Tag searchFacet in MockData.UsedTags)
+            {
+                IMessageQuery query = new MessageQuery();
+                query.Facets.Add(searchFacet);
                 
-        //        TagCounts results = _target.GetTagCountsForQuery(query);
-        //        foreach(TagWithCount foundTag in results.Tags)
-        //        {
-        //            if (foundTag.Equals(facet))
-        //            {
-        //                Assert.AreEqual(results.Total, foundTag.count, "Expected anything that is in the query to have max counts");
-        //            }
-        //        }
+                TagCounts results = _target.GetTagCountsForQuery(query);
+                foreach(TagWithCount foundTag in results.Tags)
+                {
+                    if (foundTag.Equals(searchFacet))
+                    {
+                        Assert.AreEqual(results.Total, foundTag.count, "Expected anything that is in the search query to have max count");
+                    }
+                }
 
-        //        foreach(TagWithCount foundTag in results.Tags)
-        //        {
-        //            if (foundTag.Equals(facet))
-        //            {
-        //                Assert.AreEqual(results.Total, foundTag.count, "Expected anything that is in the query to have max counts");
-        //            }
-        //        }
-        //        Assert.GreaterOrEqual(results., 1, "Received no results for query:" + query);
-        //        Console.Out.WriteLine("For " + query.ToString() + ":");
-        //        foreach (IMessage message in results)
-        //        {
-        //            Assert.That(message is IOfferMessage);
-        //            IOfferMessage offer = message as IOfferMessage;
-        //            Assert.IsNotNull(offer);
-        //            Assert.That(offer.Tags.Contains(facet), "Expected to find results that contain facet:" + facet + " in message:" + message);
-        //            Console.Out.WriteLine("\tfound " + message.ToString());
-        //        }
-        //    }
-        //}
+                int lastCount = int.MaxValue;
+                foreach(TagWithCount foundTag in results.Tags)
+                {
+                    
+                    Assert.GreaterOrEqual(lastCount, foundTag.count, "Expected results to be in descending order");
+                }
+
+                Console.Out.WriteLine("For " + query.ToString() + ":");
+                foreach (TagWithCount foundTag in results.Tags)
+                {
+                    Console.Out.WriteLine("\tfound " + foundTag.ToString());
+                }
+            }
+        }
 
         [Test]
         public void TestMultiFacetQuery()

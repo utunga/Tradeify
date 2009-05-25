@@ -64,11 +64,12 @@
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\IMemCache.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Json\TagCountsSerializer.cs" />
     <Compile Include="Location\GoogleLocationProvider.cs" />
     <Compile Include="Location\ILocationProvider.cs" />
     <Compile Include="Location\Location.cs" />
     <Compile Include="Message\BaseMessage.cs" />
-    <Compile Include="Message\MessageListSerializer.cs" />
+    <Compile Include="Json\MessageListSerializer.cs" />
     <Compile Include="Message\MessageParseExeption.cs" />
     <Compile Include="Message\IMessageParser.cs" />
     <Compile Include="Message\IMessageProvider.cs" />
@@ -84,10 +85,12 @@
     <Compile Include="Query\IMessageQueryExecutor.cs" />
     <Compile Include="Query\LinqMessageQueryExecutor.cs" />
     <Compile Include="Query\MessageQuery.cs" />
+    <Compile Include="Query\MessageReceivingTagDex.cs" />
+    <Compile Include="Query\StaticTagDex.cs" />
     <Compile Include="Query\TagDexQueryExecutor.cs" />
     <Compile Include="Text\RawMessage.cs" />
     <Compile Include="Text\TagCounts.cs" />
-    <Compile Include="Query\TagDex.cs" />
+    <Compile Include="Query\BaseTagDex.cs" />
     <Compile Include="Text\TagWithCount.cs" />
     <Compile Include="Text\IRawMessageProvider.cs" />
     <Compile Include="Text\IResolvedURI.cs" />

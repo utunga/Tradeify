@@ -80,20 +80,20 @@ namespace Offr.Message
             return MessageByID(messagePointer.ProviderMessageID);
         }
 
-        private IMessage UpdateMessageCacheForSingleItem(string providerMessageID)
-        {
-            IRawMessage rawMessage = _sourceProvider.ByID(providerMessageID);
-            if (rawMessage != null)
-            {
-                IMessage message = _messageParser.Parse(rawMessage);
-                if (message.IsValid)
-                {
-                    InsertMessageToCache(rawMessage.Pointer.ProviderMessageID, message);
-                    return message;
-                }
-            }
-            return null;
-        }
+        //private IMessage UpdateMessageCacheForSingleItem(string providerMessageID)
+        //{
+        //    IRawMessage rawMessage = _sourceProvider.ByID(providerMessageID);
+        //    if (rawMessage != null)
+        //    {
+        //        IMessage message = _messageParser.Parse(rawMessage);
+        //        if (message.IsValid)
+        //        {
+        //            InsertMessageToCache(rawMessage.Pointer.ProviderMessageID, message);
+        //            return message;
+        //        }
+        //    }
+        //    return null;
+        //}
 
         public void Notify(IEnumerable<IRawMessage> updatedMessages)
         {
@@ -107,6 +107,9 @@ namespace Offr.Message
                     updated.Add(message);
                 }
             }
+
+            // notify the older ones last
+            updated.Reverse();
 
             // hand on the updated messages
             if (updated.Count > 0)
