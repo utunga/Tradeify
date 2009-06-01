@@ -7,28 +7,97 @@
 <script type="text/javascript" src="js/purePacked.js"></script>
 <script type="text/javascript">
 
+    var selected_tags = [];
+    var excluded_tags = [];
 
+    function select_tag(tag_type, tag_txt) 
+    {
+        var tag = {};
+        tag.tag = tag_txt;
+        tag.type = tag_type;
+        selected_tags.push(tag);
+    }
+
+    function unselect_tag( tag_type, tag_txt) 
+    {
+        var tag = {};
+        tag.type = tag_type;
+        tag.tag = tag_txt;
+      
+        var match_tag = tag.type + "_" + tag.tag;
+        var found_tag_to_unselect = false;
+
+        // iterate over current 'selected tags' and only keep them if
+        // they are *not* equal to the tag we want to 'unselect'
+        var tmp = []; 
+        $.each(selected_tags, function() {
+            var selected_match_tag = this.type + "_" + this.tag;
+            if (match_tag != selected_match_tag) {
+                tmp.push(this);
+            }
+            else {
+                found_tag_to_unselect = true;
+            }
+        });
+        selected_tags = tmp;
+        
+        // it is possible to 'unselect' a tag that was not already selected
+        // this may sound whack, but it can happen if, a given tag is present on
+        // all results, thus it's checkbox is 'checked' even though it wasn't explicitly checked.
+        // so what do we do then? well it sounds a bit whack, but we want to add it to the 'exclude' 
+        // list in this case
+        if (!found_tag_to_unselect) {
+            excluded_tags.push(tag);
+        }
+    }
+
+    function toggle_select(input) 
+    {
+        if ($(input).attr("checked")) {
+            select_tag(input.name, $(input).val());
+        }
+        else {
+            unselect_tag(input.name, $(input).val());
+        }
+        update();
+    }
+    
+    function is_selected(tag_type, tag_txt) {
+        var match_tag = tag_type + "_" + tag_txt;
+        var found = false;
+        $.each(selected_tags, function() {
+            var selected_match_tag = this.type + "_" + this.tag;
+            if (match_tag == selected_match_tag) {
+                found = true;
+                return; // break out of this function
+            }
+        });
+        return found;
+    }
+    
     function build_search_query(baseUrl) {
 
-        //tag, location, type, group
-        var tags = $(".sorted_tags .tag input:checked").map(function() {
-            return "tag=" + escape($(this).val());
-        }).get().join("&");
+        //     turns out its not enough to have all the state present in the UI, 
+        //     so we maintain state via a 'selected_tags' list.. (see above)
+//        //tag, location, type, group
+//        var tags = $(".sorted_tags.tag input:checked").map(function() {
+//            return "tag=" + escape($(this).val());
+//        }).get().join("&");
+//        var types = $(".sorted_tags.type input:checked").map(function() {
+//            return "type=" + escape($(this).val());
+//        }).get().join("&");
+//        var groups = $(".sorted_tags.group input:checked").map(function() {
+//            return "group=" + escape($(this).val());
+//        }).get().join("&");
+//        var locations = $(".sorted_tags.loc input:checked").map(function() {
+//            return "loc=" + escape($(this).val());
+//        }).get().join("&");
+//         var query = tags + "&" + types + "&" + groups + "&" + locations;
 
-        var types = $(".sorted_tags .type input:checked").map(function() {
-            return "type=" + escape($(this).val());
+        var query = $(selected_tags).map(function() {
+            return this.type + "=" + escape(this.tag);
         }).get().join("&");
-
-        var groups = $(".sorted_tags .group input:checked").map(function() {
-            return "group=" + escape($(this).val());
-        }).get().join("&");
-
-        var locations = $(".sorted_tags .loc input:checked").map(function() {
-            return "loc=" + escape($(this).val());
-        }).get().join("&");
-
-        var query = tags + "&" + types + "&" + groups + "&" + locations;
-        return baseUrl +"?" + query;
+        return baseUrl + "?" + query;
     }
     
     function compile_render_functions() {
@@ -68,25 +137,26 @@
 
         /// -- selected tags function
         
-        
         /// -- available tags (down the side) render function
-        var avail_tags = $('#avail_tags  .template').mapDirective({
-            'ol.tags_sort': 'tag <- overall',
+        var avail_tags = $('.sorted_tags .template').mapDirective({
+            'ol.tags_sort': 'tag <- tags',
             '.tags_sort span': 'tag.tag',
             'input[value]': 'tag.tag',
+            'input[name]': 'tag.type',
             'em[style]': function(arg) {
                 return "width:" + arg.item.pct + "px";
-             },
-             'input[onclick]': "'update();'",
-             'a[onclick]': "'update();'",
-
+            },
+            'input[onclick]': "'toggle_select(this);'",
+            'input[checked]': function(arg) {
+                if (is_selected(arg.item.type, arg.item.tag)) { return "checked" }
+                else return "";
+            }
+            //'a[onclick]': "'toggle_select(" + arg.item.tag + "," +  arg.item.tag + ");'"
         });
         $p.compile(avail_tags, 'avail_tags_render_fn'); //compile to a function
         /// -- end available tags (down the side) render function
-
     };
               
-               
     function update_offers() {
         var json_url = build_search_query("/offers_json.aspx");
         $.getJSON(json_url, function(context) {
@@ -98,23 +168,44 @@
     function update_selected_tags() {
         var json_url = build_search_query("/tagcounts_json.aspx");
         $.getJSON(json_url, function(context) {
-            //alert("context:" + context);
-             $('#selected_tags').html($p.render('selected_tags_render_fn', context));
+            $('#selected_tags').html($p.render('selected_tags_render_fn', context));
+            var tmp = [];
+            $.each(context.overall, function() {
+                tmp.push(this);
+            });
+            selected_tags = tmp;
         });
     }
 
     function update_avail_tags() {
         var json_url = build_search_query("/tags_json.aspx");
+        var tag_types = ["tag", "loc", "group", "type"];
         $.getJSON(json_url, function(context) {
-            //alert("context:" + context);
-            $('#avail_tags').html($p.render('avail_tags_render_fn', context));
+            // from the list of tags overall, we need to filter out tags of a given type
+            $.each(tag_types, function() {
+                var element_selector = '.sorted_tags.' + this + " .template"; // eg ".sorted_tags.loc .template"
+                var matches = filter_tags(context.overall, this);
+                $(element_selector).html($p.render('avail_tags_render_fn', { 'tags': matches }));
+            });
         });
     }
 
+    ///Used by above function to filter out tags of a particular type
+    function filter_tags(source, desired_type) {
+        var matches = [];
+        $.each(source, function() {
+            if (this.type == desired_type) {
+                matches.push(this);
+            }
+        });
+        return matches;
+    }
+
     function update() {
-        update_offers();
         update_selected_tags();
+        update_offers();
         update_avail_tags();
+        $(".tags_sort input").click(update);
     }
 
     $(document).ready(function() {
@@ -185,7 +276,6 @@
             </span> <!-- template -->   
         </div><!--- /RESULTS- ------>
       
-        
         <!-- end wrap -->
         <div id="bottom-nav">
             <p class="paging">
@@ -210,46 +300,25 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="RightContent" runat="server">             
-     <div class="sorted_tags box">
+     <div class="sorted_tags box tag">
         <h3 class="section"><span>Filter by Tag</span></h3>
-        <ol class="tags_sort tag">
-            <li>
-                <input type="checkbox"  value="garden" />
-                <em style="width: 70px;"></em><a href="/offers/oooby/waiheke/"><span >garden</span></a></li>
-            <li>
-                <input type="checkbox" value="juice" />
-                <em style="width: 30px;"></em><a href="/offers/oooby/waiheke/garden/mulch"><span >juice</span></a></li>
-            <li>
-                <input type="checkbox" value="fruit" />
-                <em style="width: 20px;"></em><a href="/offers/supplies"><span >fruit</span></a></li>
-            <li>
-                <input type="checkbox" value="veges" />
-                <em style="width: 18px;"></em><a href="/offers/veges"><span >veges</span></a></li>
-            <li>
-                <input type="checkbox" value="household" />
-                <em style="width: 10px;"></em><a href="/offers/lemons"><span >household</span></a></li>
-            
+        <span class="template">
+        <ol class="tags_sort">
+                <li><input type="checkbox" value="" />
+                    <em style="width:70px;"></em><a href="#"><span></span></a>
+                </li>
         </ol>
+        </span>
     </div>
-    <div class="sorted_tags box">
+    <div class="sorted_tags box loc">
         <h3><span>Filter by Location</span></h3>
-        <ol class="tags_sort loc">
-            <li>
-                <input type="checkbox"  value="nz" />
-                <em style="width: 80px;"></em><a href="/offers/oooby/nz/"><span >nz</span></a></li>
-            <li>
-                <input type="checkbox"  value="auckland" />
-                <em style="width: 70px;"></em><a href="/offers/oooby/auckland"><span >auckland</span></a></li>
-             <li>
-                <input type="checkbox"  value="wellington" />
-                <em style="width: 60px;"></em><a href="/offers/oooby/auckland"><span >wellington</span></a></li>                    
-            <li>
-                <input type="checkbox"  value="waiheke" />
-                <em style="width: 30px;"></em><a href="/offers/waiheke"><span >waiheke</span></a></li>
-            <li>
-                <input type="checkbox" value="paekakariki" />
-                <em style="width: 18px;"></em><a href="/offers/north_beach"><span >paekakariki</span></a></li>            
+        <span class="template">
+        <ol class="tags_sort">
+                <li><input type="checkbox" value="" />
+                    <em style="width:70px;"></em><a href="#"><span></span></a>
+                </li>
         </ol>
+        </span>
         <div id="Div3" style="padding: 0;">
             <h2>
                 <span style="position: relative; margin-left: 27px;">»
@@ -261,42 +330,30 @@
         </div>
     </div>   
 	<div id="column_1" class="public">
-    <div class="sorted_tags box">
+    <div class="sorted_tags box type">
         <h3><span>Filter by Type</span>
             <span class="any"><input type="checkbox"  value="any_type" />Any</span>
 		</h3>
-        <ol class="tags_sort type">
-             <li>
-                <input type="checkbox"  value="cash_only" />
-                <em style="width: 70px;"></em><a href="/offers/oooby/waiheke/"><span >cash only</span></a></li>
-            <li>
-                <input type="checkbox"  value="free" />
-                <em style="width: 50px;"></em><a href="/offers/supplies"><span >free</span></a></li>
-            <li>
-                <input type="checkbox"  value="barter" />
-                <em style="width: 30px;"></em><a href="/offers/veges"><span >barter</span></a></li>
-            <li>
-                <input type="checkbox"  value="NZD" />
-                <em style="width: 10px;"></em><a href="/offers/oooby/waiheke/garden/mulch"><span >NZD</span></a></li>
-            <li>
-                <input type="checkbox"  value="cash" />
-                <em style="width: 10px;"></em><a href="/offers/oooby/waiheke/"><span >cash</span></a></li>
-
+		<span class="template">
+        <ol class="tags_sort">
+                <li><input type="checkbox" value="" />
+                    <em style="width:70px;"></em><a href="#"><span></span></a>
+                </li>
         </ol>
+        </span>
     </div>
 
-    <div class="sorted_tags box">
+    <div class="sorted_tags box group">
         <h3><span>Filter by Group</span>
-				  <span class="any"><input type="checkbox"  value="any_group" />Any</span>
-			</h3>
-        <ol class="tags_sort group">
-            <li>
-                <input type="checkbox" value="ooooby" />
-                <em style="width: 70px;"></em><a href="/offers/oooby/waiheke/"><span >ooooby</span></a></li>
-            <li>
-                <input type="checkbox"  value="freecycle" />
-                <em style="width: 30px;"></em><a href="/offers/oooby/waiheke/garden/mulch"><span >freecycle</span></a></li>           
+		    <span class="any"><input type="checkbox"  value="any_group" />Any</span>
+	    </h3>
+	    <span class="template">
+        <ol class="tags_sort">
+                <li><input type="checkbox" value="" />
+                    <em style="width:70px;"></em><a href="#"><span></span></a>
+                </li>
         </ol>
+        </span>
         <a href="#">register your group</a>
     </div>
 	</div>
@@ -315,15 +372,5 @@
                 <p style="margin-bottom: 15px; padding-right: 20px;">Great trade, would trade again!</p>
              </div>
         </div>
-    </div>
-     <div id="avail_tags" class="sorted_tags box">
-        <span class="template">
-            <h3 class="section"><span>Filter by Tag</span></h3>
-            <ol class="tags_sort tag">
-                <li>
-                    <input type="checkbox" value="garden" />
-                    <em style="width:70px;"></em><a href="#"><span >garden</span></a></li>
-            </ol>
-        </span>
     </div>
 </asp:Content>

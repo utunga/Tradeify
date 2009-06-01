@@ -41,7 +41,7 @@ namespace Offr.Json
                                 {"type", tagCount.tag.type.ToString()},
                                 {"tag", tagCount.tag.tag},
                                 {"count", tagCount.count},
-                                {"pct", Math.Floor(((double)tagCount.count/(double)tagCounts.Total) * 80)}
+                                {"pct", Math.Floor(((double)tagCount.count/(double)tagCounts.Total) * 100)}
                             };
                     overall.Add(dict);
                 }
