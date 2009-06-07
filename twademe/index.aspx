@@ -300,9 +300,12 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="RightContent" runat="server">             
-     <div class="sorted_tags box tag">
-        <h3 class="section"><span>Filter by Tag</span></h3>
-        <span class="template">
+
+    <div class="sorted_tags box type">
+        <h3><span>Filter by Type</span>
+            <span class="any"><input type="checkbox"  value="any_type" />Any</span>
+		</h3>
+		<span class="template">
         <ol class="tags_sort">
                 <li><input type="checkbox" value="" />
                     <em style="width:70px;"></em><a href="#"><span></span></a>
@@ -328,13 +331,10 @@
                 </span>
             </h2>
         </div>
-    </div>   
-	<div id="column_1" class="public">
-    <div class="sorted_tags box type">
-        <h3><span>Filter by Type</span>
-            <span class="any"><input type="checkbox"  value="any_type" />Any</span>
-		</h3>
-		<span class="template">
+    </div> 
+     <div class="sorted_tags box tag">
+        <h3 class="section"><span>Filter by Tag</span></h3>
+        <span class="template">
         <ol class="tags_sort">
                 <li><input type="checkbox" value="" />
                     <em style="width:70px;"></em><a href="#"><span></span></a>
@@ -342,7 +342,6 @@
         </ol>
         </span>
     </div>
-
     <div class="sorted_tags box group">
         <h3><span>Filter by Group</span>
 		    <span class="any"><input type="checkbox"  value="any_group" />Any</span>
@@ -356,7 +355,6 @@
         </span>
         <a href="#">register your group</a>
     </div>
-	</div>
     <div style="clear:both;" />
     <div class="module box" id="last-comments">
         <h3 class="section"><span>Comments</span></h3>
