@@ -12,9 +12,10 @@ namespace Offr.Message
     {
         public static string HASHTAG = "#" + MessageType.offr_test;
 
-        public string OfferText { get; internal set; }
-        public string MoreInfoURL { get; internal set; }
-        public ILocation Location { get; internal set; }
+        //FIXME: ideally the properties below would be internal set, not public
+        public string OfferText { get; set; }
+        public string MoreInfoURL { get; set; }
+        public ILocation Location { get; set; }
 
         public IUserPointer OfferedBy { get { return base.CreatedBy; } }
 
@@ -39,14 +40,15 @@ namespace Offr.Message
         /// <summary>
         /// Set end by - both params must be supplied at same time.
         /// No attempt will be made to parse the 'end by' text
+        /// FIXME: ideally these set methods would be internal, not public
         /// </summary>
-        internal void SetEndBy(string endByText, DateTime endBy)
+        public void SetEndBy(string endByText, DateTime endBy)
         {
             EndByText = endByText;
             EndBy = endBy;
         }
 
-        internal void ClearEndBy()
+        public void ClearEndBy()
         {
             EndByText = null;
             EndBy = null;

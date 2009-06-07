@@ -8,7 +8,8 @@ using Offr.Common;
 
 namespace Offr.Text
 {
-    internal class TagList : IList<ITag>
+    //FIXME ideally this class would be marked internal - don't use it outside this assembly
+    public class TagList : IList<ITag>
     {
         private IList<ITag> _list;
         private Dictionary<TagType, List<ITag>> _tagsByType;
@@ -21,8 +22,9 @@ namespace Offr.Text
 
         /// <summary>
         /// the reason for this method - an index into the tags of a particular type
+        /// FIXME: should be internal, not public
         /// </summary>
-        internal ReadOnlyCollection<ITag> TagsOfType(TagType tagType)
+        public ReadOnlyCollection<ITag> TagsOfType(TagType tagType)
         {
             return _tagsByType[tagType].AsReadOnly();
         }

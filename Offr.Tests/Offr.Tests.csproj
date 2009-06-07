@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TestRegexTestModule.cs" />
-    <Compile Include="DumbMessageParser.cs" />
     <Compile Include="TestMessageListSerializer.cs" />
     <Compile Include="TestRegexParser.cs" />
     <Compile Include="TwitterTestModule.cs" />

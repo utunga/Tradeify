@@ -10,8 +10,9 @@ namespace Offr.Message
 {
     public abstract class BaseMessage : IMessage
     {
-        public bool IsValid { get; internal set; }
-        public IUserPointer CreatedBy { get; internal set; }
+        //FIXME ideally many of the 'set' methods below would be internal, not public
+        public bool IsValid { get; set; }
+        public IUserPointer CreatedBy { get; set; }
         
         internal readonly TagList _tags;
         public IList<ITag> Tags
@@ -37,7 +38,7 @@ namespace Offr.Message
             {
                 return _source;
             }
-            internal set
+            set
             {
                 _source = value;
                 _timestamp = DateTime.MinValue; 

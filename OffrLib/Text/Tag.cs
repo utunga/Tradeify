@@ -19,8 +19,10 @@ namespace Offr.Text
 
         /// <summary>
         /// Immutable type - you can't change a tag once its created, you have to add/remove a new one
+        /// 
+        /// FIXME: should be marked internal
         /// </summary>
-        internal Tag(TagType type, string tag)
+        public Tag(TagType type, string tag)
         {
             this.type = type;
             this.tag = tag.ToLowerInvariant();
