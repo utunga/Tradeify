@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/master.css" />
     <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/ie.css" />
     <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/forms.css" />
-    <title>Twade Me - Open Source, Local Trading</title>
+    <title>Twoooby - Open Source, Local Trading</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -21,7 +21,7 @@
                 <div id="toolbar">
                     <uc:twitter_auth ID="twitter_auth" runat="server" />
                 </div>
-                <h1>Twade Me</h1>
+                <h1>twooooby</h1>
                 <h4>
                     Open Source, Local Trade</h4>
             </div>

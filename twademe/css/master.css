@@ -169,17 +169,20 @@ a:active{
 		HEADER
 				
 ----------------------------------------------------------------------------- */
-#header h1 {
-	font-size: 350%;
+#header h1 
+{
+	
+	background:url(../images/twooooby_akaFrivolity.PNG) no-repeat top left #AED0C9;
+	font-size: 350%; 
 	font-weight:700;
-	text-indent: -5000px;
 	padding:12px 12px 0px 12px;
 	cursor: pointer;
 	color:#fff;
+	text-indent: -5000px;
 	background:#AED0C9;
-	background:url(../images/twademe_akaFrivolity.PNG) no-repeat top left #AED0C9;
 }
 
+	
 #header h4 {
 	font-family:Georgia, "Times New Roman", Times, serif
 	letter-spacing: -0px;
