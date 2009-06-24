@@ -8,9 +8,9 @@ namespace Offr.Twitter
     public class JSONStatus
     {
         public string text { get; set; }
-        public int? to_user_id { get; set; }
+        public long? to_user_id { get; set; }
         public string from_user { get; set; }
-        public int id { get; set; }
+        public long id { get; set; }
         public int from_user_id { get; set; }
         public string iso_language_code { get; set; }
         public string source { get; set; }

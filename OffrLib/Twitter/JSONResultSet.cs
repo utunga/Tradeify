@@ -8,8 +8,8 @@ namespace Offr.Twitter
     public class JSONResultSet
     {
         public JSONStatus[] results;
-        public int since_id { get; set; }
-        public int max_id { get; set; }
+        public long since_id { get; set; }
+        public long max_id { get; set; }
         public string refresh_url { get; set; }
         public int results_per_page { get; set; }
         public int total { get; set; }

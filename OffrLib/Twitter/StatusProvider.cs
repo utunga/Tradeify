@@ -83,7 +83,7 @@ namespace Offr.Twitter
 
         #endregion
 
-        private int _last_id = 0;
+        private long _last_id = 0;
         private IList<IRawMessage> GetNewUpdates()
         {
 

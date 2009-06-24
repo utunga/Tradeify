@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masters/site.Master" AutoEventWireup="true" CodeBehind="post_offer.aspx.cs" Inherits="twademe.post_offer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
-    <script src="http://maps.google.com/jsapi?key=ABQIAAAABEpdHyPr3QztCREcH5edthQypDhEeaS-lwZnXa8YYYptMMZM5xTv8mOncJRz0T03-h1yE09ZY6daEw" type="text/javascript"></script>
+    
+   <%-- <!-- twademe.org key --><script src="http://maps.google.com/jsapi?key=ABQIAAAABEpdHyPr3QztCREcH5edthQypDhEeaS-lwZnXa8YYYptMMZM5xTv8mOncJRz0T03-h1yE09ZY6daEw" type="text/javascript"></script> --%> 
+   <!-- twooooby.org key --><script src="http://maps.google.com/jsapi?key=ABQIAAAABEpdHyPr3QztCREcH5edthTaUEcZrrSdLPsGRmAPjnLD6mzdjRRmQoKpGS1a_BMeq5GbhgxcOOVJBg" type="text/javascript"></script>
 
    <script language="Javascript" type="text/javascript">
        //<![CDATA[
