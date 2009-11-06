@@ -18,11 +18,10 @@ namespace Offr.Twitter
             {
                 user = new System.Xml.Serialization.XmlSerializer(typeof(User)).Deserialize(reader) as User;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
                 // FIXME should do something with these exceptions
-                user = null;
+                throw;
             }
             return user;
         }
@@ -36,11 +35,10 @@ namespace Offr.Twitter
             {
                 status = new System.Xml.Serialization.XmlSerializer(typeof(Status)).Deserialize(reader) as Status;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
                 // FIXME should do something with these exceptions
-                status = null;
+                throw;
             }
             return status;
         }

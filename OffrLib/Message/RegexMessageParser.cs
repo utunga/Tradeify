@@ -97,6 +97,10 @@ namespace Offr.Message
 
             //hack for special 'known locations' (temp only)
             AddHackyExtraLocationTags(msg);
+            // call out to location provider from here instead.. 
+            // 1. parse out the l:address is ahwaver: bit
+            // 2. give it to the LocatoinProvider and get an Location back
+            // 3. add 'location' tags to the message for all the tags in the location
 
             msg.OfferText = offerText;
 
@@ -160,12 +164,12 @@ namespace Offr.Message
                 case "free":
                     return TagType.type;
 
-                case "nz":
-                case "auckland":
-                case "wellington":
-                case "paekakariki":
-                case "waiheke":
-                    return TagType.loc;
+                //case "nz":
+                //case "auckland":
+                //case "wellington":
+                //case "paekakariki":
+                //case "waiheke":
+                //    return TagType.loc;
 
                 default:
                     return TagType.tag;

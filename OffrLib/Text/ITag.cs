@@ -10,5 +10,6 @@ namespace Offr.Text
         string match_tag { get; }
         TagType type { get; }
         string tag { get; }
+        
     }
 }

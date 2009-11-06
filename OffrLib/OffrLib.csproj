@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E2C87F3A-170E-4F3A-9C45-3DF87188B582}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -64,12 +64,11 @@
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\IMemCache.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Json\MessageListSerializer.cs" />
     <Compile Include="Json\TagCountsSerializer.cs" />
-    <Compile Include="Location\GoogleLocationProvider.cs" />
     <Compile Include="Location\ILocationProvider.cs" />
     <Compile Include="Location\Location.cs" />
     <Compile Include="Message\BaseMessage.cs" />
-    <Compile Include="Json\MessageListSerializer.cs" />
     <Compile Include="Message\MessageParseExeption.cs" />
     <Compile Include="Message\IMessageParser.cs" />
     <Compile Include="Message\IMessageProvider.cs" />
@@ -112,6 +111,8 @@
     <Compile Include="Query\IMessageQuery.cs" />
     <Compile Include="Text\TwitterUserPointer.cs" />
     <Compile Include="Message\DumbMessageParser.cs" />
+    <Compile Include="Location\GoogleLocationProvider.cs" />
+    <Compile Include="Location\GoogleResultSet.cs" />
     <Compile Include="Twitter\JSONStatus.cs" />
     <Compile Include="Twitter\JSONResultSet.cs" />
     <Compile Include="Twitter\Status.cs" />

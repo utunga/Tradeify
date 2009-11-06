@@ -1,9 +1,10 @@
 OAuthExample*
 *resharper*
 obj/
-*.user
 tmp/
+*.user
 TwitterFirehose*
 *.psess
 *.suo
 _ReSharper*
+*.db

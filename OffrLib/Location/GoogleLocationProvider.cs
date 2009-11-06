@@ -2,28 +2,63 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Offr.Common;
+using System.Web;
+using System.Web.Script.Serialization;
+using Offr.Message;
+using Offr.Text;
+using Offr.Twitter;
 
 namespace Offr.Location
 {
-    public class GoogleLocationProvider : ILocationProvider, IMemCache
+    public class GoogleLocationProvider : ILocationProvider
     {
-        private SortedList<string, ILocation> _knownLocations;
+        public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}"; 
+        
+        //http://maps.google.com/maps/geo?q=1500+Amphitheatre+Parkway,+Mountain+View,+CA&output=json&oe=utf8&sensor=true_or_false&key=your_api_key
+        
+        private MessageType _forType;
+        private readonly List<IRawMessageReceiver> _receivers;
 
+        public GoogleLocationProvider(MessageType forType)
+        {
+            _forType = forType;
+            _receivers = new List<IRawMessageReceiver>();
+        }
+        
+        //FIXME remove this
         public GoogleLocationProvider()
+            : this(MessageType.offr_test)
         {
-            // invalidation during initialization - like opening with a clean slate
-            Invalidate();
         }
 
-        public ILocation Parse(string locationSource)
+      
+        public ILocation Parse(string addressText)
         {
-            throw new System.NotImplementedException();
+            string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
+           
+            string responseData = WebRequest.RetrieveContent(requestURI);
+            GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
+            Console.WriteLine(responseData);
+            return Location.From(resultSet);
         }
 
-        public void Invalidate()
-        {
-            _knownLocations = new SortedList<string, ILocation>();
-        }
+        //public string getStatus()
+        //{
+        //    string testlocation = "q=1500+Amphitheatre+Parkway,+Mountain+View,+CA";
+        //    //string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI+testlocation, query);
+        //    //string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query); // query back as far as we can go for these keywords 
+        //    string responseData = WebRequest.RetrieveContent(testlocation);
+        //    GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
+        //    Offr.Location l = new Offr.Location();
+
+        //    return resultSet.Status;
+
+        //}
+        //public string getResponseData()
+        //{
+        //    return WebRequest.RetrieveContent("http://maps.google.com/maps/geo?q=1500+Amphitheatre+Parkway,+Mountain+View,+CA");
+        //}
+      
+
     }
 }

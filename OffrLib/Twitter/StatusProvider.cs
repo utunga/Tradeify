@@ -61,8 +61,9 @@ namespace Offr.Twitter
                 query += "+" + HttpUtility.UrlEncode(keywordQuery);
             }
             string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query); // query back as far as we can go for these keywords 
-
+            Console.WriteLine("url =" + url);
             string responseData = WebRequest.RetrieveContent(url);
+            Console.WriteLine("responseData =" + responseData);
             JSONResultSet resultSet = (new JavaScriptSerializer()).Deserialize<JSONResultSet>(responseData);
             //note that we don't update _last_id in this case (we're not caching this data)
             List<IRawMessage> statusUpdatesForQuery = new List<IRawMessage>();

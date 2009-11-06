@@ -79,9 +79,9 @@
     <Compile Include="TestModule.cs" />
     <Compile Include="TestMessageProvider.cs" />
     <Compile Include="TestXMLTwitterParser.cs" />
+    <Compile Include="TestGoogleLocation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AuthoringTests.txt" />
     <Content Include="App.config" />
     <Content Include="lib\nunit.framework.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

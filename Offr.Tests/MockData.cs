@@ -26,15 +26,18 @@ namespace Offr.Tests
             DateTime fixedStart = DateTime.Now.AddSeconds(10);
             User0 = new MockUserPointer("test", "utunga" );
             User0.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg";
-            Location0 = new Location.Location 
+            
+Location0 = new Location.Location 
             {
                 GeoLat = (decimal)37.0625,
                 GeoLong = (decimal)-95.677068,
                 SourceText = "Paekakariki",
-                City = "Paekakariki",
-                Region = "Wellington",
-                Country =  "New Zealand",
-                CountryCode = "NZ"
+                _locationTags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),(new Tag(TagType.loc, "Wellington")),
+                (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
+                //City = "Paekakariki",
+                //Region = "Wellington",
+                //Country =  "New Zealand",
+                //CountryCode = "NZ"
             };
 
             User1 = new MockUserPointer("test", "utunga");
@@ -44,10 +47,12 @@ namespace Offr.Tests
                 GeoLat = (decimal)32.0625,
                 GeoLong = (decimal)-95.677068,
                 SourceText = "Wellington City",
-                City = "Wellington",
-                Region = "Wellington",
-                Country = "New Zealand",
-                CountryCode = "NZ"
+                _locationTags = new List<ITag> { (new Tag(TagType.loc, "Wellington")),(new Tag(TagType.loc, "Wellington")),
+                (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
+                //City = "Wellington",
+                //Region = "Wellington",
+                //Country = "New Zealand",
+                //CountryCode = "NZ"
             };
 
             //http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Waiheke+Island&sll=-40.985341,174.95394&sspn=0.012424,0.027895&ie=UTF8&ll=-36.79609,175.095978&spn=0.204268,0.44632&t=h&z=12
@@ -58,11 +63,13 @@ namespace Offr.Tests
             {
                 GeoLat = (decimal)-36.79609,
                 GeoLong = (decimal)175.09597,
-                City = "Waiheke",
                 SourceText = "Waiheke Island",
-                Region = "Auckland",
-                Country = "New Zealand",
-                CountryCode = "NZ"
+                _locationTags = new List<ITag> { (new Tag(TagType.loc, "Waiheke")),(new Tag(TagType.loc, "Auckland")),
+                (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
+                //City = "Waiheke",
+                //Region = "Auckland",
+                //Country = "New Zealand",
+                //CountryCode = "NZ"
             };
 
 
