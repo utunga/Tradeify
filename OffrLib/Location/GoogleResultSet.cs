@@ -35,23 +35,27 @@ namespace Offr.Location
                         {
                             public string SubAdministrativeAreaName { get; set; }
                             public LocalityType Locality { get; set; }
-
                             public class LocalityType
                             {
                                 public string LocalityName{ get; set;}
                                 public PostalCodeType PostalCode { get; set; }
-
-                                public class PostalCodeType
-                                {
-                                    public string PostalCodeNumber { get; set; }
-                                }
-
                                 public ThoroughfareType Thoroughfare { get; set; }
-
-                                public class ThoroughfareType
-                                {
-                                }
                             }
+                        }
+                        public DependentLocalityType DependentLocality { get; set; }
+                        public class DependentLocalityType
+                        {
+                            public string DependentLocalityName { get; set; }
+                            public PostalCodeType PostalCode { get; set; }
+                            public ThoroughfareType Thoroughfare { get; set; }
+                        }
+                        public class PostalCodeType
+                        {
+                            public string PostalCodeNumber { get; set; }
+                        }
+                        public class ThoroughfareType
+                        {
+                            public string ThoroughfareName { get; set; }
                         }
                     }
                     public string CountryName { get; set; }

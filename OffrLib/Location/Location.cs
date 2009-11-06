@@ -72,34 +72,66 @@ namespace Offr.Location
             // NOTE2J this line should throw an exception if googleResultSet is null - 'early fail' is good for keeping things simple
             Debug.Assert((googleResultSet != null));
 
-            Location loc = new Location
-            {
-                GeoLat = googleResultSet.Placemark[0].Point.coordinates[1],
-                GeoLong = googleResultSet.Placemark[0].Point.coordinates[0],
-                Address = googleResultSet.name,
-            };
-
-            //Im not sure whether we should get the latitude and longitude from here or the point field of the json.
-            // the longitude appears slightly different 
-            //if (googleResultSet.ExtendedData == null || googleResultSet.ExtendedData.LatLonBox ==null) return tmp;
-
             // At the moment we are just taking the first result as definitieve
             // We might want to do something about multiple matches to the geo code query 
-            //
-            // FIXME: Check for Dependant Locality! ?what?
-            string City = googleResultSet.Placemark[0].AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
-            string Country = googleResultSet.Placemark[0].AddressDetails.Country.CountryName;
-            string Region = googleResultSet.Placemark[0].AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
-            string CountryCode = googleResultSet.Placemark[0].AddressDetails.Country.CountryNameCode;
+            GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0];
 
-            if (City != null)
-                loc.LocationTags.Add(new Tag(TagType.loc, City));
-            if (Region != null)
-                loc.LocationTags.Add(new Tag(TagType.loc, Region));
-            if (Country != null)
-                loc.LocationTags.Add(new Tag(TagType.loc, Country));
-            if (CountryCode != null)
-                loc.LocationTags.Add(new Tag(TagType.loc, CountryCode));
+            Location loc = new Location
+                               {
+                                   Address = googleResultSet.name,
+                                   GeoLat = placemark.Point.coordinates[1],
+                                   GeoLong = placemark.Point.coordinates[0],
+                               };
+
+            // not sure whether we should get the latitude and longitude from LatLonBox or the Point field of the json.
+            // the longitude appears slightly different in each - going with Point for now
+
+            string streetAddress = null;
+            string locality=null;
+            string region = null;
+
+            if (placemark.AddressDetails.Country.AdministrativeArea != null)
+            {
+                region = placemark.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
+
+                if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea != null)
+                {
+                    if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality != null)
+                    {
+                        locality = placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
+
+                        if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.Thoroughfare != null)
+                            streetAddress = placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.Thoroughfare.ThoroughfareName;
+                    }
+                }
+
+                if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality != null)
+                    {
+                        locality = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.DependentLocalityName;
+
+                        if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare != null)
+                            streetAddress = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare.ThoroughfareName;
+                    }
+            }
+
+            string countryName = placemark.AddressDetails.Country.CountryName;
+            string countryCode = placemark.AddressDetails.Country.CountryNameCode;
+
+            if (!string.IsNullOrEmpty(countryName))
+                loc.LocationTags.Add(new Tag(TagType.loc, countryName));
+
+            if (!string.IsNullOrEmpty(countryCode))
+                loc.LocationTags.Add(new Tag(TagType.loc, countryCode));
+            
+            if (!string.IsNullOrEmpty(region))
+                loc.LocationTags.Add(new Tag(TagType.loc, region));
+            
+            if (!string.IsNullOrEmpty(locality))
+                loc.LocationTags.Add(new Tag(TagType.loc, locality));
+            
+            // so much more than just the 'thoroughFare name' this is the actual street address - which we don't want for now
+            //if (!string.IsNullOrEmpty(streetAddress))
+            //    loc.LocationTags.Add(new Tag(TagType.loc, streetAddress));
 
             return loc;
         }

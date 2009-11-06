@@ -90,8 +90,8 @@ namespace Offr.Tests
                 Address = address,
                 LocationTags = new List<ITag>
                                   {
-                                      (new Tag(TagType.loc, "New Plymouth")),
                                       (new Tag(TagType.loc, "Taranaki")),
+                                      (new Tag(TagType.loc, "Fitzroy")),
                                       (new Tag(TagType.loc, "New Zealand")),
                                       (new Tag(TagType.loc, "NZ"))
                                   }
@@ -107,6 +107,7 @@ namespace Offr.Tests
                LocationTags = new List<ITag>
                                   {
                                       (new Tag(TagType.loc, "Wellington")),
+                                      (new Tag(TagType.loc, "Pipitea")),
                                       (new Tag(TagType.loc, "New Zealand")),
                                       (new Tag(TagType.loc, "NZ"))
                                   }
@@ -148,7 +149,7 @@ namespace Offr.Tests
             //         and also save your self the trouble of having to override equals() etc etc..
 
             Assert.AreEqual(expected.GeoLat, actual.GeoLat, "GeoLat for '" + forAddress + "' was not as expected");
-            Assert.AreEqual(expected.GeoLong, actual.GeoLat, "GeoLong for '" + forAddress + "' was not as expected");
+            Assert.AreEqual(expected.GeoLong, actual.GeoLong, "GeoLong for '" + forAddress + "' was not as expected");
             Assert.AreEqual(expected.Address, actual.Address, "Address for '" + forAddress + "' was not as expected");
 
             foreach (ITag locationTag in expected.LocationTags)

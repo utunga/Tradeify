@@ -46,5 +46,10 @@ namespace Offr.Text
         {
             return match_tag.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return match_tag;
+        }
     }
 }
