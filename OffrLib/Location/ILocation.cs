@@ -8,16 +8,10 @@ namespace Offr.Location
 {
     public interface ILocation
     {
+        string Address { get; }
+        IList<ITag> LocationTags { get; }
         decimal GeoLat { get; }
         decimal GeoLong { get; }
-        string SourceText { get; }
-        //string City { get; }
-        //string Region { get; }
-       // string Country { get; }
-        //string CountryCode { get; }
-        IEnumerable<ITag> LocationTags { get; }
-        List<ITag> _locationTags { get; set; }
-        Boolean Equals(ILocation l);
-     
+
     }
 }

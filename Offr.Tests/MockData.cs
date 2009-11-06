@@ -31,8 +31,8 @@ Location0 = new Location.Location
             {
                 GeoLat = (decimal)37.0625,
                 GeoLong = (decimal)-95.677068,
-                SourceText = "Paekakariki",
-                _locationTags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),(new Tag(TagType.loc, "Wellington")),
+                Address = "Paekakariki",
+                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),(new Tag(TagType.loc, "Wellington")),
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
                 //City = "Paekakariki",
                 //Region = "Wellington",
@@ -46,8 +46,8 @@ Location0 = new Location.Location
             {
                 GeoLat = (decimal)32.0625,
                 GeoLong = (decimal)-95.677068,
-                SourceText = "Wellington City",
-                _locationTags = new List<ITag> { (new Tag(TagType.loc, "Wellington")),(new Tag(TagType.loc, "Wellington")),
+                Address = "Wellington City",
+                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Wellington")),(new Tag(TagType.loc, "Wellington")),
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
                 //City = "Wellington",
                 //Region = "Wellington",
@@ -63,8 +63,8 @@ Location0 = new Location.Location
             {
                 GeoLat = (decimal)-36.79609,
                 GeoLong = (decimal)175.09597,
-                SourceText = "Waiheke Island",
-                _locationTags = new List<ITag> { (new Tag(TagType.loc, "Waiheke")),(new Tag(TagType.loc, "Auckland")),
+                Address = "Waiheke Island",
+                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Waiheke")),(new Tag(TagType.loc, "Auckland")),
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
                 //City = "Waiheke",
                 //Region = "Auckland",

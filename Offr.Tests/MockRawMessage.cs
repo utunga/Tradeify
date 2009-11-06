@@ -50,7 +50,7 @@ namespace Offr.Tests
                 builder.Append("#").Append(tag.tag).Append(" ");
             }
             builder.Append(this.OfferText).Append(" ");
-            builder.Append("in L:").Append(Location.SourceText).Append(" ");
+            builder.Append("in L:").Append(Location.Address).Append(" ");
             builder.Append("for ");
             foreach (ITag tag in _tags.TagsOfType(TagType.type))
             {
