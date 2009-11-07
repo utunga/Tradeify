@@ -10,3 +10,5 @@ TwitterFirehose*
 *.suo
 _ReSharper*
 *.db
+Offr.Tests/bin
+OffrLib/bin
