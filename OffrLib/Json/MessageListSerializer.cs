@@ -88,7 +88,7 @@ namespace Offr.Json
 
         public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
         {
-            throw  new NotSupportedException("SOrry this is a one way converter currently");
+            throw  new NotSupportedException("Sorry this is a one way converter currently");
         }
 
     }

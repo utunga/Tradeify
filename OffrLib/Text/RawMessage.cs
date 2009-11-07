@@ -69,5 +69,22 @@ namespace Offr.Text
             RawMessage msg = new RawMessage(status.Text, msgPointer, createdBy, status.CreatedAt);
             return msg;
         }
+
+        #region Implementation of IComparable<IRawMessage>
+
+        public int CompareTo(IRawMessage otherIRawMessage)
+        {
+            if (otherIRawMessage is RawMessage)
+            {
+                RawMessage other = (RawMessage) otherIRawMessage;
+                return this._timeStampUTC.CompareTo(other._timeStampUTC);
+            }
+            else
+            {
+                throw new NotSupportedException("Don't know how to compare a RawMessage and a " + otherIRawMessage.GetType() );
+            }
+        }
+
+        #endregion
     }
 }

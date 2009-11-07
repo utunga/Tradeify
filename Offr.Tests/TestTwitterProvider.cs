@@ -22,6 +22,7 @@ namespace Offr.Tests
         }
 
         [Test]
+        [Ignore("Cannot reliably test against live twitter feed so disable for now")]
         public void TestGetMessages()
         {
             // somewhat of an integration test, but gets us some of the way there
@@ -38,6 +39,7 @@ namespace Offr.Tests
         }
 
         [Test]
+        [Ignore("Cannot reliably test against live twitter feed so disable for now")]
         public void TestMessageByID()
         {
             // somewhat of an integration test, actually

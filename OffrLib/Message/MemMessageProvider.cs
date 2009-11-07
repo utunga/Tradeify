@@ -97,29 +97,45 @@ namespace Offr.Message
 
         public void Notify(IEnumerable<IRawMessage> updatedMessages)
         {
-            List<IMessage> updated = new List<IMessage>();
+            List<IMessage> parsedMessages = new List<IMessage>();
             foreach (IRawMessage rawMessage in updatedMessages)
             {
                 IMessage message = _messageParser.Parse(rawMessage);
                 if (message.IsValid)
                 {
-                    InsertMessageToCache(rawMessage.Pointer.ProviderMessageID, message);
-                    updated.Add(message);
+                    parsedMessages.Add(message);
                 }
             }
 
-            // notify the older ones last
-            updated.Reverse();
+            Notify(parsedMessages);
+        }
 
-            // hand on the updated messages
-            if (updated.Count > 0)
+        public void Notify(IEnumerable<IMessage> parsedMessages) {
+
+            foreach (IMessage parsedMessage in parsedMessages)
+            {
+                if (parsedMessage.IsValid)
+                {
+                    InsertMessageToCache(parsedMessage.Source.Pointer.ProviderMessageID, parsedMessage);
+                }
+            }
+
+            List<IMessage> messages = new List<IMessage>(parsedMessages);
+
+            // notify the older ones last
+            messages.Sort();
+            messages.Reverse();
+
+            // pass on notification of updated messages
+            if (messages.Count > 0)
             {
                 foreach (IMessageReceiver receiver in _receivers)
                 {
-                    receiver.Notify(updated);
+                    receiver.Notify(messages);
                 }
             }
         }
+
 
         private void UpdateMessageCache()
         {

@@ -6,7 +6,7 @@ using Offr.Message;
 
 namespace Offr.Text
 {
-    public interface IRawMessage
+    public interface IRawMessage : IComparable<IRawMessage>
     {
         IMessagePointer Pointer { get; }
         IUserPointer CreatedBy { get; }

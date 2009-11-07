@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Offr.Text
 {
-    public class Tag : ITag, IEquatable<ITag>
+    public class Tag : ITag, IEquatable<Tag>
     {
         public string match_tag
         {
@@ -28,8 +28,8 @@ namespace Offr.Text
             this.tag = tag.ToLowerInvariant();
         }
 
-        //IEquatable<ITag>.equals
-        public bool Equals(ITag other)
+        //IEquatable<Tag>.equals
+        public bool Equals(Tag other)
         {
             return other != null && (match_tag.Equals(other.match_tag));
         }
@@ -37,7 +37,7 @@ namespace Offr.Text
         // object.equals
         public override bool Equals(object obj)
         {
-            ITag other = obj as ITag;
+            Tag other = obj as Tag;
             return other != null && (match_tag.Equals(other.match_tag));
         }
 

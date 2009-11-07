@@ -11,6 +11,7 @@ namespace Offr.Message
         void Update();
         void RegisterForUpdates(IMessageReceiver receiver);
         IMessage MessageByID(string providerID);
+        void Notify(IEnumerable<IMessage> parsedMessages);
     }
 
     public interface IMessageReceiver 

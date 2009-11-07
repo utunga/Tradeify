@@ -6,7 +6,7 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    public interface IMessagePointer
+    public interface IMessagePointer 
     {
         string MatchTag { get; }
         //string SourceURL { get; }

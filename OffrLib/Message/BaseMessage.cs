@@ -90,5 +90,21 @@ namespace Offr.Message
             return builder.ToString();
         }
 
+
+        #region implementation of IComparable
+        public int CompareTo(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return -1;
+            }
+
+            BaseMessage other = (BaseMessage) obj;
+            if ((this.Source == null) || other.Source == null) return 0; //cant compare, wtf?
+
+            //otherwise use the RawMessage/Source to compare (which should compare on dates) 
+            return (this.Source.CompareTo(other.Source));
+        }
+        #endregion 
     }
 }

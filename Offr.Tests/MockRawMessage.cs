@@ -12,9 +12,15 @@ namespace Offr.Tests
         public IMessagePointer Pointer { get; internal set; }
         public IUserPointer CreatedBy { get; internal set; }
         public string Text { get; internal set; }
-        public string Timestamp { get; internal set; }
         public DateTime? EndBy { get; internal set; }
         public string EndByText { get; internal set; }
+
+        DateTime? _timeStamp;
+        public string Timestamp
+        {
+            get { return (_timeStamp == null) ? null : _timeStamp.ToString(); }
+            internal set { _timeStamp = DateTime.Parse(value); }
+        }
 
         //-- properties of the OfferMessage
 
@@ -40,6 +46,21 @@ namespace Offr.Tests
             _tags = new TagList();
         }
 
+        public int CompareTo(IRawMessage otherIRawMessage)
+        {
+            if (otherIRawMessage is MockRawMessage)
+            {
+                MockRawMessage other = (MockRawMessage)otherIRawMessage;
+                if (this._timeStamp==null)
+                    return -1;
+                
+                return this._timeStamp.Value.CompareTo(other._timeStamp);
+            }
+            else
+            {
+                throw new NotSupportedException("Don't know how to compare a MockRawMessage and a " + otherIRawMessage.GetType());
+            }
+        }
 
         public override string ToString()
         {

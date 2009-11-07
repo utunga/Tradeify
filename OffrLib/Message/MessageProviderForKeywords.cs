@@ -54,6 +54,12 @@ namespace Offr.Message
             return null;
         }
 
+        public void Notify(IEnumerable<IMessage> parsedMessages)
+        {
+            throw new NotSupportedException("Cannot notify parsed messages directly to MessageProviderForKeywords - mostly because I'm not sure why we even have this class");
+            // not implemented
+        }
+
         public IMessage MessageByID(IMessagePointer messagePointer)
         {
             if (messagePointer.ProviderNameSpace != _sourceProvider.ProviderNameSpace)
