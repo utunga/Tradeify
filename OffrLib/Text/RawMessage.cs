@@ -12,7 +12,7 @@ namespace Offr.Text
         private readonly IMessagePointer _messagePointer;
         private readonly IUserPointer _createdBy;
         private readonly string _sourceText;
-        private  string _timestamp;
+        private DateTime _timeStampUTC;
 
         public IMessagePointer Pointer
         {
@@ -31,12 +31,14 @@ namespace Offr.Text
 
         public string Timestamp
         {
-            get { return _timestamp; }
+            // Substring(0, "Fri, 15 May".Length)
+            get { return DateUtils.FriendlyLocalTimeStampFromUTC(_timeStampUTC); }
         }
 
-        internal void SetTimestamp(string timestamp)
+      
+        internal void SetTimestamp(string rfc822TimeStamp)
         {
-            _timestamp = timestamp;
+            _timeStampUTC = DateUtils.UTCDateTimeFromTwitterTimeStamp(rfc822TimeStamp);
         }
 
         public RawMessage(string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, string timestamp)
@@ -44,7 +46,7 @@ namespace Offr.Text
             _sourceText = sourceText;
             _messagePointer = messagePointer;
             _createdBy = createdBy;
-            _timestamp = timestamp;
+            SetTimestamp(timestamp);
         }
 
         public static RawMessage From(JSONStatus status)

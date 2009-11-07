@@ -40,10 +40,11 @@ namespace Offr.Json
                         case MessageType.offr_test:
                         case MessageType.offr:
                             OfferMessage offer = (OfferMessage) msg;
+
                             dict = new Dictionary<string, object>() {
                                                                         {"offer_text", offer.OfferText}, 
                                                                         {"more_info_url", offer.MoreInfoURL},
-                                                                        {"date", offer.Source.Timestamp.Substring(0, "Fri, 15 May".Length)}, //FIXME terrible date hackery
+                                                                        {"date", offer.Source.Timestamp},
                                                                     };
 
                             Dictionary<string, object> userDict = new Dictionary<string, object>() 

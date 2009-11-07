@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestDateUtils.cs" />
     <Compile Include="TestRegexTestModule.cs" />
     <Compile Include="TestMessageListSerializer.cs" />
     <Compile Include="TestRegexParser.cs" />

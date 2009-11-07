@@ -2,6 +2,8 @@ OAuthExample*
 *resharper*
 obj/
 tmp/
+bin/*Test*
+bin/*.pdb
 *.user
 TwitterFirehose*
 *.psess
