@@ -92,76 +92,43 @@ namespace Offr.Message
             List<string> stringTags = GetTags(source.Text, out offerText);
             foreach (string tagString in stringTags)
             {
-                TagType type = GuessType(tagString);
+                TagType type = GuessMessageType(tagString);
                 if (type == TagType.msg_type) { continue; } //skip messages of this type
                 ITag tag = _tagProvider.FromTypeAndText(type, tagString);
                 msg.Tags.Add(tag);
             }
 
-            //hack for special 'known locations' (temp only)
-            AddExtraLocationTags(msg,source.Text);
-            //AddHackyExtraLocationTags(msg);
-            // call out to location provider from here instead.. 
-            // 1. parse out the l:address is ahwaver: bit
-            // 2. give it to the LocatoinProvider and get an Location back
-            // 3. add 'location' tags to the message for all the tags in the location
-
+            ParseLocation(msg,source.Text);
+            
             msg.OfferText = offerText;
 
             msg.IsValid = true;
             return msg;
         }
-        public void AddExtraLocationTags(IMessage msg, string sourceText)
+
+        private void ParseLocation(IMessage msg, string sourceText)
         {
-            //Regex re = new Regex("(l:[:print:]+:)");
-            //Regex re = new Regex("(l:([a-zA-Z0-9_ ])+:)");
+            // call out to location provider from here instead.. 
+            // 1. parse out the l:address: bit
+            // 2. give it to the LocatoinProvider and get a Location back
+            // 3. add 'location' tags to the message for all the tags in the location
+
             Regex re = new Regex("l:([^:]+):", RegexOptions.IgnoreCase);
             Match match = re.Match(sourceText);
             if (match.Groups.Count > 1)
             {
                 //grab the first part of the address
                 string address = match.Groups[1].Value;
-                ILocation loctag = _locationProvider.Parse(address);
-                foreach (ITag s in loctag.LocationTags)
+                ILocation location = _locationProvider.Parse(address);
+                foreach (ITag s in location.LocationTags)
                 {
                     msg.Tags.Add(s);
                 }
             }
         }
-        private void AddHackyExtraLocationTags(IMessage msg)
+        
+        private static TagType GuessMessageType(string tagText)
         {
-            ITag wellington = new Tag(TagType.loc, "wellington");
-            ITag nz = new Tag(TagType.loc, "nz");
-            ITag paekakariki = new Tag(TagType.loc, "paekakariki");
-            ITag lower_hutt = new Tag(TagType.loc, "lower_hutt");
-            ITag waiheke = new Tag(TagType.loc, "waiheke");
-            ITag auckland = new Tag(TagType.loc, "auckland");
-
-            if (msg.Tags.Contains(paekakariki))
-            {
-                msg.Tags.Add(wellington);
-            }
-            if (msg.Tags.Contains(lower_hutt))
-            {
-                msg.Tags.Add(wellington);
-            }
-            if (msg.Tags.Contains(waiheke))
-            {
-                msg.Tags.Add(auckland);
-            }
-            if (msg.Tags.Contains(auckland))
-            {
-                msg.Tags.Add(nz);
-            }
-            if (msg.Tags.Contains(wellington))
-            {
-                msg.Tags.Add(nz); // won't add twice
-            }
-        }
-
-        private static TagType GuessType(string tagText)
-        {
-            
             foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
             {                
                 if (msgType.ToString().Equals(tagText))
@@ -183,13 +150,6 @@ namespace Offr.Message
                 case "barter":
                 case "free":
                     return TagType.type;
-
-                //case "nz":
-                //case "auckland":
-                //case "wellington":
-                //case "paekakariki":
-                //case "waiheke":
-                //    return TagType.loc;
 
                 default:
                     return TagType.tag;

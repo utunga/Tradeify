@@ -35,7 +35,7 @@ namespace Offr.Location
         public ILocation Parse(string addressText)
         {
             string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
-           
+                
             string responseData = WebRequest.RetrieveContent(requestURI);
             GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
             Console.WriteLine(responseData);

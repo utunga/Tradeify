@@ -28,11 +28,7 @@ namespace Offr.Tests
                 // actually this will certainly fail even for any kinda regex parser i can think of doing in a short time
                 foreach (ITag tag in rawMessage.Tags)
                 {
-                    // FIXME: regex parser can't handle location tags yet
-                    if (tag.type != TagType.loc)
-                    {
-                        Assert.That(messageGet.Tags.Contains(tag), "Expected results to contain " + tag.match_tag + " for " + rawMessage);
-                    }
+                    Assert.That(messageGet.Tags.Contains(tag), "Expected results to contain " + tag.match_tag + " for " + rawMessage);
                 }
                 // this is the 'rest of it' bit
                 //Assert.AreEqual(rawMessage.OfferText, messageGet.OfferText, "Expected extracted offer message to match " + rawMessage);
@@ -40,7 +36,7 @@ namespace Offr.Tests
             }
         }
 
-                [Test]
+        [Test]
         public void TestRegexMethodSimpleTest()
         {
 
