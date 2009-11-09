@@ -89,11 +89,15 @@ namespace Offr.Location
             string streetAddress = null;
             string locality=null;
             string region = null;
+            
 
             if (placemark.AddressDetails.Country.AdministrativeArea != null)
             {
                 region = placemark.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
-
+                if(placemark.AddressDetails.Country.AdministrativeArea.Locality!=null)
+                {
+                    locality = placemark.AddressDetails.Country.AdministrativeArea.Locality.LocalityName;
+                }
                 if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea != null)
                 {
                     if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality != null)
