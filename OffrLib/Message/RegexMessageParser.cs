@@ -11,9 +11,11 @@ namespace Offr.Message
     public class RegexMessageParser : IMessageParser
     {
         readonly ITagProvider _tagProvider;
-        public RegexMessageParser(ITagProvider tagProvider)
+        readonly ILocationProvider _locationProvider;
+        public RegexMessageParser(ITagProvider tagProvider, ILocationProvider locationProvider)
         {
             _tagProvider = tagProvider;
+            _locationProvider = locationProvider;
         }
 
         public static List<string> GetTags(string sourceText, out string offerText)
@@ -119,7 +121,7 @@ namespace Offr.Message
             {
                 //grab the first part of the address
                 string address = match.Groups[1].Value;
-                ILocation loctag = new GoogleLocationProvider().Parse(address);
+                ILocation loctag = _locationProvider.Parse(address);
                 foreach (ITag s in loctag.LocationTags)
                 {
                     msg.Tags.Add(s);

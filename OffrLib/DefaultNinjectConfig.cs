@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Ninject.Core;
 using Ninject.Core.Behavior;
+using Offr.Location;
 using Offr.Message;
 using Offr.Query;
 using Offr.Text;
@@ -18,6 +19,7 @@ namespace Offr
             Bind<IMessageParser>().To<RegexMessageParser>();
             Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>().Using<SingletonBehavior>();
             Bind<IMessageProvider>().To<MemoryMessageProvider>().Using<SingletonBehavior>();
+            Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
             Bind<ITagProvider>().To<TagProvider>().Using<SingletonBehavior>();
             Bind<MessageProviderForKeywords>().ToSelf();
