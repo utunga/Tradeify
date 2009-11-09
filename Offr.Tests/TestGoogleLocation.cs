@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Script.Serialization;
 using Offr.Location;
+using Offr.Message;
 using Offr.Text;
 using NUnit.Framework;
 
@@ -68,112 +69,122 @@ namespace Offr.Tests
 
             string address = "1600 Amphitheatre Parkway, Mountain View, CA";
             ILocation google = new Location.Location
-            {
-               GeoLat = (decimal) 37.4217590,
-               GeoLong = (decimal) -122.0843700,
-               Address = address,
-               LocationTags = new List<ITag>
-                                  {
-                                      (new Tag(TagType.loc, "Mountain View")),
-                                      (new Tag(TagType.loc, "CA")),
-                                      (new Tag(TagType.loc, "USA")),
-                                      (new Tag(TagType.loc, "US"))
-                                  }
-            };
+                                   {
+                                       GeoLat = (decimal) 37.4217590,
+                                       GeoLong = (decimal) -122.0843700,
+                                       Address = address,
+                                       LocationTags = new List<ITag>
+                                                          {
+                                                              (new Tag(TagType.loc, "Mountain View")),
+                                                              (new Tag(TagType.loc, "CA")),
+                                                              (new Tag(TagType.loc, "USA")),
+                                                              (new Tag(TagType.loc, "US"))
+                                                          }
+                                   };
             _addressToExpectedTags.Add(address, google);
 
             address = "30 Fitzroy Street, New Plymouth";
             ILocation fitzroy = new Location.Location
-            {
-                GeoLat = (decimal)-39.0443597,
-                GeoLong = (decimal)174.1080569,
-                Address = address,
-                LocationTags = new List<ITag>
-                                  {
-                                      (new Tag(TagType.loc, "Taranaki")),
-                                      (new Tag(TagType.loc, "Fitzroy")),
-                                      (new Tag(TagType.loc, "New Zealand")),
-                                      (new Tag(TagType.loc, "NZ"))
-                                  }
-            };
+                                    {
+                                        GeoLat = (decimal) -39.0443597,
+                                        GeoLong = (decimal) 174.1080569,
+                                        Address = address,
+                                        LocationTags = new List<ITag>
+                                                           {
+                                                               (new Tag(TagType.loc, "Taranaki")),
+                                                               (new Tag(TagType.loc, "Fitzroy")),
+                                                               (new Tag(TagType.loc, "New Zealand")),
+                                                               (new Tag(TagType.loc, "NZ"))
+                                                           }
+                                    };
             _addressToExpectedTags.Add(address, fitzroy);
 
-           address = "20 Lambton Quay";
-           ILocation lambton = new Location.Location
-           {
-               GeoLat = (decimal)-41.2787026,
-               GeoLong = (decimal)174.7785408,
-               Address = address,
-               LocationTags = new List<ITag>
-                                  {
-                                      (new Tag(TagType.loc, "Wellington")),
-                                      (new Tag(TagType.loc, "Pipitea")),
-                                      (new Tag(TagType.loc, "New Zealand")),
-                                      (new Tag(TagType.loc, "NZ"))
-                                  }
-           };
-           _addressToExpectedTags.Add(address, lambton);
-           address = "20 Pitt Street,Sydney";
-           ILocation sydney = new Location.Location
-           {
-               GeoLat = (decimal)-33.8621871,
-               GeoLong = (decimal)151.2091189,
-               Address = address,
-               LocationTags = new List<ITag>
-                                  {
-                                      (new Tag(TagType.loc, "NSW")),
-                                      (new Tag(TagType.loc, "Sydney")),
-                                      (new Tag(TagType.loc, "Australia")),
-                                      (new Tag(TagType.loc, "AU"))
-                                  }
-           };
-           _addressToExpectedTags.Add(address, sydney);
-            address="Sheikh+Zayed+Road,+Dubai,+UAE";
+            address = "20 Lambton Quay";
+            ILocation lambton = new Location.Location
+                                    {
+                                        GeoLat = (decimal) -41.2787026,
+                                        GeoLong = (decimal) 174.7785408,
+                                        Address = address,
+                                        LocationTags = new List<ITag>
+                                                           {
+                                                               (new Tag(TagType.loc, "Wellington")),
+                                                               (new Tag(TagType.loc, "Pipitea")),
+                                                               (new Tag(TagType.loc, "New Zealand")),
+                                                               (new Tag(TagType.loc, "NZ"))
+                                                           }
+                                    };
+            _addressToExpectedTags.Add(address, lambton);
+            address = "20 Pitt Street,Sydney";
+            ILocation sydney = new Location.Location
+                                   {
+                                       GeoLat = (decimal) -33.8621871,
+                                       GeoLong = (decimal) 151.2091189,
+                                       Address = address,
+                                       LocationTags = new List<ITag>
+                                                          {
+                                                              (new Tag(TagType.loc, "NSW")),
+                                                              (new Tag(TagType.loc, "Sydney")),
+                                                              (new Tag(TagType.loc, "Australia")),
+                                                              (new Tag(TagType.loc, "AU"))
+                                                          }
+                                   };
+            _addressToExpectedTags.Add(address, sydney);
+            address = "Sheikh+Zayed+Road,+Dubai,+UAE";
 
-           ILocation uae = new Location.Location
-           {
-               GeoLat = (decimal)25.2286509,
-               GeoLong = (decimal)55.2876798,
-               Address = address,
-               LocationTags = new List<ITag>
-                                  {
-                                      (new Tag(TagType.loc, "Dubai")),
-                                      (new Tag(TagType.loc, "Dubai")),
-                                      (new Tag(TagType.loc, "United Arab Emirates")),
-                                      (new Tag(TagType.loc, "AE"))
-                                  }
-           };
-           _addressToExpectedTags.Add(address, uae);
+            ILocation uae = new Location.Location
+                                {
+                                    GeoLat = (decimal) 25.2286509,
+                                    GeoLong = (decimal) 55.2876798,
+                                    Address = address,
+                                    LocationTags = new List<ITag>
+                                                       {
+                                                           (new Tag(TagType.loc, "Dubai")),
+                                                           (new Tag(TagType.loc, "Dubai")),
+                                                           (new Tag(TagType.loc, "United Arab Emirates")),
+                                                           (new Tag(TagType.loc, "AE"))
+                                                       }
+                                };
+            _addressToExpectedTags.Add(address, uae);
             address = "30+Rue+Baudin,+Paris,+France";
-            ILocation france= new Location.Location
-            {
-                GeoLat = (decimal)48.8960244,
-                GeoLong = (decimal)2.2514747,
-                Address = address,
-                LocationTags = new List<ITag>
-                                  {
-                                      (new Tag(TagType.loc, "Courbevoie")),
-                                      (new Tag(TagType.loc, "Ile-de-France")),
-                                      (new Tag(TagType.loc, "France")),
-                                      (new Tag(TagType.loc, "Fr"))
-                                  }
-            };
+            ILocation france = new Location.Location
+                                   {
+                                       GeoLat = (decimal) 48.8960244,
+                                       GeoLong = (decimal) 2.2514747,
+                                       Address = address,
+                                       LocationTags = new List<ITag>
+                                                          {
+                                                              (new Tag(TagType.loc, "Courbevoie")),
+                                                              (new Tag(TagType.loc, "Ile-de-France")),
+                                                              (new Tag(TagType.loc, "France")),
+                                                              (new Tag(TagType.loc, "Fr"))
+                                                          }
+                                   };
             _addressToExpectedTags.Add(address, france);
-            address="30 Borough Rd, London";
+            address = "30 Borough Rd, London";
             ILocation uk = new Location.Location
-            {
-                GeoLat = (decimal)51.4988744,
-                GeoLong = (decimal)-0.1018722,
-                Address = address,
-                LocationTags = new List<ITag>
-                                  {
-                                      (new Tag(TagType.loc, "Camberwell")),
-                                      (new Tag(TagType.loc, "Greater London")),
-                                      (new Tag(TagType.loc, "United Kingdom")),
-                                      (new Tag(TagType.loc, "GB"))
-                                  }
-            };
+                               {
+                                   GeoLat = (decimal) 51.4988744,
+                                   GeoLong = (decimal) -0.1018722,
+                                   Address = address,
+                                   LocationTags = new List<ITag>
+                                                      {
+                                                          (new Tag(TagType.loc, "Camberwell")),
+                                                          (new Tag(TagType.loc, "Greater London")),
+                                                          (new Tag(TagType.loc, "United Kingdom")),
+                                                          (new Tag(TagType.loc, "GB"))
+                                                      }
+                               };
             _addressToExpectedTags.Add(address, uk);
+
+            foreach (MockRawMessage rawMessage in MockData.RawMessages)
+            {
+                try
+                {
+                    _addressToExpectedTags.Add(rawMessage.Location.Address, rawMessage.Location);
+                }catch(System.ArgumentException e)
+                {
+                }
+            }
         }
 
         [Test]

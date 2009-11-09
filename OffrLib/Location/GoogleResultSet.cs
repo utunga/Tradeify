@@ -22,12 +22,12 @@ namespace Offr.Location
             {
                 public string accuracy { get; set; }
                 public CountryType Country { get; set; }
-
-                public class CountryType
+                                public class CountryType
                 {
                     public AdministrativeAreaType AdministrativeArea { get; set; }
+                    public AdministrativeAreaType.SubAdministrativeAreaType.LocalityType Locality { get; set; }
                     public class AdministrativeAreaType{
-                        public SubAdministrativeAreaType.LocalityType Locality;
+                        public SubAdministrativeAreaType.LocalityType Locality{ get; set;}
                     
                         public string AdministrativeAreaName { get; set; }
                         public SubAdministrativeAreaType SubAdministrativeArea { get; set; }

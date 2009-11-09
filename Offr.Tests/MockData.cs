@@ -26,13 +26,15 @@ namespace Offr.Tests
             DateTime fixedStart = DateTime.Now.Subtract(TimeSpan.FromDays(365)).ToUniversalTime();
             User0 = new MockUserPointer("test", "utunga" );
             User0.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg";
-            
-            Location0 = new Location.Location 
-            {
-                GeoLat = (decimal)37.0625,
-                GeoLong = (decimal)-95.677068,
+
+            Location0 = new Location.Location
+                            {
+                                //GeoLat = (decimal)37.0625,
+                                GeoLat = (decimal) -40.9827820,
+                //GeoLong = (decimal)-95.677068,
+                 GeoLong = (decimal)174.9561080,
                 Address = "Paekakariki",
-                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),(new Tag(TagType.loc, "Wellington")),
+                                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
             };
 
@@ -40,10 +42,10 @@ namespace Offr.Tests
             User1.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg";
             Location1 = new Location.Location
             {
-                GeoLat = (decimal)32.0625,
-                GeoLong = (decimal)-95.677068,
+                GeoLat = (decimal)-41.2864800,
+                GeoLong = (decimal)174.7762170,
                 Address = "Wellington City",
-                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Wellington")),(new Tag(TagType.loc, "Wellington")),
+                LocationTags = new List<ITag> {(new Tag(TagType.loc, "Wellington")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
             };
 
@@ -53,10 +55,10 @@ namespace Offr.Tests
 
             Location2 = new Location.Location
             {
-                GeoLat = (decimal)-36.79609,
-                GeoLong = (decimal)175.09597,
+                GeoLat = (decimal)/*-36.79609 */- 36.7995140,
+                GeoLong = (decimal)/*175.09597*/ 175.0960576,
                 Address = "Waiheke Island",
-                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Waiheke")),(new Tag(TagType.loc, "Auckland")),
+                LocationTags = new List<ITag> { /*(Accuracy not high enough for thisnew Tag(TagType.loc, "Waiheke")),*//*Accuracy not high enough for this(new Tag(TagType.loc, "Auckland")),*/
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
             };
 
@@ -191,7 +193,7 @@ namespace Offr.Tests
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[4]));
-            foreach (ITag locationTag in Location1.LocationTags)
+            foreach (ITag locationTag in Location2.LocationTags)
             {
                 raw.Tags.Add(locationTag);
             }

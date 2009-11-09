@@ -71,11 +71,14 @@ namespace Offr.Location
         {
             // NOTE2J this line should throw an exception if googleResultSet is null - 'early fail' is good for keeping things simple
             Debug.Assert((googleResultSet != null));
+            //make sure there is location data else return null
+            if (googleResultSet.Placemark == null || googleResultSet.Placemark [0]== null) return null;
+
 
             // At the moment we are just taking the first result as definitieve
             // We might want to do something about multiple matches to the geo code query 
             GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0];
-
+           
             Location loc = new Location
                                {
                                    Address = googleResultSet.name,
@@ -87,22 +90,25 @@ namespace Offr.Location
             // the longitude appears slightly different in each - going with Point for now
 
             string streetAddress = null;
-            string locality=null;
+            string localityName=null;
             string region = null;
             
-
+            if (placemark.AddressDetails.Country.Locality!=null)
+            {
+                localityName = placemark.AddressDetails.Country.Locality.LocalityName;
+            }
             if (placemark.AddressDetails.Country.AdministrativeArea != null)
             {
                 region = placemark.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
                 if(placemark.AddressDetails.Country.AdministrativeArea.Locality!=null)
                 {
-                    locality = placemark.AddressDetails.Country.AdministrativeArea.Locality.LocalityName;
+                    localityName = placemark.AddressDetails.Country.AdministrativeArea.Locality.LocalityName;
                 }
                 if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea != null)
                 {
                     if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality != null)
                     {
-                        locality = placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
+                        localityName = placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
 
                         if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.Thoroughfare != null)
                             streetAddress = placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.Thoroughfare.ThoroughfareName;
@@ -111,7 +117,7 @@ namespace Offr.Location
 
                 if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality != null)
                     {
-                        locality = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.DependentLocalityName;
+                        localityName = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.DependentLocalityName;
 
                         if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare != null)
                             streetAddress = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare.ThoroughfareName;
@@ -130,8 +136,8 @@ namespace Offr.Location
             if (!string.IsNullOrEmpty(region))
                 loc.LocationTags.Add(new Tag(TagType.loc, region));
             
-            if (!string.IsNullOrEmpty(locality))
-                loc.LocationTags.Add(new Tag(TagType.loc, locality));
+            if (!string.IsNullOrEmpty(localityName))
+                loc.LocationTags.Add(new Tag(TagType.loc, localityName));
             
             // so much more than just the 'thoroughFare name' this is the actual street address - which we don't want for now
             //if (!string.IsNullOrEmpty(streetAddress))

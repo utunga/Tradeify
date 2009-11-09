@@ -24,7 +24,6 @@ namespace Offr.Message
             Regex re = new Regex("(#[a-zA-Z0-9_]+)");
             MatchCollection results = re.Matches(sourceText);
             //string marray = results[0].Groups[1].Value;
-
             List<String> values = new List<String>();
             foreach (Match match in results)
             {
@@ -120,9 +119,11 @@ namespace Offr.Message
                 //grab the first part of the address
                 string address = match.Groups[1].Value;
                 ILocation location = _locationProvider.Parse(address);
+                if(location!=null){
                 foreach (ITag s in location.LocationTags)
                 {
                     msg.Tags.Add(s);
+                }
                 }
             }
         }
