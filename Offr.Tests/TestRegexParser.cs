@@ -40,17 +40,17 @@ namespace Offr.Tests
             }
         }
 
-        [Test]
+                [Test]
         public void TestRegexMethodSimpleTest()
         {
 
             MockRawMessage raw = new MockRawMessage(0)
                                      {
-                                         Timestamp = "30 June 2009, 21:12:03 +000",
+                                         Timestamp = "10pm",
                                          CreatedBy = MockData.User0,
                                          Location = MockData.Location0,
                                          MoreInfoURL = "http://bit.ly/message0Info",
-                                         Text = "#offr_test #ooooby mulch available now in L:Paekakariki for #free http://bit.ly/message0Info #mulch",
+                                         Text = "#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info #mulch",
                                          EndByText = null,
                                          EndBy = null
                                      };
@@ -59,6 +59,7 @@ namespace Offr.Tests
             expectedTags.Add(new Tag(TagType.group, "ooooby"));
             expectedTags.Add(new Tag(TagType.tag, "mulch"));
 
+
             IOfferMessage message = (OfferMessage) _target.Parse(raw);
             // actually this will certainly fail even for any kinda regex parser i can think of doing in a short time
             Assert.AreEqual(3, expectedTags.Count, "Expect count of tags to be 3 for message " + raw);
@@ -66,8 +67,11 @@ namespace Offr.Tests
             {
                 Assert.That(message.Tags.Contains(tag), "Expected results to contain " + tag.match_tag);
             }
-            Assert.AreEqual("#ooooby mulch available now in L:Paekakariki for #free http://bit.ly/message0Info", message.OfferText,
+            //NOTE2MT is the offr_test really meant to b
+            Assert.AreEqual(/*"#offr_test */ "#ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info", message.OfferText,
                             "Expect extracted message to work for " + raw);
         }
     }
 }
+    
+

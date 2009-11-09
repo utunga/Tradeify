@@ -113,6 +113,21 @@ namespace Offr.Tests
                                   }
            };
            _addressToExpectedTags.Add(address, lambton);
+           address = "20 Pitt Street Mall,Sydney";
+           ILocation sydney = new Location.Location
+           {
+               GeoLat = (decimal)-33.8707700,
+               GeoLong = (decimal)151.2082180,
+               Address = address,
+               LocationTags = new List<ITag>
+                                  {
+                                      (new Tag(TagType.loc, "NSW")),
+                                      (new Tag(TagType.loc, "Sydney")),
+                                      (new Tag(TagType.loc, "Australia")),
+                                      (new Tag(TagType.loc, "AU"))
+                                  }
+           };
+           //_addressToExpectedTags.Add(address, sydney);
         }
 
         [Test]

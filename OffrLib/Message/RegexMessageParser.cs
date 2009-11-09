@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Offr.Location;
 using Offr.Text;
 
 namespace Offr.Message
@@ -96,7 +97,8 @@ namespace Offr.Message
             }
 
             //hack for special 'known locations' (temp only)
-            AddHackyExtraLocationTags(msg);
+            AddExtraLocationTags(msg,source.Text);
+            //AddHackyExtraLocationTags(msg);
             // call out to location provider from here instead.. 
             // 1. parse out the l:address is ahwaver: bit
             // 2. give it to the LocatoinProvider and get an Location back
@@ -107,7 +109,23 @@ namespace Offr.Message
             msg.IsValid = true;
             return msg;
         }
-
+        public void AddExtraLocationTags(IMessage msg, string sourceText)
+        {
+            //Regex re = new Regex("(l:[:print:]+:)");
+            //Regex re = new Regex("(l:([a-zA-Z0-9_ ])+:)");
+            Regex re = new Regex("l:([^:]+):", RegexOptions.IgnoreCase);
+            Match match = re.Match(sourceText);
+            if (match.Groups.Count > 1)
+            {
+                //grab the first part of the address
+                string address = match.Groups[1].Value;
+                ILocation loctag = new GoogleLocationProvider().Parse(address);
+                foreach (ITag s in loctag.LocationTags)
+                {
+                    msg.Tags.Add(s);
+                }
+            }
+        }
         private void AddHackyExtraLocationTags(IMessage msg)
         {
             ITag wellington = new Tag(TagType.loc, "wellington");
