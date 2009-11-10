@@ -40,7 +40,23 @@ namespace Offr.Json
                         case MessageType.offr_test:
                         case MessageType.offr:
                             OfferMessage offer = (OfferMessage) msg;
-
+                            /* A dictionary is made up of:
+                             * "offer_text"
+                             * "more_info_url"
+                             *"date"
+                             * A User:A dictionary also contains a userDict which has a
+                             *      "screen_name"
+                             *          and if the offer is created by an enhanced user
+                             *          more_info_url"
+                             *          "ratings_pos_count"
+                             *          "ratings_neg_count
+                             *          "ratings_inc_count"
+                             * A tags: A dictionary also contains a list of tags that arent locations or msg types
+                             * 
+                             * After you are done with each dictionary add it to your message list 
+                             * 
+                             * Once you are done with the message list add it to a new dictionary under the key messages
+                             */
                             dict = new Dictionary<string, object>() {
                                                                         {"offer_text", offer.OfferText}, 
                                                                         {"more_info_url", offer.MoreInfoURL},

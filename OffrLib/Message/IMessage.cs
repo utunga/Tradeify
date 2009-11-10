@@ -8,7 +8,7 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    public interface IMessage : IComparable
+    public interface IMessage : IComparable, Offr.Repository.ITopic
     {
         IRawMessage Source { get; }
         DateTime TimeStamp { get; }

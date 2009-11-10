@@ -105,6 +105,11 @@ namespace Offr.Message
             //otherwise use the RawMessage/Source to compare (which should compare on dates) 
             return (this.Source.CompareTo(other.Source));
         }
-        #endregion 
+        #endregion
+
+        public string ID
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

@@ -14,7 +14,7 @@
   <Class Name="Offr.Message.BaseMessage">
     <Position X="3" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EIAAAACAgkAEAAAEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
+      <HashCode>EIAAAACAgkAEAAQEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
       <FileName>Message\BaseMessage.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -25,7 +25,7 @@
   <Class Name="Offr.Text.RawMessage">
     <Position X="19" Y="3" Width="2" />
     <TypeIdentifier>
-      <HashCode>EgAAAIIAAAQAAAAAAAACAAAAAAAAAAAAAEAACAAAAgE=</HashCode>
+      <HashCode>AgAAAIIAAAQAAAQAAAACAAAAAAAAAAEAAEAACAAAAgE=</HashCode>
       <FileName>Text\RawMessage.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -56,7 +56,7 @@
   <Class Name="Offr.Location.GoogleLocationProvider">
     <Position X="12.75" Y="11" Width="2" />
     <TypeIdentifier>
-      <HashCode>ACAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAAAACAAAAAAAAAAAAAABAAAAABAA=</HashCode>
       <FileName>Location\GoogleLocationProvider.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -64,7 +64,7 @@
   <Class Name="Offr.Location.Location">
     <Position X="8.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAgAIAABAIAAAAAAEAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AiAAAAAAAAIAABAAgAAAAAAAAAAAAIACAAgAAAAAAAA=</HashCode>
       <FileName>Location\Location.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -78,6 +78,22 @@
     <TypeIdentifier>
       <HashCode>AAQAIAAAAAAgAAAAIAACAAAAAAAAAAMAAAAAAAAARAA=</HashCode>
       <FileName>Twitter\StatusProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.BaseRepository&lt;T&gt;">
+    <Position X="20.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEBAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>BaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.MessageRepository">
+    <Position X="19.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAgIA=</HashCode>
+      <FileName>MessageRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -190,7 +206,7 @@
   <Interface Name="Offr.Location.ILocation" Collapsed="true">
     <Position X="8.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAgAIAABAIAAAAAAEAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAIAABAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Location\ILocation.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -218,7 +234,7 @@
   <Interface Name="Offr.Message.IMessageProvider" Collapsed="true">
     <Position X="12.25" Y="4.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>QAQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <HashCode>QAQAAAAIAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAA=</HashCode>
       <FileName>Message\IMessageProvider.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -227,6 +243,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAEQ=</HashCode>
       <FileName>Query\IMessageQueryExecutor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.IMessageRepository">
+    <Position X="19.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>IMessageRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Offr.Message.MessageType">

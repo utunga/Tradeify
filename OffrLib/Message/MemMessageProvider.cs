@@ -9,7 +9,7 @@ namespace Offr.Message
 {
     public class MemoryMessageProvider : IMessageProvider, IRawMessageReceiver, IMemCache
     {
-        private SortedList<string, IMessage> _messages;
+        private SortedList<string, IMessage> _messages; //refactor this to be a MessageRepository
         private List<IMessageReceiver> _receivers;
         
         readonly IRawMessageProvider _sourceProvider;

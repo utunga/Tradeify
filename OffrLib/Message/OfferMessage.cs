@@ -54,5 +54,9 @@ namespace Offr.Message
             EndBy = null;
         }
 
+        public string ID
+        {
+            get { return "ID"; }
+        }
     }
 }

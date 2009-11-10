@@ -41,6 +41,10 @@ namespace Offr.Text
             _timeStampUTC = DateUtils.UTCDateTimeFromTwitterTimeStamp(rfc822TimeStamp);
         }
 
+        public RawMessage()
+        {
+        }
+
         public RawMessage(string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, string timestamp)
         {
             _sourceText = sourceText;

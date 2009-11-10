@@ -27,7 +27,7 @@ namespace Offr.Text
             if (timeSince.TotalHours < 24 &&
                 localTime.DayOfYear == now.DayOfYear) 
             {
-                return string.Format("Today, {0:t}", localTime);  //t = '4:48 PM'
+                return string.Format("Today, {0:t}", localTime);  //t = '4:48 PM' or t = '4:48 p.m.' depending - wtf
             }
             else if (timeSince.TotalDays < 7) // less than 7 days ago
             {
