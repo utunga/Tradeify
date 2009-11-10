@@ -14,7 +14,7 @@
   <Class Name="Offr.Message.BaseMessage">
     <Position X="3" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EIAAAACAgkAEAAQEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
+      <HashCode>EIAAAACAgkAEgAQEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
       <FileName>Message\BaseMessage.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -81,21 +81,28 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Offr.BaseRepository&lt;T&gt;">
-    <Position X="20.75" Y="7" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAEBAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAIA=</HashCode>
-      <FileName>BaseRepository.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="Offr.MessageRepository">
-    <Position X="19.5" Y="9" Width="1.5" />
+    <Position X="18.75" Y="10" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAgIA=</HashCode>
+      <HashCode>AAAAAIAAAAAAAQBAAAAABAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>MessageRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Query.MessageReceivingTagDex">
+    <Position X="21.75" Y="10.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAMAQAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Query\MessageReceivingTagDex.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Query.BaseTagDex">
+    <Position X="22" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgAIAAAAAAAAAgAoAAEAAAAAIAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Query\BaseTagDex.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="Offr.Message.IMessagePointer">
     <Position X="21.5" Y="4.75" Width="1.5" />
@@ -246,9 +253,9 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Offr.IMessageRepository">
-    <Position X="19.5" Y="8" Width="1.5" />
+    <Position X="19.25" Y="7.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAIAAAAAAAABAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IMessageRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>

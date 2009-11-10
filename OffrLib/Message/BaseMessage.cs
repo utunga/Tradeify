@@ -13,7 +13,12 @@ namespace Offr.Message
         //FIXME ideally many of the 'set' methods below would be internal, not public
         public bool IsValid { get; set; }
         public IUserPointer CreatedBy { get; set; }
-        
+
+        public string ID
+        {
+            get { return _source.Pointer.MatchTag; }
+        }
+
         internal readonly TagList _tags;
         public IList<ITag> Tags
         {
@@ -107,9 +112,6 @@ namespace Offr.Message
         }
         #endregion
 
-        public string ID
-        {
-            get { throw new NotImplementedException(); }
-        }
+     
     }
 }

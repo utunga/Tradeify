@@ -65,6 +65,7 @@
     <Compile Include="Common\IMemCache.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="IMessageRepository.cs" />
+    <Compile Include="ITopic.cs" />
     <Compile Include="Json\MessageListSerializer.cs" />
     <Compile Include="Json\TagCountsSerializer.cs" />
     <Compile Include="Location\ILocationProvider.cs" />
