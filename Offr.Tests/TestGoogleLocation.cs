@@ -73,7 +73,7 @@ namespace Offr.Tests
                                        GeoLat = (decimal) 37.4217590,
                                        GeoLong = (decimal) -122.0843700,
                                        Address = address,
-                                       LocationTags = new List<ITag>
+                                       Tags = new List<ITag>
                                                           {
                                                               (new Tag(TagType.loc, "Mountain View")),
                                                               (new Tag(TagType.loc, "CA")),
@@ -89,7 +89,7 @@ namespace Offr.Tests
                                         GeoLat = (decimal) -39.0443597,
                                         GeoLong = (decimal) 174.1080569,
                                         Address = address,
-                                        LocationTags = new List<ITag>
+                                        Tags = new List<ITag>
                                                            {
                                                                (new Tag(TagType.loc, "Taranaki")),
                                                                (new Tag(TagType.loc, "Fitzroy")),
@@ -105,7 +105,7 @@ namespace Offr.Tests
                                         GeoLat = (decimal) -41.2787026,
                                         GeoLong = (decimal) 174.7785408,
                                         Address = address,
-                                        LocationTags = new List<ITag>
+                                        Tags = new List<ITag>
                                                            {
                                                                (new Tag(TagType.loc, "Wellington")),
                                                                (new Tag(TagType.loc, "Pipitea")),
@@ -120,7 +120,7 @@ namespace Offr.Tests
                                        GeoLat = (decimal) -33.8621871,
                                        GeoLong = (decimal) 151.2091189,
                                        Address = address,
-                                       LocationTags = new List<ITag>
+                                       Tags = new List<ITag>
                                                           {
                                                               (new Tag(TagType.loc, "NSW")),
                                                               (new Tag(TagType.loc, "Sydney")),
@@ -136,7 +136,7 @@ namespace Offr.Tests
                                     GeoLat = (decimal) 25.2286509,
                                     GeoLong = (decimal) 55.2876798,
                                     Address = address,
-                                    LocationTags = new List<ITag>
+                                    Tags = new List<ITag>
                                                        {
                                                            (new Tag(TagType.loc, "Dubai")),
                                                            (new Tag(TagType.loc, "Dubai")),
@@ -151,7 +151,7 @@ namespace Offr.Tests
                                        GeoLat = (decimal) 48.8960244,
                                        GeoLong = (decimal) 2.2514747,
                                        Address = address,
-                                       LocationTags = new List<ITag>
+                                       Tags = new List<ITag>
                                                           {
                                                               (new Tag(TagType.loc, "Courbevoie")),
                                                               (new Tag(TagType.loc, "Ile-de-France")),
@@ -166,7 +166,7 @@ namespace Offr.Tests
                                    GeoLat = (decimal) 51.4988744,
                                    GeoLong = (decimal) -0.1018722,
                                    Address = address,
-                                   LocationTags = new List<ITag>
+                                   Tags = new List<ITag>
                                                       {
                                                           (new Tag(TagType.loc, "Camberwell")),
                                                           (new Tag(TagType.loc, "Greater London")),
@@ -203,7 +203,9 @@ namespace Offr.Tests
         [Test]
         public void TestLiveGoogleParse()
         {
-            // NOTE2J - renamed 'g' to 'locationProvider' don't ever, ever, *ever* call a variable a single letter - except 'i' and 'j' for loop counters, maybe
+            // NOTE2J - renamed 'g' to 'locationProvider' don't ever, ever, *ever* call a variable a single letter - 
+            // except 'i' and 'j' for loop counters, maybe - please remove this commment once you have read it
+            // also did Dubai move a few kilometers to the left or something? can you fix the test?
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             foreach (string address in _addressToExpectedTags.Keys)
             {
@@ -224,18 +226,18 @@ namespace Offr.Tests
             Assert.AreEqual(expected.GeoLong, actual.GeoLong, "GeoLong for '" + forAddress + "' was not as expected");
             Assert.AreEqual(expected.Address, actual.Address, "Address for '" + forAddress + "' was not as expected");
 
-            foreach (ITag locationTag in expected.LocationTags)
+            foreach (ITag locationTag in expected.Tags)
             {
-                Assert.That(actual.LocationTags.Contains(locationTag), "Expected tag " + locationTag + " was not contained in result for " + forAddress);    
+                Assert.That(actual.Tags.Contains(locationTag), "Expected tag " + locationTag + " was not contained in result for " + forAddress);    
             }
 
-            foreach (ITag locationTag in actual.LocationTags)
+            foreach (ITag locationTag in actual.Tags)
             {
-                Assert.That(expected.LocationTags.Contains(locationTag), locationTag + " unexpectedly contained in result for " + forAddress);
+                Assert.That(expected.Tags.Contains(locationTag), locationTag + " unexpectedly contained in result for " + forAddress);
             }
 
             // this would never happen.. but fwiw
-            Assert.AreEqual(expected.LocationTags.Count, actual.LocationTags.Count, "Somehow, inexplicably, the counts for expected vs actual location tags are different even though they contain the exact same set of tags" );
+            Assert.AreEqual(expected.Tags.Count, actual.Tags.Count, "Somehow, inexplicably, the counts for expected vs actual location tags are different even though they contain the exact same set of tags" );
         }
 
         //[TestMethod]

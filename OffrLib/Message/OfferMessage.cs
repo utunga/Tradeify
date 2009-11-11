@@ -13,6 +13,8 @@ namespace Offr.Message
         public static string HASHTAG = "#" + MessageType.offr_test;
 
         //FIXME: ideally the properties below would be internal set, not public
+        //NOTE2J what do we need to do to convert these to private setters?
+
         public string OfferText { get; set; }
         public string MoreInfoURL { get; set; }
         public ILocation Location { get; set; }
@@ -53,5 +55,7 @@ namespace Offr.Message
             EndByText = null;
             EndBy = null;
         }
+
+       
     }
 }

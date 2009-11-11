@@ -12,7 +12,7 @@ namespace Offr.Location
         public string Address { get; set; }
         
         private List<ITag> _locationTags { get; set; }
-        public IList<ITag> LocationTags
+        public IList<ITag> Tags
         {
             get { return _locationTags; }
             set { _locationTags = new List<ITag>(value); }
@@ -128,20 +128,20 @@ namespace Offr.Location
             string countryCode = placemark.AddressDetails.Country.CountryNameCode;
 
             if (!string.IsNullOrEmpty(countryName))
-                loc.LocationTags.Add(new Tag(TagType.loc, countryName));
+                loc.Tags.Add(new Tag(TagType.loc, countryName));
 
             if (!string.IsNullOrEmpty(countryCode))
-                loc.LocationTags.Add(new Tag(TagType.loc, countryCode));
+                loc.Tags.Add(new Tag(TagType.loc, countryCode));
             
             if (!string.IsNullOrEmpty(region))
-                loc.LocationTags.Add(new Tag(TagType.loc, region));
+                loc.Tags.Add(new Tag(TagType.loc, region));
             
             if (!string.IsNullOrEmpty(localityName))
-                loc.LocationTags.Add(new Tag(TagType.loc, localityName));
+                loc.Tags.Add(new Tag(TagType.loc, localityName));
             
             // so much more than just the 'thoroughFare name' this is the actual street address - which we don't want for now
             //if (!string.IsNullOrEmpty(streetAddress))
-            //    loc.LocationTags.Add(new Tag(TagType.loc, streetAddress));
+            //    loc.Tags.Add(new Tag(TagType.loc, streetAddress));
 
             return loc;
         }

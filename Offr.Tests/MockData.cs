@@ -34,7 +34,7 @@ namespace Offr.Tests
                 //GeoLong = (decimal)-95.677068,
                  GeoLong = (decimal)174.9561080,
                 Address = "Paekakariki",
-                                LocationTags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
+                                Tags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
             };
 
@@ -45,7 +45,7 @@ namespace Offr.Tests
                 GeoLat = (decimal)-41.2864800,
                 GeoLong = (decimal)174.7762170,
                 Address = "Wellington City",
-                LocationTags = new List<ITag> {(new Tag(TagType.loc, "Wellington")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
+                Tags = new List<ITag> {(new Tag(TagType.loc, "Wellington")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
             };
 
@@ -58,7 +58,7 @@ namespace Offr.Tests
                 GeoLat = (decimal)/*-36.79609 */- 36.7995140,
                 GeoLong = (decimal)/*175.09597*/ 175.0960576,
                 Address = "Waiheke Island",
-                LocationTags = new List<ITag> { /*(Accuracy not high enough for thisnew Tag(TagType.loc, "Waiheke")),*//*Accuracy not high enough for this(new Tag(TagType.loc, "Auckland")),*/
+                Tags = new List<ITag> { /*(Accuracy not high enough for thisnew Tag(TagType.loc, "Waiheke")),*//*Accuracy not high enough for this(new Tag(TagType.loc, "Auckland")),*/
                 (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
             };
 
@@ -78,7 +78,7 @@ namespace Offr.Tests
             }
             foreach(ILocation location in new ILocation[] {Location0,Location1,Location2 })
             {
-                foreach (ITag locationTag in location.LocationTags)
+                foreach (ITag locationTag in location.Tags)
                 {
                     UsedTags.Add(locationTag);
                 }
@@ -105,7 +105,7 @@ namespace Offr.Tests
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[0]));
-            foreach (ITag locationTag in Location0.LocationTags)
+            foreach (ITag locationTag in Location0.Tags)
             {
                 raw.Tags.Add(locationTag);
             }
@@ -127,7 +127,7 @@ namespace Offr.Tests
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[1]));
-            foreach (ITag locationTag in Location1.LocationTags)
+            foreach (ITag locationTag in Location1.Tags)
             {
                 raw.Tags.Add(locationTag);
             }
@@ -149,7 +149,7 @@ namespace Offr.Tests
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[2]));
-            foreach (ITag locationTag in Location2.LocationTags)
+            foreach (ITag locationTag in Location2.Tags)
             {
                 raw.Tags.Add(locationTag);
             }
@@ -171,7 +171,7 @@ namespace Offr.Tests
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, "garden_supplies")); 
-            foreach (ITag locationTag in Location0.LocationTags)
+            foreach (ITag locationTag in Location0.Tags)
             {
                 raw.Tags.Add(locationTag);
             }
@@ -193,7 +193,7 @@ namespace Offr.Tests
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[4]));
-            foreach (ITag locationTag in Location2.LocationTags)
+            foreach (ITag locationTag in Location2.Tags)
             {
                 raw.Tags.Add(locationTag);
             }
@@ -214,7 +214,7 @@ namespace Offr.Tests
             };
             raw.Tags.Add(new Tag(TagType.type, "cash"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[5]));
-            foreach (ITag locationTag in Location2.LocationTags)
+            foreach (ITag locationTag in Location2.Tags)
             {
                 raw.Tags.Add(locationTag);
             }

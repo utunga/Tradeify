@@ -24,11 +24,6 @@ namespace Offr.Message
         {
             get { return _tags; }
         }
-        
-        public bool HasTag(ITag tag)
-        {
-            return _tags.Contains(tag);
-        }
 
         DateTime _timestamp = DateTime.MinValue;
         public DateTime TimeStamp
@@ -80,6 +75,19 @@ namespace Offr.Message
         /// Implementing classes should supply The MessageType they expect for their class and the base will throw a parse expection if it doesn't match
         /// </summary>
         protected abstract MessageType ExpectedMessageType { get; }
+
+        #region public modifier methods
+
+        public void AddTag(ITag tag)
+        {
+           _tags.Add(tag);
+        }
+        public bool HasTag(ITag tag)
+        {
+            return _tags.Contains(tag);
+        }
+
+        #endregion
 
         protected BaseMessage()
         {

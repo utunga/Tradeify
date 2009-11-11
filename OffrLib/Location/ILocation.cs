@@ -9,7 +9,7 @@ namespace Offr.Location
     public interface ILocation
     {
         string Address { get; }
-        IList<ITag> LocationTags { get; }
+        IList<ITag> Tags { get; }
         decimal GeoLat { get; }
         decimal GeoLong { get; }
 

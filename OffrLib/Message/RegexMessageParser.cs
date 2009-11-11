@@ -12,74 +12,14 @@ namespace Offr.Message
     {
         readonly ITagProvider _tagProvider;
         readonly ILocationProvider _locationProvider;
+
         public RegexMessageParser(ITagProvider tagProvider, ILocationProvider locationProvider)
         {
             _tagProvider = tagProvider;
             _locationProvider = locationProvider;
         }
 
-        public static List<string> GetTags(string sourceText, out string offerText)
-        {
-
-            Regex re = new Regex("(#[a-zA-Z0-9_]+)");
-            MatchCollection results = re.Matches(sourceText);
-            //string marray = results[0].Groups[1].Value;
-            List<String> values = new List<String>();
-            foreach (Match match in results)
-            {
-                //what the heck is the groups thing anyway?
-                string tagString = match.Groups[0].Value;
-                tagString = tagString.Replace("#", "");
-                //tagString = tagString.Replace("_", " ");
-                values.Add(tagString);
-            }
-
-            //FIXME 
-            //PROFUSE APOLOGIES FOR THIS AWFUL CODE BUT WANTED TO HACK TOGETHER SOMETHING TO WORK FOR DEMO
-            SortedList<int, string> justAwfulCode = new SortedList<int, string>();
-            foreach (Match match in results)
-            {
-                string tagString = match.Groups[0].Value;
-                string restOfLine = sourceText.Substring(sourceText.IndexOf(tagString));
-                MatchCollection restOfLineResults = re.Matches(restOfLine);
-                
-                string tagsInRestOfLine = "";
-                foreach (Match match2 in restOfLineResults)
-                {
-                    tagsInRestOfLine += match2.Groups[0].Value + " ";
-                }
-                tagsInRestOfLine = tagsInRestOfLine.Trim();
-
-                if (tagsInRestOfLine.Length == restOfLine.Length)
-                {
-                    // why then, its all tags from here on! 
-                    string startOfLine = sourceText.Substring(0, sourceText.Length - restOfLine.Length-1);
-                    justAwfulCode.Add(startOfLine.Length, startOfLine);
-                }
-            }
-
-            offerText = sourceText;
-            foreach (string startOfLine in justAwfulCode.Values)
-            {
-                offerText = startOfLine;
-                break;
-            }
-
-            foreach (MessageType messageType in Enum.GetValues(typeof(MessageType)))
-            {
-                string messageTypeTag = "#" + messageType.ToString() + " "; // add the " " because otherwise #offr_test gets cut off to be come "_test"
-                if (offerText.StartsWith(messageTypeTag))
-                {
-                    offerText = offerText.Substring((messageTypeTag).Length - 1);
-                    offerText = offerText.Trim();
-                }
-            }
-
-            //END OF PROFUSE APOLOGIES
-
-            return values;
-        }
-
+        #region the main method 
 
         public IMessage Parse(IRawMessage source)
         {
@@ -87,29 +27,38 @@ namespace Offr.Message
             msg.CreatedBy = source.CreatedBy;
             msg.Source = source;
 
-            string offerText;
-            List<string> stringTags = GetTags(source.Text, out offerText);
-            foreach (string tagString in stringTags)
+            foreach (ITag tag in ParseTags(source))
             {
-                TagType type = GuessMessageType(tagString);
-                if (type == TagType.msg_type) { continue; } //skip messages of this type
-                ITag tag = _tagProvider.FromTypeAndText(type, tagString);
-                msg.Tags.Add(tag);
+                //NOTE2J not msg.Tags.Add(tag); 
+                // because that would violate the 'law of two dots' aka 'the law of demeter' (google it)
+                if (tag.type == TagType.msg_type) continue; //skip messages of this type
+                msg.AddTag(tag);
             }
 
-            ParseLocation(msg,source.Text);
-            
-            msg.OfferText = offerText;
+            ILocation location = ParseLocation(source.Text);
+            if (location!=null)
+            {
+                msg.Location = location;
+                foreach (ITag s in location.Tags)
+                {
+                    msg.AddTag(s);
+                }
+            }
+
+            msg.OfferText = TruncateSourceText(msg.Tags, source.Text);
 
             msg.IsValid = true;
             return msg;
         }
 
-        private void ParseLocation(IMessage msg, string sourceText)
+        #endregion
+
+        #region private helper methods
+
+        private ILocation ParseLocation(string sourceText)
         {
-            // call out to location provider from here instead.. 
             // 1. parse out the l:address: bit
-            // 2. give it to the LocatoinProvider and get a Location back
+            // 2. give it to the LocationProvider and get a Location back
             // 3. add 'location' tags to the message for all the tags in the location
 
             Regex re = new Regex("l:([^:]+):", RegexOptions.IgnoreCase);
@@ -118,18 +67,40 @@ namespace Offr.Message
             {
                 //grab the first part of the address
                 string address = match.Groups[1].Value;
-                ILocation location = _locationProvider.Parse(address);
-                if(location!=null){
-                foreach (ITag s in location.LocationTags)
-                {
-                    msg.Tags.Add(s);
-                }
-                }
+                _locationProvider.Parse(address);
+            }
+            return null;
+        }
+
+        private IEnumerable<ITag> ParseTags(IRawMessage source)
+        {
+            Regex re = new Regex("(#[a-zA-Z0-9_]+)");
+            MatchCollection results = re.Matches(source.Text);
+            
+            foreach (Match match in results)
+            {
+                string tagString = match.Groups[0].Value;
+                tagString = tagString.Replace("#", "");
+          
+                TagType type = GuessMessageType(tagString);
+                yield return _tagProvider.FromTypeAndText(type, tagString);
             }
         }
         
         private static TagType GuessMessageType(string tagText)
         {
+            //NOTE2J please do the following
+            // 1. move this code into the tag provider (change signature of _tagProvider.FromTypeAndText(type, tagString);
+            //    to _tagProvider.GetTag(tagString); 
+            // 2. rather than guessing the tag type based on this set list
+            //    do the following:
+            //      i. check to see if the tag string has already been assigned
+            //     ii. if so return that tag, which will therefore have the specified type
+            //    iii. if not, create a new tag of type 'tag' and add to the list of known tags
+            //     iv. in the constructor for TagProvider, create a list of special per the switch (and the loop below)
+            //      v. later, (or if you get time) we will serialize this list of special/defined tags from an init file
+            //     vi. even later, we will replace the init file with a proper database back end (ie TagRepository)
+
             foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
             {                
                 if (msgType.ToString().Equals(tagText))
@@ -156,5 +127,67 @@ namespace Offr.Message
                     return TagType.tag;
             }
         }
+
+        private string TruncateSourceText(IList<ITag> tags, string sourceText)
+        {
+            // NOTE2J please take code below and get it to work here and make it less ugly
+            // preferably make it a lot shorter and maybe even readable would be nice
+            // also perhaps use the passed in list of tags instead of re-doing the regex?
+
+            // basically what we need to do is remove any tags added to end 
+            // of the source text and the tag "#offr" from the front (if its at the front)
+            // to get just the actual 'offer' part of the text
+
+
+            //FIXME 
+            //PROFUSE APOLOGIES FOR THIS AWFUL CODE BUT WANTED TO HACK TOGETHER SOMETHING TO WORK FOR DEMO
+
+            Regex re = new Regex("(#[a-zA-Z0-9_]+)");
+            MatchCollection results = re.Matches(sourceText);
+
+            SortedList<int, string> justAwfulCode = new SortedList<int, string>();
+            foreach (Match match in results)
+            {
+                string tagString = match.Groups[0].Value;
+                string restOfLine = sourceText.Substring(sourceText.IndexOf(tagString));
+                MatchCollection restOfLineResults = re.Matches(restOfLine);
+
+                string tagsInRestOfLine = "";
+                foreach (Match match2 in restOfLineResults)
+                {
+                    tagsInRestOfLine += match2.Groups[0].Value + " ";
+                }
+                tagsInRestOfLine = tagsInRestOfLine.Trim();
+
+                if (tagsInRestOfLine.Length == restOfLine.Length)
+                {
+                    // why then, its all tags from here on! 
+                    string startOfLine = sourceText.Substring(0, sourceText.Length - restOfLine.Length - 1);
+                    justAwfulCode.Add(startOfLine.Length, startOfLine);
+                }
+            }
+
+            string offerText = sourceText;
+            foreach (string startOfLine in justAwfulCode.Values)
+            {
+                offerText = startOfLine;
+                break;
+            }
+
+            foreach (MessageType messageType in Enum.GetValues(typeof(MessageType)))
+            {
+                string messageTypeTag = "#" + messageType.ToString() + " "; // add the " " because otherwise #offr_test gets cut off to be come "_test"
+                if (offerText.StartsWith(messageTypeTag))
+                {
+                    offerText = offerText.Substring((messageTypeTag).Length - 1);
+                    offerText = offerText.Trim();
+                }
+            }
+
+            //END OF PROFUSE APOLOGIES
+            return offerText;
+        }
+
+        #endregion
     }
 }
