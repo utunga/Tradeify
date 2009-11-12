@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using Newtonsoft.Json;
+using Offr.Json;
 using Offr.Text;
 
 namespace Offr.Message
@@ -32,7 +35,9 @@ namespace Offr.Message
             private set { _timestamp = value;}
         }
        
+       
         IRawMessage _source;
+      
         public IRawMessage Source { 
             get 
             {
@@ -45,7 +50,13 @@ namespace Offr.Message
                 DateTime.TryParse(_source.Timestamp, out _timestamp);
             }
         }
-      
+
+        //[OnSerializing]
+        //internal void OnSerializingMethod(StreamingContext context)
+        //{
+        //    Source = new RawMessage();
+        //}
+
         public ReadOnlyCollection<ITag> HashTags
         {
             get { return _tags.TagsOfType(TagType.tag); }
@@ -62,10 +73,10 @@ namespace Offr.Message
             get { return _messageType; }
             internal set
             {
-                if (value != ExpectedMessageType)
+              /*  if (value != ExpectedMessageType)
                 {
                     throw new MessageParseException("Cannot set message type to " + value + " on a " + GetType().Name + ". Expected " + ExpectedMessageType);
-                }
+                }*/
                 _messageType = value;
             }
         }

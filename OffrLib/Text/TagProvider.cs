@@ -10,6 +10,7 @@ namespace Offr.Text
     {
         // one day could implement this as a caching lookup, with counts attached etc..
         //but for now just parse the string to get the tag
+        //should be a dictionary with tag values
         private Dictionary<String, TagType> _knownTags;
         public TagProvider()
         {

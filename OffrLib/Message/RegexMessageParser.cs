@@ -80,6 +80,7 @@ namespace Offr.Message
             foreach (Match match in results)
             {
                 string tagString = match.Groups[0].Value;
+                //do inside tag provider
                 tagString = tagString.Replace("#", "");
           
                 TagType type = GuessMessageType(tagString);
@@ -124,11 +125,12 @@ namespace Offr.Message
             offerText = offerText.Trim();
             //look for any set of characters followed by a hash followed by the end of file character
             Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
+            // get rid of while true
             while(true){
                 Match match=re.Match(offerText);
                 if (match.Groups.Count > 1)
             {
-                String tag = match.Groups[0].Value;
+                string tag = match.Groups[0].Value;
                 offerText = offerText.TrimEnd(tag.ToCharArray());
                 
             }

@@ -11,13 +11,12 @@
   <Class Name="Offr.Message.BaseMessage">
     <Position X="3" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EIAAAACAgkAEgAUEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
+      <HashCode>EIAAAAGAgkAEgAUEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
       <FileName>Message\BaseMessage.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Tags" />
     </ShowAsCollectionAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Offr.Text.RawMessage">
     <Position X="19" Y="3" Width="2" />
