@@ -133,8 +133,8 @@ namespace Offr.Tests
 
             ILocation uae = new Location.Location
                                 {
-                                    GeoLat = (decimal) 25.2286509,
-                                    GeoLong = (decimal) 55.2876798,
+                                    GeoLat = (decimal) /*25.2286509*/25.1270151,
+                                    GeoLong = (decimal) /*55.2876798*/55.2071978,
                                     Address = address,
                                     Tags = new List<ITag>
                                                        {
@@ -203,8 +203,6 @@ namespace Offr.Tests
         [Test]
         public void TestLiveGoogleParse()
         {
-            // NOTE2J - renamed 'g' to 'locationProvider' don't ever, ever, *ever* call a variable a single letter - 
-            // except 'i' and 'j' for loop counters, maybe - please remove this commment once you have read it
             // also did Dubai move a few kilometers to the left or something? can you fix the test?
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             foreach (string address in _addressToExpectedTags.Keys)
@@ -219,8 +217,6 @@ namespace Offr.Tests
         
         private static void AssertLocationEquality(string forAddress, ILocation expected, ILocation actual)
         {
-            //NOTE2J - do it this way you get much more useful debug data
-            //         and also save your self the trouble of having to override equals() etc etc..
 
             Assert.AreEqual(expected.GeoLat, actual.GeoLat, "GeoLat for '" + forAddress + "' was not as expected");
             Assert.AreEqual(expected.GeoLong, actual.GeoLong, "GeoLong for '" + forAddress + "' was not as expected");

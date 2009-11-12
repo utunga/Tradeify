@@ -71,7 +71,7 @@ namespace Offr.Tests
                 Assert.That(expectedTags.Contains(tag), "Expected results to not contain" + tag.match_tag);
             }
             //NOTE2MT is the offr_test really meant to b
-            Assert.AreEqual(/*"#offr_test */ "#ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info", message.OfferText,
+            Assert.AreEqual("#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info", message.OfferText,
                             "Expect extracted message to work for " + raw);
         }
         [Test]

@@ -6,15 +6,12 @@
       <HashCode>EAAFABACAAIAAAAAAAIAAQAAQAAAACAAAAAAAgAAAAI=</HashCode>
       <FileName>Message\OfferMessage.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Location" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Offr.Message.BaseMessage">
     <Position X="3" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EIAAAACAgkAEgAQEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
+      <HashCode>EIAAAACAgkAEgAUEAAgEIQAAAACAAEAAAAAAAAAAAAE=</HashCode>
       <FileName>Message\BaseMessage.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -64,7 +61,7 @@
   <Class Name="Offr.Location.Location">
     <Position X="8.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AiAAAAAAAAIAABAAgAAAAAAAAAAAAIACAAgAAAAAAAA=</HashCode>
+      <HashCode>AiAAAAAAAAAAABAAgAAAAAAAAAAAAMACAAgAAAAAAAA=</HashCode>
       <FileName>Location\Location.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -213,7 +210,7 @@
   <Interface Name="Offr.Location.ILocation" Collapsed="true">
     <Position X="8.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAIAABAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAABAAAAAAAAAAAAAAAEACAAAAAAAAAAA=</HashCode>
       <FileName>Location\ILocation.cs</FileName>
     </TypeIdentifier>
   </Interface>

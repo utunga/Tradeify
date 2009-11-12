@@ -29,8 +29,7 @@ namespace Offr.Message
 
             foreach (ITag tag in ParseTags(source))
             {
-                //NOTE2J not msg.Tags.Add(tag); 
-                // because that would violate the 'law of two dots' aka 'the law of demeter' (google it)
+       
                 if (tag.type == TagType.msg_type) continue; //skip messages of this type
                 msg.AddTag(tag);
             }
@@ -63,13 +62,14 @@ namespace Offr.Message
 
             Regex re = new Regex("l:([^:]+):", RegexOptions.IgnoreCase);
             Match match = re.Match(sourceText);
+            ILocation location=null;
             if (match.Groups.Count > 1)
             {
                 //grab the first part of the address
                 string address = match.Groups[1].Value;
-                _locationProvider.Parse(address);
+                location = _locationProvider.Parse(address);
             }
-            return null;
+            return location;
         }
 
         private IEnumerable<ITag> ParseTags(IRawMessage source)
@@ -87,7 +87,7 @@ namespace Offr.Message
             }
         }
         
-        private static TagType GuessMessageType(string tagText)
+        private TagType GuessMessageType(string tagText)
         {
             //NOTE2J please do the following
             // 1. move this code into the tag provider (change signature of _tagProvider.FromTypeAndText(type, tagString);
@@ -101,31 +101,8 @@ namespace Offr.Message
             //      v. later, (or if you get time) we will serialize this list of special/defined tags from an init file
             //     vi. even later, we will replace the init file with a proper database back end (ie TagRepository)
 
-            foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
-            {                
-                if (msgType.ToString().Equals(tagText))
-                {
-                    // for messages where we flag the type using a hash tag "eg #offr"
-                    return TagType.msg_type;
-                }
-            } 
-            
-            switch (tagText.ToLowerInvariant())
-            {
-                case "ooooby":
-                case "freecycle":
-                    return TagType.group;
+            return _tagProvider.GetTag(tagText); 
 
-                case "cash only":
-                case "cash":
-                case "nzd":
-                case "barter":
-                case "free":
-                    return TagType.type;
-
-                default:
-                    return TagType.tag;
-            }
         }
 
         private string TruncateSourceText(IList<ITag> tags, string sourceText)
@@ -140,9 +117,32 @@ namespace Offr.Message
 
 
             //FIXME 
-            //PROFUSE APOLOGIES FOR THIS AWFUL CODE BUT WANTED TO HACK TOGETHER SOMETHING TO WORK FOR DEMO
+             //Regex re = new Regex("(#[a-zA-Z0-9_]+)");
+            string offerText = sourceText;
+            offerText.TrimStart("#offr".ToCharArray());
+            //trim just in case there is whitespace at the end of the message that will screw up the regex
+            offerText = offerText.Trim();
+            //look for any set of characters followed by a hash followed by the end of file character
+            Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
+            while(true){
+                Match match=re.Match(offerText);
+                if (match.Groups.Count > 1)
+            {
+                String tag = match.Groups[0].Value;
+                offerText = offerText.TrimEnd(tag.ToCharArray());
+                
+            }
+                else break;
+            }
+            return offerText.Trim(); ;
+        }
 
-            Regex re = new Regex("(#[a-zA-Z0-9_]+)");
+        #endregion
+    }
+}
+ 
+/*
+ *  Regex re = new Regex("(#[a-zA-Z0-9_]+)");
             MatchCollection results = re.Matches(sourceText);
 
             SortedList<int, string> justAwfulCode = new SortedList<int, string>();
@@ -185,9 +185,4 @@ namespace Offr.Message
             }
 
             //END OF PROFUSE APOLOGIES
-            return offerText;
-        }
-
-        #endregion
-    }
-}
+            return offerText;*/
