@@ -21,8 +21,7 @@ namespace Offr.Tests
         [Test]
         public void TestRegexMethodCleverTest()
         {
-            //NOTETOFIN: you might want to screw with the MockData.RawMessages aray to get a more friendly test set..
-            foreach (MockRawMessage rawMessage in MockData.RawMessages)
+                foreach (MockRawMessage rawMessage in MockData.RawMessages)
             {
                 IOfferMessage messageGet = (OfferMessage) _target.Parse(rawMessage);
                 // actually this will certainly fail even for any kinda regex parser i can think of doing in a short time
@@ -32,8 +31,7 @@ namespace Offr.Tests
                                 "Expected results to contain " + tag.match_tag + " for " + rawMessage);
                 }
                 // this is the 'rest of it' bit
-                //Assert.AreEqual(rawMessage.OfferText, messageGet.OfferText, "Expected extracted offer message to match " + rawMessage);
-
+              
             }
         }
 

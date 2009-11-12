@@ -23,7 +23,7 @@ namespace Offr.Location
             _locationTags = new List<ITag>();
         }
 
-        #region override Equality methods (not sure why)
+        #region override Equality methods 
 
         public override bool Equals(object obj)
         {
