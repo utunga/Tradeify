@@ -15,7 +15,10 @@ namespace Offr.Twitter
         }
         public string ProviderNameSpace { get { return "twitter"; } }
         public string ProviderMessageID { get; private set; }
-        
+        public TwitterMessagePointer()
+        {
+        }
+
         public TwitterMessagePointer(long status_id)
         {
             ProviderMessageID = status_id.ToString();

@@ -34,7 +34,6 @@ namespace Offr.Location
 
             Location other = (Location) obj;
 
-
             if (other==this) return true; //reference equality saves time (Same object)
             return other.GeoLat == GeoLat && 
                    other.GeoLong == GeoLong && 

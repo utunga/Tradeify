@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
+using Offr.Json.Converter;
 using Offr.Message;
 using Offr.Twitter;
 
@@ -9,14 +11,16 @@ namespace Offr.Text
 {
     public class RawMessage : IRawMessage
     {
+
         private readonly IMessagePointer _messagePointer;
         private readonly IUserPointer _createdBy;
         private readonly string _sourceText;
         private DateTime _timeStampUTC;
-
+        [JsonConverter(typeof(IMessagePointerConverter))]
         public IMessagePointer Pointer
         {
             get { return _messagePointer; }
+            private set { }
         }
 
         public IUserPointer CreatedBy

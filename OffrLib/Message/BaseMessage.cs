@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using Newtonsoft.Json;
 using Offr.Json;
+using Offr.Json.Converter;
 using Offr.Text;
 
 namespace Offr.Message
@@ -15,14 +16,18 @@ namespace Offr.Message
     {
         //FIXME ideally many of the 'set' methods below would be internal, not public
         public bool IsValid { get; set; }
+        [JsonConverter(typeof(IUserPointerConverter))]
         public IUserPointer CreatedBy { get; set; }
 
         public string ID
         {
-            get { return _source.Pointer.MatchTag; }
+            get { if (_source != null) if (_source.Pointer != null) return _source.Pointer.MatchTag; 
+            return null;
+            }
         }
 
         internal readonly TagList _tags;
+
         public IList<ITag> Tags
         {
             get { return _tags; }
@@ -37,7 +42,7 @@ namespace Offr.Message
        
        
         IRawMessage _source;
-      
+        [JsonConverter(typeof(RawMessageConverter))]
         public IRawMessage Source { 
             get 
             {

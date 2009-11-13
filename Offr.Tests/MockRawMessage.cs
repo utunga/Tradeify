@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
+using Offr.Json.Converter;
 using Offr.Location;
 using Offr.Message;
 using Offr.Text;

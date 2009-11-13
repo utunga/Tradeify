@@ -10,7 +10,7 @@ namespace Offr.Message
 {
     public interface IMessage : IComparable, Offr.Repository.ITopic
     {
-        IRawMessage Source { get; }
+        IRawMessage Source { get; set; }
         DateTime TimeStamp { get; }
         IUserPointer CreatedBy { get; }
         MessageType MessageType { get; }

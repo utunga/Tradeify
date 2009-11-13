@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
+using Offr.Json.Converter;
 using Offr.Location;
 using Offr.Text;
 
@@ -17,8 +19,9 @@ namespace Offr.Message
 
         public string OfferText { get; set; }
         public string MoreInfoURL { get; set; }
+        [JsonConverter(typeof(ILocationConverter))]
         public ILocation Location { get; set; }
-
+        [JsonConverter(typeof(IUserPointerConverter))]
         public IUserPointer OfferedBy { get { return base.CreatedBy; } }
 
         protected override MessageType ExpectedMessageType

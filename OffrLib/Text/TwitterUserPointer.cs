@@ -20,7 +20,10 @@ namespace Offr.Text
         {
             get { return string.Format("http://www.twitter.com/{0}", ProviderUserName); }
         }
-
+        public TwitterUserPointer()
+        {
+            
+        }
         public TwitterUserPointer(string twitterScreenName)
         {
             //nb: you have to use screen name, not id, as twitter user_id's differ between search and main API's

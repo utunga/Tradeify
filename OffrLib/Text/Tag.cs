@@ -22,10 +22,15 @@ namespace Offr.Text
         /// 
         /// FIXME: should be marked internal
         /// </summary>
+
         public Tag(TagType type, string tag)
         {
             this.type = type;
             this.tag = tag.ToLowerInvariant();
+        }
+
+        public Tag()
+        {
         }
 
         //IEquatable<Tag>.equals

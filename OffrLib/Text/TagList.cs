@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using Offr.Common;
+using Offr.Json.Converter;
 
 namespace Offr.Text
 {
@@ -117,7 +119,7 @@ namespace Offr.Text
                 _matchTags.Remove(existingTag.match_tag);
             }
         }
-
+        [JsonConverter(typeof(ITagConverter))]
         public ITag this[int index]
         {
             get { return _list[index]; }

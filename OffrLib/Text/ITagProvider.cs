@@ -9,6 +9,6 @@ namespace Offr.Text
     {
         ITag FromString(string match_tag);
         ITag FromTypeAndText(TagType tagType, string tagText);
-        TagType GetTag(String tagString);
+        ITag GetTag(String tagString);
     }
 }
