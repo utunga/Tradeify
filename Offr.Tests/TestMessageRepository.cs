@@ -52,6 +52,7 @@ namespace Offr.Tests
             //Global.InitializeWithRecentOffers(); // should be copied to bin/Debug output directory because of build action properties on that file 
             MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
             _target = new MessageRepository();
+
             //Assert.AreEqual(10, new List<IMessage>(_target.GetAll()).Count, "Expected to load 10 messages");
 
         }
@@ -66,9 +67,8 @@ namespace Offr.Tests
             OfferMessage o = new OfferMessage();
             o.Source = m;
             List<OfferMessage> messages = new List<OfferMessage> { o, o };
-
-            string initialMessages = JsonConvert.SerializeObject(messages);
-            List<OfferMessage> initialMessageobj = JsonConvert.DeserializeObject<List<OfferMessage>>(initialMessages, new RawMessageConverter());
+            string initialMessages = JSONConverter.Serialize(messages);//JsonConvert.SerializeObject(messages);
+            List<OfferMessage> initialMessageobj = JSONConverter.Deserialize<List<OfferMessage>>(initialMessages);//JsonConvert.DeserializeObject<List<OfferMessage>>(initialMessages, new RawMessageConverter());
 
             AssertMessagesAreTheSame(messages, initialMessageobj, "Expected to load 10 messages");
             Console.WriteLine(initialMessages);

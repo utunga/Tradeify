@@ -12,7 +12,7 @@ namespace Offr.Text
     public class RawMessage : IRawMessage
     {
 
-        private readonly IMessagePointer _messagePointer;
+        private IMessagePointer _messagePointer;
         private readonly IUserPointer _createdBy;
         private readonly string _sourceText;
         private DateTime _timeStampUTC;
@@ -20,7 +20,7 @@ namespace Offr.Text
         public IMessagePointer Pointer
         {
             get { return _messagePointer; }
-            private set { }
+            set { _messagePointer = value; }
         }
 
         public IUserPointer CreatedBy

@@ -69,6 +69,7 @@
     <Compile Include="Common\IMemCache.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Json\Converter\RawMessageConverter.cs" />
+    <Compile Include="Json\JSONConverter.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
     <Compile Include="ITopic.cs" />
     <Compile Include="Json\Converter\ILocationConverter.cs" />

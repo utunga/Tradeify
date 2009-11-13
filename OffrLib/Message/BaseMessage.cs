@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using Newtonsoft.Json;
-using Offr.Json;
 using Offr.Json.Converter;
 using Offr.Text;
 
