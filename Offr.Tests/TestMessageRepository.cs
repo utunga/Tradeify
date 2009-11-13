@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Offr.Json;
@@ -67,8 +65,9 @@ namespace Offr.Tests
             OfferMessage o = new OfferMessage();
             o.Source = m;
             List<OfferMessage> messages = new List<OfferMessage> { o, o };
-            string initialMessages = JSONConverter.Serialize(messages);//JsonConvert.SerializeObject(messages);
-            List<OfferMessage> initialMessageobj = JSONConverter.Deserialize<List<OfferMessage>>(initialMessages);//JsonConvert.DeserializeObject<List<OfferMessage>>(initialMessages, new RawMessageConverter());
+            string initialMessages = JSONConverter.Serialize(messages);
+            List<OfferMessage> initialMessageobj = JSONConverter.Deserialize<List<OfferMessage>>(initialMessages); 
+            
 
             AssertMessagesAreTheSame(messages, initialMessageobj, "Expected to load 10 messages");
             Console.WriteLine(initialMessages);

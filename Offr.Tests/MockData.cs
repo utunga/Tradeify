@@ -29,14 +29,14 @@ namespace Offr.Tests
 
             Location0 = new Location.Location
                             {
-                                //GeoLat = (decimal)37.0625,
-                                GeoLat = (decimal) -40.9827820,
-                //GeoLong = (decimal)-95.677068,
-                 GeoLong = (decimal)174.9561080,
-                Address = "Paekakariki",
-                                Tags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
-                (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
-            };
+                                GeoLat = (decimal)-40.9827820,
+                                GeoLong = (decimal)174.9561080,
+                                Address = "Paekakariki",
+                                Tags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),
+                                                        (new Tag(TagType.loc, "New Zealand")),
+                                                        (new Tag(TagType.loc, "NZ"))}
+
+                            };
 
             User1 = new MockUserPointer("test", "utunga");
             User1.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg";

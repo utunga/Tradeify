@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Script.Serialization;
 using Offr.Location;
 using Offr.Message;
@@ -66,7 +67,7 @@ namespace Offr.Tests
         public void SetupTestData()
         {
             _addressToExpectedTags = new SortedList<string, ILocation>();
-
+            
             string address = "1600 Amphitheatre Parkway, Mountain View, CA";
             ILocation google = new Location.Location
                                    {
@@ -162,29 +163,21 @@ namespace Offr.Tests
             _addressToExpectedTags.Add(address, france);
             address = "30 Borough Rd, London";
             ILocation uk = new Location.Location
-                               {
-                                   GeoLat = (decimal) 51.4988744,
-                                   GeoLong = (decimal) -0.1018722,
-                                   Address = address,
-                                   Tags = new List<ITag>
-                                                      {
-                                                          (new Tag(TagType.loc, "Camberwell")),
-                                                          (new Tag(TagType.loc, "Greater London")),
-                                                          (new Tag(TagType.loc, "United Kingdom")),
-                                                          (new Tag(TagType.loc, "GB"))
-                                                      }
-                               };
+                       {
+                           GeoLat = (decimal) 51.4988744,
+                           GeoLong = (decimal) -0.1018722,
+                           Address = address,
+                           Tags = new List<ITag>
+                              {
+                                  (new Tag(TagType.loc, "Camberwell")),
+                                  (new Tag(TagType.loc, "Greater London")),
+                                  (new Tag(TagType.loc, "United Kingdom")),
+                                  (new Tag(TagType.loc, "GB"))
+                              }
+                       };
+
             _addressToExpectedTags.Add(address, uk);
 
-            foreach (MockRawMessage rawMessage in MockData.RawMessages)
-            {
-                try
-                {
-                    _addressToExpectedTags.Add(rawMessage.Location.Address, rawMessage.Location);
-                }catch(System.ArgumentException e)
-                {
-                }
-            }
         }
 
         [Test]

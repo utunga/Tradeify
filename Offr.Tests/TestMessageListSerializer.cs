@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
-using Newtonsoft.Json;
+
 using NUnit.Framework;
 using Offr.Json;
 using Offr.Message;
@@ -36,7 +36,7 @@ namespace Offr.Tests
 
             List<IMessage> messagesToSend = new List<IMessage>(messages.Take(10));
             //Console.Out.Write(serializer.Serialize(messagesToSend));
-            Console.Out.Write(JsonConvert.SerializeObject(messagesToSend));
+            Console.Out.Write(JSONConverter.Serialize(messagesToSend));
         }
     }
 }

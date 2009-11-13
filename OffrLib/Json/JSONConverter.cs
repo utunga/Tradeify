@@ -13,7 +13,13 @@ namespace Offr.Json
         {
             get
             {
-                return new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore};
+                return new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ObjectCreationHandling = ObjectCreationHandling.Replace,
+                    MissingMemberHandling = MissingMemberHandling.Ignore,
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                };
             }
         }
 
