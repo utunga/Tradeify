@@ -13,9 +13,6 @@ namespace Offr.Location
     public class GoogleLocationProvider : ILocationProvider
     {
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}"; 
-        
-        //http://maps.google.com/maps/geo?q=1500+Amphitheatre+Parkway,+Mountain+View,+CA&output=json&oe=utf8&sensor=true_or_false&key=your_api_key
-        
         private MessageType _forType;
         private readonly List<IRawMessageReceiver> _receivers;
 
@@ -25,13 +22,9 @@ namespace Offr.Location
             _receivers = new List<IRawMessageReceiver>();
         }
         
-        //FIXME remove this
         public GoogleLocationProvider()
-            : this(MessageType.offr_test)
-        {
-        }
+            : this(MessageType.offr_test){}
 
-      
         public ILocation Parse(string addressText)
         {
             string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
@@ -58,7 +51,5 @@ namespace Offr.Location
         //{
         //    return WebRequest.RetrieveContent("http://maps.google.com/maps/geo?q=1500+Amphitheatre+Parkway,+Mountain+View,+CA");
         //}
-      
-
     }
 }

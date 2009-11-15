@@ -19,23 +19,19 @@ namespace Offr.Message
             _locationProvider = locationProvider;
         }
 
-        #region the main method 
-
+        #region the main method
         public IMessage Parse(IRawMessage source)
         {
             OfferMessage msg = new OfferMessage();
             msg.CreatedBy = source.CreatedBy;
             msg.Source = source;
-
             foreach (ITag tag in ParseTags(source))
             {
-       
                 if (tag.type == TagType.msg_type) continue; //skip messages of this type
                 msg.AddTag(tag);
             }
-
             ILocation location = ParseLocation(source.Text);
-            if (location!=null)
+            if (location != null)
             {
                 msg.Location = location;
                 foreach (ITag s in location.Tags)
@@ -43,27 +39,22 @@ namespace Offr.Message
                     msg.AddTag(s);
                 }
             }
-
             msg.OfferText = TruncateSourceText(msg.Tags, source.Text);
-
             msg.IsValid = true;
             return msg;
         }
-
         #endregion
 
         #region private helper methods
-
+        // 1. parse out the l:address: bit
+        // 2. give it to the LocationProvider and get a Location back
+        // 3. add 'location' tags to the message for all the tags in the location
         private ILocation ParseLocation(string sourceText)
         {
-            // 1. parse out the l:address: bit
-            // 2. give it to the LocationProvider and get a Location back
-            // 3. add 'location' tags to the message for all the tags in the location
-
             //Look for 'l:' followed by one or more of any character except ':' followed by ':'
             Regex re = new Regex("l:([^:]+):", RegexOptions.IgnoreCase);
             Match match = re.Match(sourceText);
-            ILocation location=null;
+            ILocation location = null;
             if (match.Groups.Count > 1)
             {
                 //grab the first part of the address
@@ -77,32 +68,23 @@ namespace Offr.Message
         {
             Regex re = new Regex("(#[a-zA-Z0-9_]+)");
             MatchCollection results = re.Matches(source.Text);
-            
             foreach (Match match in results)
             {
                 string tagString = match.Groups[0].Value;
-                //do inside tag provider
                 tagString = tagString.Replace("#", "");
-          
-               // TagType type = GuessMessageType(tagString);
                 yield return _tagProvider.GetTag(tagString);
             }
         }
-        
- 
 
+        // remove any tags added to end 
+        // of the source text and the tag "#offr" from the front (if its at the front)
+        // to get just the actual 'offer' part of the text
         private string TruncateSourceText(IList<ITag> tags, string sourceText)
         {
-
-            // basically what we need to do is remove any tags added to end 
-            // of the source text and the tag "#offr" from the front (if its at the front)
-            // to get just the actual 'offer' part of the text
-
-             //Regex re = new Regex("(#[a-zA-Z0-9_]+)");
             string offerText = sourceText;
-            offerText.TrimStart("#offr".ToCharArray());
-            //trim just in case there is whitespace at the end of the message that will screw up the regex
+            //trim just in case there is whitespace at the start of the message or at the end of the message that will screw up the regex
             offerText = offerText.Trim();
+            offerText.TrimStart("#offr".ToCharArray());
             //look for a hash followed by any set of characters followed by the end of file character
             Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
             Match match = re.Match(offerText);
@@ -114,10 +96,8 @@ namespace Offr.Message
                 offerText = offerText.Trim();
                 match = re.Match(offerText);
             }
-            return offerText; 
+            return offerText;
         }
-
         #endregion
     }
 }
- 

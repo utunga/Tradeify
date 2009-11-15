@@ -6,9 +6,9 @@ using Offr.Users;
 
 namespace Offr.Text
 {
-    public class TwitterUserPointer : IUserPointer, IEnhancedUserPointer
+    public class TwitterUserPointer : IUserPointer, IEnhancedUserPointer, IEquatable<TwitterUserPointer>
     {
-       
+
         public string MatchTag { get { return ProviderNameSpace + "/" + ProviderUserName; } }
         public string ProviderUserName { get; private set; }
         public string ProviderNameSpace { get; private set; }
@@ -20,10 +20,7 @@ namespace Offr.Text
         {
             get { return string.Format("http://www.twitter.com/{0}", ProviderUserName); }
         }
-        public TwitterUserPointer()
-        {
-            
-        }
+        public TwitterUserPointer() { }
         public TwitterUserPointer(string twitterScreenName)
         {
             //nb: you have to use screen name, not id, as twitter user_id's differ between search and main API's
@@ -43,7 +40,27 @@ namespace Offr.Text
 
         public override int GetHashCode()
         {
-            return MatchTag.GetHashCode();
+            unchecked
+            {
+                int result = (ProviderUserName != null ? ProviderUserName.GetHashCode() : 0);
+                result = (result * 397) ^ (ProviderNameSpace != null ? ProviderNameSpace.GetHashCode() : 0);
+                result = (result * 397) ^ (ProfilePicUrl != null ? ProfilePicUrl.GetHashCode() : 0);
+                result = (result * 397) ^ (ScreenName != null ? ScreenName.GetHashCode() : 0);
+                return result;
+            }
         }
+
+        public bool Equals(TwitterUserPointer other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Equals(other.ProviderUserName, ProviderUserName) &&
+                   Equals(other.ProviderNameSpace, ProviderNameSpace) &&
+                   Equals(other.ProfilePicUrl, ProfilePicUrl) &&
+                   Equals(other.ScreenName, ScreenName) &&
+                   Equals(other.MoreInfoUrl, MoreInfoUrl) &&
+                   Equals(other.MatchTag, MatchTag);
+        }
+
     }
 }
