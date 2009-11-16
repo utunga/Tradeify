@@ -59,7 +59,6 @@ namespace Newtonsoft.Json.Converters
       T value = Create(objectType);
       if (value == null)
         throw new JsonSerializationException("No object created.");
-
       serializer.Populate(reader, value);
       return value;
     }

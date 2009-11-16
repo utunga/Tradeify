@@ -43,7 +43,7 @@ namespace Offr.Message
             msg.OfferText = TruncateSourceText(msg.Tags, source.Text);
             msg.IsValid = true;
             msg.MoreInfoURL = GetMoreInfoUrl(source.Text);
-            msg.addThumbnail(GetImageUrl(source.Text));
+            msg.AddThumbnail(GetImageUrl(source.Text));
             return msg;
         }
 
@@ -84,7 +84,7 @@ namespace Offr.Message
         // remove any tags added to end 
         // of the source text and the tag "#offr" from the front (if its at the front)
         // to get just the actual 'offer' part of the text
-        private string TruncateSourceText(IList<ITag> tags, string sourceText)
+        private string TruncateSourceText(IEnumerable<ITag> tags, string sourceText)
         {
             string offerText = sourceText;
             //trim just in case there is whitespace at the start of the message or at the end of the message that will screw up the regex

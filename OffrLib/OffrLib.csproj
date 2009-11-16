@@ -68,6 +68,8 @@
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\IMemCache.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Json\Converter\CanJsonConvertor.cs" />
+    <Compile Include="Json\Converter\ICanJson.cs" />
     <Compile Include="Json\Converter\RawMessageConverter.cs" />
     <Compile Include="Json\JSONConverter.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Json\TagCountsSerializer.cs" />
     <Compile Include="Location\ILocationProvider.cs" />
     <Compile Include="Location\Location.cs" />
+    <Compile Include="Repository\ITagRepository.cs" />
     <Compile Include="Repository\MessageRepository.cs" />
     <Compile Include="Message\BaseMessage.cs" />
     <Compile Include="Message\MessageParseExeption.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Query\StaticTagDex.cs" />
     <Compile Include="Query\TagDexQueryExecutor.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\TagRepository.cs" />
     <Compile Include="Text\DateUtils.cs" />
     <Compile Include="Text\RawMessage.cs" />
     <Compile Include="Text\TagCounts.cs" />
@@ -129,11 +133,11 @@
     <Compile Include="Message\DumbMessageParser.cs" />
     <Compile Include="Location\GoogleLocationProvider.cs" />
     <Compile Include="Location\GoogleResultSet.cs" />
-    <Compile Include="Twitter\TwitterStatus.cs" />
-    <Compile Include="Twitter\TwitterResultSet.cs" />
     <Compile Include="Twitter\Status.cs" />
     <Compile Include="Twitter\StatusProvider.cs" />
     <Compile Include="Twitter\TwitterMessagePointer.cs" />
+    <Compile Include="Twitter\TwitterResultSet.cs" />
+    <Compile Include="Twitter\TwitterStatus.cs" />
     <Compile Include="Twitter\WebRequest.cs" />
     <Compile Include="Twitter\XmlTwitterParser.cs" />
     <Compile Include="Users\IEnhancedUserPointer.cs" />

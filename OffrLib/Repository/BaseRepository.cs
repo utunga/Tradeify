@@ -17,7 +17,7 @@ namespace Offr.Repository
             _queryable = _list.Values.AsQueryable();
         }
 
-        protected T Get(string id)
+        public virtual T Get(string id)
         {
             if (_list.ContainsKey(id))
                 return _list[id];
@@ -25,7 +25,7 @@ namespace Offr.Repository
             return default(T);
         }
 
-        protected void Save(T instance)
+        public virtual void Save(T instance)
         {
             var id = instance.ID;
             if (id == null)
@@ -41,7 +41,7 @@ namespace Offr.Repository
             }
         }
 
-        protected void Remove(T instance)
+        public virtual void Remove(T instance)
         {
             if (_list.ContainsKey(instance.ID))
                 _list.Remove(instance.ID);

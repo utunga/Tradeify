@@ -56,5 +56,10 @@ namespace Offr.Text
         {
             return match_tag;
         }
+
+        public string ID
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

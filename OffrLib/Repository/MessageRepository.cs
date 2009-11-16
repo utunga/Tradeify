@@ -54,9 +54,8 @@ namespace Offr
             }
 
             //serialize into memory
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
             //serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
-            List<IMessage> _list = JSONConverter.Deserialize<List<IMessage>>(stringBuilder.ToString(), new IMessageConverter(), new ITagConverter());//= JsonConvert.DeserializeObject<List<IMessage>>(stringBuilder.ToString(),new IMessageConverter()/*,new ILocationConverter()*/,new ITagConverter()/*,new IUserPointerConverter(), new IMessagePointerConverter()*/);
+            List<IMessage> _list = JSONConverter.Deserialize<List<IMessage>>(stringBuilder.ToString(), /*new IMessageConverter(),*/ new ITagConverter());//= JsonConvert.DeserializeObject<List<IMessage>>(stringBuilder.ToString(),new IMessageConverter()/*,new ILocationConverter()*/,new ITagConverter()/*,new IUserPointerConverter(), new IMessagePointerConverter()*/);
             foreach (IMessage list in _list)
             {
                 base.Save(list);
@@ -66,21 +65,6 @@ namespace Offr
             // 'notify' them straight into the MessageProvider (by passing the RawMessage stage)
             Global.Kernel.Get<IMessageProvider>().Notify(_list);
 
-        }
-
-        public IMessage Get(string id)
-        {
-            return base.Get(id);
-        }
-
-        public void Save(IMessage instance)
-        {
-           base.Save(instance);
-        }
-
-        public void Remove(IMessage instance)
-        {
-            base.Remove(instance);
         }
     }
 }

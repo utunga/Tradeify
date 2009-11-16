@@ -8,19 +8,12 @@ using Offr.Message;
 
 namespace Offr.Json.Converter
 {
-    public class IMessageConverter : CustomCreationConverter<IMessage>
+    public class IMessageConverter : CanJsonConvertor<IMessage>
     {
 
-        public override IMessage Create(Type objectType)
+        public override IMessage Create()
         {
             return new OfferMessage();
-
         }
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            //base.WriteJson(writer, value, serializer);
-            serializer.Serialize(writer, value);
-        }
-
     }
 }

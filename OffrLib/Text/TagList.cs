@@ -22,6 +22,16 @@ namespace Offr.Text
             InitBackingLists();
         }
 
+        public TagList(IEnumerable<ITag> tags)
+            : base()
+        {
+            InitBackingLists();
+            foreach (ITag tag in tags)
+            {
+                Add(tag);
+            }
+        }
+
         /// <summary>
         /// the reason for this method - an index into the tags of a particular type
         /// FIXME: should be internal, not public

@@ -9,13 +9,18 @@ using Offr.Twitter;
 
 namespace Offr.Text
 {
-    public class RawMessage : IRawMessage
+    public class RawMessage : IRawMessage , IEquatable<RawMessage>
     {
 
         private IMessagePointer _messagePointer;
-        private readonly IUserPointer _createdBy;
-        private readonly string _sourceText;
+        
+        [JsonConverter(typeof(IUserPointerConverter))]
+        public IUserPointer _createdBy { set; get; }
+        
+        public string _sourceText { set; get; }
+        
         private DateTime _timeStampUTC;
+        
         [JsonConverter(typeof(IMessagePointerConverter))]
         public IMessagePointer Pointer
         {
@@ -55,6 +60,33 @@ namespace Offr.Text
             _messagePointer = messagePointer;
             _createdBy = createdBy;
             SetTimestamp(timestamp);
+        }
+
+        public bool Equals(RawMessage other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Equals(other._messagePointer, _messagePointer) && Equals(other._createdBy, _createdBy) && Equals(other._sourceText, _sourceText) && other._timeStampUTC.Equals(_timeStampUTC);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (RawMessage)) return false;
+            return Equals((RawMessage) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int result = (_messagePointer != null ? _messagePointer.GetHashCode() : 0);
+                result = (result*397) ^ (_createdBy != null ? _createdBy.GetHashCode() : 0);
+                result = (result*397) ^ (_sourceText != null ? _sourceText.GetHashCode() : 0);
+                result = (result*397) ^ _timeStampUTC.GetHashCode();
+                return result;
+            }
         }
 
         public static RawMessage From(TwitterStatus status)

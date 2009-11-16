@@ -33,7 +33,7 @@ namespace Offr.Tests
             msg.Source = mockRaw;
             foreach (ITag tag in mockRaw.Tags)
             {
-                msg.Tags.Add(tag);
+                msg.AddTag(tag);
             }
             msg.IsValid = true;
             return msg;

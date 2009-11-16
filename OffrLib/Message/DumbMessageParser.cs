@@ -8,7 +8,6 @@ namespace Offr.Message
     {
         public IMessage Parse(IRawMessage source)
         {
-
             OfferMessage msg = new OfferMessage();
             msg.CreatedBy = source.CreatedBy;
             msg.Source = source;

@@ -25,18 +25,22 @@ namespace Offr.Location
 
         #region override Equality methods 
 
-        public bool Equals(Location other) 
+        public bool Equals(Location other)
         {
-            if (other == null)
-                return false;
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return  other.GeoLat == GeoLat && 
+                    other.GeoLong == GeoLong && 
+                    Equals(other.Address, Address) && 
+                    Equals(other._locationTags, _locationTags);
+        }
 
-            if (other==this) 
-                return true; //reference equality saves time (Same object)
-                   
-            return other.GeoLat == GeoLat && 
-                   other.GeoLong == GeoLong && 
-                   Equals(other.Address, Address) && 
-                   Equals(other._locationTags, _locationTags);
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (Location)) return false;
+            return Equals((Location) obj);
         }
 
         public override int GetHashCode()
