@@ -27,14 +27,25 @@ namespace Offr.Location
 
         public ILocation Parse(string addressText)
         {
-            string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
-                
-            string responseData = WebRequest.RetrieveContent(requestURI);
-            GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
-            Console.WriteLine(responseData);
+            GoogleResultSet resultSet = GetResultSet(addressText);
             return Location.From(resultSet);
         }
 
+        public ILocation Parse(string addressText,string twitterLocation)
+        {
+            GoogleResultSet resultSet = GetResultSet(addressText);
+            return Location.From(resultSet,twitterLocation);
+        }
+
+        private GoogleResultSet GetResultSet(string addressText)
+        {
+            string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
+
+            string responseData = WebRequest.RetrieveContent(requestURI);
+            GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
+            Console.WriteLine(responseData);
+            return resultSet;
+        }
         //public string getStatus()
         //{
         //    string testlocation = "q=1500+Amphitheatre+Parkway,+Mountain+View,+CA";

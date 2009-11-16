@@ -43,16 +43,23 @@ namespace Offr.Tests
                 Assert.Fail("Expected to get an IOexception from trying to trying to load bad file, instead got:" + ex);
             }
         }
+        [Test]
+        public void TestTwitterMessagePointerRoundTrip()
+        {
+            //Global.InitializeWithRecentOffers(); // should be copied to bin/Debug output directory because of build action properties on that file 
+            new TwitterMessagePointer();
 
+
+            //Assert.AreEqual(10, new List<IMessage>(_target.GetAll()).Count, "Expected to load 10 messages");
+
+        }
         [Test]
         public void TestInitializeWithRecentOffers_Works()
         {
             //Global.InitializeWithRecentOffers(); // should be copied to bin/Debug output directory because of build action properties on that file 
             MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
-            _target = new MessageRepository();
-
+            _target = new MessageRepository();        
             //Assert.AreEqual(10, new List<IMessage>(_target.GetAll()).Count, "Expected to load 10 messages");
-
         }
 
 

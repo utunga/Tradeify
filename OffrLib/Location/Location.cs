@@ -25,16 +25,14 @@ namespace Offr.Location
 
         #region override Equality methods 
 
-        public bool Equals(Location obj)
+        public bool Equals(Location other) 
         {
-            if (obj == null || GetType() != obj.GetType())
-            {
+            if (other == null)
                 return false;
-            }
 
-            Location other = (Location) obj;
-
-            if (other==this) return true; //reference equality saves time (Same object)
+            if (other==this) 
+                return true; //reference equality saves time (Same object)
+                   
             return other.GeoLat == GeoLat && 
                    other.GeoLong == GeoLong && 
                    Equals(other.Address, Address) && 
@@ -69,7 +67,37 @@ namespace Offr.Location
             if (googleResultSet.Placemark == null || googleResultSet.Placemark [0]== null) return null;
             // At the moment we are just taking the first result as definitieve
             // We might want to do something about multiple matches to the geo code query 
-            GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0];     
+            GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0]; 
+            return ProcessPlacemark(googleResultSet,placemark);
+        }
+        
+        /// <summary>
+        /// Look through all the results in each location produced and see any of the locations matches
+        /// the given location return the first match else return the first result
+        /// </summary>
+        /// <param name="googleResultSet"></param>
+        /// <param name="locationName"></param>
+        /// <returns></returns>
+        public static Location From(GoogleResultSet googleResultSet, String locationName)
+        {
+            Debug.Assert((googleResultSet != null));
+            Debug.Assert((locationName != null));
+            //make sure there is location data else return null
+            if (googleResultSet.Placemark == null || googleResultSet.Placemark[0] == null) return null;
+            Location best=null;
+            foreach (GoogleResultSet.PlacemarkType placemark in googleResultSet.Placemark)
+            {
+                Location location = ProcessPlacemark(googleResultSet, placemark);
+                if(best==null) best = location;
+                //look through the location tags and see if you can find the location given
+                foreach(ITag tag in location._locationTags)
+                    if(Equals(tag,new Tag(TagType.loc,locationName))) return location;
+            }
+            return best;
+        }
+
+        private static Location ProcessPlacemark(GoogleResultSet googleResultSet,GoogleResultSet.PlacemarkType placemark)
+        {  
             Location loc = new Location
                                {
                                    Address = googleResultSet.name,
@@ -104,16 +132,23 @@ namespace Offr.Location
                 }
 
                 if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality != null)
-                    {
-                        localityName = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.DependentLocalityName;
+                {
+                    localityName = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.DependentLocalityName;
 
-                        if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare != null)
-                            streetAddress = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare.ThoroughfareName;
-                    }
+                    if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare != null)
+                        streetAddress = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare.ThoroughfareName;
+                }
             }
             string countryName = placemark.AddressDetails.Country.CountryName;
             string countryCode = placemark.AddressDetails.Country.CountryNameCode;
 
+            AddTags(countryName, loc, countryCode, region, localityName);
+
+            return loc;
+        }
+
+        private static void AddTags(string countryName, Location loc, string countryCode, string region, string localityName)
+        {
             if (!string.IsNullOrEmpty(countryName))
                 loc.Tags.Add(new Tag(TagType.loc, countryName));
 
@@ -125,11 +160,9 @@ namespace Offr.Location
             
             if (!string.IsNullOrEmpty(localityName))
                 loc.Tags.Add(new Tag(TagType.loc, localityName));
-
-            return loc;
         }
-        #endregion
 
+        #endregion
 
     }
 }

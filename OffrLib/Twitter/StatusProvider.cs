@@ -64,10 +64,10 @@ namespace Offr.Twitter
             Console.WriteLine("url =" + url);
             string responseData = WebRequest.RetrieveContent(url);
             Console.WriteLine("responseData =" + responseData);
-            JSONResultSet resultSet = (new JavaScriptSerializer()).Deserialize<JSONResultSet>(responseData);
+            TwitterResultSet resultSet = (new JavaScriptSerializer()).Deserialize<TwitterResultSet>(responseData);
             //note that we don't update _last_id in this case (we're not caching this data)
             List<IRawMessage> statusUpdatesForQuery = new List<IRawMessage>();
-            foreach (JSONStatus status in resultSet.results)
+            foreach (TwitterStatus status in resultSet.results)
             {
                 statusUpdatesForQuery.Add(RawMessage.From(status));
             }
@@ -95,11 +95,11 @@ namespace Offr.Twitter
                 String.Format(WebRequest.TWITTER_SEARCH_POLL_URI, _last_id, query);
 
             string responseData = WebRequest.RetrieveContent(url);
-            JSONResultSet resultSet = (new JavaScriptSerializer()).Deserialize<JSONResultSet>(responseData);
+            TwitterResultSet resultSet = (new JavaScriptSerializer()).Deserialize<TwitterResultSet>(responseData);
             _last_id = resultSet.max_id;
 
             List<IRawMessage> newStatusUpdates = new List<IRawMessage>();
-            foreach (JSONStatus status in resultSet.results)
+            foreach (TwitterStatus status in resultSet.results)
             {
                 newStatusUpdates.Add(RawMessage.From(status));
             }

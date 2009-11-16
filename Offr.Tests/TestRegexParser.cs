@@ -40,8 +40,9 @@ namespace Offr.Tests
                                          Timestamp = "10pm",
                                          CreatedBy = MockData.User0,
                                          Location = MockData.Location0,
+                                         Thumbnail = "http://flickr.com/mulch.jpg",
                                          MoreInfoURL = "http://bit.ly/message0Info",
-                                         Text = "#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info #mulch",
+                                         Text = "#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info pic here: http://flickr.com/mulch.jpg #mulch",
                                          EndByText = null,
                                          EndBy = null
                                      };
@@ -54,6 +55,8 @@ namespace Offr.Tests
             expectedTags.Add(new Tag(TagType.loc, "NZ"));
 
             IOfferMessage message = (OfferMessage) _target.Parse(raw);
+            Assert.AreEqual(raw.MoreInfoURL, message.MoreInfoURL);
+            Assert.AreEqual(raw.Thumbnail, message.Thumbnail);
             // actually this will certainly fail even for any kinda regex parser i can think of doing in a short time
             Assert.AreEqual(6, expectedTags.Count, "Expect count of tags to be 6 for message " + raw);
             foreach (ITag tag in expectedTags)
@@ -65,7 +68,7 @@ namespace Offr.Tests
                 Assert.That(expectedTags.Contains(tag), "Expected results to not contain" + tag.match_tag);
             }
             //NOTE2MT is the offr_test really meant to b
-            Assert.AreEqual("#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info", message.OfferText,
+            Assert.AreEqual("#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info pic here: http://flickr.com/mulch.jpg", message.OfferText,
                             "Expect extracted message to work for " + raw);
         }
         [Test]
@@ -85,7 +88,16 @@ namespace Offr.Tests
             IOfferMessage message = (OfferMessage) _target.Parse(raw);
             Assert.That(message.LocationTags.Count == 0, "There should be no location tags");
         }
+        [Test]
+        public void TestGetMoreInfoUrl()
+        {
+            String link = "http://www.radsoftware.com.au/articles/regexsyntaxadvanced.gif";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(null,null);
+            string s = regexMessageParser.TEST_GetMoreInfoUrl(link);
+            Console.WriteLine();
+        }
     }
+
 
 }
     

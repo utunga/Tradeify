@@ -26,6 +26,7 @@ namespace Offr.Tests
 
         public string OfferText { get; internal set; }
         public string MoreInfoURL { get; internal set; }
+        public string Thumbnail { get; internal set; }
         public ILocation Location { get; internal set; }
         public IUserPointer OfferedBy { get; internal set; }
         

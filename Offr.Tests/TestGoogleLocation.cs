@@ -206,6 +206,29 @@ namespace Offr.Tests
             }
 
         }
+        [Test]
+        public void TestLiveGoogleParseWithTwitterLocation()
+        {
+            String address = "30 Borough Rd";
+            ILocation nonSpecific = new Location.Location
+            {
+                GeoLat = (decimal)51.4988744,
+                GeoLong = (decimal)-0.1018722,
+                Address = address,
+                Tags = new List<ITag>
+                              {
+                                  (new Tag(TagType.loc, "Camberwell")),
+                                  (new Tag(TagType.loc, "Greater London")),
+                                  (new Tag(TagType.loc, "United Kingdom")),
+                                  (new Tag(TagType.loc, "GB"))
+                              }
+            };
+            // Normally the result london is not the first result for this query
+            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            ILocation location = locationProvider.Parse(address, "Greater London");
+            ILocation expected = nonSpecific;
+            AssertLocationEquality(address, expected, location);
+        }
 
         
         private static void AssertLocationEquality(string forAddress, ILocation expected, ILocation actual)

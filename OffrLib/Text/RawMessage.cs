@@ -57,7 +57,7 @@ namespace Offr.Text
             SetTimestamp(timestamp);
         }
 
-        public static RawMessage From(JSONStatus status)
+        public static RawMessage From(TwitterStatus status)
         {
             TwitterMessagePointer msgPointer = new TwitterMessagePointer(status.id);
             TwitterUserPointer createdBy = new TwitterUserPointer(status.from_user);

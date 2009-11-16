@@ -19,7 +19,7 @@ namespace Offr.Tests
         //[Test]
         //public void TestResultsParse()
         //{
-        //    JSONResultSet resultSet = JSONTwitterParser.ParseSearchResults(TwitterVerifyJSON);
+        //    TwitterResultSet resultSet = JSONTwitterParser.ParseSearchResults(TwitterVerifyJSON);
         //    Assert.AreEqual(1, resultSet.results.Count());
         //    Assert.AreEqual("twollar_test_1", resultSet.results[0].from_user);
         //    Assert.AreEqual(null, resultSet.results[0].to_user_id);
@@ -30,7 +30,7 @@ namespace Offr.Tests
         {
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            JSONResultSet resultSet = serializer.Deserialize<JSONResultSet>(TwitterVerifyJSON);
+            TwitterResultSet resultSet = serializer.Deserialize<TwitterResultSet>(TwitterVerifyJSON);
             Assert.AreEqual(1, resultSet.results.Count());
             Assert.AreEqual("twollar_test_1", resultSet.results[0].from_user);
             Assert.AreEqual(null, resultSet.results[0].to_user_id);

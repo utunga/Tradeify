@@ -13,6 +13,7 @@ namespace Offr.Message
     {
         string OfferText { get; }
         string MoreInfoURL { get; }
+        string Thumbnail { get; }
         ILocation Location { get; }
         string EndByText { get; }
         DateTime? EndBy { get; }

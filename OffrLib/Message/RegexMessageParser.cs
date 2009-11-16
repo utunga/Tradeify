@@ -30,6 +30,7 @@ namespace Offr.Message
                 if (tag.type == TagType.msg_type) continue; //skip messages of this type
                 msg.AddTag(tag);
             }
+            //source.Pointer.
             ILocation location = ParseLocation(source.Text);
             if (location != null)
             {
@@ -41,11 +42,15 @@ namespace Offr.Message
             }
             msg.OfferText = TruncateSourceText(msg.Tags, source.Text);
             msg.IsValid = true;
+            msg.MoreInfoURL = GetMoreInfoUrl(source.Text);
+            msg.addThumbnail(GetImageUrl(source.Text));
             return msg;
         }
+
         #endregion
 
         #region private helper methods
+
         // 1. parse out the l:address: bit
         // 2. give it to the LocationProvider and get a Location back
         // 3. add 'location' tags to the message for all the tags in the location
@@ -98,6 +103,40 @@ namespace Offr.Message
             }
             return offerText;
         }
+
+        private string GetMoreInfoUrl(string offerText)
+        {
+            String moreInfoUrl = @"http://([^\s]+)[^(\.jpg)|(\.png)|(\.gif)]+\s";
+            Regex re = new Regex(moreInfoUrl);
+            Match match = re.Match(offerText);
+            if (match.Groups.Count > 1)
+            {
+                return match.Groups[0].Value.Trim();
+            }
+            return null;
+        }
+        private string GetImageUrl(string offerText)
+        {
+            String imageURL = @"http://([^\s]+)\.((jpg)|(png)|(gif))";
+            Regex re = new Regex(imageURL);
+            // Regex re = new Regex("(http://([^\.]+[(\.jpg)(\.png)(\.gif)])");
+            Match match = re.Match(offerText);
+            if (match.Groups.Count > 1)
+            {
+                return match.Groups[0].Value;
+            }
+            return null;
+        }
         #endregion
+
+
+#if DEBUG
+        //Test accessors
+        public string TEST_GetMoreInfoUrl(string offerText)
+        {
+            return GetMoreInfoUrl(offerText);
+        }
+#endif
+
     }
 }
