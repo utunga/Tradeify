@@ -11,7 +11,7 @@ namespace Offr.Message
 {
 
     [JsonObject(MemberSerialization.OptIn)]
-    public abstract class BaseMessage : IMessage, IEquatable<BaseMessage>
+    public abstract class BaseMessage : IMessage, IEquatable<BaseMessage>,ICanJson
     {
         protected TagList _tags;
 

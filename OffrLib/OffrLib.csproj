@@ -71,6 +71,7 @@
     <Compile Include="Json\Converter\CanJsonConvertor.cs" />
     <Compile Include="Json\Converter\ICanJson.cs" />
     <Compile Include="Json\Converter\RawMessageConverter.cs" />
+    <Compile Include="Json\Converter\TwitterMessagePointerConverter.cs" />
     <Compile Include="Json\JSONConverter.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
     <Compile Include="ITopic.cs" />

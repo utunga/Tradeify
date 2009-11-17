@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Offr.Json;
@@ -47,10 +49,25 @@ namespace Offr.Tests
         [Test]
         public void TestTwitterMessagePointerRoundTrip()
         {
-           TwitterMessagePointer orig= new TwitterMessagePointer();
+           /*TwitterMessagePointer orig= new TwitterMessagePointer();
             String message = JSONConverter.Serialize(orig);
             TwitterMessagePointer deserialized = JSONConverter.Deserialize<TwitterMessagePointer>(message);
             Assert.AreEqual(orig,deserialized,"Round trip serialization for Location false");
+ */
+            TwitterMessagePointer orig = new TwitterMessagePointer();
+            JsonSerializer serialization=new JsonSerializer();
+            serialization.Converters.Add(new TwitterMessagePointerConverter());
+            StringWriter sw = new StringWriter(CultureInfo.InvariantCulture);
+            using (JsonTextWriter jsonWriter = new JsonTextWriter(sw))
+            {
+                jsonWriter.Formatting = new Formatting();
+
+                serialization.Serialize(jsonWriter,orig);
+            }
+            String json = sw.GetStringBuilder().ToString();
+            TwitterMessagePointer deserialized = JSONConverter.Deserialize<TwitterMessagePointer>(json,new TwitterMessagePointerConverter());
+            Assert.AreEqual(orig, deserialized, "Round trip serialization for Location false");
+
         }
 
         [Test]

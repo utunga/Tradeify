@@ -9,7 +9,7 @@ using Offr.Text;
 
 namespace Offr.Twitter
 {
-    public class TwitterMessagePointer : IMessagePointer, ICanJson
+    public class TwitterMessagePointer :TwitterMessagePointerConverter, IMessagePointer, ICanJson 
     {
         public string MatchTag
         {
@@ -44,15 +44,16 @@ namespace Offr.Twitter
         public override int GetHashCode()
         {
             return (ProviderMessageID != null ? ProviderMessageID.GetHashCode() : 0);
-        }
+        }
+
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+           serializer.Serialize(writer,MatchTag);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            serializer.Deserialize(reader, typeof (string));
         }
     }
 }

@@ -8,13 +8,13 @@ using Newtonsoft.Json.Linq;
 
 namespace Offr.Json.Converter
 {
-    public abstract class CanJsonConvertor<T> : JSONConverter where T:ICanJson
+    public abstract class CanJsonConvertor<T> : JsonConverter where T:ICanJson
     {
 
         /// <summary>
         /// CanJsonConvertor can convert any object implementing ICanJson
         /// </summary>
-        public virtual bool CanConvert(Type objectType)
+        public override bool CanConvert(Type objectType)
         {
             return typeof(T).IsAssignableFrom(objectType);
         }
@@ -31,13 +31,13 @@ namespace Offr.Json.Converter
         /// <param name="writer">The <see cref="JsonWriter"/> to write to.</param>
         /// <param name="value">The value.</param>
         /// <param name="serializer">The calling serializer.</param>
-        public virtual void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             if (!(value is ICanJson))
             {
                 throw new SerializationException("Cannot convert object " + value + "expected something that implements ICanJson");
             }
-            ((ICanJson)value).WriteJson(writer, serializer);
+            ((ICanJson)value).WriteJson(writer,serializer);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Offr.Json.Converter
         /// <param name="objectType">Type of the object.</param>
         /// <param name="serializer">The calling serializer.</param>
         /// <returns>The object value.</returns>
-        public virtual object ReadJson(JsonReader reader, Type objectType, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, JsonSerializer serializer)
         {
             ICanJson value = Create();
             if (value == null)
