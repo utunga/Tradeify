@@ -110,7 +110,9 @@ namespace Offr.Tests
             string initialMessages = JSONConverter.Serialize(orig);
             OfferMessage deserialized = JSONConverter.Deserialize<OfferMessage>(initialMessages);
             Assert.AreEqual(orig,deserialized);
-        }          [Test]
+        }
+
+          [Test]
           public void TestSerialize()
         {
 
