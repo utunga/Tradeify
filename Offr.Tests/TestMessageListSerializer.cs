@@ -36,7 +36,7 @@ namespace Offr.Tests
 
             List<IMessage> messagesToSend = new List<IMessage>(messages.Take(10));
             //Console.Out.Write(serializer.Serialize(messagesToSend));
-            Console.Out.Write(JSONConverter.Serialize(messagesToSend));
+            Console.Out.Write(JSON.Serialize(messagesToSend));
         }
     }
 }

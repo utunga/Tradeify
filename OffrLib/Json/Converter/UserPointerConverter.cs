@@ -8,17 +8,15 @@ using Offr.Text;
 
 namespace Offr.Json.Converter
 {
-    public class ITagConverter : CustomCreationConverter<ITag>
+    public class UserPointerConverter : CustomCreationConverter<IUserPointer>
     {
-
-        public override ITag Create(Type objectType)
+        public override IUserPointer Create(Type objectType)
         {
-            return new Tag();
+            return new TwitterUserPointer();
 
         }
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            //base.WriteJson(writer, value, serializer);
             serializer.Serialize(writer, value);
         }
     }

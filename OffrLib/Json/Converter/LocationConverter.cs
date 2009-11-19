@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Offr.Text;
+using Offr.Location;
 
 namespace Offr.Json.Converter
 {
-    public class RawMessageConverter : CanJsonConvertor<IRawMessage>
+    public class LocationConverter : CanJsonConvertor<ILocation>
     {
-        public override IRawMessage Create(JsonReader reader)
+
+        public override ILocation Create(JsonReader reader)
         {
-            return new RawMessage();;
+            return new Location.Location();
         }
     }
 }

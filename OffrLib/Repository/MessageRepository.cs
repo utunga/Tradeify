@@ -55,15 +55,15 @@ namespace Offr
 
             //serialize into memory
             //serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
-            List<IMessage> _list = JSONConverter.Deserialize<List<IMessage>>(stringBuilder.ToString(), /*new IMessageConverter(),*/ new ITagConverter());//= JsonConvert.DeserializeObject<List<IMessage>>(stringBuilder.ToString(),new IMessageConverter()/*,new ILocationConverter()*/,new ITagConverter()/*,new IUserPointerConverter(), new IMessagePointerConverter()*/);
-            foreach (IMessage list in _list)
+            List<IMessage> list = JSON.Deserialize<List<IMessage>>(stringBuilder.ToString());
+            foreach (IMessage msg in list)
             {
-                base.Save(list);
+                base.Save(msg);
             }
             Console.WriteLine();
             //serializer.Deserialize<List<IMessage>>(stringBuilder.ToString());
             // 'notify' them straight into the MessageProvider (by passing the RawMessage stage)
-            Global.Kernel.Get<IMessageProvider>().Notify(_list);
+            Global.Kernel.Get<IMessageProvider>().Notify(list);
 
         }
     }

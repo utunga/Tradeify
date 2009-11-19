@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Offr.Text;
+using Offr.Message;
 
 namespace Offr.Json.Converter
 {
-    public class RawMessageConverter : CanJsonConvertor<IRawMessage>
+    public class MessageConverter : CanJsonConvertor<IMessage>
     {
-        public override IRawMessage Create(JsonReader reader)
+        public override IMessage Create(JsonReader reader)
         {
-            return new RawMessage();;
+            return new OfferMessage();
         }
     }
 }

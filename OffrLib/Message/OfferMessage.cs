@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Offr.Json;
 using Offr.Json.Converter;
 using Offr.Location;
 using Offr.Text;
@@ -21,12 +22,14 @@ namespace Offr.Message
 
 
         [JsonProperty]
-        [JsonConverter(typeof(ILocationConverter))]
+        [JsonConverter(typeof(LocationConverter))]
         public ILocation Location { get; set; }
 
         [JsonProperty]
-        [JsonConverter(typeof(IUserPointerConverter))]
-        public IUserPointer OfferedBy { get { return base.CreatedBy; } }
+        [JsonConverter(typeof(UserPointerConverter))]
+        public IUserPointer OfferedBy { get { return base.CreatedBy; }
+            /*private set { base.CreatedBy = value; */
+        }
 
         [JsonProperty]
         private List<String> _thumbnails;
@@ -60,7 +63,7 @@ namespace Offr.Message
             //return first thumb nail for now
             get
             {
-                return (_thumbnails.Count <= 1) ? _thumbnails[0] : null;
+                return (_thumbnails.Count >0) ? _thumbnails[0] : null;
             }
         }
 
@@ -99,7 +102,7 @@ namespace Offr.Message
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
             return base.Equals(other) &&
-                Equals(other._thumbnails, _thumbnails) &&
+                _thumbnails.SequenceEqual(other._thumbnails) &&
                 Equals(other.OfferText, OfferText)  &&
                 Equals(other.MoreInfoURL, MoreInfoURL) &&
                 other.EndBy.Equals(EndBy) &&
@@ -128,5 +131,55 @@ namespace Offr.Message
                 return result;
             }
         }
+        #region JSON
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            base.WriteJson(writer,serializer);
+            /*Equals(other._thumbnails, _thumbnails) &&
+            Equals(other.OfferText, OfferText) &&
+            Equals(other.MoreInfoURL, MoreInfoURL) &&
+            other.EndBy.Equals(EndBy) &&
+            Equals(other.EndByText, EndByText) &&
+            Equals(other.Location, Location);*/
+            /*serializer.Serialize(writer,Thumbnail);
+            serializer.Serialize(writer,OfferText);
+            serializer.Serialize(writer,MoreInfoURL);
+            serializer.Serialize(writer,EndBy);
+            serializer.Serialize(writer,EndByText);
+            serializer.Serialize(writer,EndByText);
+            serializer.Serialize(writer,Location);*/
+            JSON.WriteProperty(serializer, writer, "Thumbnail", Thumbnail);
+            JSON.WriteProperty(serializer, writer, "OfferText", OfferText);
+            JSON.WriteProperty(serializer, writer, "MoreInfoURL", MoreInfoURL);
+            JSON.WriteProperty(serializer, writer, "EndBy", EndBy);
+            JSON.WriteProperty(serializer, writer, "EndByText", EndByText);
+            JSON.WriteProperty(serializer, writer, "Location", Location);
+
+        }
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            base.ReadJson(reader,serializer);
+/*            serializer.Deserialize(reader, typeof (string));
+            serializer.Deserialize(reader, typeof (string));
+            serializer.Deserialize(reader, typeof (string));
+            serializer.Deserialize(reader, typeof (DateTime?));
+            serializer.Deserialize(reader, typeof (string));
+            serializer.Deserialize(reader, typeof (string));
+            serializer.Deserialize(reader, typeof (Location.Location));*/
+            AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "Thumbnail"));
+
+            OfferText = JSON.ReadProperty<string>(serializer, reader, "OfferText");
+
+            MoreInfoURL = JSON.ReadProperty<string>(serializer, reader, "MoreInfoURL");
+
+            EndBy = JSON.ReadProperty<DateTime?>(serializer, reader, "EndBy");
+
+            EndByText = JSON.ReadProperty<string>(serializer, reader, "EndByText");
+
+            Location = JSON.ReadProperty<Location.Location>(serializer, reader, "Location");
+           
+
+        }
+        #endregion
     }
 }

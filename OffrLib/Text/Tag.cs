@@ -33,24 +33,6 @@ namespace Offr.Text
         {
         }
 
-        //IEquatable<Tag>.equals
-        public bool Equals(Tag other)
-        {
-            return other != null && (match_tag.Equals(other.match_tag));
-        }
-
-        // object.equals
-        public override bool Equals(object obj)
-        {
-            Tag other = obj as Tag;
-            return other != null && (match_tag.Equals(other.match_tag));
-        }
-
-        // object hashCode (must coordinate with above)
-        public override int GetHashCode()
-        {
-            return match_tag.GetHashCode();
-        }
 
         public override string ToString()
         {
@@ -60,6 +42,29 @@ namespace Offr.Text
         public string ID
         {
             get { throw new NotImplementedException(); }
+        }
+
+        public bool Equals(Tag other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Equals(other.type, type) && Equals(other.tag, tag);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (Tag)) return false;
+            return Equals((Tag) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (type.GetHashCode()*397) ^ (tag != null ? tag.GetHashCode() : 0);
+            }
         }
     }
 }

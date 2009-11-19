@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 using Offr.Location;
 using Offr.Message;
 using Offr.Text;
@@ -89,5 +90,19 @@ namespace Offr.Tests
             }
             return builder.ToString();
         }
+
+        #region Implementation of ICanJson
+
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

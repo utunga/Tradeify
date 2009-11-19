@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using Newtonsoft.Json;
+using Offr.Json;
+using Offr.Json.Converter;
 using Offr.Text;
 
 namespace Offr.Location
@@ -29,10 +33,12 @@ namespace Offr.Location
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return  other.GeoLat == GeoLat && 
+
+            //nb SequenceEqual relies on ordering being the same
+            return  _locationTags.SequenceEqual(other._locationTags) &&
+                    other.GeoLat == GeoLat && 
                     other.GeoLong == GeoLong && 
-                    Equals(other.Address, Address) && 
-                    Equals(other._locationTags, _locationTags);
+                    Equals(other.Address, Address) ;
         }
 
         public override bool Equals(object obj)
@@ -167,6 +173,42 @@ namespace Offr.Location
         }
 
         #endregion
+        #region JSON
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            //serializer.Serialize(writer,this);
+            //JSONConverterWrapper.Serialize(this,new ILocationConverter());
+            //serializer.Serialize(writer, GeoLat);
+            JSON.WriteProperty(serializer, writer, "GeoLat", GeoLat);
 
+            //writer.WriteValue(ticks);
+            //writer.WriteEndConstructor();
+            JSON.WriteProperty(serializer, writer, "GeoLong", GeoLong);
+            JSON.WriteProperty(serializer, writer, "Address", Address);
+            JSON.WriteProperty(serializer, writer, "Tags", Tags);
+
+            //serializer.Serialize(writer, GeoLat);
+            //serializer.Serialize(writer, GeoLong);
+            //serializer.Serialize(writer, Address);
+            //serializer.Serialize(writer, Tags);
+        }
+
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            GeoLat=JSON.ReadProperty<decimal>(serializer, reader, "GeoLat");//ReadStringProperty(reader, "MessageID");
+            GeoLong =JSON.ReadProperty<decimal>(serializer, reader, "GeoLong");
+            Address=JSON.ReadProperty<string>(serializer, reader, "Address");
+            Tags=JSON.ReadProperty<IList<ITag>>(serializer, reader, "Tags");
+            //serializer.Deserialize(reader, typeof (Location));
+           // serializer.Deserialize(reader, typeof(decimal));
+            //object val = reader.Value;
+            //reader.Read();
+           // serializer.Deserialize(reader, typeof(decimal));
+          // serializer.Deserialize(reader, typeof(decimal));
+           //serializer.Deserialize(reader, typeof(decimal));
+            //serializer.Deserialize(reader, typeof(string));
+            //serializer.Deserialize(reader, typeof(List<Tag>));
+        }
     }
+        #endregion JSON
 }

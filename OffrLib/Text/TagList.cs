@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using Offr.Common;
+using Offr.Json;
 using Offr.Json.Converter;
 
 namespace Offr.Text
 {
     //FIXME ideally this class would be marked internal - don't use it outside this assembly
-    public class TagList : IList<ITag>
+    public class TagList : IList<ITag>, ICanJson, IEquatable<TagList>
     {
         private IList<ITag> _list;
         private Dictionary<TagType, List<ITag>> _tagsByType;
@@ -26,10 +27,11 @@ namespace Offr.Text
             : base()
         {
             InitBackingLists();
-            foreach (ITag tag in tags)
-            {
-                Add(tag);
-            }
+            if (tags != null)
+                foreach (ITag tag in tags)
+                {
+                    Add(tag);
+                }
         }
 
         /// <summary>
@@ -129,7 +131,7 @@ namespace Offr.Text
                 _matchTags.Remove(existingTag.match_tag);
             }
         }
-        [JsonConverter(typeof(ITagConverter))]
+        [JsonConverter(typeof(TagConverter))]
         public ITag this[int index]
         {
             get { return _list[index]; }
@@ -176,5 +178,41 @@ namespace Offr.Text
             }
         }
         #endregion
+
+        #region JSON
+
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            JSON.WriteProperty(serializer, writer, "_list", _list);
+        }
+
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            //serializer.Deserialize(reader, typeof (List<Tag>));
+            _list = JSON.ReadProperty<List<ITag>>(serializer, reader, "_list");
+
+        }
+
+        #endregion
+
+        public bool Equals(TagList other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return other._list.SequenceEqual(_list);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (TagList)) return false;
+            return Equals((TagList) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (_list != null ? _list.GetHashCode() : 0);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using Offr.Json;
 using Offr.Json.Converter;
 using Offr.Message;
 using Offr.Twitter;
@@ -14,14 +15,14 @@ namespace Offr.Text
 
         private IMessagePointer _messagePointer;
         
-        [JsonConverter(typeof(IUserPointerConverter))]
-        public IUserPointer _createdBy { set; get; }
+        [JsonConverter(typeof(UserPointerConverter))]
+        public IUserPointer _createdBy {set; get; }
         
         public string _sourceText { set; get; }
         
         private DateTime _timeStampUTC;
         
-        [JsonConverter(typeof(IMessagePointerConverter))]
+        [JsonConverter(typeof(MessagePointerConverter))]
         public IMessagePointer Pointer
         {
             get { return _messagePointer; }
@@ -66,7 +67,10 @@ namespace Offr.Text
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(other._messagePointer, _messagePointer) && Equals(other._createdBy, _createdBy) && Equals(other._sourceText, _sourceText) && other._timeStampUTC.Equals(_timeStampUTC);
+            return  Equals(other._messagePointer, _messagePointer) && 
+                    Equals(other._createdBy, _createdBy) && 
+                    Equals(other._sourceText, _sourceText) && 
+                    other._timeStampUTC.Equals(_timeStampUTC);
         }
 
         public override bool Equals(object obj)
@@ -126,5 +130,33 @@ namespace Offr.Text
         }
 
         #endregion
+        #region JSON
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            //Equals(other._messagePointer, _messagePointer) && Equals(other._createdBy, _createdBy) && Equals(other._sourceText, _sourceText) && other._timeStampUTC.Equals(_timeStampUTC);
+            JSON.WriteProperty(serializer, writer, "Pointer", Pointer);
+            JSON.WriteProperty(serializer, writer, "CreatedBy", CreatedBy);
+            JSON.WriteProperty(serializer, writer, "Text", _sourceText);
+            JSON.WriteProperty(serializer, writer, "_timeStampUTC", _timeStampUTC);
+
+/*            serializer.Serialize(writer,Pointer);
+            serializer.Serialize(writer,CreatedBy);
+            serializer.Serialize(writer,Text);
+            serializer.Serialize(writer,Timestamp);*/
+        }
+
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            Pointer=JSON.ReadProperty<TwitterMessagePointer>(serializer, reader, "Pointer");
+            _createdBy=JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "CreatedBy");
+            _sourceText=JSON.ReadProperty<string>(serializer, reader, "Text");
+            //string property = JSONConverterWrapper.ReadProperty<string>(serializer, reader, "Timestamp");
+            _timeStampUTC = JSON.ReadProperty<DateTime>(serializer, reader, "_timeStampUTC"); /*DateTime.Parse(property);*/
+/*            serializer.Deserialize(reader, typeof (TwitterMessagePointer));
+            serializer.Deserialize(reader, typeof(TwitterUserPointer));
+            serializer.Deserialize(reader, typeof(string));
+            serializer.Deserialize(reader, typeof(string))*/;
+        }
+        #endregion JSON
     }
 }

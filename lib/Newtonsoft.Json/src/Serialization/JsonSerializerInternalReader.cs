@@ -166,12 +166,24 @@ namespace Newtonsoft.Json.Serialization
           case JsonToken.Boolean:
           case JsonToken.Date:
             // convert empty string to null automatically
-            if (reader.Value is string &&
-              string.IsNullOrEmpty((string)reader.Value) &&
+
+            /////////////////////////
+            //MKT:2009-11-21 why in the name of god would you wan tto do that?
+                
+            //orig:
+            //if (reader.Value is string &&
+            //    string.IsNullOrEmpty((string)reader.Value) &&
+            //    objectType != null &&
+            //    ReflectionUtils.IsNullable(objectType))
+            //        return null;
+
+            if (reader.Value is string && reader.Value==null &&
               objectType != null &&
               ReflectionUtils.IsNullable(objectType))
               return null;
-
+            
+            /////////////////////////
+            
             return EnsureType(reader.Value, objectType);
           case JsonToken.StartConstructor:
           case JsonToken.EndConstructor:

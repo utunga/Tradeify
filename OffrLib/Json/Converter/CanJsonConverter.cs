@@ -12,7 +12,7 @@ namespace Offr.Json.Converter
     {
 
         /// <summary>
-        /// CanJsonConvertor can convert any object implementing ICanJson
+        /// CanJsonConvertor can convert any object implementing CanJson
         /// </summary>
         public override bool CanConvert(Type objectType)
         {
@@ -23,7 +23,7 @@ namespace Offr.Json.Converter
         /// Creates an object which will then be populated by the serializer.
         /// </summary>
         /// <returns></returns>
-        public abstract T Create();
+        public abstract T Create(JsonReader reader);
 
         /// <summary>
         /// Writes the JSON representation of the object by calling the WriteJson method on the target
@@ -35,9 +35,11 @@ namespace Offr.Json.Converter
         {
             if (!(value is ICanJson))
             {
-                throw new SerializationException("Cannot convert object " + value + "expected something that implements ICanJson");
+                throw new SerializationException("Cannot convert object " + value + "expected something that implements CanJson");
             }
+            writer.WriteStartObject();
             ((ICanJson)value).WriteJson(writer,serializer);
+            writer.WriteEndObject();
         }
 
         /// <summary>
@@ -49,11 +51,13 @@ namespace Offr.Json.Converter
         /// <returns>The object value.</returns>
         public override object ReadJson(JsonReader reader, Type objectType, JsonSerializer serializer)
         {
-            ICanJson value = Create();
+            if (reader.TokenType == JsonToken.Null) return null;
+            
+            ICanJson value = Create(reader);
             if (value == null)
                 throw new JsonSerializationException("No object created.");
-            value.ReadJson(reader, serializer); 
-            
+            value.ReadJson(reader, serializer);
+            JSON.ReadAndAssert(reader);
             //it may be that you prefer an JObject here in which case
              // JObject jObject = JObject.Load(reader);
             return value;

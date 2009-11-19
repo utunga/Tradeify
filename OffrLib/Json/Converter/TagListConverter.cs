@@ -5,15 +5,15 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Offr.Message;
+using Offr.Text;
 
 namespace Offr.Json.Converter
 {
-    public class IMessageConverter : CanJsonConvertor<IMessage>
+    public class TagListConverter : CanJsonConvertor<TagList>
     {
-
-        public override IMessage Create()
+        public override TagList Create(JsonReader reader)
         {
-            return new OfferMessage();
+            return new TagList();
         }
     }
 }

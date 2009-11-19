@@ -9,7 +9,7 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    public interface IMessage : IComparable, Offr.Repository.ITopic , ICanJson
+    public interface IMessage : ICanJson , IComparable, Offr.Repository.ITopic 
     {
         IRawMessage Source { get; set; }
         DateTime TimeStamp { get; }
