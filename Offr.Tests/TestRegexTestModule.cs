@@ -25,7 +25,7 @@ namespace Offr.Tests
             Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
             Bind<IMessageParser>().To<RegexMessageParser>(); // <-- same as TestModule except for this
             Bind<IRawMessageProvider>().To<MockRawMessageProvider>();
-            Bind<IMessageProvider>().To<MemoryMessageProvider>();
+            Bind<IMessageProvider>().To<MessageProvider>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>();
             Bind<MessageProviderForKeywords>().ToSelf();
         }

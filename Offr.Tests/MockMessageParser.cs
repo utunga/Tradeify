@@ -6,7 +6,6 @@ namespace Offr.Tests
 {
     public class MockMessageParser : IMessageParser
     {
-        //hi mum
         public IMessage Parse(IRawMessage source)
         {
             if (!(source is MockRawMessage))
@@ -30,12 +29,23 @@ namespace Offr.Tests
             {
                 msg.ClearEndBy();
             }
-            msg.Source = mockRaw;
+           
             foreach (ITag tag in mockRaw.Tags)
             {
                 msg.AddTag(tag);
             }
             msg.IsValid = true;
+
+            
+            //if (CONVERT_MOCK_TO_REAL)
+            //{
+            //    RawMessage realRawMessage = new RawMessage(source.Text, source.Pointer, source.CreatedBy, source.Timestamp);
+            //    msg.Source = realRawMessage;
+            //}
+
+            //FIXME1 this all has to go - don't keep the source around!
+            msg.Source = mockRaw;
+            
             return msg;
 
         }

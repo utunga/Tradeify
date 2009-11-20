@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
+using Offr.Json;
 using Offr.Users;
 
 namespace Offr.Text
@@ -62,5 +64,20 @@ namespace Offr.Text
                    Equals(other.MatchTag, MatchTag);
         }
 
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            JSON.WriteProperty(serializer, writer, "provider_user_name", ProviderUserName);
+            JSON.WriteProperty(serializer, writer, "provide_name_space", ProviderNameSpace);
+            JSON.WriteProperty(serializer, writer,"profile_pic_url",ProfilePicUrl);
+            JSON.WriteProperty(serializer, writer, "screen_name", ScreenName);
+            JSON.WriteProperty(serializer, writer, "more_info_url", MoreInfoUrl);
+            JSON.WriteProperty(serializer, writer, "match_tag", MatchTag);
+        }
+
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            ProviderNameSpace = JSON.ReadProperty<string>(serializer, reader, "provide_name_space");
+
+        }
     }
 }

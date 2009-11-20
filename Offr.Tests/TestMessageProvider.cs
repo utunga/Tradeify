@@ -7,6 +7,7 @@ using Offr.Message;
 using Offr.Text;
 using Ninject.Core;
 using Ninject;
+using Offr.Twitter;
 
 namespace Offr.Tests
 {
@@ -17,8 +18,9 @@ namespace Offr.Tests
 
         public TestMessageProvider()
         {
+            MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
             Global.Initialize(new TestModule());
-            _target = Global.Kernel.Get<IMessageProvider>(); 
+            _target =Global.Kernel.Get<IMessageProvider>();
         }
 
         [Test]
@@ -41,11 +43,11 @@ namespace Offr.Tests
         public void TestMessageByID()
         {
             // somewhat of an integration test, actually
-            IMessage msg = _target.MessageByID("0");
+            IMessage msg = _target.MessageByID("test/0");
             Assert.IsNotNull(msg);
             Assert.AreEqual("0", msg.Source.Pointer.ProviderMessageID);
 
-            msg = _target.MessageByID("1");
+            msg = _target.MessageByID("test/1");
             Assert.IsNotNull(msg);
             Assert.AreEqual("1", msg.Source.Pointer.ProviderMessageID);
         }

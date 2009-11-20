@@ -7,15 +7,15 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    public class MemoryMessageProvider : IMessageProvider, IRawMessageReceiver, IMemCache
+    public class MessageProvider : IMessageProvider, IRawMessageReceiver, IMemCache
     {
-        private SortedList<string, IMessage> _messages; //refactor this to be a MessageRepository
+        private MessageRepository _messages;
         private List<IMessageReceiver> _receivers;
         
         readonly IRawMessageProvider _sourceProvider;
         readonly IMessageParser _messageParser;
 
-        public MemoryMessageProvider(IRawMessageProvider sourceProvider, IMessageParser messageParser)
+        public MessageProvider(IRawMessageProvider sourceProvider, IMessageParser messageParser)
         {
             _sourceProvider = sourceProvider;
             _messageParser = messageParser;
@@ -29,8 +29,8 @@ namespace Offr.Message
         {
             get
             {
-                UpdateMessageCache();
-                return _messages.Values;
+                //UpdateMessageCache();
+                return new List<IMessage>(_messages.GetAll());
             }
         }
 
@@ -49,7 +49,7 @@ namespace Offr.Message
 
         public void Invalidate()
         {
-            _messages = new SortedList<string, IMessage>();
+            _messages=new MessageRepository();
             _sourceProvider.Update();
         }
 
@@ -60,11 +60,9 @@ namespace Offr.Message
             // actually, if we skip this, we'll only return messages that have been parsed already, which
             // is kinda preferable given search api vs xml api.
             //UpdateMessageCacheForSingleItem(providerMessageID);
-            if (_messages.ContainsKey(providerMessageID))
-            {
-                return _messages[providerMessageID];
-            }
-            return null;
+
+            //can be null
+            return _messages.Get(providerMessageID); 
         }
 
         public IMessage MessageByID(IMessagePointer messagePointer)
@@ -147,14 +145,15 @@ namespace Offr.Message
         {
             lock (_messages)
             {
-                if (_messages.ContainsKey(providerMessageID))
+                _messages.Save(message);
+/*                if (_messages.ContainsKey(providerMessageID))
                 {
                     _messages[providerMessageID] = message;
                 }
                 else
                 {
                     _messages.Add(providerMessageID, message);
-                } 
+                } */
             }
         }
 

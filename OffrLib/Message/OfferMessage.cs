@@ -94,6 +94,7 @@ namespace Offr.Message
 
         public void AddThumbnail(string thumbnailURL)
         {
+            if(thumbnailURL!=null)
             _thumbnails.Add(thumbnailURL);
         }
 
@@ -135,50 +136,23 @@ namespace Offr.Message
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             base.WriteJson(writer,serializer);
-            /*Equals(other._thumbnails, _thumbnails) &&
-            Equals(other.OfferText, OfferText) &&
-            Equals(other.MoreInfoURL, MoreInfoURL) &&
-            other.EndBy.Equals(EndBy) &&
-            Equals(other.EndByText, EndByText) &&
-            Equals(other.Location, Location);*/
-            /*serializer.Serialize(writer,Thumbnail);
-            serializer.Serialize(writer,OfferText);
-            serializer.Serialize(writer,MoreInfoURL);
-            serializer.Serialize(writer,EndBy);
-            serializer.Serialize(writer,EndByText);
-            serializer.Serialize(writer,EndByText);
-            serializer.Serialize(writer,Location);*/
-            JSON.WriteProperty(serializer, writer, "Thumbnail", Thumbnail);
-            JSON.WriteProperty(serializer, writer, "OfferText", OfferText);
-            JSON.WriteProperty(serializer, writer, "MoreInfoURL", MoreInfoURL);
-            JSON.WriteProperty(serializer, writer, "EndBy", EndBy);
-            JSON.WriteProperty(serializer, writer, "EndByText", EndByText);
-            JSON.WriteProperty(serializer, writer, "Location", Location);
+            JSON.WriteProperty(serializer, writer, "thumbnail", Thumbnail);
+            JSON.WriteProperty(serializer, writer, "offer_text", OfferText);
+            JSON.WriteProperty(serializer, writer, "more_info_url", MoreInfoURL);
+            JSON.WriteProperty(serializer, writer, "end_by", EndBy);
+            JSON.WriteProperty(serializer, writer, "end_by_text", EndByText);
+            JSON.WriteProperty(serializer, writer, "location", Location);
 
         }
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
             base.ReadJson(reader,serializer);
-/*            serializer.Deserialize(reader, typeof (string));
-            serializer.Deserialize(reader, typeof (string));
-            serializer.Deserialize(reader, typeof (string));
-            serializer.Deserialize(reader, typeof (DateTime?));
-            serializer.Deserialize(reader, typeof (string));
-            serializer.Deserialize(reader, typeof (string));
-            serializer.Deserialize(reader, typeof (Location.Location));*/
-            AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "Thumbnail"));
-
-            OfferText = JSON.ReadProperty<string>(serializer, reader, "OfferText");
-
-            MoreInfoURL = JSON.ReadProperty<string>(serializer, reader, "MoreInfoURL");
-
-            EndBy = JSON.ReadProperty<DateTime?>(serializer, reader, "EndBy");
-
-            EndByText = JSON.ReadProperty<string>(serializer, reader, "EndByText");
-
-            Location = JSON.ReadProperty<Location.Location>(serializer, reader, "Location");
-           
-
+            AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "thumbnail"));
+            OfferText = JSON.ReadProperty<string>(serializer, reader, "offer_text");
+            MoreInfoURL = JSON.ReadProperty<string>(serializer, reader, "more_info_url");
+            EndBy = JSON.ReadProperty<DateTime?>(serializer, reader, "end_by");
+            EndByText = JSON.ReadProperty<string>(serializer, reader, "end_by_text");
+            Location = JSON.ReadProperty<Location.Location>(serializer, reader, "location");          
         }
         #endregion
     }

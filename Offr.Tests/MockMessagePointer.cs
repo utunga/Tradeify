@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using Offr.Json;
 using Offr.Message;
 using Offr.Text;
+using Offr.Twitter;
 
 namespace Offr.Tests
 {
@@ -33,12 +35,17 @@ namespace Offr.Tests
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            //JSON.WriteProperty(serializer, writer, "ProviderNameSpace", ProviderNameSpace);
+            //JSON.WriteProperty(serializer, writer, "MessageID", ProviderMessageID);
+            //JSON.WriteProperty(serializer, writer, "Source", Source);
+            TwitterMessagePointer messagePointer = new TwitterMessagePointer(long.Parse(ProviderMessageID));
+            messagePointer.WriteJson(writer,serializer);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            JSON.ReadProperty<string>(serializer, reader, "ProviderNameSpace");
+            this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "MessageID");
         }
 
         #endregion

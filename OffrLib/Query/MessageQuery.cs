@@ -54,7 +54,7 @@ namespace Offr.Query
                 {
                     foreach (string tagText in nameVals.GetValues(tagType.ToString()))
                     {
-                        ITag tag = tagProvider.FromTypeAndText(tagType, tagText);
+                        ITag tag = tagProvider.GetTag(tagText);
                         tags.Add(tag);
                     }
                 }

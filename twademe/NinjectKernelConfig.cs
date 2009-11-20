@@ -23,8 +23,8 @@ namespace twademe
 
             // use live data
             Bind<IMessageParser>().To<RegexMessageParser>();
-            Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>().Using<SingletonBehavior>();
-            Bind<IMessageProvider>().To<MemoryMessageProvider>().Using<SingletonBehavior>();
+            Bind<IRawMessageProvider>().To<Offr.Twitter.TwitterRawMessageProvider>().Using<SingletonBehavior>();
+            Bind<IMessageProvider>().To<MessageProvider>().Using<SingletonBehavior>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
             Bind<ITagProvider>().To<TagProvider>().Using<SingletonBehavior>();
             Bind<MessageProviderForKeywords>().ToSelf();

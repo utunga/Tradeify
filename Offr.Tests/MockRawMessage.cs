@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using Offr.Json;
 using Offr.Location;
 using Offr.Message;
 using Offr.Text;
+using Offr.Twitter;
 
 namespace Offr.Tests
 {
@@ -95,14 +97,15 @@ namespace Offr.Tests
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            //So writing isnt screwed up
+            RawMessage nonMock= new RawMessage(this.Text, this.Pointer, this.CreatedBy, this.Timestamp);
+            nonMock.WriteJson(writer,serializer);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            Pointer = JSON.ReadProperty<TwitterMessagePointer>(serializer, reader, "Pointer");
         }
-
         #endregion
     }
 }

@@ -34,6 +34,7 @@ namespace Offr.Tests
                 //Global.InitializeWithRecentOffers("data/typo_asdfuihsg.json"); // should be copied to bin/Debug output directory because of build action properties on that file 
                 MessageRepository.InitializeMessagesFilePath = "data/typo_asdfuihsg.json";
                 _target = new MessageRepository();
+                _target.Initialize();
                 Assert.Fail("Expected to get an  exception from trying to trying to load bad file");
             }
             catch (IOException)
@@ -45,104 +46,22 @@ namespace Offr.Tests
                 Assert.Fail("Expected to get an IOexception from trying to trying to load bad file, instead got:" + ex);
             }
         }
-
-        [Test]
-        public void TestTwitterMessagePointerRoundTrip()
-        {
-           /*TwitterMessagePointer orig= new TwitterMessagePointer();
-            String message = JSONConverter.Serialize(orig);
-            TwitterMessagePointer deserialized = JSONConverter.Deserialize<TwitterMessagePointer>(message);
-            Assert.AreEqual(orig,deserialized,"Round trip serialization for Location false");
- */
-            TwitterMessagePointer orig = new TwitterMessagePointer(23412123);
-            //strictly a test
-            orig.Source = new TwitterMessagePointer(4334);
-           
-            string json = JSON.Serialize(orig);
-            TwitterMessagePointer deserialized = JSON.Deserialize<TwitterMessagePointer>(json);
-            Assert.AreEqual(orig, deserialized, "Round trip serialization for TwitterMessagePointer failed");
-
-        }
-
-        [Test]
-        public void TestLocationRoundTrip()
-        {
-            Location.Location orig = new Location.Location();
-            String message = JSON.Serialize(orig);
-            Location.Location deserialized = JSON.Deserialize<Location.Location>(message);
-            Assert.AreEqual(orig.GeoLat, deserialized.GeoLat);
-            Assert.AreEqual(orig.GeoLong, deserialized.GeoLong);
-            Assert.AreEqual(orig.Address, deserialized.Address);
-            Assert.AreEqual(orig.Tags, deserialized.Tags);
-            //Assert.AreEqual(orig._locationTags, deserialized._locationTags);
-            Assert.AreEqual(orig, deserialized, "Round trip serialization for location false");
-        }
-        [Test]
-        public void TestRawMessageRoundTrip()
-        {
-              RawMessage orig = //new RawMessage();
-                new RawMessage("Im a Raw Message.. be afraid",new TwitterMessagePointer(),new TwitterUserPointer(),DateTime.MinValue.ToString());
-
-            String message = JSON.Serialize(orig);
-            RawMessage deserialized = JSON.Deserialize<RawMessage>(message);
-            Assert.AreEqual(orig, deserialized, "Round trip serialization for Raw Message false");
-        }
-
-        [Test]
-        public void TestInitializeWithRecentOffers_Works()
-        {
-            MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
-            _target = new MessageRepository();        
-            //Assert.AreEqual(10, new List<IMessage>(_target.GetAll()).Count, "Expected to load 10 messages");
-        }
-
-        [Test]
-        public void TestOfferMessageRoundTrip()
-        {
-            RawMessage m = new RawMessage("", new TwitterMessagePointer(0), new TwitterUserPointer(""), DateTime.Now.ToString());
-            OfferMessage orig = new OfferMessage();
-            orig.AddThumbnail("thumb");
-            orig.Source = m;
-            string json = JSON.Serialize(orig);
-            Console.Out.WriteLine(json);
-            OfferMessage deserialized = JSON.Deserialize<OfferMessage>(json);
-            Assert.AreEqual(orig,deserialized);
-        }
-
           [Test]
-          public void TestSerialize()
-        {
+          public void TestInitialize()
+          {
+              MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
+              _target = new MessageRepository();
+              _target.Initialize();
 
-            MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
-            RawMessage m = new RawMessage("", new TwitterMessagePointer(0), new TwitterUserPointer(""), DateTime.Now.ToString());
-            OfferMessage o = new OfferMessage();
-            o.Source = m;
-            List<OfferMessage> messages = new List<OfferMessage> { o, o };
-            string initialMessages = JSON.Serialize(messages);
-            List<OfferMessage> initialMessageobj = JSON.Deserialize<List<OfferMessage>>(initialMessages); 
-            AssertMessagesAreTheSame(messages, initialMessageobj, "Expected to load 10 messages");
-              Console.WriteLine(initialMessages);
-        }
+              Console.Out.WriteLine("Initialized from file with following data");
+              Console.Out.WriteLine(JSON.Serialize(_target.GetAll()));
 
-        private void AssertMessagesAreTheSame(List<OfferMessage> expectedList, List<OfferMessage> actualList, string errorPrefix)
-        {
-            Assert.That(expectedList.Count==actualList.Count);
-            for (int i = 0; i < actualList.Count; i++)
-            {
-                OfferMessage expected = expectedList[i];
-                OfferMessage actual = actualList[i];
-                Assert.AreEqual(expected.Location,actual.Location,"Location was not the same");
-                Assert.AreEqual(expected.OfferText,actual.OfferText, "Offer text was not the same");
-                Assert.AreEqual(expected.MoreInfoURL, actual.MoreInfoURL, "MoreInfoURL was not the same");
-                Assert.AreEqual(expected.LocationTags,actual.LocationTags,"LocationTags not the same");
-                //Assert.AreEqual(expected.OfferedBy,actual.OfferedBy,"OfferedBy not the same");
-                Assert.AreEqual(expected.Currencies,actual.Currencies,"Currencies not the same");
-                Assert.AreEqual(expected.EndBy,actual.EndBy,"EndBy not the same");
-                Assert.AreEqual(expected.EndByText,actual.EndByText,"EndByText not the same");
+              List<IMessage> messages = new List<IMessage>(_target.GetAll());
 
-                //There is also the protected field MessageType
-            }
-        }
+              Assert.AreEqual(6, messages.Count, "Expected 6 messages after initializing from " + MessageRepository.InitializeMessagesFilePath);
+          }
+
+
     }
    
 }

@@ -180,37 +180,30 @@ namespace Offr.Message
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-/*            Equals(other._tags, _tags) &&
-                other._timestamp.Equals(_timestamp) &&
-                Equals(other._source, _source) &&
-                Equals(other._messageType, _messageType) &&
-                Equals(other.CreatedBy, CreatedBy);*/
-            JSON.WriteProperty(serializer, writer, "_tags", _tags);
+            _tags.WriteJson(writer,serializer);
 
-            JSON.WriteProperty(serializer, writer, "_timestamp", _timestamp);
+            JSON.WriteProperty(serializer, writer, "timestamp", _timestamp);
 
-            JSON.WriteProperty(serializer, writer, "_source", _source);
+            JSON.WriteProperty(serializer, writer, "source", _source);
 
-            JSON.WriteProperty(serializer, writer, "_messageType", _messageType);
+            JSON.WriteProperty(serializer, writer, "message_type", _messageType);
 
-            JSON.WriteProperty(serializer, writer, "CreatedBy", CreatedBy);
-
-
+            JSON.WriteProperty(serializer, writer, "created_by", CreatedBy);
              
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            //serializer.Deserialize(reader,typeof(TagList));
-            _tags = JSON.ReadProperty<TagList>(serializer, reader, "_tags");
+            _tags = new TagList();
+            _tags.ReadJson(reader,serializer);
 
-            _timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "_timestamp");
+            _timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
 
-            _source = JSON.ReadProperty<RawMessage>(serializer, reader, "_source");
+            _source = JSON.ReadProperty<RawMessage>(serializer, reader, "source");
 
-            _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "_messageType");
+            _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
 
-            CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "CreatedBy");
+            CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
 
         }
         #endregion JSON

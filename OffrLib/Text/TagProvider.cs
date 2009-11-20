@@ -12,11 +12,11 @@ namespace Offr.Text
         //but for now just parse the string to get the tag
         //should be a dictionary with tag values
         private Dictionary<String, ITag> _knownTags;
+        
         public TagProvider()
         {
             _knownTags = new Dictionary<string, ITag>();
             AddKnownTags();
-
             }
 
         private void AddKnownTags()
@@ -35,25 +35,12 @@ namespace Offr.Text
             _knownTags.Add("free", FromTypeAndText(TagType.type, "free"));
         }
 
-       /* public ITag FromString(string match_tag)
-        {
-            if (!match_tag.Contains("/"))
-            {
-                match_tag = "tag/" + match_tag;
-            }
-            string[] parts = match_tag.Split('/');
-            string tagTypeStr = parts[0];
-            TagType tagType = (TagType) Enum.Parse(typeof (TagType), tagTypeStr, true);
-            // if there were multiple 'types' one could also do a switch here, i suppose
-            return new Tag(tagType, parts[1]);
-        }*/
-
-        public ITag FromTypeAndText(TagType tagType, string tagText)
+        private ITag FromTypeAndText(TagType tagType, string tagText)
         {
             return new Tag(tagType, tagText);
         }
 
-         public ITag GetTag(String tagString)
+         public ITag GetTag(string tagString)
         {
             string tagStringLowerCase = tagString.ToLowerInvariant();
             ITag tag;

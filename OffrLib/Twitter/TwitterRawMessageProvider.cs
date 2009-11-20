@@ -8,19 +8,19 @@ using Offr.Text;
 
 namespace Offr.Twitter
 {
-    public class StatusProvider : IRawMessageProvider
+    public class TwitterRawMessageProvider : IRawMessageProvider
     {
         private MessageType _forType;
         private readonly List<IRawMessageReceiver> _receivers;
 
-        public StatusProvider(MessageType forType)
+        public TwitterRawMessageProvider(MessageType forType)
         {
             _forType = forType;
             _receivers = new List<IRawMessageReceiver>();
         }
         
         //FIXME remove this
-        public StatusProvider() : this(MessageType.offr_test)
+        public TwitterRawMessageProvider() : this(MessageType.offr_test)
         {
         }
 

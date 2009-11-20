@@ -24,7 +24,7 @@ namespace Offr.Message
         {
             OfferMessage msg = new OfferMessage();
             msg.CreatedBy = source.CreatedBy;
-            msg.Source = source;
+            msg.Source = source; //Remove this
             foreach (ITag tag in ParseTags(source))
             {
                 if (tag.type == TagType.msg_type) continue; //skip messages of this type

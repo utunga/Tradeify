@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Offr.Common;
 using Offr.Json;
 using Offr.Json.Converter;
+using Offr.Repository;
 
 namespace Offr.Text
 {
@@ -183,13 +184,17 @@ namespace Offr.Text
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            JSON.WriteProperty(serializer, writer, "_list", _list);
+            JSON.WriteProperty(serializer, writer, "tags", _list);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            //serializer.Deserialize(reader, typeof (List<Tag>));
-            _list = JSON.ReadProperty<List<ITag>>(serializer, reader, "_list");
+             List<ITag> tmp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
+            TagProvider provider = Global.Kernel.Get<TagProvider>();            
+            foreach (ITag tag in tmp)
+            {
+                _list.Add(provider.GetTag(tag.tag));
+            }
 
         }
 

@@ -20,8 +20,9 @@ namespace Offr.Tests
 
         public TestMessageExecutor()
         {
+            MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
             Global.Initialize(new TestModule());
-            _target = Global.Kernel.Get<IMessageQueryExecutor>(); 
+            _target = Global.Kernel.Get<IMessageQueryExecutor>();
             _tagProvider = Global.Kernel.Get<ITagProvider>();
         }
 

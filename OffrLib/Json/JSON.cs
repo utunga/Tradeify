@@ -41,6 +41,7 @@ namespace Offr.Json
                 jsonSerializer.Converters.Add(new MessageConverter());
                 jsonSerializer.Converters.Add(new MessagePointerConverter());
                 jsonSerializer.Converters.Add(new TagListConverter());
+                jsonSerializer.Converters.Add(new TagConverter());
                 return jsonSerializer;
             }
         }

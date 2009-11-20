@@ -41,7 +41,7 @@ namespace Offr.Text
 
         public string ID
         {
-            get { throw new NotImplementedException(); }
+            get { return this.GetHashCode().ToString(); }
         }
 
         public bool Equals(Tag other)

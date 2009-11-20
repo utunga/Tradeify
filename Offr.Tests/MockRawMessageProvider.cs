@@ -7,8 +7,8 @@ namespace Offr.Tests
 {
     public class MockRawMessageProvider : IRawMessageProvider
     {
-        private bool _updatedOnce;
-        private readonly List<IRawMessageReceiver> _receivers;
+        protected bool _updatedOnce;
+        protected readonly List<IRawMessageReceiver> _receivers;
 
         public MockRawMessageProvider()
         {

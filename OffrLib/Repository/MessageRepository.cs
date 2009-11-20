@@ -21,7 +21,7 @@ namespace Offr
 
         public MessageRepository()
         {
-            Initialize();
+            //Initialize();
         }
 
         public static string InitializeMessagesFilePath
@@ -52,19 +52,11 @@ namespace Offr
                     stringBuilder.AppendLine(line);// im sure there is an even tighter way to do this, just don't know what it is
                 }
             }
-
-            //serialize into memory
-            //serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
-            List<IMessage> list = JSON.Deserialize<List<IMessage>>(stringBuilder.ToString());
-            foreach (IMessage msg in list)
+            SortedList<string, IMessage> list = JSON.Deserialize<SortedList<string, IMessage>>(stringBuilder.ToString());
+            foreach (string key in list.Keys)
             {
-                base.Save(msg);
+                base.Save(list[key]);
             }
-            Console.WriteLine();
-            //serializer.Deserialize<List<IMessage>>(stringBuilder.ToString());
-            // 'notify' them straight into the MessageProvider (by passing the RawMessage stage)
-            Global.Kernel.Get<IMessageProvider>().Notify(list);
-
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using Offr.Text;
 using Offr.Users;
 
@@ -28,5 +29,15 @@ namespace Offr.Tests
         }
 
         #endregion
+
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            new TwitterUserPointer(ProviderUserName=this.ProviderUserName);
+        }
+
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

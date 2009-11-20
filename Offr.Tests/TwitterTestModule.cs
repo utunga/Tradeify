@@ -20,9 +20,9 @@ namespace Offr.Tests
             //    ISourceTextProvider
             //    IMessageProvider
             //    IMessageQueryProvider
-            Bind<IMessageParser>().To<DumbMessageParser>(); //NEEDS MES ONE OF THESE
-            Bind<IRawMessageProvider>().To<Offr.Twitter.StatusProvider>();
-            Bind<IMessageProvider>().To<MemoryMessageProvider>();
+            Bind<IMessageParser>().To<MessageParser>(); 
+            Bind<IRawMessageProvider>().To<Offr.Twitter.TwitterRawMessageProvider>();
+            Bind<IMessageProvider>().To<MessageProvider>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>();
             Bind<ITagProvider>().To<TagProvider>();
             Bind<MessageProviderForKeywords>().ToSelf();

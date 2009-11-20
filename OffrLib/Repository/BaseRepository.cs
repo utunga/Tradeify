@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Offr.Json;
 
 namespace Offr.Repository
 {
@@ -32,22 +33,27 @@ namespace Offr.Repository
             {
                 //create new id and assign it?
                 // erm no.. just throw an exception
-                id = _list.Count.ToString().GetHashCode().ToString();
-                //throw new InvalidOperationException("Not a valid ID");
+                //id = _list.Count.ToString().GetHashCode().ToString();
+                throw new InvalidOperationException("Not a valid ID");
             }
             else
             {
                 _list[id] = instance;
             }
+            Serialize();
         }
-
+        private string Serialize()
+        {
+            string serializedList= JSON.Serialize(_list);
+            return serializedList;
+        }
         public virtual void Remove(T instance)
         {
             if (_list.ContainsKey(instance.ID))
                 _list.Remove(instance.ID);
         }
 
-        protected IQueryable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
             return _queryable;
         }

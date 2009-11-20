@@ -133,29 +133,18 @@ namespace Offr.Text
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            //Equals(other._messagePointer, _messagePointer) && Equals(other._createdBy, _createdBy) && Equals(other._sourceText, _sourceText) && other._timeStampUTC.Equals(_timeStampUTC);
-            JSON.WriteProperty(serializer, writer, "Pointer", Pointer);
-            JSON.WriteProperty(serializer, writer, "CreatedBy", CreatedBy);
-            JSON.WriteProperty(serializer, writer, "Text", _sourceText);
-            JSON.WriteProperty(serializer, writer, "_timeStampUTC", _timeStampUTC);
-
-/*            serializer.Serialize(writer,Pointer);
-            serializer.Serialize(writer,CreatedBy);
-            serializer.Serialize(writer,Text);
-            serializer.Serialize(writer,Timestamp);*/
+            JSON.WriteProperty(serializer, writer, "pointer", Pointer);
+            JSON.WriteProperty(serializer, writer, "created_by", CreatedBy);
+            JSON.WriteProperty(serializer, writer, "text", _sourceText);
+            JSON.WriteProperty(serializer, writer, "timestamp_utc", _timeStampUTC);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            Pointer=JSON.ReadProperty<TwitterMessagePointer>(serializer, reader, "Pointer");
-            _createdBy=JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "CreatedBy");
-            _sourceText=JSON.ReadProperty<string>(serializer, reader, "Text");
-            //string property = JSONConverterWrapper.ReadProperty<string>(serializer, reader, "Timestamp");
-            _timeStampUTC = JSON.ReadProperty<DateTime>(serializer, reader, "_timeStampUTC"); /*DateTime.Parse(property);*/
-/*            serializer.Deserialize(reader, typeof (TwitterMessagePointer));
-            serializer.Deserialize(reader, typeof(TwitterUserPointer));
-            serializer.Deserialize(reader, typeof(string));
-            serializer.Deserialize(reader, typeof(string))*/;
+            Pointer=JSON.ReadProperty<TwitterMessagePointer>(serializer, reader, "pointer");
+            _createdBy=JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
+            _sourceText=JSON.ReadProperty<string>(serializer, reader, "text");
+            _timeStampUTC = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp_utc"); 
         }
         #endregion JSON
     }
