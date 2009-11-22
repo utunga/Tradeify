@@ -36,7 +36,7 @@ namespace Offr.Query
         /// <returns></returns>
         protected abstract IEnumerable<IMessage> AllMessages();
 
-        public List<IMessage> MessagesForTags(List<ITag> tags)
+        public List<IMessage> MessagesForTags(IEnumerable<ITag> tags)
         {
             Update();
         
@@ -145,7 +145,18 @@ namespace Offr.Query
             }
         }
 
-       
+        public TagCounts GetTagCounts()
+        {
+            var tags = new List<TagWithCount>();
+            int total = 0;
+            foreach (ITag tag in _seenTags)
+            {
+                int count = _index[tag.match_tag].Count;
+                tags.Add(new TagWithCount() { count = count, tag = tag });
+                total += count;
+            }
+            return new TagCounts() { Tags = tags, Total = total };
+        }
     }
    
 }

@@ -29,10 +29,12 @@ namespace Offr.Text
         {
             InitBackingLists();
             if (tags != null)
+            {
                 foreach (ITag tag in tags)
                 {
                     Add(tag);
                 }
+            }
         }
 
         /// <summary>
@@ -184,16 +186,37 @@ namespace Offr.Text
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            JSON.WriteProperty(serializer, writer, "tags", _list);
+            
+            List<string> tags = new List<string>();
+            foreach (TagType tagType in _tagsByType.Keys)
+            {
+                foreach (ITag tag in _tagsByType[tagType])
+                {
+                    tags.Add(tag.tag); 
+                }
+            }
+            writer.WritePropertyName("tags");
+            serializer.Serialize(writer, tags); 
+
+            // equivalent to this..
+            //writer.WriteStartArray();
+            //foreach (TagType tagType in _tagsByType.Keys)
+            //{
+            //    foreach (ITag tag in _tagsByType[tagType])
+            //    {
+            //        writer.WriteValue(tag.tag);
+            //    }
+            //}
+            //writer.WriteEndArray();
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-             List<ITag> tmp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
-            TagProvider provider = Global.Kernel.Get<TagProvider>();            
-            foreach (ITag tag in tmp)
+            List<string> tags = JSON.ReadProperty<List<string>>(serializer, reader, "tags");
+            TagProvider provider = Global.Kernel.Get<TagProvider>(); //FIXME gotta figure out if this is correct thing to happen
+            foreach (string tag in tags)
             {
-                _list.Add(provider.GetTag(tag.tag));
+                _list.Add(provider.GetTag(tag));
             }
 
         }
@@ -204,7 +227,9 @@ namespace Offr.Text
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return other._list.SequenceEqual(_list);
+
+            //check that lists are equivalent
+            return _list.Intersect(other._list).Count() == _list.Count();
         }
 
         public override bool Equals(object obj)
@@ -218,6 +243,17 @@ namespace Offr.Text
         public override int GetHashCode()
         {
             return (_list != null ? _list.GetHashCode() : 0);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder("tags:");
+            foreach (ITag tag in _list)
+            {
+                sb.Append(tag.match_tag);
+                sb.Append(",");
+            }
+            return sb.ToString();
         }
     }
 }

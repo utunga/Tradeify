@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Offr.Common;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Message
 {
     public class MessageProvider : IMessageProvider, IRawMessageReceiver, IMemCache
     {
-        private MessageRepository _messages;
-        private List<IMessageReceiver> _receivers;
-        
-        readonly IRawMessageProvider _sourceProvider;
-        readonly IMessageParser _messageParser;
-
+        private MessageRepository _messages; 
+        private readonly IRawMessageProvider _sourceProvider;
+        private readonly IMessageParser _messageParser;
+        private readonly List<IMessageReceiver> _receivers;
+      
         public MessageProvider(IRawMessageProvider sourceProvider, IMessageParser messageParser)
         {
             _sourceProvider = sourceProvider;
@@ -29,7 +29,6 @@ namespace Offr.Message
         {
             get
             {
-                //UpdateMessageCache();
                 return new List<IMessage>(_messages.GetAll());
             }
         }
@@ -134,6 +133,11 @@ namespace Offr.Message
             }
         }
 
+        public void InitializeFromFile(string filePath)
+        {
+            Invalidate();
+            _messages.InitializeFromFile(filePath);
+        }
 
         private void UpdateMessageCache()
         {

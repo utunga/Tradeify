@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
+using Offr.Location;
 using Offr.Message;
 using Offr.Text;
 
@@ -11,11 +12,13 @@ namespace Offr.Tests
     [TestFixture]
     public class TestRegexParser
     {
-        IMessageParser _target;
+        readonly IMessageParser _target;
+
         public TestRegexParser()
         {
-            Global.Initialize(new TestRegexTestModule());
-            _target = Global.Kernel.Get<IMessageParser>(); 
+            TagProvider singletonTagProvider = new TagProvider();
+            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            _target = new RegexMessageParser(singletonTagProvider, locationProvider);
         }
 
         [Test]

@@ -20,49 +20,49 @@ namespace Offr.Tests
 
         public TestMessageExecutor()
         {
-            MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
-            Global.Initialize(new TestModule());
-            _target = Global.Kernel.Get<IMessageQueryExecutor>();
-            _tagProvider = Global.Kernel.Get<ITagProvider>();
+            MockRawMessageProvider mockProvider = new MockRawMessageProvider();
+            MockMessageParser mockParser = new MockMessageParser();
+            MessageProvider realMessageProvider = new MessageProvider(mockProvider, mockParser);
+            _target = new TagDexQueryExecutor(realMessageProvider);
+
         }
 
+        //[Test]
+        //[Ignore("Not supported anymore")]
+        //public void TestTextualQuery()
+        //{
+        //    foreach (string offerKeyword in MockData.Offers)
+        //    {
+        //        List<IMessage> results = new List<IMessage>(_target.GetMessagesForKeywordAndTags(offerKeyword, null));//<-- target execution
+        //        Assert.GreaterOrEqual(results.Count, 1, "Received no results for query:" + offerKeyword);
+        //        Console.Out.WriteLine("For " + offerKeyword.ToString() + ":");
+        //        foreach (IMessage message in results)
+        //        {
+        //            Assert.That(message is IOfferMessage);
+        //            IOfferMessage offer = message as IOfferMessage;
+        //            Assert.IsNotNull(offer);
+        //            Assert.That(offer.ToString().Contains(offerKeyword));
+        //            Console.Out.WriteLine("\tfound " + message.ToString());
+        //        }
+        //    }
+        //}
+
         [Test]
-        public void TestKeywordQuery()
+        public void TestTagBasedQuery()
         {
-            foreach (string offerKeyword in MockData.Offers)
+            foreach (Tag tag in MockData.UsedTags)
             {
-                IMessageQuery query = new MessageQuery() {Keywords = offerKeyword};
-                List<IMessage> results = new List<IMessage>(_target.GetMessagesForQuery(query));//<-- target execution
-                Assert.GreaterOrEqual( results.Count, 1, "Received no results for query:" + query);
-                Console.Out.WriteLine("For " + query.ToString() + ":");
+               
+
+                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag })); //<-- target execution
+                Assert.GreaterOrEqual(results.Count, 1, "Received no results for query:" + tag);
+                Console.Out.WriteLine("For " + tag.ToString() + ":");
                 foreach (IMessage message in results)
                 {
                     Assert.That(message is IOfferMessage);
                     IOfferMessage offer = message as IOfferMessage;
                     Assert.IsNotNull(offer);
-                    Assert.That(offer.ToString().Contains(offerKeyword));
-                    Console.Out.WriteLine("\tfound " + message.ToString());
-                }
-            }
-        }
-
-        [Test]
-        public void TestSingleFacetQuery()
-        {
-            foreach (Tag facet in MockData.UsedTags)
-            {
-                IMessageQuery query = new MessageQuery();
-                query.Facets.Add(facet);
-
-                List<IMessage> results = new List<IMessage>(_target.GetMessagesForQuery(query));//<-- target execution
-                Assert.GreaterOrEqual(results.Count, 1, "Received no results for query:" + query);
-                Console.Out.WriteLine("For " + query.ToString() + ":");
-                foreach (IMessage message in results)
-                {
-                    Assert.That(message is IOfferMessage);
-                    IOfferMessage offer = message as IOfferMessage;
-                    Assert.IsNotNull(offer);
-                    Assert.That(offer.Tags.Contains(facet), "Expected to find results that contain facet:" + facet + " in message:" + message);
+                    Assert.That(offer.Tags.Contains(tag), "Expected to find results that contain facet:" + tag + " in message:" + message);
                     Console.Out.WriteLine("\tfound " + message.ToString());
                 }
             }
@@ -71,17 +71,14 @@ namespace Offr.Tests
         [Test]
         public void TestTagCounts()
         {
-            TagCounts allResults = _target.GetTagCountsForQuery(new MessageQuery());
+            TagCounts allResults = _target.GetTagCounts();
             Assert.AreEqual(MockData.MSG_COUNT, allResults.Total, "Expected total count to equal message count for blank query");
-            foreach (Tag searchFacet in MockData.UsedTags)
+            foreach (Tag tag in MockData.UsedTags)
             {
-                IMessageQuery query = new MessageQuery();
-                query.Facets.Add(searchFacet);
-                
-                TagCounts results = _target.GetTagCountsForQuery(query);
+                TagCounts results = _target.GetTagCountsForTags(new[] { tag });
                 foreach(TagWithCount foundTag in results.Tags)
                 {
-                    if (foundTag.Equals(searchFacet))
+                    if (foundTag.Equals(tag))
                     {
                         Assert.AreEqual(results.Total, foundTag.count, "Expected anything that is in the search query to have max count");
                     }
@@ -94,7 +91,7 @@ namespace Offr.Tests
                     Assert.GreaterOrEqual(lastCount, foundTag.count, "Expected results to be in descending order");
                 }
 
-                Console.Out.WriteLine("For " + query.ToString() + ":");
+                Console.Out.WriteLine("For " + tag.ToString() + ":");
                 foreach (TagWithCount foundTag in results.Tags)
                 {
                     Console.Out.WriteLine("\tfound " + foundTag.ToString());
@@ -114,12 +111,12 @@ namespace Offr.Tests
                 {
                     foreach (Tag facet3 in MockData.UsedTags)
                     {
-                        IMessageQuery query = new MessageQuery();
-                        query.Facets.Add(facet1);
-                        query.Facets.Add(facet2);
-                        query.Facets.Add(facet3);
+                        List<ITag> multiTags = new List<ITag>();
+                        multiTags.Add(facet1);
+                        multiTags.Add(facet2);
+                        multiTags.Add(facet3);
 
-                        List<IMessage> results = new List<IMessage>(_target.GetMessagesForQuery(query)); //<-- target execution
+                        List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(multiTags)); //<-- target execution
                         queryCount++;
                         foreach (IMessage message in results)
                         {

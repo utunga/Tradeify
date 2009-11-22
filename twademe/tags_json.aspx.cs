@@ -22,9 +22,9 @@ namespace twademe
         {
             _tagProvider = Global.Kernel.Get<ITagProvider>();
 
-            MessageQuery query = MessageQuery.MessageQueryFromNameValCollection(_tagProvider, Request.QueryString);
+            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(Request.QueryString); 
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
-            TagCounts tagCounts = queryExecutor.GetTagCountsForQuery(query);
+            TagCounts tagCounts = queryExecutor.GetTagCountsForTags(tags);
             Response.ContentType = "application/json";
             SendJSON(tagCounts);
         }

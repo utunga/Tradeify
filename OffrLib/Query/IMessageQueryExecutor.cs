@@ -9,8 +9,9 @@ namespace Offr.Query
 {
     public interface IMessageQueryExecutor
     {
-        IEnumerable<IMessage> GetMessagesForQuery(IMessageQuery messageQuery);
-        TagCounts GetTagCountsForQuery(IMessageQuery query);
-        TagCounts GetTagCountsForTags(List<ITag> tags);
+        TagCounts GetTagCounts();
+        TagCounts GetTagCountsForTags(IEnumerable<ITag> tags);
+        IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags);
+        //IEnumerable<IMessage> GetMessagesForKeywordAndTags(string keyword, IEnumerable<ITag> tags);
     }
 }

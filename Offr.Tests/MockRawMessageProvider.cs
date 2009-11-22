@@ -29,7 +29,7 @@ namespace Offr.Tests
             }
         }
 
-        public void Update()
+        public virtual void Update()
         {
             if (_updatedOnce) { return; }
             

@@ -20,11 +20,10 @@ namespace Offr
         {
             lock (_syncLock)
             {
-                //if (_ninjectKernel == null)
-                //{
+                if (_ninjectKernel == null)
+                {
                     _ninjectKernel = new StandardKernel(configuration);
-                    //FIXME log that it was already initialized
-                //}
+                }
             }
         }
 

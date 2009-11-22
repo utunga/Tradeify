@@ -20,7 +20,7 @@ namespace twademe
         protected void Page_Load(object sender, EventArgs e)
         {
             _tagProvider = Global.Kernel.Get<ITagProvider>();
-            List<ITag> usedTags = MessageQuery.ParseTagsFromNameVals(_tagProvider, Request.QueryString);
+            List<ITag> usedTags = _tagProvider.GetTagsFromNameValueCollection(Request.QueryString);
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
             TagCounts tagCounts = queryExecutor.GetTagCountsForTags(usedTags);
             Response.ContentType = "application/json";

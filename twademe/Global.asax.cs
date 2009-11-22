@@ -5,15 +5,20 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using Ninject.Core;
+using Offr;
+using Offr.Message;
+using Offr.Repository;
 
 namespace twademe
 {
     public class Global : System.Web.HttpApplication
     {
-       
+        public const string INITIAL_OFFERS_FILE = "/data/initial_offers.json";
+
         protected void Application_Start(object sender, EventArgs e)
         {
-            
+            IMessageProvider messageProvider = Kernel.Get<IMessageProvider>();
+            messageProvider.InitializeFromFile(Server.MapPath(INITIAL_OFFERS_FILE));
         }
 
         protected void Session_Start(object sender, EventArgs e)

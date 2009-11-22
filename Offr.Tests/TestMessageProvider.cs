@@ -18,9 +18,9 @@ namespace Offr.Tests
 
         public TestMessageProvider()
         {
-            MessageRepository.InitializeMessagesFilePath = "data/initial_offers.json";
-            Global.Initialize(new TestModule());
-            _target =Global.Kernel.Get<IMessageProvider>();
+            MockRawMessageProvider mockProvider = new MockRawMessageProvider();
+            MockMessageParser mockParser = new MockMessageParser();
+            _target = new MessageProvider(mockProvider, mockParser);
         }
 
         [Test]

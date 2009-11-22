@@ -43,9 +43,9 @@ namespace Offr.Location
 
             string responseData = WebRequest.RetrieveContent(requestURI);
             GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
-            Console.WriteLine(responseData);
             return resultSet;
         }
+
         //public string getStatus()
         //{
         //    string testlocation = "q=1500+Amphitheatre+Parkway,+Mountain+View,+CA";

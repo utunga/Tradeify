@@ -52,9 +52,9 @@ namespace Offr.Message
                 _messageType = value;
             }
         }
-/*
+
         [JsonProperty]
-        [JsonConverter(typeof(IsoDateTimeConverter))]*/
+        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime TimeStamp
         {
             get { return _timestamp; }
@@ -180,13 +180,12 @@ namespace Offr.Message
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            _tags.WriteJson(writer,serializer);
-
+            JSON.WriteProperty(serializer, writer, "message_type", _messageType.ToString());
             JSON.WriteProperty(serializer, writer, "timestamp", _timestamp);
 
-            JSON.WriteProperty(serializer, writer, "source", _source);
+            _tags.WriteJson(writer,serializer);
 
-            JSON.WriteProperty(serializer, writer, "message_type", _messageType);
+            JSON.WriteProperty(serializer, writer, "source", _source);
 
             JSON.WriteProperty(serializer, writer, "created_by", CreatedBy);
              
@@ -194,15 +193,15 @@ namespace Offr.Message
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            _tags = new TagList();
-            _tags.ReadJson(reader,serializer);
-
+            _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
             _timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
+
+            _tags = new TagList(); 
+            _tags.ReadJson(reader, serializer);
 
             _source = JSON.ReadProperty<RawMessage>(serializer, reader, "source");
 
-            _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
-
+           
             CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
 
         }

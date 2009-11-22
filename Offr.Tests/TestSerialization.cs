@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 
 using NUnit.Framework;
 using Offr.Json;
+using Offr.Location;
 using Offr.Message;
 using Offr.Query;
 using Offr.Text;
@@ -19,26 +20,55 @@ namespace Offr.Tests
     public class TestSerialization
     {
 
+        MessageProvider _messageProvider;
+
         public TestSerialization()
         {
-            Global.Initialize(new TestModule());
+            // load the mock messages via this NonMockRawMessageProvider madness
+            NonMockRawMessageProvider rawMessageProvider = new NonMockRawMessageProvider();
+            TagProvider singletonTagProvider = new TagProvider();
+            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
+            _messageProvider = new MessageProvider(rawMessageProvider, realMessageParser);
+            _messageProvider.Update();
         }
 
         [Test]
-        public void TestSerializeAllMessages()
+        public void SerializeAllMessagesOut()
         {
-
-            IMessageProvider provider = Global.Kernel.Get<IMessageProvider>();
-            IEnumerable<IMessage> messages = provider.AllMessages;
-     
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            // Register the custom converter.
-            serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
-
+           
+            // grab all the messages
+            IEnumerable<IMessage> messages = _messageProvider.AllMessages;
             List<IMessage> messagesToSend = new List<IMessage>(messages.Take(10));
-            //Console.Out.Write(serializer.Serialize(messagesToSend));
-            Console.Out.Write(JSON.Serialize(messagesToSend));
+            
+            // serailize them 
+            string serializedMessages = JSON.Serialize(messagesToSend);
+
+            // just dump to console (this is not a 'test' as it always passes)
+            Console.Out.Write(serializedMessages);
         }
+
+
+        [Test]
+        public void TestRoundTripEachOfTheMessages()
+        {
+            // grab all the messages
+            IEnumerable<IMessage> messages = _messageProvider.AllMessages;
+
+            foreach (IMessage origMessage in messages)
+            {
+                // serialize it 
+                string serialized = JSON.Serialize(origMessage);
+                Console.Out.WriteLine(serialized);
+                // deserialize it
+                IMessage deserializedMessage = JSON.Deserialize<IMessage>(serialized);
+                //DEBUG
+                Console.Out.WriteLine(JSON.Serialize(deserializedMessage));
+                Assert.AreEqual(origMessage, deserializedMessage, "Something went wrong with round trip serialization");
+            }
+        }
+
+
         [Test]
         public void TestTwitterMessagePointerRoundTrip()
         {
@@ -69,6 +99,22 @@ namespace Offr.Tests
             string message = JSON.Serialize(orig);
             RawMessage deserialized = JSON.Deserialize<RawMessage>(message);
             Assert.AreEqual(orig, deserialized, "Round trip serialization for Raw Message false");
+        }
+
+        [Test]
+        public void TestTagListRoundTrip()
+        {
+            
+            TagList orig = new TagList();
+            ITagProvider tagProvider = Global.Kernel.Get<ITagProvider>();
+            orig.Add(tagProvider.GetTag("foo"));
+            orig.Add(tagProvider.GetTag("freecycle"));
+            orig.Add(tagProvider.GetTag("barter"));
+
+            string serialized = JSON.Serialize(orig);
+            TagList deserialized = JSON.Deserialize<TagList>(serialized);
+
+            Assert.AreEqual(orig, deserialized, "Round trip serialization for TagList failed");
         }
 
         [Test]

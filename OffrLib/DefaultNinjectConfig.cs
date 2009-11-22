@@ -7,7 +7,9 @@ using Ninject.Core.Behavior;
 using Offr.Location;
 using Offr.Message;
 using Offr.Query;
+using Offr.Repository;
 using Offr.Text;
+using Offr.Twitter;
 
 namespace Offr  
 {
@@ -15,9 +17,8 @@ namespace Offr
     {
         public override void Load()
         {
-            //regexparser is *almost* good enough but not quite
             Bind<IMessageParser>().To<RegexMessageParser>();
-            Bind<IRawMessageProvider>().To<Offr.Twitter.TwitterRawMessageProvider>().Using<SingletonBehavior>();
+            Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().Using<SingletonBehavior>();
             Bind<IMessageProvider>().To<MessageProvider>().Using<SingletonBehavior>();
             Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();

@@ -14,42 +14,40 @@ using Offr.Json.Converter;
 using Offr.Text;
 using Offr.Twitter;
 
-namespace Offr
+namespace Offr.Repository
 {
     public class MessageRepository : BaseRepository<IMessage>, IMessageRepository
     {
 
         public MessageRepository()
         {
-            //Initialize();
         }
 
-        public static string InitializeMessagesFilePath
+        public IEnumerable<IMessage> AllMessages()
         {
-            get;
-            set;
+            return base.GetAll();
         }
 
         /// <summary>
         /// Loads data from specified JSON file to initialise context to have some running data (good for rebooting webserver without losing recent context, for example)
         /// </summary>
-        public void Initialize()
+        public void InitializeFromFile(string jsonFilePath)
         {
 
             FileInfo jsonFile;
-            if (!(jsonFile = new FileInfo(InitializeMessagesFilePath)).Exists)
+            if (!(jsonFile = new FileInfo(jsonFilePath)).Exists)
             {
-                throw new IOException("Cannot find file " + InitializeMessagesFilePath);
+                throw new IOException("Cannot find file " + jsonFilePath);
             }
-            // OK read into a string builder (probably a better way)
 
+            // OK read into a string builder (probably a better way to do this but this will do for now)
             StringBuilder stringBuilder = new StringBuilder();
             using (StreamReader sr = new StreamReader(jsonFile.FullName))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    stringBuilder.AppendLine(line);// im sure there is an even tighter way to do this, just don't know what it is
+                    stringBuilder.AppendLine(line);
                 }
             }
             SortedList<string, IMessage> list = JSON.Deserialize<SortedList<string, IMessage>>(stringBuilder.ToString());

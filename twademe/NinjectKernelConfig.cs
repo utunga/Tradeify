@@ -16,11 +16,6 @@ namespace twademe
 
         public override void Load()
         {
-
-            //use fake data
-            //Bind<IMessageParser>().To<MockMessageParser>();
-            //Bind<IRawMessageProvider>().To<MockRawMessageProvider>();
-
             // use live data
             Bind<IMessageParser>().To<RegexMessageParser>();
             Bind<IRawMessageProvider>().To<Offr.Twitter.TwitterRawMessageProvider>().Using<SingletonBehavior>();

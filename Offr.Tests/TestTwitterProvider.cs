@@ -3,10 +3,12 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Offr.Location;
 using Offr.Message;
 using Offr.Text;
 using Ninject.Core;
 using Ninject;
+using Offr.Twitter;
 
 namespace Offr.Tests
 {
@@ -17,8 +19,13 @@ namespace Offr.Tests
 
         public TestTwitterProvider()
         {
-            Global.Initialize(new TwitterTestModule());
-            _target = Global.Kernel.Get<IMessageProvider>(); 
+            //for this test create real objects all the way down the line - so...more of an integration test really
+            // (which is why this is disabled)
+            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(MessageType.offr_test);
+            TagProvider singletonTagProvider = new TagProvider();
+            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
+            _target = new MessageProvider(twitterProvider, realMessageParser);
         }
 
         [Test]

@@ -60,6 +60,11 @@ namespace Offr.Message
             // not implemented
         }
 
+        public void InitializeFromFile(string filePath)
+        {
+            throw new System.NotImplementedException("Not implemented, yet, probably ever");
+        }
+
         public IMessage MessageByID(IMessagePointer messagePointer)
         {
             if (messagePointer.ProviderNameSpace != _sourceProvider.ProviderNameSpace)

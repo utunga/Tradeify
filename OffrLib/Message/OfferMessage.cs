@@ -20,7 +20,6 @@ namespace Offr.Message
         [JsonProperty]
         public string OfferText { get; set; }
 
-
         [JsonProperty]
         [JsonConverter(typeof(LocationConverter))]
         public ILocation Location { get; set; }
@@ -132,24 +131,25 @@ namespace Offr.Message
                 return result;
             }
         }
+
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             base.WriteJson(writer,serializer);
-            JSON.WriteProperty(serializer, writer, "thumbnail", Thumbnail);
             JSON.WriteProperty(serializer, writer, "offer_text", OfferText);
             JSON.WriteProperty(serializer, writer, "more_info_url", MoreInfoURL);
+            JSON.WriteProperty(serializer, writer, "thumbnail", Thumbnail);
             JSON.WriteProperty(serializer, writer, "end_by", EndBy);
             JSON.WriteProperty(serializer, writer, "end_by_text", EndByText);
             JSON.WriteProperty(serializer, writer, "location", Location);
-
         }
+
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
             base.ReadJson(reader,serializer);
-            AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "thumbnail"));
             OfferText = JSON.ReadProperty<string>(serializer, reader, "offer_text");
             MoreInfoURL = JSON.ReadProperty<string>(serializer, reader, "more_info_url");
+            AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "thumbnail")); 
             EndBy = JSON.ReadProperty<DateTime?>(serializer, reader, "end_by");
             EndByText = JSON.ReadProperty<string>(serializer, reader, "end_by_text");
             Location = JSON.ReadProperty<Location.Location>(serializer, reader, "location");          

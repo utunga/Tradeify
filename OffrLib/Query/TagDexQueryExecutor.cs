@@ -13,41 +13,36 @@ namespace Offr.Query
     {
         private readonly MessageReceivingTagDex _globalTagIndex;
 
-        public TagDexQueryExecutor()
+        public TagDexQueryExecutor(IMessageProvider messageProvider)
         {
-            IMessageProvider globalMessageProvider = Global.Kernel.Get<IMessageProvider>();
-            _globalTagIndex = new MessageReceivingTagDex(globalMessageProvider);
+            _globalTagIndex = new MessageReceivingTagDex(messageProvider);
         }
 
-        public IEnumerable<IMessage> GetMessagesForQuery(IMessageQuery query)
+        public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags)
         {
-            MessageReceivingTagDex tagDex;
-            if (query.Keywords == null)
-            {
-                // we can use the globally cached data, because we are not doing text search
-               tagDex = _globalTagIndex;
-            }
-            else
-            {
-                // theoretically if we were caching all these objects this use of a 
-                // MessageReceivingTagDex would mean that we get up dates from the feed
-                // when new messages match the query, but.. since we don't cache it anyway, that
-                // is kind of pointless
-                MessageProviderForKeywords keywordMessageProvider = Global.Kernel.Get<MessageProviderForKeywords>(With.Parameters.ConstructorArgument("keywords", query.Keywords));
-                tagDex = new MessageReceivingTagDex(keywordMessageProvider);
-            }
-
-            return tagDex.MessagesForTags(query.Facets);
+            return _globalTagIndex.MessagesForTags(tags);
         }
 
-        public TagCounts GetTagCountsForQuery(IMessageQuery query)
-        {
-            IEnumerable<IMessage> messages = GetMessagesForQuery(query);
-            StaticTagDex tagDex = new StaticTagDex(messages);
-            return tagDex.GetTagCounts();
-        }
+        //public IEnumerable<IMessage> GetMessagesForKeywordAndTags(string keyword, IEnumerable<ITag> tags)
+        //{
+        //    // theoretically if we were caching all these objects this use of a 
+        //    // MessageReceivingTagDex would mean that we get up dates from the feed
+        //    // when new messages match the query, but.. since we don't cache it anyway, that
+        //    // is kind of pointless
+        //    //MessageProviderForKeywords 
+        //    MessageProviderForKeywords keywordMessageProvider = Global.Kernel.Get<MessageProviderForKeywords>(With.Parameters.ConstructorArgument("keywords", tags));
+        //    MessageReceivingTagDex tagDex = new MessageReceivingTagDex(keywordMessageProvider);
+        //    return tagDex.MessagesForTags(tags);
+        //}
 
-        public TagCounts GetTagCountsForTags(List<ITag> tags)
+        //public TagCounts GetTagCountsForKeywordAndTags(string keyword, IEnumerable<ITag> tags)
+        //{
+        //    MessageProviderForKeywords keywordMessageProvider = Global.Kernel.Get<MessageProviderForKeywords>(With.Parameters.ConstructorArgument("keywords", tags));
+        //    StaticTagDex tagDex = new StaticTagDex(keywordMessageProvider.AllMessages);
+        //    return tagDex.GetTagCounts();
+        //}
+
+        public TagCounts GetTagCountsForTags(IEnumerable<ITag> tags)
         {
             var tagCounts = new List<TagWithCount>();
             foreach (ITag tag in tags)
@@ -56,6 +51,11 @@ namespace Offr.Query
             }
             //tagCounts.Reverse();
             return new TagCounts() { Tags = tagCounts, Total = -1 };
+        }
+
+        public TagCounts GetTagCounts()
+        {
+            return _globalTagIndex.GetTagCounts();
         }
     }
 }

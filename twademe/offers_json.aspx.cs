@@ -23,13 +23,14 @@ namespace twademe
         {
             _tagProvider = Global.Kernel.Get<ITagProvider>();
 
-            MessageQuery query = MessageQuery.MessageQueryFromNameValCollection(_tagProvider, Request.QueryString); 
+            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(Request.QueryString); 
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
-            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForQuery(query);
+            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
 
             Response.ContentType = "application/json";
             SendJSON(messages, DEFAULT_COUNT);
         }
+
 
         private void SendJSON(IEnumerable<IMessage> messages, int count)
         {

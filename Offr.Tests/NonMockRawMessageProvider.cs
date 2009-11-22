@@ -8,15 +8,15 @@ namespace Offr.Tests
 {
     class NonMockRawMessageProvider : MockRawMessageProvider
     {
-        public void Update()
+        public override void Update()
         {
             if (_updatedOnce) { return; }
-            
+
             IList<IRawMessage> messages = new List<IRawMessage>();
             foreach (MockRawMessage rawMessage in MockData.RawMessages)
             {
                 //string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, string timestamp
-                RawMessage raw=new RawMessage(rawMessage.Text, rawMessage.Pointer, rawMessage.CreatedBy, rawMessage.Timestamp);
+                RawMessage raw = new RawMessage(rawMessage.Text, rawMessage.Pointer, rawMessage.CreatedBy, rawMessage.Timestamp);
                 messages.Add(raw);
             }
 
@@ -24,9 +24,9 @@ namespace Offr.Tests
             {
                 receiver.Notify(messages);
             }
-            
+
             _updatedOnce = true;
         }
-        }
+    }
     
 }

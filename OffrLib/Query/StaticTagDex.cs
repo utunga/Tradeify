@@ -18,17 +18,6 @@ namespace Offr.Query
             Process(_messages); // call invalidate to initialize data with explictly provided messages, won't update past this point
         }
 
-        public TagCounts GetTagCounts()
-        {
-            var tags = new List<TagWithCount>();
-            foreach (ITag tag in _seenTags)
-            {
-                int count = _index[tag.match_tag].Count;
-                tags.Add(new TagWithCount() { count = count, tag = tag });
-            }
-            return new TagCounts() { Tags = tags, Total = _messages.Count() };
-        }
-
         #region Overrides of BaseTagDex
 
         protected override IEnumerable<IMessage> AllMessages()

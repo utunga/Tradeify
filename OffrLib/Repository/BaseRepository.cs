@@ -31,8 +31,7 @@ namespace Offr.Repository
             var id = instance.ID;
             if (id == null)
             {
-                //create new id and assign it?
-                // erm no.. just throw an exception
+                //create new id and assign it? erm no.. just throw an exception
                 //id = _list.Count.ToString().GetHashCode().ToString();
                 throw new InvalidOperationException("Not a valid ID");
             }
@@ -40,13 +39,8 @@ namespace Offr.Repository
             {
                 _list[id] = instance;
             }
-            Serialize();
         }
-        private string Serialize()
-        {
-            string serializedList= JSON.Serialize(_list);
-            return serializedList;
-        }
+
         public virtual void Remove(T instance)
         {
             if (_list.ContainsKey(instance.ID))

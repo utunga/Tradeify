@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Offr.Text;
 using System.Collections.ObjectModel;
@@ -124,8 +124,6 @@ namespace Offr.Tests
         //    target.InsertItem(index, tag);
             
         //}
-
-      
 
         ///// <summary>
         /////A test for ClearItems
