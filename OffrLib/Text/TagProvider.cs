@@ -21,7 +21,7 @@ namespace Offr.Text
         }
 
 
-        public ITag GetTag(string tagString)
+        public ITag GetTag(string tagString, TagType type)
         {
             string tagStringLowerCase = tagString.ToLowerInvariant();
             ITag tag;
@@ -31,7 +31,7 @@ namespace Offr.Text
             }
             else
             {
-                ITag newTag = FromTypeAndText(TagType.tag, tagStringLowerCase);
+                ITag newTag = FromTypeAndText(type, tagStringLowerCase);
                 _knownTags.Add(tagStringLowerCase, newTag);
                 return newTag;
             }
@@ -46,7 +46,7 @@ namespace Offr.Text
                 {
                     foreach (string tagText in nameVals.GetValues(tagType.ToString()))
                     {
-                        ITag tag = this.GetTag(tagText);
+                        ITag tag = this.GetTag(tagText, tagType);
                         tags.Add(tag);
                     }
                 }

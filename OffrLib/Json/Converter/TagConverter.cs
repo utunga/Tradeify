@@ -8,16 +8,11 @@ using Offr.Text;
 
 namespace Offr.Json.Converter
 {
-    public class TagConverter : CustomCreationConverter<ITag>
+    public class TagConverter : CanJsonConvertor<ITag>
     {
-        public override ITag Create(Type objectType)
+        public override ITag Create(JsonReader reader)
         {
             return new Tag();
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value);
         }
     }
 }

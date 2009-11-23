@@ -42,6 +42,7 @@ namespace Offr.Json
                 jsonSerializer.Converters.Add(new MessagePointerConverter());
                 jsonSerializer.Converters.Add(new TagListConverter());
                 jsonSerializer.Converters.Add(new TagConverter());
+                jsonSerializer.Converters.Add(new UserPointerConverter());
                 return jsonSerializer;
             }
         }
@@ -127,4 +128,6 @@ namespace Offr.Json
             
         }
     }
+
+
 }

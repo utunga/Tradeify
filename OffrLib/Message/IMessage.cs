@@ -11,9 +11,11 @@ namespace Offr.Message
 {
     public interface IMessage : ICanJson , IComparable, Offr.Repository.ITopic 
     {
-        IRawMessage Source { get; set; }
-        DateTime TimeStamp { get; }
-        IUserPointer CreatedBy { get; }
+        //IRawMessage Source { get; set; }
+        IMessagePointer MessagePointer { get; }
+        string RawText { get; }
+        string Timestamp { get; }
+        IUserPointer CreatedBy { get;}
         MessageType MessageType { get; }
         bool IsValid { get; }
         IEnumerable<ITag> Tags { get; }

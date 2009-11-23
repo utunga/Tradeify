@@ -8,7 +8,7 @@ namespace Offr.Text
 {
     public interface ITagProvider
     {
-        ITag GetTag(String tagString);
+        ITag GetTag(String tagString, TagType type);
         List<ITag> GetTagsFromNameValueCollection(NameValueCollection nameVals);
     }
 }

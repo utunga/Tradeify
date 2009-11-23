@@ -8,16 +8,11 @@ using Offr.Text;
 
 namespace Offr.Json.Converter
 {
-    public class UserPointerConverter : CustomCreationConverter<IUserPointer>
+    public class UserPointerConverter : CanJsonConvertor<IUserPointer>
     {
-        public override IUserPointer Create(Type objectType)
+        public override IUserPointer Create(JsonReader reader)
         {
             return new TwitterUserPointer();
-
-        }
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value);
         }
     }
 }

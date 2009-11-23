@@ -12,8 +12,8 @@ namespace Offr.Text
     {
 
         public string MatchTag { get { return ProviderNameSpace + "/" + ProviderUserName; } }
-        public string ProviderUserName { get; private set; }
-        public string ProviderNameSpace { get; private set; }
+        public string ProviderUserName { get; set; }
+        public string ProviderNameSpace { get; set; }
 
         // extra properties added to twitter user pointer that save us having to look up from the user provider when we have results from the search provider
         public string ProfilePicUrl { get; set; }
@@ -30,14 +30,22 @@ namespace Offr.Text
             ProviderNameSpace = "twitter/";
         }
 
+        public TwitterUserPointer(string ProviderUserName,
+               string ProfilePicUrl,string ProviderNameSpace, string ScreenName)
+        {
+            this.ProviderUserName = ProviderUserName;
+            this.ProfilePicUrl = ProfilePicUrl;
+            this.ProviderNameSpace = ProviderNameSpace;
+            this.ScreenName = ScreenName;
+        }
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
+            if (obj == null)
             {
                 return false;
             }
 
-            return ((TwitterUserPointer)obj).MatchTag.Equals(MatchTag);
+            return Equals(MatchTag,((IUserPointer)obj).MatchTag);
         }
 
         public override int GetHashCode()
@@ -76,8 +84,12 @@ namespace Offr.Text
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
+            ProviderUserName = JSON.ReadProperty<string>(serializer, reader, "provider_user_name");
             ProviderNameSpace = JSON.ReadProperty<string>(serializer, reader, "provide_name_space");
-
+            ProfilePicUrl = JSON.ReadProperty<string>(serializer, reader, "profile_pic_url");
+            ScreenName = JSON.ReadProperty<string>(serializer, reader, "screen_name");
+            JSON.ReadProperty<string>(serializer, reader, "more_info_url");
+            JSON.ReadProperty<string>(serializer, reader, "match_tag");
         }
     }
 }

@@ -31,8 +31,8 @@ namespace Offr.Tests
             foreach (IMessage message in output)
             {
                  Console.Out.Write(message.MessageType.ToString() + " | ");
-                 Console.Out.Write(message.TimeStamp.ToString() + " | ");
-                 Console.Out.Write(message.Source.ToString() + " | ");
+                 Console.Out.Write(message.Timestamp + " | ");
+                 //Console.Out.Write(message.Source.ToString() + " | ");
                  Console.Out.WriteLine();
             }
 
@@ -45,11 +45,11 @@ namespace Offr.Tests
             // somewhat of an integration test, actually
             IMessage msg = _target.MessageByID("test/0");
             Assert.IsNotNull(msg);
-            Assert.AreEqual("0", msg.Source.Pointer.ProviderMessageID);
+            Assert.AreEqual("0", msg.MessagePointer.ProviderMessageID);
 
             msg = _target.MessageByID("test/1");
             Assert.IsNotNull(msg);
-            Assert.AreEqual("1", msg.Source.Pointer.ProviderMessageID);
+            Assert.AreEqual("1", msg.MessagePointer.ProviderMessageID);
         }
 
     }

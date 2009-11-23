@@ -134,7 +134,6 @@ namespace Offr.Text
                 _matchTags.Remove(existingTag.match_tag);
             }
         }
-        [JsonConverter(typeof(TagConverter))]
         public ITag this[int index]
         {
             get { return _list[index]; }
@@ -186,8 +185,9 @@ namespace Offr.Text
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            
-            List<string> tags = new List<string>();
+            JSON.WriteProperty(serializer,writer,"tags",_list);
+
+            /*            List<string> tags = new List<string>();
             foreach (TagType tagType in _tagsByType.Keys)
             {
                 foreach (ITag tag in _tagsByType[tagType])
@@ -195,8 +195,19 @@ namespace Offr.Text
                     tags.Add(tag.tag); 
                 }
             }
-            writer.WritePropertyName("tags");
-            serializer.Serialize(writer, tags); 
+            writer.WritePropertyName("tags");*/
+/*          the json library doesnt seem to handle dictionaries nicely
+            Dictionary<string, List<string>> TagTypeStringToListOfTag= new Dictionary<string, List<string>>();
+            foreach (ITag t in _list)
+            {
+                string tagString = t.tag;
+                List<string> tags = null;
+                if (TagTypeStringToListOfTag.TryGetValue(t.type.ToString(), out tags))
+                    tags.Add(tagString);
+                else TagTypeStringToListOfTag[t.type.ToString()]= new List<string>();
+            }
+            serializer.Serialize(writer, TagTypeStringToListOfTag); 
+*/
 
             // equivalent to this..
             //writer.WriteStartArray();
@@ -212,12 +223,27 @@ namespace Offr.Text
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            List<string> tags = JSON.ReadProperty<List<string>>(serializer, reader, "tags");
+/*            List<string> tags = JSON.ReadProperty<List<string>>(serializer, reader, "tags");
             TagProvider provider = Global.Kernel.Get<TagProvider>(); //FIXME gotta figure out if this is correct thing to happen
             foreach (string tag in tags)
             {
                 _list.Add(provider.GetTag(tag));
+            }*/
+            List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
+            TagProvider provider = Global.Kernel.Get<TagProvider>(); //FIXME gotta figure out if this is correct thing to happen
+            foreach (ITag tag in temp)
+            {
+                _list.Add(provider.GetTag(tag.tag,tag.type));
             }
+/*            Dictionary<string, List<string>> tags = JSON.ReadProperty<Dictionary<string, List<string>>>(serializer, reader, "tags");
+            TagProvider provider = Global.Kernel.Get<TagProvider>(); //FIXME gotta figure out if this is correct thing to happen
+            foreach (List<string> taglist in tags.Values)
+            {
+                foreach (string tag in taglist)
+                {
+                    _list.Add(provider.GetTag(tag));
+                }
+            }*/
 
         }
 

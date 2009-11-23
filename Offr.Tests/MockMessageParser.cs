@@ -44,8 +44,10 @@ namespace Offr.Tests
             //}
 
             //FIXME1 this all has to go - don't keep the source around!
-            msg.Source = mockRaw;
-            
+            //msg.Source = mockRaw;
+            msg.RawText = mockRaw.Text;
+            msg.Timestamp = mockRaw.Timestamp;
+            msg.MessagePointer = mockRaw.Pointer;
             return msg;
 
         }

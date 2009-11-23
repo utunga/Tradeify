@@ -113,7 +113,7 @@ namespace Offr.Message
             {
                 if (parsedMessage.IsValid)
                 {
-                    InsertMessageToCache(parsedMessage.Source.Pointer.ProviderMessageID, parsedMessage);
+                    InsertMessageToCache(parsedMessage.MessagePointer.ProviderMessageID, parsedMessage);
                 }
             }
 

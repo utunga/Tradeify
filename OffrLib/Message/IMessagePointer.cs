@@ -9,10 +9,10 @@ namespace Offr.Message
 {
     public interface IMessagePointer:ICanJson
     {
-        string MatchTag { get; }
         //string SourceURL { get; }
         //IResolvedURI ResolvedURL { get; }
         string ProviderMessageID { get; }
         string ProviderNameSpace { get; }
+        string MatchTag { get; }
     }
 }

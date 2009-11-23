@@ -19,7 +19,7 @@ namespace Offr.Tests
         public string SourceURL { get; private set; }
         public IResolvedURI ResolvedURL { get; private set; }
         public string ProviderMessageID { get; private set; }
-        public string ProviderNameSpace { get { return "test"; }}
+        public string ProviderNameSpace { get { return "twitter"; }}
         
         public MockMessagePointer(int id)
         {
@@ -47,7 +47,13 @@ namespace Offr.Tests
             JSON.ReadProperty<string>(serializer, reader, "ProviderNameSpace");
             this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "MessageID");
         }
-
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof(IMessagePointer)) return false;
+            return Equals(((IMessagePointer)obj).MatchTag, MatchTag);
+        }
         #endregion
     }
 }

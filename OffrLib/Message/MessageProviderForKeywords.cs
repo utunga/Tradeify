@@ -35,7 +35,7 @@ namespace Offr.Message
             {
                 IMessage message = _messageParser.Parse(rawMessage);
                 if (!message.IsValid) continue;
-                _messages.Add(message.Source.Pointer.ProviderMessageID, message);
+                _messages.Add(message.MessagePointer.ProviderMessageID, message);
             }
         }
 

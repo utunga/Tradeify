@@ -24,7 +24,10 @@ namespace Offr.Message
         {
             OfferMessage msg = new OfferMessage();
             msg.CreatedBy = source.CreatedBy;
-            msg.Source = source; //Remove this
+            //msg.Source = source; //Remove this
+            msg.RawText = source.Text;
+            msg.Timestamp = source.Timestamp;
+            msg.MessagePointer = source.Pointer;
             foreach (ITag tag in ParseTags(source))
             {
                 if (tag.type == TagType.msg_type) continue; //skip messages of this type
@@ -77,7 +80,7 @@ namespace Offr.Message
             {
                 string tagString = match.Groups[0].Value;
                 tagString = tagString.Replace("#", "");
-                yield return _tagProvider.GetTag(tagString);
+                yield return _tagProvider.GetTag(tagString,TagType.tag);
             }
         }
 
@@ -123,7 +126,7 @@ namespace Offr.Message
             Match match = re.Match(offerText);
             if (match.Groups.Count > 1)
             {
-                return match.Groups[0].Value;
+                return match.Groups[0].Value.Trim();
             }
             return null;
         }

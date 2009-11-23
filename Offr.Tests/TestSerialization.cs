@@ -57,6 +57,8 @@ namespace Offr.Tests
 
             foreach (IMessage origMessage in messages)
             {
+                //MockMessagePointer origPointer = origMessage.CreatedBy;
+                //origMessage.CreatedBy = new TwitterUserPointer(origPointer.ProviderUserName,origPointer.);
                 // serialize it 
                 string serialized = JSON.Serialize(origMessage);
                 Console.Out.WriteLine(serialized);
@@ -100,16 +102,23 @@ namespace Offr.Tests
             RawMessage deserialized = JSON.Deserialize<RawMessage>(message);
             Assert.AreEqual(orig, deserialized, "Round trip serialization for Raw Message false");
         }
-
+        [Test]
+        public void TwitterMessagePointerRoundTrip()
+        {
+            TwitterMessagePointer orig= new TwitterMessagePointer();
+            string message = JSON.Serialize(orig);
+            TwitterMessagePointer deserialized = JSON.Deserialize<TwitterMessagePointer>(message);
+            Assert.AreEqual(orig, deserialized, "Round trip serialization for Raw Message false");
+        }
         [Test]
         public void TestTagListRoundTrip()
         {
             
             TagList orig = new TagList();
             ITagProvider tagProvider = Global.Kernel.Get<ITagProvider>();
-            orig.Add(tagProvider.GetTag("foo"));
-            orig.Add(tagProvider.GetTag("freecycle"));
-            orig.Add(tagProvider.GetTag("barter"));
+            orig.Add(tagProvider.GetTag("foo", TagType.tag));
+            orig.Add(tagProvider.GetTag("freecycle", TagType.tag));
+            orig.Add(tagProvider.GetTag("barter", TagType.tag));
 
             string serialized = JSON.Serialize(orig);
             TagList deserialized = JSON.Deserialize<TagList>(serialized);
@@ -120,10 +129,13 @@ namespace Offr.Tests
         [Test]
         public void TestOfferMessageRoundTrip()
         {
-            RawMessage m = new RawMessage("", new TwitterMessagePointer(0), new TwitterUserPointer(""), DateTime.Now.ToString());
+            RawMessage source = new RawMessage("", new TwitterMessagePointer(0), new TwitterUserPointer(""), DateTime.Now.ToString());
             OfferMessage orig = new OfferMessage();
             orig.AddThumbnail("thumb");
-            orig.Source = m;
+           // orig.Source = m;
+           orig.RawText = source.Text;
+           orig.Timestamp = source.Timestamp;
+            orig.MessagePointer = source.Pointer;
             string json = JSON.Serialize(orig);
             Console.Out.WriteLine(json);
             OfferMessage deserialized = JSON.Deserialize<OfferMessage>(json);
@@ -133,10 +145,13 @@ namespace Offr.Tests
         [Test]
         public void TestOfferMessageList()
         {
-            RawMessage m = new RawMessage("", new TwitterMessagePointer(0), new TwitterUserPointer(""), DateTime.Now.ToString());
-            OfferMessage o = new OfferMessage();
-            o.Source = m;
-            List<OfferMessage> messages = new List<OfferMessage> { o, o };
+            RawMessage source = new RawMessage("", new TwitterMessagePointer(0), new TwitterUserPointer(""), DateTime.Now.ToString());
+            OfferMessage originalMessage = new OfferMessage();
+            //o.Source = m;
+            originalMessage.RawText = source.Text;
+            originalMessage.Timestamp = source.Timestamp;
+            originalMessage.MessagePointer = source.Pointer;
+            List<OfferMessage> messages = new List<OfferMessage> { originalMessage, originalMessage };
             string initialMessages = JSON.Serialize(messages);
             List<OfferMessage> initialMessageobj = JSON.Deserialize<List<OfferMessage>>(initialMessages);
             //AssertMessagesAreTheSame(messages, initialMessageobj);

@@ -6,73 +6,52 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Offr.Json;
 using Offr.Json.Converter;
+using Offr.Message;
 using Offr.Text;
 
 namespace Offr.Message
 {
 
-    [JsonObject(MemberSerialization.OptIn)]
     public abstract class BaseMessage : IMessage, IEquatable<BaseMessage>,ICanJson
     {
         public TagList _tags;
 
         private MessageType _messageType;
 
-        private IRawMessage _source;
-
-        private DateTime _timestamp = DateTime.MinValue;
-
-        [JsonProperty]
         public bool IsValid { get; set; }
 
-        [JsonProperty]
-        [JsonConverter(typeof(UserPointerConverter))]
         public IUserPointer CreatedBy { get; set; }
 
-        [JsonProperty]
         public string MoreInfoURL { get; set; }
 
-        [JsonProperty]
         public IEnumerable<ITag> Tags
         {
             get { return _tags; }
             private set { _tags = new TagList(value); }
         }
 
-        [JsonProperty]
         public MessageType MessageType
         {
             get { return _messageType; }
             internal set
             {
-                /*  if (value != ExpectedMessageType)
-                  {
-                      throw new MessageParseException("Cannot set message type to " + value + " on a " + GetType().Name + ". Expected " + ExpectedMessageType);
-                  }*/
                 _messageType = value;
             }
         }
 
-        [JsonProperty]
-        [JsonConverter(typeof(IsoDateTimeConverter))]
-        public DateTime TimeStamp
+        public IMessagePointer MessagePointer
         {
-            get { return _timestamp; }
-            private set { _timestamp = value;}
+            get ; set; 
         }
 
-        [JsonProperty]
-        [JsonConverter(typeof(RawMessageConverter))]
-        public IRawMessage Source 
-        { 
-            get 
-            {
-                return _source;
-            }
-            set
-            {
-                _source = value;
-            }
+        public string RawText
+        {
+            get; set; 
+        }
+
+        public string Timestamp
+        {
+            get; set;
         }
 
         #region read only properties
@@ -81,8 +60,8 @@ namespace Offr.Message
         {
             get
             {
-                if (_source != null) if (_source.Pointer != null) return _source.Pointer.MatchTag;
-                return null;
+                 if (MessagePointer != null) return MessagePointer.MatchTag;
+                else return null;
             }
         }
 
@@ -125,8 +104,8 @@ namespace Offr.Message
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(GetType().Name).Append(":").Append(MessageType).Append(" | ");
-            builder.Append(TimeStamp).Append(" | ");
-            builder.Append(Source).Append(" | ");
+            builder.Append(Timestamp).Append(" | ");
+           // builder.Append(Source).Append(" | ");
             return builder.ToString();
         }
 
@@ -135,10 +114,13 @@ namespace Offr.Message
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
             return Equals(other._tags, _tags) && 
-                Equals(other._source, _source) && 
-                Equals(other._messageType, _messageType) && 
-                Equals(other.CreatedBy, CreatedBy) &&
-                other._timestamp.Equals(_timestamp);
+                Equals(other._messageType, _messageType)    && 
+                /*other.IsValid.Equals(IsValid)               && */
+                Equals(other.CreatedBy,CreatedBy)          && 
+                Equals(other.MoreInfoURL, MoreInfoURL)      && 
+                Equals(other.MessagePointer, MessagePointer)&& 
+                Equals(other.RawText, RawText)              && 
+                Equals(other.Timestamp, Timestamp);
         }
 
         public override bool Equals(object obj)
@@ -154,10 +136,13 @@ namespace Offr.Message
             unchecked
             {
                 int result = (_tags != null ? _tags.GetHashCode() : 0);
-                result = (result*397) ^ _timestamp.GetHashCode();
-                result = (result*397) ^ (_source != null ? _source.GetHashCode() : 0);
                 result = (result*397) ^ _messageType.GetHashCode();
+                result = (result*397) ^ IsValid.GetHashCode();
                 result = (result*397) ^ (CreatedBy != null ? CreatedBy.GetHashCode() : 0);
+                result = (result*397) ^ (MoreInfoURL != null ? MoreInfoURL.GetHashCode() : 0);
+                result = (result*397) ^ (MessagePointer != null ? MessagePointer.GetHashCode() : 0);
+                result = (result*397) ^ (RawText != null ? RawText.GetHashCode() : 0);
+                result = (result*397) ^ (Timestamp != null ? Timestamp.GetHashCode() : 0);
                 return result;
             }
         }
@@ -171,35 +156,43 @@ namespace Offr.Message
             }
 
             BaseMessage other = (BaseMessage) obj;
-            if ((this.Source == null) || other.Source == null) return 0; //cant compare, wtf?
+            return this.Timestamp.CompareTo(other.Timestamp);
+            //if ((this.Source == null) || other.Source == null) return 0; //cant compare, wtf?
 
             //otherwise use the RawMessage/Source to compare (which should compare on dates) 
-            return (this.Source.CompareTo(other.Source));
+            //return (this.Source.CompareTo(other.Source));
         }
         #endregion
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             JSON.WriteProperty(serializer, writer, "message_type", _messageType.ToString());
-            JSON.WriteProperty(serializer, writer, "timestamp", _timestamp);
+            JSON.WriteProperty(serializer, writer, "timestamp", Timestamp);
 
             _tags.WriteJson(writer,serializer);
 
-            JSON.WriteProperty(serializer, writer, "source", _source);
+            JSON.WriteProperty(serializer,writer,"raw_text",RawText);	
+            JSON.WriteProperty(serializer,writer,"message_pointer",MessagePointer);
+           
+
+            //JSON.WriteProperty(serializer, writer, "source", _source);
 
             JSON.WriteProperty(serializer, writer, "created_by", CreatedBy);
              
         }
 
-        public void ReadJson(JsonReader reader, JsonSerializer serializer)
-        {
+        public void ReadJson(JsonReader reader, JsonSerializer serializer){
+ 
             _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
-            _timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
+            Timestamp=JSON.ReadProperty<string>(serializer, reader, "timestamp");
 
             _tags = new TagList(); 
             _tags.ReadJson(reader, serializer);
 
-            _source = JSON.ReadProperty<RawMessage>(serializer, reader, "source");
+            //_source = JSON.ReadProperty<RawMessage>(serializer, reader, "source");
+            RawText = JSON.ReadProperty<string>(serializer, reader, "raw_text");
+            MessagePointer =JSON.ReadProperty<IMessagePointer>(serializer,reader,"message_pointer")	;
+
 
            
             CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");

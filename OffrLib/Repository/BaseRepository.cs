@@ -38,6 +38,7 @@ namespace Offr.Repository
             else
             {
                 _list[id] = instance;
+                string s=JSON.Serialize(_list);
             }
         }
 

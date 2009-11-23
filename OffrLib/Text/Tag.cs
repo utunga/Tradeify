@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
+using Offr.Json;
+using Offr.Json.Converter;
 
 namespace Offr.Text
 {
@@ -66,5 +69,18 @@ namespace Offr.Text
                 return (type.GetHashCode()*397) ^ (tag != null ? tag.GetHashCode() : 0);
             }
         }
+        #region JSON
+        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        {
+            JSON.WriteProperty(serializer,writer,"type",type);
+            JSON.WriteProperty(serializer,writer,"tag",tag);
+        }
+
+        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            type = JSON.ReadProperty<TagType>(serializer, reader, "type");
+            tag = JSON.ReadProperty<string>(serializer, reader, "tag");
+        }
+        #endregion JSSON
     }
 }
