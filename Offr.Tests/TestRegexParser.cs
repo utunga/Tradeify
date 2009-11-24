@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using NUnit.Framework;
 using Offr.Location;
@@ -18,8 +20,9 @@ namespace Offr.Tests
         public TestRegexParser()
         {
             TagRepository singletonTagProvider = new TagRepository();
+            singletonTagProvider.InitializeFromFile("data/initial_tags.json");
             //singletonTagProvider.Initialize();
-            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            GoogleLocationProvider locationProvider = new MockLocationProvider();
             _target = new RegexMessageParser(singletonTagProvider, locationProvider);
         }
 

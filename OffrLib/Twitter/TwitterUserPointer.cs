@@ -10,7 +10,7 @@ namespace Offr.Text
 {
     public class TwitterUserPointer : IUserPointer, IEnhancedUserPointer
     {
-
+        #region fields
         public string MatchTag { get { return ProviderNameSpace + "/" + ProviderUserName; } }
         public string ProviderUserName { get; set; }
         public string ProviderNameSpace { get; set; }
@@ -22,6 +22,9 @@ namespace Offr.Text
         {
             get { return string.Format("http://www.twitter.com/{0}", ProviderUserName); }
         }
+        #endregion fields
+
+        #region constructor
         public TwitterUserPointer() { }
         public TwitterUserPointer(string twitterScreenName)
         {
@@ -38,6 +41,9 @@ namespace Offr.Text
             this.ProviderNameSpace = ProviderNameSpace;
             this.ScreenName = ScreenName;
         }
+        #endregion Constructor
+
+        #region Equals
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -61,8 +67,9 @@ namespace Offr.Text
                 return result;
             }
         }
+        #endregion Equals
 
-
+        #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             JSON.WriteProperty(serializer, writer, "provider_user_name", ProviderUserName);
@@ -82,5 +89,6 @@ namespace Offr.Text
             JSON.ReadProperty<string>(serializer, reader, "more_info_url");
             JSON.ReadProperty<string>(serializer, reader, "match_tag");
         }
+        #endregion JSON
     }
 }

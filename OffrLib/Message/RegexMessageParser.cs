@@ -133,14 +133,14 @@ namespace Offr.Message
         }
         #endregion
 
-
-#if DEBUG
+        #region Test
+        #if DEBUG
         //Test accessors
         public string TEST_GetMoreInfoUrl(string offerText)
         {
             return GetMoreInfoUrl(offerText);
         }
-#endif
-
+        #endif
+        #endregion Test
     }
 }

@@ -1,232 +1,376 @@
-<script>
-[
-  {
-    "tags": [],
-    "timestamp": "0001-01-01T00:00:00",
-    "source": {
-      "pointer": {
-        "provider_name_space": "twitter",
-        "message_id": "0"
+{
+  "twitter/0": {
+    "message_type": "offr",
+    "timestamp": "24/11/2008 10:29:52 a.m.",
+    "tags": [
+      {
+        "type": 2,
+        "tag": "free"
       },
-      "created_by": {
-        "MatchTag": "test/utunga",
-        "ProviderUserName": "utunga",
-        "ProviderNameSpace": "test",
-        "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-        "MoreInfoUrl": "http://test/utunga"
+      {
+        "type": 2,
+        "tag": "barter"
       },
-      "text": "#offr_test mulch available now in l:Paekakariki: for #free #barter http://bit.ly/message0Info #mulch ",
-      "timestamp_utc": "2008-11-22T08:18:24Z"
+      {
+        "type": 1,
+        "tag": "mulch"
+      },
+      {
+        "type": 3,
+        "tag": "paekakariki"
+      },
+      {
+        "type": 3,
+        "tag": "new zealand"
+      },
+      {
+        "type": 3,
+        "tag": "nz"
+      }
+    ],
+    "raw_text": "#offr_test mulch available now in l:Paekakariki: for #free #barter http://bit.ly/message0Info #mulch ",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "0"
     },
-    "message_type": 0,
     "created_by": {
-      "MatchTag": "test/utunga",
-      "ProviderUserName": "utunga",
-      "ProviderNameSpace": "test",
-      "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "MoreInfoUrl": "http://test/utunga"
+      "provider_user_name": "utunga",
+      "provide_name_space": "test",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
+      "screen_name": null,
+      "more_info_url": "http://www.twitter.com/utunga",
+      "match_tag": "test/utunga"
     },
+    "offer_text": "mulch available now",
+    "more_info_url": "http://bit.ly/message0Info",
     "thumbnail": null,
-    "offer_text": "#offr_test mulch available now in l:Paekakariki: for #free #barter http://bit.ly/message0Info",
-    "more_info_url": "http://bit.ly/message0Info #mulch",
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -40.9827820,
-      "geo_long": 174.9561080,
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
       "address": "Paekakariki",
-      "tags": []
+      "tags": [
+        {
+          "type": 3,
+          "tag": "paekakariki"
+        },
+        {
+          "type": 3,
+          "tag": "new zealand"
+        },
+        {
+          "type": 3,
+          "tag": "nz"
+        }
+      ]
     }
   },
-  {
-    "tags": [],
-    "timestamp": "0001-01-01T00:00:00",
-    "source": {
-      "pointer": {
-        "provider_name_space": "twitter",
-        "message_id": "1"
+  "twitter/1": {
+    "message_type": "offr",
+    "timestamp": "24/11/2008 10:35:17 a.m.",
+    "tags": [
+      {
+        "type": 2,
+        "tag": "free"
       },
-      "created_by": {
-        "MatchTag": "test/shelly",
-        "ProviderUserName": "shelly",
-        "ProviderNameSpace": "test",
-        "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
-        "MoreInfoUrl": "http://test/shelly"
+      {
+        "type": 2,
+        "tag": "barter"
       },
-      "text": "#offr_test car available now in l:Wellington City: for #free #barter http://bit.ly/message1Info #car ",
-      "timestamp_utc": "2008-11-22T08:23:49Z"
+      {
+        "type": 1,
+        "tag": "car"
+      },
+      {
+        "type": 3,
+        "tag": "wellington"
+      },
+      {
+        "type": 3,
+        "tag": "new zealand"
+      },
+      {
+        "type": 3,
+        "tag": "nz"
+      }
+    ],
+    "raw_text": "#offr_test car available now in l:Wellington City: for #free #barter http://bit.ly/message1Info #car ",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "1"
     },
-    "message_type": 0,
     "created_by": {
-      "MatchTag": "test/shelly",
-      "ProviderUserName": "shelly",
-      "ProviderNameSpace": "test",
-      "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
-      "MoreInfoUrl": "http://test/shelly"
+      "provider_user_name": "shelly",
+      "provide_name_space": "test",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
+      "screen_name": null,
+      "more_info_url": "http://www.twitter.com/shelly",
+      "match_tag": "test/shelly"
     },
+    "offer_text": "car available now",
+    "more_info_url": "http://bit.ly/message1Info",
     "thumbnail": null,
-    "offer_text": "#offr_test car available now in l:Wellington City: for #free #barter http://bit.ly/message1Info",
-    "more_info_url": "http://bit.ly/message1Info #car",
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -41.2864800,
-      "geo_long": 174.7762170,
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
       "address": "Wellington City",
-      "tags": []
+      "tags": [
+        {
+          "type": 3,
+          "tag": "wellington"
+        },
+        {
+          "type": 3,
+          "tag": "new zealand"
+        },
+        {
+          "type": 3,
+          "tag": "nz"
+        }
+      ]
     }
   },
-  {
-    "tags": [],
-    "timestamp": "0001-01-01T00:00:00",
-    "source": {
-      "pointer": {
-        "provider_name_space": "twitter",
-        "message_id": "2"
+  "twitter/2": {
+    "message_type": "offr",
+    "timestamp": "19/11/2009 10:29:52 a.m.",
+    "tags": [
+      {
+        "type": 2,
+        "tag": "free"
       },
-      "created_by": {
-        "MatchTag": "test/utunga",
-        "ProviderUserName": "utunga",
-        "ProviderNameSpace": "test",
-        "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-        "MoreInfoUrl": "http://test/utunga"
+      {
+        "type": 2,
+        "tag": "barter"
       },
-      "text": "#offr_test vegetables available now in l:Waiheke Island: for #free #barter http://bit.ly/message2Info #vegetables ",
-      "timestamp_utc": "2009-11-17T08:18:24Z"
+      {
+        "type": 1,
+        "tag": "vegetables"
+      },
+      {
+        "type": 3,
+        "tag": "new zealand"
+      },
+      {
+        "type": 3,
+        "tag": "nz"
+      }
+    ],
+    "raw_text": "#offr_test vegetables available now in l:Waiheke Island: for #free #barter http://bit.ly/message2Info #vegetables ",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "2"
     },
-    "message_type": 0,
     "created_by": {
-      "MatchTag": "test/utunga",
-      "ProviderUserName": "utunga",
-      "ProviderNameSpace": "test",
-      "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "MoreInfoUrl": "http://test/utunga"
+      "provider_user_name": "utunga",
+      "provide_name_space": "test",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
+      "screen_name": null,
+      "more_info_url": "http://www.twitter.com/utunga",
+      "match_tag": "test/utunga"
     },
-    "thumbnail": null,
-    "offer_text": "#offr_test vegetables available now in l:Waiheke Island: for #free #barter http://bit.ly/message2Info",
+    "offer_text": "vegetables available now",
     "more_info_url": "http://bit.ly/message2Info",
+    "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -36.7995140,
+      "geo_lat": -36.799514,
       "geo_long": 175.0960576,
       "address": "Waiheke Island",
-      "tags": []
+      "tags": [
+        {
+          "type": 3,
+          "tag": "new zealand"
+        },
+        {
+          "type": 3,
+          "tag": "nz"
+        }
+      ]
     }
   },
-  {
-    "tags": [],
-    "timestamp": "0001-01-01T00:00:00",
-    "source": {
-      "pointer": {
-        "provider_name_space": "twitter",
-        "message_id": "3"
+  "twitter/3": {
+    "message_type": "offr",
+    "timestamp": "22/11/2009 10:29:52 a.m.",
+    "tags": [
+      {
+        "type": 2,
+        "tag": "free"
       },
-      "created_by": {
-        "MatchTag": "test/utunga",
-        "ProviderUserName": "utunga",
-        "ProviderNameSpace": "test",
-        "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-        "MoreInfoUrl": "http://test/utunga"
+      {
+        "type": 2,
+        "tag": "barter"
       },
-      "text": "#offr_test garden supplies available now in l:Paekakariki: for #free #barter http://bit.ly/message3Info #garden_supplies ",
-      "timestamp_utc": "2009-11-20T08:18:24Z"
+      {
+        "type": 1,
+        "tag": "garden_supplies"
+      },
+      {
+        "type": 3,
+        "tag": "paekakariki"
+      },
+      {
+        "type": 3,
+        "tag": "new zealand"
+      },
+      {
+        "type": 3,
+        "tag": "nz"
+      }
+    ],
+    "raw_text": "#offr_test garden supplies available now in l:Paekakariki: for #free #barter http://bit.ly/message3Info #garden_supplies ",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "3"
     },
-    "message_type": 0,
     "created_by": {
-      "MatchTag": "test/utunga",
-      "ProviderUserName": "utunga",
-      "ProviderNameSpace": "test",
-      "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "MoreInfoUrl": "http://test/utunga"
+      "provider_user_name": "utunga",
+      "provide_name_space": "test",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
+      "screen_name": null,
+      "more_info_url": "http://www.twitter.com/utunga",
+      "match_tag": "test/utunga"
     },
-    "thumbnail": null,
-    "offer_text": "#offr_test garden supplies available now in l:Paekakariki: for #free #barter http://bit.ly/message3Info",
+    "offer_text": "garden supplies available now",
     "more_info_url": "http://bit.ly/message3Info",
+    "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -40.9827820,
-      "geo_long": 174.9561080,
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
       "address": "Paekakariki",
-      "tags": []
+      "tags": [
+        {
+          "type": 3,
+          "tag": "paekakariki"
+        },
+        {
+          "type": 3,
+          "tag": "new zealand"
+        },
+        {
+          "type": 3,
+          "tag": "nz"
+        }
+      ]
     }
   },
-  {
-    "tags": [],
-    "timestamp": "0001-01-01T00:00:00",
-    "source": {
-      "pointer": {
-        "provider_name_space": "twitter",
-        "message_id": "4"
+  "twitter/4": {
+    "message_type": "offr",
+    "timestamp": "23/11/2009 10:29:52 p.m.",
+    "tags": [
+      {
+        "type": 2,
+        "tag": "free"
       },
-      "created_by": {
-        "MatchTag": "test/shelly",
-        "ProviderUserName": "shelly",
-        "ProviderNameSpace": "test",
-        "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
-        "MoreInfoUrl": "http://test/shelly"
+      {
+        "type": 2,
+        "tag": "barter"
       },
-      "text": "#offr_test yams available now in l:Waiheke Island: for #free #barter http://bit.ly/message4Info #yams ",
-      "timestamp_utc": "2009-11-21T20:18:24Z"
+      {
+        "type": 1,
+        "tag": "yams"
+      },
+      {
+        "type": 3,
+        "tag": "new zealand"
+      },
+      {
+        "type": 3,
+        "tag": "nz"
+      }
+    ],
+    "raw_text": "#offr_test yams available now in l:Waiheke Island: for #free #barter http://bit.ly/message4Info #yams ",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "4"
     },
-    "message_type": 0,
     "created_by": {
-      "MatchTag": "test/shelly",
-      "ProviderUserName": "shelly",
-      "ProviderNameSpace": "test",
-      "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
-      "MoreInfoUrl": "http://test/shelly"
+      "provider_user_name": "shelly",
+      "provide_name_space": "test",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
+      "screen_name": null,
+      "more_info_url": "http://www.twitter.com/shelly",
+      "match_tag": "test/shelly"
     },
+    "offer_text": "yams available now",
+    "more_info_url": "http://bit.ly/message4Info",
     "thumbnail": null,
-    "offer_text": "#offr_test yams available now in l:Waiheke Island: for #free #barter http://bit.ly/message4Info",
-    "more_info_url": "http://bit.ly/message4Info #yams",
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -36.7995140,
+      "geo_lat": -36.799514,
       "geo_long": 175.0960576,
       "address": "Waiheke Island",
-      "tags": []
+      "tags": [
+        {
+          "type": 3,
+          "tag": "new zealand"
+        },
+        {
+          "type": 3,
+          "tag": "nz"
+        }
+      ]
     }
   },
-  {
-    "tags": [],
-    "timestamp": "0001-01-01T00:00:00",
-    "source": {
-      "pointer": {
-        "provider_name_space": "twitter",
-        "message_id": "5"
+  "twitter/5": {
+    "message_type": "offr",
+    "timestamp": "24/11/2009 10:29:52 a.m.",
+    "tags": [
+      {
+        "type": 2,
+        "tag": "cash"
       },
-      "created_by": {
-        "MatchTag": "test/utunga",
-        "ProviderUserName": "utunga",
-        "ProviderNameSpace": "test",
-        "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-        "MoreInfoUrl": "http://test/utunga"
+      {
+        "type": 1,
+        "tag": "squash"
       },
-      "text": "#offr_test squash available now in l:Waiheke Island: for #cash http://bit.ly/message5Info #squash ",
-      "timestamp_utc": "2009-11-22T08:18:24Z"
+      {
+        "type": 3,
+        "tag": "new zealand"
+      },
+      {
+        "type": 3,
+        "tag": "nz"
+      }
+    ],
+    "raw_text": "#offr_test squash available now in l:Waiheke Island: for #cash http://bit.ly/message5Info #squash ",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "5"
     },
-    "message_type": 0,
     "created_by": {
-      "MatchTag": "test/utunga",
-      "ProviderUserName": "utunga",
-      "ProviderNameSpace": "test",
-      "ProfilePicUrl": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "MoreInfoUrl": "http://test/utunga"
+      "provider_user_name": "utunga",
+      "provide_name_space": "test",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
+      "screen_name": null,
+      "more_info_url": "http://www.twitter.com/utunga",
+      "match_tag": "test/utunga"
     },
+    "offer_text": "squash available now",
+    "more_info_url": "http://bit.ly/message5Info",
     "thumbnail": null,
-    "offer_text": "#offr_test squash available now in l:Waiheke Island: for #cash http://bit.ly/message5Info",
-    "more_info_url": "http://bit.ly/message5Info #squash",
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -36.7995140,
+      "geo_lat": -36.799514,
       "geo_long": 175.0960576,
       "address": "Waiheke Island",
-      "tags": []
+      "tags": [
+        {
+          "type": 3,
+          "tag": "new zealand"
+        },
+        {
+          "type": 3,
+          "tag": "nz"
+        }
+      ]
     }
   }
-]
-</script>
+}

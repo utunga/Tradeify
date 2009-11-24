@@ -28,7 +28,7 @@ namespace Offr.Tests
             // load the mock messages via this NonMockRawMessageProvider madness
             NonMockRawMessageProvider rawMessageProvider = new NonMockRawMessageProvider();
             TagRepository singletonTagProvider = new TagRepository();
-            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            GoogleLocationProvider locationProvider = new MockLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             _messageProvider = new MessageProvider(rawMessageProvider, realMessageParser);
             _messageProvider.Update();

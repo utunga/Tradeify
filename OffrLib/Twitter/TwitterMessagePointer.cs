@@ -28,6 +28,7 @@ namespace Offr.Twitter
         {
             ProviderMessageID = status_id.ToString();
         }
+        #region equals
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -43,7 +44,8 @@ namespace Offr.Twitter
         {
             return (MatchTag != null ? MatchTag.GetHashCode() : 0);
         }
-
+        #endregion equals
+        #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             JSON.WriteProperty(serializer,writer,"provider_name_space", ProviderNameSpace);
@@ -55,5 +57,6 @@ namespace Offr.Twitter
             JSON.ReadProperty<string>(serializer, reader, "provider_name_space");
             this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "message_id");
         }
+        #endregion JSON
     }
 }

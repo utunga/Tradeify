@@ -13,7 +13,7 @@ namespace Offr.Location
 {
     public class GoogleLocationProvider : ILocationProvider
     {
-        private ILocationRepository LocationRepository;
+        protected ILocationRepository LocationRepository;
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}"; 
         private MessageType _forType;
         private readonly List<IRawMessageReceiver> _receivers;
@@ -28,25 +28,43 @@ namespace Offr.Location
         public GoogleLocationProvider()
             : this(MessageType.offr_test){}
 
-        public ILocation Parse(string addressText)
+        public virtual ILocation Parse(string addressText)
         {
-            GoogleResultSet resultSet = GetResultSet(addressText);
-            return Location.From(resultSet);
+            return Parse(addressText, null);
         }
 
-        public ILocation Parse(string addressText,string twitterLocation)
+        public virtual ILocation Parse(string addressText, string twitterLocation)
         {
+            //make sure it can handle twitterLocation ==null
+ 
             ILocation previouslyFound = LocationRepository.Get(addressText);
             if (previouslyFound != null) return previouslyFound;
+
+            
             GoogleResultSet resultSet = GetResultSet(addressText);
-            ILocation newlyFound= Location.From(resultSet,twitterLocation);
+
+            return GetNewLocation(addressText, twitterLocation, resultSet);
+        }
+
+        protected ILocation GetNewLocation(string addressText, string twitterLocation, GoogleResultSet resultSet)
+        {
+            ILocation newlyFound = (twitterLocation == null) ? Location.From(resultSet) 
+                                       : Location.From(resultSet, twitterLocation);
+                        
+            if(newlyFound==null) return null;
+
             //set the AddressText for the ID required by the repository
-            newlyFound.AddressText = addressText;
-            LocationRepository.Save(newlyFound);
+            SaveLocation(newlyFound, addressText);
             return newlyFound;
         }
 
-        private GoogleResultSet GetResultSet(string addressText)
+        private void SaveLocation(ILocation newlyFound, string addressText)
+        {
+            newlyFound.AddressText = addressText;
+            LocationRepository.Save(newlyFound);
+        }
+
+        protected GoogleResultSet GetResultSet(string addressText)
         {
             string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
             string responseData = WebRequest.RetrieveContent(requestURI);
@@ -54,21 +72,6 @@ namespace Offr.Location
             return resultSet;
         }
 
-        //public string getStatus()
-        //{
-        //    string testlocation = "q=1500+Amphitheatre+Parkway,+Mountain+View,+CA";
-        //    //string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI+testlocation, query);
-        //    //string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query); // query back as far as we can go for these keywords 
-        //    string responseData = WebRequest.RetrieveContent(testlocation);
-        //    GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
-        //    Offr.Location l = new Offr.Location();
-
-        //    return resultSet.Status;
-
-        //}
-        //public string getResponseData()
-        //{
-        //    return WebRequest.RetrieveContent("http://maps.google.com/maps/geo?q=1500+Amphitheatre+Parkway,+Mountain+View,+CA");
-        //}
+       
     }
 }

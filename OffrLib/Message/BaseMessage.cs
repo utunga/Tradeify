@@ -14,6 +14,7 @@ namespace Offr.Message
 
     public abstract class BaseMessage : IMessage, IEquatable<BaseMessage>
     {
+        #region fields
         public TagList _tags;
 
         private MessageType _messageType;
@@ -53,9 +54,10 @@ namespace Offr.Message
         {
             get; set;
         }
+        #endregion fields
 
         #region read only properties
-        
+
         public string ID
         {
             get
@@ -109,6 +111,7 @@ namespace Offr.Message
             return builder.ToString();
         }
 
+        #region Equals
         public bool Equals(BaseMessage other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -146,6 +149,7 @@ namespace Offr.Message
                 return result;
             }
         }
+        #endregion Equals
 
         #region implementation of IComparable
         public int CompareTo(object obj)
@@ -163,6 +167,7 @@ namespace Offr.Message
             //return (this.Source.CompareTo(other.Source));
         }
         #endregion
+
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {

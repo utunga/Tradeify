@@ -72,13 +72,14 @@ namespace Offr.Text
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            JSON.WriteProperty(serializer,writer,"type",type);
+            JSON.WriteProperty(serializer,writer,"type",type.ToString());
             JSON.WriteProperty(serializer,writer,"tag",tag);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            type = JSON.ReadProperty<TagType>(serializer, reader, "type");
+            string typeStr = JSON.ReadProperty<string>(serializer, reader, "type");
+            type = (TagType) Enum.Parse(typeof (TagType), typeStr, true);
             tag = JSON.ReadProperty<string>(serializer, reader, "tag");
         }
         #endregion JSSON

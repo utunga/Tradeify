@@ -42,13 +42,21 @@ namespace Offr.Query
         //    return tagDex.GetTagCounts();
         //}
 
-        public TagCounts GetTagCountsForTags(IEnumerable<ITag> tags)
+        public TagCounts GetTagCountsForTags(IEnumerable<ITag> tagsEnumerable)
         {
+            List<ITag> tags = new List<ITag>(tagsEnumerable);
+            if (tags.Count == 0)
+            {
+                return _globalTagIndex.GetTagCounts();
+            }
+
+            //otherwise we are filtering
             var tagCounts = new List<TagWithCount>();
             foreach (ITag tag in tags)
             {
                 tagCounts.Add(_globalTagIndex.GetTagCountForTag(tag));
             }
+
             //tagCounts.Reverse();
             return new TagCounts() { Tags = tagCounts, Total = -1 };
         }

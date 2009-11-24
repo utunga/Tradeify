@@ -181,12 +181,6 @@ namespace Offr.Tests
         }
 
         [Test]
-        public void TestCorrectTagsAreRetrieved()
-        {
-
-        }
-
-        [Test]
         public void TestDeserialize()
         {
             GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(_testJSON);
@@ -197,7 +191,7 @@ namespace Offr.Tests
         public void TestLiveGoogleParse()
         {
             // also did Dubai move a few kilometers to the left or something? can you fix the test?
-            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            GoogleLocationProvider locationProvider = new MockLocationProvider();
             foreach (string address in _addressToExpectedTags.Keys)
             {
                 ILocation location = locationProvider.Parse(address);
@@ -224,7 +218,7 @@ namespace Offr.Tests
                               }
             };
             // Normally the result london is not the first result for this query
-            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            GoogleLocationProvider locationProvider = new MockLocationProvider();
             ILocation location = locationProvider.Parse(address, "Greater London");
             ILocation expected = nonSpecific;
             AssertLocationEquality(address, expected, location);

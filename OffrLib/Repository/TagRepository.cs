@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using Offr.Json;
 using Offr.Message;
 using Offr.Text;
 
@@ -14,7 +15,6 @@ namespace Offr.Repository
         //but for now just parse the string to get the tag
         //should be a dictionary with tag values
        // private Dictionary<String, ITag> _list;
-
         public TagRepository()
         {
             Initialize();
@@ -68,6 +68,7 @@ namespace Offr.Repository
             Save(FromTypeAndText(TagType.type, "nzd"));
             Save(FromTypeAndText(TagType.type, "barter"));
             Save(FromTypeAndText(TagType.type, "free"));
+            String serializedList = JSON.Serialize(_list);  
         }
 
         private ITag FromTypeAndText(TagType tagType, string tagText)

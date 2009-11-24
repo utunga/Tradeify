@@ -187,14 +187,7 @@ namespace Offr.Text
         {
             JSON.WriteProperty(serializer,writer,"tags",_list);
 
-            /*            List<string> tags = new List<string>();
-            foreach (TagType tagType in _tagsByType.Keys)
-            {
-                foreach (ITag tag in _tagsByType[tagType])
-                {
-                    tags.Add(tag.tag); 
-                }
-            }
+/*
             writer.WritePropertyName("tags");*/
 /*          the json library doesnt seem to handle dictionaries nicely
             Dictionary<string, List<string>> TagTypeStringToListOfTag= new Dictionary<string, List<string>>();
@@ -207,18 +200,11 @@ namespace Offr.Text
                 else TagTypeStringToListOfTag[t.type.ToString()]= new List<string>();
             }
             serializer.Serialize(writer, TagTypeStringToListOfTag); 
+
+            //try this
+            JSON.WriteProperty(serializer, writer, "tags", TagTypeStringToListOfTag);
 */
 
-            // equivalent to this..
-            //writer.WriteStartArray();
-            //foreach (TagType tagType in _tagsByType.Keys)
-            //{
-            //    foreach (ITag tag in _tagsByType[tagType])
-            //    {
-            //        writer.WriteValue(tag.tag);
-            //    }
-            //}
-            //writer.WriteEndArray();
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)

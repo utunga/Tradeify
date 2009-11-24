@@ -92,7 +92,7 @@ namespace Offr.Location
         /// <param name="googleResultSet"></param>
         /// <param name="locationName"></param>
         /// <returns></returns>
-        public static Location From(GoogleResultSet googleResultSet, String locationName)
+        public static Location From(GoogleResultSet googleResultSet, string locationName)
         {
             Debug.Assert((googleResultSet != null));
             Debug.Assert((locationName != null));

@@ -1,0 +1,58 @@
+{
+  "barter": {
+    "type": "type",
+    "tag": "barter"
+  },
+  "cash": {
+    "type": "type",
+    "tag": "cash"
+  },
+  "cash only": {
+    "type": "type",
+    "tag": "cash only"
+  },
+  "etc": {
+    "type": "msg_type",
+    "tag": "etc"
+  },
+  "free": {
+    "type": "type",
+    "tag": "free"
+  },
+  "freecycle": {
+    "type": "group",
+    "tag": "freecycle"
+  },
+  "nzd": {
+    "type": "type",
+    "tag": "nzd"
+  },
+  "offr": {
+    "type": "msg_type",
+    "tag": "offr"
+  },
+  "offr_test": {
+    "type": "msg_type",
+    "tag": "offr_test"
+  },
+  "ooooby": {
+    "type": "group",
+    "tag": "ooooby"
+  },
+  "recipient_feedback": {
+    "type": "msg_type",
+    "tag": "recipient_feedback"
+  },
+  "supplier_feedback": {
+    "type": "msg_type",
+    "tag": "supplier_feedback"
+  },
+  "takedown": {
+    "type": "msg_type",
+    "tag": "takedown"
+  },
+  "wanted": {
+    "type": "msg_type",
+    "tag": "wanted"
+  }
+}

@@ -14,6 +14,7 @@ namespace Offr.Message
 {
     public class OfferMessage : BaseMessage, IOfferMessage, IEquatable<OfferMessage>
     {
+        #region fields
         public static string HASHTAG = "#" + MessageType.offr_test;
 
         public string OfferText { get; set; }
@@ -27,6 +28,7 @@ namespace Offr.Message
         public DateTime? EndBy { get; private set; }
 
         public string EndByText { get; private set; }
+        #endregion fields
 
         #region read only properties
 
@@ -67,6 +69,8 @@ namespace Offr.Message
         /// FIXME: ideally these set methods would be internal, not public
         /// </summary>
         /// 
+        /// 
+        #region Setter Methods
         public void SetEndBy(string endByText, DateTime endBy)
         {
             EndByText = endByText;
@@ -84,7 +88,9 @@ namespace Offr.Message
             if(thumbnailURL!=null)
             _thumbnails.Add(thumbnailURL);
         }
+        #endregion Setter Methods
 
+        #region Equals
         public bool Equals(OfferMessage other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -119,6 +125,7 @@ namespace Offr.Message
                 return result;
             }
         }
+        #endregion Equals
 
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)

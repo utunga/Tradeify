@@ -6,7 +6,7 @@ using Offr.Location;
 
 namespace Offr.Repository
 {
-    interface ILocationRepository
+    public interface ILocationRepository
     {
             ILocation Get(string address);
             void Save(ILocation instance);
