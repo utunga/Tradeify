@@ -5,6 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 using Offr.Location;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 using Ninject.Core;
 using Ninject;
@@ -22,7 +23,7 @@ namespace Offr.Tests
             //for this test create real objects all the way down the line - so...more of an integration test really
             // (which is why this is disabled)
             TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(MessageType.offr_test);
-            TagProvider singletonTagProvider = new TagProvider();
+            TagRepository singletonTagProvider = new TagRepository();
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             _target = new MessageProvider(twitterProvider, realMessageParser);

@@ -72,6 +72,7 @@
     <Compile Include="Json\Converter\MessagePointerConverter.cs" />
     <Compile Include="Json\JSON.cs" />
     <Compile Include="Message\IMessageReceiver.cs" />
+    <Compile Include="Repository\ILocationRepository.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
     <Compile Include="ITopic.cs" />
     <Compile Include="Json\Converter\LocationConverter.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Location\ILocationProvider.cs" />
     <Compile Include="Location\Location.cs" />
     <Compile Include="Repository\ITagRepository.cs" />
+    <Compile Include="Repository\LocationRepository.cs" />
     <Compile Include="Repository\MessageRepository.cs" />
     <Compile Include="Message\BaseMessage.cs" />
     <Compile Include="Message\MessageParseExeption.cs" />
@@ -117,13 +119,11 @@
     <Compile Include="Message\IOfferResponse.cs" />
     <Compile Include="Text\IRawMessage.cs" />
     <Compile Include="Text\ITag.cs" />
-    <Compile Include="Text\ITagProvider.cs" />
     <Compile Include="Text\IUserPointer.cs" />
     <Compile Include="Message\MessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text\Tag.cs" />
     <Compile Include="Text\TagList.cs" />
-    <Compile Include="Text\TagProvider.cs" />
     <Compile Include="Text\TagType.cs" />
     <Compile Include="Query\IMessageQuery.cs" />
     <Compile Include="Twitter\TwitterUserPointer.cs" />

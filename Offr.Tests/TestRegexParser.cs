@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using Offr.Location;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Tests
@@ -16,7 +17,8 @@ namespace Offr.Tests
 
         public TestRegexParser()
         {
-            TagProvider singletonTagProvider = new TagProvider();
+            TagRepository singletonTagProvider = new TagRepository();
+            //singletonTagProvider.Initialize();
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             _target = new RegexMessageParser(singletonTagProvider, locationProvider);
         }

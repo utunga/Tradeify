@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Offr.Location;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Message
 {
     public class RegexMessageParser : IMessageParser
     {
-        readonly ITagProvider _tagProvider;
+        readonly ITagRepository _tagProvider;
         readonly ILocationProvider _locationProvider;
 
-        public RegexMessageParser(ITagProvider tagProvider, ILocationProvider locationProvider)
+        public RegexMessageParser(ITagRepository tagProvider, ILocationProvider locationProvider)
         {
             _tagProvider = tagProvider;
             _locationProvider = locationProvider;

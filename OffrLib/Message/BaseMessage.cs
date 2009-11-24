@@ -12,7 +12,7 @@ using Offr.Text;
 namespace Offr.Message
 {
 
-    public abstract class BaseMessage : IMessage, IEquatable<BaseMessage>,ICanJson
+    public abstract class BaseMessage : IMessage, IEquatable<BaseMessage>
     {
         public TagList _tags;
 

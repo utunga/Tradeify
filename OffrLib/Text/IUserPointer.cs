@@ -6,7 +6,7 @@ using Offr.Json.Converter;
 
 namespace Offr.Text
 {
-    public interface IUserPointer : ICanJson
+    public interface IUserPointer : ICanJson ,IEquatable<IUserPointer>
     {
         string MatchTag { get; }
         string ProviderUserName { get; }

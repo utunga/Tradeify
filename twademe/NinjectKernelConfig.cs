@@ -6,6 +6,7 @@ using Ninject.Core;
 using Ninject.Core.Behavior;
 using Offr.Message;
 using Offr.Query;
+using Offr.Repository;
 using Offr.Tests;
 using Offr.Text;
 
@@ -21,7 +22,7 @@ namespace twademe
             Bind<IRawMessageProvider>().To<Offr.Twitter.TwitterRawMessageProvider>().Using<SingletonBehavior>();
             Bind<IMessageProvider>().To<MessageProvider>().Using<SingletonBehavior>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
-            Bind<ITagProvider>().To<TagProvider>().Using<SingletonBehavior>();
+            Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
             Bind<MessageProviderForKeywords>().ToSelf();
 
         }

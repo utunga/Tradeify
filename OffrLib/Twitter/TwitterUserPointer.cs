@@ -8,7 +8,7 @@ using Offr.Users;
 
 namespace Offr.Text
 {
-    public class TwitterUserPointer : IUserPointer, IEnhancedUserPointer, IEquatable<TwitterUserPointer>
+    public class TwitterUserPointer : IUserPointer, IEnhancedUserPointer
     {
 
         public string MatchTag { get { return ProviderNameSpace + "/" + ProviderUserName; } }
@@ -40,37 +40,28 @@ namespace Offr.Text
         }
         public override bool Equals(object obj)
         {
-            if (obj == null)
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return ((obj is IUserPointer) ? this.Equals((IUserPointer)obj) : false);
+        }
+        public bool Equals(IUserPointer userPointer)
+        {
+            if (userPointer == null)
             {
                 return false;
             }
-
-            return Equals(MatchTag,((IUserPointer)obj).MatchTag);
+            return Equals(MatchTag,userPointer.MatchTag);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                int result = (ProviderUserName != null ? ProviderUserName.GetHashCode() : 0);
-                result = (result * 397) ^ (ProviderNameSpace != null ? ProviderNameSpace.GetHashCode() : 0);
-                result = (result * 397) ^ (ProfilePicUrl != null ? ProfilePicUrl.GetHashCode() : 0);
-                result = (result * 397) ^ (ScreenName != null ? ScreenName.GetHashCode() : 0);
+                int result = (MatchTag != null ? MatchTag.GetHashCode() : 0);
                 return result;
             }
         }
 
-        public bool Equals(TwitterUserPointer other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Equals(other.ProviderUserName, ProviderUserName) &&
-                   Equals(other.ProviderNameSpace, ProviderNameSpace) &&
-                   Equals(other.ProfilePicUrl, ProfilePicUrl) &&
-                   Equals(other.ScreenName, ScreenName) &&
-                   Equals(other.MoreInfoUrl, MoreInfoUrl) &&
-                   Equals(other.MatchTag, MatchTag);
-        }
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {

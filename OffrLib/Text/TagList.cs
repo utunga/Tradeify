@@ -230,7 +230,7 @@ namespace Offr.Text
                 _list.Add(provider.GetTag(tag));
             }*/
             List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
-            TagProvider provider = Global.Kernel.Get<TagProvider>(); //FIXME gotta figure out if this is correct thing to happen
+            ITagRepository provider = Global.Kernel.Get<ITagRepository>(); //FIXME gotta figure out if this is correct thing to happen
             foreach (ITag tag in temp)
             {
                 _list.Add(provider.GetTag(tag.tag,tag.type));

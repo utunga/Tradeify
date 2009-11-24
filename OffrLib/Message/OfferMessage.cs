@@ -12,32 +12,20 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    [JsonObject(MemberSerialization.OptIn)]
     public class OfferMessage : BaseMessage, IOfferMessage, IEquatable<OfferMessage>
     {
         public static string HASHTAG = "#" + MessageType.offr_test;
 
-        [JsonProperty]
         public string OfferText { get; set; }
 
-        [JsonProperty]
-        [JsonConverter(typeof(LocationConverter))]
         public ILocation Location { get; set; }
 
-        [JsonProperty]
-        [JsonConverter(typeof(UserPointerConverter))]
         public IUserPointer OfferedBy { get { return base.CreatedBy; }
-            /*private set { base.CreatedBy = value; */
         }
-
-        [JsonProperty]
         private List<String> _thumbnails;
         
-        [JsonProperty]
-        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime? EndBy { get; private set; }
 
-        [JsonProperty]
         public string EndByText { get; private set; }
 
         #region read only properties

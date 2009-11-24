@@ -7,7 +7,7 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    public interface IMessagePointer:ICanJson
+    public interface IMessagePointer:ICanJson, IEquatable<IMessagePointer>
     {
         //string SourceURL { get; }
         //IResolvedURI ResolvedURL { get; }

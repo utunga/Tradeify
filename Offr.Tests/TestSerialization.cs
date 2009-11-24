@@ -11,6 +11,7 @@ using Offr.Json;
 using Offr.Location;
 using Offr.Message;
 using Offr.Query;
+using Offr.Repository;
 using Offr.Text;
 using Offr.Twitter;
 
@@ -26,7 +27,7 @@ namespace Offr.Tests
         {
             // load the mock messages via this NonMockRawMessageProvider madness
             NonMockRawMessageProvider rawMessageProvider = new NonMockRawMessageProvider();
-            TagProvider singletonTagProvider = new TagProvider();
+            TagRepository singletonTagProvider = new TagRepository();
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             _messageProvider = new MessageProvider(rawMessageProvider, realMessageParser);
@@ -115,7 +116,7 @@ namespace Offr.Tests
         {
             
             TagList orig = new TagList();
-            ITagProvider tagProvider = Global.Kernel.Get<ITagProvider>();
+            ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
             orig.Add(tagProvider.GetTag("foo", TagType.tag));
             orig.Add(tagProvider.GetTag("freecycle", TagType.tag));
             orig.Add(tagProvider.GetTag("barter", TagType.tag));

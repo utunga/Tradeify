@@ -31,29 +31,31 @@ namespace Offr.Tests
             throw new NotImplementedException("Ideally you can add a message pointer by url, and have it parsed, by namespace etc");
         }
 
+        public bool Equals(IMessagePointer messagePointer)
+        {
+            if (ReferenceEquals(null, messagePointer)) return false;
+            if (ReferenceEquals(this, messagePointer)) return true;
+            return Equals(MatchTag, messagePointer.MatchTag);
+        }
+
+        public override int GetHashCode()
+        {
+            return (MatchTag != null ? MatchTag.GetHashCode() : 0);
+        }
+
         #region Implementation of ICanJson
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            //JSON.WriteProperty(serializer, writer, "ProviderNameSpace", ProviderNameSpace);
-            //JSON.WriteProperty(serializer, writer, "MessageID", ProviderMessageID);
-            //JSON.WriteProperty(serializer, writer, "Source", Source);
             TwitterMessagePointer messagePointer = new TwitterMessagePointer(long.Parse(ProviderMessageID));
             messagePointer.WriteJson(writer,serializer);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            JSON.ReadProperty<string>(serializer, reader, "ProviderNameSpace");
-            this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "MessageID");
+            throw new NotSupportedException();          
         }
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof(IMessagePointer)) return false;
-            return Equals(((IMessagePointer)obj).MatchTag, MatchTag);
-        }
+
         #endregion
     }
 }

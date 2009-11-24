@@ -11,7 +11,7 @@ using Offr.Text;
 
 namespace Offr.Twitter
 {
-    public class TwitterMessagePointer :IMessagePointer , IEquatable<TwitterMessagePointer>
+    public class TwitterMessagePointer :IMessagePointer 
     {
         public string MatchTag
         {
@@ -28,17 +28,20 @@ namespace Offr.Twitter
         {
             ProviderMessageID = status_id.ToString();
         }
-
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return Equals(((IMessagePointer)obj).MatchTag,MatchTag);
+            return ((obj is IMessagePointer) ? this.Equals((IMessagePointer)obj) : false);
+        }
+        public bool Equals(IMessagePointer messagePointer)
+        {
+            return Equals(MatchTag,messagePointer.MatchTag);
         }
 
         public override int GetHashCode()
         {
-            return (ProviderMessageID != null ? ProviderMessageID.GetHashCode() : 0);
+            return (MatchTag != null ? MatchTag.GetHashCode() : 0);
         }
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)

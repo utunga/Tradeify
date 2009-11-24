@@ -22,7 +22,7 @@ namespace Offr
             Bind<IMessageProvider>().To<MessageProvider>().Using<SingletonBehavior>();
             Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
-            Bind<ITagProvider>().To<TagProvider>().Using<SingletonBehavior>();
+            Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
             Bind<MessageProviderForKeywords>().ToSelf();
         }
     }

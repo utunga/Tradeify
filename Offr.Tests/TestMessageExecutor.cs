@@ -8,6 +8,7 @@ using Ninject.Core;
 using NUnit.Framework;
 using Offr.Message;
 using Offr.Query;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Tests
@@ -16,7 +17,7 @@ namespace Offr.Tests
     public class TestMessageExecutor
     {
         readonly IMessageQueryExecutor _target;
-        readonly ITagProvider _tagProvider;
+        readonly ITagRepository _tagProvider;
 
         public TestMessageExecutor()
         {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 using Offr.Twitter;
 
@@ -12,6 +13,7 @@ namespace Offr.Location
 {
     public class GoogleLocationProvider : ILocationProvider
     {
+        private ILocationRepository LocationRepository;
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}"; 
         private MessageType _forType;
         private readonly List<IRawMessageReceiver> _receivers;
@@ -20,6 +22,7 @@ namespace Offr.Location
         {
             _forType = forType;
             _receivers = new List<IRawMessageReceiver>();
+            LocationRepository=new LocationRepository();
         }
         
         public GoogleLocationProvider()
@@ -33,14 +36,19 @@ namespace Offr.Location
 
         public ILocation Parse(string addressText,string twitterLocation)
         {
+            ILocation previouslyFound = LocationRepository.Get(addressText);
+            if (previouslyFound != null) return previouslyFound;
             GoogleResultSet resultSet = GetResultSet(addressText);
-            return Location.From(resultSet,twitterLocation);
+            ILocation newlyFound= Location.From(resultSet,twitterLocation);
+            //set the AddressText for the ID required by the repository
+            newlyFound.AddressText = addressText;
+            LocationRepository.Save(newlyFound);
+            return newlyFound;
         }
 
         private GoogleResultSet GetResultSet(string addressText)
         {
             string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
-
             string responseData = WebRequest.RetrieveContent(requestURI);
             GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
             return resultSet;

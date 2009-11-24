@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 
 namespace Offr.Text
-{
+{ 
     public interface IRawMessageProvider
+       
     {
         string ProviderNameSpace { get; }
         void RegisterForUpdates(IRawMessageReceiver receiver);

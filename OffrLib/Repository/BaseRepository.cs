@@ -38,10 +38,9 @@ namespace Offr.Repository
             else
             {
                 _list[id] = instance;
-                string s=JSON.Serialize(_list);
+               // string s=JSON.Serialize(_list);
             }
         }
-
         public virtual void Remove(T instance)
         {
             if (_list.ContainsKey(instance.ID))

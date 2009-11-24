@@ -150,14 +150,6 @@ namespace Offr.Message
             lock (_messages)
             {
                 _messages.Save(message);
-/*                if (_messages.ContainsKey(providerMessageID))
-                {
-                    _messages[providerMessageID] = message;
-                }
-                else
-                {
-                    _messages.Add(providerMessageID, message);
-                } */
             }
         }
 

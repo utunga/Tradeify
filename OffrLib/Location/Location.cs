@@ -14,6 +14,7 @@ namespace Offr.Location
         public decimal GeoLat { get; set; }
         public decimal GeoLong { get; set; }
         public string Address { get; set; }
+        public string AddressText { get; set; }
         
         private List<ITag> _locationTags { get; set; }
         public IList<ITag> Tags
@@ -21,7 +22,10 @@ namespace Offr.Location
             get { return _locationTags; }
             set { _locationTags = new List<ITag>(value); }
         }
-
+        public string ID
+        {
+            get { return AddressText; }
+        }
         public Location()
         {
             _locationTags = new List<ITag>();
