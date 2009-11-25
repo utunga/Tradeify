@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E2C87F3A-170E-4F3A-9C45-3DF87188B582}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -64,6 +64,7 @@
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\IMemCache.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="IBackgroundExceptionReceiver.cs" />
     <Compile Include="Json\Converter\CanJsonConverter.cs" />
     <Compile Include="Json\Converter\CanJson.cs" />
     <Compile Include="Json\Converter\TagListConverter.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Query\TagDexQueryExecutor.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
+    <Compile Include="Services\PersistanceService.cs" />
     <Compile Include="Text\DateUtils.cs" />
     <Compile Include="Text\RawMessage.cs" />
     <Compile Include="Text\TagCounts.cs" />

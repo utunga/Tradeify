@@ -79,7 +79,9 @@ namespace Offr.Tests
             Assert.AreEqual("#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info pic here: http://flickr.com/mulch.jpg", message.OfferText,
                             "Expect extracted message to work for " + raw);
         }
+
         [Test]
+        [Ignore("slows us down for now to hit live google, but good to have a test here - click to run expliclty")]
         public void TestRegexMethodLocationFailure()
         {
             MockRawMessage raw = new MockRawMessage(0)
@@ -96,6 +98,7 @@ namespace Offr.Tests
             IOfferMessage message = (OfferMessage) _target.Parse(raw);
             Assert.That(message.LocationTags.Count == 0, "There should be no location tags");
         }
+
         [Test]
         public void TestGetMoreInfoUrl()
         {
