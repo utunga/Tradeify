@@ -110,11 +110,11 @@
             '.user img[src]': 'offer.user.profile_pic_url',
             '.user h4': 'offer.user.screen_name',
             '.msg .text': 'offer.offer_text',
-            '.msg a.more_info_link[href]': '#{offer.more_info_url}',
-            '.ratings .screen_name': 'offer.user.screen_name',       
-            '.ratings .pos_count': 'offer.user.ratings_pos_count',
-            '.ratings .neg_count': 'offer.user.ratings_neg_count',
-            '.ratings .inc_count': 'offer.user.ratings_inc_count'
+            '.msg a.more_info_link[href]': '#{offer.more_info_url}'
+            //            '.ratings .screen_name': 'offer.user.screen_name'       
+            //            '.ratings .pos_count': 'offer.user.ratings_pos_count',
+            //            '.ratings .neg_count': 'offer.user.ratings_neg_count',
+            //            '.ratings .inc_count': 'offer.user.ratings_inc_count'
         });
     
         var tagsList = $('div.tags', offers).mapDirective({
@@ -264,13 +264,13 @@
                         <a class="more_info_link" href="">more info »</a>
                     </div><!-- /msg -->
                  </div><!-- /offer_right -->
-                <div class="ratings">
+            <%--    <div class="ratings">
                     <b><span class="screen_name"></span> Ratings:</b>
                     <span class="rating"><span class="pos_count"></span> Positive</span>
                     <span class="rating"><span class="neg_count"></span> Negative</span>
                     <span class="rating"><span class="inc_count"></span> Incomplete</span>
 					<a href="#">(how this works)</a>
-                </div> <!-- ratings-->
+                </div> <!-- ratings-->--%>
             </div><!--/offer -->
                
             </span> <!-- template -->   

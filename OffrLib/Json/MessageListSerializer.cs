@@ -71,9 +71,9 @@ namespace Offr.Json
                             {
                                 userDict.Add("more_info_url", ((IEnhancedUserPointer)offer.CreatedBy).MoreInfoUrl);
                                 userDict.Add("profile_pic_url", ((IEnhancedUserPointer)offer.CreatedBy).ProfilePicUrl);
-                                userDict.Add("ratings_pos_count", FAKE_POS_COUNT);
-                                userDict.Add("ratings_neg_count", FAKE_NEG_COUNT);
-                                userDict.Add("ratings_inc_count", FAKE_INC_COUNT);
+                                //userDict.Add("ratings_pos_count", FAKE_POS_COUNT);
+                                //userDict.Add("ratings_neg_count", FAKE_NEG_COUNT);
+                                //userDict.Add("ratings_inc_count", FAKE_INC_COUNT);
                             }
                             dict.Add("user", userDict);
 

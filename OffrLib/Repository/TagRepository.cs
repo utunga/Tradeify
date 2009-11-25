@@ -40,6 +40,7 @@ namespace Offr.Repository
         public List<ITag> GetTagsFromNameValueCollection(NameValueCollection nameVals)
         {
             List<ITag> tags = new List<ITag>();
+            if (nameVals==null) return tags;
             foreach (TagType tagType in Enum.GetValues(typeof(TagType)))
             {
                 if (nameVals.GetValues(tagType.ToString()) != null)
@@ -47,7 +48,7 @@ namespace Offr.Repository
                     foreach (string tagText in nameVals.GetValues(tagType.ToString()))
                     {
                         ITag tag = this.GetTag(tagText, tagType);
-                         Save(tag);
+                        tags.Add(tag);
                     }
                 }
             }

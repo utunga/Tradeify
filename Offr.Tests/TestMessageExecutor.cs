@@ -53,8 +53,6 @@ namespace Offr.Tests
         {
             foreach (Tag tag in MockData.UsedTags)
             {
-               
-
                 List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag })); //<-- target execution
                 Assert.GreaterOrEqual(results.Count, 1, "Received no results for query:" + tag);
                 Console.Out.WriteLine("For " + tag.ToString() + ":");
@@ -70,10 +68,16 @@ namespace Offr.Tests
         }
         
         [Test]
-        public void TestTagCounts()
+        public void TestAllTagCounts()
         {
             TagCounts allResults = _target.GetTagCounts();
             Assert.AreEqual(MockData.MSG_COUNT, allResults.Total, "Expected total count to equal message count for blank query");
+        }
+
+        [Test]
+        public void TestTagCounts()
+        {
+            
             foreach (Tag tag in MockData.UsedTags)
             {
                 TagCounts results = _target.GetTagCountsForTags(new[] { tag });
@@ -88,7 +92,6 @@ namespace Offr.Tests
                 int lastCount = int.MaxValue;
                 foreach(TagWithCount foundTag in results.Tags)
                 {
-                    
                     Assert.GreaterOrEqual(lastCount, foundTag.count, "Expected results to be in descending order");
                 }
 

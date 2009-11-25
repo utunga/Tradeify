@@ -75,9 +75,10 @@ namespace Offr.Text
 
         public bool Contains(ITag tag)
         {
-            return _matchTags.Contains(tag.match_tag);
+            //FIXME NOTE2J the following 'faster' method doesn't work after serialization
+            //return _matchTags.Contains(tag.match_tag);
             // bit faster than this..
-            //return _list.Contains(tag);
+            return _list.Contains(tag);
         }
 
         public void CopyTo(ITag[] array, int arrayIndex)
