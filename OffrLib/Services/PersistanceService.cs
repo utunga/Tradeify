@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using Offr.Repository;
 
 namespace Offr.Services
 {
@@ -22,55 +23,73 @@ namespace Offr.Services
 
         //NOTE2J we need a logger class here
         //private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private static readonly object _syncLock; // NOTE2J note the use of this '_syncLock' pattern
+        private static readonly object[] _syncLock; // NOTE2J note the use of this '_syncLock' pattern
         private static bool _busy;
+        private static bool _stopped;
         private static IBackgroundExceptionReceiver _exceptionReceiver;
+        private static readonly List<IPersistedRepository> _repositories;
+
+        public static bool IsBusy
+        {
+            get { return _busy; }
+        }
+
         #endregion
 
         #region static constructor and startup
 
         static PersistanceService()
         {
-            _syncLock = new object();
+            _syncLock = new object[0];
             _busy = false;
+            _stopped = false;
+            _repositories = new List<IPersistedRepository>();
+            _repositories.Add(Global.Kernel.Get<MessageRepository>());
+
         }
 
-        public static void Start(IBackgroundExceptionReceiver exceptionReceiver)
+        //probably want to make this one private
+        private static void Start(IBackgroundExceptionReceiver exceptionReceiver)
         {
-            lock (_syncLock)
-            {
-                _exceptionReceiver = exceptionReceiver;
-                Thread thread = new Thread(Run);
-                thread.IsBackground = true; //NOTE2J -- very important this one
-                thread.Start();
-            }
+                lock (_syncLock)
+                {
+                    _exceptionReceiver = exceptionReceiver;
+                    _stopped = false;
+                    Thread thread = new Thread(Run);
+                    thread.IsBackground = true; //NOTE2J -- very important this one
+                    thread.Start();
+                }
+            
         }
 
         public static void EnsureStarted(IBackgroundExceptionReceiver exceptionReceiver)
         {
             //hopefully 99.999% of the time we return straight away..
             if (_busy) return;
-
             //_log.Error("PersistanceService not started, will force it to start");
             lock (_syncLock)
             {
                 Start(exceptionReceiver);
             }
         }
-
+        public static void Stop()
+        {
+            _stopped = true;
+            //wait while still busy
+            while (_busy) ;
+        }
         #endregion
 
         #region run method (and sleep intervals etc)
 
         static void Run()
         {
-            long lastUpdate = 0;
+           // long lastUpdate = 0;
             try
             {
-                while (true) //continue till the end of time or until the thread dies
+                while (!_stopped) //continue till the end of time or until the thread dies
                 {
                     _busy = true;
-
                     // NOTE2J probably don't need an 'update Interval - enough to have a single POLLING_INTERVAL
                     // but the other way to do it is have an 'updateInterval' and also a 'wakeUpAndCheckHowManySecondsHaveGoneByInterval'
                     // if you wanted to do that use the below code otherwise just delete all this.
@@ -101,26 +120,26 @@ namespace Offr.Services
 
         private static void EnsurePersisted()
         {
-            
-            //foreach (IRepository repository in repositoriesWeShouldPersist))
-            //{
-            //    try
-            //    {
-            //        //if (Repository.IsDirty)
-            //        //{
-            //        //    Repository.SaveToFile();
-            //        //}
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //       // _log.Error("Failure to save data for "+ repository, ex);
 
-            //        if (_exceptionReceiver != null)
-            //        {
-            //            _exceptionReceiver.NotifyException(new ApplicationException("Failure to xyz for abc ", ex));
-            //        }
-            //    }
-            //}
+            foreach (IPersistedRepository Repository in _repositories)
+            {
+                try
+                {
+                    if (Repository.IsDirty)
+                    {
+                        Repository.SerializeToFile();
+                    }
+                }
+                catch (Exception ex)
+                {
+                   // _log.Error("Failure to save data for "+ repository, ex);
+
+                    if (_exceptionReceiver != null)
+                    {
+                        _exceptionReceiver.NotifyException(new ApplicationException("Failure to xyz for abc ", ex));
+                    }
+                }
+            }
         }
 
 

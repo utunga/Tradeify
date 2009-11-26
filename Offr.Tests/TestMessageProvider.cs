@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 using Ninject.Core;
 using Ninject;
@@ -20,7 +21,9 @@ namespace Offr.Tests
         {
             MockRawMessageProvider mockProvider = new MockRawMessageProvider();
             MockMessageParser mockParser = new MockMessageParser();
-            _target = new MessageProvider(mockProvider, mockParser);
+            MessageRepository messageRepository = new MessageRepository();
+            _target = new MessageProvider(messageRepository, mockProvider, mockParser);
+
         }
 
         [Test]

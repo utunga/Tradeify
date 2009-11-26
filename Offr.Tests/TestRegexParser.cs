@@ -19,11 +19,12 @@ namespace Offr.Tests
 
         public TestRegexParser()
         {
-            TagRepository singletonTagProvider = new TagRepository();
-            singletonTagProvider.InitializeFromFile("data/initial_tags.json");
+            TagRepository tagRepository = new TagRepository();
+            tagRepository.FilePath = "data/initial_tags.json";
+            tagRepository.InitializeFromFile();
             //singletonTagProvider.Initialize();
             GoogleLocationProvider locationProvider = new MockLocationProvider();
-            _target = new RegexMessageParser(singletonTagProvider, locationProvider);
+            _target = new RegexMessageParser(tagRepository, locationProvider);
         }
 
         [Test]

@@ -128,7 +128,7 @@ namespace Offr.Message
         #endregion Equals
 
         #region JSON
-        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             base.WriteJson(writer,serializer);
             JSON.WriteProperty(serializer, writer, "offer_text", OfferText);
@@ -139,7 +139,7 @@ namespace Offr.Message
             JSON.WriteProperty(serializer, writer, "location", Location);
         }
 
-        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        public override void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
             base.ReadJson(reader,serializer);
             OfferText = JSON.ReadProperty<string>(serializer, reader, "offer_text");

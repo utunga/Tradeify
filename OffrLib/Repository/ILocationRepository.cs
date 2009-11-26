@@ -8,8 +8,8 @@ namespace Offr.Repository
 {
     public interface ILocationRepository
     {
-            ILocation Get(string address);
-            void Save(ILocation instance);
-            void Remove(ILocation instance);
+        ILocation Get(string id);
+        void Save(ILocation instance);
+        void Remove(ILocation instance);
     }
 }

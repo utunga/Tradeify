@@ -12,6 +12,5 @@ namespace Offr.Message
         void RegisterForUpdates(IMessageReceiver receiver);
         IMessage MessageByID(string providerID);
         void Notify(IEnumerable<IMessage> parsedMessages);
-        void InitializeFromFile(string filePath);
     }
 }

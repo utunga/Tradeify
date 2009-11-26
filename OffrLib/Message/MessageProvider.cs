@@ -10,26 +10,26 @@ namespace Offr.Message
 {
     public class MessageProvider : IMessageProvider, IRawMessageReceiver, IMemCache
     {
-        private MessageRepository _messages; 
+        private readonly IMessageRepository _messages; 
         private readonly IRawMessageProvider _sourceProvider;
         private readonly IMessageParser _messageParser;
         private readonly List<IMessageReceiver> _receivers;
-      
-        public MessageProvider(IRawMessageProvider sourceProvider, IMessageParser messageParser)
+
+        public MessageProvider(IMessageRepository messageRepository, IRawMessageProvider sourceProvider, IMessageParser messageParser)
         {
+            _messages = messageRepository;
             _sourceProvider = sourceProvider;
             _messageParser = messageParser;
             _receivers = new List<IMessageReceiver>();
             _sourceProvider.RegisterForUpdates(this);
-
-            Invalidate();
+            _sourceProvider.Update();
         }
 
         public IList<IMessage> AllMessages
         {
             get
             {
-                return new List<IMessage>(_messages.GetAll());
+                return new List<IMessage>(_messages.AllMessages());
             }
         }
 
@@ -48,7 +48,7 @@ namespace Offr.Message
 
         public void Invalidate()
         {
-            _messages=new MessageRepository();
+            _messages.Invalidate();
             _sourceProvider.Update();
         }
 
@@ -133,12 +133,7 @@ namespace Offr.Message
             }
         }
 
-        public void InitializeFromFile(string filePath)
-        {
-            Invalidate();
-            _messages.InitializeFromFile(filePath);
-        }
-
+      
         private void UpdateMessageCache()
         {
             // we expect that calling the below is likely to cause, calls back to Notify() above

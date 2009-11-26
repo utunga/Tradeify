@@ -18,6 +18,7 @@ namespace Offr
         public override void Load()
         {
             Bind<IMessageParser>().To<RegexMessageParser>();
+            Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
             Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().Using<SingletonBehavior>();
             Bind<IMessageProvider>().To<MessageProvider>().Using<SingletonBehavior>();
             Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();

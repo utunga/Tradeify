@@ -16,7 +16,7 @@ using Offr.Twitter;
 
 namespace Offr.Repository
 {
-    public class MessageRepository : BaseRepository<IMessage>, IMessageRepository
+    public class MessageRepository : BaseRepository<IMessage>, IMessageRepository, IPersistedRepository
     {
         public MessageRepository()
         {
@@ -26,9 +26,5 @@ namespace Offr.Repository
         {
             return base.GetAll();
         }
-
-        /// <summary>
-        /// Loads data from specified JSON file to initialise context to have some running data (good for rebooting webserver without losing recent context, for example)
-        /// </summary>
     }
 }

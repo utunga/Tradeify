@@ -242,29 +242,8 @@ namespace Offr.Tests
                 Assert.That(expected.Tags.Contains(locationTag), locationTag + " unexpectedly contained in result for " + forAddress);
             }
 
-            // this would never happen.. but fwiw
             Assert.AreEqual(expected.Tags.Count, actual.Tags.Count, "Somehow, inexplicably, the counts for expected vs actual location tags are different even though they contain the exact same set of tags" );
         }
-
-        //[TestMethod]
-        //public void TestStatus()
-        //{
-        //    GoogleLocationProvider g = new GoogleLocationProvider();
-        //    string name = g.getStatus();
-        //    Console.WriteLine(name);
-        //    Assert.IsTrue(false);
-        //    //Assert.IsTrue(g.getIlocation().Equals("1500 Amphitheatre Parkway, Mountain View, CA"));
-        //}
-
-        //[TestMethod]
-        //public void TestName()
-        //{
-        //    GoogleLocationProvider g = new GoogleLocationProvider();
-        //    string name=g.getIlocation();
-        //    Console.WriteLine(name);
-        //    Assert.IsTrue(g.getIlocation().Equals("1500 Amphitheatre Parkway, Mountain View, CA"));
-        //}
-
     }
 }
 

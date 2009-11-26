@@ -30,7 +30,8 @@ namespace Offr.Tests
             TagRepository singletonTagProvider = new TagRepository();
             GoogleLocationProvider locationProvider = new MockLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
-            _messageProvider = new MessageProvider(rawMessageProvider, realMessageParser);
+            MessageRepository messageRepository = new MessageRepository();
+            _messageProvider = new MessageProvider(messageRepository, rawMessageProvider, realMessageParser);
             _messageProvider.Update();
         }
 

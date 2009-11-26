@@ -26,7 +26,8 @@ namespace Offr.Tests
             TagRepository singletonTagProvider = new TagRepository();
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
-            _target = new MessageProvider(twitterProvider, realMessageParser);
+            MessageRepository messageRepository = new MessageRepository();
+            _target = new MessageProvider(messageRepository, twitterProvider, realMessageParser);
         }
 
         [Test]

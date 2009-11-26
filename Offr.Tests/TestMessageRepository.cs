@@ -33,7 +33,8 @@ namespace Offr.Tests
             {
                 //Global.InitializeWithRecentOffers("data/typo_asdfuihsg.json"); // should be copied to bin/Debug output directory because of build action properties on that file 
                 _target = new MessageRepository();
-                _target.InitializeFromFile("data/typo_asdfuihsg.json");
+                _target.FilePath = "data/typo_asdfuihsg.json";
+                _target.InitializeFromFile();
                 Assert.Fail("Expected to get an  exception from trying to trying to load bad file");
             }
             catch (IOException)
@@ -48,16 +49,17 @@ namespace Offr.Tests
           [Test]
           public void TestInitialize()
           {
-              string jsonFilePath = "data/initial_offers.json";
+              
               _target = new MessageRepository();
-              _target.InitializeFromFile(jsonFilePath);
+              _target.FilePath = "data/initial_offers.json";
+              _target.InitializeFromFile();
 
               Console.Out.WriteLine("Initialized from file with following data");
-              Console.Out.WriteLine(JSON.Serialize(_target.GetAll()));
+              Console.Out.WriteLine(JSON.Serialize(_target.AllMessages()));
 
-              List<IMessage> messages = new List<IMessage>(_target.GetAll());
+              List<IMessage> messages = new List<IMessage>(_target.AllMessages());
 
-              Assert.AreEqual(6, messages.Count, "Expected 6 messages after initializing from " + jsonFilePath);
+              Assert.AreEqual(6, messages.Count, "Expected 6 messages after initializing from " + _target.FilePath );
           }
 
 

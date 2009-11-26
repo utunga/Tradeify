@@ -7,7 +7,7 @@ using Offr.Text;
 
 namespace Offr.Repository
 {
-    public interface ITagRepository
+    public interface ITagRepository 
     {
         ITag GetTag(string tagString, TagType type);
         List<ITag> GetTagsFromNameValueCollection(NameValueCollection nameVals);

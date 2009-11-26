@@ -17,8 +17,12 @@ namespace twademe
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            IMessageProvider messageProvider = Kernel.Get<IMessageProvider>();
-            messageProvider.InitializeFromFile(Server.MapPath(INITIAL_OFFERS_FILE));
+            IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
+            if (messageRepository is IPersistedRepository)
+            {
+                ((IPersistedRepository)messageRepository).FilePath = Server.MapPath(INITIAL_OFFERS_FILE);
+                ((IPersistedRepository)messageRepository).InitializeFromFile();
+            }
         }
 
         protected void Session_Start(object sender, EventArgs e)

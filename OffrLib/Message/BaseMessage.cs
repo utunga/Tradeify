@@ -169,7 +169,7 @@ namespace Offr.Message
         #endregion
 
         #region JSON
-        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        public virtual void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             JSON.WriteProperty(serializer, writer, "message_type", _messageType.ToString());
             JSON.WriteProperty(serializer, writer, "timestamp", Timestamp);
@@ -186,7 +186,7 @@ namespace Offr.Message
              
         }
 
-        public void ReadJson(JsonReader reader, JsonSerializer serializer){
+        public virtual void ReadJson(JsonReader reader, JsonSerializer serializer){
  
             _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
             Timestamp=JSON.ReadProperty<string>(serializer, reader, "timestamp");

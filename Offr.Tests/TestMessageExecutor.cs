@@ -17,13 +17,13 @@ namespace Offr.Tests
     public class TestMessageExecutor
     {
         readonly IMessageQueryExecutor _target;
-        readonly ITagRepository _tagProvider;
-
+      
         public TestMessageExecutor()
         {
             MockRawMessageProvider mockProvider = new MockRawMessageProvider();
             MockMessageParser mockParser = new MockMessageParser();
-            MessageProvider realMessageProvider = new MessageProvider(mockProvider, mockParser);
+            MessageRepository messageRepository = new MessageRepository();
+            MessageProvider realMessageProvider = new MessageProvider(messageRepository, mockProvider, mockParser);
             _target = new TagDexQueryExecutor(realMessageProvider);
 
         }
