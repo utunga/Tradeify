@@ -38,22 +38,6 @@ namespace Offr.Tests
             Assert.That(PersistanceService.IsBusy);
         }
         [Test]
-        public void TestSavePersistance()
-        {
-            OfferMessage offerMessage = new OfferMessage();
-            offerMessage.MessagePointer = new TwitterMessagePointer(100);
-            _messageRepository.Save(offerMessage);
-                        
-            MessageRepository updated = new MessageRepository();
-            updated.FilePath = _filePath;
-            
-            PersistanceService.Stop();
-            while (PersistanceService.IsBusy);
-
-            updated.InitializeFromFile();
-            Assert.That(updated.AllMessages().Count() == 1);
-        }
-        [Test]
         public void TestStop()
         {
             PersistanceService.EnsureStarted(_receiver);
@@ -61,6 +45,25 @@ namespace Offr.Tests
             PersistanceService.Stop();
             Thread.Sleep(50);
             Assert.That(!PersistanceService.IsBusy);
+        }
+                [Test]
+        public void TestSavePersistance()
+        {
+            OfferMessage offerMessage = new OfferMessage();
+            offerMessage.MessagePointer = new TwitterMessagePointer(100);
+            _messageRepository.Save(offerMessage);
+            PersistanceService.EnsureStarted(_receiver);
+            //burn cycles until serialisation starts
+            while (!PersistanceService.IsBusy) ;
+            //now serialisation has started you can tell the service to stop
+            PersistanceService.Stop();
+            MessageRepository updated = new MessageRepository();
+            updated.FilePath = _filePath;
+            //burn cycles until serialisation has stopped
+            while (PersistanceService.IsBusy) ;
+            //load the newly serialized file
+            updated.InitializeFromFile();
+            Assert.That(updated.AllMessages().Count() == 1);
         }
         [TestFixtureTearDown]
         public void TearDown()

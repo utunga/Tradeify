@@ -24,6 +24,8 @@ namespace Offr.Tests
             // (which is why this is disabled)
             TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(MessageType.offr_test);
             TagRepository singletonTagProvider = new TagRepository();
+            singletonTagProvider.FilePath = "data/initial_tags.json";
+            singletonTagProvider.InitializeFromFile();
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             MessageRepository messageRepository = new MessageRepository();

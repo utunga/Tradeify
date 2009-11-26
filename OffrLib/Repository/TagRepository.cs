@@ -9,7 +9,7 @@ using Offr.Text;
 
 namespace Offr.Repository
 {
-    public class TagRepository: BaseRepository<ITag>, ITagRepository
+    public class TagRepository: BaseRepository<ITag>, ITagRepository , IPersistedRepository
     {
         // one day could implement this as a caching lookup, with counts attached etc..
         //but for now just parse the string to get the tag
@@ -17,7 +17,6 @@ namespace Offr.Repository
        // private Dictionary<String, ITag> _list;
         public TagRepository()
         {
-            Initialize();
         }
 
 
@@ -55,7 +54,7 @@ namespace Offr.Repository
             return tags;
         }
 
-        public void Initialize()
+/*        public void Initialize()
         {
             foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
             {
@@ -70,7 +69,7 @@ namespace Offr.Repository
             Save(FromTypeAndText(TagType.type, "barter"));
             Save(FromTypeAndText(TagType.type, "free"));
             String serializedList = JSON.Serialize(_list);  
-        }
+        }*/
 
         private ITag FromTypeAndText(TagType tagType, string tagText)
         {
