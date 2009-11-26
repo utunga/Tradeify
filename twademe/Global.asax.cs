@@ -25,10 +25,10 @@ namespace twademe
                 ((IPersistedRepository)messageRepository).InitializeFromFile();
             }
             ITagRepository tagRepository = Kernel.Get<ITagRepository>();
-            if (messageRepository is IPersistedRepository)
+            if (tagRepository is IPersistedRepository)
             {
-                ((IPersistedRepository)messageRepository).FilePath = Server.MapPath(INITIAL_OFFERS_FILE);
-                ((IPersistedRepository)messageRepository).InitializeFromFile();
+                ((IPersistedRepository)tagRepository).FilePath = Server.MapPath(INITIAL_TAGS_FILE);
+                ((IPersistedRepository)tagRepository).InitializeFromFile();
             }
         }
 

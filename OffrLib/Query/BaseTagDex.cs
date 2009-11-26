@@ -144,10 +144,10 @@ namespace Offr.Query
                 return tag2.match_tag + tag1.match_tag;
             }
         }
-
+        //get the 'total' for a TagCounts object based on just adding up the number of messages with each tag
         public TagCounts GetTagCounts()
         {
-            var tags = new List<TagWithCount>();
+            /*          var tags = new List<TagWithCount>();
             int total = 0;
             foreach (ITag tag in _seenTags)
             {
@@ -155,8 +155,22 @@ namespace Offr.Query
                 tags.Add(new TagWithCount() { count = count, tag = tag });
                 total += count;
             }
-            return new TagCounts() { Tags = tags, Total = total };
-        }
+            return new TagCounts() { Tags = tags, Total = total };*/
+            List<TagWithCount> tagCounts = new List<TagWithCount>();
+            HashSet<IMessage> messageSet = new HashSet<IMessage>();
+            foreach (ITag tag in _seenTags)
+            {
+                List<IMessage> messagesOfTag = _index[tag.match_tag];
+                int count = messagesOfTag.Count;
+                foreach (IMessage message in messagesOfTag)
+                {
+                    messageSet.Add(message);
+                }
+                tagCounts.Add(new TagWithCount() {count = count, tag = tag});
+            }
+            return new TagCounts() { Tags = tagCounts, Total = messageSet.Count };
+    }
+
     }
    
 }
