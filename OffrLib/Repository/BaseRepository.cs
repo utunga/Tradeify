@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
+using NLog;
 using Offr.Common;
 using Offr.Json;
 
@@ -67,7 +68,8 @@ namespace Offr.Repository
         public virtual void SerializeToFile()
         {
             FileInfo jsonFile = EnsureFile();
-            Console.WriteLine("serializing " + this.ToString());
+            LogManager.GetLogger("Global").Info("serializing " + this.ToString());
+            //Console.WriteLine(");
             lock (this)
             {
                 String serializedList = JSON.Serialize(_list);
@@ -117,7 +119,8 @@ namespace Offr.Repository
             }
             else
             {
-                Console.WriteLine(jsonFile.FullName + "was empty");
+                LogManager.GetLogger("Global").Warn(jsonFile.FullName + "was empty");
+                //Console.WriteLine(jsonFile.FullName + "was empty");
             }
         }
     

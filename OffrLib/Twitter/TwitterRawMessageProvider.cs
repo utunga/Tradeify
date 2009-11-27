@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using System.Web;
 using System.Web.Script.Serialization;
+using NLog;
 using Offr.Message;
 using Offr.Text;
 
@@ -61,7 +62,8 @@ namespace Offr.Twitter
                 query += "+" + HttpUtility.UrlEncode(keywordQuery);
             }
             string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query); // query back as far as we can go for these keywords 
-            Console.WriteLine("url =" + url);
+            LogManager.GetLogger("Global").Info("Polling twitter now");
+            //Console.WriteLine("url =" + url);
             string responseData = WebRequest.RetrieveContent(url);
             Console.WriteLine("responseData =" + responseData);
             TwitterResultSet resultSet = (new JavaScriptSerializer()).Deserialize<TwitterResultSet>(responseData);

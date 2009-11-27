@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using Ninject.Core;
+using NLog;
 using Offr;
 using Offr.Message;
 using Offr.Repository;
@@ -16,6 +17,7 @@ namespace twademe
     {
         public const string INITIAL_OFFERS_FILE = "/data/initial_offers.json";
         public const string INITIAL_TAGS_FILE = "/data/initial_tags.json";
+        public static Logger logger = LogManager.GetCurrentClassLogger();
 
         protected void Application_Start(object sender, EventArgs e)
         {
