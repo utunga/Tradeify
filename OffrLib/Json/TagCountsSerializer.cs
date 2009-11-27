@@ -13,6 +13,7 @@ namespace Offr.Json
 {
     public class TagCountsSerializer : JavaScriptConverter
     {
+        const int MAX_TAGS = 10;
                                 
         public override IEnumerable<Type> SupportedTypes
         {
@@ -33,6 +34,7 @@ namespace Offr.Json
                 tagCounts.Tags.Sort();
                 tagCounts.Tags.Reverse();
 
+                int counter = 0;
                 foreach (TagWithCount tagCount in tagCounts.Tags)
                 {
                     Dictionary<string, object> dict =
@@ -44,6 +46,11 @@ namespace Offr.Json
                                 {"pct", Math.Floor(((double)tagCount.count/(double)tagCounts.Total) * 100)}
                             };
                     overall.Add(dict);
+
+                    if (counter++ > MAX_TAGS)
+                    {
+                        break;
+                    }
                 }
 
                 result["overall"] = overall;
