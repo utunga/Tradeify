@@ -71,7 +71,8 @@ namespace Offr.Json
                             if (offer.CreatedBy is IEnhancedUserPointer)
                             {
                                 userDict.Add("more_info_url", ((IEnhancedUserPointer)offer.CreatedBy).MoreInfoUrl);
-                                userDict.Add("profile_pic_url", ((IEnhancedUserPointer)offer.CreatedBy).ProfilePicUrl);
+                                string pic = offer.Thumbnail ?? ((IEnhancedUserPointer)offer.CreatedBy).ProfilePicUrl;
+                                userDict.Add("profile_pic_url", pic);
                                 //userDict.Add("ratings_pos_count", FAKE_POS_COUNT);
                                 //userDict.Add("ratings_neg_count", FAKE_NEG_COUNT);
                                 //userDict.Add("ratings_inc_count", FAKE_INC_COUNT);

@@ -489,6 +489,71 @@
     "end_by_text": null,
     "location": null
   },
+  "twitter/6109420789": {
+    "message_type": "offr",
+    "timestamp": "2009-11-27T11:20:26Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "hot watch guess stainless still watch d&amp;g dkny [gu28] http://tinyurl.com/yjmxw7b coach watch armani watch dkny watch d g #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6109420789"
+    },
+    "created_by": {
+      "provider_user_name": "neoshop09",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_3_normal.png",
+      "screen_name": "neoshop09",
+      "more_info_url": "http://www.twitter.com/neoshop09",
+      "match_tag": "twitter/neoshop09"
+    },
+    "offer_text": "hot watch guess stainless still watch d&amp;g dkny [gu28] http://tinyurl.com/yjmxw7b coach watch armani watch dkny watch d g #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yjmxw7b",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6109513686": {
+    "message_type": "offr",
+    "timestamp": "2009-11-27T11:26:18Z",
+    "tags": [
+      {
+        "tag": "emirates"
+      },
+      {
+        "tag": "special"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "The next Emirates ‘Spotlight Selections’ will be released on:Tuesday, December 1, 2009 .Don't Miss Out!  #Emirates #Special #Offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6109513686"
+    },
+    "created_by": {
+      "provider_user_name": "FlyingEmirates",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/69302688/logo_emirates_normal.gif",
+      "screen_name": "FlyingEmirates",
+      "more_info_url": "http://www.twitter.com/FlyingEmirates",
+      "match_tag": "twitter/FlyingEmirates"
+    },
+    "offer_text": "The next Emirates ‘Spotlight Selections’ will be released on:Tuesday, December 1, 2009 .Don't Miss Out!  #Emirates #Special #Offer",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
   "twitter/7": {
     "message_type": "offr",
     "timestamp": "2009-06-23T12:00:00Z",

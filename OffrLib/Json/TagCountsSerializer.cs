@@ -13,7 +13,7 @@ namespace Offr.Json
 {
     public class TagCountsSerializer : JavaScriptConverter
     {
-        const int MAX_TAGS = 10;
+        const int MAX_TAGS_OF_TYPE = 10;
                                 
         public override IEnumerable<Type> SupportedTypes
         {
@@ -34,23 +34,24 @@ namespace Offr.Json
                 tagCounts.Tags.Sort();
                 tagCounts.Tags.Reverse();
 
-                int counter = 0;
+                SortedList<TagType,int> counters = new SortedList<TagType, int>();
                 foreach (TagWithCount tagCount in tagCounts.Tags)
                 {
-                    Dictionary<string, object> dict =
-                        new Dictionary<string, object>()
-                            {
-                                {"type", tagCount.tag.Type.ToString()},
-                                {"tag", tagCount.tag.Text},
-                                {"count", tagCount.count},
-                                {"pct", Math.Floor(((double)tagCount.count/(double)tagCounts.Total) * 100)}
-                            };
-                    overall.Add(dict);
-
-                    if (counter++ > MAX_TAGS)
+                    TagType type = tagCount.tag.Type;
+                    counters[type] = counters.ContainsKey(type) ? counters[type] + 1 : 0;
+                    if (counters[type] < MAX_TAGS_OF_TYPE)
                     {
-                        break;
+                        Dictionary<string, object> dict =
+                            new Dictionary<string, object>()
+                                {
+                                    {"type", type.ToString()},
+                                    {"tag", tagCount.tag.Text},
+                                    {"count", tagCount.count},
+                                    {"pct", Math.Floor(((double) tagCount.count/(double) tagCounts.Total)*100)}
+                                };
+                        overall.Add(dict);
                     }
+
                 }
 
                 result["overall"] = overall;
