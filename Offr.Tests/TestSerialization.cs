@@ -22,18 +22,19 @@ namespace Offr.Tests
     {
 
         MessageProvider _messageProvider;
+        MessageRepository _messageRepository;
 
         public TestSerialization()
         {
             TagRepository singletonTagProvider = new TagRepository();
-            singletonTagProvider.FilePath = "data/initial_tags.json";
-            singletonTagProvider.InitializeFromFile();
+            //singletonTagProvider.FilePath = "data/initial_tags.json";
+            //singletonTagProvider.InitializeFromFile();
 
             NonMockRawMessageProvider rawMessageProvider = new NonMockRawMessageProvider(); 
             GoogleLocationProvider locationProvider = new MockLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
-            MessageRepository messageRepository = new MessageRepository();
-            _messageProvider = new MessageProvider(messageRepository, rawMessageProvider, realMessageParser);
+            _messageRepository = new MessageRepository();
+            _messageProvider = new MessageProvider(_messageRepository, rawMessageProvider, realMessageParser);
             _messageProvider.Update();
         }
 
@@ -50,6 +51,14 @@ namespace Offr.Tests
 
             // just dump to console (this is not a 'test' as it always passes)
             Console.Out.Write(serializedMessages);
+        }
+
+        [Test]
+        [Ignore("Only do this when you want to update initial_offers.json")]
+        public void SerializeMockMessagesToFile()
+        {
+            _messageRepository.FilePath = "data/test_offers.json";
+            _messageRepository.SerializeToFile();
         }
 
 

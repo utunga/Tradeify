@@ -68,19 +68,19 @@ namespace Offr.Tests
             builder.Append("#").Append(MessageType.offr_test).Append(" ");
             foreach (ITag tag in _tags.TagsOfType(TagType.group))
             {
-                builder.Append("#").Append(tag.tag).Append(" ");
+                builder.Append("#").Append(tag.Text).Append(" ");
             }
             builder.Append(this.OfferText).Append(" ");
             builder.Append("in l:").Append(Location.Address).Append(": ");
             builder.Append("for ");
             foreach (ITag tag in _tags.TagsOfType(TagType.type))
             {
-                builder.Append("#").Append(tag.tag).Append(" ");
+                builder.Append("#").Append(tag.Text).Append(" ");
             }
             builder.Append(MoreInfoURL).Append(" ");
             foreach (ITag tag in _tags.TagsOfType(TagType.tag))
             {
-                builder.Append("#").Append(tag.tag).Append(" ");
+                builder.Append("#").Append(tag.Text).Append(" ");
             }
             if (EndByText != null)
             {

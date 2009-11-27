@@ -51,8 +51,11 @@ namespace Offr.Json.Converter
         /// <returns>The object value.</returns>
         public override object ReadJson(JsonReader reader, Type objectType, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) return null;
-            
+            if (reader.TokenType == JsonToken.Null)
+            {
+                return null;
+            }
+
             ICanJson value = Create(reader);
             if (value == null)
                 throw new JsonSerializationException("No object created.");

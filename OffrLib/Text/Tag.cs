@@ -11,47 +11,64 @@ namespace Offr.Text
 {
     public class Tag : ITag, IEquatable<Tag>
     {
-        public string match_tag
+        private string _matchTag;
+        public string MatchTag
         {
-            get { return type + "/" + tag; }
-            //set { //parse match_tag and split it }
+            get { return _matchTag; }
         }
 
-        public TagType type { get; private set; }
-        public string tag { get; private set; }
+        private TagType _tagType;
+        public TagType Type
+        {
+            get { return _tagType; }
+            set
+            {
+                _tagType = value;
+                UpdateMatchTag();
+            }
+        }
+
+        private string _text;
+        public string Text
+        {
+            get { return _text; }
+            set
+            {
+                _text = value;
+                UpdateMatchTag();
+            }
+        }
 
         /// <summary>
         /// Immutable type - you can't change a tag once its created, you have to add/remove a new one
-        /// 
-        /// FIXME: should be marked internal
         /// </summary>
-
         public Tag(TagType type, string tag)
         {
-            this.type = type;
-            this.tag = tag.ToLowerInvariant();
+            this.Type = type;
+            this.Text = tag.ToLowerInvariant();
         }
 
-        public Tag()
+        internal Tag()
         {
         }
-
 
         public override string ToString()
         {
-            return match_tag;
+            return MatchTag;
         }
 
         public string ID
         {
-            get { return tag; }
+            get { return Text; }
         }
+
+        #region Equals/GetHashCode
 
         public bool Equals(Tag other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(other.type, type) && Equals(other.tag, tag);
+            return Equals(other.Type, Type) && Equals(other.Text, Text);
         }
 
         public override bool Equals(object obj)
@@ -66,22 +83,35 @@ namespace Offr.Text
         {
             unchecked
             {
-                return (type.GetHashCode()*397) ^ (tag != null ? tag.GetHashCode() : 0);
+                return (Type.GetHashCode()*397) ^ (Text != null ? Text.GetHashCode() : 0);
             }
         }
+        #endregion
+
         #region JSON
+
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            JSON.WriteProperty(serializer,writer,"type",type.ToString());
-            JSON.WriteProperty(serializer,writer,"tag",tag);
+            JSON.WriteProperty(serializer,writer,Type.ToString(),Text);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            string typeStr = JSON.ReadProperty<string>(serializer, reader, "type");
-            type = (TagType) Enum.Parse(typeof (TagType), typeStr, true);
-            tag = JSON.ReadProperty<string>(serializer, reader, "tag");
+            JSON.ReadAndAssert(reader);
+            if (reader.TokenType != JsonToken.PropertyName)
+                throw new JsonSerializationException(string.Format("Expected JSON property"));
+           
+            string typeStr = reader.Value.ToString();
+            Type = (TagType)Enum.Parse(typeof(TagType), typeStr, true);
+            JSON.ReadAndAssert(reader);
+            Text = (string)serializer.Deserialize(reader, typeof(string));
         }
+
         #endregion JSSON
+
+        private void UpdateMatchTag()
+        {
+            _matchTag = Type + "/" + Text;
+        }
     }
 }

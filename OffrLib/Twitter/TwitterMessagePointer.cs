@@ -56,6 +56,7 @@ namespace Offr.Twitter
         {
             JSON.ReadProperty<string>(serializer, reader, "provider_name_space");
             this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "message_id");
+            
         }
         #endregion JSON
     }

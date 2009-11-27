@@ -1,58 +1,44 @@
 {
   "barter": {
-    "type": "type",
-    "tag": "barter"
+    "type": "barter"
   },
   "cash": {
-    "type": "type",
-    "tag": "cash"
+    "type": "cash"
   },
   "cash only": {
-    "type": "type",
-    "tag": "cash only"
+    "type": "cash only"
   },
   "etc": {
-    "type": "msg_type",
-    "tag": "etc"
+    "msg_type": "etc"
   },
   "free": {
-    "type": "type",
-    "tag": "free"
+    "type": "free"
   },
   "freecycle": {
-    "type": "group",
-    "tag": "freecycle"
+    "group": "freecycle"
   },
   "nzd": {
-    "type": "type",
-    "tag": "nzd"
+    "type": "nzd"
   },
   "offr": {
-    "type": "msg_type",
-    "tag": "offr"
+    "msg_type": "offr"
   },
   "offr_test": {
-    "type": "msg_type",
-    "tag": "offr_test"
+    "msg_type": "offr_test"
   },
   "ooooby": {
-    "type": "group",
-    "tag": "ooooby"
+    "group": "ooooby"
   },
   "recipient_feedback": {
-    "type": "msg_type",
-    "tag": "recipient_feedback"
+    "msg_type": "recipient_feedback"
   },
   "supplier_feedback": {
-    "type": "msg_type",
-    "tag": "supplier_feedback"
+    "msg_type": "supplier_feedback"
   },
   "takedown": {
-    "type": "msg_type",
-    "tag": "takedown"
+    "msg_type": "takedown"
   },
   "wanted": {
-    "type": "msg_type",
-    "tag": "wanted"
+    "msg_type": "wanted"
   }
 }

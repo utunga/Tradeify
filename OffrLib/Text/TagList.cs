@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
@@ -60,10 +61,10 @@ namespace Offr.Text
         public void Add(ITag tag)
         {
             _list.Add(tag);
-            _tagsByType[tag.type].Add(tag);
-            if (!_matchTags.Contains(tag.match_tag))
+            _tagsByType[tag.Type].Add(tag);
+            if (!_matchTags.Contains(tag.MatchTag))
             {
-                _matchTags.Add(tag.match_tag);
+                _matchTags.Add(tag.MatchTag);
             }
         }
 
@@ -75,7 +76,7 @@ namespace Offr.Text
         public bool Contains(ITag tag)
         {
             //FIXME NOTE2J the following 'faster' method doesn't work after serialization
-            //return _matchTags.Contains(tag.match_tag);
+            //return _matchTags.Contains(tag.MatchTag);
             // bit faster than this..
             return _list.Contains(tag);
         }
@@ -88,12 +89,12 @@ namespace Offr.Text
         public bool Remove(ITag tag)
         {
             bool removed = (_list.Remove(tag) &&
-                            _tagsByType[tag.type].Remove(tag));
+                            _tagsByType[tag.Type].Remove(tag));
             
             // if that was the last of this tag, we don't have it no more..
             if (!_list.Contains(tag))
             {
-                _matchTags.Remove(tag.match_tag);
+                _matchTags.Remove(tag.MatchTag);
             }
             return removed;
         }
@@ -120,18 +121,18 @@ namespace Offr.Text
         public void Insert(int index, ITag tag)
         {
             _list.Insert(index,tag);
-            _tagsByType[tag.type].Add(tag); // *think* this is OK not to use the index, because 'by index' stuff is all handled from the _list side of things
+            _tagsByType[tag.Type].Add(tag); // *think* this is OK not to use the index, because 'by index' stuff is all handled from the _list side of things
         }
 
         public void RemoveAt(int index)
         {
             ITag existingTag = _list[index];
             _list.RemoveAt(index);
-            _tagsByType[existingTag.type].Remove(existingTag);
+            _tagsByType[existingTag.Type].Remove(existingTag);
             // if that was the last of this tag, we don't have it no more..
             if (!_list.Contains(existingTag))
             {
-                _matchTags.Remove(existingTag.match_tag);
+                _matchTags.Remove(existingTag.MatchTag);
             }
         }
         public ITag this[int index]
@@ -141,26 +142,26 @@ namespace Offr.Text
             {
                 ITag existingTag = _list[index];
                 _list[index] = value;
-                if (existingTag.type == value.type)
+                if (existingTag.Type == value.Type)
                 {
-                    int indexOfExisting = _tagsByType[existingTag.type].IndexOf(existingTag);
-                    _tagsByType[existingTag.type][indexOfExisting] = value;
+                    int indexOfExisting = _tagsByType[existingTag.Type].IndexOf(existingTag);
+                    _tagsByType[existingTag.Type][indexOfExisting] = value;
                 }
                 else
                 {
-                    _tagsByType[existingTag.type].Remove(existingTag);
-                    _tagsByType[value.type].Add(value);
+                    _tagsByType[existingTag.Type].Remove(existingTag);
+                    _tagsByType[value.Type].Add(value);
                 }
 
-                if (existingTag.match_tag != value.match_tag)
+                if (existingTag.MatchTag != value.MatchTag)
                 {
                     if (!_list.Contains(existingTag))
                     {
-                        _matchTags.Remove(existingTag.match_tag);
+                        _matchTags.Remove(existingTag.MatchTag);
                     }
-                    if (!_matchTags.Contains(value.match_tag))
+                    if (!_matchTags.Contains(value.MatchTag))
                     {
-                        _matchTags.Add(value.match_tag);
+                        _matchTags.Add(value.MatchTag);
                     }
                 }
             }
@@ -185,36 +186,55 @@ namespace Offr.Text
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            JSON.WriteProperty(serializer,writer,"tags",_list);
+            JSON.WriteProperty(serializer, writer, "tags", _list);
 
-/*
-            writer.WritePropertyName("tags");*/
-/*          the json library doesnt seem to handle dictionaries nicely
-            Dictionary<string, List<string>> TagTypeStringToListOfTag= new Dictionary<string, List<string>>();
-            foreach (ITag t in _list)
-            {
-                string tagString = t.tag;
-                List<string> tags = null;
-                if (TagTypeStringToListOfTag.TryGetValue(t.type.ToString(), out tags))
-                    tags.Add(tagString);
-                else TagTypeStringToListOfTag[t.type.ToString()]= new List<string>();
-            }
-            serializer.Serialize(writer, TagTypeStringToListOfTag); 
-
-            //try this
-            JSON.WriteProperty(serializer, writer, "tags", TagTypeStringToListOfTag);
-*/
-
+            //foreach (TagType type in _tagsByType.Keys)
+            //{
+            //    foreach (ITag tag in _tagsByType[type])
+            //    {
+            //        JSON.WriteProperty(serializer, writer, tag.Type.ToString(), tag.Text);  
+            //    }
+            //}
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
+
             ITagRepository provider = Global.Kernel.Get<ITagRepository>(); //FIXME gotta figure out if this is correct thing to happen
+            List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
+           
             foreach (ITag tag in temp)
             {
-                _list.Add(provider.GetTag(tag.tag,tag.type));
+                _list.Add(provider.GetTag(tag.Text, tag.Type));
             }
+            
+
+            // you can also do this to get:
+            //"tags": {
+            //  "tag": "offr_test",
+            //  "tag": "free",
+            //  "tag": "barter",
+            //  "tag": "mulch",
+            //  "loc": "new zealand",
+            //  "loc": "nz",
+            //  "loc": "paekakariki"
+            //},
+            //JSON.ReadAndAssert(reader);
+            //JsonToken nextToken = reader.TokenType;
+            //while (nextToken == JsonToken.PropertyName)
+            //{
+            //    string typeStr = reader.Value.ToString();
+
+            //    TagType type = (TagType) Enum.Parse(typeof (TagType), typeStr, true);
+            //    JSON.ReadAndAssert(reader);
+            //    string tagText = (string) serializer.Deserialize(reader, typeof (string));
+
+            //    _list.Add(provider.GetTag(tagText, type));
+
+            //    JSON.ReadAndAssert(reader);
+            //    nextToken = reader.TokenType;
+            //}
+           
         }
 
         #endregion
@@ -246,7 +266,7 @@ namespace Offr.Text
             StringBuilder sb = new StringBuilder("tags:");
             foreach (ITag tag in _list)
             {
-                sb.Append(tag.match_tag);
+                sb.Append(tag.MatchTag);
                 sb.Append(",");
             }
             return sb.ToString();

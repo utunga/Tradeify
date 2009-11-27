@@ -88,6 +88,7 @@ namespace Offr.Text
             ScreenName = JSON.ReadProperty<string>(serializer, reader, "screen_name");
             JSON.ReadProperty<string>(serializer, reader, "more_info_url");
             JSON.ReadProperty<string>(serializer, reader, "match_tag");
+            
         }
         #endregion JSON
     }

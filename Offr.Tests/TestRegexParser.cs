@@ -35,7 +35,7 @@ namespace Offr.Tests
                 IOfferMessage messageGet = (OfferMessage) _target.Parse(rawMessage);
                 foreach (ITag tag in rawMessage.Tags)
                 {
-                    Assert.That(messageGet.Tags.Contains(tag),  "Expected results to contain " + tag.match_tag + " for " + rawMessage);
+                    Assert.That(messageGet.Tags.Contains(tag),  "Expected results to contain " + tag.MatchTag + " for " + rawMessage);
                 }
             }
         }
@@ -70,11 +70,11 @@ namespace Offr.Tests
             Assert.AreEqual(6, expectedTags.Count, "Expect count of tags to be 6 for message " + raw);
             foreach (ITag tag in expectedTags)
             {
-                Assert.That(message.Tags.Contains(tag), "Expected results to contain " + tag.match_tag);
+                Assert.That(message.Tags.Contains(tag), "Expected results to contain " + tag.MatchTag);
             }
             foreach (ITag tag in message.Tags)
             {
-                Assert.That(expectedTags.Contains(tag), "Expected results to not contain" + tag.match_tag);
+                Assert.That(expectedTags.Contains(tag), "Expected results to not contain" + tag.MatchTag);
             }
             //NOTE2MT is the offr_test really meant to b
             Assert.AreEqual("#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info pic here: http://flickr.com/mulch.jpg", message.OfferText,

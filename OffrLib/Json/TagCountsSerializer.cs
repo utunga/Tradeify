@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,8 +38,8 @@ namespace Offr.Json
                     Dictionary<string, object> dict =
                         new Dictionary<string, object>()
                             {
-                                {"type", tagCount.tag.type.ToString()},
-                                {"tag", tagCount.tag.tag},
+                                {"type", tagCount.tag.Type.ToString()},
+                                {"tag", tagCount.tag.Text},
                                 {"count", tagCount.count},
                                 {"pct", Math.Floor(((double)tagCount.count/(double)tagCounts.Total) * 100)}
                             };

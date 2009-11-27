@@ -147,7 +147,7 @@ namespace Offr.Message
             AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "thumbnail")); 
             EndBy = JSON.ReadProperty<DateTime?>(serializer, reader, "end_by");
             EndByText = JSON.ReadProperty<string>(serializer, reader, "end_by_text");
-            Location = JSON.ReadProperty<Location.Location>(serializer, reader, "location");          
+            Location = JSON.ReadProperty<Location.Location>(serializer, reader, "location");
         }
         #endregion
     }

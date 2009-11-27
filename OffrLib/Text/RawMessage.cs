@@ -151,7 +151,7 @@ namespace Offr.Text
             Pointer=JSON.ReadProperty<TwitterMessagePointer>(serializer, reader, "pointer");
             _createdBy=JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
             _sourceText=JSON.ReadProperty<string>(serializer, reader, "text");
-            _timeStampUTC = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp_utc"); 
+            _timeStampUTC = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp_utc");
         }
         #endregion JSON
     }

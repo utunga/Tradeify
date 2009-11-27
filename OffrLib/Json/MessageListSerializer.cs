@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,9 +13,6 @@ namespace Offr.Json
 {
     public class MessageListSerializer : JavaScriptConverter
     {
-        public const int FAKE_POS_COUNT = 2;
-        public const int FAKE_NEG_COUNT = 1;
-        public const int FAKE_INC_COUNT = 10;
                                 
         public override IEnumerable<Type> SupportedTypes
         {
@@ -80,12 +77,12 @@ namespace Offr.Json
                             List<Dictionary<string, object>> tags = new List<Dictionary<string, object>>();
                             foreach (ITag tag in offer.Tags)
                             {
-                                if ((tag.type != TagType.msg_type) &&
-                                    (tag.type != TagType.loc))
+                                if ((tag.Type != TagType.msg_type) &&
+                                    (tag.Type != TagType.loc))
                                 {
                                     tags.Add(new Dictionary<string, object>()
                                                  {
-                                                     {"tag", tag.tag}
+                                                     {"tag", tag.Text}
                                                  });
                                 }
                             }

@@ -180,14 +180,11 @@ namespace Offr.Message
             JSON.WriteProperty(serializer, writer, "message_type", _messageType.ToString());
             JSON.WriteProperty(serializer, writer, "timestamp", Timestamp);
 
+            //JSON.WriteProperty(serializer, writer, "tags", _tags);
             _tags.WriteJson(writer,serializer);
 
             JSON.WriteProperty(serializer,writer,"raw_text",RawText);	
             JSON.WriteProperty(serializer,writer,"message_pointer",MessagePointer);
-           
-
-            //JSON.WriteProperty(serializer, writer, "source", _source);
-
             JSON.WriteProperty(serializer, writer, "created_by", CreatedBy);
              
         }
@@ -197,17 +194,14 @@ namespace Offr.Message
             _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
             Timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
 
-            _tags = new TagList(); 
-            _tags.ReadJson(reader, serializer);
+             _tags = new TagList(); 
+             _tags.ReadJson(reader, serializer);
+            //_tags = JSON.ReadProperty<TagList>(serializer, reader, "tags");
 
             //_source = JSON.ReadProperty<RawMessage>(serializer, reader, "source");
             RawText = JSON.ReadProperty<string>(serializer, reader, "raw_text");
-            MessagePointer =JSON.ReadProperty<IMessagePointer>(serializer,reader,"message_pointer")	;
-
-
-           
+            MessagePointer =JSON.ReadProperty<IMessagePointer>(serializer,reader,"message_pointer");
             CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
-
         }
         #endregion JSON
     }

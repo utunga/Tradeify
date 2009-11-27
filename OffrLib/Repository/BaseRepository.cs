@@ -26,12 +26,12 @@ namespace Offr.Repository
 
         protected BaseRepository()
         {
-           Initalise();
+           InitalizeInMemory();
         }
 
         public void Invalidate()
         {
-            Initalise();
+            InitalizeInMemory();
         }
 
         protected IQueryable<T> GetAll()
@@ -65,21 +65,6 @@ namespace Offr.Repository
             }
         }
 
-        public virtual void SerializeToFile()
-        {
-            FileInfo jsonFile = EnsureFile();
-            LogManager.GetLogger("Global").Info("serializing " + this.ToString());
-            //Console.WriteLine(");
-            lock (this)
-            {
-                String serializedList = JSON.Serialize(_list);
-                TextWriter tw = new StreamWriter(jsonFile.FullName);
-                tw.Write(serializedList);
-                tw.Close();
-            }
-            dirty = false;
-        }
-
         public virtual void Remove(T instance)
         {
             //Note2Miles we should probably lock this one too
@@ -93,12 +78,32 @@ namespace Offr.Repository
             }
         }
 
+        public virtual void SerializeToFile()
+        {
+            if (FilePath == null) throw new ApplicationException("Please set the FilePath before calling this method");
 
-        //We should maybe only allow this one to happen once for each repository?
+            LogManager.GetLogger("Global").Info("serializing " + this.ToString());
+            //Console.WriteLine(");
+            lock (this)
+            {
+                String serializedList = JSON.Serialize(_list);
+                TextWriter tw = new StreamWriter(FilePath);
+                tw.Write(serializedList);
+                tw.Close();
+            }
+            dirty = false;
+        }
+
         public void InitializeFromFile()
         {
-            FileInfo jsonFile = EnsureFile();
-            // OK read into a string builder (probably a better way to do this but this will do for now)
+            if (FilePath == null) throw new ApplicationException("Please set the FilePath before calling this method");
+            FileInfo jsonFile;
+            if (!(jsonFile = new FileInfo(FilePath)).Exists)
+            {
+                throw new IOException("Cannot find file " + FilePath);
+            }
+            
+            // read data into a string builder (probably a better way to do this but this will do for now)
             StringBuilder stringBuilder = new StringBuilder();
             using (StreamReader sr = new StreamReader(jsonFile.FullName))
             {
@@ -108,8 +113,8 @@ namespace Offr.Repository
                     stringBuilder.AppendLine(line);
                 }
             }
-            SortedList<string, T> list = JSON.Deserialize<SortedList<string, T>>(stringBuilder.ToString());
 
+            SortedList<string, T> list = JSON.Deserialize<SortedList<string, T>>(stringBuilder.ToString());
             if (list != null)
             {
                 foreach (string key in list.Keys)
@@ -123,20 +128,8 @@ namespace Offr.Repository
                 //Console.WriteLine(jsonFile.FullName + "was empty");
             }
         }
-    
 
-        private FileInfo EnsureFile() 
-        {
-            if (FilePath == null) throw new ApplicationException("Please set the FilePath before calling this method");
-            FileInfo jsonFile;
-            if (!(jsonFile = new FileInfo(FilePath)).Exists)
-            {
-                throw new IOException("Cannot find file " + FilePath);
-            }
-            return jsonFile;
-        }
-
-        private void Initalise()
+        private void InitalizeInMemory()
         {
             _list = new SortedList<string, T>();
             _queryable = _list.Values.AsQueryable();

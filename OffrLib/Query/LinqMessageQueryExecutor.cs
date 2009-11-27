@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +35,7 @@ namespace Offr.Query
     //            bool found = false;
     //            foreach (ITag tag in msg.Tags)
     //            {
-    //                if (tag.match_tag.Equals(wantedTag, StringComparison.InvariantCultureIgnoreCase))
+    //                if (tag.MatchTag.Equals(wantedTag, StringComparison.InvariantCultureIgnoreCase))
     //                {
     //                    found = true;
     //                    break;

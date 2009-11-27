@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -14,14 +14,14 @@ namespace Offr.Query
     {
 
         protected List<ITag> _seenTags;
-        protected Dictionary<string, List<IMessage>> _index;
-        protected Dictionary<string, List<IMessage>> _doubleTagIndex;
+        protected SortedList<string, List<IMessage>> _index;
+        protected SortedList<string, List<IMessage>> _doubleTagIndex;
 
         protected BaseTagDex()
         {
             _seenTags = new List<ITag>();
-            _index = new Dictionary<string, List<IMessage>>();
-            _doubleTagIndex = new Dictionary<string, List<IMessage>>();
+            _index = new SortedList<string, List<IMessage>>();
+            _doubleTagIndex = new SortedList<string, List<IMessage>>();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Offr.Query
             //else 
             if (intersectTags.Count > 0)
             {
-                candidates = _index.ContainsKey(intersectTags[0].match_tag) ? _index[intersectTags[0].match_tag] : new List<IMessage>();
+                candidates = _index.ContainsKey(intersectTags[0].MatchTag) ? _index[intersectTags[0].MatchTag] : new List<IMessage>();
             }
             else
             {
@@ -95,13 +95,13 @@ namespace Offr.Query
                 {
                     lock (_index)
                     {
-                        if (!_index.ContainsKey(tag1.match_tag))
+                        if (!_index.ContainsKey(tag1.MatchTag))
                         {
                             //FIXME this could be a bunch smarter
-                            _index[tag1.match_tag] = new List<IMessage>();
+                            _index[tag1.MatchTag] = new List<IMessage>();
                             _seenTags.Add(tag1);
                         }
-                        _index[tag1.match_tag].Add(message);
+                        _index[tag1.MatchTag].Add(message);
                     }
 
                     lock (_doubleTagIndex)
@@ -124,9 +124,9 @@ namespace Offr.Query
 
         public TagWithCount GetTagCountForTag(ITag tag)
         {
-            if (_index.ContainsKey(tag.match_tag))
+            if (_index.ContainsKey(tag.MatchTag))
             {
-                return new TagWithCount() { count = _index[tag.match_tag].Count(), tag = tag };
+                return new TagWithCount() { count = _index[tag.MatchTag].Count(), tag = tag };
             }
             else
             {
@@ -136,13 +136,13 @@ namespace Offr.Query
 
         private static string GetDoubleKey(ITag tag1, ITag tag2)
         {
-            if (tag1.match_tag.CompareTo(tag2.match_tag) < 1)
+            if (tag1.MatchTag.CompareTo(tag2.MatchTag) < 1)
             {
-                return tag1.match_tag + tag2.match_tag;
+                return tag1.MatchTag + tag2.MatchTag;
             }
             else
             {
-                return tag2.match_tag + tag1.match_tag;
+                return tag2.MatchTag + tag1.MatchTag;
             }
         }
         //get the 'total' for a TagCounts object based on just adding up the number of messages with each tag
@@ -152,7 +152,7 @@ namespace Offr.Query
             int total = 0;
             foreach (ITag tag in _seenTags)
             {
-                int count = _index[tag.match_tag].Count;
+                int count = _index[tag.MatchTag].Count;
                 tags.Add(new TagWithCount() { count = count, tag = tag });
                 total += count;
             }
@@ -161,7 +161,7 @@ namespace Offr.Query
             HashSet<IMessage> messageSet = new HashSet<IMessage>();
             foreach (ITag tag in _seenTags)
             {
-                List<IMessage> messagesOfTag = _index[tag.match_tag];
+                List<IMessage> messagesOfTag = _index[tag.MatchTag];
                 int count = messagesOfTag.Count;
                 foreach (IMessage message in messagesOfTag)
                 {

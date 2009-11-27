@@ -11,12 +11,12 @@ namespace Offr.Text
         public int CompareTo(TagWithCount other)
         {
             int compareCount = this.count.CompareTo(other.count);
-            return compareCount == 0 ? this.tag.type.CompareTo(other.tag.type) : compareCount;
+            return compareCount == 0 ? this.tag.Type.CompareTo(other.tag.Type) : compareCount;
         }
 
         public override string ToString()
         {
-            return tag.match_tag + ":" + count;
+            return tag.MatchTag + ":" + count;
         }
     }
 }

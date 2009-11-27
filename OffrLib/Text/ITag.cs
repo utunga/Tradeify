@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +9,9 @@ namespace Offr.Text
 {
     public interface ITag : ITopic, ICanJson
     {
-        string match_tag { get; }
-        TagType type { get; }
-        string tag { get; }
+        string MatchTag { get; }
+        TagType Type { get; }
+        string Text { get; }
         
     }
 }

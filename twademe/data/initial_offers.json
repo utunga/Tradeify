@@ -5,27 +5,27 @@
     "tags": [
       {
         "type": "type",
-        "tag": "free"
+        "txt": "free"
       },
       {
         "type": "type",
-        "tag": "barter"
+        "txt": "barter"
       },
       {
         "type": "tag",
-        "tag": "mulch"
+        "txt": "mulch"
       },
       {
         "type": "loc",
-        "tag": "paekakariki"
+        "txt": "paekakariki"
       },
       {
         "type": "loc",
-        "tag": "new zealand"
+        "txt": "new zealand"
       },
       {
         "type": "loc",
-        "tag": "nz"
+        "txt": "nz"
       }
     ],
     "raw_text": "#offr_test mulch available now in l:Paekakariki: for #free #barter http://bit.ly/message0Info #mulch ",
@@ -53,15 +53,15 @@
       "tags": [
         {
           "type": "loc",
-          "tag": "paekakariki"
+          "txt": "paekakariki"
         },
         {
           "type": "loc",
-          "tag": "new zealand"
+          "txt": "new zealand"
         },
         {
           "type": "loc",
-          "tag": "nz"
+          "txt": "nz"
         }
       ]
     }
@@ -72,27 +72,27 @@
     "tags": [
       {
         "type": "type",
-        "tag": "free"
+        "txt": "free"
       },
       {
         "type": "type",
-        "tag": "barter"
+        "txt": "barter"
       },
       {
         "type": "tag",
-        "tag": "car"
+        "txt": "car"
       },
       {
         "type": "loc",
-        "tag": "wellington"
+        "txt": "wellington"
       },
       {
         "type": "loc",
-        "tag": "new zealand"
+        "txt": "new zealand"
       },
       {
         "type": "loc",
-        "tag": "nz"
+        "txt": "nz"
       }
     ],
     "raw_text": "#offr_test car available now in l:Wellington City: for #free #barter http://bit.ly/message1Info #car ",
@@ -120,15 +120,15 @@
       "tags": [
         {
           "type": "loc",
-          "tag": "wellington"
+          "txt": "wellington"
         },
         {
           "type": "loc",
-          "tag": "new zealand"
+          "txt": "new zealand"
         },
         {
           "type": "loc",
-          "tag": "nz"
+          "txt": "nz"
         }
       ]
     }
@@ -139,23 +139,23 @@
     "tags": [
       {
         "type": "type",
-        "tag": "free"
+        "txt": "free"
       },
       {
         "type": "type",
-        "tag": "barter"
+        "txt": "barter"
       },
       {
         "type": "tag",
-        "tag": "vegetables"
+        "txt": "vegetables"
       },
       {
         "type": "loc",
-        "tag": "new zealand"
+        "txt": "new zealand"
       },
       {
         "type": "loc",
-        "tag": "nz"
+        "txt": "nz"
       }
     ],
     "raw_text": "#offr_test vegetables available now in l:Waiheke Island: for #free #barter http://bit.ly/message2Info #vegetables ",
@@ -183,11 +183,11 @@
       "tags": [
         {
           "type": "loc",
-          "tag": "new zealand"
+          "txt": "new zealand"
         },
         {
           "type": "loc",
-          "tag": "nz"
+          "txt": "nz"
         }
       ]
     }
@@ -198,27 +198,27 @@
     "tags": [
       {
         "type": "type",
-        "tag": "free"
+        "txt": "free"
       },
       {
         "type": "type",
-        "tag": "barter"
+        "txt": "barter"
       },
       {
         "type": "tag",
-        "tag": "garden_supplies"
+        "txt": "garden_supplies"
       },
       {
         "type": "loc",
-        "tag": "paekakariki"
+        "txt": "paekakariki"
       },
       {
         "type": "loc",
-        "tag": "new zealand"
+        "txt": "new zealand"
       },
       {
         "type": "loc",
-        "tag": "nz"
+        "txt": "nz"
       }
     ],
     "raw_text": "#offr_test garden supplies available now in l:Paekakariki: for #free #barter http://bit.ly/message3Info #garden_supplies ",
@@ -246,15 +246,15 @@
       "tags": [
         {
           "type": "loc",
-          "tag": "paekakariki"
+          "txt": "paekakariki"
         },
         {
           "type": "loc",
-          "tag": "new zealand"
+          "txt": "new zealand"
         },
         {
           "type": "loc",
-          "tag": "nz"
+          "txt": "nz"
         }
       ]
     }
@@ -265,23 +265,23 @@
     "tags": [
       {
         "type": "type",
-        "tag": "free"
+        "txt": "free"
       },
       {
         "type": "type",
-        "tag": "barter"
+        "txt": "barter"
       },
       {
         "type": "tag",
-        "tag": "yams"
+        "txt": "yams"
       },
       {
         "type": "loc",
-        "tag": "new zealand"
+        "txt": "new zealand"
       },
       {
         "type": "loc",
-        "tag": "nz"
+        "txt": "nz"
       }
     ],
     "raw_text": "#offr_test yams available now in l:Waiheke Island: for #free #barter http://bit.ly/message4Info #yams ",
@@ -309,11 +309,11 @@
       "tags": [
         {
           "type": "loc",
-          "tag": "new zealand"
+          "txt": "new zealand"
         },
         {
           "type": "loc",
-          "tag": "nz"
+          "txt": "nz"
         }
       ]
     }
@@ -324,19 +324,19 @@
     "tags": [
       {
         "type": "type",
-        "tag": "cash"
+        "txt": "cash"
       },
       {
         "type": "tag",
-        "tag": "squash"
+        "txt": "squash"
       },
       {
         "type": "loc",
-        "tag": "new zealand"
+        "txt": "new zealand"
       },
       {
         "type": "loc",
-        "tag": "nz"
+        "txt": "nz"
       }
     ],
     "raw_text": "#offr_test squash available now in l:Waiheke Island: for #cash http://bit.ly/message5Info #squash ",
@@ -364,11 +364,11 @@
       "tags": [
         {
           "type": "loc",
-          "tag": "new zealand"
+          "txt": "new zealand"
         },
         {
           "type": "loc",
-          "tag": "nz"
+          "txt": "nz"
         }
       ]
     }

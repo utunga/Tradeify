@@ -33,8 +33,8 @@ namespace Offr.Query
         public void Invalidate()
         {
             _seenTags = new List<ITag>();
-            _index = new Dictionary<string, List<IMessage>>();
-            _doubleTagIndex = new Dictionary<string, List<IMessage>>();
+            _index = new SortedList<string, List<IMessage>>();
+            _doubleTagIndex = new SortedList<string, List<IMessage>>();
             Process(_messageProvider.AllMessages);
         }
 

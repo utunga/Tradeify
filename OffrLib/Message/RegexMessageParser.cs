@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +31,7 @@ namespace Offr.Message
             msg.MessagePointer = source.Pointer;
             foreach (ITag tag in ParseTags(source))
             {
-                if (tag.type == TagType.msg_type) continue; //skip messages of this type
+                if (tag.Type == TagType.msg_type) continue; //skip messages of this Type
                 msg.AddTag(tag);
             }
             //source.Pointer.

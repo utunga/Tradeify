@@ -51,7 +51,7 @@ namespace Offr.Tests
           {
               
               _target = new MessageRepository();
-              _target.FilePath = "data/initial_offers.json";
+              _target.FilePath = "data/test_offers.json";
               _target.InitializeFromFile();
 
               Console.Out.WriteLine("Initialized from file with following data");

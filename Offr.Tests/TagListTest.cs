@@ -37,8 +37,8 @@ namespace Offr.Tests
         {
             ITag tag = _target[2];
             // just check we are on same page
-            Assert.AreEqual("baz", tag.tag);
-            Assert.AreEqual(TagType.type, tag.type);
+            Assert.AreEqual("baz", tag.Text);
+            Assert.AreEqual(TagType.type, tag.Type);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace Offr.Tests
             Assert.AreEqual(3, currencies.Count);
             foreach (ITag currency in currencies)
             {
-                Assert.AreEqual(TagType.type, currency.type);
+                Assert.AreEqual(TagType.type, currency.Type);
             }
         }
 
@@ -60,14 +60,14 @@ namespace Offr.Tests
         {
             ITag tag = _target[2];
             // just check we are on same page to start
-            Assert.AreEqual("baz", tag.tag);
-            Assert.AreEqual(TagType.type, tag.type);
+            Assert.AreEqual("baz", tag.Text);
+            Assert.AreEqual(TagType.type, tag.Type);
 
             _target[2] = new Tag(TagType.tag, "bah");
             
             ITag tag2 = _target[2];
-            Assert.AreEqual(TagType.tag, tag2.type);
-            Assert.AreEqual("bah", tag2.tag);
+            Assert.AreEqual(TagType.tag, tag2.Type);
+            Assert.AreEqual("bah", tag2.Text);
         }
 
         [Test]
@@ -105,8 +105,8 @@ namespace Offr.Tests
         {
             ITag tag = _target[2];
             // just check we are on same page to start
-            Assert.AreEqual("baz", tag.tag);
-            Assert.AreEqual(TagType.type, tag.type);
+            Assert.AreEqual("baz", tag.Text);
+            Assert.AreEqual(TagType.type, tag.Type);
 
             _target[2] = new Tag(TagType.tag, "bah");
 
