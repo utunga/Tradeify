@@ -20,7 +20,7 @@ namespace Offr.Text
         
         public string _sourceText { set; get; }
         
-        private DateTime _timeStampUTC;
+    
         
         [JsonConverter(typeof(MessagePointerConverter))]
         public IMessagePointer Pointer
@@ -39,13 +39,12 @@ namespace Offr.Text
             get { return _sourceText; }
         }
 
-        public string Timestamp
+        private DateTime _timeStampUTC;
+        public DateTime Timestamp
         {
-            // Substring(0, "Fri, 15 May".Length)
-            get { return DateUtils.FriendlyLocalTimeStampFromUTC(_timeStampUTC); }
+            get { return _timeStampUTC;  }
         }
 
-      
         internal void SetTimestamp(string rfc822TimeStamp)
         {
             _timeStampUTC = DateUtils.UTCDateTimeFromTwitterTimeStamp(rfc822TimeStamp);
@@ -61,6 +60,14 @@ namespace Offr.Text
             _messagePointer = messagePointer;
             _createdBy = createdBy;
             SetTimestamp(timestamp);
+        }
+
+        public RawMessage(string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, DateTime dateTimeUTC)
+        {
+            _sourceText = sourceText;
+            _messagePointer = messagePointer;
+            _createdBy = createdBy;
+            _timeStampUTC = dateTimeUTC;
         }
 
         public bool Equals(RawMessage other)

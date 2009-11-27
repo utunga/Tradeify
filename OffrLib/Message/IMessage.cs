@@ -14,7 +14,7 @@ namespace Offr.Message
         //IRawMessage Source { get; set; }
         IMessagePointer MessagePointer { get; }
         string RawText { get; }
-        string Timestamp { get; }
+        DateTime Timestamp { get; }
         IUserPointer CreatedBy { get;}
         MessageType MessageType { get; }
         bool IsValid { get; }

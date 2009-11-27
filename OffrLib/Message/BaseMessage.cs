@@ -15,7 +15,7 @@ namespace Offr.Message
     public abstract class BaseMessage : IMessage, IEquatable<BaseMessage>
     {
         #region fields
-        public TagList _tags;
+        internal TagList _tags;
 
         private MessageType _messageType;
 
@@ -28,7 +28,6 @@ namespace Offr.Message
         public IEnumerable<ITag> Tags
         {
             get { return _tags; }
-            private set { _tags = new TagList(value); }
         }
 
         public MessageType MessageType
@@ -50,10 +49,17 @@ namespace Offr.Message
             get; set; 
         }
 
-        public string Timestamp
+        public DateTime Timestamp
         {
-            get; set;
+            get;
+            set;
         }
+
+        public string FriendlyTimeStamp
+        {
+            get { return DateUtils.FriendlyLocalTimeStampFromUTC(Timestamp); }
+        }
+
         #endregion fields
 
         #region read only properties
@@ -189,7 +195,7 @@ namespace Offr.Message
         public virtual void ReadJson(JsonReader reader, JsonSerializer serializer){
  
             _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
-            Timestamp=JSON.ReadProperty<string>(serializer, reader, "timestamp");
+            Timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
 
             _tags = new TagList(); 
             _tags.ReadJson(reader, serializer);

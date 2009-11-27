@@ -46,5 +46,11 @@ namespace Offr.Text
             //   is supported by microsoft's DateTime.Parse implementation. (That is, it implements RFC-1123 which 'supports' rfc822 provided you stay in GMT TimeZone (which we appear to be))
        
         }
+
+        public static string TwitterTimeStampFromUTCDateTime(DateTime utcDateTime)
+        {
+            // again, see http://stackoverflow.com/questions/284775/how-do-i-parse-and-convert-datetimes-to-the-rfc-822-date-time-format  for more info
+            return utcDateTime.ToString("r");
+        }
     }
 }

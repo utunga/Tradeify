@@ -46,7 +46,7 @@ namespace Offr.Tests
 
             MockRawMessage raw = new MockRawMessage(0)
                                      {
-                                         Timestamp = "10pm",
+                                         Timestamp = DateTime.Now.AddHours(-2),
                                          CreatedBy = MockData.User0,
                                          Location = MockData.Location0,
                                          Thumbnail = "http://flickr.com/mulch.jpg",
@@ -87,7 +87,7 @@ namespace Offr.Tests
         {
             MockRawMessage raw = new MockRawMessage(0)
             {
-                Timestamp = "10pm",
+                Timestamp = DateTime.Now.AddHours(-5),
                 CreatedBy = MockData.User0,
                 Location = MockData.Location0,
                 MoreInfoURL = "http://bit.ly/message0Info",
@@ -97,7 +97,7 @@ namespace Offr.Tests
             };
             //List<ITag> expectedTags = new List<ITag>();
             IOfferMessage message = (OfferMessage) _target.Parse(raw);
-            Assert.That(message.LocationTags.Count == 0, "There should be no location tags");
+            Assert.That(message.LocationTags.Count() == 0, "There should be no location tags");
         }
 
         [Test]

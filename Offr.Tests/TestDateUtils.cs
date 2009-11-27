@@ -34,6 +34,8 @@ namespace Offr.Tests
             CheckUTC("10 May 2009", "10 May 2009 23:10:01");
             CheckUTC("23 Jun 2008", "23 June 2008 23:10:01");
         }
+
+
         //Curse you DATETIME, come up with a real fix one day.. maybe
         private void CheckUTC(string expected, string timeToParse)
         {
@@ -44,12 +46,27 @@ namespace Offr.Tests
             bool joavPC = Equals(replaced, utc);
             Assert.That(milesPC || joavPC, "Time from 'today' formatted wrong");           
         }
+
         [Test]
         public void TEST_UTCDateTimeFromTwitterTimeStamp()
         {
             DateTime actual = DateUtils.UTCDateTimeFromTwitterTimeStamp("Fri, 06 Nov 2009 23:34:48 +0000");
             DateTime expected = new DateTime(2009,11,6,23,34,48,DateTimeKind.Utc);
             Assert.AreEqual(expected, actual, "Failed to parse date in twitter format (looks like)");
+        }
+
+        [Test]
+        public void TEST_TwitterTimeStampFromUTCRoundTrip()
+        {
+            DateTime expected = new DateTime(2009, 11, 6, 23, 34, 48, DateTimeKind.Utc);
+            
+            DateTime start = DateUtils.UTCDateTimeFromTwitterTimeStamp("Fri, 06 Nov 2009 23:34:48 GMT");
+            string timestamp = DateUtils.TwitterTimeStampFromUTCDateTime(start);
+            DateTime roundTrip = DateUtils.UTCDateTimeFromTwitterTimeStamp(timestamp);
+            
+            Assert.AreEqual(expected, roundTrip, "Failed to roundtrip date through twitter timestamp");
+            Assert.AreEqual("Fri, 06 Nov 2009 23:34:48 GMT", timestamp, "Failed to export twitter timestamp");
+
         }
     }
 }

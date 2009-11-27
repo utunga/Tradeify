@@ -33,14 +33,14 @@ namespace Offr.Tests
         public void TestStartup()
         {
             Assert.That(!PersistanceService.IsBusy);
-            PersistanceService.EnsureStarted(_receiver);
+            PersistanceService.Start(_receiver);
             Thread.Sleep(50);
             Assert.That(PersistanceService.IsBusy);
         }
         [Test]
         public void TestStop()
         {
-            PersistanceService.EnsureStarted(_receiver);
+            PersistanceService.Start(_receiver);
             Assert.That(PersistanceService.IsBusy);
             PersistanceService.Stop();
             Thread.Sleep(50);
@@ -52,10 +52,10 @@ namespace Offr.Tests
             OfferMessage offerMessage = new OfferMessage();
             offerMessage.MessagePointer = new TwitterMessagePointer(100);
             _messageRepository.Save(offerMessage);
-            PersistanceService.EnsureStarted(_receiver);
-            //burn cycles until serialisation starts
-            while (!PersistanceService.IsBusy) ;
-            //now serialisation has started you can tell the service to stop
+            PersistanceService.Start(_receiver);
+            //burn cycles until serialisation finishes
+            while (!PersistanceService.IsBusy);
+            //now serialisation has finished you can tell the service to stop
             PersistanceService.Stop();
             MessageRepository updated = new MessageRepository();
             updated.FilePath = _filePath;

@@ -48,8 +48,7 @@ namespace Offr.Services
 
         }
 
-        //probably want to make this one private
-        private static void Start(IBackgroundExceptionReceiver exceptionReceiver)
+        public static void Start(IBackgroundExceptionReceiver exceptionReceiver)
         {
                 lock (_syncLock)
                 {
@@ -62,16 +61,18 @@ namespace Offr.Services
             
         }
 
-        public static void EnsureStarted(IBackgroundExceptionReceiver exceptionReceiver)
-        {
-            //hopefully 99.999% of the time we return straight away..
-            if (_busy) return;
-            //_log.Error("PersistanceService not started, will force it to start");
-            lock (_syncLock)
-            {
-                Start(exceptionReceiver);
-            }
-        }
+        //public static void EnsureStarted(IBackgroundExceptionReceiver exceptionReceiver)
+        //{
+        //    //hopefully 99.999% of the time we return straight away..
+        //    if (_busy) return;
+
+        //    //_log.Error("PersistanceService not started, will force it to start");
+        //    lock (_syncLock)
+        //    {
+        //        Start(exceptionReceiver);
+        //    }
+        //}
+
         public static void Stop()
         {
             _stopped = true;
@@ -90,16 +91,8 @@ namespace Offr.Services
                 while (!_stopped) //continue till the end of time or until the thread dies
                 {
                     _busy = true;
-                    // NOTE2J probably don't need an 'update Interval - enough to have a single POLLING_INTERVAL
-                    // but the other way to do it is have an 'updateInterval' and also a 'wakeUpAndCheckHowManySecondsHaveGoneByInterval'
-                    // if you wanted to do that use the below code otherwise just delete all this.
-                    //TimeSpan timeSinceLastUpdate = new TimeSpan(DateTime.Now.Ticks - lastUpdate);
-                    //if (timeSinceLastUpdate.TotalMilliseconds > UPDATE_INTERVAL)
-                    //{
-                        // --- call the method that does the actual work 
+                  
                     EnsurePersisted();
-                    // ---
-                    //   lastUpdate = DateTime.Now.Ticks;
                     
                     Thread.Sleep(POLLING_INTERVAL);
                 }
@@ -120,28 +113,26 @@ namespace Offr.Services
 
         private static void EnsurePersisted()
         {
-
-            foreach (IPersistedRepository Repository in _repositories)
+            foreach (IPersistedRepository repository in _repositories)
             {
                 try
                 {
-                    if (Repository.IsDirty)
+                    if (repository.IsDirty)
                     {
-                        Repository.SerializeToFile();
+                        repository.SerializeToFile();
                     }
                 }
                 catch (Exception ex)
                 {
-                   // _log.Error("Failure to save data for "+ repository, ex);
+                    // _log.Error("Failure to save data for "+ repository, ex);
 
                     if (_exceptionReceiver != null)
                     {
-                        _exceptionReceiver.NotifyException(new ApplicationException("Failure to xyz for abc ", ex));
+                        _exceptionReceiver.NotifyException(new ApplicationException("Failure during attempt to serialize " + repository, ex));
                     }
                 }
             }
         }
-
 
     }
 }

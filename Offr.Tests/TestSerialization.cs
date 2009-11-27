@@ -25,11 +25,11 @@ namespace Offr.Tests
 
         public TestSerialization()
         {
-            // load the mock messages via this NonMockRawMessageProvider madness
-            NonMockRawMessageProvider rawMessageProvider = new NonMockRawMessageProvider();
             TagRepository singletonTagProvider = new TagRepository();
             singletonTagProvider.FilePath = "data/initial_tags.json";
             singletonTagProvider.InitializeFromFile();
+
+            NonMockRawMessageProvider rawMessageProvider = new NonMockRawMessageProvider(); 
             GoogleLocationProvider locationProvider = new MockLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             MessageRepository messageRepository = new MessageRepository();

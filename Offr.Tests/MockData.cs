@@ -94,7 +94,7 @@ namespace Offr.Tests
 
             raw = new MockRawMessage(0)
             {
-                Timestamp = fixedStart.ToString("r"), // one year ago
+                Timestamp = fixedStart, // one year ago
                 CreatedBy = User0,
                 Location = Location0,
                 MoreInfoURL = "http://bit.ly/message0Info",
@@ -116,7 +116,7 @@ namespace Offr.Tests
 
             raw = new MockRawMessage(1)
             {
-                Timestamp = fixedStart.AddSeconds((365-40)).ToString("r"), // more than a month ago
+                Timestamp = fixedStart.AddSeconds((365-40)), // more than a month ago
                 CreatedBy = User1,
                 Location = Location1,
                 MoreInfoURL = "http://bit.ly/message1Info",
@@ -138,7 +138,7 @@ namespace Offr.Tests
 
             raw = new MockRawMessage(2)
             {
-                Timestamp = fixedStart.AddDays((365 - 5)).ToString("r"),
+                Timestamp = fixedStart.AddDays((365 - 5)),
                 CreatedBy = User2,
                 Location = Location2,
                 MoreInfoURL = "http://bit.ly/message2Info",
@@ -160,7 +160,7 @@ namespace Offr.Tests
 
             raw = new MockRawMessage(3)
             {
-                Timestamp = fixedStart.AddDays(363).ToString("r"),
+                Timestamp = fixedStart.AddDays(363),
                 CreatedBy = User0,
                 Location = Location0,
                 MoreInfoURL = "http://bit.ly/message3Info",
@@ -182,7 +182,7 @@ namespace Offr.Tests
 
             raw = new MockRawMessage(4)
             {
-                Timestamp = fixedStart.AddDays(364.5).ToString("r"),
+                Timestamp = fixedStart.AddDays(364.5),
                 CreatedBy = User1,
                 Location = Location2,
                 MoreInfoURL = "http://bit.ly/message4Info",
@@ -204,7 +204,7 @@ namespace Offr.Tests
 
             raw = new MockRawMessage(5)
             {
-                Timestamp = fixedStart.AddDays(365).ToString("r"),
+                Timestamp = fixedStart.AddDays(365),
                 CreatedBy = User2,
                 Location = Location2,
                 MoreInfoURL = "http://bit.ly/message5Info",

@@ -18,7 +18,7 @@ namespace Offr.Message
         string EndByText { get; }
         DateTime? EndBy { get; }
         IUserPointer OfferedBy { get; }
-        ReadOnlyCollection<ITag> Currencies { get; }
-        ReadOnlyCollection<ITag> LocationTags { get; }
+        IEnumerable<ITag> Currencies { get; }
+        IEnumerable<ITag> LocationTags { get; }
     }
 }

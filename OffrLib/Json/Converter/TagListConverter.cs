@@ -9,7 +9,7 @@ using Offr.Text;
 
 namespace Offr.Json.Converter
 {
-    public class TagListConverter : CanJsonConvertor<TagList>
+    internal class TagListConverter : CanJsonConvertor<TagList>
     {
         public override TagList Create(JsonReader reader)
         {

@@ -12,3 +12,4 @@ _ReSharper*
 *.db
 Offr.Tests/bin
 OffrLib/bin
+lib/Newtonsoft.Json/src/bin

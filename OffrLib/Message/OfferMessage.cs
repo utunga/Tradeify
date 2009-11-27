@@ -32,12 +32,12 @@ namespace Offr.Message
 
         #region read only properties
 
-        public ReadOnlyCollection<ITag> Currencies
+        public IEnumerable<ITag> Currencies
         {
             get { return _tags.TagsOfType(TagType.type); }
         }
 
-        public ReadOnlyCollection<ITag> LocationTags
+        public IEnumerable<ITag> LocationTags
         {
             get { return _tags.TagsOfType(TagType.loc); }
         }

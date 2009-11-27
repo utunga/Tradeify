@@ -18,11 +18,10 @@ namespace Offr.Tests
         public DateTime? EndBy { get; internal set; }
         public string EndByText { get; internal set; }
 
-        DateTime? _timeStamp;
-        public string Timestamp
+        public DateTime Timestamp
         {
-            get { return (_timeStamp == null) ? null : _timeStamp.ToString(); }
-            internal set { _timeStamp = DateTime.Parse(value); }
+            get; 
+            internal set;
         }
 
         //-- properties of the OfferMessage
@@ -55,10 +54,7 @@ namespace Offr.Tests
             if (otherIRawMessage is MockRawMessage)
             {
                 MockRawMessage other = (MockRawMessage)otherIRawMessage;
-                if (this._timeStamp==null)
-                    return -1;
-                
-                return this._timeStamp.Value.CompareTo(other._timeStamp);
+                return this.Timestamp.CompareTo(other.Timestamp);
             }
             else
             {

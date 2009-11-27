@@ -13,7 +13,7 @@ using Offr.Services;
 
 namespace twademe
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : System.Web.HttpApplication, IBackgroundExceptionReceiver
     {
         public const string INITIAL_OFFERS_FILE = "/data/initial_offers.json";
         public const string INITIAL_TAGS_FILE = "/data/initial_tags.json";
@@ -33,8 +33,8 @@ namespace twademe
                 ((IPersistedRepository)tagRepository).FilePath = Server.MapPath(INITIAL_TAGS_FILE);
                 ((IPersistedRepository)tagRepository).InitializeFromFile();
             }
-            PersistanceService.EnsureStarted(new BackgroundExceptionReceiver());
-            TwitterPollingService.EnsureStarted(new BackgroundExceptionReceiver());
+            PersistanceService.Start(this);
+            RawMessagePollingService.Start(this);
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -43,6 +43,10 @@ namespace twademe
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+            if (LastException != null)
+            {
+                throw LastException;
+            }
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
@@ -65,5 +69,21 @@ namespace twademe
         {
             get { return Offr.Global.Kernel;  }
         }
+
+        #region Implementation of IBackgroundExceptionReceiver
+
+        public void NotifyException(Exception ex)
+        {
+            logger.Error(ex);
+            LastException = ex;
+        }
+
+        public Exception LastException
+        {
+            get;
+            private set;
+        }
+
+        #endregion
     }
 }

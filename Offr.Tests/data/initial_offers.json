@@ -1,7 +1,7 @@
 {
   "twitter/0": {
     "message_type": "offr",
-    "timestamp": "24/11/2008 10:29:52 a.m.",
+    "timestamp": "2008-11-24T10:29",
     "tags": [
       {
         "type": 2,
@@ -68,7 +68,7 @@
   },
   "twitter/1": {
     "message_type": "offr",
-    "timestamp": "24/11/2008 10:35:17 a.m.",
+    "timestamp": "2008-11-24T10:35",
     "tags": [
       {
         "type": 2,
@@ -135,7 +135,7 @@
   },
   "twitter/2": {
     "message_type": "offr",
-    "timestamp": "19/11/2009 10:29:52 a.m.",
+    "timestamp": "2008-11-19T10:29",
     "tags": [
       {
         "type": 2,
@@ -194,7 +194,7 @@
   },
   "twitter/3": {
     "message_type": "offr",
-    "timestamp": "22/11/2009 10:29:52 a.m.",
+    "timestamp": "2008-11-22T10:29",
     "tags": [
       {
         "type": 2,
@@ -261,7 +261,7 @@
   },
   "twitter/4": {
     "message_type": "offr",
-    "timestamp": "23/11/2009 10:29:52 p.m.",
+    "timestamp": "2008-11-23T10:29",
     "tags": [
       {
         "type": 2,
@@ -320,7 +320,7 @@
   },
   "twitter/5": {
     "message_type": "offr",
-    "timestamp": "24/11/2009 10:29:52 a.m.",
+    "timestamp": "2008-11-24T10:20",
     "tags": [
       {
         "type": 2,

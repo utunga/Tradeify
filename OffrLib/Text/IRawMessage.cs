@@ -13,8 +13,7 @@ namespace Offr.Text
         IMessagePointer Pointer { get; }
         IUserPointer CreatedBy { get; }
         string Text { get; }
-        string Timestamp { get; }
-
+        DateTime Timestamp { get; }
     }
     //needed to avoid the json serializer throwing an error when trying to instantiate an IRawMessage interface!
 

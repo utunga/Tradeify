@@ -12,7 +12,6 @@ using Offr.Repository;
 
 namespace Offr.Text
 {
-    //FIXME ideally this class would be marked internal - don't use it outside this assembly
     public class TagList : IList<ITag>, ICanJson, IEquatable<TagList>
     {
         private IList<ITag> _list;
@@ -210,28 +209,12 @@ namespace Offr.Text
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-/*            List<string> tags = JSON.ReadProperty<List<string>>(serializer, reader, "tags");
-            TagProvider provider = Global.Kernel.Get<TagProvider>(); //FIXME gotta figure out if this is correct thing to happen
-            foreach (string tag in tags)
-            {
-                _list.Add(provider.GetTag(tag));
-            }*/
             List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
             ITagRepository provider = Global.Kernel.Get<ITagRepository>(); //FIXME gotta figure out if this is correct thing to happen
             foreach (ITag tag in temp)
             {
                 _list.Add(provider.GetTag(tag.tag,tag.type));
             }
-/*            Dictionary<string, List<string>> tags = JSON.ReadProperty<Dictionary<string, List<string>>>(serializer, reader, "tags");
-            TagProvider provider = Global.Kernel.Get<TagProvider>(); //FIXME gotta figure out if this is correct thing to happen
-            foreach (List<string> taglist in tags.Values)
-            {
-                foreach (string tag in taglist)
-                {
-                    _list.Add(provider.GetTag(tag));
-                }
-            }*/
-
         }
 
         #endregion
