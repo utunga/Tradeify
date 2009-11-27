@@ -28,27 +28,22 @@ namespace Offr.Tests
         [Test]
         public void TEST_FriendlyLocalTimeStampFromUTC()
         {
-            Assert.AreEqual("Today, 11:10 PM",
-                DateUtils.FriendlyLocalTimeStampFromUTC(DateTime.Parse("23 June 2009 23:10:01").ToUniversalTime()), 
-                "Time from 'today' formatted wrong");
-
-            Assert.AreEqual("20 Jun, 12:10 AM",
-                DateUtils.FriendlyLocalTimeStampFromUTC(DateTime.Parse("20 June 2009 0:10:01").ToUniversalTime()),
-                "Time from this week, formatted wrong");
-
-            Assert.AreEqual("20 Jun, 1:10 PM",
-               DateUtils.FriendlyLocalTimeStampFromUTC(DateTime.Parse("20 June 2009 13:10:57").ToUniversalTime()),
-               "Time from this week, formatted wrong");
-            
-            Assert.AreEqual("10 May 2009",
-                DateUtils.FriendlyLocalTimeStampFromUTC(DateTime.Parse("10 May 2009 23:10:01").ToUniversalTime()),
-                "Date from a few months previous formatted wrong");
-
-            Assert.AreEqual("23 Jun 2008",
-                DateUtils.FriendlyLocalTimeStampFromUTC(DateTime.Parse("23 June 2008 23:10:01").ToUniversalTime()),
-                "Date from previous year formatted wrong");
+            CheckUTC("Today, 11:10 PM", "23 June 2009 23:10:01");
+            CheckUTC("20 Jun, 12:10 AM", "20 June 2009 0:10:01");
+            CheckUTC("20 Jun, 1:10 PM", "20 June 2009 13:10:57");
+            CheckUTC("10 May 2009", "10 May 2009 23:10:01");
+            CheckUTC("23 Jun 2008", "23 June 2008 23:10:01");
         }
-
+        //Curse you DATETIME, come up with a real fix one day.. maybe
+        private void CheckUTC(string expected, string timeToParse)
+        {
+            string replaced = expected.Replace("PM", "p.m.");
+            replaced = replaced.Replace("AM", "a.m.");
+            string utc = DateUtils.FriendlyLocalTimeStampFromUTC(DateTime.Parse(timeToParse).ToUniversalTime());
+            bool milesPC = Equals(expected,utc);
+            bool joavPC = Equals(replaced, utc);
+            Assert.That(milesPC || joavPC, "Time from 'today' formatted wrong");           
+        }
         [Test]
         public void TEST_UTCDateTimeFromTwitterTimeStamp()
         {

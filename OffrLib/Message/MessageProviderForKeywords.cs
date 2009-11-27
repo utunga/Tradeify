@@ -23,7 +23,8 @@ namespace Offr.Message
         {
             get 
             {
-                Update();
+                //No longer update every time someone wants all the messages
+                //Update();
                 return _messages.Values;
             }
         }

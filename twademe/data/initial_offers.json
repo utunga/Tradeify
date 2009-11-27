@@ -4,27 +4,27 @@
     "timestamp": "24/11/2008 10:29:52 a.m.",
     "tags": [
       {
-        "type": 2,
+        "type": "type",
         "tag": "free"
       },
       {
-        "type": 2,
+        "type": "type",
         "tag": "barter"
       },
       {
-        "type": 1,
+        "type": "tag",
         "tag": "mulch"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "paekakariki"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "new zealand"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "nz"
       }
     ],
@@ -52,15 +52,15 @@
       "address": "Paekakariki",
       "tags": [
         {
-          "type": 3,
+          "type": "loc",
           "tag": "paekakariki"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "new zealand"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "nz"
         }
       ]
@@ -71,27 +71,27 @@
     "timestamp": "24/11/2008 10:35:17 a.m.",
     "tags": [
       {
-        "type": 2,
+        "type": "type",
         "tag": "free"
       },
       {
-        "type": 2,
+        "type": "type",
         "tag": "barter"
       },
       {
-        "type": 1,
+        "type": "tag",
         "tag": "car"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "wellington"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "new zealand"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "nz"
       }
     ],
@@ -119,15 +119,15 @@
       "address": "Wellington City",
       "tags": [
         {
-          "type": 3,
+          "type": "loc",
           "tag": "wellington"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "new zealand"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "nz"
         }
       ]
@@ -138,23 +138,23 @@
     "timestamp": "19/11/2009 10:29:52 a.m.",
     "tags": [
       {
-        "type": 2,
+        "type": "type",
         "tag": "free"
       },
       {
-        "type": 2,
+        "type": "type",
         "tag": "barter"
       },
       {
-        "type": 1,
+        "type": "tag",
         "tag": "vegetables"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "new zealand"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "nz"
       }
     ],
@@ -182,11 +182,11 @@
       "address": "Waiheke Island",
       "tags": [
         {
-          "type": 3,
+          "type": "loc",
           "tag": "new zealand"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "nz"
         }
       ]
@@ -197,27 +197,27 @@
     "timestamp": "22/11/2009 10:29:52 a.m.",
     "tags": [
       {
-        "type": 2,
+        "type": "type",
         "tag": "free"
       },
       {
-        "type": 2,
+        "type": "type",
         "tag": "barter"
       },
       {
-        "type": 1,
+        "type": "tag",
         "tag": "garden_supplies"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "paekakariki"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "new zealand"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "nz"
       }
     ],
@@ -245,15 +245,15 @@
       "address": "Paekakariki",
       "tags": [
         {
-          "type": 3,
+          "type": "loc",
           "tag": "paekakariki"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "new zealand"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "nz"
         }
       ]
@@ -264,23 +264,23 @@
     "timestamp": "23/11/2009 10:29:52 p.m.",
     "tags": [
       {
-        "type": 2,
+        "type": "type",
         "tag": "free"
       },
       {
-        "type": 2,
+        "type": "type",
         "tag": "barter"
       },
       {
-        "type": 1,
+        "type": "tag",
         "tag": "yams"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "new zealand"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "nz"
       }
     ],
@@ -308,11 +308,11 @@
       "address": "Waiheke Island",
       "tags": [
         {
-          "type": 3,
+          "type": "loc",
           "tag": "new zealand"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "nz"
         }
       ]
@@ -323,19 +323,19 @@
     "timestamp": "24/11/2009 10:29:52 a.m.",
     "tags": [
       {
-        "type": 2,
+        "type": "type",
         "tag": "cash"
       },
       {
-        "type": 1,
+        "type": "tag",
         "tag": "squash"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "new zealand"
       },
       {
-        "type": 3,
+        "type": "loc",
         "tag": "nz"
       }
     ],
@@ -363,11 +363,11 @@
       "address": "Waiheke Island",
       "tags": [
         {
-          "type": 3,
+          "type": "loc",
           "tag": "new zealand"
         },
         {
-          "type": 3,
+          "type": "loc",
           "tag": "nz"
         }
       ]

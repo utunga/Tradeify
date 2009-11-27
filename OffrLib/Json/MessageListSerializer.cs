@@ -60,7 +60,7 @@ namespace Offr.Json
                             dict = new Dictionary<string, object>() {
                                                                         {"offer_text", offer.OfferText}, 
                                                                         {"more_info_url", offer.MoreInfoURL},
-                                                                        {"date", offer.Timestamp},
+                                                                        {"date", DateUtils.UTCDateTimeFromTwitterTimeStamp(offer.Timestamp).ToString() },
                                                                     };
 
                             Dictionary<string, object> userDict = new Dictionary<string, object>() 

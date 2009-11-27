@@ -38,7 +38,8 @@ namespace Offr.Query
 
         public List<IMessage> MessagesForTags(IEnumerable<ITag> tags)
         {
-            Update();
+            //No longer update
+            //Update();
         
             List<ITag> intersectTags = new List<ITag>();
             foreach (ITag tag in tags)

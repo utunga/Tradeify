@@ -8,6 +8,7 @@ using Ninject.Core;
 using Offr;
 using Offr.Message;
 using Offr.Repository;
+using Offr.Services;
 
 namespace twademe
 {
@@ -30,6 +31,8 @@ namespace twademe
                 ((IPersistedRepository)tagRepository).FilePath = Server.MapPath(INITIAL_TAGS_FILE);
                 ((IPersistedRepository)tagRepository).InitializeFromFile();
             }
+            PersistanceService.EnsureStarted(new BackgroundExceptionReceiver());
+            TwitterPollingService.EnsureStarted(new BackgroundExceptionReceiver());
         }
 
         protected void Session_Start(object sender, EventArgs e)
