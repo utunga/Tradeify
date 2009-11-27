@@ -44,7 +44,7 @@ namespace Offr.Message
                     msg.AddTag(s);
                 }
             }
-            msg.OfferText = TruncateSourceText(msg.Tags, source.Text);
+            msg.OfferText = source.Text;
             msg.IsValid = true;
             msg.MoreInfoURL = GetMoreInfoUrl(source.Text);
             msg.AddThumbnail(GetImageUrl(source.Text));
@@ -61,7 +61,7 @@ namespace Offr.Message
         private ILocation ParseLocation(string sourceText)
         {
             //Look for 'l:' followed by one or more of any character except ':' followed by ':'
-            Regex re = new Regex("l:([^:]+):", RegexOptions.IgnoreCase);
+            Regex re = new Regex("[l|L]:([^:]+):", RegexOptions.IgnoreCase);
             Match match = re.Match(sourceText);
             ILocation location = null;
             if (match.Groups.Count > 1)
@@ -85,50 +85,36 @@ namespace Offr.Message
             }
         }
 
-        // remove any tags added to end 
-        // of the source text and the tag "#offr" from the front (if its at the front)
-        // to get just the actual 'offer' part of the text
-        private string TruncateSourceText(IEnumerable<ITag> tags, string sourceText)
-        {
-            string offerText = sourceText;
-            //trim just in case there is whitespace at the start of the message or at the end of the message that will screw up the regex
-            offerText = offerText.Trim();
-            offerText.TrimStart("#offr".ToCharArray());
-            //look for a hash followed by any set of characters followed by the end of file character
-            Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
-            Match match = re.Match(offerText);
-            //repeat until no more are found
-            while (match.Groups.Count > 1)
-            {
-                string tag = match.Groups[0].Value;
-                offerText = offerText.TrimEnd(tag.ToCharArray());
-                offerText = offerText.Trim();
-                match = re.Match(offerText);
-            }
-            return offerText;
-        }
-
         private string GetMoreInfoUrl(string offerText)
         {
-            String moreInfoUrl = @"http://([^\s]+)[^(\.jpg)|(\.png)|(\.gif)]+\s";
+            String moreInfoUrl = @"http://([^\s]+[^(\.jpg)|(\.png)|(\.gif)])\s";
             Regex re = new Regex(moreInfoUrl);
             Match match = re.Match(offerText);
             if (match.Groups.Count > 1)
             {
-                return match.Groups[0].Value.Trim();
+                return "http://" + match.Groups[1].Value.Trim();
             }
             return null;
         }
+
         private string GetImageUrl(string offerText)
         {
-            String imageURL = @"http://([^\s]+)\.((jpg)|(png)|(gif))";
+            const string imageURL = @"http://([^\s]+)\.((jpg)|(png)|(gif))";
             Regex re = new Regex(imageURL);
-            // Regex re = new Regex("(http://([^\.]+[(\.jpg)(\.png)(\.gif)])");
             Match match = re.Match(offerText);
             if (match.Groups.Count > 1)
             {
                 return match.Groups[0].Value.Trim();
             }
+
+            const string twitPic = @"twitpic.com/([^\s]+)";
+            re = new Regex(twitPic);
+            match = re.Match(offerText);
+            if (match.Groups.Count > 1)
+            {
+                return "http://twitpic.com/show/thumb/" + match.Groups[1].Value.Trim();
+            }
+
             return null;
         }
         #endregion
@@ -139,6 +125,12 @@ namespace Offr.Message
         public string TEST_GetMoreInfoUrl(string offerText)
         {
             return GetMoreInfoUrl(offerText);
+        }
+
+        //Test accessors
+        public string TEST_GetImageUrl(string offerText)
+        {
+            return GetImageUrl(offerText);
         }
         #endif
         #endregion Test

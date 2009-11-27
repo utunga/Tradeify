@@ -41,8 +41,8 @@
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -40.982782,
-      "geo_long": 174.956108,
+      "geo_lat": -40.9827820,
+      "geo_long": 174.9561080,
       "address": "Paekakariki",
       "tags": [
         {
@@ -105,8 +105,8 @@
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -40.982782,
-      "geo_long": 174.956108,
+      "geo_lat": -40.9827820,
+      "geo_long": 174.9561080,
       "address": "Paekakariki",
       "tags": [
         {
@@ -265,8 +265,8 @@
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -40.98523,
-      "geo_long": 174.953779,
+      "geo_lat": -40.9852300,
+      "geo_long": 174.9537790,
       "address": "55 Wellington Road, Paekakariki",
       "tags": [
         {
@@ -280,152 +280,6 @@
         }
       ]
     }
-  },
-  "twitter/6108318977": {
-    "message_type": "offr",
-    "timestamp": "2009-11-27T10:07:12Z",
-    "tags": [
-      {
-        "tag": "ihave"
-      }
-    ],
-    "raw_text": "Commercial Property for Rent, India: EXCLUSIVE UNFURNISHED OFFICE SPACE IS LOCATED @ JP NAGAR:  http://bit.ly/8WPE0L #ihave",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6108318977"
-    },
-    "created_by": {
-      "provider_user_name": "property_rent",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
-      "screen_name": "property_rent",
-      "more_info_url": "http://www.twitter.com/property_rent",
-      "match_tag": "twitter/property_rent"
-    },
-    "offer_text": "Commercial Property for Rent, India: EXCLUSIVE UNFURNISHED OFFICE SPACE IS LOCATED @ JP NAGAR:  http://bit.ly/8WPE0L #ihave",
-    "more_info_url": "http://bit.ly/8WPE0L",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6108319372": {
-    "message_type": "offr",
-    "timestamp": "2009-11-27T10:07:14Z",
-    "tags": [
-      {
-        "tag": "ihave"
-      }
-    ],
-    "raw_text": "Commercial Property for Rent, India: BARESHELL OFFICE SPACE IN A GOOD LOCATION OF DOUBLE ROAD:  http://bit.ly/4B38ay #ihave",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6108319372"
-    },
-    "created_by": {
-      "provider_user_name": "property_rent",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
-      "screen_name": "property_rent",
-      "more_info_url": "http://www.twitter.com/property_rent",
-      "match_tag": "twitter/property_rent"
-    },
-    "offer_text": "Commercial Property for Rent, India: BARESHELL OFFICE SPACE IN A GOOD LOCATION OF DOUBLE ROAD:  http://bit.ly/4B38ay #ihave",
-    "more_info_url": "http://bit.ly/4B38ay",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6108332061": {
-    "message_type": "offr",
-    "timestamp": "2009-11-27T10:08:07Z",
-    "tags": [
-      {
-        "tag": "cult"
-      },
-      {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $1.99 - Altered States $7.99 http://dealnay.com/157620 #cult #offer",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6108332061"
-    },
-    "created_by": {
-      "provider_user_name": "moviedb",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/455709160/film-reel-32x32_normal.png",
-      "screen_name": "moviedb",
-      "more_info_url": "http://www.twitter.com/moviedb",
-      "match_tag": "twitter/moviedb"
-    },
-    "offer_text": "SAVE $1.99 - Altered States $7.99 http://dealnay.com/157620 #cult #offer",
-    "more_info_url": "http://dealnay.com/157620",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6108332403": {
-    "message_type": "offr",
-    "timestamp": "2009-11-27T10:08:11Z",
-    "tags": [
-      {
-        "tag": "car_charger"
-      },
-      {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $4.35 - AT&amp;T HTC Tilt 2 Retractable Car Charger $11.25 http://dealnay.com/164839 #car_charger #offer",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6108332403"
-    },
-    "created_by": {
-      "provider_user_name": "cellphonecrap",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
-      "screen_name": "cellphonecrap",
-      "more_info_url": "http://www.twitter.com/cellphonecrap",
-      "match_tag": "twitter/cellphonecrap"
-    },
-    "offer_text": "SAVE $4.35 - AT&amp;T HTC Tilt 2 Retractable Car Charger $11.25 http://dealnay.com/164839 #car_charger #offer",
-    "more_info_url": "http://dealnay.com/164839",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6108350541": {
-    "message_type": "offr",
-    "timestamp": "2009-11-27T10:09:30Z",
-    "tags": [
-      {
-        "tag": "ihave"
-      }
-    ],
-    "raw_text": "Houses &amp; Bungalows For Sale, India: Bungalow for sale at pune: Beautiful Bungalow for sale at Manohar Nagar ... http://bit.ly/8d3zIf #ihave",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6108350541"
-    },
-    "created_by": {
-      "provider_user_name": "house_sale",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/229172672/house_normal.jpg",
-      "screen_name": "house_sale",
-      "more_info_url": "http://www.twitter.com/house_sale",
-      "match_tag": "twitter/house_sale"
-    },
-    "offer_text": "Houses &amp; Bungalows For Sale, India: Bungalow for sale at pune: Beautiful Bungalow for sale at Manohar Nagar ... http://bit.ly/8d3zIf #ihave",
-    "more_info_url": null,
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
   },
   "twitter/7": {
     "message_type": "offr",
@@ -463,8 +317,8 @@
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -36.857685,
-      "geo_long": 174.757704,
+      "geo_lat": -36.8576850,
+      "geo_long": 174.7577040,
       "address": "K Road, Auckland",
       "tags": [
         {
@@ -558,8 +412,8 @@
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -43.531637,
-      "geo_long": 172.636645,
+      "geo_lat": -43.5316370,
+      "geo_long": 172.6366450,
       "address": "Christchurch, NZ",
       "tags": [
         {

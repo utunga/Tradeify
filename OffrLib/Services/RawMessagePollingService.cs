@@ -12,7 +12,7 @@ namespace Offr.Services
     public static class RawMessagePollingService
     {
         public static readonly int POLLING_INTERVAL =ConfigurationManager.AppSettings["RawMessagePollingService_PollingInterval"] == null ?
-                    1000 ://1 second
+                    3500 ://every 3.5 seconds
                     int.Parse(ConfigurationManager.AppSettings["RawMessagePollingService_PollingInterval"]);
        
         private static readonly object[] _syncLock;

@@ -10,7 +10,6 @@ namespace Offr.Message
         IList<IMessage> AllMessages { get; }
         void Update();
         void RegisterForUpdates(IMessageReceiver receiver);
-        IMessage MessageByID(string providerID);
         void Notify(IEnumerable<IMessage> parsedMessages);
     }
 }

@@ -17,7 +17,7 @@ namespace twademe
     {
         public const string INITIAL_OFFERS_FILE = "/data/initial_offers.json";
         public const string INITIAL_TAGS_FILE = "/data/initial_tags.json";
-        public static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         protected void Application_Start(object sender, EventArgs e)
         {
@@ -74,7 +74,7 @@ namespace twademe
 
         public void NotifyException(Exception ex)
         {
-            logger.Error(ex);
+            _log.Error(ex);
             LastException = ex;
         }
 

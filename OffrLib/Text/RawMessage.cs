@@ -13,16 +13,10 @@ namespace Offr.Text
     public class RawMessage : IRawMessage , IEquatable<RawMessage>
     {
 
+        private IUserPointer _createdBy;
         private IMessagePointer _messagePointer;
+        private string _sourceText;
         
-        [JsonConverter(typeof(UserPointerConverter))]
-        public IUserPointer _createdBy {set; get; }
-        
-        public string _sourceText { set; get; }
-        
-    
-        
-        [JsonConverter(typeof(MessagePointerConverter))]
         public IMessagePointer Pointer
         {
             get { return _messagePointer; }
@@ -50,7 +44,7 @@ namespace Offr.Text
             _timeStampUTC = DateUtils.UTCDateTimeFromTwitterTimeStamp(rfc822TimeStamp);
         }
 
-        public RawMessage()
+        internal RawMessage()
         {
         }
 

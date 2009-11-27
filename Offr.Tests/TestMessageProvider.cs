@@ -42,18 +42,18 @@ namespace Offr.Tests
             Assert.AreEqual(MockData.MSG_COUNT, output.Count);
         }
 
-        [Test]
-        public void TestMessageByID()
-        {
-            // somewhat of an integration test, actually
-            IMessage msg = _target.MessageByID("twitter/0");
-            Assert.IsNotNull(msg);
-            Assert.AreEqual("0", msg.MessagePointer.ProviderMessageID);
+        //[Test]
+        //public void TestMessageByID()
+        //{
+        //    // somewhat of an integration test, actually
+        //    IMessage msg = _target.MessageByID("twitter/0");
+        //    Assert.IsNotNull(msg);
+        //    Assert.AreEqual("0", msg.MessagePointer.ProviderMessageID);
 
-            msg = _target.MessageByID("twitter/1");
-            Assert.IsNotNull(msg);
-            Assert.AreEqual("1", msg.MessagePointer.ProviderMessageID);
-        }
+        //    msg = _target.MessageByID("twitter/1");
+        //    Assert.IsNotNull(msg);
+        //    Assert.AreEqual("1", msg.MessagePointer.ProviderMessageID);
+        //}
 
     }
 }

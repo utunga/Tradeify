@@ -114,7 +114,7 @@ namespace Offr.Repository
                 }
             }
 
-            SortedList<string, T> list = JSON.Deserialize<SortedList<string, T>>(stringBuilder.ToString());
+            SortedList<string, T> list = JSON.Deserialize<SortedList<string, T>>(stringBuilder.ToString().Trim());
             if (list != null)
             {
                 foreach (string key in list.Keys)

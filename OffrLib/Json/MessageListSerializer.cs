@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
+using NLog;
 using Offr.Message;
 using Offr.Text;
 using Offr.Users;
@@ -13,6 +15,7 @@ namespace Offr.Json
 {
     public class MessageListSerializer : JavaScriptConverter
     {
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
                                 
         public override IEnumerable<Type> SupportedTypes
         {
@@ -54,8 +57,9 @@ namespace Offr.Json
                              * 
                              * Once you are done with the message list add it to a new dictionary under the key messages
                              */
+
                             dict = new Dictionary<string, object>() {
-                                                                        {"offer_text", offer.OfferText}, 
+                                                                        {"offer_text", TruncateSourceText(offer)}, 
                                                                         {"more_info_url", offer.MoreInfoURL},
                                                                         {"date", offer.FriendlyTimeStamp },
                                                                     };
@@ -104,5 +108,45 @@ namespace Offr.Json
             throw  new NotSupportedException("Sorry this is a one way converter currently");
         }
 
+        // remove any tags added to end 
+        // of the source text and the tag "#offr" from the front (if its at the front)
+        // to get just the actual 'offer' part of the text
+        private string TruncateSourceText(IOfferMessage offer)
+        {
+            string offerText = "" + offer.OfferText;
+            
+            // drop the 'offer' tag
+            //FIXME need 'tag aliases' already
+            offerText = offerText.Replace("#offr", "");
+            offerText = offerText.Replace("#offer", "");
+            offerText = offerText.Replace("#ihave", "");
+
+            // drop the 'offer' tag
+            if (offer.MoreInfoURL != null)
+            {
+                offerText = offerText.Replace(offer.MoreInfoURL, "");
+            }
+
+            offerText = offerText.Trim();
+
+            //look for a hash followed by any set of characters followed by the end of file character
+            Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
+            Match match = re.Match(offerText);
+            //repeat until no more are found
+            int loopCheck = 0;
+            while (match.Groups.Count > 1)
+            {
+                string tag = match.Groups[0].Value;
+                offerText = offerText.TrimEnd(tag.ToCharArray());
+                offerText = offerText.Trim();
+                match = re.Match(offerText);
+                if (loopCheck++ > 1000)
+                {
+                    _log.Error("Something terrible went wrong with truncateSourceText whilst trying to parse " + offerText);
+                    break;
+                }
+            }
+            return offerText;
+        }
     }
 }

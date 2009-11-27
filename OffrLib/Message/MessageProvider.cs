@@ -35,7 +35,8 @@ namespace Offr.Message
 
         public void Update()
         {
-            UpdateMessageCache();
+            // we expect that calling the below is likely to result in calls back to Notify() 
+            _sourceProvider.Update();
         }
 
         public void RegisterForUpdates(IMessageReceiver receiver)
@@ -52,45 +53,6 @@ namespace Offr.Message
             _sourceProvider.Update();
         }
 
-        public IMessage MessageByID(string providerMessageID)
-        {
-            // currently assumes that we have only the one provider namespace - namely the one of the _sourceProvider (ie probably twitter)
-            
-            // actually, if we skip this, we'll only return messages that have been parsed already, which
-            // is kinda preferable given search api vs xml api.
-            //UpdateMessageCacheForSingleItem(providerMessageID);
-
-            //can be null
-            return _messages.Get(providerMessageID); 
-        }
-
-        public IMessage MessageByID(IMessagePointer messagePointer)
-        {
-            // assume for now that we have only the one provider namespace - 
-            // namely the one of the _sourceProvider (ie probably twitter)
-            // and throw an exception otherwise
-            // if messagePointer hasn't worked out its ProviderMessageID yet then returns nothing
-            if (messagePointer.ProviderNameSpace != _sourceProvider.ProviderNameSpace)
-            {
-                throw new NotImplementedException(messagePointer.ProviderNameSpace + " not supported yet");
-            }
-            return MessageByID(messagePointer.ProviderMessageID);
-        }
-
-        //private IMessage UpdateMessageCacheForSingleItem(string providerMessageID)
-        //{
-        //    IRawMessage rawMessage = _sourceProvider.ByID(providerMessageID);
-        //    if (rawMessage != null)
-        //    {
-        //        IMessage message = _messageParser.Parse(rawMessage);
-        //        if (message.IsValid)
-        //        {
-        //            InsertMessageToCache(rawMessage.Pointer.ProviderMessageID, message);
-        //            return message;
-        //        }
-        //    }
-        //    return null;
-        //}
 
         public void Notify(IEnumerable<IRawMessage> updatedMessages)
         {
@@ -131,13 +93,6 @@ namespace Offr.Message
                     receiver.Notify(messages);
                 }
             }
-        }
-
-      
-        private void UpdateMessageCache()
-        {
-            // we expect that calling the below is likely to cause, calls back to Notify() above
-            _sourceProvider.Update();
         }
 
         private void InsertMessageToCache(string providerMessageID, IMessage message)

@@ -49,9 +49,9 @@ namespace Offr.Tests
                                          Timestamp = DateTime.Now.AddHours(-2),
                                          CreatedBy = MockData.User0,
                                          Location = MockData.Location0,
-                                         Thumbnail = "http://flickr.com/mulch.jpg",
+                                         Thumbnail = "http://twitpic.com/show/thumb/r5aon",
                                          MoreInfoURL = "http://bit.ly/message0Info",
-                                         Text = "#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info pic here: http://flickr.com/mulch.jpg #mulch",
+                                         Text = "#offr_test #ooooby mulch available now in L:Paekakariki: for #free http://bit.ly/message0Info pic here: http://twitpic.com/r5aon #mulch",
                                          EndByText = null,
                                          EndBy = null
                                      };
@@ -76,8 +76,8 @@ namespace Offr.Tests
             {
                 Assert.That(expectedTags.Contains(tag), "Expected results to not contain" + tag.MatchTag);
             }
-            //NOTE2MT is the offr_test really meant to b
-            Assert.AreEqual("#offr_test #ooooby mulch available now in l:Paekakariki: for #free http://bit.ly/message0Info pic here: http://flickr.com/mulch.jpg", message.OfferText,
+            
+            Assert.AreEqual(raw.Text, message.OfferText,
                             "Expect extracted message to work for " + raw);
         }
 
@@ -103,11 +103,33 @@ namespace Offr.Tests
         [Test]
         public void TestGetMoreInfoUrl()
         {
-            String link = "http://www.radsoftware.com.au/articles/regexsyntaxadvanced.gif";
+            // a specific real example for which i know the query was failing
+            string text = "SAVE $13 - A Bold Fresh Piece of Humanity $13.00 http://dealnay.com/8548 #book #nonfiction #offer";
             RegexMessageParser regexMessageParser = new RegexMessageParser(null,null);
-            string s = regexMessageParser.TEST_GetMoreInfoUrl(link);
-            Console.WriteLine();
+            string moreInfoUrl = regexMessageParser.TEST_GetMoreInfoUrl(text);
+            Assert.AreEqual("http://dealnay.com/8548", moreInfoUrl, "didn't received expected more info url");
         }
+
+        [Test]
+        public void TestGetImageUrl()
+        {
+            // a specific real example for which i know the query was failing
+            string text = "#offr_test #ooooby mulch available now in L:Paekakariki: for #free http://bit.ly/message0Info pic here: http://flickr.com/mulch.jpg #mulch";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
+            string imageUrl = regexMessageParser.TEST_GetImageUrl(text);
+            Assert.AreEqual("http://flickr.com/mulch.jpg", imageUrl, "didn't received expected image url");
+        }
+
+        [Test]
+        public void TestGetImageUrlTwitpic()
+        {
+            // a specific real example for which i know the query was failing
+            string text = "#offr_test #ooooby mulch available now in L:Paekakariki: for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
+            string imageUrl = regexMessageParser.TEST_GetImageUrl(text);
+            Assert.AreEqual("http://twitpic.com/show/thumb/r5aon", imageUrl, "didn't received expected image url for twitpic");
+        }
+
     }
 
 

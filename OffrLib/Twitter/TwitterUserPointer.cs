@@ -29,18 +29,11 @@ namespace Offr.Text
         public TwitterUserPointer(string twitterScreenName)
         {
             //nb: you have to use screen name, not id, as twitter user_id's differ between search and main API's
+            ScreenName = twitterScreenName; 
             ProviderUserName = twitterScreenName;
-            ProviderNameSpace = "twitter/";
+            ProviderNameSpace = "twitter";
         }
 
-        public TwitterUserPointer(string ProviderUserName,
-               string ProfilePicUrl,string ProviderNameSpace, string ScreenName)
-        {
-            this.ProviderUserName = ProviderUserName;
-            this.ProfilePicUrl = ProfilePicUrl;
-            this.ProviderNameSpace = ProviderNameSpace;
-            this.ScreenName = ScreenName;
-        }
         #endregion Constructor
 
         #region Equals

@@ -22,19 +22,19 @@ namespace Offr.Tests
     {
 
         MessageProvider _messageProvider;
-        MessageRepository _messageRepository;
+        TagRepository _singletonTagProvider;
 
         public TestSerialization()
         {
-            TagRepository singletonTagProvider = new TagRepository();
-            //singletonTagProvider.FilePath = "data/initial_tags.json";
-            //singletonTagProvider.InitializeFromFile();
+            _singletonTagProvider = new TagRepository();
+            _singletonTagProvider.FilePath = "data/initial_tags.json";
+            _singletonTagProvider.InitializeFromFile();
 
-            NonMockRawMessageProvider rawMessageProvider = new NonMockRawMessageProvider(); 
-            GoogleLocationProvider locationProvider = new MockLocationProvider();
-            RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
-            _messageRepository = new MessageRepository();
-            _messageProvider = new MessageProvider(_messageRepository, rawMessageProvider, realMessageParser);
+            IRawMessageProvider rawMessageProvider = new MockRawMessageProvider(); 
+            ILocationProvider locationProvider = new MockLocationProvider();
+            IMessageParser realMessageParser = new RegexMessageParser(_singletonTagProvider, locationProvider);
+            IMessageRepository messageRepository = new MessageRepository();
+            _messageProvider = new MessageProvider(messageRepository, rawMessageProvider, realMessageParser);
             _messageProvider.Update();
         }
 
@@ -55,10 +55,16 @@ namespace Offr.Tests
 
         [Test]
         [Ignore("Only do this when you want to update initial_offers.json")]
-        public void SerializeMockMessagesToFile()
+        public void SerializeDemoMessagesToFile()
         {
-            _messageRepository.FilePath = "data/test_offers.json";
-            _messageRepository.SerializeToFile();
+            IRawMessageProvider rawMessageProvider = new DemoMessageProvider();
+            ILocationProvider locationProvider = new GoogleLocationProvider();
+            IMessageParser realMessageParser = new RegexMessageParser(_singletonTagProvider, locationProvider);
+            MessageRepository tempMessageRepository = new MessageRepository();
+            IMessageProvider messageProvider = new MessageProvider(tempMessageRepository, rawMessageProvider, realMessageParser);
+            messageProvider.Update();
+            tempMessageRepository.FilePath = "../../data/demo_offers.json";
+            tempMessageRepository.SerializeToFile();
         }
 
 

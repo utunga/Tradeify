@@ -6,18 +6,16 @@ using Offr.Text;
 
 namespace Offr.Tests
 {
-    class NonMockRawMessageProvider : MockRawMessageProvider
+    class DemoMessageProvider : MockRawMessageProvider
     {
         public override void Update()
         {
             if (_updatedOnce) { return; }
 
             IList<IRawMessage> messages = new List<IRawMessage>();
-            foreach (MockRawMessage rawMessage in MockData.RawMessages)
+            foreach (RawMessage rawMessage in DemoData.RawMessages)
             {
-                //string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, string timestamp
-                RawMessage raw = new RawMessage(rawMessage.Text, rawMessage.Pointer, rawMessage.CreatedBy, rawMessage.Timestamp);
-                messages.Add(raw);
+                messages.Add(rawMessage);
             }
 
             foreach (IRawMessageReceiver receiver in _receivers)

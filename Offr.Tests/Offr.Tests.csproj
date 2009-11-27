@@ -59,8 +59,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DemoData.cs" />
     <Compile Include="MockLocationProvider.cs" />
-    <Compile Include="NonMockRawMessageProvider.cs" />
+    <Compile Include="DemoMessageProvider.cs" />
     <Compile Include="TestDateUtils.cs" />
     <Compile Include="TestMessageRepository.cs" />
     <Compile Include="TestPersistanceService.cs" />
@@ -75,8 +76,6 @@
     <Compile Include="MockRawMessageProvider.cs" />
     <Compile Include="MockRawMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="TagListTest.cs" />
     <Compile Include="TestMessageExecutor.cs" />
     <Compile Include="TestMessageProvider.cs" />

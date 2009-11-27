@@ -21,7 +21,7 @@ namespace Offr.Twitter
         }
         
         //FIXME remove this
-        public TwitterRawMessageProvider() : this(MessageType.offr_test)
+        public TwitterRawMessageProvider() : this(MessageType.offr)
         {
         }
 
@@ -56,7 +56,7 @@ namespace Offr.Twitter
         public IEnumerable<IRawMessage> ForQueryText(string keywordQuery)
         {
             // always require the "hash tag of the messages we are interested in "
-            string query = "%23" + _forType;
+            string query = GetQuery(_forType);
             if (keywordQuery != null)
             {
                 query += "+" + HttpUtility.UrlEncode(keywordQuery);
@@ -91,7 +91,7 @@ namespace Offr.Twitter
         {
 
             // always require the "hash tag of the messages we are interested in "
-            string query = "%23" + _forType;
+            string query = GetQuery(_forType);
             string url = _last_id == 0 ? 
                 String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query) :
                 String.Format(WebRequest.TWITTER_SEARCH_POLL_URI, _last_id, query);
@@ -106,6 +106,18 @@ namespace Offr.Twitter
                 newStatusUpdates.Add(RawMessage.From(status));
             }
             return newStatusUpdates;
+        }
+
+        private string GetQuery(MessageType forType)
+        {
+            switch (forType)
+            {
+                case MessageType.offr:
+                    // filter to include any of these hash tags 
+                    return "%23ihave+OR+%23offer+OR+%23offr";
+                default:
+                    return "%23" + _forType;
+            }
         }
     }
 }
