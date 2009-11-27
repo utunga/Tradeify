@@ -49,9 +49,9 @@ namespace Offr.Tests
           [Test]
           public void TestInitialize()
           {
-              
+
               _target = new MessageRepository();
-              _target.FilePath = "data/test_offers.json";
+              _target.FilePath = "data/initial_offers.json";
               _target.InitializeFromFile();
 
               Console.Out.WriteLine("Initialized from file with following data");
@@ -59,7 +59,7 @@ namespace Offr.Tests
 
               List<IMessage> messages = new List<IMessage>(_target.AllMessages());
 
-              Assert.AreEqual(6, messages.Count, "Expected 6 messages after initializing from " + _target.FilePath );
+              Assert.AreEqual(9, messages.Count, "Expected 6 messages after initializing from " + _target.FilePath );
           }
 
 

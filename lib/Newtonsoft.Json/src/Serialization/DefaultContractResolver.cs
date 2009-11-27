@@ -33,7 +33,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Utilities;
 #if !PocketPC && !SILVERLIGHT && !NET20
-using System.Data.Objects.DataClasses;
+//using System.Data.Objects.DataClasses; //REMOVED FOR MONO COMPATABILITY
 #endif
 
 namespace Newtonsoft.Json.Serialization
@@ -106,26 +106,28 @@ namespace Newtonsoft.Json.Serialization
       }
 
 #if !PocketPC && !SILVERLIGHT && !NET20
-      // don't include EntityKey on entities objects... this is a bit hacky
-      if (typeof(EntityObject).IsAssignableFrom(objectType))
-        serializableMembers = serializableMembers.Where(ShouldSerializeEntityMember).ToList();
+      //REMOVED FOR MONO COMPATABILITY
+      //// don't include EntityKey on entities objects... this is a bit hacky
+      //if (typeof(EntityObject).IsAssignableFrom(objectType))
+      //  serializableMembers = serializableMembers.Where(ShouldSerializeEntityMember).ToList();
 #endif
 
       return serializableMembers;
     }
 
 #if !PocketPC && !SILVERLIGHT && !NET20
-    private bool ShouldSerializeEntityMember(MemberInfo memberInfo)
-    {
-      PropertyInfo propertyInfo = memberInfo as PropertyInfo;
-      if (propertyInfo != null)
-      {
-        if (propertyInfo.PropertyType.IsGenericType && propertyInfo.PropertyType.GetGenericTypeDefinition() == typeof(EntityReference<>))
-          return false;
-      }
+    //REMOVED FOR MONO COMPATABILITY
+    //private bool ShouldSerializeEntityMember(MemberInfo memberInfo)
+    //{
+    //  PropertyInfo propertyInfo = memberInfo as PropertyInfo;
+    //  if (propertyInfo != null)
+    //  {
+    //    if (propertyInfo.PropertyType.IsGenericType && propertyInfo.PropertyType.GetGenericTypeDefinition() == typeof(EntityReference<>))
+    //      return false;
+    //  }
 
-      return true;
-    }
+    //  return true;
+    //}
 #endif
 
     /// <summary>

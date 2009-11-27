@@ -427,6 +427,68 @@
     "end_by_text": null,
     "location": null
   },
+  "twitter/6108364920": {
+    "message_type": "offr",
+    "timestamp": "2009-11-27T10:10:30Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Sales Executives, Manager, India: jobs in DSL NETWORKS PVT.LTD: Requirement of sales executive in fmcg secto... http://bit.ly/8ob9FC #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6108364920"
+    },
+    "created_by": {
+      "provider_user_name": "sales_job_india",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/229210450/sales_job_normal.png",
+      "screen_name": "sales_job_india",
+      "more_info_url": "http://www.twitter.com/sales_job_india",
+      "match_tag": "twitter/sales_job_india"
+    },
+    "offer_text": "Sales Executives, Manager, India: jobs in DSL NETWORKS PVT.LTD: Requirement of sales executive in fmcg secto... http://bit.ly/8ob9FC #ihave",
+    "more_info_url": "http://bit.ly/8ob9FC",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6108432746": {
+    "message_type": "offr",
+    "timestamp": "2009-11-27T10:15:18Z",
+    "tags": [
+      {
+        "tag": "music_blues"
+      },
+      {
+        "tag": "8"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Amazon #music_blues #8 cd: SAVE $3.49 - Complete Johnny Mercer Songbook - Johnny Mercer (Tribute) $32.49 http://dealnay.com/138286 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6108432746"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "Amazon #music_blues #8 cd: SAVE $3.49 - Complete Johnny Mercer Songbook - Johnny Mercer (Tribute) $32.49 http://dealnay.com/138286 #offer",
+    "more_info_url": "http://dealnay.com/138286",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
   "twitter/7": {
     "message_type": "offr",
     "timestamp": "2009-06-23T12:00:00Z",

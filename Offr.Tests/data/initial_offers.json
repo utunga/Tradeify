@@ -1,374 +1,429 @@
 {
-  "twitter/0": {
-    "message_type": "offr",
-    "timestamp": "2008-11-24T10:29:00",
-    "tags": [
-      {
-        "type": "type",
-        "tag": "free"
-      },
-      {
-        "type": "type",
-        "tag": "barter"
-      },
-      {
-        "type": "tag",
-        "tag": "mulch"
-      },
-      {
-        "type": "loc",
-        "tag": "paekakariki"
-      },
-      {
-        "type": "loc",
-        "tag": "new zealand"
-      },
-      {
-        "type": "loc",
-        "tag": "nz"
-      }
-    ],
-    "raw_text": "#offr_test mulch available now in l:Paekakariki: for #free #barter http://bit.ly/message0Info #mulch ",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "0"
-    },
-    "created_by": {
-      "provider_user_name": "utunga",
-      "provide_name_space": "test",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "screen_name": null,
-      "more_info_url": "http://www.twitter.com/utunga",
-      "match_tag": "test/utunga"
-    },
-    "offer_text": "mulch available now",
-    "more_info_url": "http://bit.ly/message0Info",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": {
-      "geo_lat": -40.982782,
-      "geo_long": 174.956108,
-      "address": "Paekakariki",
-      "tags": [
-        {
-          "type": "loc",
-          "tag": "paekakariki"
-        },
-        {
-          "type": "loc",
-          "tag": "new zealand"
-        },
-        {
-          "type": "loc",
-          "tag": "nz"
-        }
-      ]
-    }
-  },
   "twitter/1": {
     "message_type": "offr",
-    "timestamp": "2008-11-24T10:35:00",
+    "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "type",
-        "tag": "free"
+        "type": "nzd"
       },
       {
-        "type": "type",
-        "tag": "barter"
+        "type": "barter"
       },
       {
-        "type": "tag",
-        "tag": "car"
+        "group": "freecycle"
       },
       {
-        "type": "loc",
-        "tag": "wellington"
+        "loc": "new zealand"
       },
       {
-        "type": "loc",
-        "tag": "new zealand"
+        "loc": "nz"
       },
       {
-        "type": "loc",
-        "tag": "nz"
+        "loc": "paekakariki"
       }
     ],
-    "raw_text": "#offr_test car available now in l:Wellington City: for #free #barter http://bit.ly/message1Info #car ",
+    "raw_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "1"
     },
     "created_by": {
-      "provider_user_name": "shelly",
-      "provide_name_space": "test",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
-      "screen_name": null,
-      "more_info_url": "http://www.twitter.com/shelly",
-      "match_tag": "test/shelly"
+      "provider_user_name": "twooooby",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "screen_name": "twooooby",
+      "more_info_url": "http://www.twitter.com/twooooby",
+      "match_tag": "twitter/twooooby"
     },
-    "offer_text": "car available now",
-    "more_info_url": "http://bit.ly/message1Info",
+    "offer_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
+    "more_info_url": "http://bit.ly/234",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -41.28648,
-      "geo_long": 174.776217,
-      "address": "Wellington City",
+      "geo_lat": -40.9827820,
+      "geo_long": 174.9561080,
+      "address": "Paekakariki",
       "tags": [
         {
-          "type": "loc",
-          "tag": "wellington"
+          "loc": "new zealand"
         },
         {
-          "type": "loc",
-          "tag": "new zealand"
+          "loc": "nz"
         },
         {
-          "type": "loc",
-          "tag": "nz"
+          "loc": "paekakariki"
         }
       ]
     }
   },
   "twitter/2": {
     "message_type": "offr",
-    "timestamp": "2008-11-19T10:29:00",
+    "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "type",
-        "tag": "free"
+        "tag": "wood"
       },
       {
-        "type": "type",
-        "tag": "barter"
+        "type": "barter"
       },
       {
-        "type": "tag",
-        "tag": "vegetables"
+        "type": "barter"
       },
       {
-        "type": "loc",
-        "tag": "new zealand"
+        "tag": "wood"
       },
       {
-        "type": "loc",
-        "tag": "nz"
+        "group": "ooooby"
+      },
+      {
+        "loc": "new zealand"
+      },
+      {
+        "loc": "nz"
+      },
+      {
+        "loc": "paekakariki"
       }
     ],
-    "raw_text": "#offr_test vegetables available now in l:Waiheke Island: for #free #barter http://bit.ly/message2Info #vegetables ",
+    "raw_text": "#offr Huge pile of already split #wood will gladly #barter for whatever you have got L:Paekakariki: http://bit.ly/1231 #barter #wood #ooooby",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "2"
     },
     "created_by": {
-      "provider_user_name": "utunga",
-      "provide_name_space": "test",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "screen_name": null,
-      "more_info_url": "http://www.twitter.com/utunga",
-      "match_tag": "test/utunga"
+      "provider_user_name": "twooooby",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "screen_name": "twooooby",
+      "more_info_url": "http://www.twitter.com/twooooby",
+      "match_tag": "twitter/twooooby"
     },
-    "offer_text": "vegetables available now",
-    "more_info_url": "http://bit.ly/message2Info",
+    "offer_text": "#offr Huge pile of already split #wood will gladly #barter for whatever you have got L:Paekakariki: http://bit.ly/1231 #barter #wood #ooooby",
+    "more_info_url": "http://bit.ly/1231",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -36.799514,
-      "geo_long": 175.0960576,
-      "address": "Waiheke Island",
+      "geo_lat": -40.9827820,
+      "geo_long": 174.9561080,
+      "address": "Paekakariki",
       "tags": [
         {
-          "type": "loc",
-          "tag": "new zealand"
+          "loc": "new zealand"
         },
         {
-          "type": "loc",
-          "tag": "nz"
+          "loc": "nz"
+        },
+        {
+          "loc": "paekakariki"
         }
       ]
     }
   },
   "twitter/3": {
     "message_type": "offr",
-    "timestamp": "2008-11-22T10:29:00",
+    "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "type",
-        "tag": "free"
+        "type": "free"
       },
       {
-        "type": "type",
-        "tag": "barter"
-      },
-      {
-        "type": "tag",
-        "tag": "garden_supplies"
-      },
-      {
-        "type": "loc",
-        "tag": "paekakariki"
-      },
-      {
-        "type": "loc",
-        "tag": "new zealand"
-      },
-      {
-        "type": "loc",
-        "tag": "nz"
+        "group": "freecycle"
       }
     ],
-    "raw_text": "#offr_test garden supplies available now in l:Paekakariki: for #free #barter http://bit.ly/message3Info #garden_supplies ",
+    "raw_text": "#offr Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:home: #freecycle",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "3"
     },
     "created_by": {
-      "provider_user_name": "utunga",
-      "provide_name_space": "test",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "screen_name": null,
-      "more_info_url": "http://www.twitter.com/utunga",
-      "match_tag": "test/utunga"
+      "provider_user_name": "twooooby",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "screen_name": "twooooby",
+      "more_info_url": "http://www.twitter.com/twooooby",
+      "match_tag": "twitter/twooooby"
     },
-    "offer_text": "garden supplies available now",
-    "more_info_url": "http://bit.ly/message3Info",
+    "offer_text": "#offr Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:home: #freecycle",
+    "more_info_url": null,
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
-    "location": {
-      "geo_lat": -40.982782,
-      "geo_long": 174.956108,
-      "address": "Paekakariki",
-      "tags": [
-        {
-          "type": "loc",
-          "tag": "paekakariki"
-        },
-        {
-          "type": "loc",
-          "tag": "new zealand"
-        },
-        {
-          "type": "loc",
-          "tag": "nz"
-        }
-      ]
-    }
+    "location": null
   },
   "twitter/4": {
     "message_type": "offr",
-    "timestamp": "2008-11-23T10:29:00",
+    "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "type",
-        "tag": "free"
+        "type": "free"
       },
       {
-        "type": "type",
-        "tag": "barter"
+        "tag": "lemons"
       },
       {
-        "type": "tag",
-        "tag": "yams"
+        "type": "free"
       },
       {
-        "type": "loc",
-        "tag": "new zealand"
+        "tag": "lemons"
       },
       {
-        "type": "loc",
-        "tag": "nz"
+        "group": "ooooby"
       }
     ],
-    "raw_text": "#offr_test yams available now in l:Waiheke Island: for #free #barter http://bit.ly/message4Info #yams ",
+    "raw_text": "#offr Big lemon tree, #free #lemons L:Paekakariki http://bit.ly/1231 #free #lemons #ooooby",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "4"
     },
     "created_by": {
-      "provider_user_name": "shelly",
-      "provide_name_space": "test",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg",
-      "screen_name": null,
-      "more_info_url": "http://www.twitter.com/shelly",
-      "match_tag": "test/shelly"
+      "provider_user_name": "twooooby",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "screen_name": "twooooby",
+      "more_info_url": "http://www.twitter.com/twooooby",
+      "match_tag": "twitter/twooooby"
     },
-    "offer_text": "yams available now",
-    "more_info_url": "http://bit.ly/message4Info",
+    "offer_text": "#offr Big lemon tree, #free #lemons L:Paekakariki http://bit.ly/1231 #free #lemons #ooooby",
+    "more_info_url": "http://bit.ly/1231",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
-    "location": {
-      "geo_lat": -36.799514,
-      "geo_long": 175.0960576,
-      "address": "Waiheke Island",
-      "tags": [
-        {
-          "type": "loc",
-          "tag": "new zealand"
-        },
-        {
-          "type": "loc",
-          "tag": "nz"
-        }
-      ]
-    }
+    "location": null
   },
   "twitter/5": {
     "message_type": "offr",
-    "timestamp": "2008-11-24T10:20:00",
+    "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "type",
-        "tag": "cash"
+        "tag": "pumpkin"
       },
       {
-        "type": "tag",
-        "tag": "squash"
+        "type": "barter"
       },
       {
-        "type": "loc",
-        "tag": "new zealand"
+        "tag": "waiheke"
       },
       {
-        "type": "loc",
-        "tag": "nz"
+        "group": "ooooby"
       }
     ],
-    "raw_text": "#offr_test squash available now in l:Waiheke Island: for #cash http://bit.ly/message5Info #squash ",
+    "raw_text": "#offr Come get some of our beautiful #pumpkin #barter for other veges L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #ooooby",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "5"
     },
     "created_by": {
-      "provider_user_name": "utunga",
-      "provide_name_space": "test",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg",
-      "screen_name": null,
-      "more_info_url": "http://www.twitter.com/utunga",
-      "match_tag": "test/utunga"
+      "provider_user_name": "twooooby",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "screen_name": "twooooby",
+      "more_info_url": "http://www.twitter.com/twooooby",
+      "match_tag": "twitter/twooooby"
     },
-    "offer_text": "squash available now",
-    "more_info_url": "http://bit.ly/message5Info",
+    "offer_text": "#offr Come get some of our beautiful #pumpkin #barter for other veges L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #ooooby",
+    "more_info_url": "http://bit.ly/1234",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6": {
+    "message_type": "offr",
+    "timestamp": "2009-06-23T12:00:00Z",
+    "tags": [
+      {
+        "group": "ooooby"
+      },
+      {
+        "loc": "new zealand"
+      },
+      {
+        "loc": "nz"
+      },
+      {
+        "loc": "paekakariki"
+      }
+    ],
+    "raw_text": "#offr Corn L:55 Wellington Road, Paekakariki: for http://bit.ly/234 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6"
+    },
+    "created_by": {
+      "provider_user_name": "twollar_test_1",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
+      "screen_name": "twollar_test_1",
+      "more_info_url": "http://www.twitter.com/twollar_test_1",
+      "match_tag": "twitter/twollar_test_1"
+    },
+    "offer_text": "#offr Corn L:55 Wellington Road, Paekakariki: for http://bit.ly/234 #ooooby",
+    "more_info_url": "http://bit.ly/234",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -36.799514,
-      "geo_long": 175.0960576,
-      "address": "Waiheke Island",
+      "geo_lat": -40.9852300,
+      "geo_long": 174.9537790,
+      "address": "55 Wellington Road, Paekakariki",
       "tags": [
         {
-          "type": "loc",
-          "tag": "new zealand"
+          "loc": "new zealand"
         },
         {
-          "type": "loc",
-          "tag": "nz"
+          "loc": "nz"
+        },
+        {
+          "loc": "paekakariki"
+        }
+      ]
+    }
+  },
+  "twitter/7": {
+    "message_type": "offr",
+    "timestamp": "2009-06-23T12:00:00Z",
+    "tags": [
+      {
+        "group": "freecycle"
+      },
+      {
+        "loc": "new zealand"
+      },
+      {
+        "loc": "nz"
+      },
+      {
+        "loc": "auckland"
+      }
+    ],
+    "raw_text": "#offr Kitchen jug, works great, in L:K Road, Auckland: http://bit.ly/1231 #freecycle",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "7"
+    },
+    "created_by": {
+      "provider_user_name": "twollar_test_1",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
+      "screen_name": "twollar_test_1",
+      "more_info_url": "http://www.twitter.com/twollar_test_1",
+      "match_tag": "twitter/twollar_test_1"
+    },
+    "offer_text": "#offr Kitchen jug, works great, in L:K Road, Auckland: http://bit.ly/1231 #freecycle",
+    "more_info_url": "http://bit.ly/1231",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -36.8576850,
+      "geo_long": 174.7577040,
+      "address": "K Road, Auckland",
+      "tags": [
+        {
+          "loc": "new zealand"
+        },
+        {
+          "loc": "nz"
+        },
+        {
+          "loc": "auckland"
+        }
+      ]
+    }
+  },
+  "twitter/8": {
+    "message_type": "offr",
+    "timestamp": "2009-06-23T12:00:00Z",
+    "tags": [
+      {
+        "type": "barter"
+      },
+      {
+        "tag": "waiheke"
+      },
+      {
+        "tag": "household"
+      },
+      {
+        "group": "freecycle"
+      }
+    ],
+    "raw_text": "#offr Keen to swap our old fridge for anything smaller #barter in L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #household #freecycle",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "8"
+    },
+    "created_by": {
+      "provider_user_name": "twollar_test_1",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
+      "screen_name": "twollar_test_1",
+      "more_info_url": "http://www.twitter.com/twollar_test_1",
+      "match_tag": "twitter/twollar_test_1"
+    },
+    "offer_text": "#offr Keen to swap our old fridge for anything smaller #barter in L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #household #freecycle",
+    "more_info_url": "http://bit.ly/1234",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/9": {
+    "message_type": "offr",
+    "timestamp": "2009-06-23T12:00:00Z",
+    "tags": [
+      {
+        "type": "nzd"
+      },
+      {
+        "type": "barter"
+      },
+      {
+        "group": "freecycle"
+      },
+      {
+        "loc": "new zealand"
+      },
+      {
+        "loc": "nz"
+      },
+      {
+        "loc": "christchurch"
+      }
+    ],
+    "raw_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Christchurch, NZ: http://bit.ly/234 #freecycle",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9"
+    },
+    "created_by": {
+      "provider_user_name": "twollar_test_1",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
+      "screen_name": "twollar_test_1",
+      "more_info_url": "http://www.twitter.com/twollar_test_1",
+      "match_tag": "twitter/twollar_test_1"
+    },
+    "offer_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Christchurch, NZ: http://bit.ly/234 #freecycle",
+    "more_info_url": "http://bit.ly/234",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -43.5316370,
+      "geo_long": 172.6366450,
+      "address": "Christchurch, NZ",
+      "tags": [
+        {
+          "loc": "new zealand"
+        },
+        {
+          "loc": "nz"
+        },
+        {
+          "loc": "christchurch"
         }
       ]
     }
