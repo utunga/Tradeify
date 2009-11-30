@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{138E1155-1750-4BED-BB6E-58E2091A0910}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -67,6 +67,7 @@
     <Compile Include="TestPersistanceService.cs" />
     <Compile Include="TestSerialization.cs" />
     <Compile Include="TestRegexParser.cs" />
+    <Compile Include="TestTwitterPollingService.cs" />
     <Compile Include="TestTwitterProvider.cs" />
     <Compile Include="MockUserPointer.cs" />
     <Compile Include="TestJSONTwitterParser.cs" />

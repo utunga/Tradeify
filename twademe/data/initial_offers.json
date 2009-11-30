@@ -554,6 +554,1023 @@
     "end_by_text": null,
     "location": null
   },
+  "twitter/6191390069": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:06:32Z",
+    "tags": [
+      {
+        "tag": "wii"
+      },
+      {
+        "tag": "wiigames"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "CyberMonday Deal: Save $20.00 (10%) on Band Hero featuring Taylor Swift http://bit.ly/8Nzznk #wii #wiigames #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191390069"
+    },
+    "created_by": {
+      "provider_user_name": "WiiChannel",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/525544413/NjwOJ1-wii_normal.jpg",
+      "screen_name": "WiiChannel",
+      "more_info_url": "http://www.twitter.com/WiiChannel",
+      "match_tag": "twitter/WiiChannel"
+    },
+    "offer_text": "CyberMonday Deal: Save $20.00 (10%) on Band Hero featuring Taylor Swift http://bit.ly/8Nzznk #wii #wiigames #offer",
+    "more_info_url": "http://bit.ly/8Nzznk",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191436077": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:08:15Z",
+    "tags": [
+      {
+        "tag": "beauty"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $4.55 - Paul Mitchell The Conditioner, 33.8-Ounce Bottle $17.40 http://dealnay.com/164209 #beauty #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191436077"
+    },
+    "created_by": {
+      "provider_user_name": "youarepretty",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/369522920/cosmetic_normal.jpg",
+      "screen_name": "youarepretty",
+      "more_info_url": "http://www.twitter.com/youarepretty",
+      "match_tag": "twitter/youarepretty"
+    },
+    "offer_text": "SAVE $4.55 - Paul Mitchell The Conditioner, 33.8-Ounce Bottle $17.40 http://dealnay.com/164209 #beauty #offer",
+    "more_info_url": "http://dealnay.com/164209",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191436510": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:08:16Z",
+    "tags": [
+      {
+        "tag": "5772"
+      },
+      {
+        "tag": "fashion_watch"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $336 - Invicta Men's II Collection Eagle Force Stainless Steel Watch #5772 $59.00 http://dealnay.com/32287 #fashion_watch #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191436510"
+    },
+    "created_by": {
+      "provider_user_name": "watchtalk",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/413509761/watches_normal.jpg",
+      "screen_name": "watchtalk",
+      "more_info_url": "http://www.twitter.com/watchtalk",
+      "match_tag": "twitter/watchtalk"
+    },
+    "offer_text": "SAVE $336 - Invicta Men's II Collection Eagle Force Stainless Steel Watch #5772 $59.00 http://dealnay.com/32287 #fashion_watch #offer #ad",
+    "more_info_url": "http://dealnay.com/32287",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191437531": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:08:18Z",
+    "tags": [
+      {
+        "tag": "baby_care"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $25 - ZOpid-Additional Digital Wireless Camera for HS-MS340P Baby Monitor $99.99 http://dealnay.com/54353 #baby_care #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191437531"
+    },
+    "created_by": {
+      "provider_user_name": "foryourbabies",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/453366079/angry_normal.jpg",
+      "screen_name": "foryourbabies",
+      "more_info_url": "http://www.twitter.com/foryourbabies",
+      "match_tag": "twitter/foryourbabies"
+    },
+    "offer_text": "SAVE $25 - ZOpid-Additional Digital Wireless Camera for HS-MS340P Baby Monitor $99.99 http://dealnay.com/54353 #baby_care #offer",
+    "more_info_url": "http://dealnay.com/54353",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191443260": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:08:31Z",
+    "tags": [
+      {
+        "tag": "wii"
+      },
+      {
+        "tag": "wiigames"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "CyberMonday Deal: Save $11.00 (18%) on Wii Game EA Sports Active http://bit.ly/4rqmaQ #wii #wiigames #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191443260"
+    },
+    "created_by": {
+      "provider_user_name": "WiiChannel",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/525544413/NjwOJ1-wii_normal.jpg",
+      "screen_name": "WiiChannel",
+      "more_info_url": "http://www.twitter.com/WiiChannel",
+      "match_tag": "twitter/WiiChannel"
+    },
+    "offer_text": "CyberMonday Deal: Save $11.00 (18%) on Wii Game EA Sports Active http://bit.ly/4rqmaQ #wii #wiigames #offer",
+    "more_info_url": "http://bit.ly/4rqmaQ",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191468489": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:09:25Z",
+    "tags": [
+      {
+        "tag": "wii"
+      },
+      {
+        "tag": "wiigames"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Save $3.00 (4%) on Wii Game Your Shape http://bit.ly/5JfvVi #wii #wiigames #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191468489"
+    },
+    "created_by": {
+      "provider_user_name": "WiiChannel",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/525544413/NjwOJ1-wii_normal.jpg",
+      "screen_name": "WiiChannel",
+      "more_info_url": "http://www.twitter.com/WiiChannel",
+      "match_tag": "twitter/WiiChannel"
+    },
+    "offer_text": "Save $3.00 (4%) on Wii Game Your Shape http://bit.ly/5JfvVi #wii #wiigames #offer",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191490762": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:10:15Z",
+    "tags": [
+      {
+        "tag": "automotive"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $7 - Accutire MS-4021B Standard Digital Tire Gauge $7.99 http://dealnay.com/8145 #automotive #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191490762"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $7 - Accutire MS-4021B Standard Digital Tire Gauge $7.99 http://dealnay.com/8145 #automotive #offer",
+    "more_info_url": "http://dealnay.com/8145",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191618566": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:15:16Z",
+    "tags": [
+      {
+        "tag": "adapter"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $4.01 - RCA VH48 Splitters (3-way) $1.94 http://dealnay.com/11681 #adapter #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191618566"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $4.01 - RCA VH48 Splitters (3-way) $1.94 http://dealnay.com/11681 #adapter #offer #ad",
+    "more_info_url": "http://dealnay.com/11681",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191671848": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:17:27Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "residentialplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "nadergul"
+      },
+      {
+        "tag": "hyderabad"
+      }
+    ],
+    "raw_text": "Residential Land http://bit.ly/7tK8Ov #propertywala #ihave #residential #ResidentialPlotLand #forsale #Nadergul #Hyderabad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191671848"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Residential Land http://bit.ly/7tK8Ov #propertywala #ihave #residential #ResidentialPlotLand #forsale #Nadergul #Hyderabad",
+    "more_info_url": "http://bit.ly/7tK8Ov",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6191672850": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:17:30Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "mgroad"
+      },
+      {
+        "tag": "indore"
+      }
+    ],
+    "raw_text": "rent sell http://bit.ly/7G81cZ #propertywala #ihave #commercial #OfficeSpace #forsale #MGRoad #Indore",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6191672850"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "rent sell http://bit.ly/7G81cZ #propertywala #ihave #commercial #OfficeSpace #forsale #MGRoad #Indore",
+    "more_info_url": "http://bit.ly/7G81cZ",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192080794": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:34:39Z",
+    "tags": [
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "test"
+      }
+    ],
+    "raw_text": "Affordable Web Design / Hosting #offer #test-category  http://bit.ly/4H414Q",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192080794"
+    },
+    "created_by": {
+      "provider_user_name": "demooc",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/431502236/demooc_normal.png",
+      "screen_name": "demooc",
+      "more_info_url": "http://www.twitter.com/demooc",
+      "match_tag": "twitter/demooc"
+    },
+    "offer_text": "Affordable Web Design / Hosting #offer #test-category  http://bit.ly/4H414Q",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192094650": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:35:15Z",
+    "tags": [
+      {
+        "tag": "honey"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $6.42 - Comvita Honey, Manuka, 2.2 Pound Jar $32.68 http://dealnay.com/176404 #honey #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192094650"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $6.42 - Comvita Honey, Manuka, 2.2 Pound Jar $32.68 http://dealnay.com/176404 #honey #offer",
+    "more_info_url": "http://dealnay.com/176404",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192095099": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:35:16Z",
+    "tags": [
+      {
+        "tag": "skillet"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $0.04 - Rachael Ray 3-Piece Porcelain Omelette Set &quot;Egg Buddy&quot; Set, Orange $39.95 http://dealnay.com/149033 #skillet #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192095099"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $0.04 - Rachael Ray 3-Piece Porcelain Omelette Set &quot;Egg Buddy&quot; Set, Orange $39.95 http://dealnay.com/149033 #skillet #offer #ad",
+    "more_info_url": "http://dealnay.com/149033",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192103387": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:35:37Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "4sale"
+      }
+    ],
+    "raw_text": "Just listed a SIGG Shadow Cat water bottle on Ebay http://bit.ly/7efzBG #ihave #4sale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192103387"
+    },
+    "created_by": {
+      "provider_user_name": "MachoMachismo",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/259755000/chuck_norris_01_normal.jpg",
+      "screen_name": "MachoMachismo",
+      "more_info_url": "http://www.twitter.com/MachoMachismo",
+      "match_tag": "twitter/MachoMachismo"
+    },
+    "offer_text": "Just listed a SIGG Shadow Cat water bottle on Ebay http://bit.ly/7efzBG #ihave #4sale",
+    "more_info_url": "http://bit.ly/7efzBG",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192161991": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:38:12Z",
+    "tags": [
+      {
+        "tag": "comedy"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $2.99 - School of Rock (Widescreen Edition) $9.99 http://dealnay.com/176406 #comedy #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192161991"
+    },
+    "created_by": {
+      "provider_user_name": "moviedb",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/455709160/film-reel-32x32_normal.png",
+      "screen_name": "moviedb",
+      "more_info_url": "http://www.twitter.com/moviedb",
+      "match_tag": "twitter/moviedb"
+    },
+    "offer_text": "SAVE $2.99 - School of Rock (Widescreen Edition) $9.99 http://dealnay.com/176406 #comedy #offer",
+    "more_info_url": "http://dealnay.com/176406",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192162300": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:38:13Z",
+    "tags": [
+      {
+        "tag": "pc_game"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $4 - Tropico 3 $35.99 http://dealnay.com/113313 #pc_game #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192162300"
+    },
+    "created_by": {
+      "provider_user_name": "bestgamedeals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
+      "screen_name": "bestgamedeals",
+      "more_info_url": "http://www.twitter.com/bestgamedeals",
+      "match_tag": "twitter/bestgamedeals"
+    },
+    "offer_text": "SAVE $4 - Tropico 3 $35.99 http://dealnay.com/113313 #pc_game #offer #ad",
+    "more_info_url": "http://dealnay.com/113313",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192162656": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:38:13Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $224.69 - LG KP500 Cookie Unlocked Phone with 3.2 MP Camera, Digital Media Player and MicroSD... http://dealnay.com/73719 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192162656"
+    },
+    "created_by": {
+      "provider_user_name": "cellphonecrap",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
+      "screen_name": "cellphonecrap",
+      "more_info_url": "http://www.twitter.com/cellphonecrap",
+      "match_tag": "twitter/cellphonecrap"
+    },
+    "offer_text": "SAVE $224.69 - LG KP500 Cookie Unlocked Phone with 3.2 MP Camera, Digital Media Player and MicroSD... http://dealnay.com/73719 #offer",
+    "more_info_url": "http://dealnay.com/73719",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192163140": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:38:15Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "residentialplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "miyapur"
+      },
+      {
+        "tag": "hyderabad"
+      }
+    ],
+    "raw_text": "1 km from Reddy labs, Miyapur http://bit.ly/7LUOAm #propertywala #ihave #residential #ResidentialPlotLand #forsale #Miyapur #Hyderabad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192163140"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "1 km from Reddy labs, Miyapur http://bit.ly/7LUOAm #propertywala #ihave #residential #ResidentialPlotLand #forsale #Miyapur #Hyderabad",
+    "more_info_url": "http://bit.ly/7LUOAm",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192166268": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:38:23Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "mithakhali"
+      },
+      {
+        "tag": "ahmedabad"
+      }
+    ],
+    "raw_text": "2BHK flat for rent http://bit.ly/8KBkWk #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forrent #Mithakhali #Ahmedabad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192166268"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "2BHK flat for rent http://bit.ly/8KBkWk #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forrent #Mithakhali #Ahmedabad",
+    "more_info_url": "http://bit.ly/8KBkWk",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192175637": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:38:49Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "4sale"
+      }
+    ],
+    "raw_text": "RT @MachoMachismo: Just listed a SIGG Shadow Cat water bottle on Ebay http://bit.ly/7efzBG #ihave #4sale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192175637"
+    },
+    "created_by": {
+      "provider_user_name": "trishafern",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/210579807/twitshit_normal.jpg",
+      "screen_name": "trishafern",
+      "more_info_url": "http://www.twitter.com/trishafern",
+      "match_tag": "twitter/trishafern"
+    },
+    "offer_text": "RT @MachoMachismo: Just listed a SIGG Shadow Cat water bottle on Ebay http://bit.ly/7efzBG #ihave #4sale",
+    "more_info_url": "http://bit.ly/7efzBG",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192178270": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:38:55Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "adyar"
+      },
+      {
+        "tag": "chennai"
+      }
+    ],
+    "raw_text": "OFFICE SPACE AVAILABLE IN KB NAGAR,ADYAR http://bit.ly/8uWX6W #propertywala #ihave #commercial #OfficeSpace #forrent #Adyar #Chennai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192178270"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "OFFICE SPACE AVAILABLE IN KB NAGAR,ADYAR http://bit.ly/8uWX6W #propertywala #ihave #commercial #OfficeSpace #forrent #Adyar #Chennai",
+    "more_info_url": "http://bit.ly/8uWX6W",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192208348": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:40:15Z",
+    "tags": [
+      {
+        "tag": "cutlery"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.05 - Victorinox 6-Inch Flex Boning Knife with Fibrox Handle $23.15 http://dealnay.com/147588 #cutlery #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192208348"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $0.05 - Victorinox 6-Inch Flex Boning Knife with Fibrox Handle $23.15 http://dealnay.com/147588 #cutlery #offer",
+    "more_info_url": "http://dealnay.com/147588",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192275015": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:43:18Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "independenthouse"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "nesapakkam"
+      },
+      {
+        "tag": "chennai"
+      }
+    ],
+    "raw_text": "Nesapakkam, 1200sqft 2BHK http://bit.ly/5nY5pe #propertywala #ihave #2Bedrooms #residential #IndependentHouse #forrent #Nesapakkam #Chennai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192275015"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Nesapakkam, 1200sqft 2BHK http://bit.ly/5nY5pe #propertywala #ihave #2Bedrooms #residential #IndependentHouse #forrent #Nesapakkam #Chennai",
+    "more_info_url": "http://bit.ly/5nY5pe",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192325494": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:45:31Z",
+    "tags": [
+      {
+        "tag": "tv_mount"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $165 - Peerless PA740 Articulating Wall Mount for 22&quot; to 40&quot; Displays (Black) $54.99 http://dealnay.com/5552 #tv_mount #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192325494"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $165 - Peerless PA740 Articulating Wall Mount for 22&quot; to 40&quot; Displays (Black) $54.99 http://dealnay.com/5552 #tv_mount #offer",
+    "more_info_url": "http://dealnay.com/5552",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192339143": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:46:07Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "3bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "bopal"
+      },
+      {
+        "tag": "ahmedabad"
+      }
+    ],
+    "raw_text": "3 BHK To Rent (Bopal Area) http://bit.ly/5trb9r #propertywala #ihave #3Bedrooms #residential #ApartmentFlat #forrent #Bopal #Ahmedabad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192339143"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "3 BHK To Rent (Bopal Area) http://bit.ly/5trb9r #propertywala #ihave #3Bedrooms #residential #ApartmentFlat #forrent #Bopal #Ahmedabad",
+    "more_info_url": "http://bit.ly/5trb9r",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6192409504": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:49:01Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      },
+      {
+        "loc": "uzbekistan"
+      },
+      {
+        "loc": "uz"
+      },
+      {
+        "loc": "mo‘ynoq"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap U2 Tickets Hippodrome De Montreal: Cheap U2 tickets for Hippodrome De Montreal in Mo... http://bit.ly/5Dndkn #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192409504"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap U2 Tickets Hippodrome De Montreal: Cheap U2 tickets for Hippodrome De Montreal in Mo... http://bit.ly/5Dndkn #tickets",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 43.7686080,
+      "geo_long": 59.0229110,
+      "address": " Cheap U2 tickets for Hippodrome De Montreal in Mo... http",
+      "tags": [
+        {
+          "loc": "uzbekistan"
+        },
+        {
+          "loc": "uz"
+        },
+        {
+          "loc": "mo‘ynoq"
+        }
+      ]
+    }
+  },
+  "twitter/6192415382": {
+    "message_type": "offr",
+    "timestamp": "2009-11-30T04:49:15Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "5bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "aundh"
+      },
+      {
+        "tag": "pune"
+      }
+    ],
+    "raw_text": "At Aundh, near Parihar Chowk http://bit.ly/76cKge #propertywala #ihave #5Bedrooms #residential #ApartmentFlat #forsale #Aundh #Pune",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6192415382"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "At Aundh, near Parihar Chowk http://bit.ly/76cKge #propertywala #ihave #5Bedrooms #residential #ApartmentFlat #forsale #Aundh #Pune",
+    "more_info_url": "http://bit.ly/76cKge",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
   "twitter/7": {
     "message_type": "offr",
     "timestamp": "2009-06-23T12:00:00Z",

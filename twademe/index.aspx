@@ -107,10 +107,12 @@
             'div.offer': 'offer <- messages',
             '.date': 'offer.date',
             '.user a[href]': 'offer.user.more_info_url',
+            '.msg thumb[src]': 'offer.thumbnail_url',
             '.user img[src]': 'offer.user.profile_pic_url',
             '.user h4': 'offer.user.screen_name',
             '.msg .text': 'offer.offer_text',
             '.msg a.more_info_link[href]': '#{offer.more_info_url}'
+            //'.user a[href]': 'offer.user.thumbnail_url', thumbnail_url
             //            '.ratings .screen_name': 'offer.user.screen_name'       
             //            '.ratings .pos_count': 'offer.user.ratings_pos_count',
             //            '.ratings .neg_count': 'offer.user.ratings_neg_count',
@@ -257,6 +259,10 @@
                     <div class="msg">                                                                                                                                               
                         <div class="text">offer text<!-- minus tags at end? -->
                         </div>
+                        <thumb href="#">
+                        <img alt="" src="#" />
+                            <h4></h4>
+                        </thumb>    
                         <div class="tags">
                             <span class="tag"><a class="" href="#">#</a>, </span>
                         </div><!-- /tags -->

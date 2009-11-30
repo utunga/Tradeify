@@ -27,9 +27,10 @@ namespace Offr.Twitter
             
             string responseData = "";
             StreamReader responseReader = null;
+            WebResponse response = webRequest.GetResponse();
             try
             {
-                responseReader = new StreamReader(webRequest.GetResponse().GetResponseStream());
+                responseReader = new StreamReader(response.GetResponseStream());
                 responseData = responseReader.ReadToEnd();
             }
             catch
@@ -38,7 +39,7 @@ namespace Offr.Twitter
             }
             finally
             {
-                webRequest.GetResponse().GetResponseStream().Close();
+                response.GetResponseStream().Close();
                 if (responseReader != null)
                 {
                     responseReader.Close();

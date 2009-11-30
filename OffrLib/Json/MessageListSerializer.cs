@@ -61,6 +61,7 @@ namespace Offr.Json
                             dict = new Dictionary<string, object>() {
                                                                         {"offer_text", TruncateSourceText(offer)}, 
                                                                         {"more_info_url", offer.MoreInfoURL},
+                                                                        {"thumbnail_url",offer.Thumbnail},
                                                                         {"date", offer.FriendlyTimeStamp },
                                                                     };
 
