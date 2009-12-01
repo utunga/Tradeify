@@ -180,8 +180,9 @@ namespace Offr.Location
             if (!string.IsNullOrEmpty(countryName))
                 loc.Tags.Add(new Tag(TagType.loc, countryName));
 
-            if (!string.IsNullOrEmpty(countryCode))
-                loc.Tags.Add(new Tag(TagType.loc, countryCode));
+            //Dont add Country code for now
+           /* if (!string.IsNullOrEmpty(countryCode))
+                loc.Tags.Add(new Tag(TagType.loc, countryCode));*/
             
             if (!string.IsNullOrEmpty(region))
                 loc.Tags.Add(new Tag(TagType.loc, region));

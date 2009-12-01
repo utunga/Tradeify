@@ -33,8 +33,8 @@ namespace Offr.Tests
                                 GeoLong = (decimal)174.9561080,
                                 Address = "Paekakariki",
                                 Tags = new List<ITag> { (new Tag(TagType.loc, "Paekakariki")),
-                                                        (new Tag(TagType.loc, "New Zealand")),
-                                                        (new Tag(TagType.loc, "NZ"))}
+                                                        (new Tag(TagType.loc, "New Zealand"))/*,
+                                                        (new Tag(TagType.loc, "NZ"))*/}
 
                             };
 
@@ -46,7 +46,7 @@ namespace Offr.Tests
                 GeoLong = (decimal)174.7762170,
                 Address = "Wellington City",
                 Tags = new List<ITag> {(new Tag(TagType.loc, "Wellington")),/*Accuracy not high enough for this(new Tag(TagType.loc, "Wellington")),*/
-                (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
+                (new Tag(TagType.loc, "New Zealand"))/*,(new Tag(TagType.loc, "NZ"))*/}
             };
 
             //http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Waiheke+Island&sll=-40.985341,174.95394&sspn=0.012424,0.027895&ie=UTF8&ll=-36.79609,175.095978&spn=0.204268,0.44632&t=h&z=12
@@ -59,7 +59,7 @@ namespace Offr.Tests
                 GeoLong = (decimal)/*175.09597*/ 175.0960576,
                 Address = "Waiheke Island",
                 Tags = new List<ITag> { /*(Accuracy not high enough for thisnew Tag(TagType.loc, "Waiheke")),*//*Accuracy not high enough for this(new Tag(TagType.loc, "Auckland")),*/
-                (new Tag(TagType.loc, "New Zealand")),(new Tag(TagType.loc, "NZ"))}
+                (new Tag(TagType.loc, "New Zealand"))/*,(new Tag(TagType.loc, "NZ"))*/}
             };
 
 

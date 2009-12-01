@@ -61,7 +61,7 @@ namespace Offr.Message
         private ILocation ParseLocation(string sourceText)
         {
             //Look for 'l:' followed by one or more of any character except ':' followed by ':'
-            Regex re = new Regex("[l|L]:([^:]+):", RegexOptions.IgnoreCase);
+            Regex re = new Regex("[ l| L]:([^:]+):", RegexOptions.IgnoreCase);
             Match match = re.Match(sourceText);
             ILocation location = null;
             if (match.Groups.Count > 1)
@@ -76,7 +76,7 @@ namespace Offr.Message
 
         private ILocation NonStrictParseLocation(string sourceText)
         {
-            Regex re = new Regex("((l:|L:)([^:]+))", RegexOptions.IgnoreCase);
+            Regex re = new Regex("(( l:| L:)([^:]+))", RegexOptions.IgnoreCase);
             Match match = re.Match(sourceText);
             ILocation best = null;
             if (match.Groups.Count > 1)

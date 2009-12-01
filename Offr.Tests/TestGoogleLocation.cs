@@ -78,8 +78,8 @@ namespace Offr.Tests
                                                           {
                                                               (new Tag(TagType.loc, "Mountain View")),
                                                               (new Tag(TagType.loc, "CA")),
-                                                              (new Tag(TagType.loc, "USA")),
-                                                              (new Tag(TagType.loc, "US"))
+                                                              (new Tag(TagType.loc, "USA"))/*,
+                                                              (new Tag(TagType.loc, "US"))*/
                                                           }
                                    };
             _addressToExpectedTags.Add(address, google);
@@ -94,8 +94,8 @@ namespace Offr.Tests
                                                            {
                                                                (new Tag(TagType.loc, "Taranaki")),
                                                                (new Tag(TagType.loc, "Fitzroy")),
-                                                               (new Tag(TagType.loc, "New Zealand")),
-                                                               (new Tag(TagType.loc, "NZ"))
+                                                               (new Tag(TagType.loc, "New Zealand")) /*,
+                                                              (new Tag(TagType.loc, "NZ"))*/
                                                            }
                                     };
             _addressToExpectedTags.Add(address, fitzroy);
@@ -110,8 +110,8 @@ namespace Offr.Tests
                                                            {
                                                                (new Tag(TagType.loc, "Wellington")),
                                                                (new Tag(TagType.loc, "Pipitea")),
-                                                               (new Tag(TagType.loc, "New Zealand")),
-                                                               (new Tag(TagType.loc, "NZ"))
+                                                               (new Tag(TagType.loc, "New Zealand"))/*,
+                                                               (new Tag(TagType.loc, "NZ"))*/
                                                            }
                                     };
             _addressToExpectedTags.Add(address, lambton);
@@ -125,8 +125,8 @@ namespace Offr.Tests
                                                           {
                                                               (new Tag(TagType.loc, "NSW")),
                                                               (new Tag(TagType.loc, "Sydney")),
-                                                              (new Tag(TagType.loc, "Australia")),
-                                                              (new Tag(TagType.loc, "AU"))
+                                                              (new Tag(TagType.loc, "Australia"))/*,
+                                                              (new Tag(TagType.loc, "AU"))*/
                                                           }
                                    };
             _addressToExpectedTags.Add(address, sydney);
@@ -141,8 +141,8 @@ namespace Offr.Tests
                                                        {
                                                            (new Tag(TagType.loc, "Dubai")),
                                                            (new Tag(TagType.loc, "Dubai")),
-                                                           (new Tag(TagType.loc, "United Arab Emirates")),
-                                                           (new Tag(TagType.loc, "AE"))
+                                                           (new Tag(TagType.loc, "United Arab Emirates"))/*,
+                                                           (new Tag(TagType.loc, "AE"))*/
                                                        }
                                 };
             _addressToExpectedTags.Add(address, uae);
@@ -156,8 +156,8 @@ namespace Offr.Tests
                                                           {
                                                               (new Tag(TagType.loc, "Courbevoie")),
                                                               (new Tag(TagType.loc, "Ile-de-France")),
-                                                              (new Tag(TagType.loc, "France")),
-                                                              (new Tag(TagType.loc, "Fr"))
+                                                              (new Tag(TagType.loc, "France"))/*,
+                                                              (new Tag(TagType.loc, "Fr"))*/
                                                           }
                                    };
             _addressToExpectedTags.Add(address, france);
@@ -171,8 +171,8 @@ namespace Offr.Tests
                               {
                                   (new Tag(TagType.loc, "Camberwell")),
                                   (new Tag(TagType.loc, "Greater London")),
-                                  (new Tag(TagType.loc, "United Kingdom")),
-                                  (new Tag(TagType.loc, "GB"))
+                                  (new Tag(TagType.loc, "United Kingdom"))/*,
+                                  (new Tag(TagType.loc, "GB"))*/
                               }
                        };
 
@@ -213,8 +213,8 @@ namespace Offr.Tests
                               {
                                   (new Tag(TagType.loc, "Camberwell")),
                                   (new Tag(TagType.loc, "Greater London")),
-                                  (new Tag(TagType.loc, "United Kingdom")),
-                                  (new Tag(TagType.loc, "GB"))
+                                  (new Tag(TagType.loc, "United Kingdom"))/*,
+                                  (new Tag(TagType.loc, "GB"))*/
                               }
             };
             // Normally the result london is not the first result for this query
