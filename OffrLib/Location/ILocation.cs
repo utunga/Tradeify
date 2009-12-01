@@ -8,13 +8,16 @@ using Offr.Text;
 
 namespace Offr.Location
 {
-    public interface ILocation : ICanJson , ITopic
+    public interface ILocation : ICanJson, ITopic
     {
         string Address { get; }
         IList<ITag> Tags { get; }
         decimal GeoLat { get; }
         decimal GeoLong { get; }
         string AddressText { get; set; }
-
+        int Accuracy
+        { get;
+            set;
+        }
     }
 }

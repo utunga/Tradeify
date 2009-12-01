@@ -23,7 +23,7 @@ namespace Offr.Tests
             tagRepository.FilePath = "data/initial_tags.json";
             tagRepository.InitializeFromFile();
             //singletonTagProvider.Initialize();
-            GoogleLocationProvider locationProvider = new MockLocationProvider();
+            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             _target = new RegexMessageParser(tagRepository, locationProvider);
         }
 
@@ -129,7 +129,23 @@ namespace Offr.Tests
             string imageUrl = regexMessageParser.TEST_GetImageUrl(text);
             Assert.AreEqual("http://twitpic.com/show/thumb/r5aon", imageUrl, "didn't received expected image url for twitpic");
         }
-
+        [Test]
+        public void TestNonStrictLocation()
+        {
+            // a specific real example for which i know the query was failing
+            string text = "#offr_test #ooooby mulch available now in L:Paekakariki for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch";
+            RegexMessageParser regexMessageParser = _target as RegexMessageParser;
+            ILocation l = regexMessageParser.TEST_GetNonStrictLocation(text);
+            Assert.AreEqual("Paekakariki",l.AddressText);
+        }
+        [Test]
+        public void TestIn()
+        {
+            string text = "#offr_test #ooooby mulch available now in Paekakariki for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch";
+            RegexMessageParser regexMessageParser = _target as RegexMessageParser;
+            ILocation l = regexMessageParser.TEST_GetNonStrictLocation(text);
+            Assert.AreEqual("Paekakariki", l.AddressText);
+        }
     }
 
 

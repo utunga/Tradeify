@@ -107,7 +107,8 @@
             'div.offer': 'offer <- messages',
             '.date': 'offer.date',
             '.user a[href]': 'offer.user.more_info_url',
-            '.msg thumb[src]': 'offer.thumbnail_url',
+            // '.msg a.thumb[href]': '#{offer.thumbnail_url}',
+            '.msg img[src]': 'offer.thumbnail_url',
             '.user img[src]': 'offer.user.profile_pic_url',
             '.user h4': 'offer.user.screen_name',
             '.msg .text': 'offer.offer_text',
@@ -258,16 +259,17 @@
                 <div class="offer_right">                                                                                                                                                                           
                     <div class="msg">                                                                                                                                               
                         <div class="text">offer text<!-- minus tags at end? -->
-                        </div>
-                        <thumb href="#">
-                        <img alt="" src="#" />
-                            <h4></h4>
-                        </thumb>    
+                        </div>                        
                         <div class="tags">
                             <span class="tag"><a class="" href="#">#</a>, </span>
                         </div><!-- /tags -->
                         <!-- float right, align baseline, if possible have preview -->
                         <a class="more_info_link" href="">more info »</a>
+                        <!-- <a class="thumb" href="">thumb »</a>-->
+                        <a href="#">
+                        	<img alt="" src="#" />
+                            <h4></h4>
+                        </a> 
                     </div><!-- /msg -->
                  </div><!-- /offer_right -->
             <%--    <div class="ratings">

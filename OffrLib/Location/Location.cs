@@ -15,6 +15,7 @@ namespace Offr.Location
         public decimal GeoLong { get; set; }
         public string Address { get; set; }
         public string AddressText { get; set; }
+        public int Accuracy { get; set; }
         
         private List<ITag> _locationTags { get; set; }
         public IList<ITag> Tags
@@ -111,53 +112,66 @@ namespace Offr.Location
         }
 
         private static Location ProcessPlacemark(GoogleResultSet googleResultSet,GoogleResultSet.PlacemarkType placemark)
-        {  
+        {
             Location loc = new Location
                                {
                                    Address = googleResultSet.name,
                                    GeoLat = placemark.Point.coordinates[1],
                                    GeoLong = placemark.Point.coordinates[0],
+                                   Accuracy = int.Parse(placemark.AddressDetails.accuracy)
                                };
             // not sure whether we should get the latitude and longitude from LatLonBox or the Point field of the json.
             // the longitude appears slightly different in each - going with Point for now
             string streetAddress = null;
             string localityName=null;
-            string region = null;            
-            if (placemark.AddressDetails.Country.Locality!=null)
+            string region = null;
+            if (placemark.AddressDetails.Country != null)
             {
-                localityName = placemark.AddressDetails.Country.Locality.LocalityName;
-            }
-            if (placemark.AddressDetails.Country.AdministrativeArea != null)
-            {
-                region = placemark.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
-                if(placemark.AddressDetails.Country.AdministrativeArea.Locality!=null)
+                if (placemark.AddressDetails.Country.Locality != null)
                 {
-                    localityName = placemark.AddressDetails.Country.AdministrativeArea.Locality.LocalityName;
+                    localityName = placemark.AddressDetails.Country.Locality.LocalityName;
                 }
-                if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea != null)
+                if (placemark.AddressDetails.Country.AdministrativeArea != null)
                 {
-                    if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality != null)
+                    region = placemark.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
+                    if (placemark.AddressDetails.Country.AdministrativeArea.Locality != null)
                     {
-                        localityName = placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
+                        localityName = placemark.AddressDetails.Country.AdministrativeArea.Locality.LocalityName;
+                    }
+                    if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea != null)
+                    {
+                        if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality != null)
+                        {
+                            localityName =
+                                placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.
+                                    LocalityName;
 
-                        if (placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.Thoroughfare != null)
-                            streetAddress = placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.Thoroughfare.ThoroughfareName;
+                            if (
+                                placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.
+                                    Thoroughfare != null)
+                                streetAddress =
+                                    placemark.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.
+                                        Thoroughfare.ThoroughfareName;
+                        }
+                    }
+
+                    if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality != null)
+                    {
+                        localityName =
+                            placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.DependentLocalityName;
+
+                        if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare != null)
+                            streetAddress =
+                                placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare.
+                                    ThoroughfareName;
                     }
                 }
+                string countryName = placemark.AddressDetails.Country.CountryName;
+                string countryCode = placemark.AddressDetails.Country.CountryNameCode;
 
-                if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality != null)
-                {
-                    localityName = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.DependentLocalityName;
+                AddTags(countryName, loc, countryCode, region, localityName);
 
-                    if (placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare != null)
-                        streetAddress = placemark.AddressDetails.Country.AdministrativeArea.DependentLocality.Thoroughfare.ThoroughfareName;
-                }
             }
-            string countryName = placemark.AddressDetails.Country.CountryName;
-            string countryCode = placemark.AddressDetails.Country.CountryNameCode;
-
-            AddTags(countryName, loc, countryCode, region, localityName);
-
             return loc;
         }
 
