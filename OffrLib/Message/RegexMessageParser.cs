@@ -83,10 +83,9 @@ namespace Offr.Message
             {
                 string afterL = match.Groups[3].Value;
                 string address = afterL;
-                //search for a location then trim the array one character at a time until you reach the ':' character
+                //search for a location then trim the array one word at a time
                 while (address.Length >= 1)
                 {
-                    //Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
                     ILocation newLocation = _locationProvider.Parse(address);
                     if (newLocation != null && newLocation.Accuracy != null)
                     {

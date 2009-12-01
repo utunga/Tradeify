@@ -40,7 +40,15 @@ namespace twademe
             // Register the custom converter.
             serializer.RegisterConverters(new JavaScriptConverter[] {new MessageListSerializer()});
             List<IMessage> messagesToSend = new List<IMessage>(messages.Take(count));
-            Response.Write(serializer.Serialize(messagesToSend));
+
+            if (null != Request.Params["jsoncallback"])
+            {
+                Response.Write(Request.Params["jsoncallback"] + "(" + serializer.Serialize(messagesToSend) + ")");
+            }
+            else
+            {
+                Response.Write(serializer.Serialize(messagesToSend));
+            }
         }
     }
 }
