@@ -7,14 +7,15 @@ namespace Offr
 {
     public class BackgroundExceptionReceiver:IBackgroundExceptionReceiver
     {
+        private Exception _lastException = null;
         public void NotifyException(Exception ex)
         {
-            throw new NotImplementedException();
+            _lastException = ex;
         }
 
         public Exception LastException
         {
-            get { throw new NotImplementedException(); }
+            get { return _lastException; }
         }
     }
 }

@@ -7917,7 +7917,7 @@
         "tag": "imsousedtoit"
       },
       {
-        "loc": "usa"
+        "tag": "usa"
       },
       {
         "loc": "nv"
@@ -8793,7 +8793,7 @@
         "tag": "ihave"
       },
       {
-        "loc": "usa"
+        "tag": "usa"
       },
       {
         "loc": "il"
@@ -8845,7 +8845,7 @@
         "tag": "ihave"
       },
       {
-        "loc": "usa"
+        "tag": "usa"
       },
       {
         "loc": "il"
@@ -9341,7 +9341,7 @@
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": 9.1566510,
+      "geo_lat": 9.156651,
       "geo_long": 76.7307663,
       "address": "Adoor:",
       "tags": [
@@ -10118,6 +10118,4634 @@
     },
     "offer_text": "SAVE $70 - ASUS Skype Video Phone Touch SV1TS $199.99 http://dealnay.com/102935 #phone_accessories #offer",
     "more_info_url": "http://dealnay.com/102935",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227382835": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:08:11Z",
+    "tags": [
+      {
+        "tag": "enema"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $9.43 - California Exotics Deluxe Douche $8.57 http://dealnay.com/12612 #enema #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227382835"
+    },
+    "created_by": {
+      "provider_user_name": "safeloving",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456701945/2-hot-girls-in-Latex_normal.jpg",
+      "screen_name": "safeloving",
+      "more_info_url": "http://www.twitter.com/safeloving",
+      "match_tag": "twitter/safeloving"
+    },
+    "offer_text": "SAVE $9.43 - California Exotics Deluxe Douche $8.57 http://dealnay.com/12612 #enema #offer",
+    "more_info_url": "http://dealnay.com/12612",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227383801": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:08:14Z",
+    "tags": [
+      {
+        "tag": "cellphone_with_service"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $350 - T-Mobile G1 Phone with Google, White (T-Mobile) $49.99 http://dealnay.com/15569 #cellphone_with_service #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227383801"
+    },
+    "created_by": {
+      "provider_user_name": "cellphonecrap",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
+      "screen_name": "cellphonecrap",
+      "more_info_url": "http://www.twitter.com/cellphonecrap",
+      "match_tag": "twitter/cellphonecrap"
+    },
+    "offer_text": "SAVE $350 - T-Mobile G1 Phone with Google, White (T-Mobile) $49.99 http://dealnay.com/15569 #cellphone_with_service #offer",
+    "more_info_url": "http://dealnay.com/15569",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227384266": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:08:15Z",
+    "tags": [
+      {
+        "tag": "mp3player"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $15.01 - Apple iPod nano 16 GB Black (5th Generation) NEWEST MODEL $159.99 http://dealnay.com/59766 #mp3player #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227384266"
+    },
+    "created_by": {
+      "provider_user_name": "3gsdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456463972/iphone3gs_normal.jpg",
+      "screen_name": "3gsdude",
+      "more_info_url": "http://www.twitter.com/3gsdude",
+      "match_tag": "twitter/3gsdude"
+    },
+    "offer_text": "SAVE $15.01 - Apple iPod nano 16 GB Black (5th Generation) NEWEST MODEL $159.99 http://dealnay.com/59766 #mp3player #offer",
+    "more_info_url": "http://dealnay.com/59766",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227414217": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:09:54Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: PLOTS NEAR ZIRAKPUR FOR SALE: PLOTS NEAR ZIRAKPUR FOR SALE http://bit.ly/8lPAuc #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227414217"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: PLOTS NEAR ZIRAKPUR FOR SALE: PLOTS NEAR ZIRAKPUR FOR SALE http://bit.ly/8lPAuc #ihave",
+    "more_info_url": "http://bit.ly/8lPAuc",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227414417": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:09:54Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: Plot For sale  1 km from Textile Park At Karur: Jemi http://bit.ly/8fU1Yq #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227414417"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: Plot For sale  1 km from Textile Park At Karur: Jemi http://bit.ly/8fU1Yq #ihave",
+    "more_info_url": "http://bit.ly/8fU1Yq",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227414668": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:09:55Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: JABAMALAI  NAGAR  AT  SRIPERUMBUDHUR .:  http://bit.ly/7YYaou #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227414668"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: JABAMALAI  NAGAR  AT  SRIPERUMBUDHUR .:  http://bit.ly/7YYaou #ihave",
+    "more_info_url": "http://bit.ly/7YYaou",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227500889": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:14:25Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "hot watch dkny crystal leather watch d&amp;g dkny [dk02] http://tinyurl.com/yf5gqzb armani watch guess watch d g coach watch #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227500889"
+    },
+    "created_by": {
+      "provider_user_name": "neoshop09",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_3_normal.png",
+      "screen_name": "neoshop09",
+      "more_info_url": "http://www.twitter.com/neoshop09",
+      "match_tag": "twitter/neoshop09"
+    },
+    "offer_text": "hot watch dkny crystal leather watch d&amp;g dkny [dk02] http://tinyurl.com/yf5gqzb armani watch guess watch d g coach watch #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yf5gqzb",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227551598": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:17:08Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "3bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "vasai"
+      },
+      {
+        "tag": "mumbai"
+      }
+    ],
+    "raw_text": "Apartment http://bit.ly/70Zekv #propertywala #ihave #3Bedrooms #residential #ApartmentFlat #forrent #Vasai #Mumbai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227551598"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Apartment http://bit.ly/70Zekv #propertywala #ihave #3Bedrooms #residential #ApartmentFlat #forrent #Vasai #Mumbai",
+    "more_info_url": "http://bit.ly/70Zekv",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227571612": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:18:11Z",
+    "tags": [
+      {
+        "tag": "ps3"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $40.04 - PS3 Power Media Kit $29.95 http://dealnay.com/167964 #ps3 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227571612"
+    },
+    "created_by": {
+      "provider_user_name": "bestgamedeals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
+      "screen_name": "bestgamedeals",
+      "more_info_url": "http://www.twitter.com/bestgamedeals",
+      "match_tag": "twitter/bestgamedeals"
+    },
+    "offer_text": "SAVE $40.04 - PS3 Power Media Kit $29.95 http://dealnay.com/167964 #ps3 #offer",
+    "more_info_url": "http://dealnay.com/167964",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227640576": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:21:58Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "3bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "independenthouse"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "sector"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Fully-furnished http://bit.ly/7cavs6 #propertywala #ihave #3Bedrooms #residential #IndependentHouse #forrent #Sector-23 #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227640576"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Fully-furnished http://bit.ly/7cavs6 #propertywala #ihave #3Bedrooms #residential #IndependentHouse #forrent #Sector-23 #Gurgaon",
+    "more_info_url": "http://bit.ly/7cavs6",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227681932": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:24:11Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "hot watch swatch stainless still watch d&amp;g dkny [sw2] http://tinyurl.com/yd44zkw armani watch coach watch guess watch dkny #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227681932"
+    },
+    "created_by": {
+      "provider_user_name": "neoshop09",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_3_normal.png",
+      "screen_name": "neoshop09",
+      "more_info_url": "http://www.twitter.com/neoshop09",
+      "match_tag": "twitter/neoshop09"
+    },
+    "offer_text": "hot watch swatch stainless still watch d&amp;g dkny [sw2] http://tinyurl.com/yd44zkw armani watch coach watch guess watch dkny #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yd44zkw",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227701669": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:25:18Z",
+    "tags": [
+      {
+        "tag": "baby_care"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $6.29 - Fisher-Price Infant-To-Toddler Rocker - Blue/Green $33.70 http://dealnay.com/101836 #baby_care #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227701669"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $6.29 - Fisher-Price Infant-To-Toddler Rocker - Blue/Green $33.70 http://dealnay.com/101836 #baby_care #offer",
+    "more_info_url": "http://dealnay.com/101836",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227709296": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:25:43Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "4bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "independenthouse"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "sector"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Un-furnished http://bit.ly/5TQiRX #propertywala #ihave #4Bedrooms #residential #IndependentHouse #forrent #Sector-5 #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227709296"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_1_normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Un-furnished http://bit.ly/5TQiRX #propertywala #ihave #4Bedrooms #residential #IndependentHouse #forrent #Sector-5 #Gurgaon",
+    "more_info_url": "http://bit.ly/5TQiRX",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227744158": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:27:42Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave @LaverneLOVE &gt;_&lt; LoL",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227744158"
+    },
+    "created_by": {
+      "provider_user_name": "YanNatalia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/551544848/DSCN0297_normal.jpg",
+      "screen_name": "YanNatalia",
+      "more_info_url": "http://www.twitter.com/YanNatalia",
+      "match_tag": "twitter/YanNatalia"
+    },
+    "offer_text": "#ihave @LaverneLOVE &gt;_&lt; LoL",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227751338": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:28:07Z",
+    "tags": [
+      {
+        "tag": "bay"
+      },
+      {
+        "tag": "area"
+      },
+      {
+        "type": "cash"
+      },
+      {
+        "tag": "back"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "in"
+      },
+      {
+        "tag": "bay"
+      },
+      {
+        "tag": "area"
+      },
+      {
+        "tag": "bay"
+      },
+      {
+        "tag": "area"
+      },
+      {
+        "type": "cash"
+      },
+      {
+        "tag": "back"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "in"
+      },
+      {
+        "tag": "bay"
+      },
+      {
+        "tag": "area"
+      },
+      {
+        "tag": "b"
+      }
+    ],
+    "raw_text": "http://ping.fm/p/lJI5o - #Bay #Area #Cash #Back #Offer #in #Bay #Area(http://ping.fm/ZHpGm)  #Bay #Area #Cash #Back #Offer #in #Bay #Area #B",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227751338"
+    },
+    "created_by": {
+      "provider_user_name": "hrdadgar",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/453693927/smallt_normal.jpg",
+      "screen_name": "hrdadgar",
+      "more_info_url": "http://www.twitter.com/hrdadgar",
+      "match_tag": "twitter/hrdadgar"
+    },
+    "offer_text": "http://ping.fm/p/lJI5o - #Bay #Area #Cash #Back #Offer #in #Bay #Area(http://ping.fm/ZHpGm)  #Bay #Area #Cash #Back #Offer #in #Bay #Area #B",
+    "more_info_url": "http://ping.fm/p/lJI5o",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227773949": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:29:25Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: 14000 SFT, PLUG N PLAY OFFICE SPACE IS AT RESIDENCY ROAD: AVAILABLE 140... http://bit.ly/8c2ht2 #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227773949"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: 14000 SFT, PLUG N PLAY OFFICE SPACE IS AT RESIDENCY ROAD: AVAILABLE 140... http://bit.ly/8c2ht2 #ihave",
+    "more_info_url": "http://bit.ly/8c2ht2",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6227774179": {
+    "message_type": "offr",
+    "timestamp": "2009-12-01T06:29:25Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: Need Office space: We are looking for a non comercial space for our mar... http://bit.ly/4NYCJ5 #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6227774179"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: Need Office space: We are looking for a non comercial space for our mar... http://bit.ly/4NYCJ5 #ihave",
+    "more_info_url": "http://bit.ly/4NYCJ5",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278350522": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:24:50Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "DEMETER by Demeter HONEYSUCKLE COLOGNE SPRAY 4 OZ 121013 http://tinyurl.com/y8hoh9g #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278350522"
+    },
+    "created_by": {
+      "provider_user_name": "RaquelMangual",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_6_normal.png",
+      "screen_name": "RaquelMangual",
+      "more_info_url": "http://www.twitter.com/RaquelMangual",
+      "match_tag": "twitter/RaquelMangual"
+    },
+    "offer_text": "DEMETER by Demeter HONEYSUCKLE COLOGNE SPRAY 4 OZ 121013 http://tinyurl.com/y8hoh9g #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278474769": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:29:33Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "ipod"
+      },
+      {
+        "tag": "new"
+      },
+      {
+        "tag": "gift"
+      },
+      {
+        "tag": "friendsell"
+      }
+    ],
+    "raw_text": "#ihave #forsale Brand New Unopened iPod Touch 32GB http://bit.ly/6iQr36 #iPod #new-in-box #gift on #friendsell",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278474769"
+    },
+    "created_by": {
+      "provider_user_name": "stuff_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/552557866/Logo_Reflection_normal.png",
+      "screen_name": "stuff_for_sale",
+      "more_info_url": "http://www.twitter.com/stuff_for_sale",
+      "match_tag": "twitter/stuff_for_sale"
+    },
+    "offer_text": "#ihave #forsale Brand New Unopened iPod Touch 32GB http://bit.ly/6iQr36 #iPod #new-in-box #gift on #friendsell",
+    "more_info_url": "http://bit.ly/6iQr36",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278493433": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:30:14Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave The best OCEANFRONT Condo at Brighton http://bit.ly/4QdjWo (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278493433"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave The best OCEANFRONT Condo at Brighton http://bit.ly/4QdjWo (via @realbird)",
+    "more_info_url": "http://bit.ly/4QdjWo",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278494137": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:30:15Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Stunning Viera Florida Beauty with Lake Views! http://bit.ly/82d8uv (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278494137"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Stunning Viera Florida Beauty with Lake Views! http://bit.ly/82d8uv (via @realbird)",
+    "more_info_url": "http://bit.ly/82d8uv",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278495210": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:30:17Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "usa"
+      },
+      {
+        "loc": "fl"
+      },
+      {
+        "loc": "winter springs"
+      }
+    ],
+    "raw_text": "#ihave Single Family Residential for $399,900 in Winter Springs, FL http://bit.ly/7Es9aE (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278495210"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Single Family Residential for $399,900 in Winter Springs, FL http://bit.ly/7Es9aE (via @realbird)",
+    "more_info_url": "http://bit.ly/7Es9aE",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 28.6988853,
+      "geo_long": -81.3081226,
+      "address": "Winter Springs, FL http://bit.ly/7Es9aE (via @realbird)",
+      "tags": [
+        {
+          "loc": "usa"
+        },
+        {
+          "loc": "fl"
+        },
+        {
+          "loc": "winter springs"
+        }
+      ]
+    }
+  },
+  "twitter/6278495672": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:30:18Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Amazing Home on 20+/- acres with Barn &amp; stables http://bit.ly/7aBtyV (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278495672"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Amazing Home on 20+/- acres with Barn &amp; stables http://bit.ly/7aBtyV (via @realbird)",
+    "more_info_url": "http://bit.ly/7aBtyV",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278628073": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:35:16Z",
+    "tags": [
+      {
+        "tag": "pillow"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.05 - Texas Longhorns Focal Orange Microbead Pillow $14.95 http://dealnay.com/85287 #pillow #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278628073"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $0.05 - Texas Longhorns Focal Orange Microbead Pillow $14.95 http://dealnay.com/85287 #pillow #offer",
+    "more_info_url": "http://dealnay.com/85287",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278781799": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:41:08Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "myetsy"
+      }
+    ],
+    "raw_text": "#ihave Amy Butler Martini Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(20cm) ... http://bit.ly/4VvDCl #myetsy",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278781799"
+    },
+    "created_by": {
+      "provider_user_name": "laurenoriginals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/544254460/4135071140_5b93994b9f_m_normal.jpg",
+      "screen_name": "laurenoriginals",
+      "more_info_url": "http://www.twitter.com/laurenoriginals",
+      "match_tag": "twitter/laurenoriginals"
+    },
+    "offer_text": "#ihave Amy Butler Martini Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(20cm) ... http://bit.ly/4VvDCl #myetsy",
+    "more_info_url": "http://bit.ly/4VvDCl",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278782281": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:41:09Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "myetsy"
+      }
+    ],
+    "raw_text": "#ihave Burgundy Homespun Check Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(2... http://bit.ly/7Drj9k #myetsy",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278782281"
+    },
+    "created_by": {
+      "provider_user_name": "laurenoriginals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/544254460/4135071140_5b93994b9f_m_normal.jpg",
+      "screen_name": "laurenoriginals",
+      "more_info_url": "http://www.twitter.com/laurenoriginals",
+      "match_tag": "twitter/laurenoriginals"
+    },
+    "offer_text": "#ihave Burgundy Homespun Check Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(2... http://bit.ly/7Drj9k #myetsy",
+    "more_info_url": "http://bit.ly/7Drj9k",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278782944": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:41:10Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "myetsy"
+      }
+    ],
+    "raw_text": "#ihave Black Homespun Check Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(20cm... http://bit.ly/5YenAa #myetsy",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278782944"
+    },
+    "created_by": {
+      "provider_user_name": "laurenoriginals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/544254460/4135071140_5b93994b9f_m_normal.jpg",
+      "screen_name": "laurenoriginals",
+      "more_info_url": "http://www.twitter.com/laurenoriginals",
+      "match_tag": "twitter/laurenoriginals"
+    },
+    "offer_text": "#ihave Black Homespun Check Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(20cm... http://bit.ly/5YenAa #myetsy",
+    "more_info_url": "http://bit.ly/5YenAa",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278790422": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:41:27Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "myetsy"
+      }
+    ],
+    "raw_text": "#ihave Set of Flowered Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(20cm) squ... http://bit.ly/6G9v36 #myetsy",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278790422"
+    },
+    "created_by": {
+      "provider_user_name": "laurenoriginals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/544254460/4135071140_5b93994b9f_m_normal.jpg",
+      "screen_name": "laurenoriginals",
+      "more_info_url": "http://www.twitter.com/laurenoriginals",
+      "match_tag": "twitter/laurenoriginals"
+    },
+    "offer_text": "#ihave Set of Flowered Potholders:     \t\t      \t\t\t$12.00\t\t\t\t\tThis set of 2 potholders measures 8&quot;(20cm) squ... http://bit.ly/6G9v36 #myetsy",
+    "more_info_url": "http://bit.ly/6G9v36",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278800801": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:41:51Z",
+    "tags": [
+      {
+        "tag": "auction"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Bid now on a beautiful Silver brooch with 3 ancient coins, a must see! http://ow.ly/HVJz #auction #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278800801"
+    },
+    "created_by": {
+      "provider_user_name": "iCollector",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/70829057/icollector-logo_normal.png",
+      "screen_name": "iCollector",
+      "more_info_url": "http://www.twitter.com/iCollector",
+      "match_tag": "twitter/iCollector"
+    },
+    "offer_text": "Bid now on a beautiful Silver brooch with 3 ancient coins, a must see! http://ow.ly/HVJz #auction #ihave",
+    "more_info_url": "http://ow.ly/HVJz",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278818311": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:42:32Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Santa Claus' Christmas Party by Chipmunks  http://tinyurl.com/yl8xts5 #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278818311"
+    },
+    "created_by": {
+      "provider_user_name": "waddell51",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/362728832/steven_david_waddell_normal.jpg",
+      "screen_name": "waddell51",
+      "more_info_url": "http://www.twitter.com/waddell51",
+      "match_tag": "twitter/waddell51"
+    },
+    "offer_text": "Santa Claus' Christmas Party by Chipmunks  http://tinyurl.com/yl8xts5 #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yl8xts5",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278889023": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:45:15Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver plated lattice style finger ring size 8 http://tinyurl.com/yzumaml costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278889023"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver plated lattice style finger ring size 8 http://tinyurl.com/yzumaml costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yzumaml",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6278891111": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:45:20Z",
+    "tags": [
+      {
+        "tag": "sunglasses"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $12.01 - Nike Tarj Classic Sunglasses - Matte Black / Grey Polarized $124.99 http://dealnay.com/153112 #sunglasses #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6278891111"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $12.01 - Nike Tarj Classic Sunglasses - Matte Black / Grey Polarized $124.99 http://dealnay.com/153112 #sunglasses #offer",
+    "more_info_url": "http://dealnay.com/153112",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279134480": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:54:47Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver plated black crystal stone finger ring size 7 http://tinyurl.com/ycv8cn5 costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279134480"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver plated black crystal stone finger ring size 7 http://tinyurl.com/ycv8cn5 costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ycv8cn5",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279146971": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T19:55:16Z",
+    "tags": [
+      {
+        "tag": "suspender"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $7.01 - GREEN ON GREEN FUNKY CHECKED SUSPENDERS $7.99 http://dealnay.com/153130 #suspender #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279146971"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $7.01 - GREEN ON GREEN FUNKY CHECKED SUSPENDERS $7.99 http://dealnay.com/153130 #suspender #offer",
+    "more_info_url": "http://dealnay.com/153130",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279278908": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:00:17Z",
+    "tags": [
+      {
+        "tag": "gps_marine"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $12.42 - Garmin 6FT Marine Network Cable, RJ45 $16.49 http://dealnay.com/174105 #gps_marine #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279278908"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $12.42 - Garmin 6FT Marine Network Cable, RJ45 $16.49 http://dealnay.com/174105 #gps_marine #offer",
+    "more_info_url": "http://dealnay.com/174105",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279427850": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:05:53Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "contest"
+      }
+    ],
+    "raw_text": "#Ihave a set list hand written by Aja of Nico Vega! Leave a comment on NV EXCLUSIVE interview http://bit.ly/15mcOt #contest ends Friday!",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279427850"
+    },
+    "created_by": {
+      "provider_user_name": "RoxwelKristiLee",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/271808433/lg_roxwelcountdown060814_normal.jpg",
+      "screen_name": "RoxwelKristiLee",
+      "more_info_url": "http://www.twitter.com/RoxwelKristiLee",
+      "match_tag": "twitter/RoxwelKristiLee"
+    },
+    "offer_text": "#Ihave a set list hand written by Aja of Nico Vega! Leave a comment on NV EXCLUSIVE interview http://bit.ly/15mcOt #contest ends Friday!",
+    "more_info_url": "http://bit.ly/15mcOt",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279459168": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:07:06Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave a Kings Of Leon EXCLUSIVE Interview &amp; performance http://bit.ly/KEZ3x - Caleb and Nathan sit down for this one!",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279459168"
+    },
+    "created_by": {
+      "provider_user_name": "RoxwelKristiLee",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/271808433/lg_roxwelcountdown060814_normal.jpg",
+      "screen_name": "RoxwelKristiLee",
+      "more_info_url": "http://www.twitter.com/RoxwelKristiLee",
+      "match_tag": "twitter/RoxwelKristiLee"
+    },
+    "offer_text": "#ihave a Kings Of Leon EXCLUSIVE Interview &amp; performance http://bit.ly/KEZ3x - Caleb and Nathan sit down for this one!",
+    "more_info_url": "http://bit.ly/KEZ3x",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279521099": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:09:30Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "DEMETER by Demeter SUGAR COOKIE COLOGNE SPRAY 4 OZ 125446 http://tinyurl.com/yl9btmv #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279521099"
+    },
+    "created_by": {
+      "provider_user_name": "RaquelMangual",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_6_normal.png",
+      "screen_name": "RaquelMangual",
+      "more_info_url": "http://www.twitter.com/RaquelMangual",
+      "match_tag": "twitter/RaquelMangual"
+    },
+    "offer_text": "DEMETER by Demeter SUGAR COOKIE COLOGNE SPRAY 4 OZ 125446 http://tinyurl.com/yl9btmv #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yl9btmv",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279521154": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:09:31Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "DEMETER by Demeter SEX ON THE BEACH COLOGNE SPRAY 4 OZ 128251 http://tinyurl.com/yzp85x3 #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279521154"
+    },
+    "created_by": {
+      "provider_user_name": "RaquelMangual",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_6_normal.png",
+      "screen_name": "RaquelMangual",
+      "more_info_url": "http://www.twitter.com/RaquelMangual",
+      "match_tag": "twitter/RaquelMangual"
+    },
+    "offer_text": "DEMETER by Demeter SEX ON THE BEACH COLOGNE SPRAY 4 OZ 128251 http://tinyurl.com/yzp85x3 #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yzp85x3",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279523260": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:09:36Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "DEMETER by Demeter FUZZY NAVEL COLOGNE SPRAY 4 OZ 128249 http://tinyurl.com/yfb2bd7 #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279523260"
+    },
+    "created_by": {
+      "provider_user_name": "RaquelMangual",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_6_normal.png",
+      "screen_name": "RaquelMangual",
+      "more_info_url": "http://www.twitter.com/RaquelMangual",
+      "match_tag": "twitter/RaquelMangual"
+    },
+    "offer_text": "DEMETER by Demeter FUZZY NAVEL COLOGNE SPRAY 4 OZ 128249 http://tinyurl.com/yfb2bd7 #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yfb2bd7",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279564920": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:11:10Z",
+    "tags": [
+      {
+        "tag": "wordpress"
+      },
+      {
+        "tag": "blog"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "#wordpress Ecclectic4u Blog http://tinyurl.com/yhqcvv6 #blog #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279564920"
+    },
+    "created_by": {
+      "provider_user_name": "adammasnotions",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/375803318/Adammas_notions_center_web_normal.jpg",
+      "screen_name": "adammasnotions",
+      "more_info_url": "http://www.twitter.com/adammasnotions",
+      "match_tag": "twitter/adammasnotions"
+    },
+    "offer_text": "#wordpress Ecclectic4u Blog http://tinyurl.com/yhqcvv6 #blog #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yhqcvv6",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279575571": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:11:35Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "friendsell"
+      }
+    ],
+    "raw_text": "#ihave #forsale Mini Cellphone http://bit.ly/6e8sWb on #friendsell",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279575571"
+    },
+    "created_by": {
+      "provider_user_name": "stuff_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/552557866/Logo_Reflection_normal.png",
+      "screen_name": "stuff_for_sale",
+      "more_info_url": "http://www.twitter.com/stuff_for_sale",
+      "match_tag": "twitter/stuff_for_sale"
+    },
+    "offer_text": "#ihave #forsale Mini Cellphone http://bit.ly/6e8sWb on #friendsell",
+    "more_info_url": "http://bit.ly/6e8sWb",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279601772": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:12:36Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "friendsell"
+      }
+    ],
+    "raw_text": "#ihave #forsale Mini Cellphone http://bit.ly/7ZcKUX on #friendsell",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279601772"
+    },
+    "created_by": {
+      "provider_user_name": "stuff_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/552557866/Logo_Reflection_normal.png",
+      "screen_name": "stuff_for_sale",
+      "more_info_url": "http://www.twitter.com/stuff_for_sale",
+      "match_tag": "twitter/stuff_for_sale"
+    },
+    "offer_text": "#ihave #forsale Mini Cellphone http://bit.ly/7ZcKUX on #friendsell",
+    "more_info_url": "http://bit.ly/7ZcKUX",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279693759": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:16:08Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver plated ruby stone ribbon finger ring 7 http://tinyurl.com/yjwve6l costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279693759"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver plated ruby stone ribbon finger ring 7 http://tinyurl.com/yjwve6l costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yjwve6l",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279745216": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:18:06Z",
+    "tags": [
+      {
+        "tag": "video_card"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $19.02 - EVGA 01G-P3-N945-LR GeForce 9400 GT 1GB DDR2 PCI-E 2.0 Graphics Card $62.97 http://dealnay.com/9725 #video_card #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279745216"
+    },
+    "created_by": {
+      "provider_user_name": "bestgamedeals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
+      "screen_name": "bestgamedeals",
+      "more_info_url": "http://www.twitter.com/bestgamedeals",
+      "match_tag": "twitter/bestgamedeals"
+    },
+    "offer_text": "SAVE $19.02 - EVGA 01G-P3-N945-LR GeForce 9400 GT 1GB DDR2 PCI-E 2.0 Graphics Card $62.97 http://dealnay.com/9725 #video_card #offer",
+    "more_info_url": "http://dealnay.com/9725",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279755448": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:18:28Z",
+    "tags": [
+      {
+        "tag": "camera_len"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $27 - FISHEYE 0.42X WIDE ANGLE LENS for DIGITAL CAMERA $42.89 http://dealnay.com/173847 #camera_len #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279755448"
+    },
+    "created_by": {
+      "provider_user_name": "badtakes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/499681739/Camcorder_normal.jpg",
+      "screen_name": "badtakes",
+      "more_info_url": "http://www.twitter.com/badtakes",
+      "match_tag": "twitter/badtakes"
+    },
+    "offer_text": "SAVE $27 - FISHEYE 0.42X WIDE ANGLE LENS for DIGITAL CAMERA $42.89 http://dealnay.com/173847 #camera_len #offer",
+    "more_info_url": "http://dealnay.com/173847",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279757379": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:18:32Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Gold plated round textured designer style finger ring 8 http://tinyurl.com/ygsrhbo costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279757379"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Gold plated round textured designer style finger ring 8 http://tinyurl.com/ygsrhbo costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ygsrhbo",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279805171": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:20:18Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $3.01 - New York Yankees World Series Champions Signature Pennant $6.98 http://dealnay.com/142149 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279805171"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $3.01 - New York Yankees World Series Champions Signature Pennant $6.98 http://dealnay.com/142149 #offer",
+    "more_info_url": "http://dealnay.com/142149",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279834737": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:21:23Z",
+    "tags": [
+      {
+        "tag": "ring"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Diamond sapphire ring wonderful 2.05ct set in platinum deep blue cushion cut diamond weighs 1.00g - http://ow.ly/HVOG #ring #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279834737"
+    },
+    "created_by": {
+      "provider_user_name": "iCollector",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/70829057/icollector-logo_normal.png",
+      "screen_name": "iCollector",
+      "more_info_url": "http://www.twitter.com/iCollector",
+      "match_tag": "twitter/iCollector"
+    },
+    "offer_text": "Diamond sapphire ring wonderful 2.05ct set in platinum deep blue cushion cut diamond weighs 1.00g - http://ow.ly/HVOG #ring #ihave",
+    "more_info_url": "http://ow.ly/HVOG",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6279938309": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:25:18Z",
+    "tags": [
+      {
+        "tag": "motorcycle_atv_parts"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $10 - SUZUKI GSXR 1300 HAYABUSA KEYCHAIN KEY RING FOB LOGO DECAL MOTORCYCLE $4.99 http://dealnay.com/94607 #motorcycle_atv_parts #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6279938309"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $10 - SUZUKI GSXR 1300 HAYABUSA KEYCHAIN KEY RING FOB LOGO DECAL MOTORCYCLE $4.99 http://dealnay.com/94607 #motorcycle_atv_parts #offer",
+    "more_info_url": "http://dealnay.com/94607",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280066233": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:30:09Z",
+    "tags": [
+      {
+        "tag": "linku2"
+      },
+      {
+        "tag": "keyword"
+      },
+      {
+        "tag": "sector"
+      },
+      {
+        "tag": "location"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Find Businesses near you on #LinkU2 by #keyword, #sector or #Location #ihave http://bit.ly/4s62PB",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280066233"
+    },
+    "created_by": {
+      "provider_user_name": "LinkU2",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/355177424/logo_twitter_icon_normal.png",
+      "screen_name": "LinkU2",
+      "more_info_url": "http://www.twitter.com/LinkU2",
+      "match_tag": "twitter/LinkU2"
+    },
+    "offer_text": "Find Businesses near you on #LinkU2 by #keyword, #sector or #Location #ihave http://bit.ly/4s62PB",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280071805": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:30:21Z",
+    "tags": [
+      {
+        "tag": "steak_knife"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $50.05 - Wusthof Gourmet 4-Piece Steak Knife Set $49.95 http://dealnay.com/153095 #steak_knife #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280071805"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $50.05 - Wusthof Gourmet 4-Piece Steak Knife Set $49.95 http://dealnay.com/153095 #steak_knife #offer #ad",
+    "more_info_url": "http://dealnay.com/153095",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280184565": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:34:31Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "New Levis Capital E Womens Wide Leg Trouser Jeans 28  http://tinyurl.com/yh23yoc capital e womens levi s jeans #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280184565"
+    },
+    "created_by": {
+      "provider_user_name": "deals4fashnista",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/346614424/recessionista010_normal.jpg",
+      "screen_name": "deals4fashnista",
+      "more_info_url": "http://www.twitter.com/deals4fashnista",
+      "match_tag": "twitter/deals4fashnista"
+    },
+    "offer_text": "New Levis Capital E Womens Wide Leg Trouser Jeans 28  http://tinyurl.com/yh23yoc capital e womens levi s jeans #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yh23yoc",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280204408": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:35:14Z",
+    "tags": [
+      {
+        "tag": "hardware"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $9 - Highland 9420200 Bungee Assortment - 24 Piece $12.99 http://dealnay.com/109792 #hardware #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280204408"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $9 - Highland 9420200 Bungee Assortment - 24 Piece $12.99 http://dealnay.com/109792 #hardware #offer",
+    "more_info_url": "http://dealnay.com/109792",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280264484": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:37:30Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver white black flower lucite crystal finger ring 8 http://tinyurl.com/ydb3amx costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280264484"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver white black flower lucite crystal finger ring 8 http://tinyurl.com/ydb3amx costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ydb3amx",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280331111": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:40:00Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver black oval stone finger ring adj. http://tinyurl.com/yheln5b costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280331111"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver black oval stone finger ring adj. http://tinyurl.com/yheln5b costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yheln5b",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280409249": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:42:54Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver turquoise stone oval stone finger ring adj. http://tinyurl.com/yh7zcy4 costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280409249"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver turquoise stone oval stone finger ring adj. http://tinyurl.com/yh7zcy4 costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yh7zcy4",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280463088": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:44:55Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "christmas"
+      },
+      {
+        "tag": "dresses"
+      },
+      {
+        "tag": "fashion"
+      },
+      {
+        "tag": "church"
+      },
+      {
+        "tag": "usa"
+      }
+    ],
+    "raw_text": "#ihave http://bit.ly/7mkON9 #Christmas #Dresses #Fashion #Church #USA",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280463088"
+    },
+    "created_by": {
+      "provider_user_name": "ClassiLadiesLin",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/473966518/Donna_normal.jpg",
+      "screen_name": "ClassiLadiesLin",
+      "more_info_url": "http://www.twitter.com/ClassiLadiesLin",
+      "match_tag": "twitter/ClassiLadiesLin"
+    },
+    "offer_text": "#ihave http://bit.ly/7mkON9 #Christmas #Dresses #Fashion #Church #USA",
+    "more_info_url": "http://bit.ly/7mkON9",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280480102": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:45:32Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver brown cat eye stone round stone finger ring adj. http://tinyurl.com/ydnxaev costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280480102"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver brown cat eye stone round stone finger ring adj. http://tinyurl.com/ydnxaev costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ydnxaev",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280587880": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:49:32Z",
+    "tags": [
+      {
+        "tag": "edhardy"
+      },
+      {
+        "tag": "sunglasses"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Very cool!  RT @AdammasBooth  Ed Hardy Style Embossed Snake Sunglasses http://tinyurl.com/yeruauc #EdHardy #sunglasses #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280587880"
+    },
+    "created_by": {
+      "provider_user_name": "Beadlynn7",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/372311294/Puerto_Morelos-2009_134_normal.jpg",
+      "screen_name": "Beadlynn7",
+      "more_info_url": "http://www.twitter.com/Beadlynn7",
+      "match_tag": "twitter/Beadlynn7"
+    },
+    "offer_text": "Very cool!  RT @AdammasBooth  Ed Hardy Style Embossed Snake Sunglasses http://tinyurl.com/yeruauc #EdHardy #sunglasses #ihave",
+    "more_info_url": "http://tinyurl.com/yeruauc",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280609472": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:50:18Z",
+    "tags": [
+      {
+        "tag": "tie"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $34 - 100% Silk Woven Royal Purple Fleur de Lis Tie $15.99 http://dealnay.com/179632 #tie #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280609472"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $34 - 100% Silk Woven Royal Purple Fleur de Lis Tie $15.99 http://dealnay.com/179632 #tie #offer",
+    "more_info_url": "http://dealnay.com/179632",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280610503": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:50:20Z",
+    "tags": [
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $11.12 - LEGO Star Wars The Battle of Endor (8038) $88.87 http://dealnay.com/23227 #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280610503"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $11.12 - LEGO Star Wars The Battle of Endor (8038) $88.87 http://dealnay.com/23227 #offer #ad",
+    "more_info_url": "http://dealnay.com/23227",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280689125": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:53:22Z",
+    "tags": [
+      {
+        "tag": "hardware"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $9 - Highland 9420200 Bungee Assortment - 24 Piece $12.99 http://dealnay.com/109792 #hardware #offer http://bit.ly/5mZ1lH",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280689125"
+    },
+    "created_by": {
+      "provider_user_name": "Hardwarer",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/366033599/pinguin_normal.gif",
+      "screen_name": "Hardwarer",
+      "more_info_url": "http://www.twitter.com/Hardwarer",
+      "match_tag": "twitter/Hardwarer"
+    },
+    "offer_text": "SAVE $9 - Highland 9420200 Bungee Assortment - 24 Piece $12.99 http://dealnay.com/109792 #hardware #offer http://bit.ly/5mZ1lH",
+    "more_info_url": "http://dealnay.com/109792",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280750258": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T20:55:41Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver circle donut clear stone finger ring size 7 http://tinyurl.com/y8m2dxe costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280750258"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver circle donut clear stone finger ring size 7 http://tinyurl.com/y8m2dxe costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/y8m2dxe",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280885117": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:00:36Z",
+    "tags": [
+      {
+        "tag": "video_cable"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $6.45 - Flip Video USB Cables $18.54 http://dealnay.com/179650 #video_cable #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280885117"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $6.45 - Flip Video USB Cables $18.54 http://dealnay.com/179650 #video_cable #offer #ad",
+    "more_info_url": "http://dealnay.com/179650",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280913877": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:01:37Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "kindle"
+      },
+      {
+        "tag": "e"
+      },
+      {
+        "tag": "friendsell"
+      }
+    ],
+    "raw_text": "#ihave #forsale Amazon Kindle - First Generation http://bit.ly/6ZsQyF #kindle #e-reader on #friendsell",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280913877"
+    },
+    "created_by": {
+      "provider_user_name": "stuff_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/552557866/Logo_Reflection_normal.png",
+      "screen_name": "stuff_for_sale",
+      "more_info_url": "http://www.twitter.com/stuff_for_sale",
+      "match_tag": "twitter/stuff_for_sale"
+    },
+    "offer_text": "#ihave #forsale Amazon Kindle - First Generation http://bit.ly/6ZsQyF #kindle #e-reader on #friendsell",
+    "more_info_url": "http://bit.ly/6ZsQyF",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6280999211": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:04:44Z",
+    "tags": [
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "jobs"
+      }
+    ],
+    "raw_text": "Guaranteed Income, Free Groceries, Free Holidays and more #offer #jobs  http://bit.ly/5krEVo",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6280999211"
+    },
+    "created_by": {
+      "provider_user_name": "classifiedsbcn",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/431322367/sagrada20familia_normal.jpg",
+      "screen_name": "classifiedsbcn",
+      "more_info_url": "http://www.twitter.com/classifiedsbcn",
+      "match_tag": "twitter/classifiedsbcn"
+    },
+    "offer_text": "Guaranteed Income, Free Groceries, Free Holidays and more #offer #jobs  http://bit.ly/5krEVo",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281018564": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:05:26Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $63.08 - Keyless Entry Remote Fob Clicker for 2007 Mazda 3 With Do-It-Yourself Programming $29.92 http://dealnay.com/153212 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281018564"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $63.08 - Keyless Entry Remote Fob Clicker for 2007 Mazda 3 With Do-It-Yourself Programming $29.92 http://dealnay.com/153212 #offer",
+    "more_info_url": "http://dealnay.com/153212",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281108053": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:08:46Z",
+    "tags": [
+      {
+        "tag": "laptop"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.27 - Sony VAIO VGN-NW240F/B 15.5-Inch Black Laptop (Windows 7 Home Premium) $729.72 http://dealnay.com/172410 #laptop #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281108053"
+    },
+    "created_by": {
+      "provider_user_name": "compudah",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456468922/180px-Cowbell2_normal.jpg",
+      "screen_name": "compudah",
+      "more_info_url": "http://www.twitter.com/compudah",
+      "match_tag": "twitter/compudah"
+    },
+    "offer_text": "SAVE $0.27 - Sony VAIO VGN-NW240F/B 15.5-Inch Black Laptop (Windows 7 Home Premium) $729.72 http://dealnay.com/172410 #laptop #offer",
+    "more_info_url": "http://dealnay.com/172410",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281198361": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:12:03Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Silver black heart shape stone finger ring size 8 http://tinyurl.com/ydq8b8p costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281198361"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Silver black heart shape stone finger ring size 8 http://tinyurl.com/ydq8b8p costume ring #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281362484": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:18:09Z",
+    "tags": [
+      {
+        "tag": "remote"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.01 - Ten Technology naviPod 3G - remote control for your Apple iPod $39.99 http://dealnay.com/40792 #remote #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281362484"
+    },
+    "created_by": {
+      "provider_user_name": "3gsdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456463972/iphone3gs_normal.jpg",
+      "screen_name": "3gsdude",
+      "more_info_url": "http://www.twitter.com/3gsdude",
+      "match_tag": "twitter/3gsdude"
+    },
+    "offer_text": "SAVE $0.01 - Ten Technology naviPod 3G - remote control for your Apple iPod $39.99 http://dealnay.com/40792 #remote #offer",
+    "more_info_url": "http://dealnay.com/40792",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281365366": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:18:15Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's BAD Self Juniors Shirt http://tinyurl.com/ydtjm53 rare womenmichael #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281365366"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's BAD Self Juniors Shirt http://tinyurl.com/ydtjm53 rare womenmichael #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ydtjm53",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281414559": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:20:03Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Brickhouse Juniors Shirt http://tinyurl.com/yjyu3sa rare womenmichael #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281414559"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Brickhouse Juniors Shirt http://tinyurl.com/yjyu3sa rare womenmichael #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yjyu3sa",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281414634": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:20:04Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Brickhouse Juniors Shirt http://tinyurl.com/yjyu3sa rare womenmichael #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281414634"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Brickhouse Juniors Shirt http://tinyurl.com/yjyu3sa rare womenmichael #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yjyu3sa",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281420180": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:20:15Z",
+    "tags": [
+      {
+        "tag": "speaker_parts"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $7 - Vifa BC25TG19-04 1&quot; Textile Dome Tweeter 4 Ohm $15.00 http://dealnay.com/179657 #speaker_parts #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281420180"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $7 - Vifa BC25TG19-04 1&quot; Textile Dome Tweeter 4 Ohm $15.00 http://dealnay.com/179657 #speaker_parts #offer",
+    "more_info_url": "http://dealnay.com/179657",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281433777": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:20:45Z",
+    "tags": [
+      {
+        "tag": "ebay"
+      },
+      {
+        "tag": "auctions"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "The Classic Steam &amp; Dry Iron Black &amp; Decker F65D Metal #eBay #auctions #ihave http://bit.ly/6J4PTB",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281433777"
+    },
+    "created_by": {
+      "provider_user_name": "jcjaybee",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/229749592/P1010052a.jpg2_normal.jpg",
+      "screen_name": "jcjaybee",
+      "more_info_url": "http://www.twitter.com/jcjaybee",
+      "match_tag": "twitter/jcjaybee"
+    },
+    "offer_text": "The Classic Steam &amp; Dry Iron Black &amp; Decker F65D Metal #eBay #auctions #ihave http://bit.ly/6J4PTB",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281466606": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:21:57Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Huge oval animal print lucite ring size 9 http://tinyurl.com/yfoz4m8 costume ring #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281466606"
+    },
+    "created_by": {
+      "provider_user_name": "Estatecandy",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259704211/images/default_profile_5_normal.png",
+      "screen_name": "Estatecandy",
+      "more_info_url": "http://www.twitter.com/Estatecandy",
+      "match_tag": "twitter/Estatecandy"
+    },
+    "offer_text": "Huge oval animal print lucite ring size 9 http://tinyurl.com/yfoz4m8 costume ring #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yfoz4m8",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281555433": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:25:14Z",
+    "tags": [
+      {
+        "tag": "hardware"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $24 - Ophelia Polished Chrome and Porcelain Towel Ring $5.99 http://dealnay.com/152429 #hardware #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281555433"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $24 - Ophelia Polished Chrome and Porcelain Towel Ring $5.99 http://dealnay.com/152429 #hardware #offer",
+    "more_info_url": "http://dealnay.com/152429",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281577590": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:26:03Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Vera Bradley small duffel bag mod flo blue. Nwt. http://tinyurl.com/yher9f9 #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281577590"
+    },
+    "created_by": {
+      "provider_user_name": "sassynana1965",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259091217/images/default_profile_2_normal.png",
+      "screen_name": "sassynana1965",
+      "more_info_url": "http://www.twitter.com/sassynana1965",
+      "match_tag": "twitter/sassynana1965"
+    },
+    "offer_text": "Vera Bradley small duffel bag mod flo blue. Nwt. http://tinyurl.com/yher9f9 #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yher9f9",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281694635": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:30:21Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Crest Juniors Shirt http://tinyurl.com/yb5rsb9 rare womenmichael #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281694635"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Crest Juniors Shirt http://tinyurl.com/yb5rsb9 rare womenmichael #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yb5rsb9",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281711834": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:30:59Z",
+    "tags": [
+      {
+        "tag": "hardware"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $24 - Ophelia Polished Chrome and Porcelain Towel Ring $5.99 http://dealnay.com/152429 #hardware #offer http://bit.ly/4UqHvc",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281711834"
+    },
+    "created_by": {
+      "provider_user_name": "Hardwarer",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/366033599/pinguin_normal.gif",
+      "screen_name": "Hardwarer",
+      "more_info_url": "http://www.twitter.com/Hardwarer",
+      "match_tag": "twitter/Hardwarer"
+    },
+    "offer_text": "SAVE $24 - Ophelia Polished Chrome and Porcelain Towel Ring $5.99 http://dealnay.com/152429 #hardware #offer http://bit.ly/4UqHvc",
+    "more_info_url": "http://dealnay.com/152429",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281745286": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:32:12Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Dancer Juniors Shirt http://tinyurl.com/y8mnutb rare womenmichael #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281745286"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Dancer Juniors Shirt http://tinyurl.com/y8mnutb rare womenmichael #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/y8mnutb",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281763240": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:32:51Z",
+    "tags": [
+      {
+        "tag": "contest"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#CONTEST Win a flip cam on YALLWIRE! #ihave http://bit.ly/LGUM6",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281763240"
+    },
+    "created_by": {
+      "provider_user_name": "Yallwire",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/289112173/Yalllogo_normal.jpg",
+      "screen_name": "Yallwire",
+      "more_info_url": "http://www.twitter.com/Yallwire",
+      "match_tag": "twitter/Yallwire"
+    },
+    "offer_text": "#CONTEST Win a flip cam on YALLWIRE! #ihave http://bit.ly/LGUM6",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281810824": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:34:38Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Graffiti Juniors Shirt http://tinyurl.com/yekknug rare womenmichael #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281810824"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Graffiti Juniors Shirt http://tinyurl.com/yekknug rare womenmichael #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281861779": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:36:30Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's I Heart MJ Juniors Shirt http://tinyurl.com/yzfasjy rare womenmichael #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281861779"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's I Heart MJ Juniors Shirt http://tinyurl.com/yzfasjy rare womenmichael #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yzfasjy",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281945606": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:39:35Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Home for Sale at 1308 Linnview Crossing http://bit.ly/6IGMaI (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281945606"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Home for Sale at 1308 Linnview Crossing http://bit.ly/6IGMaI (via @realbird)",
+    "more_info_url": "http://bit.ly/6IGMaI",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281946028": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:39:36Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Charming Cedar Park Home http://bit.ly/7X1tjM (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281946028"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Charming Cedar Park Home http://bit.ly/7X1tjM (via @realbird)",
+    "more_info_url": "http://bit.ly/7X1tjM",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281946515": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:39:37Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave NATURE LOVERS' DELIGHT... http://bit.ly/6xaEk0 (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281946515"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave NATURE LOVERS' DELIGHT... http://bit.ly/6xaEk0 (via @realbird)",
+    "more_info_url": "http://bit.ly/6xaEk0",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281946961": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:39:38Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave 2205 Bob White, Quail Run, Florida Short Sale, Mary Esther Florida Short Sale http://bit.ly/5xxWT6 (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281946961"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave 2205 Bob White, Quail Run, Florida Short Sale, Mary Esther Florida Short Sale http://bit.ly/5xxWT6 (via @realbird)",
+    "more_info_url": "http://bit.ly/5xxWT6",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281947355": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:39:39Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Incredible price for a 2BR/2BA condo! http://bit.ly/87wl1Z (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281947355"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Incredible price for a 2BR/2BA condo! http://bit.ly/87wl1Z (via @realbird)",
+    "more_info_url": "http://bit.ly/87wl1Z",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6281957314": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:40:01Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Neon BEAT IT Juniors Shirt http://tinyurl.com/yjtj2f7 bad rare clothing shirt michael jackson #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6281957314"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Neon BEAT IT Juniors Shirt http://tinyurl.com/yjtj2f7 bad rare clothing shirt michael jackson #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yjtj2f7",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282004397": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:41:43Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Royalty Juniors Shirt http://tinyurl.com/ybnaj8k shirt womens ladies tee michael jackson bad #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282004397"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Royalty Juniors Shirt http://tinyurl.com/ybnaj8k shirt womens ladies tee michael jackson bad #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ybnaj8k",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282076295": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:44:21Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Michael Jackson Women's Royal Seal Juniors Shirt http://tinyurl.com/ylq3h3l shirt womensladies #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282076295"
+    },
+    "created_by": {
+      "provider_user_name": "storekingofpop",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/550301296/MJ_Logo_normal.jpg",
+      "screen_name": "storekingofpop",
+      "more_info_url": "http://www.twitter.com/storekingofpop",
+      "match_tag": "twitter/storekingofpop"
+    },
+    "offer_text": "Michael Jackson Women's Royal Seal Juniors Shirt http://tinyurl.com/ylq3h3l shirt womensladies #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ylq3h3l",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282280383": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:51:43Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Official Nintendo Gamecube Microphone Mario Party  http://tinyurl.com/yz7rqjq #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282280383"
+    },
+    "created_by": {
+      "provider_user_name": "JVRaschiTreasur",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/200225432/TwitterPic_normal.JPG",
+      "screen_name": "JVRaschiTreasur",
+      "more_info_url": "http://www.twitter.com/JVRaschiTreasur",
+      "match_tag": "twitter/JVRaschiTreasur"
+    },
+    "offer_text": "Official Nintendo Gamecube Microphone Mario Party  http://tinyurl.com/yz7rqjq #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yz7rqjq",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282378449": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:55:17Z",
+    "tags": [
+      {
+        "tag": "tie"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $3 - SILK Narrow NeckTie Skinny BLACK Thin Men's Neck Tie $9.95 http://dealnay.com/3214 #tie #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282378449"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $3 - SILK Narrow NeckTie Skinny BLACK Thin Men's Neck Tie $9.95 http://dealnay.com/3214 #tie #offer #ad",
+    "more_info_url": "http://dealnay.com/3214",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282490200": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:59:19Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "13086 Bonsai Fountain Accent Table~FREE SHIPPING  http://tinyurl.com/ylgkqlj accents fountains tables asian #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282490200"
+    },
+    "created_by": {
+      "provider_user_name": "glasslass_98",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/80200243/VicLady_normal.jpg",
+      "screen_name": "glasslass_98",
+      "more_info_url": "http://www.twitter.com/glasslass_98",
+      "match_tag": "twitter/glasslass_98"
+    },
+    "offer_text": "13086 Bonsai Fountain Accent Table~FREE SHIPPING  http://tinyurl.com/ylgkqlj accents fountains tables asian #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282492662": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T21:59:24Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "80gb iPod 5th Gen White w/ Case http://tinyurl.com/yaxac8j #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282492662"
+    },
+    "created_by": {
+      "provider_user_name": "JVRaschiTreasur",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/200225432/TwitterPic_normal.JPG",
+      "screen_name": "JVRaschiTreasur",
+      "more_info_url": "http://www.twitter.com/JVRaschiTreasur",
+      "match_tag": "twitter/JVRaschiTreasur"
+    },
+    "offer_text": "80gb iPod 5th Gen White w/ Case http://tinyurl.com/yaxac8j #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282522544": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:00:24Z",
+    "tags": [
+      {
+        "tag": "tire_cover"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $25.93 - Michigan Wolverines Mesh Steering Wheel Cover $12.06 http://dealnay.com/87459 #tire_cover #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282522544"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $25.93 - Michigan Wolverines Mesh Steering Wheel Cover $12.06 http://dealnay.com/87459 #tire_cover #offer",
+    "more_info_url": "http://dealnay.com/87459",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282888187": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:13:24Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "ArtZebo Brand Handmade Organic Candle 3.5oz Holy Nite http://tinyurl.com/y8up2vr #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282888187"
+    },
+    "created_by": {
+      "provider_user_name": "JVRaschiTreasur",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/200225432/TwitterPic_normal.JPG",
+      "screen_name": "JVRaschiTreasur",
+      "more_info_url": "http://www.twitter.com/JVRaschiTreasur",
+      "match_tag": "twitter/JVRaschiTreasur"
+    },
+    "offer_text": "ArtZebo Brand Handmade Organic Candle 3.5oz Holy Nite http://tinyurl.com/y8up2vr #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/y8up2vr",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282920991": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:14:35Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Open Ceremony Olympic Winter Games on 2/12/2010: 2010 Winter Games Opening Ceremony\n\n\nWatc... http://bit.ly/8YmPCE #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282920991"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Open Ceremony Olympic Winter Games on 2/12/2010: 2010 Winter Games Opening Ceremony\n\n\nWatc... http://bit.ly/8YmPCE #tickets",
+    "more_info_url": "http://bit.ly/8YmPCE",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282921375": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:14:36Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Row B for WWE in Monroe, LA on 12/6: Watch your favorite wrestlers in this great event. Ti... http://bit.ly/741rPa #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282921375"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Row B for WWE in Monroe, LA on 12/6: Watch your favorite wrestlers in this great event. Ti... http://bit.ly/741rPa #tickets",
+    "more_info_url": "http://bit.ly/741rPa",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 49.7500000,
+      "geo_long": 4.6094444,
+      "address": "Monroe, LA on 12/6: Watch your favorite wrestlers in this",
+      "tags": []
+    }
+  },
+  "twitter/6282921816": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:14:37Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Colorado Avalanche Tampa Bay Lightning Tickets December 11th: Cheap Colorado Avalanc... http://bit.ly/6mYk4x #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282921816"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Colorado Avalanche Tampa Bay Lightning Tickets December 11th: Cheap Colorado Avalanc... http://bit.ly/6mYk4x #tickets",
+    "more_info_url": "http://bit.ly/6mYk4x",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6282922436": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:14:38Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale 2nd row RingSide for WWE in Texarkana, AR on 12/4: Watch your favorite wrestlers in this g... http://bit.ly/53a3BO #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282922436"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale 2nd row RingSide for WWE in Texarkana, AR on 12/4: Watch your favorite wrestlers in this g... http://bit.ly/53a3BO #tickets",
+    "more_info_url": "http://bit.ly/53a3BO",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 49.7500000,
+      "geo_long": 4.6094444,
+      "address": "Texarkana, AR on 12/4: Watch your favorite wrestlers in this",
+      "tags": []
+    }
+  },
+  "twitter/6282941962": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:15:20Z",
+    "tags": [
+      {
+        "tag": "gourmet"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $7.37 - Garden of Life - Coconut Oil Extra Virgin / Organic, 16 oz solid $8.58 http://dealnay.com/153577 #gourmet #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6282941962"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $7.37 - Garden of Life - Coconut Oil Extra Virgin / Organic, 16 oz solid $8.58 http://dealnay.com/153577 #gourmet #offer",
+    "more_info_url": "http://dealnay.com/153577",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283030100": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:18:27Z",
+    "tags": [
+      {
+        "tag": "camera_len"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $70.05 - Nikon 50mm f/1.8D AF Nikkor Lens for Nikon Digital SLR Cameras $124.95 http://dealnay.com/6075 #camera_len #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283030100"
+    },
+    "created_by": {
+      "provider_user_name": "badtakes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/499681739/Camcorder_normal.jpg",
+      "screen_name": "badtakes",
+      "more_info_url": "http://www.twitter.com/badtakes",
+      "match_tag": "twitter/badtakes"
+    },
+    "offer_text": "SAVE $70.05 - Nikon 50mm f/1.8D AF Nikkor Lens for Nikon Digital SLR Cameras $124.95 http://dealnay.com/6075 #camera_len #offer",
+    "more_info_url": "http://dealnay.com/6075",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283082404": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:20:16Z",
+    "tags": [
+      {
+        "tag": "christmas"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "Save $9.01 - Tom Douglas by Pinzon Wenger 5-Inch Paring Utility Knife $10.99 http://dealnay.com/179708 #christmas #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283082404"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "Save $9.01 - Tom Douglas by Pinzon Wenger 5-Inch Paring Utility Knife $10.99 http://dealnay.com/179708 #christmas #offer #ad",
+    "more_info_url": "http://dealnay.com/179708",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283096676": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:20:46Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "ArtZebo Handmade Organic Candle Gift Bag Holy Nite http://tinyurl.com/ylqdry3 #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283096676"
+    },
+    "created_by": {
+      "provider_user_name": "JVRaschiTreasur",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/200225432/TwitterPic_normal.JPG",
+      "screen_name": "JVRaschiTreasur",
+      "more_info_url": "http://www.twitter.com/JVRaschiTreasur",
+      "match_tag": "twitter/JVRaschiTreasur"
+    },
+    "offer_text": "ArtZebo Handmade Organic Candle Gift Bag Holy Nite http://tinyurl.com/ylqdry3 #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ylqdry3",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283318367": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:28:38Z",
+    "tags": [
+      {
+        "tag": "battery"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $19.96 - Imax Power IMP500 3G 3Gs iPhone &amp; 2nd Generation iTouch External Backup Battery $59.99 http://dealnay.com/4500 #battery #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283318367"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "SAVE $19.96 - Imax Power IMP500 3G 3Gs iPhone &amp; 2nd Generation iTouch External Backup Battery $59.99 http://dealnay.com/4500 #battery #offer",
+    "more_info_url": "http://dealnay.com/4500",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283325313": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:28:53Z",
+    "tags": [
+      {
+        "tag": "onsale"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "vintage"
+      }
+    ],
+    "raw_text": "$195 OFF on RARE Reja SS Balinese King Pin http://bit.ly/3XKYdm Sale ends 12/13 #ONSALE #ihave #vintage jewelry",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283325313"
+    },
+    "created_by": {
+      "provider_user_name": "GoodGoodStuff",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/299838835/ls_8325_BAKEroseBROKEN1_normal.jpg",
+      "screen_name": "GoodGoodStuff",
+      "more_info_url": "http://www.twitter.com/GoodGoodStuff",
+      "match_tag": "twitter/GoodGoodStuff"
+    },
+    "offer_text": "$195 OFF on RARE Reja SS Balinese King Pin http://bit.ly/3XKYdm Sale ends 12/13 #ONSALE #ihave #vintage jewelry",
+    "more_info_url": "http://bit.ly/3XKYdm",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283367181": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:30:21Z",
+    "tags": [
+      {
+        "tag": "gourmet"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $1 - Hawaiian Black Lava Salt- Organic Sea Salt 6 Oz Jar $6.99 http://dealnay.com/153683 #gourmet #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283367181"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $1 - Hawaiian Black Lava Salt- Organic Sea Salt 6 Oz Jar $6.99 http://dealnay.com/153683 #gourmet #offer",
+    "more_info_url": "http://dealnay.com/153683",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283378650": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:30:44Z",
+    "tags": [
+      {
+        "tag": "onsale"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "vintage"
+      }
+    ],
+    "raw_text": "RT @GoodGoodStuff: $195 OFF on RARE Reja SS Balinese King Pin http://bit.ly/3XKYdm Sale ends 12/13 #ONSALE #ihave #vintage jewelry",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283378650"
+    },
+    "created_by": {
+      "provider_user_name": "GlassRiverJewel",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/503363566/IMGP2947-1_2__normal.JPG",
+      "screen_name": "GlassRiverJewel",
+      "more_info_url": "http://www.twitter.com/GlassRiverJewel",
+      "match_tag": "twitter/GlassRiverJewel"
+    },
+    "offer_text": "RT @GoodGoodStuff: $195 OFF on RARE Reja SS Balinese King Pin http://bit.ly/3XKYdm Sale ends 12/13 #ONSALE #ihave #vintage jewelry",
+    "more_info_url": "http://bit.ly/3XKYdm",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283397158": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:31:23Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "ArtZebo Brand Handmade Organic Jar Candle 9oz Holy Nite http://tinyurl.com/yc4577o #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283397158"
+    },
+    "created_by": {
+      "provider_user_name": "JVRaschiTreasur",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/200225432/TwitterPic_normal.JPG",
+      "screen_name": "JVRaschiTreasur",
+      "more_info_url": "http://www.twitter.com/JVRaschiTreasur",
+      "match_tag": "twitter/JVRaschiTreasur"
+    },
+    "offer_text": "ArtZebo Brand Handmade Organic Jar Candle 9oz Holy Nite http://tinyurl.com/yc4577o #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yc4577o",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283412788": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:31:55Z",
+    "tags": [
+      {
+        "tag": "vintage"
+      },
+      {
+        "tag": "bakelite"
+      },
+      {
+        "tag": "cheeptweet"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "atomicmall"
+      }
+    ],
+    "raw_text": "RT @GoodGoodStuff: #vintage #Bakelite dbl nine dominoes-orig box marked down $95! http://bit.ly/7Yh3Iy #cheeptweet #ihave #atomicmall",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283412788"
+    },
+    "created_by": {
+      "provider_user_name": "gypsytrading",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/342010798/659_thumb_normal.png",
+      "screen_name": "gypsytrading",
+      "more_info_url": "http://www.twitter.com/gypsytrading",
+      "match_tag": "twitter/gypsytrading"
+    },
+    "offer_text": "RT @GoodGoodStuff: #vintage #Bakelite dbl nine dominoes-orig box marked down $95! http://bit.ly/7Yh3Iy #cheeptweet #ihave #atomicmall",
+    "more_info_url": "http://bit.ly/7Yh3Iy",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283507834": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:35:16Z",
+    "tags": [
+      {
+        "tag": "floormat"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $10.05 - Montana Grizzlies universal fit Carpet 2 Pc Car Floor Mat (Rug) $39.95 http://dealnay.com/152585 #floormat #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283507834"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $10.05 - Montana Grizzlies universal fit Carpet 2 Pc Car Floor Mat (Rug) $39.95 http://dealnay.com/152585 #floormat #offer #ad",
+    "more_info_url": "http://dealnay.com/152585",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283586624": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:38:01Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "New Wide Leg Jeans J Brand Black 28 Womens Joplin Tall  http://tinyurl.com/yaefttq wide womens j brand jeans #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283586624"
+    },
+    "created_by": {
+      "provider_user_name": "deals4fashnista",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/346614424/recessionista010_normal.jpg",
+      "screen_name": "deals4fashnista",
+      "more_info_url": "http://www.twitter.com/deals4fashnista",
+      "match_tag": "twitter/deals4fashnista"
+    },
+    "offer_text": "New Wide Leg Jeans J Brand Black 28 Womens Joplin Tall  http://tinyurl.com/yaefttq wide womens j brand jeans #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yaefttq",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283630540": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:39:34Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "ArtZebo Brand Handmade Organic Jar Candle 6oz Aloha  http://tinyurl.com/ykd67nm #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283630540"
+    },
+    "created_by": {
+      "provider_user_name": "JVRaschiTreasur",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/200225432/TwitterPic_normal.JPG",
+      "screen_name": "JVRaschiTreasur",
+      "more_info_url": "http://www.twitter.com/JVRaschiTreasur",
+      "match_tag": "twitter/JVRaschiTreasur"
+    },
+    "offer_text": "ArtZebo Brand Handmade Organic Jar Candle 6oz Aloha  http://tinyurl.com/ykd67nm #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ykd67nm",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283631415": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:39:35Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "ArtZebo Brand Handmade Organic Jar Candle 6oz Aloha  http://tinyurl.com/ydhrkgu #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283631415"
+    },
+    "created_by": {
+      "provider_user_name": "JVRaschiTreasur",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/200225432/TwitterPic_normal.JPG",
+      "screen_name": "JVRaschiTreasur",
+      "more_info_url": "http://www.twitter.com/JVRaschiTreasur",
+      "match_tag": "twitter/JVRaschiTreasur"
+    },
+    "offer_text": "ArtZebo Brand Handmade Organic Jar Candle 6oz Aloha  http://tinyurl.com/ydhrkgu #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ydhrkgu",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283793148": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:45:17Z",
+    "tags": [
+      {
+        "tag": "car_accessories"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $24.45 - Wagan EL2402 SmartAC 200 W USB Power Inverter $35.50 http://dealnay.com/179723 #car_accessories #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283793148"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $24.45 - Wagan EL2402 SmartAC 200 W USB Power Inverter $35.50 http://dealnay.com/179723 #car_accessories #offer",
+    "more_info_url": "http://dealnay.com/179723",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283870863": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:48:02Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "bonanzle"
+      }
+    ],
+    "raw_text": "Sapphires &amp; diamonds &amp; gold. . . Oh my! Beautiful earrings for the holiday season. #ihave http://bit.ly/6WPPYo #Bonanzle",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283870863"
+    },
+    "created_by": {
+      "provider_user_name": "saleawayscabana",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/388099309/beach-chair-sailboat_normal.jpg",
+      "screen_name": "saleawayscabana",
+      "more_info_url": "http://www.twitter.com/saleawayscabana",
+      "match_tag": "twitter/saleawayscabana"
+    },
+    "offer_text": "Sapphires &amp; diamonds &amp; gold. . . Oh my! Beautiful earrings for the holiday season. #ihave http://bit.ly/6WPPYo #Bonanzle",
+    "more_info_url": "http://bit.ly/6WPPYo",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283887094": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:48:35Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Penguins BlackHawks Tickets December 5th 2009: Cheap Penguins Blackhawks tickets Dec... http://bit.ly/4Qi8vi #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283887094"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Penguins BlackHawks Tickets December 5th 2009: Cheap Penguins Blackhawks tickets Dec... http://bit.ly/4Qi8vi #tickets",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283897101": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:48:56Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "bonanzle"
+      }
+    ],
+    "raw_text": "RT @saleawayscabana: Sapphires &amp; diamonds &amp; gold.  . Oh my! Beautiful earrings for the holiday season. #ihave http://bit.ly/6WPPYo #Bonanzle",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283897101"
+    },
+    "created_by": {
+      "provider_user_name": "GlassRiverJewel",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/503363566/IMGP2947-1_2__normal.JPG",
+      "screen_name": "GlassRiverJewel",
+      "more_info_url": "http://www.twitter.com/GlassRiverJewel",
+      "match_tag": "twitter/GlassRiverJewel"
+    },
+    "offer_text": "RT @saleawayscabana: Sapphires &amp; diamonds &amp; gold.  . Oh my! Beautiful earrings for the holiday season. #ihave http://bit.ly/6WPPYo #Bonanzle",
+    "more_info_url": "http://bit.ly/6WPPYo",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6283933090": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:50:11Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "bonanzle"
+      }
+    ],
+    "raw_text": "Keep warm and cozy in this Ralph Lauren cotton lace pajama set! #ihave http://bit.ly/oag4v #Bonanzle",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283933090"
+    },
+    "created_by": {
+      "provider_user_name": "saleawayscabana",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/388099309/beach-chair-sailboat_normal.jpg",
+      "screen_name": "saleawayscabana",
+      "more_info_url": "http://www.twitter.com/saleawayscabana",
+      "match_tag": "twitter/saleawayscabana"
+    },
+    "offer_text": "Keep warm and cozy in this Ralph Lauren cotton lace pajama set! #ihave http://bit.ly/oag4v #Bonanzle",
+    "more_info_url": "http://bit.ly/oag4v",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 49.7500000,
+      "geo_long": 4.6094444,
+      "address": "this",
+      "tags": []
+    }
+  },
+  "twitter/6283934751": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:50:15Z",
+    "tags": [
+      {
+        "tag": "projector"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $193.01 - Torpedo Entertainment and Game Projector $105.99 http://dealnay.com/10920 #projector #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6283934751"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $193.01 - Torpedo Entertainment and Game Projector $105.99 http://dealnay.com/10920 #projector #offer",
+    "more_info_url": "http://dealnay.com/10920",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284076243": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T22:55:14Z",
+    "tags": [
+      {
+        "tag": "skirt"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $27.05 - Insight The Vendetta Skirt,Skirts for Women $24.95 http://dealnay.com/152649 #skirt #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284076243"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $27.05 - Insight The Vendetta Skirt,Skirts for Women $24.95 http://dealnay.com/152649 #skirt #offer",
+    "more_info_url": "http://dealnay.com/152649",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284219603": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:00:19Z",
+    "tags": [
+      {
+        "tag": "automotive"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $20 - 14 INCH UNIVERSAL WHEEL COVERS $29.99 http://dealnay.com/179716 #automotive #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284219603"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $20 - 14 INCH UNIVERSAL WHEEL COVERS $29.99 http://dealnay.com/179716 #automotive #offer",
+    "more_info_url": "http://dealnay.com/179716",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284363818": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:05:15Z",
+    "tags": [
+      {
+        "tag": "automotive"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $8 - Apollo Precision Tools DT1262 5-Piece Metric Ratcheting Wrench Set $19.95 http://dealnay.com/128393 #automotive #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284363818"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $8 - Apollo Precision Tools DT1262 5-Piece Metric Ratcheting Wrench Set $19.95 http://dealnay.com/128393 #automotive #offer",
+    "more_info_url": "http://dealnay.com/128393",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284463421": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:08:47Z",
+    "tags": [
+      {
+        "tag": "sage"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "ecrater"
+      }
+    ],
+    "raw_text": "Desert Sage and Sweetgrass Smudge Stick, 5 inches http://tinyurl.com/ycng4v5 #sage #ihave #ecrater",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284463421"
+    },
+    "created_by": {
+      "provider_user_name": "adammasnotions",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/375803318/Adammas_notions_center_web_normal.jpg",
+      "screen_name": "adammasnotions",
+      "more_info_url": "http://www.twitter.com/adammasnotions",
+      "match_tag": "twitter/adammasnotions"
+    },
+    "offer_text": "Desert Sage and Sweetgrass Smudge Stick, 5 inches http://tinyurl.com/ycng4v5 #sage #ihave #ecrater",
+    "more_info_url": "http://tinyurl.com/ycng4v5",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284506619": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:10:19Z",
+    "tags": [
+      {
+        "tag": "skating"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $41.16 - Rollerblade Set High Performance 90mm Wheel Kit with SG9 Bearings $58.83 http://dealnay.com/132115 #skating #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284506619"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $41.16 - Rollerblade Set High Performance 90mm Wheel Kit with SG9 Bearings $58.83 http://dealnay.com/132115 #skating #offer",
+    "more_info_url": "http://dealnay.com/132115",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284514384": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:10:35Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "55374"
+      },
+      {
+        "tag": "realestate"
+      },
+      {
+        "tag": "rent"
+      },
+      {
+        "tag": "rentshout"
+      }
+    ],
+    "raw_text": "#ihave Rogers MN condo for rent (1250) #55374 #realestate #rent #rentshout http://bit.ly/8A8C4r",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284514384"
+    },
+    "created_by": {
+      "provider_user_name": "rentshoutrents",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/247838872/avitar_logo_normal.jpg",
+      "screen_name": "rentshoutrents",
+      "more_info_url": "http://www.twitter.com/rentshoutrents",
+      "match_tag": "twitter/rentshoutrents"
+    },
+    "offer_text": "#ihave Rogers MN condo for rent (1250) #55374 #realestate #rent #rentshout http://bit.ly/8A8C4r",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284545163": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:11:40Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "NWT Tommy Hilfiger Heritage Jeans 30 32 X 34.5 $125 New http://tinyurl.com/yl9ah2w jeans womens tommy hilfiger boot #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284545163"
+    },
+    "created_by": {
+      "provider_user_name": "deals4fashnista",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/346614424/recessionista010_normal.jpg",
+      "screen_name": "deals4fashnista",
+      "more_info_url": "http://www.twitter.com/deals4fashnista",
+      "match_tag": "twitter/deals4fashnista"
+    },
+    "offer_text": "NWT Tommy Hilfiger Heritage Jeans 30 32 X 34.5 $125 New http://tinyurl.com/yl9ah2w jeans womens tommy hilfiger boot #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yl9ah2w",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284568574": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:12:29Z",
+    "tags": [
+      {
+        "tag": "sale"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#Sale Required earphone of samsung star 3g 5603: hi i lost my samsung star 3g 5603 earhones if anyone willin... http://bit.ly/6NcKNM #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284568574"
+    },
+    "created_by": {
+      "provider_user_name": "bangalore_ads",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/68348033/click-blr_normal.PNG",
+      "screen_name": "bangalore_ads",
+      "more_info_url": "http://www.twitter.com/bangalore_ads",
+      "match_tag": "twitter/bangalore_ads"
+    },
+    "offer_text": "#Sale Required earphone of samsung star 3g 5603: hi i lost my samsung star 3g 5603 earhones if anyone willin... http://bit.ly/6NcKNM #ihave",
+    "more_info_url": "http://bit.ly/6NcKNM",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284568963": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:12:30Z",
+    "tags": [
+      {
+        "tag": "sale"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#Sale I want to buy desktops/laptops-budget is max 5000: I want to buy the desktop/laptop with good working ... http://bit.ly/52WxCX #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284568963"
+    },
+    "created_by": {
+      "provider_user_name": "bangalore_ads",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/68348033/click-blr_normal.PNG",
+      "screen_name": "bangalore_ads",
+      "more_info_url": "http://www.twitter.com/bangalore_ads",
+      "match_tag": "twitter/bangalore_ads"
+    },
+    "offer_text": "#Sale I want to buy desktops/laptops-budget is max 5000: I want to buy the desktop/laptop with good working ... http://bit.ly/52WxCX #ihave",
+    "more_info_url": "http://bit.ly/52WxCX",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284569462": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:12:31Z",
+    "tags": [
+      {
+        "tag": "sale"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "karnataka"
+      }
+    ],
+    "raw_text": "#Sale Used HP Pavilion laptop for sale 9886797316: HP DV Pavilion 1000 Laptop for sale in Bangalore, Fully l... http://bit.ly/4zYVHC #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284569462"
+    },
+    "created_by": {
+      "provider_user_name": "bangalore_ads",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/68348033/click-blr_normal.PNG",
+      "screen_name": "bangalore_ads",
+      "more_info_url": "http://www.twitter.com/bangalore_ads",
+      "match_tag": "twitter/bangalore_ads"
+    },
+    "offer_text": "#Sale Used HP Pavilion laptop for sale 9886797316: HP DV Pavilion 1000 Laptop for sale in Bangalore, Fully l... http://bit.ly/4zYVHC #ihave",
+    "more_info_url": "http://bit.ly/4zYVHC",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 12.9771070,
+      "geo_long": 77.5749169,
+      "address": "Bangalore, Fu",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "karnataka"
+        }
+      ]
+    }
+  },
+  "twitter/6284569893": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:12:32Z",
+    "tags": [
+      {
+        "tag": "sale"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#Sale Data Communication Tester Integrates Multiple Interfaces for: Toronto, Canada - GAO Instruments (www.G... http://bit.ly/61zFAh #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284569893"
+    },
+    "created_by": {
+      "provider_user_name": "bangalore_ads",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/68348033/click-blr_normal.PNG",
+      "screen_name": "bangalore_ads",
+      "more_info_url": "http://www.twitter.com/bangalore_ads",
+      "match_tag": "twitter/bangalore_ads"
+    },
+    "offer_text": "#Sale Data Communication Tester Integrates Multiple Interfaces for: Toronto, Canada - GAO Instruments (www.G... http://bit.ly/61zFAh #ihave",
+    "more_info_url": "http://bit.ly/61zFAh",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284570399": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:12:33Z",
+    "tags": [
+      {
+        "tag": "sale"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#Sale Sofa set for sale: Very comfortable sofa set and 2 couches for sale. In very good condition and regula... http://bit.ly/7NksDT #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284570399"
+    },
+    "created_by": {
+      "provider_user_name": "bangalore_ads",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/68348033/click-blr_normal.PNG",
+      "screen_name": "bangalore_ads",
+      "more_info_url": "http://www.twitter.com/bangalore_ads",
+      "match_tag": "twitter/bangalore_ads"
+    },
+    "offer_text": "#Sale Sofa set for sale: Very comfortable sofa set and 2 couches for sale. In very good condition and regula... http://bit.ly/7NksDT #ihave",
+    "more_info_url": "http://bit.ly/7NksDT",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 49.2500000,
+      "geo_long": 5.0666667,
+      "address": "In very",
+      "tags": []
+    }
+  },
+  "twitter/6284570817": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:12:34Z",
+    "tags": [
+      {
+        "tag": "sale"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "deutschland"
+      },
+      {
+        "loc": "bayern"
+      },
+      {
+        "loc": "forstern"
+      }
+    ],
+    "raw_text": "#Sale Stationary Exercise Bicycle in brand new condition: Stationary Exercise Bicycle for sale. Hardly 1 mon... http://bit.ly/8rZCyi #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284570817"
+    },
+    "created_by": {
+      "provider_user_name": "bangalore_ads",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/68348033/click-blr_normal.PNG",
+      "screen_name": "bangalore_ads",
+      "more_info_url": "http://www.twitter.com/bangalore_ads",
+      "match_tag": "twitter/bangalore_ads"
+    },
+    "offer_text": "#Sale Stationary Exercise Bicycle in brand new condition: Stationary Exercise Bicycle for sale. Hardly 1 mon... http://bit.ly/8rZCyi #ihave",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 48.1765871,
+      "geo_long": 12.0061832,
+      "address": "brand new",
+      "tags": [
+        {
+          "loc": "deutschland"
+        },
+        {
+          "loc": "bayern"
+        },
+        {
+          "loc": "forstern"
+        }
+      ]
+    }
+  },
+  "twitter/6284646346": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:15:16Z",
+    "tags": [
+      {
+        "tag": "car_accessories"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $15 - Dallas Cowboys Car Seat Cover $20.99 http://dealnay.com/86501 #car_accessories #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284646346"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $15 - Dallas Cowboys Car Seat Cover $20.99 http://dealnay.com/86501 #car_accessories #offer #ad",
+    "more_info_url": "http://dealnay.com/86501",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284652662": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:15:29Z",
+    "tags": [
+      {
+        "tag": "turntable"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $30 - Sylvania SRCD873 Radio Turntable with USB (Silver) $69.99 http://dealnay.com/159800 #turntable #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284652662"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $30 - Sylvania SRCD873 Radio Turntable with USB (Silver) $69.99 http://dealnay.com/159800 #turntable #offer",
+    "more_info_url": "http://dealnay.com/159800",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284787964": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:20:15Z",
+    "tags": [
+      {
+        "tag": "monitor_cable"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $126.35 - Belkin 25ft VGA/SVGA Monitor Extension HDdb15M/HDdb15F W/Rgb &amp; Coax Tp $11.64 http://dealnay.com/17249 #monitor_cable #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284787964"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $126.35 - Belkin 25ft VGA/SVGA Monitor Extension HDdb15M/HDdb15F W/Rgb &amp; Coax Tp $11.64 http://dealnay.com/17249 #monitor_cable #offer",
+    "more_info_url": "http://dealnay.com/17249",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284816370": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:21:14Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Sharks Tickets Buy Cheap Sharks Tickets Flames: Cheap Sharks Tickets Calgary Flames ... http://bit.ly/8svbkJ #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284816370"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Sharks Tickets Buy Cheap Sharks Tickets Flames: Cheap Sharks Tickets Calgary Flames ... http://bit.ly/8svbkJ #tickets",
+    "more_info_url": "http://bit.ly/8svbkJ",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6284816995": {
+    "message_type": "offr",
+    "timestamp": "2009-12-02T23:21:15Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Bruins Flyers Tickets Cheap Bruins Tickets All Games: Cheap Bruins Flyers Tickets Bu... http://bit.ly/55aohe #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6284816995"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Bruins Flyers Tickets Cheap Bruins Tickets All Games: Cheap Bruins Flyers Tickets Bu... http://bit.ly/55aohe #tickets",
+    "more_info_url": "http://bit.ly/55aohe",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,

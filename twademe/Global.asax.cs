@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -19,20 +20,45 @@ namespace twademe
         public const string INITIAL_TAGS_FILE = "/data/initial_tags.json";
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
+        public static bool IsProductionDeployment
+        {
+            get { return bool.Parse(ConfigurationManager.AppSettings["IsProductionDeployment"]); }
+        }
+        public static bool HaltOnBackgroundExceptionsInDev
+        {
+            get { return bool.Parse(ConfigurationManager.AppSettings["HaltOnBackgroundExceptionsInDev"]); }
+        }
+
         protected void Application_Start(object sender, EventArgs e)
         {
-            IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
-            if (messageRepository is IPersistedRepository)
+            try
             {
-                ((IPersistedRepository)messageRepository).FilePath = Server.MapPath(INITIAL_OFFERS_FILE);
-                ((IPersistedRepository)messageRepository).InitializeFromFile();
+                IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
+                if (messageRepository is IPersistedRepository)
+                {
+                    ((IPersistedRepository) messageRepository).FilePath = Server.MapPath(INITIAL_OFFERS_FILE);
+                    ((IPersistedRepository) messageRepository).InitializeFromFile();
+                }
             }
-            ITagRepository tagRepository = Kernel.Get<ITagRepository>();
-            if (tagRepository is IPersistedRepository)
+            catch (Exception ex)
             {
-                ((IPersistedRepository)tagRepository).FilePath = Server.MapPath(INITIAL_TAGS_FILE);
-                ((IPersistedRepository)tagRepository).InitializeFromFile();
+                NotifyException(new ApplicationException("Failed during message initialization",ex));
             }
+
+            try
+            {
+                ITagRepository tagRepository = Kernel.Get<ITagRepository>();
+                if (tagRepository is IPersistedRepository)
+                {
+                    ((IPersistedRepository) tagRepository).FilePath = Server.MapPath(INITIAL_TAGS_FILE);
+                    ((IPersistedRepository) tagRepository).InitializeFromFile();
+                }
+            }
+            catch (Exception ex)
+            {
+                NotifyException(new ApplicationException("Failed during tag initialization", ex));
+            }
+
             PersistanceService.Start(this);
             RawMessagePollingService.Start(this);
         }
@@ -43,7 +69,7 @@ namespace twademe
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            if (LastException != null)
+            if (LastException != null && !IsProductionDeployment && HaltOnBackgroundExceptionsInDev)
             {
                 throw LastException;
             }
