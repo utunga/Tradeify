@@ -160,6 +160,7 @@
     </Content>
     <Content Include="data\initial_offers.json">
     </Content>
+    <Content Include="data\PostLog.txt" />
     <Content Include="post_offer.aspx" />
     <Content Include="tagcounts_json.aspx" />
     <Content Include="tags_json.aspx" />
