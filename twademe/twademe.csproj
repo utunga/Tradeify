@@ -72,6 +72,13 @@
     <Compile Include="controls\twitter_auth.ascx.designer.cs">
       <DependentUpon>twitter_auth.ascx</DependentUpon>
     </Compile>
+    <Compile Include="accept_post.aspx.cs">
+      <DependentUpon>accept_post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="accept_post.aspx.designer.cs">
+      <DependentUpon>accept_post.aspx</DependentUpon>
+    </Compile>
     <Compile Include="post_offer.aspx.cs">
       <DependentUpon>post_offer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="controls\twitter_auth.ascx" />
+    <Content Include="accept_post.aspx" />
     <Content Include="css\forms.css" />
     <Content Include="data\initial_tags.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
