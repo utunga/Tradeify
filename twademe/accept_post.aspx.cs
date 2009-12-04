@@ -30,6 +30,8 @@ namespace twademe
                     {
                         sb.Append("<tr><td><b>" + key + "</b></td><td>" + post.Data[key]+ "</td></tr>");
                     }
+                    sb.Append("<tr><td><b>username</b></td><td>" + post.Username + "</td></tr>");
+                    sb.Append("<tr><td><b>message</b></td><td>" + post.Raw + "</td></tr>");
                     sb.Append("</table>");
                 }
                 return sb.ToString();
@@ -39,8 +41,8 @@ namespace twademe
         //private static List<String> rawMessage = new List<String>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack)
-            {
+            //if (Page.IsPostBack)
+            //{
                 MessageWrapper wrapper = new MessageWrapper();
                 foreach (string key in Request.Form.AllKeys)
                 {
@@ -56,8 +58,10 @@ namespace twademe
                 }
                 string message = Request.Form["RawMessage"];
                 string userName = Request.Form["UserName"] ?? "unknown";
+                wrapper.Username = userName;
+            wrapper.Raw = message;
                 _posts.Add(wrapper);
-            }
+            //}
 
 
         }
@@ -66,7 +70,7 @@ namespace twademe
         {
             public NameValueCollection Data = new NameValueCollection();
             public string Raw { get; set; }
-            public string Message { get; set; }
+            public string Username { get; set; }
         }
     }
 }
