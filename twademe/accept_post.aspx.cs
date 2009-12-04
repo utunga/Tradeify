@@ -48,10 +48,10 @@ namespace twademe
                 {
                     wrapper.Data.Add("REQ:" + key, Request.Form[key]);
                 }
-                //foreach (string key in Request.Headers.AllKeys)
-                //{
-                //    wrapper.Data.Add("HDR:" + key, Request.Headers[key]);
-                //}
+                foreach (string key in Request.Headers.AllKeys)
+                {
+                    wrapper.Data.Add("HDR:" + key, Request.Headers[key]);
+                }
                 foreach (string key in Request.QueryString.AllKeys)
                 {
                     wrapper.Data.Add("QRY:" + key, Request.QueryString[key]);
