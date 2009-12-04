@@ -3,40 +3,70 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Offr.OAuth;
+using Offr.Text;
 
 namespace twademe
 {
     public partial class accept_post : System.Web.UI.Page
     {
-        private static List<MessageWrapper> posts = new List<MessageWrapper>();
+        private static readonly OpenSocialMessageProvider Provider = new OpenSocialMessageProvider();
+        private static List<MessageWrapper> _posts = new List<MessageWrapper>();
+
+        public string DebugData
+        {
+         
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (MessageWrapper post in _posts)
+                {
+                    sb.Append("<table><tr><td colspan=2><b>POST</b></td></tr>");
+                    foreach (string key in post.Data.AllKeys)
+                    {
+                        sb.Append("<tr><td><b>" + key + "</b></td><td>" + post.Data[key]+ "</td></tr>");
+                    }
+                    sb.Append("</table>");
+                }
+                return sb.ToString();
+            }
+        }
+
         //private static List<String> rawMessage = new List<String>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            MessageWrapper wrapper= new MessageWrapper();
-            NameValueCollection collection = Request.QueryString;
-            NameValueCollection form = Request.Form;
-            wrapper.raw = "";//= collection.ToString();
-            foreach (string key in form)
-                wrapper.raw += key + ",";
-            if (form["RawMessage"]!=null)
+            if (Page.IsPostBack)
             {
-                wrapper.message = form["RawMessage"].ToString();
-                
+                MessageWrapper wrapper = new MessageWrapper();
+                foreach (string key in Request.Form.AllKeys)
+                {
+                    wrapper.Data.Add("REQ:" + key, Request.Form[key]);
+                }
+                //foreach (string key in Request.Headers.AllKeys)
+                //{
+                //    wrapper.Data.Add("HDR:" + key, Request.Headers[key]);
+                //}
+                foreach (string key in Request.QueryString.AllKeys)
+                {
+                    wrapper.Data.Add("QRY:" + key, Request.QueryString[key]);
+                }
+                string message = Request.Form["RawMessage"];
+                string userName = Request.Form["UserName"] ?? "unknown";
+                _posts.Add(wrapper);
             }
-            posts.Add(wrapper);
-            foreach (MessageWrapper w in posts)
-            {
-                Response.Write(" | " + w.raw + " : " + w.message + " | ");
-            }
+
+
         }
+
         private class MessageWrapper
-    {
-            public string raw{ get; set;}
-            public string message { get; set; }
-    }
+        {
+            public NameValueCollection Data = new NameValueCollection();
+            public string Raw { get; set; }
+            public string Message { get; set; }
+        }
     }
 }

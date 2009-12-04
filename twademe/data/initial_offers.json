@@ -1,4 +1,24 @@
 {
+  "Open Social/100": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T16:14:35.957+13:00",
+    "tags": [],
+    "raw_text": "message",
+    "message_pointer": {
+      "provider_name_space": "Open Social",
+      "message_id": "100"
+    },
+    "created_by": {
+      "provider_user_name": "blah",
+      "provide_name_space": "Open Social"
+    },
+    "offer_text": "message",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
   "twitter/1": {
     "message_type": "offr",
     "timestamp": "2009-06-23T12:00:00Z",
@@ -17226,6 +17246,3270 @@
     },
     "offer_text": "Delstar DS 700 Netbbok Factory Sealed Brand New http://tinyurl.com/yalyy5l cheap netbook discounted netbook netbook delstar #ihave #forsale",
     "more_info_url": "http://tinyurl.com/yalyy5l",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6324673489": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T02:52:20Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Black Eyed Peas Tickets 2/12 Nashville: Cheap Black Eyed Peas Tickets\nfor Friday, Fe... http://bit.ly/5sOnqS #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6324673489"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Black Eyed Peas Tickets 2/12 Nashville: Cheap Black Eyed Peas Tickets\nfor Friday, Fe... http://bit.ly/5sOnqS #tickets",
+    "more_info_url": "http://bit.ly/5sOnqS",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6324673959": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T02:52:21Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Bon Jovi Tickets 7/30 Chicago: Cheap Bon Jovi Tickets\nSoldier Field, Chicago, Illino... http://bit.ly/62rmOu #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6324673959"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Bon Jovi Tickets 7/30 Chicago: Cheap Bon Jovi Tickets\nSoldier Field, Chicago, Illino... http://bit.ly/62rmOu #tickets",
+    "more_info_url": "http://bit.ly/62rmOu",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6324674459": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T02:52:22Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Bon Jovi Tickets 3/26/2010 Mohegan Sun: Bon Jovi Tickets\n- Friday, March 26, 2010 at 7:30 ... http://bit.ly/7CMfft #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6324674459"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Bon Jovi Tickets 3/26/2010 Mohegan Sun: Bon Jovi Tickets\n- Friday, March 26, 2010 at 7:30 ... http://bit.ly/7CMfft #tickets",
+    "more_info_url": "http://bit.ly/7CMfft",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6324674822": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T02:52:23Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Alice in Chain Tickets 3/14 Orpheum Theater: Alice in Chains Tickets\nOrpheum Theatre , Bos... http://bit.ly/8iSdEX #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6324674822"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Alice in Chain Tickets 3/14 Orpheum Theater: Alice in Chains Tickets\nOrpheum Theatre , Bos... http://bit.ly/8iSdEX #tickets",
+    "more_info_url": "http://bit.ly/8iSdEX",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6324675180": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T02:52:23Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Floor Alice in Chains Tickets 3/8 Terminal 5: Alice in Chains Tickets - AIC\nTerminal 5 , N... http://bit.ly/5iQIRZ #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6324675180"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Floor Alice in Chains Tickets 3/8 Terminal 5: Alice in Chains Tickets - AIC\nTerminal 5 , N... http://bit.ly/5iQIRZ #tickets",
+    "more_info_url": "http://bit.ly/5iQIRZ",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6324800928": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T02:57:10Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "BRAND NEW P90X EXTREME TRAINING 13 DVD SET WITH GUIDES http://tinyurl.com/y8jzzp9 p90z #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6324800928"
+    },
+    "created_by": {
+      "provider_user_name": "patt515",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/312735738/iloveiht_normal.jpg",
+      "screen_name": "patt515",
+      "more_info_url": "http://www.twitter.com/patt515",
+      "match_tag": "twitter/patt515"
+    },
+    "offer_text": "BRAND NEW P90X EXTREME TRAINING 13 DVD SET WITH GUIDES http://tinyurl.com/y8jzzp9 p90z #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/y8jzzp9",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6324881493": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:00:18Z",
+    "tags": [
+      {
+        "tag": "automotive"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $20 - AUDI A6 A4 TT A8 A2 A3 RS4 RS6 WHEEL CENTER CAP HUBCAP 4B0601170 $29.99 http://dealnay.com/181395 #automotive #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6324881493"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $20 - AUDI A6 A4 TT A8 A2 A3 RS4 RS6 WHEEL CENTER CAP HUBCAP 4B0601170 $29.99 http://dealnay.com/181395 #automotive #offer",
+    "more_info_url": "http://dealnay.com/181395",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325087012": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:08:06Z",
+    "tags": [
+      {
+        "tag": "pregnancytest"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $1.63 - 5 Pregnancy Test Strips $3.36 http://dealnay.com/166229 #pregnancytest #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325087012"
+    },
+    "created_by": {
+      "provider_user_name": "safeloving",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456701945/2-hot-girls-in-Latex_normal.jpg",
+      "screen_name": "safeloving",
+      "more_info_url": "http://www.twitter.com/safeloving",
+      "match_tag": "twitter/safeloving"
+    },
+    "offer_text": "SAVE $1.63 - 5 Pregnancy Test Strips $3.36 http://dealnay.com/166229 #pregnancytest #offer",
+    "more_info_url": "http://dealnay.com/166229",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325088681": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:08:10Z",
+    "tags": [
+      {
+        "tag": "cellphone_with_service"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $399.98 - LG enV2 VX9100 Phone, Black (Verizon Wireless) $0.01 http://dealnay.com/27600 #cellphone_with_service #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325088681"
+    },
+    "created_by": {
+      "provider_user_name": "cellphonecrap",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
+      "screen_name": "cellphonecrap",
+      "more_info_url": "http://www.twitter.com/cellphonecrap",
+      "match_tag": "twitter/cellphonecrap"
+    },
+    "offer_text": "SAVE $399.98 - LG enV2 VX9100 Phone, Black (Verizon Wireless) $0.01 http://dealnay.com/27600 #cellphone_with_service #offer",
+    "more_info_url": "http://dealnay.com/27600",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325098690": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:08:33Z",
+    "tags": [
+      {
+        "tag": "jewelry"
+      },
+      {
+        "tag": "cuff"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $2.98 - Pentagram Star Flames Silver Tone Pewter Cuff Bracelet $16.97 http://dealnay.com/70576 #jewelry #cuff #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325098690"
+    },
+    "created_by": {
+      "provider_user_name": "tinystone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/377057988/rose_normal.jpg",
+      "screen_name": "tinystone",
+      "more_info_url": "http://www.twitter.com/tinystone",
+      "match_tag": "twitter/tinystone"
+    },
+    "offer_text": "SAVE $2.98 - Pentagram Star Flames Silver Tone Pewter Cuff Bracelet $16.97 http://dealnay.com/70576 #jewelry #cuff #offer #ad",
+    "more_info_url": "http://dealnay.com/70576",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325145248": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:10:18Z",
+    "tags": [
+      {
+        "tag": "beans"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.01 - Heinz Beans in Tomato Sauce, 13.7-Ounce Cans (Pack of 12) $21.07 http://dealnay.com/155818 #beans #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325145248"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $0.01 - Heinz Beans in Tomato Sauce, 13.7-Ounce Cans (Pack of 12) $21.07 http://dealnay.com/155818 #beans #offer",
+    "more_info_url": "http://dealnay.com/155818",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325273698": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:15:17Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.04 - Fathead Philadelphia Phillies Logo Wall Decal $89.95 http://dealnay.com/110588 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325273698"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $0.04 - Fathead Philadelphia Phillies Logo Wall Decal $89.95 http://dealnay.com/110588 #offer",
+    "more_info_url": "http://dealnay.com/110588",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325531744": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:25:13Z",
+    "tags": [
+      {
+        "tag": "printer"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $77.72 - HP P1005 Laserjet Printer $89.28 http://dealnay.com/19896 #printer #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325531744"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $77.72 - HP P1005 Laserjet Printer $89.28 http://dealnay.com/19896 #printer #offer",
+    "more_info_url": "http://dealnay.com/19896",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325584222": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:27:14Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Tim McGraw Tickets 2/27 Grand Rapids: Tim Mcgraw\n- Saturday, February 27, 2010 at 7:... http://bit.ly/7Bi3CO #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325584222"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Tim McGraw Tickets 2/27 Grand Rapids: Tim Mcgraw\n- Saturday, February 27, 2010 at 7:... http://bit.ly/7Bi3CO #tickets",
+    "more_info_url": "http://bit.ly/7Bi3CO",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325584743": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:27:16Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Tim McGraw - Lady Antebellum Tickets 2/26 Lexington: Cheap Tim McGraw &amp; Lady Antebellum Ti... http://bit.ly/8QCBtL #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325584743"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Tim McGraw - Lady Antebellum Tickets 2/26 Lexington: Cheap Tim McGraw &amp; Lady Antebellum Ti... http://bit.ly/8QCBtL #tickets",
+    "more_info_url": "http://bit.ly/8QCBtL",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325585133": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:27:17Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Taylor Swift Tickets 4/1 Wichita: Cheap Taylor Swift Tickets\n- Thursday, April 01, 2... http://bit.ly/6S41ot #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325585133"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Taylor Swift Tickets 4/1 Wichita: Cheap Taylor Swift Tickets\n- Thursday, April 01, 2... http://bit.ly/6S41ot #tickets",
+    "more_info_url": "http://bit.ly/6S41ot",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325585496": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:27:17Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Taylor Swift Tickets 4/30 Columbia: Cheap Taylor Swift Tickets\n- Friday, April 30, 2010 at... http://bit.ly/6tznyq #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325585496"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Taylor Swift Tickets 4/30 Columbia: Cheap Taylor Swift Tickets\n- Friday, April 30, 2010 at... http://bit.ly/6tznyq #tickets",
+    "more_info_url": "http://bit.ly/6tznyq",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325665115": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:30:18Z",
+    "tags": [
+      {
+        "tag": "sauce"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $1 - The Pepper Plant Habanero Extra Hot California Style Hot Pepper Sauce 10 Oz. $5.99 http://dealnay.com/155654 #sauce #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325665115"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $1 - The Pepper Plant Habanero Extra Hot California Style Hot Pepper Sauce 10 Oz. $5.99 http://dealnay.com/155654 #sauce #offer",
+    "more_info_url": "http://dealnay.com/155654",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325665552": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:30:19Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.04 - Pittsburgh Steelers Jenga $19.95 http://dealnay.com/93658 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325665552"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $0.04 - Pittsburgh Steelers Jenga $19.95 http://dealnay.com/93658 #offer",
+    "more_info_url": "http://dealnay.com/93658",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325795792": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:35:14Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Store Negotiation http://tinyurl.com/yg267gz #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325795792"
+    },
+    "created_by": {
+      "provider_user_name": "AAACLASSICSPORT",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/321992750/sports_logos_normal.gif",
+      "screen_name": "AAACLASSICSPORT",
+      "more_info_url": "http://www.twitter.com/AAACLASSICSPORT",
+      "match_tag": "twitter/AAACLASSICSPORT"
+    },
+    "offer_text": "Store Negotiation http://tinyurl.com/yg267gz #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yg267gz",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325796247": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:35:16Z",
+    "tags": [
+      {
+        "tag": "lighter"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $12.24 - Zippo Lighter NFL DENVER Broncos, Brushed Chrome $17.71 http://dealnay.com/95150 #lighter #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325796247"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $12.24 - Zippo Lighter NFL DENVER Broncos, Brushed Chrome $17.71 http://dealnay.com/95150 #lighter #offer",
+    "more_info_url": "http://dealnay.com/95150",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325827029": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:36:26Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Belair MD Single Family Home Built in 2007 http://bit.ly/8ia9oy (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325827029"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Belair MD Single Family Home Built in 2007 http://bit.ly/8ia9oy (via @realbird)",
+    "more_info_url": "http://bit.ly/8ia9oy",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325827434": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:36:27Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Lovely meadowed land with foothills views. Nearly 1.5 acres. http://bit.ly/5UaD3r (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325827434"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Lovely meadowed land with foothills views. Nearly 1.5 acres. http://bit.ly/5UaD3r (via @realbird)",
+    "more_info_url": "http://bit.ly/5UaD3r",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325827827": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:36:28Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Great value in Water Tower, awesome location http://bit.ly/7lwmyo (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325827827"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Great value in Water Tower, awesome location http://bit.ly/7lwmyo (via @realbird)",
+    "more_info_url": "http://bit.ly/7lwmyo",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6325828191": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:36:28Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "usa"
+      },
+      {
+        "loc": "va"
+      },
+      {
+        "loc": "floyd"
+      }
+    ],
+    "raw_text": "#ihave Lots and Lands for $600,000 in Floyd, VA http://bit.ly/5UyHIn (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325828191"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Lots and Lands for $600,000 in Floyd, VA http://bit.ly/5UyHIn (via @realbird)",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 36.9112443,
+      "geo_long": -80.3200502,
+      "address": "Floyd, VA http://bit.ly/5UyHIn (via @realbird)",
+      "tags": [
+        {
+          "loc": "usa"
+        },
+        {
+          "loc": "va"
+        },
+        {
+          "loc": "floyd"
+        }
+      ]
+    }
+  },
+  "twitter/6325849402": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:37:19Z",
+    "tags": [
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "shared"
+      },
+      {
+        "loc": "españa"
+      },
+      {
+        "loc": "ct"
+      },
+      {
+        "loc": "barcelona"
+      }
+    ],
+    "raw_text": "Double Room for rent in Barcelona #offer #shared-apartments-rooms  http://bit.ly/4HuoX1",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325849402"
+    },
+    "created_by": {
+      "provider_user_name": "classifiedsbcn",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/431322367/sagrada20familia_normal.jpg",
+      "screen_name": "classifiedsbcn",
+      "more_info_url": "http://www.twitter.com/classifiedsbcn",
+      "match_tag": "twitter/classifiedsbcn"
+    },
+    "offer_text": "Double Room for rent in Barcelona #offer #shared-apartments-rooms  http://bit.ly/4HuoX1",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 41.3879170,
+      "geo_long": 2.1699187,
+      "address": "Barcelona",
+      "tags": [
+        {
+          "loc": "españa"
+        },
+        {
+          "loc": "ct"
+        },
+        {
+          "loc": "barcelona"
+        }
+      ]
+    }
+  },
+  "twitter/6325872643": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:38:13Z",
+    "tags": [
+      {
+        "tag": "video_card"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $9 - EVGA GeForce GT 220 1024 MB DDR3 PCI-Express Graphics Card 01G-P3-1226-LR $75.99 http://dealnay.com/181447 #video_card #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6325872643"
+    },
+    "created_by": {
+      "provider_user_name": "bestgamedeals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
+      "screen_name": "bestgamedeals",
+      "more_info_url": "http://www.twitter.com/bestgamedeals",
+      "match_tag": "twitter/bestgamedeals"
+    },
+    "offer_text": "SAVE $9 - EVGA GeForce GT 220 1024 MB DDR3 PCI-Express Graphics Card 01G-P3-1226-LR $75.99 http://dealnay.com/181447 #video_card #offer",
+    "more_info_url": "http://dealnay.com/181447",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326056518": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:45:19Z",
+    "tags": [
+      {
+        "tag": "birdbath"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $15.37 - Esschert Design Shell-Shape Birdbath $9.62 http://dealnay.com/156393 #birdbath #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326056518"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $15.37 - Esschert Design Shell-Shape Birdbath $9.62 http://dealnay.com/156393 #birdbath #offer",
+    "more_info_url": "http://dealnay.com/156393",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326149580": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T03:48:48Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "89178"
+      },
+      {
+        "tag": "realestate"
+      },
+      {
+        "tag": "rent"
+      },
+      {
+        "tag": "rentshout"
+      }
+    ],
+    "raw_text": "#ihave Las Vegas NV townhouse for rent (900.00) #89178 #realestate #rent #rentshout http://bit.ly/5958DH",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326149580"
+    },
+    "created_by": {
+      "provider_user_name": "rentshoutrents",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/247838872/avitar_logo_normal.jpg",
+      "screen_name": "rentshoutrents",
+      "more_info_url": "http://www.twitter.com/rentshoutrents",
+      "match_tag": "twitter/rentshoutrents"
+    },
+    "offer_text": "#ihave Las Vegas NV townhouse for rent (900.00) #89178 #realestate #rent #rentshout http://bit.ly/5958DH",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326453434": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:00:37Z",
+    "tags": [
+      {
+        "tag": "tv_mount"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $104.6 - ERGOTRON : LX DUAL SIDE-BY-SIDE ARM (SILVER) $348.66 http://dealnay.com/168247 #tv_mount #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326453434"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $104.6 - ERGOTRON : LX DUAL SIDE-BY-SIDE ARM (SILVER) $348.66 http://dealnay.com/168247 #tv_mount #offer #ad",
+    "more_info_url": "http://dealnay.com/168247",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326458163": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:00:47Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale BIG 12 CHAMPIONSHIP TICKETS - Texas vs. Nebraska - ONLY $30!!: We have THE CHEAPEST ticket... http://bit.ly/8Xe7b3 #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326458163"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale BIG 12 CHAMPIONSHIP TICKETS - Texas vs. Nebraska - ONLY $30!!: We have THE CHEAPEST ticket... http://bit.ly/8Xe7b3 #tickets",
+    "more_info_url": "http://bit.ly/8Xe7b3",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326458640": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:00:48Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "107"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale UFC #107 - Sanchez vs. Penn 12/12/09: The UFC is coming to the Midwest!  Don't miss it!  M... http://bit.ly/8D2hfD #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326458640"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale UFC #107 - Sanchez vs. Penn 12/12/09: The UFC is coming to the Midwest!  Don't miss it!  M... http://bit.ly/8D2hfD #tickets",
+    "more_info_url": "http://bit.ly/8D2hfD",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326459045": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:00:49Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Last Minute SEC Football Championship Tickets: Cheap Last Minute SEC Football Champi... http://bit.ly/86nlr0 #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326459045"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Last Minute SEC Football Championship Tickets: Cheap Last Minute SEC Football Champi... http://bit.ly/86nlr0 #tickets",
+    "more_info_url": "http://bit.ly/86nlr0",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326459401": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:00:50Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Andre Rieu Tickets 6/19 Atlantic City: We have a block of 16 tickets available to th... http://bit.ly/6Zd5Uy #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326459401"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Andre Rieu Tickets 6/19 Atlantic City: We have a block of 16 tickets available to th... http://bit.ly/6Zd5Uy #tickets",
+    "more_info_url": "http://bit.ly/6Zd5Uy",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326900937": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:18:13Z",
+    "tags": [
+      {
+        "tag": "book"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $13.98 - Working for You Isn't Working for Me: The Ultimate Guide to Managing Your Boss $11.97 http://dealnay.com/181416 #book #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326900937"
+    },
+    "created_by": {
+      "provider_user_name": "l2rdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/366067336/abc1_normal.jpg",
+      "screen_name": "l2rdude",
+      "more_info_url": "http://www.twitter.com/l2rdude",
+      "match_tag": "twitter/l2rdude"
+    },
+    "offer_text": "SAVE $13.98 - Working for You Isn't Working for Me: The Ultimate Guide to Managing Your Boss $11.97 http://dealnay.com/181416 #book #offer",
+    "more_info_url": "http://dealnay.com/181416",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6326951588": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:20:15Z",
+    "tags": [
+      {
+        "tag": "underwear"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $2 - Phoenix Suns Division Boxers $13.99 http://dealnay.com/155115 #underwear #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6326951588"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $2 - Phoenix Suns Division Boxers $13.99 http://dealnay.com/155115 #underwear #offer",
+    "more_info_url": "http://dealnay.com/155115",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327048927": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:24:10Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "new d&amp;g ladies watch ,guess dkny coach(dg02) http://tinyurl.com/ybnub4z diesel dkny watch armani watch guess watch #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327048927"
+    },
+    "created_by": {
+      "provider_user_name": "bestshop9999",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259882278/images/default_profile_2_normal.png",
+      "screen_name": "bestshop9999",
+      "more_info_url": "http://www.twitter.com/bestshop9999",
+      "match_tag": "twitter/bestshop9999"
+    },
+    "offer_text": "new d&amp;g ladies watch ,guess dkny coach(dg02) http://tinyurl.com/ybnub4z diesel dkny watch armani watch guess watch #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ybnub4z",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327130500": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:27:31Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "7''Car DVDSYSTEM HL-8885GB FOR OPEL ASTRA/VECTRA  http://tinyurl.com/ybkrtkm car dvd #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327130500"
+    },
+    "created_by": {
+      "provider_user_name": "ibou111",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259867295/images/default_profile_6_normal.png",
+      "screen_name": "ibou111",
+      "more_info_url": "http://www.twitter.com/ibou111",
+      "match_tag": "twitter/ibou111"
+    },
+    "offer_text": "7''Car DVDSYSTEM HL-8885GB FOR OPEL ASTRA/VECTRA  http://tinyurl.com/ybkrtkm car dvd #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ybkrtkm",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327202712": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:30:30Z",
+    "tags": [
+      {
+        "tag": "speaker"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $90 - NuForce S-1 Speaker (1 pair, silver/silver) for Icon Systems $159.00 http://dealnay.com/96377 #speaker #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327202712"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $90 - NuForce S-1 Speaker (1 pair, silver/silver) for Icon Systems $159.00 http://dealnay.com/96377 #speaker #offer",
+    "more_info_url": "http://dealnay.com/96377",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327237501": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:31:56Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "new d&amp;g ladies watch ,guess dkny coach(dg02) http://tinyurl.com/y9dvh7k coach diesel armani louis vuitton #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327237501"
+    },
+    "created_by": {
+      "provider_user_name": "bestshop9999",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259882278/images/default_profile_2_normal.png",
+      "screen_name": "bestshop9999",
+      "more_info_url": "http://www.twitter.com/bestshop9999",
+      "match_tag": "twitter/bestshop9999"
+    },
+    "offer_text": "new d&amp;g ladies watch ,guess dkny coach(dg02) http://tinyurl.com/y9dvh7k coach diesel armani louis vuitton #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/y9dvh7k",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327299459": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:34:28Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap SEC Championship Tickets (Bama Side): The SEC Championship Game will be at the Georg... http://bit.ly/7oQ8Wo #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327299459"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap SEC Championship Tickets (Bama Side): The SEC Championship Game will be at the Georg... http://bit.ly/7oQ8Wo #tickets",
+    "more_info_url": "http://bit.ly/7oQ8Wo",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327393429": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:38:28Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Portable Stereo Speaker,SD/MMC Card,MP3/MP4/iPod/USB http://tinyurl.com/ybff32j speaker mp3 ipod sd card #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327393429"
+    },
+    "created_by": {
+      "provider_user_name": "pclady74",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/180794336/SoftwareDevelopment_normal.jpg",
+      "screen_name": "pclady74",
+      "more_info_url": "http://www.twitter.com/pclady74",
+      "match_tag": "twitter/pclady74"
+    },
+    "offer_text": "Portable Stereo Speaker,SD/MMC Card,MP3/MP4/iPod/USB http://tinyurl.com/ybff32j speaker mp3 ipod sd card #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327395379": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:38:33Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $11.99 - Silver Tone Blue Flower Ornament European Charm Beads Bracelet - Pandora Bead &amp; Fit $11.99 http://dealnay.com/181112 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327395379"
+    },
+    "created_by": {
+      "provider_user_name": "tinystone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/377057988/rose_normal.jpg",
+      "screen_name": "tinystone",
+      "more_info_url": "http://www.twitter.com/tinystone",
+      "match_tag": "twitter/tinystone"
+    },
+    "offer_text": "SAVE $11.99 - Silver Tone Blue Flower Ornament European Charm Beads Bracelet - Pandora Bead &amp; Fit $11.99 http://dealnay.com/181112 #offer",
+    "more_info_url": "http://dealnay.com/181112",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327395715": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:38:34Z",
+    "tags": [
+      {
+        "tag": "tv"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $190.99 - Sony Bravia S-Series KDL-32S5100 32-Inch 1080p LCD HDTV, Black $509.00 http://dealnay.com/27246 #tv #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327395715"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $190.99 - Sony Bravia S-Series KDL-32S5100 32-Inch 1080p LCD HDTV, Black $509.00 http://dealnay.com/27246 #tv #offer",
+    "more_info_url": "http://dealnay.com/27246",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327434231": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:40:16Z",
+    "tags": [
+      {
+        "tag": "topping"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $1.6 - Betty Crocker Baco's Bacon Flavor Bits, 4.4-Ounce Jars (Pack of 12) $18.44 http://dealnay.com/155618 #topping #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327434231"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $1.6 - Betty Crocker Baco's Bacon Flavor Bits, 4.4-Ounce Jars (Pack of 12) $18.44 http://dealnay.com/155618 #topping #offer",
+    "more_info_url": "http://dealnay.com/155618",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327440787": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:40:33Z",
+    "tags": [
+      {
+        "tag": "top"
+      },
+      {
+        "tag": "tattoo"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "1"
+      },
+      {
+        "tag": "gallery"
+      },
+      {
+        "tag": "music"
+      },
+      {
+        "tag": "downloads"
+      }
+    ],
+    "raw_text": "Chopper Tattoo, #Top #Tattoo #Offer ! The #1 Tattoo #Gallery On The Web, Free #Music #Downloads With Membership. http://bit.ly/CrazyTattoo",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327440787"
+    },
+    "created_by": {
+      "provider_user_name": "revesbyseller",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/246350150/revesbyseller-twitter_normal.jpg",
+      "screen_name": "revesbyseller",
+      "more_info_url": "http://www.twitter.com/revesbyseller",
+      "match_tag": "twitter/revesbyseller"
+    },
+    "offer_text": "Chopper Tattoo, #Top #Tattoo #Offer ! The #1 Tattoo #Gallery On The Web, Free #Music #Downloads With Membership. http://bit.ly/CrazyTattoo",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327475576": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:42:06Z",
+    "tags": [
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "joseph"
+      }
+    ],
+    "raw_text": "camby wamby! #offer #joseph  http://bit.ly/6mAOQP",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327475576"
+    },
+    "created_by": {
+      "provider_user_name": "demooc",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/431502236/demooc_normal.png",
+      "screen_name": "demooc",
+      "more_info_url": "http://www.twitter.com/demooc",
+      "match_tag": "twitter/demooc"
+    },
+    "offer_text": "camby wamby! #offer #joseph  http://bit.ly/6mAOQP",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327486958": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:42:37Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Portable Stereo Speaker,CLOCK,SD/MMC,MP3/MP4/iPod/USB http://tinyurl.com/yj3v9dm speaker sd card ipod clock #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327486958"
+    },
+    "created_by": {
+      "provider_user_name": "pclady74",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/180794336/SoftwareDevelopment_normal.jpg",
+      "screen_name": "pclady74",
+      "more_info_url": "http://www.twitter.com/pclady74",
+      "match_tag": "twitter/pclady74"
+    },
+    "offer_text": "Portable Stereo Speaker,CLOCK,SD/MMC,MP3/MP4/iPod/USB http://tinyurl.com/yj3v9dm speaker sd card ipod clock #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yj3v9dm",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327581948": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:46:48Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Mini Multimedia Penguim Speaker, PC/Mp3/MP4/Laptop/IPOD http://tinyurl.com/ycdgh6y mp3 speaker penguin #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327581948"
+    },
+    "created_by": {
+      "provider_user_name": "pclady74",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/180794336/SoftwareDevelopment_normal.jpg",
+      "screen_name": "pclady74",
+      "more_info_url": "http://www.twitter.com/pclady74",
+      "match_tag": "twitter/pclady74"
+    },
+    "offer_text": "Mini Multimedia Penguim Speaker, PC/Mp3/MP4/Laptop/IPOD http://tinyurl.com/ycdgh6y mp3 speaker penguin #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ycdgh6y",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327661006": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:50:12Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "hot watch coach brown leather watch d&amp;g dkny [ca03] http://tinyurl.com/yzvh3o4 guess watch dkny watch armani watch d g #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327661006"
+    },
+    "created_by": {
+      "provider_user_name": "neoshop09",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259808911/images/default_profile_3_normal.png",
+      "screen_name": "neoshop09",
+      "more_info_url": "http://www.twitter.com/neoshop09",
+      "match_tag": "twitter/neoshop09"
+    },
+    "offer_text": "hot watch coach brown leather watch d&amp;g dkny [ca03] http://tinyurl.com/yzvh3o4 guess watch dkny watch armani watch d g #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yzvh3o4",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327673280": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:50:43Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "4bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "others"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "patialagate"
+      },
+      {
+        "tag": "sangrur"
+      }
+    ],
+    "raw_text": "Residential/Commercial http://bit.ly/5lv5lM #propertywala #ihave #4Bedrooms #residential #Others #forsale #PatialaGate #Sangrur",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327673280"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Residential/Commercial http://bit.ly/5lv5lM #propertywala #ihave #4Bedrooms #residential #Others #forsale #PatialaGate #Sangrur",
+    "more_info_url": "http://bit.ly/5lv5lM",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327687650": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:51:21Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "7'' Fixed DIGITAL Car DVD HL-8718GB for Toyota RAV4  http://tinyurl.com/ybcvzur car dvd #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327687650"
+    },
+    "created_by": {
+      "provider_user_name": "ibou111",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259882278/images/default_profile_6_normal.png",
+      "screen_name": "ibou111",
+      "more_info_url": "http://www.twitter.com/ibou111",
+      "match_tag": "twitter/ibou111"
+    },
+    "offer_text": "7'' Fixed DIGITAL Car DVD HL-8718GB for Toyota RAV4  http://tinyurl.com/ybcvzur car dvd #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ybcvzur",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327700571": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:51:55Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Portable Stereo Speaker,SD/MMC Card,MP3/MP4/iPod/USB http://tinyurl.com/ye8tj4n speaker ipod mp3 iphone #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327700571"
+    },
+    "created_by": {
+      "provider_user_name": "pclady74",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/180794336/SoftwareDevelopment_normal.jpg",
+      "screen_name": "pclady74",
+      "more_info_url": "http://www.twitter.com/pclady74",
+      "match_tag": "twitter/pclady74"
+    },
+    "offer_text": "Portable Stereo Speaker,SD/MMC Card,MP3/MP4/iPod/USB http://tinyurl.com/ye8tj4n speaker ipod mp3 iphone #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327738550": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:53:35Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "1bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "guesthouse"
+      }
+    ],
+    "raw_text": "Posh &amp; Luxurious Service Apartments in Banjara Hills,Hyderabad http://bit.ly/8wmmku #propertywala #ihave #1Bedrooms #residential #GuestHouse",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327738550"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Posh &amp; Luxurious Service Apartments in Banjara Hills,Hyderabad http://bit.ly/8wmmku #propertywala #ihave #1Bedrooms #residential #GuestHouse",
+    "more_info_url": "http://bit.ly/8wmmku",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -7.3666667,
+      "geo_long": 108.5333333,
+      "address": "Banjara",
+      "tags": []
+    }
+  },
+  "twitter/6327796084": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:56:07Z",
+    "tags": [
+      {
+        "tag": "victoria_classic_lingerie"
+      },
+      {
+        "tag": "yyj"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "loc": "usa"
+      },
+      {
+        "loc": "ut"
+      },
+      {
+        "loc": "west jordan"
+      }
+    ],
+    "raw_text": "Grenier Lace Up Corsets Available in Purple, Red, Black &amp; White http://bit.ly/7Fmhy7 #Victoria_Classic_Lingerie #yyj #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327796084"
+    },
+    "created_by": {
+      "provider_user_name": "ViCLingerie",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/276157051/vclwindow4b_normal.jpg",
+      "screen_name": "ViCLingerie",
+      "more_info_url": "http://www.twitter.com/ViCLingerie",
+      "match_tag": "twitter/ViCLingerie"
+    },
+    "offer_text": "Grenier Lace Up Corsets Available in Purple, Red, Black &amp; White http://bit.ly/7Fmhy7 #Victoria_Classic_Lingerie #yyj #ihave #forsale",
+    "more_info_url": "http://bit.ly/7Fmhy7",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 40.5887561,
+      "geo_long": -112.0012750,
+      "address": "Purple, Red, Black &amp;",
+      "tags": [
+        {
+          "loc": "usa"
+        },
+        {
+          "loc": "ut"
+        },
+        {
+          "loc": "west jordan"
+        }
+      ]
+    }
+  },
+  "twitter/6327827886": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:57:33Z",
+    "tags": [
+      {
+        "tag": "victoria_classic_lingerie"
+      },
+      {
+        "tag": "yyj"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Nk Silks - Great for Gift Giving:Two Piece Button down Pajama http://bit.ly/4nNc2i #Victoria_Classic_Lingerie #yyj #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327827886"
+    },
+    "created_by": {
+      "provider_user_name": "ViCLingerie",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/276157051/vclwindow4b_normal.jpg",
+      "screen_name": "ViCLingerie",
+      "more_info_url": "http://www.twitter.com/ViCLingerie",
+      "match_tag": "twitter/ViCLingerie"
+    },
+    "offer_text": "Nk Silks - Great for Gift Giving:Two Piece Button down Pajama http://bit.ly/4nNc2i #Victoria_Classic_Lingerie #yyj #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327855719": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:58:48Z",
+    "tags": [
+      {
+        "tag": "victoria_classic_lingerie"
+      },
+      {
+        "tag": "yyj"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Lunaire Bras feminine...sexier...prettier...  http://bit.ly/5VmMK9 #Victoria_Classic_Lingerie #yyj #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327855719"
+    },
+    "created_by": {
+      "provider_user_name": "ViCLingerie",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/276157051/vclwindow4b_normal.jpg",
+      "screen_name": "ViCLingerie",
+      "more_info_url": "http://www.twitter.com/ViCLingerie",
+      "match_tag": "twitter/ViCLingerie"
+    },
+    "offer_text": "Lunaire Bras feminine...sexier...prettier...  http://bit.ly/5VmMK9 #Victoria_Classic_Lingerie #yyj #ihave #forsale",
+    "more_info_url": "http://bit.ly/5VmMK9",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327878807": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T04:59:51Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave FS: Nom De Guerre dry denim.  worn on and off and hot soaked once.: Nom De Guerre Classic Fit sz.32 \n \n$100 ... http://bit.ly/6kyyL1",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327878807"
+    },
+    "created_by": {
+      "provider_user_name": "MyNudies",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/199084899/logo_badge_top_normal.png",
+      "screen_name": "MyNudies",
+      "more_info_url": "http://www.twitter.com/MyNudies",
+      "match_tag": "twitter/MyNudies"
+    },
+    "offer_text": "#ihave FS: Nom De Guerre dry denim.  worn on and off and hot soaked once.: Nom De Guerre Classic Fit sz.32 \n \n$100 ... http://bit.ly/6kyyL1",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327890674": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:00:18Z",
+    "tags": [
+      {
+        "tag": "dairy"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $2.49 - Horizon Organic Reduced Fat Chocolate Milk, 8-Ounce Aseptic Cartons (Pack of 12) $16.49 http://dealnay.com/155695 #dairy #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327890674"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $2.49 - Horizon Organic Reduced Fat Chocolate Milk, 8-Ounce Aseptic Cartons (Pack of 12) $16.49 http://dealnay.com/155695 #dairy #offer",
+    "more_info_url": "http://dealnay.com/155695",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327897661": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:00:40Z",
+    "tags": [
+      {
+        "tag": "floormat"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $22.87 - Fanmats 5797 NFL New England Patriots Car Mat $27.12 http://dealnay.com/154758 #floormat #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327897661"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $22.87 - Fanmats 5797 NFL New England Patriots Car Mat $27.12 http://dealnay.com/154758 #floormat #offer",
+    "more_info_url": "http://dealnay.com/154758",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6327931446": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:02:09Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "haryana"
+      },
+      {
+        "loc": "gurgaon"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: 80000 Sqft IT Park Space Available for Rent  in Gurgaon Pace City -1 Se... http://bit.ly/474zJT #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6327931446"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: 80000 Sqft IT Park Space Available for Rent  in Gurgaon Pace City -1 Se... http://bit.ly/474zJT #ihave",
+    "more_info_url": "http://bit.ly/474zJT",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 28.4638500,
+      "geo_long": 77.0178380,
+      "address": "Gurgaon",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "haryana"
+        },
+        {
+          "loc": "gurgaon"
+        }
+      ]
+    }
+  },
+  "twitter/6328010232": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:05:35Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: 50 bigha land for sale on NH-24 Near Hindon River: 50 bigha land for sale on N... http://bit.ly/1T0IKt #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328010232"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: 50 bigha land for sale on NH-24 Near Hindon River: 50 bigha land for sale on N... http://bit.ly/1T0IKt #ihave",
+    "more_info_url": "http://bit.ly/1T0IKt",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328065981": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:08:08Z",
+    "tags": [
+      {
+        "tag": "mac_game"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $8.5 - Crazy Machines: The Wacky Contraptions Game $11.49 http://dealnay.com/13555 #mac_game #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328065981"
+    },
+    "created_by": {
+      "provider_user_name": "bestgamedeals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
+      "screen_name": "bestgamedeals",
+      "more_info_url": "http://www.twitter.com/bestgamedeals",
+      "match_tag": "twitter/bestgamedeals"
+    },
+    "offer_text": "SAVE $8.5 - Crazy Machines: The Wacky Contraptions Game $11.49 http://dealnay.com/13555 #mac_game #offer #ad",
+    "more_info_url": "http://dealnay.com/13555",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328167722": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:12:46Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "hot watch guess bracelet watch d&amp;g dkny [gu42] http://tinyurl.com/ydlrpet coach watch d g armani watch dkny watch #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328167722"
+    },
+    "created_by": {
+      "provider_user_name": "neoshop09",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259808911/images/default_profile_3_normal.png",
+      "screen_name": "neoshop09",
+      "more_info_url": "http://www.twitter.com/neoshop09",
+      "match_tag": "twitter/neoshop09"
+    },
+    "offer_text": "hot watch guess bracelet watch d&amp;g dkny [gu42] http://tinyurl.com/ydlrpet coach watch d g armani watch dkny watch #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ydlrpet",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328222100": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:15:17Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $20 - Sanyo 2700 Prepaid Phone for Kids, Blue (Kajeet) Holiday Bundle with 1 year of GPS $189.99 http://dealnay.com/181493 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328222100"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $20 - Sanyo 2700 Prepaid Phone for Kids, Blue (Kajeet) Holiday Bundle with 1 year of GPS $189.99 http://dealnay.com/181493 #offer",
+    "more_info_url": "http://dealnay.com/181493",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328222660": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:15:18Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $20 - Sanyo 2700 Prepaid Phone for Kids, Pink (Kajeet) Holiday Bundle with 1 year of GPS $189.99 http://dealnay.com/181492 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328222660"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $20 - Sanyo 2700 Prepaid Phone for Kids, Pink (Kajeet) Holiday Bundle with 1 year of GPS $189.99 http://dealnay.com/181492 #offer",
+    "more_info_url": "http://dealnay.com/181492",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328228735": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:15:34Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap KROQ Almost Acoustic Christmas Tickets: Cheap KROQ Almost Acoustic Christmas Tickets... http://bit.ly/5iwyMU #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328228735"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap KROQ Almost Acoustic Christmas Tickets: Cheap KROQ Almost Acoustic Christmas Tickets... http://bit.ly/5iwyMU #tickets",
+    "more_info_url": "http://bit.ly/5iwyMU",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328284041": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:18:07Z",
+    "tags": [
+      {
+        "tag": "prepaid_phone"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $30 - Sanyo 2700 Prepaid Phone, Blue (Kajeet) $119.99 http://dealnay.com/122474 #prepaid_phone #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328284041"
+    },
+    "created_by": {
+      "provider_user_name": "cellphonecrap",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
+      "screen_name": "cellphonecrap",
+      "more_info_url": "http://www.twitter.com/cellphonecrap",
+      "match_tag": "twitter/cellphonecrap"
+    },
+    "offer_text": "SAVE $30 - Sanyo 2700 Prepaid Phone, Blue (Kajeet) $119.99 http://dealnay.com/122474 #prepaid_phone #offer",
+    "more_info_url": "http://dealnay.com/122474",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328330386": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:20:15Z",
+    "tags": [
+      {
+        "tag": "crossover"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $16.19 - Crossover 3-Way 8 Ohm 800/4,500 Hz 200W $33.80 http://dealnay.com/4840 #crossover #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328330386"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $16.19 - Crossover 3-Way 8 Ohm 800/4,500 Hz 200W $33.80 http://dealnay.com/4840 #crossover #offer",
+    "more_info_url": "http://dealnay.com/4840",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328359335": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:21:32Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "delhi"
+      }
+    ],
+    "raw_text": "Apartments, Flats for Rent, India: TOLET in NOIDA: 1 &amp; 2 Room Set/ Serviced Apartment / PG for Boys &amp; Girls.... http://bit.ly/6040Zz #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328359335"
+    },
+    "created_by": {
+      "provider_user_name": "flats_on_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/229271907/rent_normal.jpg",
+      "screen_name": "flats_on_rent",
+      "more_info_url": "http://www.twitter.com/flats_on_rent",
+      "match_tag": "twitter/flats_on_rent"
+    },
+    "offer_text": "Apartments, Flats for Rent, India: TOLET in NOIDA: 1 &amp; 2 Room Set/ Serviced Apartment / PG for Boys &amp; Girls.... http://bit.ly/6040Zz #ihave",
+    "more_info_url": "http://bit.ly/6040Zz",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 28.5671137,
+      "geo_long": 77.3496259,
+      "address": "NOIDA: 1",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "delhi"
+        }
+      ]
+    }
+  },
+  "twitter/6328386653": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:22:49Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "hot watch guess bracelet watch d&amp;g dkny [gu43] http://tinyurl.com/ybgspa7 dkny watch armani watch coach watch d g #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328386653"
+    },
+    "created_by": {
+      "provider_user_name": "neoshop09",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1259808911/images/default_profile_3_normal.png",
+      "screen_name": "neoshop09",
+      "more_info_url": "http://www.twitter.com/neoshop09",
+      "match_tag": "twitter/neoshop09"
+    },
+    "offer_text": "hot watch guess bracelet watch d&amp;g dkny [gu43] http://tinyurl.com/ybgspa7 dkny watch armani watch coach watch d g #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ybgspa7",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328447415": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:25:42Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Amarillo #ihave store closing garage sale prices-  (amarillo) - $0.00: -antique store of 30 years is closing its do... http://bit.ly/6tlFwa",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328447415"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "Amarillo #ihave store closing garage sale prices-  (amarillo) - $0.00: -antique store of 30 years is closing its do... http://bit.ly/6tlFwa",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328447423": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:25:42Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave -NEW HOT TUBS -4499-00  (LUBBOCK) - $0.00: -79- x 79- x 35- -Everlast Polymer Base -Pedestal S... http://bit.ly/7DrIuJ Abilene Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328447423"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave -NEW HOT TUBS -4499-00  (LUBBOCK) - $0.00: -79- x 79- x 35- -Everlast Polymer Base -Pedestal S... http://bit.ly/7DrIuJ Abilene Texas",
+    "more_info_url": "http://bit.ly/7DrIuJ",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328447511": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:25:42Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Beaumont #ihave 6x12 2010 Cargo ENCLOSED Trailer - -2350  (Beaumont) - $0.00: -Year end close out sale on Trailers-... http://bit.ly/5NjF7j",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328447511"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "Beaumont #ihave 6x12 2010 Cargo ENCLOSED Trailer - -2350  (Beaumont) - $0.00: -Year end close out sale on Trailers-... http://bit.ly/5NjF7j",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328451747": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:25:53Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Austin #ihave New High End Luggage For Sale for Fraction of Retail  (Cedar Park) - $0.00: -STOP- Don-t flag this po... http://bit.ly/6s0I2N",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328451747"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "Austin #ihave New High End Luggage For Sale for Fraction of Retail  (Cedar Park) - $0.00: -STOP- Don-t flag this po... http://bit.ly/6s0I2N",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328453234": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:25:58Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Golf Kart - -1850  (conroe) - $0.00: -just add back seat - hauler rack- 1yr- old batts- fair t... http://bit.ly/6m7lDT Houston Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328453234"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave Golf Kart - -1850  (conroe) - $0.00: -just add back seat - hauler rack- 1yr- old batts- fair t... http://bit.ly/6m7lDT Houston Texas",
+    "more_info_url": "http://bit.ly/6m7lDT",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328459712": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:26:15Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Looking for church group or other - -1  (Laredo, Tx.) - $0.00: -Looking for church group or oth... http://bit.ly/6HFban Laredo Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328459712"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave Looking for church group or other - -1  (Laredo, Tx.) - $0.00: -Looking for church group or oth... http://bit.ly/6HFban Laredo Texas",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328502595": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:28:22Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "méxico"
+      },
+      {
+        "loc": "ch"
+      },
+      {
+        "loc": "chihuahua"
+      }
+    ],
+    "raw_text": "Houses &amp; Bungalows For Sale, India: Construction is Full Swing Projects  in Sector-67 and Sector-70 Gurgaon ... http://bit.ly/4z3bWJ #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328502595"
+    },
+    "created_by": {
+      "provider_user_name": "house_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/229172672/house_normal.jpg",
+      "screen_name": "house_sale",
+      "more_info_url": "http://www.twitter.com/house_sale",
+      "match_tag": "twitter/house_sale"
+    },
+    "offer_text": "Houses &amp; Bungalows For Sale, India: Construction is Full Swing Projects  in Sector-67 and Sector-70 Gurgaon ... http://bit.ly/4z3bWJ #ihave",
+    "more_info_url": "http://bit.ly/4z3bWJ",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 28.6465178,
+      "geo_long": -106.0344500,
+      "address": "Sector-67",
+      "tags": [
+        {
+          "loc": "méxico"
+        },
+        {
+          "loc": "ch"
+        },
+        {
+          "loc": "chihuahua"
+        }
+      ]
+    }
+  },
+  "twitter/6328502847": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:28:23Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "haryana"
+      },
+      {
+        "loc": "gurgaon"
+      }
+    ],
+    "raw_text": "Houses &amp; Bungalows For Sale, India: New Launches Affordable House in Sector-69 Gurgaon: New Launches Affordab... http://bit.ly/cErll #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328502847"
+    },
+    "created_by": {
+      "provider_user_name": "house_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/229172672/house_normal.jpg",
+      "screen_name": "house_sale",
+      "more_info_url": "http://www.twitter.com/house_sale",
+      "match_tag": "twitter/house_sale"
+    },
+    "offer_text": "Houses &amp; Bungalows For Sale, India: New Launches Affordable House in Sector-69 Gurgaon: New Launches Affordab... http://bit.ly/cErll #ihave",
+    "more_info_url": "http://bit.ly/cErll",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 28.5040157,
+      "geo_long": 77.0244867,
+      "address": "Sector-69 Gurgaon:",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "haryana"
+        },
+        {
+          "loc": "gurgaon"
+        }
+      ]
+    }
+  },
+  "twitter/6328548722": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:30:33Z",
+    "tags": [
+      {
+        "tag": "dvd_player"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $13 - Curtis DVD1047 2 Channel DVD Player, Pink $26.99 http://dealnay.com/35798 #dvd_player #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328548722"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $13 - Curtis DVD1047 2 Channel DVD Player, Pink $26.99 http://dealnay.com/35798 #dvd_player #offer",
+    "more_info_url": "http://dealnay.com/35798",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328614874": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:33:39Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave LANDSCAPING-CEMENT WORK- HOUSEPAINTING  (EL PASO TEXAS) - $0.00: -I DO ANY TYPE OF LANDSCAPING... http://bit.ly/7sAKEe El Paso Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328614874"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave LANDSCAPING-CEMENT WORK- HOUSEPAINTING  (EL PASO TEXAS) - $0.00: -I DO ANY TYPE OF LANDSCAPING... http://bit.ly/7sAKEe El Paso Texas",
+    "more_info_url": "http://bit.ly/7sAKEe",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328623507": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:34:04Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave western floral arrangments - -40  (w.f./i.p.) - $0.00: -different colors-styles-and size... http://bit.ly/7M2OHw Wichita Falls Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328623507"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave western floral arrangments - -40  (w.f./i.p.) - $0.00: -different colors-styles-and size... http://bit.ly/7M2OHw Wichita Falls Texas",
+    "more_info_url": "http://bit.ly/7M2OHw",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328625209": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:34:09Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave dickies pants for women -new- - -10  (Mcallen) - $0.00: -I have 2 brand new pairs of dickies p... http://bit.ly/791h2X McAllen Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328625209"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave dickies pants for women -new- - -10  (Mcallen) - $0.00: -I have 2 brand new pairs of dickies p... http://bit.ly/791h2X McAllen Texas",
+    "more_info_url": "http://bit.ly/791h2X",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328626275": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:34:12Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Swimming pool - -200  (Roddfield) - $0.00: -Above ground round metal frame swimming pool- 18-... http://bit.ly/8ddqjm Corpus Christi",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328626275"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave Swimming pool - -200  (Roddfield) - $0.00: -Above ground round metal frame swimming pool- 18-... http://bit.ly/8ddqjm Corpus Christi",
+    "more_info_url": "http://bit.ly/8ddqjm",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328627411": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:34:15Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave firewood and hauling - -230  (victoria) - $0.00: -selling full cord of wood and hauling aways... http://bit.ly/55YLGn Victoria Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328627411"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave firewood and hauling - -230  (victoria) - $0.00: -selling full cord of wood and hauling aways... http://bit.ly/55YLGn Victoria Texas",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328628072": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:34:17Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave 2 darawer printer stand- cabinet heavy duty wood - -20  (210 778 3821 ) - $0.00: -2 1-2 fo... http://bit.ly/7rLdLh San Antonio Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328628072"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave 2 darawer printer stand- cabinet heavy duty wood - -20  (210 778 3821 ) - $0.00: -2 1-2 fo... http://bit.ly/7rLdLh San Antonio Texas",
+    "more_info_url": "http://bit.ly/7rLdLh",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328628759": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:34:19Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave 16 foot pipe top trailer - -1095  (grandview) - $0.00: -6-4X16 foot heavy duty pipe top utility t... http://bit.ly/6IX18W Waco Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328628759"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave 16 foot pipe top trailer - -1095  (grandview) - $0.00: -6-4X16 foot heavy duty pipe top utility t... http://bit.ly/6IX18W Waco Texas",
+    "more_info_url": "http://bit.ly/6IX18W",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328640982": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:34:54Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "usa"
+      },
+      {
+        "loc": "tx"
+      },
+      {
+        "loc": "killeen"
+      }
+    ],
+    "raw_text": "#ihave Conair massaging foot spa - -30  (Fort Hood, TX) - $0.00: -This is still in its original box- ... http://bit.ly/6I68Bl Killeen Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328640982"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave Conair massaging foot spa - -30  (Fort Hood, TX) - $0.00: -This is still in its original box- ... http://bit.ly/6I68Bl Killeen Texas",
+    "more_info_url": "http://bit.ly/6I68Bl",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 31.1171194,
+      "geo_long": -97.7277959,
+      "address": "ts original box- ... http://bit.ly/6I68Bl Killeen",
+      "tags": [
+        {
+          "loc": "usa"
+        },
+        {
+          "loc": "tx"
+        },
+        {
+          "loc": "killeen"
+        }
+      ]
+    }
+  },
+  "twitter/6328648070": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:35:15Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave 2005 Halmark inclosed Trailor - -3300  (Laguna Vista) - $0.00: -2005 Halmark inclosed Trai... http://bit.ly/5Beaje Brownsville Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328648070"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave 2005 Halmark inclosed Trailor - -3300  (Laguna Vista) - $0.00: -2005 Halmark inclosed Trai... http://bit.ly/5Beaje Brownsville Texas",
+    "more_info_url": "http://bit.ly/5Beaje",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328649934": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:35:20Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave New Chatsworth Two-Tier Solar Fountain-Oiled Bronze Finish - -125  (fort worth) - $0.00: -Chats... http://bit.ly/5BU5f7 Dallas Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328649934"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave New Chatsworth Two-Tier Solar Fountain-Oiled Bronze Finish - -125  (fort worth) - $0.00: -Chats... http://bit.ly/5BU5f7 Dallas Texas",
+    "more_info_url": "http://bit.ly/5BU5f7",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328711480": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:38:19Z",
+    "tags": [
+      {
+        "tag": "book"
+      },
+      {
+        "tag": "home"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $7.47 - Nubs: The True Story of a Mutt, a Marine &amp; a Miracle $10.52 http://dealnay.com/134856 #book #home #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328711480"
+    },
+    "created_by": {
+      "provider_user_name": "l2rdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/366067336/abc1_normal.jpg",
+      "screen_name": "l2rdude",
+      "more_info_url": "http://www.twitter.com/l2rdude",
+      "match_tag": "twitter/l2rdude"
+    },
+    "offer_text": "SAVE $7.47 - Nubs: The True Story of a Mutt, a Marine &amp; a Miracle $10.52 http://dealnay.com/134856 #book #home #offer",
+    "more_info_url": "http://dealnay.com/134856",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328767225": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:41:04Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "4GB N99I TV Mobile Phone Dual Card Quad-Band Bluetooth http://tinyurl.com/ygfeghj bluetooth wifi touch screen #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328767225"
+    },
+    "created_by": {
+      "provider_user_name": "moviesathomepr",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/383826679/bleach_48_800_normal.jpg",
+      "screen_name": "moviesathomepr",
+      "more_info_url": "http://www.twitter.com/moviesathomepr",
+      "match_tag": "twitter/moviesathomepr"
+    },
+    "offer_text": "4GB N99I TV Mobile Phone Dual Card Quad-Band Bluetooth http://tinyurl.com/ygfeghj bluetooth wifi touch screen #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328798059": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:42:36Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Canton Homes for Sale http://bit.ly/7wmUpL (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328798059"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Canton Homes for Sale http://bit.ly/7wmUpL (via @realbird)",
+    "more_info_url": "http://bit.ly/7wmUpL",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328798326": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:42:37Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Affordable Candlewood Lake Living! http://bit.ly/5Ct9rh (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328798326"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Affordable Candlewood Lake Living! http://bit.ly/5Ct9rh (via @realbird)",
+    "more_info_url": "http://bit.ly/5Ct9rh",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328866710": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:46:02Z",
+    "tags": [
+      {
+        "tag": "iwould"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#iwould make YOU call in to work to do MY laundry. oh wait...#ihave!",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328866710"
+    },
+    "created_by": {
+      "provider_user_name": "LouBay225",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/492820621/twitterProfilePhoto_normal.jpg",
+      "screen_name": "LouBay225",
+      "more_info_url": "http://www.twitter.com/LouBay225",
+      "match_tag": "twitter/LouBay225"
+    },
+    "offer_text": "#iwould make YOU call in to work to do MY laundry. oh wait...#ihave!",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 44.0656000,
+      "geo_long": -79.4481000,
+      "address": "to work",
+      "tags": []
+    }
+  },
+  "twitter/6328929091": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:49:07Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Cheap Hullabalou Tickets, Churchill Downs, Louisville, KY: You need to go to the Hullabalo... http://bit.ly/5rNUDE #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328929091"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Cheap Hullabalou Tickets, Churchill Downs, Louisville, KY: You need to go to the Hullabalo... http://bit.ly/5rNUDE #tickets",
+    "more_info_url": "http://bit.ly/5rNUDE",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328942266": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:49:47Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave nannas babys chihuahuas - -125  (dekalb and souranding areas) - $0.00: -chihuahua puppys for... http://bit.ly/6iUrYD Texarkana Texas",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328942266"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave nannas babys chihuahuas - -125  (dekalb and souranding areas) - $0.00: -chihuahua puppys for... http://bit.ly/6iUrYD Texarkana Texas",
+    "more_info_url": "http://bit.ly/6iUrYD",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6328965340": {
+    "message_type": "offr",
+    "timestamp": "2009-12-04T05:50:55Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Candles - -500  (Bryan, Texas) - $0.00: -Candle making supplies for sale- a lage lot of supp... http://bit.ly/5GwKa4 College Station",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6328965340"
+    },
+    "created_by": {
+      "provider_user_name": "txclassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/433582192/texas_star_-_Copy_-_Copy_-_Copy_normal.jpg",
+      "screen_name": "txclassifieds",
+      "more_info_url": "http://www.twitter.com/txclassifieds",
+      "match_tag": "twitter/txclassifieds"
+    },
+    "offer_text": "#ihave Candles - -500  (Bryan, Texas) - $0.00: -Candle making supplies for sale- a lage lot of supp... http://bit.ly/5GwKa4 College Station",
+    "more_info_url": "http://bit.ly/5GwKa4",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,

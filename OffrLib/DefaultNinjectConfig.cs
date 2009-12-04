@@ -21,6 +21,7 @@ namespace Offr
             Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
             Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().Using<SingletonBehavior>();
             Bind<IMessageProvider>().To<MessageProvider>().Using<SingletonBehavior>();
+            Bind<IRawMessageReceiver>().To<MessageProvider>().Using<SingletonBehavior>();
             Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
             Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();

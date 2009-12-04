@@ -114,6 +114,13 @@ namespace Offr.Text
             RawMessage msg = new RawMessage(status.Text, msgPointer, createdBy, status.CreatedAt);
             return msg;
         }
+        public static IRawMessage From(string rawText,string id,string screenName)
+        {
+            OpenSocialUserPointer userPointer = new OpenSocialUserPointer(screenName);
+            OpenSocialMessagePointer messagePointer = new OpenSocialMessagePointer(id);
+            RawMessage msg= new RawMessage(rawText,messagePointer,userPointer,DateTime.Now);
+            return msg;
+        }
 
         #region Implementation of IComparable<IRawMessage>
 
@@ -148,5 +155,9 @@ namespace Offr.Text
             _timeStampUTC = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp_utc");
         }
         #endregion JSON
+
+
     }
+
+ 
 }

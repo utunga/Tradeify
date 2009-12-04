@@ -10,7 +10,14 @@ Dont Expect Anyone TO Actually See This Page
 
 <textarea accesskey="u" name="RawMessage" class="part_of_message" rows="2" cols="40"></textarea>
        <input type="submit" value="go" />
+       
+       <%=DebugData %>
+
 </asp:Content>
+
+
+
+
 
 <asp:Content ID="Content3" ContentPlaceHolderID="RightContent" runat="server">
 
