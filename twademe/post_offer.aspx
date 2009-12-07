@@ -96,7 +96,7 @@
      <h5>Authorize this website using the 'sign in with twitter' button at top right then you can get started</h5>
 </asp:PlaceHolder>
 
-<asp:PlaceHolder ID="PostMessage" runat="server" Visible="false">
+<asp:PlaceHolder ID="PostMessage" runat="server">
             <h4>What are you offering?</h4>
            
             <div style="float:left;">
@@ -119,7 +119,7 @@
             <asp:PlaceHolder ID="PostedMessageStatus" runat="server" Visible="false">
                 <h4>Successfully Posted</h4>
             </asp:PlaceHolder>
-            <%--<h5>Or use the form below to gaurantee your message is valid</h5>
+            <h5>Or use the form below to gaurantee your message is valid</h5>
             
             <input type="hidden" id="twitterUserName" name="twitterUserName" />
             <div class="input_box">
@@ -161,7 +161,7 @@
             	<label for="rate" >Where can they go for more information?</label>
                 <input id="url_part" class="block_input part_of_message" name="detailUrl" value="" />
 
-          	  </div>--%>
+          	  </div>
             
         
         </div>

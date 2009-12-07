@@ -35,7 +35,7 @@ namespace twademe
             {
                 Session["next_redirect"] = "/post_offer.aspx";
                 AuthRequiredWarning.Visible = true;
-                PostMessage.Visible = false;
+                PostMessage.Visible = true;
             }
         }
     }

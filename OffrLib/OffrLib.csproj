@@ -78,6 +78,7 @@
     <Compile Include="Json\Converter\MessagePointerConverter.cs" />
     <Compile Include="Json\JSON.cs" />
     <Compile Include="Message\IMessageReceiver.cs" />
+    <Compile Include="Open Social\OpenSocialJson.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
     <Compile Include="ITopic.cs" />
@@ -115,9 +116,9 @@
     <Compile Include="Services\PersistanceService.cs" />
     <Compile Include="Services\RawMessagePollingService.cs" />
     <Compile Include="Text\DateUtils.cs" />
-    <Compile Include="Text\OpenSocialMessagePointer.cs" />
-    <Compile Include="Text\OpenSocialMessageProvider.cs" />
-    <Compile Include="Text\OpenSocialUserPointer.cs" />
+    <Compile Include="Open Social\OpenSocialMessagePointer.cs" />
+    <Compile Include="Open Social\OpenSocialMessageProvider.cs" />
+    <Compile Include="Open Social\OpenSocialUserPointer.cs" />
     <Compile Include="Text\RawMessage.cs" />
     <Compile Include="Text\TagCounts.cs" />
     <Compile Include="Query\BaseTagDex.cs" />
@@ -162,6 +163,9 @@
       <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
       <Name>Newtonsoft.Json</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Copy of Open Social\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

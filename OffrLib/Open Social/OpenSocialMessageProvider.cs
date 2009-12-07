@@ -15,10 +15,10 @@ namespace Offr.Text
             get { return "Open Social"; }
         }
 
-       public void ParseMessage(string RawMessageText,string userName)
+       public void ParseMessage(string RawMessageText, string userName, string thumbnail)
        {
            IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
-           IRawMessage message = RawMessage.From(RawMessageText,"100",userName);
+           IRawMessage message = RawMessage.From(RawMessageText,"100",userName,thumbnail);
            List<IRawMessage> messages = new List<IRawMessage>();
            messages.Add(message);
            messageReceiver.Notify(messages);
