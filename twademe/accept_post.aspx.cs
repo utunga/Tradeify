@@ -14,7 +14,7 @@ namespace twademe
 {
     public partial class accept_post : System.Web.UI.Page
     {
-        private static readonly OpenSocialMessageProvider Provider = new OpenSocialMessageProvider();
+        private OpenSocialMessageProvider Provider = Global.Kernel.Get<OpenSocialMessageProvider>();
         private static List<MessageWrapper> _posts = new List<MessageWrapper>();
 
         public string DebugData
@@ -44,6 +44,7 @@ namespace twademe
         {
             //if (Page.IsPostBack)
             //{
+
                 MessageWrapper wrapper = new MessageWrapper();
                 foreach (string key in Request.Form.AllKeys)
                 {

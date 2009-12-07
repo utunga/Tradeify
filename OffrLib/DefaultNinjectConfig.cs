@@ -26,6 +26,7 @@ namespace Offr
             Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
             Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
             Bind<MessageProviderForKeywords>().ToSelf();
+            Bind<OpenSocialMessageProvider>().ToSelf().Using<SingletonBehavior>();
         }
     }
 }

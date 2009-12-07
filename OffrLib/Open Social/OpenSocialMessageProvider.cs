@@ -10,18 +10,25 @@ namespace Offr.Text
 {
    public class OpenSocialMessageProvider :IRawMessageProvider
     {
-        public string ProviderNameSpace
+       private IRawMessageReceiver _messageReceiver;  
+       
+       public OpenSocialMessageProvider(IRawMessageReceiver receiver)
+       {
+           _messageReceiver = receiver;
+       }
+
+       public string ProviderNameSpace
         {
             get { return "Open Social"; }
         }
 
        public void ParseMessage(string RawMessageText, string userName, string thumbnail)
        {
-           IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
+           //IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
            IRawMessage message = RawMessage.From(RawMessageText,"100",userName,thumbnail);
            List<IRawMessage> messages = new List<IRawMessage>();
            messages.Add(message);
-           messageReceiver.Notify(messages);
+           _messageReceiver.Notify(messages);
        }
         public void RegisterForUpdates(IRawMessageReceiver receiver)
         {

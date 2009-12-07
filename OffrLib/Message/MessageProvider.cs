@@ -22,7 +22,7 @@ namespace Offr.Message
             _messageParser = messageParser;
             _receivers = new List<IMessageReceiver>();
             _sourceProvider.RegisterForUpdates(this);
-            _sourceProvider.Update();
+            //_sourceProvider.Update();
         }
 
         public IList<IMessage> AllMessages

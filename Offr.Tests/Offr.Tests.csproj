@@ -64,6 +64,7 @@
     <Compile Include="DemoMessageProvider.cs" />
     <Compile Include="TestDateUtils.cs" />
     <Compile Include="TestMessageRepository.cs" />
+    <Compile Include="TestOpenSocialMessageProvider.cs" />
     <Compile Include="TestOpenSocialJson.cs" />
     <Compile Include="TestPersistanceService.cs" />
     <Compile Include="TestSerialization.cs" />
