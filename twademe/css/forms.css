@@ -11,30 +11,30 @@ ul.choice li
 	margin-top: 10px;
 }
 
-#post_offer {
+.form {
 	display:block;
 }
 
-#post_offer .example {
+.form .example {
 	font-style:italic;
 	font-size:0.8em;
 }
 
-#post_offer .between {
+.form .between {
 	margin: 10px 0 2px 0;
 	font-weight:700;
 }
 
-#post_offer .input_box {
+.form .input_box {
 	padding-top:2em;
 }
 
-#post_offer .label {
+.form .label {
 	font-size:0.8em;
 	display:block;
 }
 
-#post_offer input {
+.form input {
 	margin: 0 0 2px 0;
 	font-weight:normal;
 	width:300px;
@@ -42,13 +42,20 @@ ul.choice li
 	clear:left;
 }
 
-#post_offer input#rate  {
+.forminput#rate  {
 	margin: 0px 0 2px 0;
 }
 
 
-#post_offer li {
+.form li {
 	padding:0px;
 	margin:0px;
 	display:inline;
+}
+
+#map_canvas 
+{
+	display:block;
+	width: 200px;
+	height: 200px;
 }

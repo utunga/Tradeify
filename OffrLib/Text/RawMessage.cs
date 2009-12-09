@@ -114,6 +114,7 @@ namespace Offr.Text
             RawMessage msg = new RawMessage(status.Text, msgPointer, createdBy, status.CreatedAt);
             return msg;
         }
+        
         public static IRawMessage From(string rawText, string id, string screenName, string thumbnail)
         {
             OpenSocialUserPointer userPointer = new OpenSocialUserPointer(screenName);

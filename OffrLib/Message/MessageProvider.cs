@@ -65,8 +65,13 @@ namespace Offr.Message
                     parsedMessages.Add(message);
                 }
             }
-
             Notify(parsedMessages);
+        }
+
+        public void Notify(IRawMessage updatedMessage)
+        {
+            // pass to above method
+            Notify(new[] { updatedMessage });
         }
 
         public void Notify(IEnumerable<IMessage> parsedMessages) {

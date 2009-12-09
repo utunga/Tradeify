@@ -14,9 +14,8 @@ namespace twademe
 {
     public partial class accept_post : System.Web.UI.Page
     {
-        private OpenSocialMessageProvider Provider = Global.Kernel.Get<OpenSocialMessageProvider>();
+        
         private static List<MessageWrapper> _posts = new List<MessageWrapper>();
-
         public string DebugData
         {
          
@@ -58,17 +57,20 @@ namespace twademe
                 {
                     wrapper.Data.Add("QRY:" + key, Request.QueryString[key]);
                 }
-                string message = Request.Form["RawMessage"];
+                string messageText = Request.Form["RawMessage"];
                 string userName = Request.Form["UserName"] ?? "unknown";
                 string thumbnail = Request.Form["Thumbnail"] ?? "unknown";
                 
                 wrapper.Username = userName;
-                wrapper.Raw = message;
+                wrapper.Raw = messageText;
                 wrapper.Thumbnail = thumbnail;
-                Provider.ParseMessage(message,userName,thumbnail);
                 _posts.Add(wrapper);
             //}
 
+                IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
+                messageReceiver.Notify(RawMessage.From(messageText, "100", userName, thumbnail));
+
+                //Provider.ParseMessage(message, userName, thumbnail);
 
         }
 

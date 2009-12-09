@@ -14,11 +14,12 @@ namespace Offr.Tests
     public class TestOpenSocialMessageProviders
     {
         [Test]
-        public void TestParse()
+        public void TestOpenSocial()
         {
-            OpenSocialMessageProvider provider = Global.Kernel.Get<OpenSocialMessageProvider>();
-            IMessageRepository repository= Global.Kernel.Get<IMessageRepository>();
-            provider.ParseMessage("#ihave #vege in wellington","Joav","blah");
+            IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
+            messageReceiver.Notify(RawMessage.From("#ihave #vege in wellington", "12312", "Joav","blah"));
+
+            IMessageRepository repository = Global.Kernel.Get<IMessageRepository>();
             foreach (IMessage message in repository.AllMessages())
             {
                 if (message.RawText.Equals("#ihave #vege in wellington"))

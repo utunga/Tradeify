@@ -14,77 +14,53 @@
 
        function address_geocoded(point) {
            if (!point) {
-               $("#twooby #search_location .infobox").html(".. unable to understand that address..");
+               $(".location .infobox").html(".. unable to understand that address..");
                map.clearOverlays();
            }
            else {
-               $("#twooby #search_location .infobox").html("<nobr>" + point + "</nobr>");
+               $(".location .infobox").html("<nobr>" + point + "</nobr>");
                map.setCenter(point, 13);
                var marker = new GMarker(point);
                map.addOverlay(marker);
-               var address = $("#twooby #search_location #location").val();
-               $("#twooby #search_location a").html("<nobr>" + address + "</nobr>");
+               var address = $(".location #location").val();
+               $(".location a").html("<nobr>" + address + "</nobr>");
            }
-
-       }
-
-       function open_search_for_edit() {
-           var currentAddr = $("#twooby #search_location a.first").text();
-           $("#twooby #search_location a").hide();
-           $("#twooby #search_location input").val(currentAddr);
-           $("#twooby #search_location input").show();
-           $("#twooby #search_location #location").change(geo_code_search_location).change(); // set up change event, then trigger it
-           $("#twooby #search_location #location").keyup(function(event) {
-               if ((event.keyCode == 27) || // escape key
-                    (event.keyCode == 13))  // enter key
-               {
-                   //FIXME can't seem to capture tab key
-                   //FIXME should do one last lookup in case of impatience
-                   close_search_for_edit();
-               }
-               else {
-                   var timeoutID;
-                   window.clearTimeout(timeoutID);
-                   timeoutID = window.setTimeout(geo_code_search_location, 200);
-               }
-           });
-           $("#twooby #search_location input").select();
-           $("#twooby #search_location input").focus();
        }
 
        function geo_code_search_location() {
-           $("#twooby #search_location .infobox").hide();
            $("#map_canvas").show();
-           var address = $("#twooby #search_location #location").val();
+           var address = $(".location #location").val();
            if (geocoder) {
                geocoder.getLatLng(address, address_geocoded)
            }
-           $("#map_canvas").click(close_search_for_edit);
-       }
-
-       function close_search_for_edit() {
-           $("#map_canvas").hide();
-           $("#twooby #search_location input").hide();
-           $("#twooby #search_location a").show();
-           $("#twooby #search_location .infobox").show();
        }
 
        // This function called after google api has been loaded
        function google_initialize() {
            $("#map_canvas").show();
            map = new GMap2(document.getElementById("map_canvas"));
-           $("#map_canvas").hide();
-           $("#twooby #search_location input").hide()
+           //$("#map_canvas").hide();
+           //$(".location #location").hide();
            if (google.loader.ClientLocation) {
                currentLocation = google.loader.ClientLocation;
-               $("#twooby #search_location a").html(currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code);
-               $("#twooby #search_location .infobox").html("(" + currentLocation.latitude + "," + currentLocation.longitude + ")");
+               var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code
+               $(".location #location").val(currentAddr);
+               $(".location .infobox").html("(" + currentLocation.latitude + "," + currentLocation.longitude + ")");
                map.setCenter(new GLatLng(currentLocation.latitude, currentLocation.longitude), 12);
            }
-           $("#twooby #search_location a").click(open_search_for_edit);
+           $(".location  #location").keyup(function(event) {
+               if ((event.keyCode != 27) || // escape key
+                   (event.keyCode != 13))  // enter key
+               {
+                   var timeoutID;
+                   window.clearTimeout(timeoutID);
+                   timeoutID = window.setTimeout(geo_code_search_location, 200);
+               }
+           });
            geocoder = new GClientGeocoder();
        }
 
+       google.setOnLoadCallback(google_initialize);
        //]]>
     </script>
 
@@ -106,7 +82,6 @@
            
             </div>
             <div>
-
                 <span class="numeric" id="chars_left_notice">
                     <strong class="char-counter" id="status-field-char-counter" style="color: rgb(204, 204, 204);">140</strong>
                 </span>
@@ -122,48 +97,50 @@
             <h5>Or use the form below to gaurantee your message is valid</h5>
             
             <input type="hidden" id="twitterUserName" name="twitterUserName" />
-            <div class="input_box">
-            	<label for="offer">What are you offering?</label>
-            	  <textarea accesskey="o" id="offer" class="block_input part_of_message" name="offer" rows="2" cols="40">I am offering</textarea>
-                  <div class="example">e.g.  "I have some surplus cabbages" / "I am offering gardening services"</div>
-            </div>
-
-            <div class="clear" ></div>
-            <div class="input_box">
-           		<div class="part_of_message">
-                    in <span id="search_location">L:<a class="first" href="#" >you</a>
-                   <span id="map_canvas"></span>
-                   <input type="text" id="location" value="" />
+            
+            <div class="form">
+                <div class="input_box">
+            	      <label for="offer">What are you offering?</label>
+            	      <textarea accesskey="o" id="offer" class="block_input part_of_message" name="offer" rows="2" cols="40">I am offering</textarea>
+                      <div class="example">e.g.  "I have some surplus cabbages" / "I am offering gardening services"</div>
                 </div>
 
                 <div class="clear" ></div>
-                <div class="example">e.g.  "in L:Wellington, NZ" (click to change)</div>
-            </div>
-            <div class="input_box">
-            	<div id="currencies" class="part_of_message">
-            	    for <span id="included"><a href="#" >#free</a></span>
-            	    <input id="rate" type="hidden" value="#free" />
+            
+                <div class="input_box location">
+                    <div class="part_of_message"> in <span id="search_location">L:
+                    <input type="text" id="location" value="" >
+                    <div id="map_canvas"></div>
+                    <div class="infobox"></div>
+                    <div class="example">e.g.  "in L:Wellington, NZ" (click to change)</div>
+                    
+                </div>
 
+                <div class="clear" ></div>
+                
+                <div class="input_box">
+                    <div id="currencies" class="part_of_message">
+                        for <span id="included"><a href="#" >#free</a></span>
+                        <input id="rate" type="hidden" value="#free" />
+                    </div>
                 </div>
                 <div class="example">e.g.  "for #free", "for #barter", "for #NZD or #barter"</div>
                 <div class="example"> Click to add/remove
                     <ul class="currency_choice">
-                            <li><a href="#">#free</a></li>
-                            <li><a href="#">#barter</a></li>
-                            <li><a href="#">#pledge</a></li>
+                        <li><a href="#">#free</a></li>
+                        <li><a href="#">#barter</a></li>
+                        <li><a href="#">#pledge</a></li>
 
-                            <li><a href="#">#well_talents</a></li>
-                            <li><a href="#">#NZD</a></li>
-                     </ul>
-          	    </div>
-               
-          	  <div class="input_box">
-            	<label for="rate" >Where can they go for more information?</label>
-                <input id="url_part" class="block_input part_of_message" name="detailUrl" value="" />
+                        <li><a href="#">#well_talents</a></li>
+                        <li><a href="#">#NZD</a></li>
+                    </ul>
+                </div>
 
-          	  </div>
-            
-        
+                <div class="input_box">
+                    <label for="rate" >Where can they go for more information?</label>
+                    <input id="url_part" class="block_input part_of_message" name="detailUrl" value="" />
+                </div>
+            </div>
         </div>
 </asp:PlaceHolder>
     
