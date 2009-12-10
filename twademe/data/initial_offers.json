@@ -1,4 +1,56 @@
 {
+  "twitter/100": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T21:52:37.4762Z",
+    "tags": [
+      {
+        "tag": "dog"
+      },
+      {
+        "loc": "new zealand"
+      },
+      {
+        "loc": "wellington"
+      },
+      {
+        "loc": "wellington"
+      }
+    ],
+    "raw_text": "#offr #dog in wellington",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "100"
+    },
+    "created_by": {
+      "provider_user_name": "unknown",
+      "provide_name_space": "OpenSocial",
+      "profile_pic_url": "unknown",
+      "screen_name": "Unknown",
+      "more_info_url": "http://www.twitter.com/unknown",
+      "match_tag": "OpenSocial/unknown"
+    },
+    "offer_text": "#offr #dog in wellington",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "loc": "new zealand"
+        },
+        {
+          "loc": "wellington"
+        },
+        {
+          "loc": "wellington"
+        }
+      ]
+    }
+  },
   "twitter/6450284654": {
     "message_type": "offr",
     "timestamp": "2009-12-08T02:08:06Z",
@@ -3664,6 +3716,514 @@
     },
     "offer_text": "SAVE $209.99 - Canon DC50 5MP DVD Camcorder with 10x Optical Image Stabilized Zoom $590.00 http://dealnay.com/44712 #camcorder #offer",
     "more_info_url": "http://dealnay.com/44712",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545039807": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:00:25Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.04 - Fathead Denver Broncos Logo Wall Decal $89.95 http://dealnay.com/125175 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545039807"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $0.04 - Fathead Denver Broncos Logo Wall Decal $89.95 http://dealnay.com/125175 #offer",
+    "more_info_url": "http://dealnay.com/125175",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545316672": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:10:20Z",
+    "tags": [
+      {
+        "tag": "diaper"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $2.01 - Ju Ju Be Be Prepared Diaper Bag, Brown/Bubblegum $177.99 http://dealnay.com/147096 #diaper #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545316672"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $2.01 - Ju Ju Be Be Prepared Diaper Bag, Brown/Bubblegum $177.99 http://dealnay.com/147096 #diaper #offer #ad",
+    "more_info_url": "http://dealnay.com/147096",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545455686": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:15:19Z",
+    "tags": [
+      {
+        "tag": "fluid"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $3 - Motul RBF 600 Racing Brake Fluid $14.95 http://dealnay.com/15277 #fluid #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545455686"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $3 - Motul RBF 600 Racing Brake Fluid $14.95 http://dealnay.com/15277 #fluid #offer",
+    "more_info_url": "http://dealnay.com/15277",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545502839": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:16:58Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Livermore California 3/2 Short Sale http://bit.ly/7hBYM2 (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545502839"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Livermore California 3/2 Short Sale http://bit.ly/7hBYM2 (via @realbird)",
+    "more_info_url": "http://bit.ly/7hBYM2",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545503381": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:16:59Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "loc": "usa"
+      },
+      {
+        "loc": "ga"
+      },
+      {
+        "loc": "brunswick"
+      }
+    ],
+    "raw_text": "#ihave Beautifully remodeled home at 134 Crossbrook Drive in Brunswick, GA. http://bit.ly/8VJSfI (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545503381"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Beautifully remodeled home at 134 Crossbrook Drive in Brunswick, GA. http://bit.ly/8VJSfI (via @realbird)",
+    "more_info_url": "http://bit.ly/8VJSfI",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 31.1499528,
+      "geo_long": -81.4914894,
+      "address": "Brunswick, GA. http://bit.ly/8VJSfI (via @realbird)",
+      "tags": [
+        {
+          "loc": "usa"
+        },
+        {
+          "loc": "ga"
+        },
+        {
+          "loc": "brunswick"
+        }
+      ]
+    }
+  },
+  "twitter/6545504082": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:17:01Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Charming - NEW home - PRICED TO SELL!! http://bit.ly/7jhc5q (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545504082"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Charming - NEW home - PRICED TO SELL!! http://bit.ly/7jhc5q (via @realbird)",
+    "more_info_url": "http://bit.ly/7jhc5q",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545504477": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:17:02Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Incredible Resort Like Estate http://bit.ly/8QJgLk (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545504477"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Incredible Resort Like Estate http://bit.ly/8QJgLk (via @realbird)",
+    "more_info_url": "http://bit.ly/8QJgLk",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545505027": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:17:03Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Spectacular vies over the Skyline Marina http://bit.ly/8R0TuQ (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545505027"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Spectacular vies over the Skyline Marina http://bit.ly/8R0TuQ (via @realbird)",
+    "more_info_url": "http://bit.ly/8R0TuQ",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545830414": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:28:25Z",
+    "tags": [
+      {
+        "tag": "educational"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $13.49 - Food, Inc. $13.49 http://dealnay.com/38846 #educational #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545830414"
+    },
+    "created_by": {
+      "provider_user_name": "movienow",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/255401419/clapper-bird_normal.png",
+      "screen_name": "movienow",
+      "more_info_url": "http://www.twitter.com/movienow",
+      "match_tag": "twitter/movienow"
+    },
+    "offer_text": "SAVE $13.49 - Food, Inc. $13.49 http://dealnay.com/38846 #educational #offer #ad",
+    "more_info_url": "http://dealnay.com/38846",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6545831647": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:28:27Z",
+    "tags": [
+      {
+        "tag": "speaker"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $25.31 - Altec Lansing inMotion COMPACT iM310 Portable Speakers for iPod and MP3 Players $54.68 http://dealnay.com/4624 #speaker #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6545831647"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "SAVE $25.31 - Altec Lansing inMotion COMPACT iM310 Portable Speakers for iPod and MP3 Players $54.68 http://dealnay.com/4624 #speaker #offer",
+    "more_info_url": "http://dealnay.com/4624",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6546028011": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:35:15Z",
+    "tags": [
+      {
+        "tag": "bicycle_tools"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $5 - Avenir Roll-Up Tool Kit $19.99 http://dealnay.com/102732 #bicycle_tools #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6546028011"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $5 - Avenir Roll-Up Tool Kit $19.99 http://dealnay.com/102732 #bicycle_tools #offer",
+    "more_info_url": "http://dealnay.com/102732",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6546029758": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:35:18Z",
+    "tags": [
+      {
+        "tag": "action_figure"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.01 - The Elf on the Shelf: A Christmas Tradition Elf on the Shelf Gift Set $29.99 http://dealnay.com/69679 #action_figure #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6546029758"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $0.01 - The Elf on the Shelf: A Christmas Tradition Elf on the Shelf Gift Set $29.99 http://dealnay.com/69679 #action_figure #offer",
+    "more_info_url": "http://dealnay.com/69679",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6546111079": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:38:12Z",
+    "tags": [
+      {
+        "tag": "educational"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $13.49 - Food, Inc. $13.49 http://dealnay.com/38846 #educational #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6546111079"
+    },
+    "created_by": {
+      "provider_user_name": "moviedb",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/455709160/film-reel-32x32_normal.png",
+      "screen_name": "moviedb",
+      "more_info_url": "http://www.twitter.com/moviedb",
+      "match_tag": "twitter/moviedb"
+    },
+    "offer_text": "SAVE $13.49 - Food, Inc. $13.49 http://dealnay.com/38846 #educational #offer #ad",
+    "more_info_url": "http://dealnay.com/38846",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6546112426": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:38:15Z",
+    "tags": [
+      {
+        "tag": "unlocked_cellphone"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $146.49 - Blackberry Pearl 8220 Flip Black Unlocked FactorySealed $253.50 http://dealnay.com/101888 #unlocked_cellphone #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6546112426"
+    },
+    "created_by": {
+      "provider_user_name": "cellphonecrap",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
+      "screen_name": "cellphonecrap",
+      "more_info_url": "http://www.twitter.com/cellphonecrap",
+      "match_tag": "twitter/cellphonecrap"
+    },
+    "offer_text": "SAVE $146.49 - Blackberry Pearl 8220 Flip Black Unlocked FactorySealed $253.50 http://dealnay.com/101888 #unlocked_cellphone #offer",
+    "more_info_url": "http://dealnay.com/101888",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6546268853": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:43:48Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave some chocolate. =D yayy",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6546268853"
+    },
+    "created_by": {
+      "provider_user_name": "xBeauty_",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/559624561/15133_1254406796167_1109469778_815828_864136_n__2__normal.jpg",
+      "screen_name": "xBeauty_",
+      "more_info_url": "http://www.twitter.com/xBeauty_",
+      "match_tag": "twitter/xBeauty_"
+    },
+    "offer_text": "#ihave some chocolate. =D yayy",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6546408980": {
+    "message_type": "offr",
+    "timestamp": "2009-12-10T22:48:41Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "myetsy"
+      }
+    ],
+    "raw_text": "#ihave Sassy Cowgirl Potholders Set:     \t\t      \t\t\t$12.00\t\t\t\t\tHow would all you cowgirls out there like to... http://bit.ly/72BcAn #myetsy",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6546408980"
+    },
+    "created_by": {
+      "provider_user_name": "laurenoriginals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/544254460/4135071140_5b93994b9f_m_normal.jpg",
+      "screen_name": "laurenoriginals",
+      "more_info_url": "http://www.twitter.com/laurenoriginals",
+      "match_tag": "twitter/laurenoriginals"
+    },
+    "offer_text": "#ihave Sassy Cowgirl Potholders Set:     \t\t      \t\t\t$12.00\t\t\t\t\tHow would all you cowgirls out there like to... http://bit.ly/72BcAn #myetsy",
+    "more_info_url": null,
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -39,8 +40,10 @@ namespace twademe
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             // Register the custom converter.
             serializer.RegisterConverters(new JavaScriptConverter[] {new MessageListSerializer()});
-            List<IMessage> messagesToSend = new List<IMessage>(messages.Take(count));
-
+            List<IMessage> messagesToSend = new List<IMessage>(messages);
+            messagesToSend.Sort(new CompDate());
+            IEnumerable<IMessage> enumerable = messagesToSend.Take(count);
+            messagesToSend=new List<IMessage>(enumerable);
             if (null != Request.Params["jsoncallback"])
             {
                 Response.Write(Request.Params["jsoncallback"] + "(" + serializer.Serialize(messagesToSend) + ")");
@@ -50,5 +53,13 @@ namespace twademe
                 Response.Write(serializer.Serialize(messagesToSend));
             }
         }
+        class CompDate : IComparer<IMessage>
+        {
+            // Implement the IComparable interface. 
+            public int Compare(IMessage a, IMessage b)
+            {
+                return b.Timestamp.CompareTo(a.Timestamp);
+            }
+        } 
     }
 }

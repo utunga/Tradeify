@@ -68,7 +68,8 @@ namespace twademe
             //}
 
                 IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
-                messageReceiver.Notify(RawMessage.From(messageText, "100", userName, thumbnail));
+                if(messageText!=null)
+                    messageReceiver.Notify(RawMessage.From(messageText, "100", userName, thumbnail));
 
                 //Provider.ParseMessage(message, userName, thumbnail);
 

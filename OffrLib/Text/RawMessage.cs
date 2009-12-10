@@ -120,7 +120,7 @@ namespace Offr.Text
             OpenSocialUserPointer userPointer = new OpenSocialUserPointer(screenName);
             userPointer.ProfilePicUrl = thumbnail;
             OpenSocialMessagePointer messagePointer = new OpenSocialMessagePointer(id);
-            RawMessage msg= new RawMessage(rawText,messagePointer,userPointer,DateTime.Now);
+            RawMessage msg= new RawMessage(rawText,messagePointer,userPointer,DateTime.Now.ToUniversalTime());
             return msg;
         }
 
