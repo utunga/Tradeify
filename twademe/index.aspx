@@ -222,7 +222,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="box">
+    <div>
         <h2 id="selected_tags">
             <span class="template">
             <span class="select_tag_container">» <span class="select_tag">offers</span></span>

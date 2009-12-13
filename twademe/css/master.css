@@ -85,13 +85,13 @@ a:active{
 }
 
 #header_bar {
-	background: #9FBC90;
+	/*background: #9FBC90;*/
 	margin: 0 10px 0 10px;
-	background:url(../images/flickr_logo5.JPG) no-repeat;
+	background:url(../images/tradeify_logo.png) no-repeat;
 }
   
 #header {
-	background: #9FBC90;
+	/*background: #9FBC90;*/
 	margin: 0 0px 0 115px;
 	position: relative;
 }
@@ -99,7 +99,7 @@ a:active{
 #main-nav {
 	background: #616351;
 	padding: 0;
-	margin: 0 0px 0 115px;
+	margin-left:140px;
 	position: relative;
 }
 
@@ -172,7 +172,6 @@ a:active{
 #header h1 
 {
 	
-	background:url(../images/twooooby_akaFrivolity.PNG) no-repeat top left #AED0C9;
 	font-size: 350%; 
 	font-weight:700;
 	padding:12px 12px 0px 12px;
@@ -185,18 +184,21 @@ a:active{
 #header h4 {
 	font-family:Georgia, "Times New Roman", Times, serif
 	letter-spacing: -0px;
-	padding:0 0 5px 18px;
+	margin:10px 0px 0px 15px;
+	padding:0 0 5px 10px;
 	cursor: pointer;
 	color: #616351;
-	background:#AED0C9;
+	
 	font-size:150%;
 }
 #toolbar {
 	float: right;
-	margin-top: 13px;
+	margin-top: 65px;
+	
 	font-size: 90%;
 	color: #999;
 }
+
 	#toolbar a {
 		color: #ddd;
 	}
@@ -463,6 +465,8 @@ p#intro {
 	font-family:Georgia, "Times New Roman", Times, serif;
 	cursor:pointer;
 	font-size:0.9em;
+	display:inline-block;
+	margin-bottom:10px;
 }
 
 .tag-results {
@@ -510,11 +514,12 @@ p#intro {
 
 .offer 
 {
-	margin-top:10px;
+	
 	font-size:16px;
 	float:left;
 	width:100%;
 	padding:12px;
+	margin-bottom:10px;
 	border:solid 1px #616351;
 }
 

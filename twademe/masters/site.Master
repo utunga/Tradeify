@@ -1,14 +1,12 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.master.cs" Inherits="twademe.masters.site" %>
-
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.master.cs" Inherits="twademe.masters.site" %>
 <%@ Register Src="../controls/twitter_auth.ascx" TagName="twitter_auth" TagPrefix="uc" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/master.css" />
     <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/ie.css" />
     <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/forms.css" />
-    <title>Twoooby - Open Source, Local Trading</title>
+    <title>Tradeify.Org - Open Source, Open Data, Local Trading</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -22,8 +20,7 @@
                     <uc:twitter_auth ID="twitter_auth" runat="server" />
                 </div>
                 <h1>twooooby</h1>
-                <h4>
-                    Open Source, Local Trade</h4>
+                <h4>Open, Social, Local Trade</h4>
             </div>
             <div id="main-nav">
                <ul class="nav">
@@ -33,6 +30,8 @@
                 <li><a href="#" title=""></a></li>
                 <li><a href="#" title="">How it Works</a></li>
                 <li><a href="/post_offer.aspx" title="">Post Your Own</a></li>
+                <li><a href="#" title=""></a></li>
+                <li><a href="http://blog.tradeify.org" title="">Our Blog</a></li>    
             </ul> 
             </div>
             <!-- end main nav -->
