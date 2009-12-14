@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Offr.OAuth;
+using Offr.Text;
 
 namespace twademe
 {
@@ -37,6 +38,10 @@ namespace twademe
                 AuthRequiredWarning.Visible = true;
                 PostMessage.Visible = true;
             }
+            string messageText = Request.Form["Message"];
+            IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
+            if (messageText != null)
+                messageReceiver.Notify(RawMessage.From(messageText, "100", "Unkown", ""));
         }
     }
 }

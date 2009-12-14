@@ -148,15 +148,6 @@ namespace Offr.Query
         //get the 'total' for a TagCounts object based on just adding up the number of messages with each tag
         public TagCounts GetTagCounts()
         {
-            /*          var tags = new List<TagWithCount>();
-            int total = 0;
-            foreach (ITag tag in _seenTags)
-            {
-                int count = _index[tag.MatchTag].Count;
-                tags.Add(new TagWithCount() { count = count, tag = tag });
-                total += count;
-            }
-            return new TagCounts() { Tags = tags, Total = total };*/
             List<TagWithCount> tagCounts = new List<TagWithCount>();
             HashSet<IMessage> messageSet = new HashSet<IMessage>();
             foreach (ITag tag in _seenTags)

@@ -42,16 +42,45 @@ namespace twademe
                 availableTags = oneOffTagDex.GetTagCounts();
             }
             Response.ContentType = "application/json";
-            SendJSON(availableTags);
+            //tagcounts stuff
+            _tagProvider = Global.Kernel.Get<ITagRepository>();
+            List<ITag> usedTags = _tagProvider.GetTagsFromNameValueCollection(Request.QueryString);
+            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
+            TagCounts tagCounts = queryExecutor.GetTagCountsForTags(usedTags);
+            Response.ContentType = "application/json";
+            SendJSON(availableTags,tagCounts);
+        }
+
+        private void SendJSON(TagCounts tags_json,TagCounts tagcounts_json)
+        {
+            JavaScriptSerializer Tags = new JavaScriptSerializer();
+            // Register the custom converter.
+            Tags.RegisterConverters(new JavaScriptConverter[] {new TagCountsSerializer()});
+            JavaScriptSerializer TagCounts = new JavaScriptSerializer();
+            // Register the custom converter.
+            TagCounts.RegisterConverters(new JavaScriptConverter[] { new TagCountsSerializer() });
+            //  List<IMessage> messagesToSend = new List<IMessage>(messages.Take(count));
+            string output = "{\"tags_json\":" + Tags.Serialize(tags_json) + ",\"tagcounts_json\":" +
+                            TagCounts.Serialize(tagcounts_json)+"}";
+            Response.Write(output);
+        }
+/*        protected void Page_Load(object sender, EventArgs e)
+        {
+            _tagProvider = Global.Kernel.Get<ITagRepository>();
+            List<ITag> usedTags = _tagProvider.GetTagsFromNameValueCollection(Request.QueryString);
+            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
+            TagCounts tagCounts = queryExecutor.GetTagCountsForTags(usedTags);
+            Response.ContentType = "application/json";
+            SendJSON(tagCounts);
         }
 
         private void SendJSON(TagCounts tagCounts)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             // Register the custom converter.
-            serializer.RegisterConverters(new JavaScriptConverter[] {new TagCountsSerializer()});
+            serializer.RegisterConverters(new JavaScriptConverter[] { new TagCountsSerializer() });
             //  List<IMessage> messagesToSend = new List<IMessage>(messages.Take(count));
             Response.Write(serializer.Serialize(tagCounts));
-        }
+        }*/
     }
 }

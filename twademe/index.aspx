@@ -184,10 +184,17 @@
         var json_url = build_search_query("/tags_json.aspx");
         var tag_types = ["tag", "loc", "group", "type"];
         $.getJSON(json_url, function(context) {
-            // from the list of tags overall, we need to filter out tags of a given type
+               $('#selected_tags').html($p.render('selected_tags_render_fn', context.tagcounts_json));
+        var tmp = [];
+        $.each(context.tagcounts_json.overall, function() {
+            tmp.push(this);
+        });
+        selected_tags = tmp;
+
+        // from the list of tags overall, we need to filter out tags of a given type
             $.each(tag_types, function() {
                 var element_selector = '.sorted_tags.' + this + " .template"; // eg ".sorted_tags.loc .template"
-                var matches = filter_tags(context.overall, this);
+                var matches = filter_tags(context.tags_json.overall, this);
                 $(element_selector).html($p.render('avail_tags_render_fn', { 'tags': matches }));
             });
         });
@@ -205,7 +212,7 @@
     }
 
     function update() {
-        update_selected_tags();
+        //update_selected_tags();
         update_offers();
         update_avail_tags();
         $(".tags_sort input").click(update);
@@ -247,7 +254,7 @@
                     <div class="date"></div><!-- /date -->
                     <div class="user">
                         <a href="#">
-                        	<img alt="" src="#" />
+                        	<img height="48" width="48" alt="" src="#" />
                             <h4></h4>
                         </a>                                                                                                        
                     </div>
