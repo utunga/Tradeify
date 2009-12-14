@@ -2624,8 +2624,8 @@
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": 19.1842560,
-      "geo_long": 72.8468660,
+      "geo_lat": 19.184256,
+      "geo_long": 72.846866,
       "address": "Royal",
       "tags": [
         {
@@ -5837,6 +5837,1262 @@
     },
     "offer_text": "Musical Recording Rose 13077 http://tinyurl.com/ycg6hcz musical valentines day rose collectible #ihave #forsale",
     "more_info_url": "http://tinyurl.com/ycg6hcz",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6650953271": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T03:55:14Z",
+    "tags": [
+      {
+        "tag": "gps_sport"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $24.75 - Garmin Forerunner 405CX GPS Sport Watch with Heart Rate Monitor (Blue) $345.24 http://dealnay.com/22836 #gps_sport #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6650953271"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $24.75 - Garmin Forerunner 405CX GPS Sport Watch with Heart Rate Monitor (Blue) $345.24 http://dealnay.com/22836 #gps_sport #offer",
+    "more_info_url": "http://dealnay.com/22836",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651103392": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:00:40Z",
+    "tags": [
+      {
+        "tag": "network"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $31.66 - UD2100001-01 Device Server 2PRT 10/100 RS232/422/485 Dom Ps $171.33 http://dealnay.com/6824 #network #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651103392"
+    },
+    "created_by": {
+      "provider_user_name": "compudah",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456468922/180px-Cowbell2_normal.jpg",
+      "screen_name": "compudah",
+      "more_info_url": "http://www.twitter.com/compudah",
+      "match_tag": "twitter/compudah"
+    },
+    "offer_text": "SAVE $31.66 - UD2100001-01 Device Server 2PRT 10/100 RS232/422/485 Dom Ps $171.33 http://dealnay.com/6824 #network #offer #ad",
+    "more_info_url": "http://dealnay.com/6824",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651226160": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:05:12Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "@DJ_Pebbles #iHAVE A CHARLIE BROWN XMaS TREE.. :)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651226160"
+    },
+    "created_by": {
+      "provider_user_name": "MzBrittny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/568409758/bbb_normal.jpg",
+      "screen_name": "MzBrittny",
+      "more_info_url": "http://www.twitter.com/MzBrittny",
+      "match_tag": "twitter/MzBrittny"
+    },
+    "offer_text": "@DJ_Pebbles #iHAVE A CHARLIE BROWN XMaS TREE.. :)",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651376274": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:11:06Z",
+    "tags": [
+      {
+        "tag": "music_hardrock"
+      },
+      {
+        "tag": "4"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Amazon #music_hardrock #4 cd: SAVE $8.99 - Dark Horse - Nickelback $9.99 http://dealnay.com/35911 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651376274"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "Amazon #music_hardrock #4 cd: SAVE $8.99 - Dark Horse - Nickelback $9.99 http://dealnay.com/35911 #offer",
+    "more_info_url": "http://dealnay.com/35911",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651376662": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:11:07Z",
+    "tags": [
+      {
+        "tag": "coffeemaker"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $40.01 - Capresso 303.01 4-Cup Espresso and Cappuccino Machine $59.99 http://dealnay.com/147131 #coffeemaker #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651376662"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $40.01 - Capresso 303.01 4-Cup Espresso and Cappuccino Machine $59.99 http://dealnay.com/147131 #coffeemaker #offer",
+    "more_info_url": "http://dealnay.com/147131",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651387321": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:11:32Z",
+    "tags": [
+      {
+        "tag": "tv"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $230.1 - Panasonic VIERA X1 Series TC-L37X1 37-Inch 720p LCD HDTV $499.98 http://dealnay.com/179617 #tv #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651387321"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $230.1 - Panasonic VIERA X1 Series TC-L37X1 37-Inch 720p LCD HDTV $499.98 http://dealnay.com/179617 #tv #offer #ad",
+    "more_info_url": "http://dealnay.com/179617",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651499557": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:16:00Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "10bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "hostel"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "rajivnagar"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Hostel for rent http://bit.ly/89UYsl #propertywala #ihave #10Bedrooms #residential #Hostel #forrent #RajivNagar #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651499557"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Hostel for rent http://bit.ly/89UYsl #propertywala #ihave #10Bedrooms #residential #Hostel #forrent #RajivNagar #Gurgaon",
+    "more_info_url": "http://bit.ly/89UYsl",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651552233": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:18:07Z",
+    "tags": [
+      {
+        "tag": "nds"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $0.17 - iCarly $29.82 http://dealnay.com/141578 #nds #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651552233"
+    },
+    "created_by": {
+      "provider_user_name": "bestgamedeals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
+      "screen_name": "bestgamedeals",
+      "more_info_url": "http://www.twitter.com/bestgamedeals",
+      "match_tag": "twitter/bestgamedeals"
+    },
+    "offer_text": "SAVE $0.17 - iCarly $29.82 http://dealnay.com/141578 #nds #offer",
+    "more_info_url": "http://dealnay.com/141578",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651593349": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:19:44Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Discount Music City Bowl Tickets: Discount Music City Bowl - Clemson vs Kentucky Tickets\nL... http://bit.ly/76llY0 #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651593349"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Discount Music City Bowl Tickets: Discount Music City Bowl - Clemson vs Kentucky Tickets\nL... http://bit.ly/76llY0 #tickets",
+    "more_info_url": "http://bit.ly/76llY0",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651593655": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:19:45Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      },
+      {
+        "loc": "united kingdom"
+      },
+      {
+        "loc": "worcestershire"
+      },
+      {
+        "loc": "redditch"
+      }
+    ],
+    "raw_text": "#ihave #forsale Lady Gaga Tickets - Chicago, IL - 1/9/10: One great performer.  We have tickets in other s... http://bit.ly/7ACp51 #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651593655"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Lady Gaga Tickets - Chicago, IL - 1/9/10: One great performer.  We have tickets in other s... http://bit.ly/7ACp51 #tickets",
+    "more_info_url": "http://bit.ly/7ACp51",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 52.3072100,
+      "geo_long": -1.9354240,
+      "address": "other",
+      "tags": [
+        {
+          "loc": "united kingdom"
+        },
+        {
+          "loc": "worcestershire"
+        },
+        {
+          "loc": "redditch"
+        }
+      ]
+    }
+  },
+  "twitter/6651594016": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:19:46Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Discount Holiday Bowl Tickets 12/30: Discount Holiday Bowl - Nebraska vs Arizona Tickets\nQ... http://bit.ly/75AQXs #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651594016"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Discount Holiday Bowl Tickets 12/30: Discount Holiday Bowl - Nebraska vs Arizona Tickets\nQ... http://bit.ly/75AQXs #tickets",
+    "more_info_url": "http://bit.ly/75AQXs",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651594339": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:19:47Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      }
+    ],
+    "raw_text": "#ihave #forsale Discount Champs Sports Bowl Tickets 12/29: Discount Champs Sports Bowl - Miami Hurricanes ... http://bit.ly/701Mer #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651594339"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Discount Champs Sports Bowl Tickets 12/29: Discount Champs Sports Bowl - Miami Hurricanes ... http://bit.ly/701Mer #tickets",
+    "more_info_url": "http://bit.ly/701Mer",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651595089": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:19:49Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tickets"
+      },
+      {
+        "loc": "usa"
+      },
+      {
+        "loc": "mo"
+      },
+      {
+        "loc": "jefferson city"
+      }
+    ],
+    "raw_text": "#ihave #forsale Lady Gaga Tickets - Chicago, IL - 1/8/10: Multiple tickets in most sections.  We have tick... http://bit.ly/4Ctt7o #tickets",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651595089"
+    },
+    "created_by": {
+      "provider_user_name": "FTClassifieds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/263135373/seats_normal.png",
+      "screen_name": "FTClassifieds",
+      "more_info_url": "http://www.twitter.com/FTClassifieds",
+      "match_tag": "twitter/FTClassifieds"
+    },
+    "offer_text": "#ihave #forsale Lady Gaga Tickets - Chicago, IL - 1/8/10: Multiple tickets in most sections.  We have tick... http://bit.ly/4Ctt7o #tickets",
+    "more_info_url": "http://bit.ly/4Ctt7o",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 38.4959446,
+      "geo_long": -92.1130114,
+      "address": "m",
+      "tags": [
+        {
+          "loc": "usa"
+        },
+        {
+          "loc": "mo"
+        },
+        {
+          "loc": "jefferson city"
+        }
+      ]
+    }
+  },
+  "twitter/6651856973": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:30:22Z",
+    "tags": [
+      {
+        "tag": "dressing"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $6.66 - Mama Leone's Garlic Herb Sauce, 1.25-Ounce Box (Pack of 6) $17.34 http://dealnay.com/193663 #dressing #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651856973"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $6.66 - Mama Leone's Garlic Herb Sauce, 1.25-Ounce Box (Pack of 6) $17.34 http://dealnay.com/193663 #dressing #offer",
+    "more_info_url": "http://dealnay.com/193663",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651866105": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:30:44Z",
+    "tags": [
+      {
+        "tag": "screen"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $225.01 - 92IN Diagonal Accuscreens HDtv Electric Wall Ceiling 45X80IN $179.99 http://dealnay.com/7814 #screen #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651866105"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $225.01 - 92IN Diagonal Accuscreens HDtv Electric Wall Ceiling 45X80IN $179.99 http://dealnay.com/7814 #screen #offer #ad",
+    "more_info_url": "http://dealnay.com/7814",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6651976581": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:35:13Z",
+    "tags": [
+      {
+        "tag": "labeling_tape"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $3.43 - Brother TZ111 1/4&quot; Black on Clear Tape Cartridge for P-Touch $9.56 http://dealnay.com/23482 #labeling_tape #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6651976581"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $3.43 - Brother TZ111 1/4&quot; Black on Clear Tape Cartridge for P-Touch $9.56 http://dealnay.com/23482 #labeling_tape #offer",
+    "more_info_url": "http://dealnay.com/23482",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652050344": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:38:20Z",
+    "tags": [
+      {
+        "tag": "book"
+      },
+      {
+        "tag": "large_print"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $5.44 - Daily Guideposts 2010 (Daily Guideposts (Large Print)) $11.55 http://dealnay.com/94654 #book #large_print #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652050344"
+    },
+    "created_by": {
+      "provider_user_name": "l2rdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/366067336/abc1_normal.jpg",
+      "screen_name": "l2rdude",
+      "more_info_url": "http://www.twitter.com/l2rdude",
+      "match_tag": "twitter/l2rdude"
+    },
+    "offer_text": "SAVE $5.44 - Daily Guideposts 2010 (Daily Guideposts (Large Print)) $11.55 http://dealnay.com/94654 #book #large_print #offer #ad",
+    "more_info_url": "http://dealnay.com/94654",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652050741": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:38:21Z",
+    "tags": [
+      {
+        "tag": "babygear"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $10 - Busy Zoo Activity Center $89.99 http://dealnay.com/56973 #babygear #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652050741"
+    },
+    "created_by": {
+      "provider_user_name": "foryourbabies",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/453366079/angry_normal.jpg",
+      "screen_name": "foryourbabies",
+      "more_info_url": "http://www.twitter.com/foryourbabies",
+      "match_tag": "twitter/foryourbabies"
+    },
+    "offer_text": "SAVE $10 - Busy Zoo Activity Center $89.99 http://dealnay.com/56973 #babygear #offer",
+    "more_info_url": "http://dealnay.com/56973",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652056268": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:38:35Z",
+    "tags": [
+      {
+        "tag": "jewelry"
+      },
+      {
+        "tag": "brooch"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $23.49 - Christmas Snowflake Brooch $23.49 http://dealnay.com/193020 #jewelry #brooch #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652056268"
+    },
+    "created_by": {
+      "provider_user_name": "tinystone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/377057988/rose_normal.jpg",
+      "screen_name": "tinystone",
+      "more_info_url": "http://www.twitter.com/tinystone",
+      "match_tag": "twitter/tinystone"
+    },
+    "offer_text": "SAVE $23.49 - Christmas Snowflake Brooch $23.49 http://dealnay.com/193020 #jewelry #brooch #offer",
+    "more_info_url": "http://dealnay.com/193020",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652179354": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:43:58Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "independenthouse"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "uttamnagar"
+      },
+      {
+        "tag": "newdelhi"
+      }
+    ],
+    "raw_text": "MAIN MARKET http://bit.ly/5SgUel #propertywala #ihave #2Bedrooms #residential #IndependentHouse #forsale #UttamNagar #NewDelhi",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652179354"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "MAIN MARKET http://bit.ly/5SgUel #propertywala #ihave #2Bedrooms #residential #IndependentHouse #forsale #UttamNagar #NewDelhi",
+    "more_info_url": "http://bit.ly/5SgUel",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652194707": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:44:38Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "residentialplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "kadthal"
+      },
+      {
+        "tag": "hyderabad"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "andhra pradesh"
+      },
+      {
+        "loc": "hyderabad"
+      }
+    ],
+    "raw_text": "Plots for sale in Kadthal http://bit.ly/6o2UdS #propertywala #ihave #residential #ResidentialPlotLand #forsale #Kadthal #Hyderabad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652194707"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Plots for sale in Kadthal http://bit.ly/6o2UdS #propertywala #ihave #residential #ResidentialPlotLand #forsale #Kadthal #Hyderabad",
+    "more_info_url": "http://bit.ly/6o2UdS",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 17.3850440,
+      "geo_long": 78.4866710,
+      "address": "Kadthal http://bit.ly/6o2UdS #propertywala #ihave #residential #ResidentialPlotLand #forsale #Kadthal #Hyderabad",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "andhra pradesh"
+        },
+        {
+          "loc": "hyderabad"
+        }
+      ]
+    }
+  },
+  "twitter/6652198584": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:44:49Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "residentialplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "sciencecity"
+      },
+      {
+        "tag": "kolkata"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "west bengal"
+      },
+      {
+        "loc": "kolkata"
+      }
+    ],
+    "raw_text": "Excellent property in sciece city http://bit.ly/4yRbcg #propertywala #ihave #residential #ResidentialPlotLand #forsale #ScienceCity #Kolkata",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652198584"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Excellent property in sciece city http://bit.ly/4yRbcg #propertywala #ihave #residential #ResidentialPlotLand #forsale #ScienceCity #Kolkata",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 22.5726460,
+      "geo_long": 88.3638950,
+      "address": "sciece city http://bit.ly/4yRbcg #propertywala #ihave #residential #ResidentialPlotLand #forsale #ScienceCity #Kolkata",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "west bengal"
+        },
+        {
+          "loc": "kolkata"
+        }
+      ]
+    }
+  },
+  "twitter/6652211665": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:45:22Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "1bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "koperkhairane"
+      },
+      {
+        "tag": "navimumbai"
+      }
+    ],
+    "raw_text": "Silver Sand Apt. http://bit.ly/7qVf6d #propertywala #ihave #1Bedrooms #residential #ApartmentFlat #forsale #KoperKhairane #NaviMumbai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652211665"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Silver Sand Apt. http://bit.ly/7qVf6d #propertywala #ihave #1Bedrooms #residential #ApartmentFlat #forsale #KoperKhairane #NaviMumbai",
+    "more_info_url": "http://bit.ly/7qVf6d",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652220117": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:45:44Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "residentialplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "electroniccity"
+      },
+      {
+        "tag": "bangalore"
+      }
+    ],
+    "raw_text": "Vasundhara Layout http://bit.ly/5ZICXH #propertywala #ihave #residential #ResidentialPlotLand #forsale #ElectronicCity #Bangalore",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652220117"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Vasundhara Layout http://bit.ly/5ZICXH #propertywala #ihave #residential #ResidentialPlotLand #forsale #ElectronicCity #Bangalore",
+    "more_info_url": "http://bit.ly/5ZICXH",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652229060": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:46:08Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "agriculturalplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "nuzvid"
+      },
+      {
+        "tag": "vijayawada"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "andhra pradesh"
+      },
+      {
+        "loc": "vijayawada"
+      }
+    ],
+    "raw_text": "Land for sale in Andhra Pradesh http://bit.ly/5AD9EP #propertywala #ihave #commercial #AgriculturalPlotLand #forsale #Nuzvid #Vijayawada",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652229060"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Land for sale in Andhra Pradesh http://bit.ly/5AD9EP #propertywala #ihave #commercial #AgriculturalPlotLand #forsale #Nuzvid #Vijayawada",
+    "more_info_url": "http://bit.ly/5AD9EP",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 16.5113700,
+      "geo_long": 80.6314470,
+      "address": "Andhra Pradesh http://bit.ly/5AD9EP #propertywala #ihave #commercial #AgriculturalPlotLand #forsale #Nuzvid #Vijayawada",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "andhra pradesh"
+        },
+        {
+          "loc": "vijayawada"
+        }
+      ]
+    }
+  },
+  "twitter/6652269811": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:47:56Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "powai"
+      },
+      {
+        "loc": "mumbai"
+      }
+    ],
+    "raw_text": "lake himes, powai http://bit.ly/4yJATt #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forsale #Powai #Mumbai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652269811"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "lake himes, powai http://bit.ly/4yJATt #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forsale #Powai #Mumbai",
+    "more_info_url": "http://bit.ly/4yJATt",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652451037": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:55:41Z",
+    "tags": [
+      {
+        "tag": "top"
+      },
+      {
+        "tag": "tattoo"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "1"
+      },
+      {
+        "tag": "gallery"
+      },
+      {
+        "tag": "music"
+      },
+      {
+        "tag": "downloads"
+      }
+    ],
+    "raw_text": "Chopper Tattoo, #Top #Tattoo #Offer ! The #1 Tattoo #Gallery On The Web, Free #Music #Downloads With Membership. http://bit.ly/CrazyTattoo",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652451037"
+    },
+    "created_by": {
+      "provider_user_name": "revesbyseller",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/246350150/revesbyseller-twitter_normal.jpg",
+      "screen_name": "revesbyseller",
+      "more_info_url": "http://www.twitter.com/revesbyseller",
+      "match_tag": "twitter/revesbyseller"
+    },
+    "offer_text": "Chopper Tattoo, #Top #Tattoo #Offer ! The #1 Tattoo #Gallery On The Web, Free #Music #Downloads With Membership. http://bit.ly/CrazyTattoo",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6652468482": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:56:27Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "4bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "villabungalow"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "vvnagar"
+      },
+      {
+        "tag": "anand"
+      },
+      {
+        "loc": "india"
+      },
+      {
+        "loc": "gujarat"
+      },
+      {
+        "loc": "vallabh vidya nagar"
+      }
+    ],
+    "raw_text": "4 BHK bunglow for sell in VVNagar http://bit.ly/5hG9VA #propertywala #ihave #4Bedrooms #residential #VillaBungalow #forsale #VVNagar #Anand",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652468482"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "4 BHK bunglow for sell in VVNagar http://bit.ly/5hG9VA #propertywala #ihave #4Bedrooms #residential #VillaBungalow #forsale #VVNagar #Anand",
+    "more_info_url": "http://bit.ly/5hG9VA",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 22.5495113,
+      "geo_long": 72.9284262,
+      "address": "VVNagar",
+      "tags": [
+        {
+          "loc": "india"
+        },
+        {
+          "loc": "gujarat"
+        },
+        {
+          "loc": "vallabh vidya nagar"
+        }
+      ]
+    }
+  },
+  "twitter/6652481215": {
+    "message_type": "offr",
+    "timestamp": "2009-12-14T04:57:00Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "bavdhan"
+      },
+      {
+        "tag": "pune"
+      }
+    ],
+    "raw_text": "950 sq.ft Office space for Rent. http://bit.ly/8hSYtK #propertywala #ihave #commercial #OfficeSpace #forrent #Bavdhan #Pune",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6652481215"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "950 sq.ft Office space for Rent. http://bit.ly/8hSYtK #propertywala #ihave #commercial #OfficeSpace #forrent #Bavdhan #Pune",
+    "more_info_url": "http://bit.ly/8hSYtK",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,

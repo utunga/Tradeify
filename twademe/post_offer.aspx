@@ -182,7 +182,7 @@
                     Tags:
                 </label>
                
-                <input id="tags"  type="hidden" class="field text medium" value=""
+                <input id="tags" class="field text medium" value="" onchange="updateTags()"
                     maxlength="255" tabindex="8" />
             </li>
             
@@ -237,7 +237,36 @@
                          getUntil();
                 $("#message").val(concatMessage);
             }
-           
+            var selected_tags = [];
+            /*function updateTags() {
+                selected_tags = $("#tags").val().split(",");
+                $.each(selected_tags, function() {
+                    this.trim();
+                });
+                alert(selected_tags[0]);
+            }
+            function build_search_query(baseUrl) {
+                var query = $(selected_tags).map(function() {
+                    return this.type + "=" + escape(this.tag);
+                }).get().join("&");
+                return baseUrl + "?" + query;
+            }*/
+            function updateTags() {
+                selected_tags = $("#tags").val().split(",");
+                $.each(selected_tags, function() {
+                    this.trim();
+                });
+                var json_url = build_search_query("/tags_json.aspx");
+                $.getJSON(json_url, function(context) {
+                    alert(context);
+                });
+            }
+            function build_search_query(baseUrl) {
+                var query = $(selected_tags).map(function() {
+                    return this.type + "=" + escape(this.tag);
+                }).get().join("&");
+                return baseUrl + "?" + query;
+            }
         </script>
 
     </asp:PlaceHolder>
