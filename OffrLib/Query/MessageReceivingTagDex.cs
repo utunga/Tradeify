@@ -34,7 +34,7 @@ namespace Offr.Query
         {
             _seenTags = new List<ITag>();
             _index = new SortedList<string, List<IMessage>>();
-            _doubleTagIndex = new SortedList<string, List<IMessage>>();
+           // _doubleTagIndex = new SortedList<string, List<IMessage>>();
             Process(_messageProvider.AllMessages);
         }
 

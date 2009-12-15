@@ -183,9 +183,12 @@
                 </label>
                
                 <input id="tags" class="field text medium" value="" onchange="updateTags()"
-                    maxlength="255" tabindex="8" />
+                    maxlength="255" tabindex="8" />                    
             </li>
-            
+            <li>
+            Recommended tags:  
+            <div class="recommended_tags" name="recommended_tags" id="recommended_tags">None</div>
+            </li>
             <li id="li_MoreInfo" class="     ">
                 <label class="desc" id="lab_MoreInfo" for="More info:">
                     More info:
@@ -238,19 +241,6 @@
                 $("#message").val(concatMessage);
             }
             var selected_tags = [];
-            /*function updateTags() {
-                selected_tags = $("#tags").val().split(",");
-                $.each(selected_tags, function() {
-                    this.trim();
-                });
-                alert(selected_tags[0]);
-            }
-            function build_search_query(baseUrl) {
-                var query = $(selected_tags).map(function() {
-                    return this.type + "=" + escape(this.tag);
-                }).get().join("&");
-                return baseUrl + "?" + query;
-            }*/
             function updateTags() {
                 selected_tags = $("#tags").val().split(",");
                 $.each(selected_tags, function() {
@@ -258,7 +248,14 @@
                 });
                 var json_url = build_search_query("/tags_json.aspx");
                 $.getJSON(json_url, function(context) {
-                    alert(context);
+                    var recommended_tags = context.tags_json.overall
+                    var tags = "";
+                    $.each(recommended_tags, function() {
+                        tags = (tags === "") ? this.tag : tags + " , " + this.tag;
+                    });
+                    alert(tags + $("#recommended_tags").val());
+                    $("#recommended_tags").val(tags);
+                    alert($("#recommended_tags").val());
                 });
             }
             function build_search_query(baseUrl) {

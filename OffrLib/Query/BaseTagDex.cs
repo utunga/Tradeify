@@ -15,13 +15,13 @@ namespace Offr.Query
 
         protected List<ITag> _seenTags;
         protected SortedList<string, List<IMessage>> _index;
-        protected SortedList<string, List<IMessage>> _doubleTagIndex;
+       // protected SortedList<string, List<IMessage>> _doubleTagIndex;
 
         protected BaseTagDex()
         {
             _seenTags = new List<ITag>();
             _index = new SortedList<string, List<IMessage>>();
-            _doubleTagIndex = new SortedList<string, List<IMessage>>();
+            //_doubleTagIndex = new SortedList<string, List<IMessage>>();
         }
 
         /// <summary>
@@ -81,12 +81,19 @@ namespace Offr.Query
                     results.Add(message);
                 }
             }
-            //FIXME bad place to put this code?
-            // give results in reverse order 
-            results.Reverse();
+            //sort results by timestamp descending: note this is not always the same as the order they were put into the repository
+            results.Sort(new CompDate());
+            //results.Reverse();
             return results;
         }
-
+        class CompDate : IComparer<IMessage>
+        {
+            // Implement the IComparable interface. 
+            public int Compare(IMessage a, IMessage b)
+            {
+                return b.Timestamp.CompareTo(a.Timestamp);
+            }
+        } 
         public void Process(IEnumerable<IMessage> messages)
         {
             foreach (IMessage message in messages)
@@ -104,7 +111,7 @@ namespace Offr.Query
                         _index[tag1.MatchTag].Add(message);
                     }
 
-                    lock (_doubleTagIndex)
+/*                    lock (_doubleTagIndex)
                     {
                         foreach (ITag tag2 in message.Tags)
                         {
@@ -117,7 +124,7 @@ namespace Offr.Query
                             }
                             _doubleTagIndex[doubleKey].Add(message);
                         }
-                    }
+                    }*/
                 }
             }
         }

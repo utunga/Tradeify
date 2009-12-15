@@ -11,7 +11,6 @@ namespace Offr.Query
     public class StaticTagDex : BaseTagDex
     {
         private readonly IEnumerable<IMessage> _messages;
-    
         public StaticTagDex(IEnumerable<IMessage> messages)
         {
             _messages = messages;

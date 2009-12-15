@@ -13,6 +13,8 @@ namespace Offr.Tests
     [TestFixture]
     public class TestOpenSocialMessageProviders
     {
+        //this takes ages *yawn*
+        [Ignore]
         [Test]
         public void TestOpenSocial()
         {

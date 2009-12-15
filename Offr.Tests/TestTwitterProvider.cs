@@ -18,7 +18,7 @@ namespace Offr.Tests
     {
         IMessageProvider _target;
 
-        public TestTwitterProvider()
+        public void InitializeTwitterProvider()
         {
             //for this test create real objects all the way down the line - so...more of an integration test really
             // (which is why this is disabled)
@@ -36,6 +36,7 @@ namespace Offr.Tests
         [Ignore("Cannot reliably test against live twitter feed so disable for now")]
         public void TestGetMessages()
         {
+            InitializeTwitterProvider();
             // somewhat of an integration test, but gets us some of the way there
             List<IMessage> output = new List<IMessage>( _target.AllMessages);
             foreach (IMessage message in output)

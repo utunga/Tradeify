@@ -139,7 +139,14 @@ namespace Offr.Tests
             stopwatch.Stop();
             Console.Out.WriteLine("ran " + queryCount + " queries in " + stopwatch.ElapsedMilliseconds + "ms - average:" + stopwatch.ElapsedMilliseconds / queryCount + "ms or " + stopwatch.ElapsedTicks / queryCount + "ticks");
         }
+        [Test]
+        public void testBlankQuery()
+        {
 
+            List<ITag> multiTags = new List<ITag>();
+            TagCounts results =  _target.GetTagCountsForTags(multiTags);
+            Assert.That(results.Tags.Count == 0);
+        }
     }
 
 }
