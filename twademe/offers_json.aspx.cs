@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Web;
 using System.Web.Script.Serialization;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Offr.Json;
 using Offr.Message;
 using Offr.Query;
@@ -17,39 +12,44 @@ namespace twademe
 {
     public partial class offers_json : System.Web.UI.Page
     {
-        private ITagRepository _tagProvider;
 
         private const int DEFAULT_COUNT = 10;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _tagProvider = Global.Kernel.Get<ITagRepository>();
-
-            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(Request.QueryString); 
-            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
-            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
 
             Response.ContentType = "application/json";
-            SendJSON(messages, DEFAULT_COUNT);
+            NameValueCollection request = Request.QueryString;
+            SendJSON(GetOffersJson(request));
         }
 
 
-        private void SendJSON(IEnumerable<IMessage> messages, int count)
+        private void SendJSON(string message)
         {
-
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            // Register the custom converter.
-            serializer.RegisterConverters(new JavaScriptConverter[] {new MessageListSerializer()});
-            List<IMessage> messagesToSend = new List<IMessage>(messages);
-            messagesToSend = (messagesToSend.Count<=DEFAULT_COUNT)?messagesToSend:messagesToSend.GetRange(0,DEFAULT_COUNT-1);
             if (null != Request.Params["jsoncallback"])
             {
-                Response.Write(Request.Params["jsoncallback"] + "(" + serializer.Serialize(messagesToSend) + ")");
+                Response.Write(Request.Params["jsoncallback"] + "(" + message + ")");
             }
             else
             {
-                Response.Write(serializer.Serialize(messagesToSend));
+                Response.Write(message);
             }
+        }
+        public static string GetOffersJson(NameValueCollection request)
+        {
+            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
+            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
+            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
+            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
+            return GetOffersJson(messages);
+        }
+        private static string GetOffersJson(IEnumerable<IMessage> messages)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
+            List<IMessage> messagesToSend = new List<IMessage>(messages);
+            messagesToSend = (messagesToSend.Count <= DEFAULT_COUNT) ? messagesToSend : messagesToSend.GetRange(0, DEFAULT_COUNT - 1);
+            return serializer.Serialize(messagesToSend);
         }
     }
 }

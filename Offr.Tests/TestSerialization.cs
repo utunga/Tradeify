@@ -135,9 +135,9 @@ namespace Offr.Tests
             
             TagList orig = new TagList();
             ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
-            orig.Add(tagProvider.GetTag("foo", TagType.tag));
-            orig.Add(tagProvider.GetTag("freecycle", TagType.tag));
-            orig.Add(tagProvider.GetTag("barter", TagType.tag));
+            orig.Add(tagProvider.GetAndAddTagIfAbsent("foo", TagType.tag));
+            orig.Add(tagProvider.GetAndAddTagIfAbsent("freecycle", TagType.tag));
+            orig.Add(tagProvider.GetAndAddTagIfAbsent("barter", TagType.tag));
 
             string serialized = JSON.Serialize(orig);
             TagList deserialized = JSON.Deserialize<TagList>(serialized);

@@ -15,7 +15,6 @@ namespace Offr.Query
 
         protected List<ITag> _seenTags;
         protected SortedList<string, List<IMessage>> _index;
-       // protected SortedList<string, List<IMessage>> _doubleTagIndex;
 
         protected BaseTagDex()
         {
@@ -48,12 +47,6 @@ namespace Offr.Query
             }
 
             IEnumerable<IMessage> candidates;
-            //if (intersectTags.Count > 1)
-            //{
-            //    string doubleKey = GetDoubleKey(intersectTags[0], intersectTags[1]);
-            //    candidates = _doubleTagIndex.ContainsKey(doubleKey) ? _doubleTagIndex[doubleKey] : new List<IMessage>();
-            //}
-            //else 
             if (intersectTags.Count > 0)
             {
                 candidates = _index.ContainsKey(intersectTags[0].MatchTag) ? _index[intersectTags[0].MatchTag] : new List<IMessage>();
@@ -83,7 +76,6 @@ namespace Offr.Query
             }
             //sort results by timestamp descending: note this is not always the same as the order they were put into the repository
             results.Sort(new CompDate());
-            //results.Reverse();
             return results;
         }
         class CompDate : IComparer<IMessage>
@@ -110,21 +102,6 @@ namespace Offr.Query
                         }
                         _index[tag1.MatchTag].Add(message);
                     }
-
-/*                    lock (_doubleTagIndex)
-                    {
-                        foreach (ITag tag2 in message.Tags)
-                        {
-                            if (tag2.Equals(tag1)) continue;
-                            string doubleKey = GetDoubleKey(tag1, tag2);
-
-                            if (!_doubleTagIndex.ContainsKey(doubleKey))
-                            {
-                                _doubleTagIndex[doubleKey] = new List<IMessage>();
-                            }
-                            _doubleTagIndex[doubleKey].Add(message);
-                        }
-                    }*/
                 }
             }
         }

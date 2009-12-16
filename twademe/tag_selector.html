@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        li.on {
+            background:#CCC;
+        }
+    </style>    
+
+</head>
+<body>
+    <h1>
+        test of tag selector</h1>
+    <form action="goes_nowhere">
+    <ul>
+        <li>
+            <label class="desc" id="Label1" for="Field212">
+                Tags:
+            </label>
+            <input id="tags" class="field text medium" value="" onchange="updateTags()" maxlength="255"
+                tabindex="8" />
+        </li>
+        <li>Recommended tags:
+                <h2 id="selected_tags">
+            <span class="template">
+            <span class="select_tag_container"> <a href="#" id="tag" class="select_tag">offers</a></span>
+            </span>
+        </h2>
+            <ul class="tag_list">
+                <li><a href="#" class="tag">food</a></li>
+                <li class="on"><a href="#" class="tag">lodging</a></li>
+                <li><a href="#" class="tag"><b>beer</b></a></li>
+            </ul>
+            
+            <div id="suggested_tags">
+                <span class="template">
+                    <ul class="tag_list">
+                        <li><a href="#" class="tag"></a></li>
+                    </ul>
+                </span>
+            </div>
+            
+            <div class="recommended_tags" name="recommended_tags" id="recommended_tags">
+                None</div>
+        </li>
+    </ul>
+    </form>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+    <script type="text/javascript" src="js/purePacked.js"></script>
+    <script type="text/javascript">
+        var selected_tags = [];
+
+        function clickable() {
+            //compile_render_fn();
+            alert($("tag").val())
+            $("tag").click(function() {
+                alert($(this).html());
+            });
+        }
+
+        var tags="";
+        function updateTags() {
+            selected_tags = $("#tags").val().split(",");
+            $.each(selected_tags, function() {
+                this.trim();
+            });
+            var json_url = build_search_query("/tags_json.aspx");
+            $.getJSON(json_url, function(context) {
+                var recommended_tags = context.tags_json.overall;
+                tags = context.tags_json;
+                var tagString = "";
+                $.each(recommended_tags, function() {
+                    tagString = (tags === "") ? this.tag : tagString + " , " + this.tag;
+                });
+                //$("#recommended_tags").html(tags);
+                compile_render_fn();
+            });
+        }
+        
+        function compile_render_fn() {
+
+            var selected_tags = $('#selected_tags .template').mapDirective({
+                'span.select_tag_container': 'tag <- overall',
+                '.select_tag_container .select_tag': 'tag.tag'
+            });
+
+            $p.compile(selected_tags, 'selected_tags_render_fn'); //compile to a function
+            $('#selected_tags').html($p.render('selected_tags_render_fn', tags));
+            clickable();
+        }
+
+        function build_search_query(baseUrl) {
+            var query = $(selected_tags).map(function() {
+                return this.type + "=" + escape(this.tag);
+            }).get().join("&");
+            return baseUrl + "?" + query;
+        }
+        //alert($('#suggested_tags .template'));
+        /*var avail_tags = $('#suggested_tags .template').mapDirective({
+        // 'div.tag_list': 'tags <- messages',
+        'div.tag_list': 'tags.tag'
+        });*/
+        /*var selected_tags = $('#selected_tags .template').mapDirective({
+        'tag_list': 'tags <- overall',
+        'tag_list .tag': 'tags.tag'
+        });*/
+        //$('#suggested_tags .template').autoRender(tags);
+        /*
+        'input[value]': 'tag.tag',
+        'input[name]': 'tag.type',
+        'em[style]': function(arg) {
+        return "width:" + arg.item.pct + "px";
+        },
+        'input[onclick]': "'toggle_select(this);'",
+        'input[checked]': function(arg) {
+        if (is_selected(arg.item.type, arg.item.tag)) { return "checked" }
+        else return "";
+        }
+        //'a[onclick]': "'toggle_select(" + arg.item.tag + "," +  arg.item.tag + ");'"
+        });*/
+    </script>
+
+</body>
+</html>

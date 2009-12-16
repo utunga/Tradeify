@@ -69,7 +69,6 @@
     <Compile Include="TestPersistanceService.cs" />
     <Compile Include="TestSerialization.cs" />
     <Compile Include="TestRegexParser.cs" />
-    <Compile Include="TestStaticTagDex.cs" />
     <Compile Include="TestTwitterPollingService.cs" />
     <Compile Include="TestTwitterProvider.cs" />
     <Compile Include="MockUserPointer.cs" />

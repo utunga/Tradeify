@@ -9,7 +9,7 @@ namespace Offr.Repository
 {
     public interface ITagRepository 
     {
-        ITag GetTag(string tagString, TagType type);
+        ITag GetAndAddTagIfAbsent(string tagString, TagType type);
         List<ITag> GetTagsFromNameValueCollection(NameValueCollection nameVals);
     }
 }

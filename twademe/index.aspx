@@ -180,13 +180,16 @@
         });
     }
 
-    function update_avail_tags() {
-        var json_url = build_search_query("/tags_json.aspx");
+    function update_json() {
+        var json_url = build_search_query("/tradeify_json.aspx");
         var tag_types = ["tag", "loc", "group", "type"];
         $.getJSON(json_url, function(context) {
-               $('#selected_tags').html($p.render('selected_tags_render_fn', context.tagcounts_json));
+        //update offers
+        $('#results_by_date').html($p.render('offers_render_fn', context.offers_json));
+        //update tagcounts
+        $('#selected_tags').html($p.render('selected_tags_render_fn', context.tags_json.tagcounts_json));
         var tmp = [];
-        $.each(context.tagcounts_json.overall, function() {
+        $.each(context.tags_json.tagcounts_json.overall, function() {
             tmp.push(this);
         });
         selected_tags = tmp;
@@ -194,7 +197,7 @@
         // from the list of tags overall, we need to filter out tags of a given type
             $.each(tag_types, function() {
                 var element_selector = '.sorted_tags.' + this + " .template"; // eg ".sorted_tags.loc .template"
-                var matches = filter_tags(context.tags_json.overall, this);
+                var matches = filter_tags(context.tags_json.tags_json.overall, this);
                 $(element_selector).html($p.render('avail_tags_render_fn', { 'tags': matches }));
             });
         });
@@ -213,8 +216,8 @@
 
     function update() {
         //update_selected_tags();
-        update_offers();
-        update_avail_tags();
+        //update_offers();
+        update_json();
         $(".tags_sort input").click(update);
     }
 

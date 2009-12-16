@@ -149,7 +149,7 @@ namespace Offr.Message
             {
                 string tagString = match.Groups[0].Value;
                 tagString = tagString.Replace("#", "");
-                yield return _tagProvider.GetTag(tagString,TagType.tag);
+                yield return _tagProvider.GetAndAddTagIfAbsent(tagString,TagType.tag);
             }
         }
 

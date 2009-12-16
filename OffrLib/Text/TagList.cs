@@ -205,7 +205,7 @@ namespace Offr.Text
            
             foreach (ITag tag in temp)
             {
-                _list.Add(provider.GetTag(tag.Text, tag.Type));
+                _list.Add(provider.GetAndAddTagIfAbsent(tag.Text, tag.Type));
             }
             
 
@@ -229,7 +229,7 @@ namespace Offr.Text
             //    JSON.ReadAndAssert(reader);
             //    string tagText = (string) serializer.Deserialize(reader, typeof (string));
 
-            //    _list.Add(provider.GetTag(tagText, type));
+            //    _list.Add(provider.GetAndAddTagIfAbsent(tagText, type));
 
             //    JSON.ReadAndAssert(reader);
             //    nextToken = reader.TokenType;

@@ -20,7 +20,7 @@ namespace Offr.Repository
         }
 
 
-        public ITag GetTag(string tagString, TagType type)
+        public ITag GetAndAddTagIfAbsent(string tagString, TagType type)
         {
             string tagStringLowerCase = tagString.ToLowerInvariant();
             ITag tag;
@@ -46,12 +46,23 @@ namespace Offr.Repository
                 {
                     foreach (string tagText in nameVals.GetValues(tagType.ToString()))
                     {
-                        ITag tag = this.GetTag(tagText, tagType);
+                        ITag tag = this.GetTagIfExists(tagText, tagType);
                         tags.Add(tag);
                     }
                 }
             }
             return tags;
+        }
+
+        private ITag GetTagIfExists(string tagString, TagType type)
+        {
+            string tagStringLowerCase = tagString.ToLowerInvariant();
+            ITag tag;
+            if (_list.TryGetValue(tagStringLowerCase, out tag))
+            {
+                return tag;
+            }
+            return null;
         }
 
 /*        public void Initialize()
