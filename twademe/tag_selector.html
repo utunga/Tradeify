@@ -3,7 +3,7 @@
 <head>
     <title></title>
     <style>
-        li.on {
+        span.on {
             background:#CCC;
         }
     </style>    
@@ -16,30 +16,32 @@
     <ul>
         <li>
             <label class="desc" id="Label1" for="Field212">
+               <span class="on">
                 Tags:
             </label>
             <input id="tags" class="field text medium" value="" onchange="updateTags()" maxlength="255"
                 tabindex="8" />
         </li>
         <li>Recommended tags:
-                <h2 id="selected_tags">
-            <span class="template">
-            <span class="select_tag_container"> <a href="#" id="tag" class="select_tag">offers</a></span>
-            </span>
-        </h2>
-            <ul class="tag_list">
+           <h2 id="selected_tags">
+                <span class="template">   
+                <span class="select_tag_container"> <a href="#" class="select_tag">offers</a></span>
+                </span>
+            </h2>
+            
+<!--            <ul class="tag_list">
                 <li><a href="#" class="tag">food</a></li>
                 <li class="on"><a href="#" class="tag">lodging</a></li>
                 <li><a href="#" class="tag"><b>beer</b></a></li>
-            </ul>
+            </ul>-->
             
-            <div id="suggested_tags">
+ <!--           <div id="suggested_tags">
                 <span class="template">
                     <ul class="tag_list">
                         <li><a href="#" class="tag"></a></li>
                     </ul>
                 </span>
-            </div>
+            </div>-->
             
             <div class="recommended_tags" name="recommended_tags" id="recommended_tags">
                 None</div>
@@ -47,36 +49,59 @@
     </ul>
     </form>
 
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
     <script type="text/javascript" src="js/purePacked.js"></script>
     <script type="text/javascript">
         var selected_tags = [];
-
+        var tags = "";
+        //compile_render_fn();
         function clickable() {
-            //compile_render_fn();
-            alert($("tag").val())
-            $("tag").click(function() {
-                alert($(this).html());
+            $(".select_tag").click(function() {
+            var pushed_tag = $(this).html();
+            if ($.inArray(pushed_tag, selected_tags) <= -1) {
+                $("#tags").val($("#tags").val() +","+ pushed_tag);
+                    updateTags();
+                }
             });
         }
-
-        var tags="";
+        function checkCSS() {
+            $.each($(".select_tag"), function() {
+            if ($.inArray($(this).html(), selected_tags) > -1) {
+                    $(this).addClass("on");
+                }
+            else if ($(this).hasClass("on"))$(this).removeClass("on");
+            });
+        }
         function updateTags() {
             selected_tags = $("#tags").val().split(",");
             $.each(selected_tags, function() {
                 this.trim();
             });
+            
             var json_url = build_search_query("/tags_json.aspx");
             $.getJSON(json_url, function(context) {
                 var recommended_tags = context.tags_json.overall;
                 tags = context.tags_json;
                 var tagString = "";
                 $.each(recommended_tags, function() {
-                    tagString = (tags === "") ? this.tag : tagString + " , " + this.tag;
+                    var on = ($.inArray(this.tag, selected_tags) > -1) ? "<span class=\"on\">" : "";
+                    var endon = ($.inArray(this.tag, selected_tags) > -1) ? "</span>" : "";
+                    tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon; //" , " + this.tag;
                 });
-                //$("#recommended_tags").html(tags);
-                compile_render_fn();
+                //alert(tagString);
+                //if (!(typeof selected_tags_render_fn == 'function')) {
+                //if not yet compiled compile it
+                /*    compile_render_fn();
+                
+                var render = $p.render('selected_tags_render_fn', tags);
+                */
+                $('#selected_tags').html(tagString);
+
+                clickable();
             });
+            checkCSS();
+            $('#selected_tags').html(('#selected_tags').html());
         }
         
         function compile_render_fn() {
@@ -87,8 +112,7 @@
             });
 
             $p.compile(selected_tags, 'selected_tags_render_fn'); //compile to a function
-            $('#selected_tags').html($p.render('selected_tags_render_fn', tags));
-            clickable();
+            
         }
 
         function build_search_query(baseUrl) {
