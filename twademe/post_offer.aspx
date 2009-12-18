@@ -69,14 +69,17 @@
         google.setOnLoadCallback(google_initialize);
         //]]>
     </script>
-    
-    <style>
-    .location input 
-    {
-    	width:400px;
-    }
-    </style>
 
+    <style>
+        .location input
+        {
+            width: 400px;
+        }
+        span.on
+        {
+            background: #CCC;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:PlaceHolder ID="AuthRequiredWarning" runat="server" Visible="true">
@@ -108,7 +111,8 @@
             <h4>
                 Successfully Posted</h4>
         </asp:PlaceHolder>
-        <h5>Or use the form below to gaurantee your message is valid</h5>
+        <h5>
+            Or use the form below to gaurantee your message is valid</h5>
         <input type="hidden" id="twitterUserName" name="twitterUserName" />
         <div class="info">
             <h2>
@@ -126,12 +130,11 @@
                 </div>
             </li>
             <li>
-            
                 <label class="desc" for="offer">
                     I am offering <span id="req_3" class="req">*</span>
                 </label>
                 <div>
-                    <textarea onkeyup="updateOffer()" id="offer" name="offer" type="text" rows="5" cols="50" ></textarea>
+                    <textarea onkeyup="updateOffer()" id="offer" name="offer" type="text" rows="5" cols="50"></textarea>
                 </div>
             </li>
             <li class="location">
@@ -167,17 +170,35 @@
                 <input id="until" name="until" type="text"><!-- date picker goes here -->
                 </div> </li>
         </ul>
-        <hr style="width:500px; height:1px; color:Black; display:block; text-align:left;"/>
+        <hr style="width: 500px; height: 1px; color: Black; display: block; text-align: left;" />
         <ul>
             <li>
                 <label class="desc" id="title212" for="Field212">
                     Link to picture
                 </label>
                 <img src="" />
-                <input id="Field212" type="text" class="field text medium" value=""
-                    maxlength="255" tabindex="8" />
+                <input id="Field212" type="text" class="field text medium" value="" maxlength="255"
+                    tabindex="8" />
             </li>
-            <li>
+            <body>
+                <form action="goes_nowhere">
+                <ul>
+                    <li>
+                        <label class="desc" id="Label1" for="Field212">
+                            Tags:
+                        </label>
+                        <input id="tags" class="field text medium" value="" onchange="updateTags()" maxlength="255"
+                            tabindex="8" />
+                    </li>
+                    <li>Recommended tags:
+                        <h2 id="selected_tags">
+                            <span class="template"><span class="select_tag_container"><a href="#" class="select_tag">
+                                offers</a></span> </span>
+                        </h2>
+                    </li>
+                </ul>
+                </form>
+                <%--            <li>
                  <label class="desc" id="Label1" for="Field212">
                     Tags:
                 </label>
@@ -188,17 +209,17 @@
             <li>
             Recommended tags:  
             <div class="recommended_tags" name="recommended_tags" id="recommended_tags">None</div>
-            </li>
-            <li id="li_MoreInfo" class="     ">
-                <label class="desc" id="lab_MoreInfo" for="More info:">
-                    More info:
-                </label>
-                <input id="More info:" name="More info:" type="text" class="field text medium" value=""
-                    maxlength="255" tabindex="8" />
-            </li>
-            <li class="buttons ">
-                <input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit" />
-            </li>
+            </li>--%>
+                <li id="li_MoreInfo" class="     ">
+                    <label class="desc" id="lab_MoreInfo" for="More info:">
+                        More info:
+                    </label>
+                    <input id="More info:" name="More info:" type="text" class="field text medium" value=""
+                        maxlength="255" tabindex="8" />
+                </li>
+                <li class="buttons ">
+                    <input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit" />
+                </li>
         </ul>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
@@ -222,7 +243,7 @@
             var forPrefix = " for ";
             var untilPrefix = " until ";
             var linkPrefix = "here is a link to an image: ";
-             function getUntil() {
+            function getUntil() {
                 if ($("#until").val().length == 0) {
                     return "";
                 }
@@ -230,7 +251,7 @@
                     return untilPrefix + $("#until").val();
                 }
             }
-            
+
             function updateOffer() {
                 var concatMessage =
                          offerPrefix +
@@ -257,6 +278,75 @@
                     $("#recommended_tags").val(tags);
                     alert($("#recommended_tags").val());
                 });
+            }
+            var selected_tags = [];
+            var tags = "";
+            //compile_render_fn();
+            function clickable() {                
+                $(".select_tag").click(parseClick);
+            }
+            function parseClick() {
+                var tagField = $("#tags").val();
+                var pushed_tag = $(this).html();
+                if ($.inArray(pushed_tag, selected_tags) <= -1) {
+                    if (tagField != "")
+                        $("#tags").val(tagField + "," + pushed_tag);
+                    else $("#tags").val(pushed_tag);
+                }
+                else {
+                    var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
+                    var replacementText = tagField.replace(txt, "");
+                    $("#tags").val(replacementText);
+                }
+                updateTags();
+
+
+            }
+            function checkCSS() {
+                $.each($(".select_tag"), function() {
+                    if ($.inArray($(this).html(), selected_tags) > -1) {
+                        $(this).addClass("on");
+                    }
+                    else if ($(this).hasClass("on")) $(this).removeClass("on");
+                });
+            }
+            function updateTags() {
+                selected_tags = $("#tags").val().split(",");
+                $.each(selected_tags, function() {
+                    this.trim();
+                });
+
+                var json_url = build_search_query("/tags_json.aspx");
+                $.getJSON(json_url, function(context) {
+                    var recommended_tags = context.tags_json.overall;
+                    tags = context.tags_json;
+                    var tagString = "";
+                    $.each(recommended_tags, function() {
+                        var on = "";
+                        var endon = "";
+                        if (($.inArray(this.tag, selected_tags) > -1)) {
+                            on = "<span class=\"on\">";
+                            endon = "</span>";
+                        }
+                        tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
+                    });
+                    $('#selected_tags').html(tagString);
+
+                    clickable();
+                });
+                //checkCSS();
+                //$('#selected_tags').html(('#selected_tags').html());
+            }
+
+            function compile_render_fn() {
+
+                var selected_tags = $('#selected_tags .template').mapDirective({
+                    'span.select_tag_container': 'tag <- overall',
+                    '.select_tag_container .select_tag': 'tag.tag'
+                });
+
+                $p.compile(selected_tags, 'selected_tags_render_fn'); //compile to a function
+
             }
             function build_search_query(baseUrl) {
                 var query = $(selected_tags).map(function() {

@@ -16,10 +16,10 @@
     <ul>
         <li>
             <label class="desc" id="Label1" for="Field212">
-               <span class="on">
+               
                 Tags:
             </label>
-            <input id="tags" class="field text medium" value="" onchange="updateTags()" maxlength="255"
+            <input id="tags" class="field text medium" value="" onkeyup="timeoutKeyChange()" maxlength="255"
                 tabindex="8" />
         </li>
         <li>Recommended tags:
@@ -48,22 +48,60 @@
         </li>
     </ul>
     </form>
-
+<span class="on">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
     <script type="text/javascript" src="js/purePacked.js"></script>
     <script type="text/javascript">
         var selected_tags = [];
-        var tags = "";
+        var tags = [];
+
         //compile_render_fn();
-        function clickable() {
-            $(".select_tag").click(function() {
+        function clickable() {           
+            $(".select_tag").click(parseClick);
+        }
+        /*
+        function parseClick() {
+            var tagField = $("#tags").val();
             var pushed_tag = $(this).html();
             if ($.inArray(pushed_tag, selected_tags) <= -1) {
-                $("#tags").val($("#tags").val() +","+ pushed_tag);
-                    updateTags();
-                }
+                if (tagField != "")
+                    $("#tags").val(tagField + "," + pushed_tag);
+                else $("#tags").val(pushed_tag);
+            }
+            else {
+                var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
+                var replacementText = tagField.replace(txt, "");
+                $("#tags").val(replacementText);
+            }
+            updateTags();
+
+
+        }
+        */
+        function parseClick() {
+            var tagField = $("#tags").val();
+            var pushed_tag = $(this).html();
+            if ($.inArray(pushed_tag, selected_tags) <= -1) {
+                if (tagField != "")
+                    $("#tags").val(tagField + " " + pushed_tag);
+                else $("#tags").val(pushed_tag);
+            }
+            else {
+                //var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
+                var replacementText = tagField.replace(pushed_tag, "");
+                $("#tags").val(replacementText);
+            }
+            updateTags();
+
+
+        }
+        function getTagString() {
+            var tagString=""
+            $.each(selected_tags, function() {
+                tagString = tagString + " #" + this;
             });
+            return tagString;
         }
         function checkCSS() {
             $.each($(".select_tag"), function() {
@@ -73,21 +111,39 @@
             else if ($(this).hasClass("on"))$(this).removeClass("on");
             });
         }
+        var threshold = 1500;
+        var keyChangeStack=0;
+        function timeoutKeyChange() {
+            keyChangeStack++;
+            setTimeout(function() {
+                keyChangeStack--;
+                if (keyChangeStack == 0) {
+                    updateTags();
+                }
+            }, threshold);
+        }
         function updateTags() {
-            selected_tags = $("#tags").val().split(",");
-            $.each(selected_tags, function() {
-                this.trim();
-            });
+            //get rid of multiple spaces...
+            var txt = new RegExp("\\s\\s+");
+            $("#tags").val($("#tags").val().replace(txt, " "));
+            //just in case a single \t or \n is present
+            txt = new RegExp("\\s+");
+            $("#tags").val($("#tags").val().replace(txt, " "));
+             
+            selected_tags = $("#tags").val().split(" ");
             
             var json_url = build_search_query("/tags_json.aspx");
             $.getJSON(json_url, function(context) {
-                var recommended_tags = context.tags_json.overall;
-                tags = context.tags_json;
+                tags = context.tags_json.overall;
                 var tagString = "";
-                $.each(recommended_tags, function() {
-                    var on = ($.inArray(this.tag, selected_tags) > -1) ? "<span class=\"on\">" : "";
-                    var endon = ($.inArray(this.tag, selected_tags) > -1) ? "</span>" : "";
-                    tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon; //" , " + this.tag;
+                $.each(tags, function() {
+                    var on = "";
+                    var endon = "";
+                    if (($.inArray(this.tag, selected_tags) > -1)) {
+                        on = "<span class=\"on\">";
+                        endon = "</span>";
+                    }
+                    tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
                 });
                 //alert(tagString);
                 //if (!(typeof selected_tags_render_fn == 'function')) {
@@ -97,11 +153,10 @@
                 var render = $p.render('selected_tags_render_fn', tags);
                 */
                 $('#selected_tags').html(tagString);
-
                 clickable();
             });
-            checkCSS();
-            $('#selected_tags').html(('#selected_tags').html());
+            //checkCSS();
+            alert(getTagString());
         }
         
         function compile_render_fn() {
@@ -116,9 +171,13 @@
         }
 
         function build_search_query(baseUrl) {
-            var query = $(selected_tags).map(function() {
-                return this.type + "=" + escape(this.tag);
-            }).get().join("&");
+            if (tags.length == 0) return baseUrl;
+            var query = "";
+            $.each(tags, function() {
+                if($.inArray(this.tag,selected_tags)>-1)
+                    query = query + this.type + "=" + escape(this.tag) + "&";
+            });
+            query = query.substring(0, query.length - 1);
             return baseUrl + "?" + query;
         }
         //alert($('#suggested_tags .template'));
