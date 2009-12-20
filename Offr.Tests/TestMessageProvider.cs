@@ -14,13 +14,15 @@ namespace Offr.Tests
     public class TestMessageProvider
     {
         IMessageProvider _target;
+        MockRawMessageProvider _mockProvider;
 
         public TestMessageProvider()
         {
-            MockRawMessageProvider mockProvider = new MockRawMessageProvider();
+            _mockProvider = new MockRawMessageProvider();
             MockMessageParser mockParser = new MockMessageParser();
             MessageRepository messageRepository = new MessageRepository();
-            _target = new MessageProvider(messageRepository, mockProvider, mockParser);
+            _target = new MessageProvider(messageRepository, _mockProvider, mockParser);
+            _mockProvider.Update();
 
         }
 
@@ -28,6 +30,7 @@ namespace Offr.Tests
         public void TestGetMessages()
         {
             // somewhat of an integration test, but gets us some of the way there
+           
             List<IMessage> output = new List<IMessage>( _target.AllMessages);
             foreach (IMessage message in output)
             {
