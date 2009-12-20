@@ -3,8 +3,13 @@
 <head>
     <title></title>
     <style>
-        span.on {
+        li.on {
             background:#CCC;
+        }
+        #suggested_tags li,
+        #selected_tags li
+        {
+        	display:inline;
         }
     </style>    
 
@@ -15,71 +20,39 @@
     <form action="goes_nowhere">
     <ul>
         <li>
-            <label class="desc" id="Label1" for="Field212">
-               
+            <label class="desc" id="Label1" for="Field212">          
                 Tags:
             </label>
             <input id="tags" class="field text medium" value="" onkeyup="timeoutKeyChange()" maxlength="255"
                 tabindex="8" />
         </li>
-        <li>Recommended tags:
-           <h2 id="selected_tags">
-                <span class="template">   
-                <span class="select_tag_container"> <a href="#" class="select_tag">offers</a></span>
-                </span>
-            </h2>
-            
-<!--            <ul class="tag_list">
-                <li><a href="#" class="tag">food</a></li>
-                <li class="on"><a href="#" class="tag">lodging</a></li>
-                <li><a href="#" class="tag"><b>beer</b></a></li>
-            </ul>-->
-            
- <!--           <div id="suggested_tags">
+        <li>Current tags:
+           <ul id="selected_tags">
+                <li><a href="#" class="tag"></a></li>
+            </ul>            
+        </li>
+        <li>
+          Suggested Tags:          
+          <div id="suggested_tags">
                 <span class="template">
-                    <ul class="tag_list">
+                    <ul class="select_tag_container">
                         <li><a href="#" class="tag"></a></li>
                     </ul>
                 </span>
-            </div>-->
-            
-            <div class="recommended_tags" name="recommended_tags" id="recommended_tags">
-                None</div>
-        </li>
+          </div>
+          
+    </li>
     </ul>
     </form>
 <span class="on">
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.3.2.js"></script>
     <script type="text/javascript" src="/js/purePacked.js"></script>
     <script type="text/javascript">
         var selected_tags = [];
         var tags = [];
-
-        //compile_render_fn();
-        function clickable() {           
-            $(".select_tag").click(parseClick);
-        }
-        /*
-        function parseClick() {
-            var tagField = $("#tags").val();
-            var pushed_tag = $(this).html();
-            if ($.inArray(pushed_tag, selected_tags) <= -1) {
-                if (tagField != "")
-                    $("#tags").val(tagField + "," + pushed_tag);
-                else $("#tags").val(pushed_tag);
-            }
-            else {
-                var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
-                var replacementText = tagField.replace(txt, "");
-                $("#tags").val(replacementText);
-            }
-            updateTags();
-
-
-        }
-        */
-        function parseClick() {
+        
+        function onClick() {
             var tagField = $("#tags").val();
             var pushed_tag = $(this).html();
             if ($.inArray(pushed_tag, selected_tags) <= -1) {
@@ -93,8 +66,8 @@
                 $("#tags").val(replacementText);
             }
             updateTags();
-
         }
+        
         function getTagString() {
             var tagString=""
             $.each(selected_tags, function() {
@@ -112,7 +85,7 @@
             });
         }
         
-        var threshold = 1500;
+        var threshold = 200;
         var keyChangeStack=0;
         function timeoutKeyChange() {
             keyChangeStack++;
@@ -123,7 +96,9 @@
                 }
             }, threshold);
         }
+        
         function updateTags() {
+        
             //get rid of multiple spaces...
             var txt = new RegExp("\\s\\s+");
             $("#tags").val($("#tags").val().replace(txt, " "));
@@ -133,6 +108,13 @@
              
             selected_tags = $("#tags").val().split(" ");
             
+            var selectedTagsHTML = $(selected_tags).map(function() {
+                return "#" + this;
+            }).get().join(", ");
+
+           
+            $("#selected_tags").html(selectedTagsHTML);
+            
             var json_url = build_search_query("/tags_json.aspx");
             $.getJSON(json_url, function(context) {
                 tags = context.tags_json.overall;
@@ -141,35 +123,40 @@
                     var on = "";
                     var endon = "";
                     if (($.inArray(this.tag, selected_tags) > -1)) {
-                        on = "<span class=\"on\">";
-                        endon = "</span>";
+                        on = "<li class=\"on\">";
+                        endon = "</li>";
+                    }
+                    else {
+                        on = "<li>";
+                        endon = "</li>";
                     }
                     tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
-                });
+                });  
+                
                 //alert(tagString);
-                //if (!(typeof selected_tags_render_fn == 'function')) {
+                //if (!(typeof suggested_tags_render_fn == 'function')) {
                 //if not yet compiled compile it
                 /*    compile_render_fn();
                 
-                var render = $p.render('selected_tags_render_fn', tags);
+                var render = $p.render('suggested_tags_render_fn', tags);
                 */
-                $('#selected_tags').html(tagString);
-                clickable();
+                $('#suggested_tags').html(tagString);
+                $("#suggested_tags .select_tag").click(onClick);
             });
+            
+                
             //checkCSS();
-            alert(getTagString());
+            //alert(getTagString());
         }
         
-        function compile_render_fn() {
+//        function compile_render_fn() {
 
-            var selected_tags = $('#selected_tags .template').mapDirective({
-                'span.select_tag_container': 'tag <- overall',
-                '.select_tag_container .select_tag': 'tag.tag'
-            });
-
-            $p.compile(selected_tags, 'selected_tags_render_fn'); //compile to a function
-            
-        }
+//            var selected_tags = $('#suggested_tags .template').mapDirective({
+//                '.select_tag_container': 'tag <- overall',
+//                '.select_tag_container .tag': 'tag.tag'
+//            });
+//            $p.compile(selected_tags, 'suggested_tags_render_fn'); //compile to a function
+//        }
 
         function build_search_query(baseUrl) {
             if (tags.length == 0) return baseUrl;
@@ -181,6 +168,7 @@
             query = query.substring(0, query.length - 1);
             return baseUrl + "?" + query;
         }
+        
         //alert($('#suggested_tags .template'));
         /*var avail_tags = $('#suggested_tags .template').mapDirective({
         // 'div.tag_list': 'tags <- messages',
