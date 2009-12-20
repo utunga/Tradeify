@@ -7,8 +7,6 @@ using Offr.Location;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
-using Ninject.Core;
-using Ninject;
 using Offr.Twitter;
 
 namespace Offr.Tests

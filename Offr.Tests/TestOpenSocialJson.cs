@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ninject.Core;
 using NUnit.Framework;
 using Offr.Json;
 using Offr.Open_Social;

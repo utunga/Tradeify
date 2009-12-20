@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Timers;
-using Ninject.Core;
 using NUnit.Framework;
 using Offr.Message;
 using Offr.Query;

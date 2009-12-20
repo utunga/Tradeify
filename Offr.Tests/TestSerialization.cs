@@ -135,6 +135,7 @@ namespace Offr.Tests
             
             TagList orig = new TagList();
             ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
+            //TagRepository tagProvider = new TagRepository();
             orig.Add(tagProvider.GetAndAddTagIfAbsent("foo", TagType.tag));
             orig.Add(tagProvider.GetAndAddTagIfAbsent("freecycle", TagType.tag));
             orig.Add(tagProvider.GetAndAddTagIfAbsent("barter", TagType.tag));

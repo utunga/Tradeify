@@ -18,6 +18,7 @@ namespace Offr.Tests
         private MessageRepository _messageRepository;
         private string _filePath;
         private BackgroundExceptionReceiver _receiver;
+        
         //broken by previous tests
         [Ignore]
         [TestFixtureSetUp]
@@ -30,6 +31,7 @@ namespace Offr.Tests
             _messageRepository.FilePath = _filePath;
             Assert.That(_messageRepository.AllMessages().Count() == 0,"File should be initially empty");
         }
+
         [Test]
         public void TestStartup()
         {
