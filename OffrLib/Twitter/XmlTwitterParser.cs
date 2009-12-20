@@ -26,14 +26,14 @@ namespace Offr.Twitter
             return user;
         }
 
-        public static Status ParseStatus(string statusXML)
+        public static TwitterStatusXml ParseStatus(string statusXML)
         {
             //Convert it to a Status object
             StringReader reader = new StringReader(statusXML);
-            Status status = null;
+            TwitterStatusXml status = null;
             try
             {
-                status = new System.Xml.Serialization.XmlSerializer(typeof(Status)).Deserialize(reader) as Status;
+                status = new System.Xml.Serialization.XmlSerializer(typeof(TwitterStatusXml)).Deserialize(reader) as TwitterStatusXml;
             }
             catch (Exception)
             {

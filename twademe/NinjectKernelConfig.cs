@@ -7,7 +7,6 @@ using Ninject.Core.Behavior;
 using Offr.Message;
 using Offr.Query;
 using Offr.Repository;
-using Offr.Tests;
 using Offr.Text;
 
 namespace twademe

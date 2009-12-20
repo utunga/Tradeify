@@ -8,18 +8,9 @@ using Offr.Message;
 
 namespace Offr.Text
 {
-    public class OpenSocialMessagePointer:IMessagePointer
+    public class OpenSocialMessagePointer : IMessagePointer
     {
-        public OpenSocialMessagePointer(string id)
-        {
-            ProviderMessageID = id;
-        }
-
-        public bool Equals(IMessagePointer other)
-        {
-            throw new NotImplementedException();
-        }
-
+     
         public string ProviderMessageID
         {
              get; private set; 
@@ -27,13 +18,20 @@ namespace Offr.Text
 
         public string ProviderNameSpace
         {
-            get { return "Open Social"; }
+            get; private set; 
         }
 
         public string MatchTag
         {
             get { return ProviderNameSpace + "/" + ProviderMessageID; }
         }
+
+        public OpenSocialMessagePointer(string providerNameSpace, string providerMessageID)
+        {
+            ProviderNameSpace = providerNameSpace;
+            ProviderMessageID = providerMessageID;
+        }
+
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             JSON.WriteProperty(serializer, writer, "provider_name_space", ProviderNameSpace);
@@ -45,5 +43,14 @@ namespace Offr.Text
             JSON.ReadProperty<string>(serializer, reader, "provider_name_space");
             this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "message_id");
         }
+
+        #region Implementation of IEquatable<IMessagePointer>
+
+        public bool Equals(IMessagePointer other)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
     }
 }

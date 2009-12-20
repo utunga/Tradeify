@@ -78,7 +78,8 @@
     <Compile Include="Json\Converter\MessagePointerConverter.cs" />
     <Compile Include="Json\JSON.cs" />
     <Compile Include="Message\IMessageReceiver.cs" />
-    <Compile Include="Open Social\OpenSocialJson.cs" />
+    <Compile Include="OpenSocial\OpenSocialJson.cs" />
+    <Compile Include="OpenSocial\OpenSocialRawMessage.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
     <Compile Include="ITopic.cs" />
@@ -116,8 +117,8 @@
     <Compile Include="Services\PersistanceService.cs" />
     <Compile Include="Services\RawMessagePollingService.cs" />
     <Compile Include="Text\DateUtils.cs" />
-    <Compile Include="Open Social\OpenSocialMessagePointer.cs" />
-    <Compile Include="Open Social\OpenSocialUserPointer.cs" />
+    <Compile Include="OpenSocial\OpenSocialMessagePointer.cs" />
+    <Compile Include="OpenSocial\OpenSocialUserPointer.cs" />
     <Compile Include="Text\IRawMessageReceiver.cs" />
     <Compile Include="Text\RawMessage.cs" />
     <Compile Include="Text\TagCounts.cs" />
@@ -139,10 +140,11 @@
     <Compile Include="Text\TagList.cs" />
     <Compile Include="Text\TagType.cs" />
     <Compile Include="Query\IMessageQuery.cs" />
+    <Compile Include="Twitter\TwitterRawMessage.cs" />
     <Compile Include="Twitter\TwitterUserPointer.cs" />
     <Compile Include="Location\GoogleLocationProvider.cs" />
     <Compile Include="Location\GoogleResultSet.cs" />
-    <Compile Include="Twitter\Status.cs" />
+    <Compile Include="Twitter\TwitterStatusXml.cs" />
     <Compile Include="Twitter\TwitterRawMessageProvider.cs" />
     <Compile Include="Twitter\TwitterMessagePointer.cs" />
     <Compile Include="Twitter\TwitterResultSet.cs" />
@@ -157,6 +159,7 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
     <None Include="Offr.snk" />
+    <None Include="Query\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib\Newtonsoft.Json\src\Newtonsoft.Json.csproj">

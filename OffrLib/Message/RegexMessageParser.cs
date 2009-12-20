@@ -21,6 +21,7 @@ namespace Offr.Message
         }
 
         #region the main method
+
         public IMessage Parse(IRawMessage source)
         {
             OfferMessage msg = new OfferMessage();
@@ -63,84 +64,65 @@ namespace Offr.Message
             //Look for 'l:' followed by one or more of any character except ':' followed by ':'
             Regex re = new Regex("[ l| L]:([^:]+):", RegexOptions.IgnoreCase);
             Match match = re.Match(sourceText);
-            ILocation location = null;
             if (match.Groups.Count > 1)
             {
                 //grab the first part of the address
                 string address = match.Groups[1].Value;
-                location = _locationProvider.Parse(address);
+                return _locationProvider.Parse(address);
             }
-            else return NonStrictParseLocation(sourceText);
-            return location;
-        }
 
-        private ILocation NonStrictParseLocation(string sourceText)
-        {
-            Regex re = new Regex("(( l:| L:)([^:]+))", RegexOptions.IgnoreCase);
-            Match match = re.Match(sourceText);
-            ILocation best = null;
-            if (match.Groups.Count > 1)
+            GoogleLocationProvider locationProvider = _locationProvider as GoogleLocationProvider;
+
+            Regex reOpenEnd = new Regex("(( l:| L:)([^:]+))", RegexOptions.IgnoreCase);
+            Match matchOpenEnd = reOpenEnd.Match(sourceText);
+            if (matchOpenEnd.Groups.Count > 1)
             {
                 string afterL = match.Groups[3].Value;
                 string address = afterL;
-                //search for a location then trim the array one word at a time
-                while (address.Length >= 1)
-                {
-                    ILocation newLocation = _locationProvider.Parse(address);
-                    if (newLocation != null && newLocation.Accuracy != null)
-                    {
-                        if (best == null) best = newLocation;
-                        if (newLocation.Accuracy >= best.Accuracy) best = newLocation;
-                    }
-                    Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
-                    Match endMatch = endRegex.Match(address);
-                    if (endMatch.Groups.Count > 1)
-                    {
-                        address = address.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
-                        address = address.Trim();
-                    }
-                    else break;
-                    //address = address.Substring(0, address.Length - 2);
-                }
+                return locationProvider.ParseFromApproxText(address);
             }
-            else return LocationWithIn(sourceText);
-            //return the location with the best accuracy
-            return best;
-    }
-        private ILocation LocationWithIn(string sourceText)
-        {
-            Regex re = new Regex(" in .*$$", RegexOptions.IgnoreCase);
-            Match match = re.Match(sourceText);
-            ILocation best = null;
-            if (match.Groups.Count >= 1)
+
+            Regex reIn = new Regex(" in .*$$", RegexOptions.IgnoreCase);
+            Match matchIn = reIn.Match(sourceText);
+            if (matchIn.Groups.Count >= 1)
             {
                 string afterL = match.Groups[0].Value;
                 string address = afterL;
                 address = address.TrimStart(" in ".ToCharArray());
-                //search for a location then trim the array one character at a time until you reach the ':' character
-                while (address.Length >= 1)
-                {
-                    //Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
-                    ILocation newLocation = _locationProvider.Parse(address);
-                    if (newLocation != null && newLocation.Accuracy != null)
-                    {
-                        if (best == null) best = newLocation;
-                        if (newLocation.Accuracy >= best.Accuracy) best = newLocation;
-                    }
-                    Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
-                    Match endMatch = endRegex.Match(address);
-                    if (endMatch.Groups.Count > 1)
-                    {
-                        address = address.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
-                        address = address.Trim();
-                    }
-                    else break;
-                    //address = address.Substring(0, address.Length - 2);
-                }
+                return locationProvider.ParseFromApproxText(address);
             }
-            return best;
 
+            // didn't find any location
+            return null;
         }
+
+        //private ILocation LocationWithIn(string sourceText)
+        //{
+        //    // snippet of code from parsing of content after "In" which was inexplicably 
+        //    // differnet from approach used when after L:
+        //    //    //search for a location then trim the array one character at a time until you reach the ':' character
+        //    //while (address.Length >= 1)
+        //    //{
+        //    //    //Regex re = new Regex("(#[a-zA-Z0-9_]+$$)");
+        //    //    ILocation newLocation = Parse(address);
+        //    //    if (newLocation != null && newLocation.Accuracy != null)
+        //    //    {
+        //    //        if (best == null) best = newLocation;
+        //    //        if (newLocation.Accuracy >= best.Accuracy) best = newLocation;
+        //    //    }
+        //    //    Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
+        //    //    Match endMatch = endRegex.Match(address);
+        //    //    if (endMatch.Groups.Count > 1)
+        //    //    {
+        //    //        address = address.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
+        //    //        address = address.Trim();
+        //    //    }
+        //    //    else break;
+        //    //    //address = address.Substring(0, address.Length - 2);
+        //    //}
+        //    //return best;
+        //}
+       
         private IEnumerable<ITag> ParseTags(IRawMessage source)
         {
             Regex re = new Regex("(#[a-zA-Z0-9_]+)");
@@ -200,10 +182,7 @@ namespace Offr.Message
         {
             return GetImageUrl(offerText);
         }
-        public ILocation TEST_GetNonStrictLocation(string offerText)
-        {
-            return NonStrictParseLocation(offerText);
-        }
+
         #endif
         #endregion Test
     }

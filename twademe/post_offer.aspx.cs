@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Offr.OAuth;
 using Offr.Text;
+using Offr.OpenSocial;
 
 namespace twademe
 {
@@ -40,8 +41,9 @@ namespace twademe
             }
             string messageText = Request.Form["Message"];
             IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
+
             if (messageText != null)
-                messageReceiver.Notify(RawMessage.From(messageText, "100", "Unkown", ""));
+                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", "Unkown", ""));
         }
     }
 }

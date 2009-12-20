@@ -12,6 +12,8 @@ namespace Offr.Tests
 {
     public class MockRawMessage : IRawMessage
     {
+
+
         public IMessagePointer Pointer { get; internal set; }
         public IUserPointer CreatedBy { get; internal set; }
         public string Text { get; internal set; }
@@ -47,6 +49,19 @@ namespace Offr.Tests
         {
             Pointer = new MockMessagePointer(id);
             _tags = new TagList();
+        }
+
+        public MockRawMessage(string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, DateTime dateTimeUTC)
+        {
+            Text = sourceText;
+            Pointer = messagePointer;
+            CreatedBy = createdBy;
+            Timestamp = dateTimeUTC;
+        }
+
+        public MockRawMessage(string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, string dateTimeUTC) :
+            this(sourceText, messagePointer, createdBy, DateUtils.UTCDateTimeFromTwitterTimeStamp(dateTimeUTC))
+        {
         }
 
         public int CompareTo(IRawMessage otherIRawMessage)
@@ -89,19 +104,23 @@ namespace Offr.Tests
             return builder.ToString();
         }
 
-        #region Implementation of ICanJson
 
+        #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            //So writing isnt screwed up
-            RawMessage nonMock= new RawMessage(this.Text, this.Pointer, this.CreatedBy, this.Timestamp);
-            nonMock.WriteJson(writer,serializer);
+            JSON.WriteProperty(serializer, writer, "pointer", Pointer);
+            JSON.WriteProperty(serializer, writer, "created_by", CreatedBy);
+            JSON.WriteProperty(serializer, writer, "text", Text);
+            JSON.WriteProperty(serializer, writer, "timestamp_utc", Timestamp);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            Pointer = JSON.ReadProperty<TwitterMessagePointer>(serializer, reader, "Pointer");
+            Pointer = JSON.ReadProperty<TwitterMessagePointer>(serializer, reader, "pointer");
+            CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
+            Text = JSON.ReadProperty<string>(serializer, reader, "text");
+            Timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp_utc");
         }
-        #endregion
+        #endregion JSON
     }
 }

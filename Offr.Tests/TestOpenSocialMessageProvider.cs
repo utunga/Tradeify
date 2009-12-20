@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using NUnit.Framework;
 using Offr.Json;
 using Offr.Message;
+using Offr.OpenSocial;
 using Offr.Text;
 
 namespace Offr.Tests
@@ -19,7 +20,7 @@ namespace Offr.Tests
         public void TestOpenSocial()
         {
             IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
-            messageReceiver.Notify(RawMessage.From("#ihave #vege in wellington", "12312", "Joav","blah"));
+            messageReceiver.Notify(new OpenSocialRawMessage("oooby", "#ihave #vege in wellington", "12312", "Joav","blah"));
 
             IMessageRepository repository = Global.Kernel.Get<IMessageRepository>();
             foreach (IMessage message in repository.AllMessages())

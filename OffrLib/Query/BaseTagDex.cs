@@ -20,7 +20,6 @@ namespace Offr.Query
         {
             _seenTags = new List<ITag>();
             _index = new SortedList<string, List<IMessage>>();
-            //_doubleTagIndex = new SortedList<string, List<IMessage>>();
         }
 
         /// <summary>
@@ -74,18 +73,15 @@ namespace Offr.Query
                     results.Add(message);
                 }
             }
-            //sort results by timestamp descending: note this is not always the same as the order they were put into the repository
-            results.Sort(new CompDate());
+            //sort results by timestamp descending
+            results.Sort((a, b) => b.Timestamp.CompareTo(a.Timestamp));
             return results;
         }
-        class CompDate : IComparer<IMessage>
-        {
-            // Implement the IComparable interface. 
-            public int Compare(IMessage a, IMessage b)
-            {
-                return b.Timestamp.CompareTo(a.Timestamp);
-            }
-        } 
+   
+        /// <summary>
+        /// From 
+        /// </summary>
+        /// <param name="messages"></param>
         public void Process(IEnumerable<IMessage> messages)
         {
             foreach (IMessage message in messages)
@@ -108,27 +104,11 @@ namespace Offr.Query
 
         public TagWithCount GetTagCountForTag(ITag tag)
         {
-            if (_index.ContainsKey(tag.MatchTag))
-            {
-                return new TagWithCount() { count = _index[tag.MatchTag].Count(), tag = tag };
-            }
-            else
-            {
-                return new TagWithCount() { count=0, tag = tag };
-            }
+            return _index.ContainsKey(tag.MatchTag) ? 
+                new TagWithCount() { count = _index[tag.MatchTag].Count(), tag = tag } :
+                new TagWithCount() { count=0, tag = tag };
         }
 
-        private static string GetDoubleKey(ITag tag1, ITag tag2)
-        {
-            if (tag1.MatchTag.CompareTo(tag2.MatchTag) < 1)
-            {
-                return tag1.MatchTag + tag2.MatchTag;
-            }
-            else
-            {
-                return tag2.MatchTag + tag1.MatchTag;
-            }
-        }
         //get the 'total' for a TagCounts object based on just adding up the number of messages with each tag
         public TagCounts GetTagCounts()
         {

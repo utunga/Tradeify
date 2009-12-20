@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Offr.Open_Social
+namespace Offr.OpenSocial
 {
     #region examplejson
     /*

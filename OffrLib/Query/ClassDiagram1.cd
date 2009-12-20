@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Offr.Query.BaseTagDex">
+    <Position X="10.75" Y="1" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAgAIAAAAAAAAAgAgAAEAAAAAIAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Query\BaseTagDex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Offr.Twitter.TwitterRawMessageProvider" Collapsed="true">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAAAgAAAAIAACAAAAAAAAAAMAAAAAAAAARCA=</HashCode>
+      <FileName>Twitter\TwitterRawMessageProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Offr.Message.IMessageReceiver">
+    <Position X="9.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IMessageReceiver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IMessageProvider">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAA=</HashCode>
+      <FileName>Message\IMessageProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IMessage" Collapsed="true">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAgAAEAAAAEAgGAAAAAAAAIEAAAAAAAAAAAAE=</HashCode>
+      <FileName>Message\IMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Message.IMessageParser">
+    <Position X="0.5" Y="2.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Message\IMessageParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

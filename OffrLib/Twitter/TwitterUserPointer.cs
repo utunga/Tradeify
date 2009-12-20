@@ -34,6 +34,16 @@ namespace Offr.Text
             ProviderNameSpace = "twitter";
         }
 
+        /// <summary>
+        /// initalize from the TwitterStatus from_user, profile_image_url fields
+        /// </summary>
+        /// <param name="from_user"></param>
+        /// <param name="profile_image_url"></param>
+        public TwitterUserPointer(string from_user, string profile_image_url) : this (from_user)
+        {
+            ProfilePicUrl = profile_image_url;
+        }
+
         #endregion Constructor
 
         #region Equals

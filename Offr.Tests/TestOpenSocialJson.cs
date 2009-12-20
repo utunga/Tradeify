@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Offr.Json;
-using Offr.Open_Social;
+using Offr.OpenSocial;
 namespace Offr.Tests
 {
     [TestFixture]

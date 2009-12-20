@@ -71,7 +71,7 @@ namespace Offr.Twitter
             List<IRawMessage> statusUpdatesForQuery = new List<IRawMessage>();
             foreach (TwitterStatus status in resultSet.results)
             {
-                statusUpdatesForQuery.Add(RawMessage.From(status));
+                statusUpdatesForQuery.Add(new TwitterRawMessage(status));
             }
             return statusUpdatesForQuery;
         }
@@ -80,8 +80,8 @@ namespace Offr.Twitter
         {
             string url = String.Format(WebRequest.TWITTER_STATUS_URI, providerMessageID); // query back to beginning of time
             string responseData = WebRequest.RetrieveContent(url);
-            Status xmlStatus = XmlTwitterParser.ParseStatus(responseData);
-            return RawMessage.From(xmlStatus);
+            TwitterStatusXml xmlStatus = XmlTwitterParser.ParseStatus(responseData);
+            return new TwitterRawMessage(xmlStatus);
         }
 
         #endregion
@@ -103,7 +103,7 @@ namespace Offr.Twitter
             List<IRawMessage> newStatusUpdates = new List<IRawMessage>();
             foreach (TwitterStatus status in resultSet.results)
             {
-                newStatusUpdates.Add(RawMessage.From(status));
+                newStatusUpdates.Add(new TwitterRawMessage(status));
             }
             return newStatusUpdates;
         }

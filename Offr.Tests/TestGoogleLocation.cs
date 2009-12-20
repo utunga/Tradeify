@@ -11,9 +11,9 @@ namespace Offr.Tests
     [TestFixture]
     public class TestGoogleLocation
     {
-      
+
         #region test json data
-        
+
         const string _testJSON = @"{
   ""name"": ""1500 Amphitheatre Parkway, Mountain View, CA"",
   ""Status"": {
@@ -67,12 +67,12 @@ namespace Offr.Tests
         public void SetupTestData()
         {
             _addressToExpectedTags = new SortedList<string, ILocation>();
-            
+
             string address = "1600 Amphitheatre Parkway, Mountain View, CA";
             ILocation google = new Location.Location
                                    {
-                                       GeoLat = (decimal) 37.4217590,
-                                       GeoLong = (decimal) -122.0843700,
+                                       GeoLat = (decimal)37.4217590,
+                                       GeoLong = (decimal)-122.0843700,
                                        Address = address,
                                        Tags = new List<ITag>
                                                           {
@@ -87,8 +87,8 @@ namespace Offr.Tests
             address = "30 Fitzroy Street, New Plymouth";
             ILocation fitzroy = new Location.Location
                                     {
-                                        GeoLat = (decimal) -39.0443597,
-                                        GeoLong = (decimal) 174.1080569,
+                                        GeoLat = (decimal)-39.0443597,
+                                        GeoLong = (decimal)174.1080569,
                                         Address = address,
                                         Tags = new List<ITag>
                                                            {
@@ -118,8 +118,8 @@ namespace Offr.Tests
             address = "20 Pitt Street,Sydney";
             ILocation sydney = new Location.Location
                                    {
-                                       GeoLat = (decimal) -33.8621871,
-                                       GeoLong = (decimal) 151.2091189,
+                                       GeoLat = (decimal)-33.8621871,
+                                       GeoLong = (decimal)151.2091189,
                                        Address = address,
                                        Tags = new List<ITag>
                                                           {
@@ -149,8 +149,8 @@ namespace Offr.Tests
             address = "30+Rue+Baudin,+Paris,+France";
             ILocation france = new Location.Location
                                    {
-                                       GeoLat = (decimal) 48.8960244,
-                                       GeoLong = (decimal) 2.2514747,
+                                       GeoLat = (decimal)48.8960244,
+                                       GeoLong = (decimal)2.2514747,
                                        Address = address,
                                        Tags = new List<ITag>
                                                           {
@@ -164,8 +164,8 @@ namespace Offr.Tests
             address = "30 Borough Rd, London";
             ILocation uk = new Location.Location
                        {
-                           GeoLat = (decimal) 51.4988744,
-                           GeoLong = (decimal) -0.1018722,
+                           GeoLat = (decimal)51.4988744,
+                           GeoLong = (decimal)-0.1018722,
                            Address = address,
                            Tags = new List<ITag>
                               {
@@ -184,7 +184,7 @@ namespace Offr.Tests
         public void TestDeserialize()
         {
             GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(_testJSON);
-            Assert.AreEqual("1500 Amphitheatre Parkway, Mountain View, CA", resultSet.name, "name did not serialize correctly");           
+            Assert.AreEqual("1500 Amphitheatre Parkway, Mountain View, CA", resultSet.name, "name did not serialize correctly");
         }
 
         [Test]
@@ -217,6 +217,7 @@ namespace Offr.Tests
                                   (new Tag(TagType.loc, "GB"))*/
                               }
             };
+
             // Normally the result london is not the first result for this query
             GoogleLocationProvider locationProvider = new MockLocationProvider();
             ILocation location = locationProvider.Parse(address, "Greater London");
@@ -224,7 +225,7 @@ namespace Offr.Tests
             AssertLocationEquality(address, expected, location);
         }
 
-        
+
         private static void AssertLocationEquality(string forAddress, ILocation expected, ILocation actual)
         {
             //because of the fact that google coordinates like moving around for some reason lower the precision
@@ -234,7 +235,7 @@ namespace Offr.Tests
 
             foreach (ITag locationTag in expected.Tags)
             {
-                Assert.That(actual.Tags.Contains(locationTag), "Expected tag " + locationTag + " was not contained in result for " + forAddress);    
+                Assert.That(actual.Tags.Contains(locationTag), "Expected tag " + locationTag + " was not contained in result for " + forAddress);
             }
 
             foreach (ITag locationTag in actual.Tags)
@@ -242,8 +243,17 @@ namespace Offr.Tests
                 Assert.That(expected.Tags.Contains(locationTag), locationTag + " unexpectedly contained in result for " + forAddress);
             }
 
-            Assert.AreEqual(expected.Tags.Count, actual.Tags.Count, "Somehow, inexplicably, the counts for expected vs actual location tags are different even though they contain the exact same set of tags" );
+            Assert.AreEqual(expected.Tags.Count, actual.Tags.Count, "Somehow, inexplicably, the counts for expected vs actual location tags are different even though they contain the exact same set of tags");
+        }
+
+        [Test]
+        public void TestNonStrictLColon()
+        {
+
+            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            // a specific real example for which i know the query was failing
+            ILocation location = locationProvider.ParseFromApproxText("Paekakariki for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch");
+            Assert.AreEqual("Paekakariki", location.AddressText);
         }
     }
 }
-

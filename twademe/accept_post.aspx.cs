@@ -9,20 +9,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Offr.OAuth;
 using Offr.Text;
+using Offr.OpenSocial;
 
 namespace twademe
 {
     public partial class accept_post : System.Web.UI.Page
     {
         
-        private static List<MessageWrapper> _posts = new List<MessageWrapper>();
+        private static List<Post> _posts = new List<Post>();
         public string DebugData
         {
          
             get
             {
                 StringBuilder sb = new StringBuilder();
-                foreach (MessageWrapper post in _posts)
+                foreach (Post post in _posts)
                 {
                     sb.Append("<table><tr><td colspan=2><b>POST</b></td></tr>");
                     foreach (string key in post.Data.AllKeys)
@@ -41,41 +42,39 @@ namespace twademe
         //private static List<String> rawMessage = new List<String>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Page.IsPostBack)
-            //{
 
-                MessageWrapper wrapper = new MessageWrapper();
-                foreach (string key in Request.Form.AllKeys)
-                {
-                    wrapper.Data.Add("REQ:" + key, Request.Form[key]);
-                }
-                foreach (string key in Request.Headers.AllKeys)
-                {
-                    wrapper.Data.Add("HDR:" + key, Request.Headers[key]);
-                }
-                foreach (string key in Request.QueryString.AllKeys)
-                {
-                    wrapper.Data.Add("QRY:" + key, Request.QueryString[key]);
-                }
-                string messageText = Request.Form["RawMessage"];
-                string userName = Request.Form["UserName"] ?? "unknown";
-                string thumbnail = Request.Form["Thumbnail"] ?? "unknown";
-                
-                wrapper.Username = userName;
-                wrapper.Raw = messageText;
-                wrapper.Thumbnail = thumbnail;
-                _posts.Add(wrapper);
-            //}
+            Post wrapper = new Post();
+            foreach (string key in Request.Form.AllKeys)
+            {
+                wrapper.Data.Add("REQ:" + key, Request.Form[key]);
+            }
+            foreach (string key in Request.Headers.AllKeys)
+            {
+                wrapper.Data.Add("HDR:" + key, Request.Headers[key]);
+            }
+            foreach (string key in Request.QueryString.AllKeys)
+            {
+                wrapper.Data.Add("QRY:" + key, Request.QueryString[key]);
+            }
 
-                IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
-                if(messageText!=null)
-                    messageReceiver.Notify(RawMessage.From(messageText, "100", userName, thumbnail));
 
-                //Provider.ParseMessage(message, userName, thumbnail);
+
+            string messageText = Request.Form["RawMessage"];
+            string userName = Request.Form["UserName"] ?? "unknown";
+            string thumbnail = Request.Form["Thumbnail"] ?? "unknown";
+
+            wrapper.Username = userName;
+            wrapper.Raw = messageText;
+            wrapper.Thumbnail = thumbnail;
+            _posts.Add(wrapper);
+
+            IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
+            if (messageText != null)
+                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", userName, thumbnail));
 
         }
 
-        private class MessageWrapper
+        private class Post
         {
             public NameValueCollection Data = new NameValueCollection();
             public string Raw { get; set; }

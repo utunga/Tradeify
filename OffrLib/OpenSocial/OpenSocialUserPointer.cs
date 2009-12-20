@@ -4,30 +4,38 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using Offr.Json;
+using Offr.Users;
 
 namespace Offr.Text
 {
-    public class OpenSocialUserPointer :IUserPointer
+    public class OpenSocialUserPointer :IEnhancedUserPointer
     {
         public string ProviderUserName { get; set; }
 
         public string ProviderNameSpace { get; set; }
 
-        public string ProfilePicUrl
-        {
-            get;
-            set;
-        }
+        public string ProfilePicUrl { get; set; }
 
         public string MatchTag
         {
             get { return ProviderNameSpace + "/" + ProviderUserName; }
         }
 
-        public OpenSocialUserPointer(string name)
+        public string ScreenName
         {
+            get { return ProviderUserName;  }
+        }
+
+        public string MoreInfoUrl
+        {
+            get { throw new System.NotImplementedException("Need to implement where on open social/oooby the user pointer is at"); }
+        }
+
+        public OpenSocialUserPointer(string nameSpace, string name, string profilePicUrl)
+        {
+            ProviderNameSpace = nameSpace;
             ProviderUserName = name;
-            ProviderNameSpace = "OpenSocial";
+            ProfilePicUrl = profilePicUrl;
         }
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
@@ -35,9 +43,6 @@ namespace Offr.Text
             JSON.WriteProperty(serializer, writer, "provider_user_name", ProviderUserName);
             JSON.WriteProperty(serializer, writer, "provide_name_space", ProviderNameSpace);
             JSON.WriteProperty(serializer, writer, "profile_pic_url", ProfilePicUrl);
-            JSON.WriteProperty(serializer, writer, "screen_name", "Unknown");
-            JSON.WriteProperty(serializer, writer, "more_info_url", "Unknown");
-            JSON.WriteProperty(serializer, writer, "match_tag", MatchTag);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
@@ -53,6 +58,7 @@ namespace Offr.Text
             if (ReferenceEquals(this, obj)) return true;
             return ((obj is IUserPointer) ? this.Equals((IUserPointer)obj) : false);
         }
+
         public bool Equals(IUserPointer userPointer)
         {
             if (userPointer == null)

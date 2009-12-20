@@ -7,7 +7,7 @@ using Offr.Users;
 namespace Offr.Twitter
 {
     [System.Xml.Serialization.XmlRoot(ElementName="status", Namespace = "")]
-    public class Status
+    public class TwitterStatusXml
     {
 
         [System.Xml.Serialization.XmlElement( "favorited" )]

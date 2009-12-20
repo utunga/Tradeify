@@ -16,6 +16,5 @@ namespace Offr.Twitter
         public string source { get; set; }
         public string profile_image_url { get; set; }
         public string created_at { get; set; }
-
     }
 }
