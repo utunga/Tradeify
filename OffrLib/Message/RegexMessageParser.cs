@@ -22,21 +22,23 @@ namespace Offr.Message
 
         #region the main method
 
-        public IMessage Parse(IRawMessage source)
+        public IMessage Parse(IRawMessage rawMessage)
         {
             OfferMessage msg = new OfferMessage();
-            msg.CreatedBy = source.CreatedBy;
-            //msg.Source = source; //Remove this
-            msg.RawText = source.Text;
-            msg.Timestamp = source.Timestamp;
-            msg.MessagePointer = source.Pointer;
-            foreach (ITag tag in ParseTags(source))
+            msg.CreatedBy = rawMessage.CreatedBy;
+            ////msg.Source = source; //Remove this
+            msg.Timestamp = rawMessage.Timestamp;
+            msg.MessagePointer = rawMessage.Pointer;
+            msg.RawText = rawMessage.Text;
+
+            string sourceText = rawMessage.Text; 
+            foreach (ITag tag in ParseTags(sourceText))
             {
                 if (tag.Type == TagType.msg_type) continue; //skip messages of this Type
                 msg.AddTag(tag);
             }
             //source.Pointer.
-            ILocation location = ParseLocation(source.Text);
+            ILocation location = ParseLocation(sourceText);
             if (location != null)
             {
                 msg.Location = location;
@@ -45,10 +47,10 @@ namespace Offr.Message
                     msg.AddTag(s);
                 }
             }
-            msg.OfferText = source.Text;
+            msg.OfferText = sourceText;
             msg.IsValid = true;
-            msg.MoreInfoURL = GetMoreInfoUrl(source.Text);
-            msg.AddThumbnail(GetImageUrl(source.Text));
+            msg.MoreInfoURL = GetMoreInfoUrl(sourceText);
+            msg.AddThumbnail(GetImageUrl(sourceText));
             return msg;
         }
 
@@ -123,10 +125,10 @@ namespace Offr.Message
         //    //return best;
         //}
        
-        private IEnumerable<ITag> ParseTags(IRawMessage source)
+        private IEnumerable<ITag> ParseTags(string sourceText)
         {
             Regex re = new Regex("(#[a-zA-Z0-9_]+)");
-            MatchCollection results = re.Matches(source.Text);
+            MatchCollection results = re.Matches(sourceText);
             foreach (Match match in results)
             {
                 string tagString = match.Groups[0].Value;
