@@ -1,122 +1,112 @@
 {
-  "ooooby/100": {
+  "twitter/6884560427": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:06:49.24Z",
+    "timestamp": "2009-12-21T05:32:40Z",
     "tags": [
       {
-        "type": "free"
+        "tag": "ihave"
       },
       {
-        "loc": "new zealand"
-      },
-      {
-        "loc": "wellington"
-      },
-      {
-        "loc": "mount victoria"
+        "tag": "forsale"
       }
     ],
-    "raw_text": " I am offering jhbk in L:Mt Victoria, Wellington, NZ:  for #free",
-    "message_pointer": {
-      "provider_name_space": "ooooby",
-      "message_id": "100"
-    },
-    "created_by": {
-      "provider_user_name": "Unkown",
-      "provide_name_space": "ooooby",
-      "profile_pic_url": "",
-      "profile_url": ""
-    },
-    "offer_text": " I am offering jhbk in L:Mt Victoria, Wellington, NZ:  for #free",
-    "more_info_url": null,
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": {
-      "geo_lat": -41.2971910,
-      "geo_long": 174.7850990,
-      "address": "Mt Victoria, Wellington, NZ",
-      "tags": [
-        {
-          "loc": "new zealand"
-        },
-        {
-          "loc": "wellington"
-        },
-        {
-          "loc": "mount victoria"
-        }
-      ]
-    }
-  },
-  "twitter/6877412353": {
-    "message_type": "offr",
-    "timestamp": "2009-12-21T01:08:06Z",
-    "tags": [
-      {
-        "tag": "restraint"
-      },
-      {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $25 - Spreader Bar with Cuffs $24.95 http://dealnay.com/48575 #restraint #offer",
+    "raw_text": "hot watch guess bracelet watch d&amp;g dkny [gu68] http://tinyurl.com/y9xphl9 coach watch armani watch diesel watch d g #ihave #forsale",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6877412353"
+      "message_id": "6884560427"
     },
     "created_by": {
-      "provider_user_name": "safeloving",
+      "provider_user_name": "neoshop09",
       "provide_name_space": "twitter",
-      "profile_pic_url": "http://a3.twimg.com/profile_images/456701945/2-hot-girls-in-Latex_normal.jpg",
-      "screen_name": "safeloving",
-      "more_info_url": "http://www.twitter.com/safeloving",
-      "match_tag": "twitter/safeloving"
+      "profile_pic_url": "http://s.twimg.com/a/1261078355/images/default_profile_3_normal.png",
+      "screen_name": "neoshop09",
+      "more_info_url": "http://www.twitter.com/neoshop09",
+      "match_tag": "twitter/neoshop09"
     },
-    "offer_text": "SAVE $25 - Spreader Bar with Cuffs $24.95 http://dealnay.com/48575 #restraint #offer",
-    "more_info_url": "http://dealnay.com/48575",
+    "offer_text": "hot watch guess bracelet watch d&amp;g dkny [gu68] http://tinyurl.com/y9xphl9 coach watch armani watch diesel watch d g #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/y9xphl9",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": null
   },
-  "twitter/6877416768": {
+  "twitter/6884566544": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:08:15Z",
+    "timestamp": "2009-12-21T05:32:57Z",
     "tags": [
       {
-        "tag": "beauty"
+        "tag": "ihave"
       },
       {
-        "tag": "offer"
+        "tag": "forsale"
+      },
+      {
+        "tag": "friendsell"
       }
     ],
-    "raw_text": "SAVE $8.73 - Gillette Fusion Manual Replacement Cartridges (8 Cartridges) $20.26 http://dealnay.com/15794 #beauty #offer",
+    "raw_text": "#ihave #forsale iPod nano w dlo case http://bit.ly/4rnn5B on #friendsell",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6877416768"
+      "message_id": "6884566544"
     },
     "created_by": {
-      "provider_user_name": "youarepretty",
+      "provider_user_name": "stuff_for_sale",
       "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/369522920/cosmetic_normal.jpg",
-      "screen_name": "youarepretty",
-      "more_info_url": "http://www.twitter.com/youarepretty",
-      "match_tag": "twitter/youarepretty"
+      "profile_pic_url": "http://a1.twimg.com/profile_images/552557866/Logo_Reflection_normal.png",
+      "screen_name": "stuff_for_sale",
+      "more_info_url": "http://www.twitter.com/stuff_for_sale",
+      "match_tag": "twitter/stuff_for_sale"
     },
-    "offer_text": "SAVE $8.73 - Gillette Fusion Manual Replacement Cartridges (8 Cartridges) $20.26 http://dealnay.com/15794 #beauty #offer",
-    "more_info_url": "http://dealnay.com/15794",
+    "offer_text": "#ihave #forsale iPod nano w dlo case http://bit.ly/4rnn5B on #friendsell",
+    "more_info_url": "http://bit.ly/4rnn5B",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": null
   },
-  "twitter/6877610156": {
+  "twitter/6884566833": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:15:16Z",
+    "timestamp": "2009-12-21T05:32:58Z",
     "tags": [
       {
-        "tag": "cookware"
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "tabletpc"
+      },
+      {
+        "tag": "friendsell"
+      }
+    ],
+    "raw_text": "#ihave #forsale Motion computing tablet pc http://bit.ly/7QEtdu #tabletpc on #friendsell",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6884566833"
+    },
+    "created_by": {
+      "provider_user_name": "stuff_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/552557866/Logo_Reflection_normal.png",
+      "screen_name": "stuff_for_sale",
+      "more_info_url": "http://www.twitter.com/stuff_for_sale",
+      "match_tag": "twitter/stuff_for_sale"
+    },
+    "offer_text": "#ihave #forsale Motion computing tablet pc http://bit.ly/7QEtdu #tabletpc on #friendsell",
+    "more_info_url": "http://bit.ly/7QEtdu",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6884619906": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:35:16Z",
+    "tags": [
+      {
+        "tag": "tie"
       },
       {
         "tag": "offer"
@@ -125,44 +115,326 @@
         "tag": "ad"
       }
     ],
-    "raw_text": "SAVE $2.18 - Anolon Suregrip Bakeware 2-Piece Meat Loaf Pan Set $19.81 http://dealnay.com/201044 #cookware #offer #ad",
+    "raw_text": "SAVE $31 - 100% Silk Woven Black and White Houndstooth Tie $18.99 http://dealnay.com/90925 #tie #offer #ad",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6877610156"
+      "message_id": "6884619906"
     },
     "created_by": {
-      "provider_user_name": "unlooses",
+      "provider_user_name": "dickerone",
       "provide_name_space": "twitter",
-      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
-      "screen_name": "unlooses",
-      "more_info_url": "http://www.twitter.com/unlooses",
-      "match_tag": "twitter/unlooses"
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
     },
-    "offer_text": "SAVE $2.18 - Anolon Suregrip Bakeware 2-Piece Meat Loaf Pan Set $19.81 http://dealnay.com/201044 #cookware #offer #ad",
-    "more_info_url": "http://dealnay.com/201044",
+    "offer_text": "SAVE $31 - 100% Silk Woven Black and White Houndstooth Tie $18.99 http://dealnay.com/90925 #tie #offer #ad",
+    "more_info_url": "http://dealnay.com/90925",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": null
   },
-  "twitter/6877615857": {
+  "twitter/6884684916": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:15:28Z",
+    "timestamp": "2009-12-21T05:38:11Z",
     "tags": [
       {
-        "tag": "video_recorder"
+        "tag": "video_card"
       },
       {
         "tag": "offer"
-      },
-      {
-        "tag": "ad"
       }
     ],
-    "raw_text": "SAVE $45.04 - Hauppauge 1212 HD-PVR High Definition Personal Video Recorder $204.95 http://dealnay.com/7713 #video_recorder #offer #ad",
+    "raw_text": "SAVE $15.55 - XFX RADEON HD 5850 1 GB DDR5 PCI Express Card HD585AZNFC $304.44 http://dealnay.com/78997 #video_card #offer",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6877615857"
+      "message_id": "6884684916"
+    },
+    "created_by": {
+      "provider_user_name": "bestgamedeals",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
+      "screen_name": "bestgamedeals",
+      "more_info_url": "http://www.twitter.com/bestgamedeals",
+      "match_tag": "twitter/bestgamedeals"
+    },
+    "offer_text": "SAVE $15.55 - XFX RADEON HD 5850 1 GB DDR5 PCI Express Card HD585AZNFC $304.44 http://dealnay.com/78997 #video_card #offer",
+    "more_info_url": "http://dealnay.com/78997",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6884692880": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:38:33Z",
+    "tags": [
+      {
+        "tag": "software"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $3.51 - Mac OS X Snow Leopard Family Pack (5-User) $45.49 http://dealnay.com/56100 #software #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6884692880"
+    },
+    "created_by": {
+      "provider_user_name": "dealsformac",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/385778642/snow-leopard_normal.jpg",
+      "screen_name": "dealsformac",
+      "more_info_url": "http://www.twitter.com/dealsformac",
+      "match_tag": "twitter/dealsformac"
+    },
+    "offer_text": "SAVE $3.51 - Mac OS X Snow Leopard Family Pack (5-User) $45.49 http://dealnay.com/56100 #software #offer",
+    "more_info_url": "http://dealnay.com/56100",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6884693954": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:38:36Z",
+    "tags": [
+      {
+        "tag": "cellphone_with_service"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $299.98 - LG CF360 Phone, Red (AT&amp;T) $0.01 http://dealnay.com/124532 #cellphone_with_service #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6884693954"
+    },
+    "created_by": {
+      "provider_user_name": "UnderOneDollar",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/510003513/images_normal.jpeg",
+      "screen_name": "UnderOneDollar",
+      "more_info_url": "http://www.twitter.com/UnderOneDollar",
+      "match_tag": "twitter/UnderOneDollar"
+    },
+    "offer_text": "SAVE $299.98 - LG CF360 Phone, Red (AT&amp;T) $0.01 http://dealnay.com/124532 #cellphone_with_service #offer",
+    "more_info_url": "http://dealnay.com/124532",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6884730502": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:40:13Z",
+    "tags": [
+      {
+        "tag": "bedding"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $1.94 - New York Yankees Microsuede Pillow Sham $28.05 http://dealnay.com/118185 #bedding #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6884730502"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $1.94 - New York Yankees Microsuede Pillow Sham $28.05 http://dealnay.com/118185 #bedding #offer",
+    "more_info_url": "http://dealnay.com/118185",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6884843284": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:45:18Z",
+    "tags": [
+      {
+        "tag": "instrument"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $150.01 - Marshall MG30FX Guitar Combo Amplifier - 10 Inch, 30 Watts $199.99 http://dealnay.com/36264 #instrument #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6884843284"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $150.01 - Marshall MG30FX Guitar Combo Amplifier - 10 Inch, 30 Watts $199.99 http://dealnay.com/36264 #instrument #offer",
+    "more_info_url": "http://dealnay.com/36264",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6884892941": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:47:33Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Easter Egg Basket Decoration 12642 http://tinyurl.com/ye592mt basket holiday decor easter egg #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6884892941"
+    },
+    "created_by": {
+      "provider_user_name": "familycollectib",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/340497908/TheFamilyCollectibles_Logo_normal.jpg",
+      "screen_name": "familycollectib",
+      "more_info_url": "http://www.twitter.com/familycollectib",
+      "match_tag": "twitter/familycollectib"
+    },
+    "offer_text": "Easter Egg Basket Decoration 12642 http://tinyurl.com/ye592mt basket holiday decor easter egg #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ye592mt",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6884952486": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:50:17Z",
+    "tags": [
+      {
+        "tag": "car_sports_rack"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $20 - Extra-Large 96&quot; x 72&quot; Cargo Net with 28 Hooks - Stretches to 10' x 14'! $14.99 http://dealnay.com/27677 #car_sports_rack #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6884952486"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $20 - Extra-Large 96&quot; x 72&quot; Cargo Net with 28 Hooks - Stretches to 10' x 14'! $14.99 http://dealnay.com/27677 #car_sports_rack #offer",
+    "more_info_url": "http://dealnay.com/27677",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885022580": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T05:53:30Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "friendsell"
+      }
+    ],
+    "raw_text": "RT @stuff_for_sale #ihave #forsale iPod nano w dlo case http://bit.ly/4rnn5B on #friendsell",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885022580"
+    },
+    "created_by": {
+      "provider_user_name": "magicbaseball1",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/482682635/images_normal.jpeg",
+      "screen_name": "magicbaseball1",
+      "more_info_url": "http://www.twitter.com/magicbaseball1",
+      "match_tag": "twitter/magicbaseball1"
+    },
+    "offer_text": "RT @stuff_for_sale #ihave #forsale iPod nano w dlo case http://bit.ly/4rnn5B on #friendsell",
+    "more_info_url": "http://bit.ly/4rnn5B",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885171990": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:00:23Z",
+    "tags": [
+      {
+        "tag": "music_newage"
+      },
+      {
+        "tag": "7"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Amazon #music_newage #7 cd: SAVE $5.99 - A Midwinter Night's Dream - Loreena McKennitt $12.99 http://dealnay.com/42201 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885171990"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "Amazon #music_newage #7 cd: SAVE $5.99 - A Midwinter Night's Dream - Loreena McKennitt $12.99 http://dealnay.com/42201 #offer",
+    "more_info_url": "http://dealnay.com/42201",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885176446": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:00:34Z",
+    "tags": [
+      {
+        "tag": "turntable"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $40.32 - Crosley CR49 Traveler Portable Turntable, Tan $89.63 http://dealnay.com/10662 #turntable #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885176446"
     },
     "created_by": {
       "provider_user_name": "tvgranny",
@@ -172,16 +444,1169 @@
       "more_info_url": "http://www.twitter.com/tvgranny",
       "match_tag": "twitter/tvgranny"
     },
-    "offer_text": "SAVE $45.04 - Hauppauge 1212 HD-PVR High Definition Personal Video Recorder $204.95 http://dealnay.com/7713 #video_recorder #offer #ad",
-    "more_info_url": "http://dealnay.com/7713",
+    "offer_text": "SAVE $40.32 - Crosley CR49 Traveler Portable Turntable, Tan $89.63 http://dealnay.com/10662 #turntable #offer",
+    "more_info_url": "http://dealnay.com/10662",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": null
   },
-  "twitter/6877649453": {
+  "twitter/6885224280": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:16:41Z",
+    "timestamp": "2009-12-21T06:02:41Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Mom's Heart Picture Frame 12766 http://tinyurl.com/y89rpvd picture frame photo frame mom home decor #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885224280"
+    },
+    "created_by": {
+      "provider_user_name": "familycollectib",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/340497908/TheFamilyCollectibles_Logo_normal.jpg",
+      "screen_name": "familycollectib",
+      "more_info_url": "http://www.twitter.com/familycollectib",
+      "match_tag": "twitter/familycollectib"
+    },
+    "offer_text": "Mom's Heart Picture Frame 12766 http://tinyurl.com/y89rpvd picture frame photo frame mom home decor #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/y89rpvd",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885343136": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:08:09Z",
+    "tags": [
+      {
+        "tag": "masturbator"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $34.45 - Pipedream Products Roto-bater Vibrating Cordless Masturbator $73.00 http://dealnay.com/122363 #masturbator #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885343136"
+    },
+    "created_by": {
+      "provider_user_name": "safeloving",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456701945/2-hot-girls-in-Latex_normal.jpg",
+      "screen_name": "safeloving",
+      "more_info_url": "http://www.twitter.com/safeloving",
+      "match_tag": "twitter/safeloving"
+    },
+    "offer_text": "SAVE $34.45 - Pipedream Products Roto-bater Vibrating Cordless Masturbator $73.00 http://dealnay.com/122363 #masturbator #offer",
+    "more_info_url": "http://dealnay.com/122363",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885344684": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:08:14Z",
+    "tags": [
+      {
+        "tag": "camera_film"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $1.24 - Fujifilm 1014258 Superia X-TRA 400 35mm Film -4 Pack $11.75 http://dealnay.com/21572 #camera_film #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885344684"
+    },
+    "created_by": {
+      "provider_user_name": "badtakes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/499681739/Camcorder_normal.jpg",
+      "screen_name": "badtakes",
+      "more_info_url": "http://www.twitter.com/badtakes",
+      "match_tag": "twitter/badtakes"
+    },
+    "offer_text": "SAVE $1.24 - Fujifilm 1014258 Superia X-TRA 400 35mm Film -4 Pack $11.75 http://dealnay.com/21572 #camera_film #offer",
+    "more_info_url": "http://dealnay.com/21572",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885345254": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:08:15Z",
+    "tags": [
+      {
+        "tag": "book"
+      },
+      {
+        "tag": "large_print"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $12.04 - Going Rogue LP: An American Life $16.95 http://dealnay.com/107520 #book #large_print #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885345254"
+    },
+    "created_by": {
+      "provider_user_name": "l2rdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/366067336/abc1_normal.jpg",
+      "screen_name": "l2rdude",
+      "more_info_url": "http://www.twitter.com/l2rdude",
+      "match_tag": "twitter/l2rdude"
+    },
+    "offer_text": "SAVE $12.04 - Going Rogue LP: An American Life $16.95 http://dealnay.com/107520 #book #large_print #offer",
+    "more_info_url": "http://dealnay.com/107520",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885351422": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:08:32Z",
+    "tags": [
+      {
+        "tag": "jewelry"
+      },
+      {
+        "tag": "charm"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $11.99 - Constellation Scorpio Bith Date Italian Charms $11.99 http://dealnay.com/200476 #jewelry #charm #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885351422"
+    },
+    "created_by": {
+      "provider_user_name": "tinystone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/377057988/rose_normal.jpg",
+      "screen_name": "tinystone",
+      "more_info_url": "http://www.twitter.com/tinystone",
+      "match_tag": "twitter/tinystone"
+    },
+    "offer_text": "SAVE $11.99 - Constellation Scorpio Bith Date Italian Charms $11.99 http://dealnay.com/200476 #jewelry #charm #offer #ad",
+    "more_info_url": "http://dealnay.com/200476",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885354634": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:08:41Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Apartments, Flats for Rent, India: 2 BHK RESID-APARTMENT IS AT RICHMOND ROAD:  http://bit.ly/8YbFOp #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885354634"
+    },
+    "created_by": {
+      "provider_user_name": "flats_on_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/229271907/rent_normal.jpg",
+      "screen_name": "flats_on_rent",
+      "more_info_url": "http://www.twitter.com/flats_on_rent",
+      "match_tag": "twitter/flats_on_rent"
+    },
+    "offer_text": "Apartments, Flats for Rent, India: 2 BHK RESID-APARTMENT IS AT RICHMOND ROAD:  http://bit.ly/8YbFOp #ihave",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885432330": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:12:19Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: FABULOUS OFFICE SPACE WITH FURNISHED IS LOCATED @ MILLERS ROAD:  http://bit.ly/5FJa0R #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885432330"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: FABULOUS OFFICE SPACE WITH FURNISHED IS LOCATED @ MILLERS ROAD:  http://bit.ly/5FJa0R #ihave",
+    "more_info_url": "http://bit.ly/5FJa0R",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885432589": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:12:20Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: COMMERCIAL BARESHELL OFFICE SPACE FOR RENT IS LOCATED ON KORAMANGALA:  http://bit.ly/6mBtgy #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885432589"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: COMMERCIAL BARESHELL OFFICE SPACE FOR RENT IS LOCATED ON KORAMANGALA:  http://bit.ly/6mBtgy #ihave",
+    "more_info_url": "http://bit.ly/6mBtgy",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885432861": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:12:20Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: 3000 SFT, EXCLUSIVE OFFICE SPACE IS AT RESIDENCY ROAD.:  http://bit.ly/6Ki7tp #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885432861"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: 3000 SFT, EXCLUSIVE OFFICE SPACE IS AT RESIDENCY ROAD.:  http://bit.ly/6Ki7tp #ihave",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885433214": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:12:21Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: UNFURNISHED OFFICE SPACE IN A GOOD LOCATION OF CAMBRIDGE LAYOUT:  http://bit.ly/8hjVte #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885433214"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: UNFURNISHED OFFICE SPACE IN A GOOD LOCATION OF CAMBRIDGE LAYOUT:  http://bit.ly/8hjVte #ihave",
+    "more_info_url": "http://bit.ly/8hjVte",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885433563": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:12:23Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: EXCELLENT FULLY FURNISHED OFFICE SPACE FOR RENT IS LOCATED ON HAL:  http://bit.ly/82CwJV #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885433563"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: EXCELLENT FULLY FURNISHED OFFICE SPACE FOR RENT IS LOCATED ON HAL:  http://bit.ly/82CwJV #ihave",
+    "more_info_url": "http://bit.ly/82CwJV",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885480141": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:14:36Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Frog Prince Trinket Box 12767 http://tinyurl.com/yazru7l trinket box jewelry holder frog trinket holder #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885480141"
+    },
+    "created_by": {
+      "provider_user_name": "familycollectib",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/340497908/TheFamilyCollectibles_Logo_normal.jpg",
+      "screen_name": "familycollectib",
+      "more_info_url": "http://www.twitter.com/familycollectib",
+      "match_tag": "twitter/familycollectib"
+    },
+    "offer_text": "Frog Prince Trinket Box 12767 http://tinyurl.com/yazru7l trinket box jewelry holder frog trinket holder #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yazru7l",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885494160": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:15:15Z",
+    "tags": [
+      {
+        "tag": "triathlon"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $9.49 - NEW BLACK RACE NUMBER BELT TRIATHLON MARATHON RUNNING ! $5.50 http://dealnay.com/90046 #triathlon #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885494160"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $9.49 - NEW BLACK RACE NUMBER BELT TRIATHLON MARATHON RUNNING ! $5.50 http://dealnay.com/90046 #triathlon #offer",
+    "more_info_url": "http://dealnay.com/90046",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885598483": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:20:15Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $33.07 - Chicago White Sox Gift Bucket $16.92 http://dealnay.com/200739 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885598483"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $33.07 - Chicago White Sox Gift Bucket $16.92 http://dealnay.com/200739 #offer",
+    "more_info_url": "http://dealnay.com/200739",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885600256": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:20:20Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "independenthouse"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "hiranmagri"
+      },
+      {
+        "tag": "udaipur"
+      }
+    ],
+    "raw_text": "2BHK for rent at Udipur http://bit.ly/51UOI2 #propertywala #ihave #2Bedrooms #residential #IndependentHouse #forrent #Hiranmagri #Udaipur",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885600256"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "2BHK for rent at Udipur http://bit.ly/51UOI2 #propertywala #ihave #2Bedrooms #residential #IndependentHouse #forrent #Hiranmagri #Udaipur",
+    "more_info_url": "http://bit.ly/51UOI2",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885644173": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:22:26Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "residentialplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "arcotroad"
+      },
+      {
+        "tag": "vellore"
+      }
+    ],
+    "raw_text": "Commercial cum Residential Plots http://bit.ly/70gVZD #propertywala #ihave #residential #ResidentialPlotLand #forsale #ArcotRoad #Vellore",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885644173"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Commercial cum Residential Plots http://bit.ly/70gVZD #propertywala #ihave #residential #ResidentialPlotLand #forsale #ArcotRoad #Vellore",
+    "more_info_url": "http://bit.ly/70gVZD",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885784807": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:29:19Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "residentialplotland"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "vidyanagar"
+      },
+      {
+        "tag": "guntur"
+      }
+    ],
+    "raw_text": "residential plot for sale in guntur http://bit.ly/7fwiq0 #propertywala #ihave #residential #ResidentialPlotLand #forsale #VidyaNagar #Guntur",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885784807"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "residential plot for sale in guntur http://bit.ly/7fwiq0 #propertywala #ihave #residential #ResidentialPlotLand #forsale #VidyaNagar #Guntur",
+    "more_info_url": "http://bit.ly/7fwiq0",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885792405": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:29:42Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "1bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "hinjewadi"
+      },
+      {
+        "tag": "pune"
+      }
+    ],
+    "raw_text": "Furnished House in Hinjewadi http://bit.ly/8nwNZC #propertywala #ihave #1Bedrooms #residential #ApartmentFlat #forrent #Hinjewadi #Pune",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885792405"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Furnished House in Hinjewadi http://bit.ly/8nwNZC #propertywala #ihave #1Bedrooms #residential #ApartmentFlat #forrent #Hinjewadi #Pune",
+    "more_info_url": "http://bit.ly/8nwNZC",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885795427": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:29:51Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "andherieast"
+      },
+      {
+        "tag": "mumbai"
+      }
+    ],
+    "raw_text": "Excellent 2 BHK http://bit.ly/1Hv6Zn #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forrent #AndheriEast #Mumbai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885795427"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Excellent 2 BHK http://bit.ly/1Hv6Zn #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forrent #AndheriEast #Mumbai",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885809292": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:30:27Z",
+    "tags": [
+      {
+        "tag": "turntable"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $61.25 - ION Audio iPTUSB Portable USB Turntable with Software and Built-in Speaker $88.74 http://dealnay.com/13500 #turntable #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885809292"
+    },
+    "created_by": {
+      "provider_user_name": "tvgranny",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
+    },
+    "offer_text": "SAVE $61.25 - ION Audio iPTUSB Portable USB Turntable with Software and Built-in Speaker $88.74 http://dealnay.com/13500 #turntable #offer",
+    "more_info_url": "http://dealnay.com/13500",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885857000": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:32:43Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "warehousegodown"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "panvel"
+      },
+      {
+        "tag": "mumbai"
+      }
+    ],
+    "raw_text": "Ware hose in Taloja http://bit.ly/4D1yMY #propertywala #ihave #commercial #WarehouseGodown #forsale #Panvel #Mumbai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885857000"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Ware hose in Taloja http://bit.ly/4D1yMY #propertywala #ihave #commercial #WarehouseGodown #forsale #Panvel #Mumbai",
+    "more_info_url": "http://bit.ly/4D1yMY",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885902150": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:34:56Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "RT @unlooses SAVE $33.07 - Chicago White Sox Gift Bucket $16.92 http://dealnay.com/200739 #offer- SAVE $33.07 - Chi... http://bit.ly/7KQ3KS",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885902150"
+    },
+    "created_by": {
+      "provider_user_name": "WhiteSoxUSA",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/466041866/1981_normal.gif",
+      "screen_name": "WhiteSoxUSA",
+      "more_info_url": "http://www.twitter.com/WhiteSoxUSA",
+      "match_tag": "twitter/WhiteSoxUSA"
+    },
+    "offer_text": "RT @unlooses SAVE $33.07 - Chicago White Sox Gift Bucket $16.92 http://dealnay.com/200739 #offer- SAVE $33.07 - Chi... http://bit.ly/7KQ3KS",
+    "more_info_url": "http://dealnay.com/200739",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6885912170": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:35:25Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "1bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "koperkhairane"
+      },
+      {
+        "tag": "navimumbai"
+      }
+    ],
+    "raw_text": "1-bhk on rent http://bit.ly/6pDkQM #propertywala #ihave #1Bedrooms #residential #ApartmentFlat #forrent #KoperKhairane #NaviMumbai",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6885912170"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "1-bhk on rent http://bit.ly/6pDkQM #propertywala #ihave #1Bedrooms #residential #ApartmentFlat #forrent #KoperKhairane #NaviMumbai",
+    "more_info_url": "http://bit.ly/6pDkQM",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886001415": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:39:57Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Magic Carriage Picture Frame 12768 http://tinyurl.com/ye77urs carriage photo frame home decor picture frame #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886001415"
+    },
+    "created_by": {
+      "provider_user_name": "familycollectib",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/340497908/TheFamilyCollectibles_Logo_normal.jpg",
+      "screen_name": "familycollectib",
+      "more_info_url": "http://www.twitter.com/familycollectib",
+      "match_tag": "twitter/familycollectib"
+    },
+    "offer_text": "Magic Carriage Picture Frame 12768 http://tinyurl.com/ye77urs carriage photo frame home decor picture frame #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ye77urs",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886008178": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:40:16Z",
+    "tags": [
+      {
+        "tag": "plumbing"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $0.22 - Brita 35391 Classic Pitcher with 16 Ounce Nalgene Water Bottle $24.77 http://dealnay.com/90491 #plumbing #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886008178"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $0.22 - Brita 35391 Classic Pitcher with 16 Ounce Nalgene Water Bottle $24.77 http://dealnay.com/90491 #plumbing #offer #ad",
+    "more_info_url": "http://dealnay.com/90491",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886082825": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:44:05Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "RT @WhiteSoxUSA RT @unlooses SAVE $33.07 - Chicago White Sox Gift Bucket $16.92 http://dealnay.com/200739 #offer- SAVE $33.07 - Chi... http:",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886082825"
+    },
+    "created_by": {
+      "provider_user_name": "hashdeal",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/409781128/deal_avitar_normal.png",
+      "screen_name": "hashdeal",
+      "more_info_url": "http://www.twitter.com/hashdeal",
+      "match_tag": "twitter/hashdeal"
+    },
+    "offer_text": "RT @WhiteSoxUSA RT @unlooses SAVE $33.07 - Chicago White Sox Gift Bucket $16.92 http://dealnay.com/200739 #offer- SAVE $33.07 - Chi... http:",
+    "more_info_url": "http://dealnay.com/200739",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886119560": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:45:53Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Bamboo Bath Organizer 12897 http://tinyurl.com/yaq4sgt bath set home decor bath accessories bath decor #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886119560"
+    },
+    "created_by": {
+      "provider_user_name": "familycollectib",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/340497908/TheFamilyCollectibles_Logo_normal.jpg",
+      "screen_name": "familycollectib",
+      "more_info_url": "http://www.twitter.com/familycollectib",
+      "match_tag": "twitter/familycollectib"
+    },
+    "offer_text": "Bamboo Bath Organizer 12897 http://tinyurl.com/yaq4sgt bath set home decor bath accessories bath decor #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yaq4sgt",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886189237": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:49:28Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Bamboo Mosaic Picture Frame 12898 http://tinyurl.com/ycg46rg home decor photo frame bamboo picture frame #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886189237"
+    },
+    "created_by": {
+      "provider_user_name": "familycollectib",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/340497908/TheFamilyCollectibles_Logo_normal.jpg",
+      "screen_name": "familycollectib",
+      "more_info_url": "http://www.twitter.com/familycollectib",
+      "match_tag": "twitter/familycollectib"
+    },
+    "offer_text": "Bamboo Mosaic Picture Frame 12898 http://tinyurl.com/ycg46rg home decor photo frame bamboo picture frame #ihave #forsale",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886265405": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:53:25Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Jesus Bible Storage Boxes 12944 http://tinyurl.com/ydup8qb religious collectible bible storage box bible box #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886265405"
+    },
+    "created_by": {
+      "provider_user_name": "familycollectib",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/340497908/TheFamilyCollectibles_Logo_normal.jpg",
+      "screen_name": "familycollectib",
+      "more_info_url": "http://www.twitter.com/familycollectib",
+      "match_tag": "twitter/familycollectib"
+    },
+    "offer_text": "Jesus Bible Storage Boxes 12944 http://tinyurl.com/ydup8qb religious collectible bible storage box bible box #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/ydup8qb",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886299485": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T06:55:14Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $4.5 - SubZero Print Series 750ml (25oz) Stainless Steel Water Bottle - Color: Red Circle $6.49 http://dealnay.com/112612 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886299485"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $4.5 - SubZero Print Series 750ml (25oz) Stainless Steel Water Bottle - Color: Red Circle $6.49 http://dealnay.com/112612 #offer",
+    "more_info_url": "http://dealnay.com/112612",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886421736": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:01:32Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: Residential land in Thiruvallur: Approved plots available at  V.S.P NAGAR in T... http://bit.ly/6dWDNr #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886421736"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: Residential land in Thiruvallur: Approved plots available at  V.S.P NAGAR in T... http://bit.ly/6dWDNr #ihave",
+    "more_info_url": "http://bit.ly/6dWDNr",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886493794": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:05:16Z",
+    "tags": [
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $19.01 - Dallas Cowboys Sunglasses - NFL Football Fan Shop Sports Team Merchandise $10.99 http://dealnay.com/84116 #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886493794"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $19.01 - Dallas Cowboys Sunglasses - NFL Football Fan Shop Sports Team Merchandise $10.99 http://dealnay.com/84116 #offer #ad",
+    "more_info_url": "http://dealnay.com/84116",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886494550": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:05:18Z",
+    "tags": [
+      {
+        "tag": "tie"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $16 - Marilyn Monroe Tie $12.95 http://dealnay.com/182922 #tie #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886494550"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $16 - Marilyn Monroe Tie $12.95 http://dealnay.com/182922 #tie #offer",
+    "more_info_url": "http://dealnay.com/182922",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886547291": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:08:08Z",
+    "tags": [
+      {
+        "tag": "prepaid_phone"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $75 - Motorola RAZR V3 Prepaid GoPhone, Black (AT&amp;T) with $50 Airtime Credit $99.99 http://dealnay.com/15503 #prepaid_phone #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886547291"
+    },
+    "created_by": {
+      "provider_user_name": "cellphonecrap",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
+      "screen_name": "cellphonecrap",
+      "more_info_url": "http://www.twitter.com/cellphonecrap",
+      "match_tag": "twitter/cellphonecrap"
+    },
+    "offer_text": "SAVE $75 - Motorola RAZR V3 Prepaid GoPhone, Black (AT&amp;T) with $50 Airtime Credit $99.99 http://dealnay.com/15503 #prepaid_phone #offer #ad",
+    "more_info_url": "http://dealnay.com/15503",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886548489": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:08:12Z",
     "tags": [
       {
         "tag": "propertywala"
@@ -202,16 +1627,16 @@
         "tag": "forrent"
       },
       {
-        "tag": "pitampura"
+        "tag": "pallikaranai"
       },
       {
-        "tag": "newdelhi"
+        "tag": "chennai"
       }
     ],
-    "raw_text": "1 BHK floor for Rent http://bit.ly/84C2fB #propertywala #ihave #1Bedrooms #residential #IndependentHouse #forrent #Pitampura #NewDelhi",
+    "raw_text": "Near Chruch http://bit.ly/6hdElZ #propertywala #ihave #1Bedrooms #residential #IndependentHouse #forrent #Pallikaranai #Chennai",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6877649453"
+      "message_id": "6886548489"
     },
     "created_by": {
       "provider_user_name": "propertiesindia",
@@ -221,109 +1646,53 @@
       "more_info_url": "http://www.twitter.com/propertiesindia",
       "match_tag": "twitter/propertiesindia"
     },
-    "offer_text": "1 BHK floor for Rent http://bit.ly/84C2fB #propertywala #ihave #1Bedrooms #residential #IndependentHouse #forrent #Pitampura #NewDelhi",
-    "more_info_url": "http://bit.ly/84C2fB",
+    "offer_text": "Near Chruch http://bit.ly/6hdElZ #propertywala #ihave #1Bedrooms #residential #IndependentHouse #forrent #Pallikaranai #Chennai",
+    "more_info_url": "http://bit.ly/6hdElZ",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": null
   },
-  "twitter/6877888074": {
+  "twitter/6886548908": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:25:15Z",
+    "timestamp": "2009-12-21T07:08:13Z",
     "tags": [
       {
-        "tag": "kitchen"
+        "tag": "t7b011"
+      },
+      {
+        "tag": "watch"
       },
       {
         "tag": "offer"
       }
     ],
-    "raw_text": "SAVE $1 - Boston Warehouse Veg-hog Veggie Brush $8.99 http://dealnay.com/201042 #kitchen #offer",
+    "raw_text": "SAVE $3.99 - Timex Kids' Flowers Color INDIGLO® Stretch Band Watch #T7B011 $15.96 http://dealnay.com/12738 #watch #offer",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6877888074"
+      "message_id": "6886548908"
     },
     "created_by": {
-      "provider_user_name": "unlooses",
+      "provider_user_name": "watchtalk",
       "provide_name_space": "twitter",
-      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
-      "screen_name": "unlooses",
-      "more_info_url": "http://www.twitter.com/unlooses",
-      "match_tag": "twitter/unlooses"
+      "profile_pic_url": "http://a3.twimg.com/profile_images/413509761/watches_normal.jpg",
+      "screen_name": "watchtalk",
+      "more_info_url": "http://www.twitter.com/watchtalk",
+      "match_tag": "twitter/watchtalk"
     },
-    "offer_text": "SAVE $1 - Boston Warehouse Veg-hog Veggie Brush $8.99 http://dealnay.com/201042 #kitchen #offer",
-    "more_info_url": "http://dealnay.com/201042",
+    "offer_text": "SAVE $3.99 - Timex Kids' Flowers Color INDIGLO® Stretch Band Watch #T7B011 $15.96 http://dealnay.com/12738 #watch #offer",
+    "more_info_url": "http://dealnay.com/12738",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": null
   },
-  "twitter/6878029363": {
+  "twitter/6886554710": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:30:14Z",
+    "timestamp": "2009-12-21T07:08:32Z",
     "tags": [
       {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $6.56 - Cables To Go - 03137 - 1ft Outlet Saver Power Extension Cord (NEMA 5-15R to NEMA 5-15P) $4.43 http://dealnay.com/14012 #offer",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6878029363"
-    },
-    "created_by": {
-      "provider_user_name": "e_bargains",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
-      "screen_name": "e_bargains",
-      "more_info_url": "http://www.twitter.com/e_bargains",
-      "match_tag": "twitter/e_bargains"
-    },
-    "offer_text": "SAVE $6.56 - Cables To Go - 03137 - 1ft Outlet Saver Power Extension Cord (NEMA 5-15R to NEMA 5-15P) $4.43 http://dealnay.com/14012 #offer",
-    "more_info_url": "http://dealnay.com/14012",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6878259360": {
-    "message_type": "offr",
-    "timestamp": "2009-12-21T01:38:10Z",
-    "tags": [
-      {
-        "tag": "sexualenhancers"
-      },
-      {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $11.5 - Future 200 Virtual Oral Blow Job &amp; Hand Job Simulator - Sex Toy for Men $66.50 http://dealnay.com/7889 #sexualenhancers #offer",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6878259360"
-    },
-    "created_by": {
-      "provider_user_name": "safeloving",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a3.twimg.com/profile_images/456701945/2-hot-girls-in-Latex_normal.jpg",
-      "screen_name": "safeloving",
-      "more_info_url": "http://www.twitter.com/safeloving",
-      "match_tag": "twitter/safeloving"
-    },
-    "offer_text": "SAVE $11.5 - Future 200 Virtual Oral Blow Job &amp; Hand Job Simulator - Sex Toy for Men $66.50 http://dealnay.com/7889 #sexualenhancers #offer",
-    "more_info_url": "http://dealnay.com/7889",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6878270140": {
-    "message_type": "offr",
-    "timestamp": "2009-12-21T01:38:32Z",
-    "tags": [
-      {
-        "tag": "xbox"
+        "tag": "tv_portable"
       },
       {
         "tag": "offer"
@@ -332,134 +1701,41 @@
         "tag": "ad"
       }
     ],
-    "raw_text": "SAVE $12.03 - Xbox 360 Wireless Controller $37.96 http://dealnay.com/11150 #xbox #offer #ad",
+    "raw_text": "SAVE $72.71 - Coby TFTV1022 10.2-Inch LCD TV $117.28 http://dealnay.com/6384 #tv_portable #offer #ad",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6878270140"
+      "message_id": "6886554710"
     },
     "created_by": {
-      "provider_user_name": "bestgamedeals",
+      "provider_user_name": "tvgranny",
       "provide_name_space": "twitter",
-      "profile_pic_url": "http://a3.twimg.com/profile_images/457524475/year_of_psp_normal.jpg",
-      "screen_name": "bestgamedeals",
-      "more_info_url": "http://www.twitter.com/bestgamedeals",
-      "match_tag": "twitter/bestgamedeals"
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456662049/yq_normal.jpg",
+      "screen_name": "tvgranny",
+      "more_info_url": "http://www.twitter.com/tvgranny",
+      "match_tag": "twitter/tvgranny"
     },
-    "offer_text": "SAVE $12.03 - Xbox 360 Wireless Controller $37.96 http://dealnay.com/11150 #xbox #offer #ad",
-    "more_info_url": "http://dealnay.com/11150",
+    "offer_text": "SAVE $72.71 - Coby TFTV1022 10.2-Inch LCD TV $117.28 http://dealnay.com/6384 #tv_portable #offer #ad",
+    "more_info_url": "http://dealnay.com/6384",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": null
   },
-  "twitter/6878270409": {
+  "twitter/6886586353": {
     "message_type": "offr",
-    "timestamp": "2009-12-21T01:38:33Z",
+    "timestamp": "2009-12-21T07:10:15Z",
     "tags": [
       {
-        "tag": "prepaid_phone"
+        "tag": "birdhouse"
       },
       {
         "tag": "offer"
       }
     ],
-    "raw_text": "SAVE $0.04 - LG 400G Prepaid Phone (Net10) with 300 Minutes Included $39.95 http://dealnay.com/15524 #prepaid_phone #offer",
+    "raw_text": "SAVE $0.19 - Droll Omni Seed Tray $9.50 http://dealnay.com/30648 #birdhouse #offer",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "6878270409"
-    },
-    "created_by": {
-      "provider_user_name": "cellphonecrap",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
-      "screen_name": "cellphonecrap",
-      "more_info_url": "http://www.twitter.com/cellphonecrap",
-      "match_tag": "twitter/cellphonecrap"
-    },
-    "offer_text": "SAVE $0.04 - LG 400G Prepaid Phone (Net10) with 300 Minutes Included $39.95 http://dealnay.com/15524 #prepaid_phone #offer",
-    "more_info_url": "http://dealnay.com/15524",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6878282306": {
-    "message_type": "offr",
-    "timestamp": "2009-12-21T01:38:58Z",
-    "tags": [
-      {
-        "tag": "server"
-      },
-      {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $813.01 - Dell PowerEdge R710 - Xeon E5520 2.26 GHz (BV2367) Category: NAS Servers $2,742.99 http://dealnay.com/68647 #server #offer",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6878282306"
-    },
-    "created_by": {
-      "provider_user_name": "compudah",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/456468922/180px-Cowbell2_normal.jpg",
-      "screen_name": "compudah",
-      "more_info_url": "http://www.twitter.com/compudah",
-      "match_tag": "twitter/compudah"
-    },
-    "offer_text": "SAVE $813.01 - Dell PowerEdge R710 - Xeon E5520 2.26 GHz (BV2367) Category: NAS Servers $2,742.99 http://dealnay.com/68647 #server #offer",
-    "more_info_url": "http://dealnay.com/68647",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6878318588": {
-    "message_type": "offr",
-    "timestamp": "2009-12-21T01:40:13Z",
-    "tags": [
-      {
-        "tag": "power_cable"
-      },
-      {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $42.49 - Monster Cable MP HT800 Home Theater PowerCenter $37.50 http://dealnay.com/4750 #power_cable #offer",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6878318588"
-    },
-    "created_by": {
-      "provider_user_name": "e_bargains",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
-      "screen_name": "e_bargains",
-      "more_info_url": "http://www.twitter.com/e_bargains",
-      "match_tag": "twitter/e_bargains"
-    },
-    "offer_text": "SAVE $42.49 - Monster Cable MP HT800 Home Theater PowerCenter $37.50 http://dealnay.com/4750 #power_cable #offer",
-    "more_info_url": "http://dealnay.com/4750",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6878320702": {
-    "message_type": "offr",
-    "timestamp": "2009-12-21T01:40:17Z",
-    "tags": [
-      {
-        "tag": "skateboard"
-      },
-      {
-        "tag": "offer"
-      }
-    ],
-    "raw_text": "SAVE $1 - Spitfire Bighead Mash Black/Orange 52mm Skateboard Wheels (Set Of 4) $28.95 http://dealnay.com/182049 #skateboard #offer",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6878320702"
+      "message_id": "6886586353"
     },
     "created_by": {
       "provider_user_name": "dickerone",
@@ -469,8 +1745,1849 @@
       "more_info_url": "http://www.twitter.com/dickerone",
       "match_tag": "twitter/dickerone"
     },
-    "offer_text": "SAVE $1 - Spitfire Bighead Mash Black/Orange 52mm Skateboard Wheels (Set Of 4) $28.95 http://dealnay.com/182049 #skateboard #offer",
-    "more_info_url": "http://dealnay.com/182049",
+    "offer_text": "SAVE $0.19 - Droll Omni Seed Tray $9.50 http://dealnay.com/30648 #birdhouse #offer",
+    "more_info_url": "http://dealnay.com/30648",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886588245": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:10:22Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Apartments, Flats for Rent, India: 3 BHK Luxury Apartment at Jakkur Sobha Amber: 1763 sq ft 3 BHK,1st floor ... http://bit.ly/8ABpEF #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886588245"
+    },
+    "created_by": {
+      "provider_user_name": "flats_on_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/229271907/rent_normal.jpg",
+      "screen_name": "flats_on_rent",
+      "more_info_url": "http://www.twitter.com/flats_on_rent",
+      "match_tag": "twitter/flats_on_rent"
+    },
+    "offer_text": "Apartments, Flats for Rent, India: 3 BHK Luxury Apartment at Jakkur Sobha Amber: 1763 sq ft 3 BHK,1st floor ... http://bit.ly/8ABpEF #ihave",
+    "more_info_url": "http://bit.ly/8ABpEF",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886620299": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:12:04Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "imtmanesar"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Showroom http://bit.ly/5Ko174 #propertywala #ihave #commercial #OfficeSpace #forsale #IMTManesar #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886620299"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Showroom http://bit.ly/5Ko174 #propertywala #ihave #commercial #OfficeSpace #forsale #IMTManesar #Gurgaon",
+    "more_info_url": "http://bit.ly/5Ko174",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886649499": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:13:39Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: Cell phone tower rent in ambattur ICF colony chennai: Land 2000 sqt ava... http://bit.ly/6OSCcw #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886649499"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: Cell phone tower rent in ambattur ICF colony chennai: Land 2000 sqt ava... http://bit.ly/6OSCcw #ihave",
+    "more_info_url": "http://bit.ly/6OSCcw",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886649711": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:13:39Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: CALL CENTER ON RENT: At prime location with two sides open having subst... http://bit.ly/4BUBfj #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886649711"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: CALL CENTER ON RENT: At prime location with two sides open having subst... http://bit.ly/4BUBfj #ihave",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886649953": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:13:40Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: Commercial office space for rent in Kudlu Gate, off  Hosur Road, Bangal... http://bit.ly/5I4TKn #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886649953"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: Commercial office space for rent in Kudlu Gate, off  Hosur Road, Bangal... http://bit.ly/5I4TKn #ihave",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886650170": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:13:41Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: Commercial space available for rent in Electronic city     phase I , Ba... http://bit.ly/8ffmCr #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886650170"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: Commercial space available for rent in Electronic city     phase I , Ba... http://bit.ly/8ffmCr #ihave",
+    "more_info_url": "http://bit.ly/8ffmCr",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886650429": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:13:42Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: Commercial office space available for rent in Banashankari 3rd stage, B... http://bit.ly/6D9bom #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886650429"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: Commercial office space available for rent in Banashankari 3rd stage, B... http://bit.ly/6D9bom #ihave",
+    "more_info_url": "http://bit.ly/6D9bom",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886695085": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:16:05Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "sector"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Shop http://bit.ly/55Py4t #propertywala #ihave #commercial #OfficeSpace #forsale #Sector-14 #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886695085"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Shop http://bit.ly/55Py4t #propertywala #ihave #commercial #OfficeSpace #forsale #Sector-14 #Gurgaon",
+    "more_info_url": "http://bit.ly/55Py4t",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886731311": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:18:07Z",
+    "tags": [
+      {
+        "tag": "cellphone_battery"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $34.3 - Slim Li Ion Battery for the Motorola RAZR V3 $7.69 http://dealnay.com/18777 #cellphone_battery #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886731311"
+    },
+    "created_by": {
+      "provider_user_name": "cellphonecrap",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456462126/ACrush_1_normal.jpg",
+      "screen_name": "cellphonecrap",
+      "more_info_url": "http://www.twitter.com/cellphonecrap",
+      "match_tag": "twitter/cellphonecrap"
+    },
+    "offer_text": "SAVE $34.3 - Slim Li Ion Battery for the Motorola RAZR V3 $7.69 http://dealnay.com/18777 #cellphone_battery #offer",
+    "more_info_url": "http://dealnay.com/18777",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886746881": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:18:57Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "sushantlok"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Shop http://bit.ly/8DQbZ4 #propertywala #ihave #commercial #OfficeSpace #forrent #SushantLok #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886746881"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Shop http://bit.ly/8DQbZ4 #propertywala #ihave #commercial #OfficeSpace #forrent #SushantLok #Gurgaon",
+    "more_info_url": "http://bit.ly/8DQbZ4",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886769812": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:20:14Z",
+    "tags": [
+      {
+        "tag": "id_card_printer"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $56.56 - Fargo Elect. COLOR CARDJET SMARTLOAD ( 41730 ) $59.75 http://dealnay.com/8658 #id_card_printer #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886769812"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $56.56 - Fargo Elect. COLOR CARDJET SMARTLOAD ( 41730 ) $59.75 http://dealnay.com/8658 #id_card_printer #offer",
+    "more_info_url": "http://dealnay.com/8658",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886770226": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:20:16Z",
+    "tags": [
+      {
+        "tag": "tire_cover"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $14.19 - Philadelphia Eagles NFL Spare Tire Cover (Black) $33.81 http://dealnay.com/200682 #tire_cover #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886770226"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $14.19 - Philadelphia Eagles NFL Spare Tire Cover (Black) $33.81 http://dealnay.com/200682 #tire_cover #offer #ad",
+    "more_info_url": "http://dealnay.com/200682",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886815169": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:22:42Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "palamvihar"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Shop http://bit.ly/6eoEId #propertywala #ihave #commercial #OfficeSpace #forsale #PalamVihar #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886815169"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Shop http://bit.ly/6eoEId #propertywala #ihave #commercial #OfficeSpace #forsale #PalamVihar #Gurgaon",
+    "more_info_url": "http://bit.ly/6eoEId",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886860565": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:25:14Z",
+    "tags": [
+      {
+        "tag": "music_latino"
+      },
+      {
+        "tag": "10"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Amazon #music_latino #10 cd: SAVE $3.99 - El Ultimo Trago - Buika $13.99 http://dealnay.com/114513 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886860565"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "Amazon #music_latino #10 cd: SAVE $3.99 - El Ultimo Trago - Buika $13.99 http://dealnay.com/114513 #offer",
+    "more_info_url": "http://dealnay.com/114513",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886951022": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:30:14Z",
+    "tags": [
+      {
+        "tag": "printer"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $53.04 - Canon Pixma PRO9000MkII Inkjet Photo Printer (3295B002) $446.95 http://dealnay.com/5963 #printer #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886951022"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $53.04 - Canon Pixma PRO9000MkII Inkjet Photo Printer (3295B002) $446.95 http://dealnay.com/5963 #printer #offer",
+    "more_info_url": "http://dealnay.com/5963",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886951285": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:30:15Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $18.58 - Cap Barbell Premium Mat for Treadmills and Ellipticals (36-Inchx 78-Inchx1/4-Inch) $31.41 http://dealnay.com/133435 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886951285"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $18.58 - Cap Barbell Premium Mat for Treadmills and Ellipticals (36-Inchx 78-Inchx1/4-Inch) $31.41 http://dealnay.com/133435 #offer",
+    "more_info_url": "http://dealnay.com/133435",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886951486": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:30:15Z",
+    "tags": [
+      {
+        "tag": "sausage"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $5.98 - Stonewall's Jerquee, Peppy Pepperoni, 1.5-Ounce Packets (Pack of 16) $29.88 http://dealnay.com/201256 #sausage #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886951486"
+    },
+    "created_by": {
+      "provider_user_name": "unlooses",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/456830731/cat_normal.jpg",
+      "screen_name": "unlooses",
+      "more_info_url": "http://www.twitter.com/unlooses",
+      "match_tag": "twitter/unlooses"
+    },
+    "offer_text": "SAVE $5.98 - Stonewall's Jerquee, Peppy Pepperoni, 1.5-Ounce Packets (Pack of 16) $29.88 http://dealnay.com/201256 #sausage #offer",
+    "more_info_url": "http://dealnay.com/201256",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886952014": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:30:17Z",
+    "tags": [
+      {
+        "tag": "noodle"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $4.08 - Thai Kitchen Stir Fry Rice Noodles, 14-Ounce Boxes (Pack of 12) $28.80 http://dealnay.com/158923 #noodle #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886952014"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $4.08 - Thai Kitchen Stir Fry Rice Noodles, 14-Ounce Boxes (Pack of 12) $28.80 http://dealnay.com/158923 #noodle #offer",
+    "more_info_url": "http://dealnay.com/158923",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6886955233": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:30:27Z",
+    "tags": [
+      {
+        "tag": "transceiver"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $20.89 - ACP GLC-SX-MM-AO 1000Base-SX SFP Transceiver Module F/Cisco $45.10 http://dealnay.com/14854 #transceiver #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6886955233"
+    },
+    "created_by": {
+      "provider_user_name": "compudah",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456468922/180px-Cowbell2_normal.jpg",
+      "screen_name": "compudah",
+      "more_info_url": "http://www.twitter.com/compudah",
+      "match_tag": "twitter/compudah"
+    },
+    "offer_text": "SAVE $20.89 - ACP GLC-SX-MM-AO 1000Base-SX SFP Transceiver Module F/Cisco $45.10 http://dealnay.com/14854 #transceiver #offer",
+    "more_info_url": "http://dealnay.com/14854",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887069841": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:36:55Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "palamvihar"
+      },
+      {
+        "tag": "gurgaon"
+      }
+    ],
+    "raw_text": "Shop http://bit.ly/7suHCc #propertywala #ihave #commercial #OfficeSpace #forsale #PalamVihar #Gurgaon",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887069841"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Shop http://bit.ly/7suHCc #propertywala #ihave #commercial #OfficeSpace #forsale #PalamVihar #Gurgaon",
+    "more_info_url": "http://bit.ly/7suHCc",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887095425": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:38:23Z",
+    "tags": [
+      {
+        "tag": "book"
+      },
+      {
+        "tag": "teens"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $7.99 - Eclipse (The Twilight Saga) $5.00 http://dealnay.com/8756 #book #teens #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887095425"
+    },
+    "created_by": {
+      "provider_user_name": "l2rdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/366067336/abc1_normal.jpg",
+      "screen_name": "l2rdude",
+      "more_info_url": "http://www.twitter.com/l2rdude",
+      "match_tag": "twitter/l2rdude"
+    },
+    "offer_text": "SAVE $7.99 - Eclipse (The Twilight Saga) $5.00 http://dealnay.com/8756 #book #teens #offer",
+    "more_info_url": "http://dealnay.com/8756",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887101205": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:38:43Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Sterling Silver Figaro Bracelet 8 1/2 Inch http://tinyurl.com/yanf92m silver jewelry figaro bracelet silver chain sterling #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887101205"
+    },
+    "created_by": {
+      "provider_user_name": "Geminigems",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/271805001/1114681395_m_normal.jpg",
+      "screen_name": "Geminigems",
+      "more_info_url": "http://www.twitter.com/Geminigems",
+      "match_tag": "twitter/Geminigems"
+    },
+    "offer_text": "Sterling Silver Figaro Bracelet 8 1/2 Inch http://tinyurl.com/yanf92m silver jewelry figaro bracelet silver chain sterling #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yanf92m",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887165263": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:42:22Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "forsale"
+      }
+    ],
+    "raw_text": "Sterling Silver Figaro 8MM Bracelet http://tinyurl.com/yb8dvzw silver chain silver jewelry figaro bracelet sterling silver #ihave #forsale",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887165263"
+    },
+    "created_by": {
+      "provider_user_name": "Geminigems",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/271805001/1114681395_m_normal.jpg",
+      "screen_name": "Geminigems",
+      "more_info_url": "http://www.twitter.com/Geminigems",
+      "match_tag": "twitter/Geminigems"
+    },
+    "offer_text": "Sterling Silver Figaro 8MM Bracelet http://tinyurl.com/yb8dvzw silver chain silver jewelry figaro bracelet sterling silver #ihave #forsale",
+    "more_info_url": "http://tinyurl.com/yb8dvzw",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887301361": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:50:16Z",
+    "tags": [
+      {
+        "tag": "tie"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $16 - Elvis Presley Tie $12.95 http://dealnay.com/107698 #tie #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887301361"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $16 - Elvis Presley Tie $12.95 http://dealnay.com/107698 #tie #offer #ad",
+    "more_info_url": "http://dealnay.com/107698",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887380592": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T07:54:58Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "sector15"
+      },
+      {
+        "tag": "faridabad"
+      }
+    ],
+    "raw_text": "Shop http://bit.ly/5UusNb #propertywala #ihave #commercial #OfficeSpace #forsale #Sector15 #Faridabad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887380592"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Shop http://bit.ly/5UusNb #propertywala #ihave #commercial #OfficeSpace #forsale #Sector15 #Faridabad",
+    "more_info_url": "http://bit.ly/5UusNb",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887471416": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:00:17Z",
+    "tags": [
+      {
+        "tag": "powertool"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $20 - Dustless Technologies MU305WS Cheetah II Ash Vacuum, Winter Scene $219.00 http://dealnay.com/113371 #powertool #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887471416"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $20 - Dustless Technologies MU305WS Cheetah II Ash Vacuum, Winter Scene $219.00 http://dealnay.com/113371 #powertool #offer",
+    "more_info_url": "http://dealnay.com/113371",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887472095": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:00:19Z",
+    "tags": [
+      {
+        "tag": "music_rock"
+      },
+      {
+        "tag": "9"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Amazon #music_rock #9 cd: SAVE $2.99 - For Your Entertainment - Adam Lambert $10.99 http://dealnay.com/78349 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887472095"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "Amazon #music_rock #9 cd: SAVE $2.99 - For Your Entertainment - Adam Lambert $10.99 http://dealnay.com/78349 #offer",
+    "more_info_url": "http://dealnay.com/78349",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887483743": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:00:55Z",
+    "tags": [
+      {
+        "tag": "job"
+      },
+      {
+        "tag": "jobs"
+      },
+      {
+        "tag": "tjs"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "jobangels"
+      }
+    ],
+    "raw_text": "Customer Serivce Retail.  Great customer service skills.  Skills with a register.  http://bit.ly/4t2bSf #job #jobs #tjs #ihave #jobangels",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887483743"
+    },
+    "created_by": {
+      "provider_user_name": "thestorides",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1261078355/images/default_profile_1_normal.png",
+      "screen_name": "thestorides",
+      "more_info_url": "http://www.twitter.com/thestorides",
+      "match_tag": "twitter/thestorides"
+    },
+    "offer_text": "Customer Serivce Retail.  Great customer service skills.  Skills with a register.  http://bit.ly/4t2bSf #job #jobs #tjs #ihave #jobangels",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887501304": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:01:52Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "#ihave Custom Home in Aston Park http://bit.ly/6rDRhO (via @realbird)",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887501304"
+    },
+    "created_by": {
+      "provider_user_name": "RealBirdHomes",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/267798799/RealBird_Bird_normal.jpg",
+      "screen_name": "RealBirdHomes",
+      "more_info_url": "http://www.twitter.com/RealBirdHomes",
+      "match_tag": "twitter/RealBirdHomes"
+    },
+    "offer_text": "#ihave Custom Home in Aston Park http://bit.ly/6rDRhO (via @realbird)",
+    "more_info_url": "http://bit.ly/6rDRhO",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887512205": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:02:27Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: Land for Sale: Kuttipuram, near Kumbidi, Kudalloor, Beautiful land site of 3.6... http://bit.ly/6brauu #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887512205"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: Land for Sale: Kuttipuram, near Kumbidi, Kudalloor, Beautiful land site of 3.6... http://bit.ly/6brauu #ihave",
+    "more_info_url": "http://bit.ly/6brauu",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887512410": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:02:28Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: 35x40 sq ft residential plot for sale at Bannimantap: Excellent \nlocation 1400... http://bit.ly/78Zc4L #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887512410"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: 35x40 sq ft residential plot for sale at Bannimantap: Excellent \nlocation 1400... http://bit.ly/78Zc4L #ihave",
+    "more_info_url": "http://bit.ly/78Zc4L",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887512642": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:02:29Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: Teachers layout 2400 sq ft plot for sale at Mysore.: 40x60 plot is available f... http://bit.ly/4Fz2hG #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887512642"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: Teachers layout 2400 sq ft plot for sale at Mysore.: 40x60 plot is available f... http://bit.ly/4Fz2hG #ihave",
+    "more_info_url": "http://bit.ly/4Fz2hG",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887512853": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:02:29Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: plot for sale: Hi this is rafiq having a plot for sale in maruthinagar,thiruve... http://bit.ly/5Y5I5o #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887512853"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: plot for sale: Hi this is rafiq having a plot for sale in maruthinagar,thiruve... http://bit.ly/5Y5I5o #ihave",
+    "more_info_url": "http://bit.ly/5Y5I5o",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887513148": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:02:30Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Sale, India: 25 Cents of vacant land for sale.: 25 Cents of vacant land, north facing, Clos... http://bit.ly/7Bjt2U #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887513148"
+    },
+    "created_by": {
+      "provider_user_name": "plots_for_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217087073/for_sale_normal.png",
+      "screen_name": "plots_for_sale",
+      "more_info_url": "http://www.twitter.com/plots_for_sale",
+      "match_tag": "twitter/plots_for_sale"
+    },
+    "offer_text": "Land &amp; Plots For Sale, India: 25 Cents of vacant land for sale.: 25 Cents of vacant land, north facing, Clos... http://bit.ly/7Bjt2U #ihave",
+    "more_info_url": "http://bit.ly/7Bjt2U",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887560547": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:05:13Z",
+    "tags": [
+      {
+        "tag": "surveillance_system"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $49.15 - SVAT WSE103 Wireless Color Mini Pinhole Covert Camera System $70.84 http://dealnay.com/100925 #surveillance_system #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887560547"
+    },
+    "created_by": {
+      "provider_user_name": "e_bargains",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456457892/ss_normal.jpg",
+      "screen_name": "e_bargains",
+      "more_info_url": "http://www.twitter.com/e_bargains",
+      "match_tag": "twitter/e_bargains"
+    },
+    "offer_text": "SAVE $49.15 - SVAT WSE103 Wireless Color Mini Pinhole Covert Camera System $70.84 http://dealnay.com/100925 #surveillance_system #offer",
+    "more_info_url": "http://dealnay.com/100925",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887612685": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:08:20Z",
+    "tags": [
+      {
+        "tag": "book"
+      },
+      {
+        "tag": "scifi"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $8.28 - Catching Fire (The Second Book of the Hunger Games) $9.71 http://dealnay.com/8760 #book #scifi #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887612685"
+    },
+    "created_by": {
+      "provider_user_name": "l2rdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/366067336/abc1_normal.jpg",
+      "screen_name": "l2rdude",
+      "more_info_url": "http://www.twitter.com/l2rdude",
+      "match_tag": "twitter/l2rdude"
+    },
+    "offer_text": "SAVE $8.28 - Catching Fire (The Second Book of the Hunger Games) $9.71 http://dealnay.com/8760 #book #scifi #offer #ad",
+    "more_info_url": "http://dealnay.com/8760",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887623443": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:09:00Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Houses &amp; Bungalows For Sale, India: concorde sylvan view designer villas for sale at off electronic city: Co... http://bit.ly/5msT2R #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887623443"
+    },
+    "created_by": {
+      "provider_user_name": "house_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/229172672/house_normal.jpg",
+      "screen_name": "house_sale",
+      "more_info_url": "http://www.twitter.com/house_sale",
+      "match_tag": "twitter/house_sale"
+    },
+    "offer_text": "Houses &amp; Bungalows For Sale, India: concorde sylvan view designer villas for sale at off electronic city: Co... http://bit.ly/5msT2R #ihave",
+    "more_info_url": "http://bit.ly/5msT2R",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887623631": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:09:00Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Houses &amp; Bungalows For Sale, India: house for sale in KK Nagar, Chennai: i would like to sell my land near k... http://bit.ly/7aPB7S #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887623631"
+    },
+    "created_by": {
+      "provider_user_name": "house_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/229172672/house_normal.jpg",
+      "screen_name": "house_sale",
+      "more_info_url": "http://www.twitter.com/house_sale",
+      "match_tag": "twitter/house_sale"
+    },
+    "offer_text": "Houses &amp; Bungalows For Sale, India: house for sale in KK Nagar, Chennai: i would like to sell my land near k... http://bit.ly/7aPB7S #ihave",
+    "more_info_url": "http://bit.ly/7aPB7S",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887623818": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:09:01Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Houses &amp; Bungalows For Sale, India: SELLING HOUSE AT KARUR NEAR SRI RAM THEATER AREA TAMILNADU INDIA: SELLIN... http://bit.ly/62Fdtd #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887623818"
+    },
+    "created_by": {
+      "provider_user_name": "house_sale",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/229172672/house_normal.jpg",
+      "screen_name": "house_sale",
+      "more_info_url": "http://www.twitter.com/house_sale",
+      "match_tag": "twitter/house_sale"
+    },
+    "offer_text": "Houses &amp; Bungalows For Sale, India: SELLING HOUSE AT KARUR NEAR SRI RAM THEATER AREA TAMILNADU INDIA: SELLIN... http://bit.ly/62Fdtd #ihave",
+    "more_info_url": "http://bit.ly/62Fdtd",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887670856": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:11:49Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Apartments, Flats for Rent, India: SERVICED    APARTMENTS '    BANGALORE BUDGET    FAMILY RS. 750/FOR DAY..:... http://bit.ly/7o7kNr #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887670856"
+    },
+    "created_by": {
+      "provider_user_name": "flats_on_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/229271907/rent_normal.jpg",
+      "screen_name": "flats_on_rent",
+      "more_info_url": "http://www.twitter.com/flats_on_rent",
+      "match_tag": "twitter/flats_on_rent"
+    },
+    "offer_text": "Apartments, Flats for Rent, India: SERVICED    APARTMENTS '    BANGALORE BUDGET    FAMILY RS. 750/FOR DAY..:... http://bit.ly/7o7kNr #ihave",
+    "more_info_url": "http://bit.ly/7o7kNr",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887673818": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:12:00Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forsale"
+      },
+      {
+        "tag": "chandralayout"
+      },
+      {
+        "tag": "bangalore"
+      }
+    ],
+    "raw_text": "APARTMENT FOR SALE http://bit.ly/5DxBuc #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forsale #ChandraLayout #Bangalore",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887673818"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "APARTMENT FOR SALE http://bit.ly/5DxBuc #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forsale #ChandraLayout #Bangalore",
+    "more_info_url": "http://bit.ly/5DxBuc",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887681379": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:12:25Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "commercial"
+      },
+      {
+        "tag": "officespace"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "jailchungiroad"
+      },
+      {
+        "tag": "meerut"
+      }
+    ],
+    "raw_text": "Shiv Plaza http://bit.ly/8ggTAK #propertywala #ihave #commercial #OfficeSpace #forrent #JailChungiRoad #Meerut",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887681379"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "Shiv Plaza http://bit.ly/8ggTAK #propertywala #ihave #commercial #OfficeSpace #forrent #JailChungiRoad #Meerut",
+    "more_info_url": "http://bit.ly/8ggTAK",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887718475": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:14:39Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: FLOORS AVAILABLE FOR RENT IN NEW DELHI: FLOORS NAMELY - FIRST, SECOND  ... http://bit.ly/6LwZvV #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887718475"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: FLOORS AVAILABLE FOR RENT IN NEW DELHI: FLOORS NAMELY - FIRST, SECOND  ... http://bit.ly/6LwZvV #ihave",
+    "more_info_url": "http://bit.ly/6LwZvV",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887718687": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:14:40Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: commercial property rent out: 15000  sq.feet in tambaram  opp to bharat... http://bit.ly/5mM89V #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887718687"
+    },
+    "created_by": {
+      "provider_user_name": "property_rent",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/217095873/property_normal.jpg",
+      "screen_name": "property_rent",
+      "more_info_url": "http://www.twitter.com/property_rent",
+      "match_tag": "twitter/property_rent"
+    },
+    "offer_text": "Commercial Property for Rent, India: commercial property rent out: 15000  sq.feet in tambaram  opp to bharat... http://bit.ly/5mM89V #ihave",
+    "more_info_url": "http://bit.ly/5mM89V",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887727987": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:15:12Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Commercial Property for Rent, India: commercial property rent out: 15000  sq.feet in tambaram  opp to bharat... http://bit.ly/5mM89V #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887727987"
+    },
+    "created_by": {
+      "provider_user_name": "propertyvine",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1261078355/images/default_profile_0_normal.png",
+      "screen_name": "propertyvine",
+      "more_info_url": "http://www.twitter.com/propertyvine",
+      "match_tag": "twitter/propertyvine"
+    },
+    "offer_text": "Commercial Property for Rent, India: commercial property rent out: 15000  sq.feet in tambaram  opp to bharat... http://bit.ly/5mM89V #ihave",
+    "more_info_url": "http://bit.ly/5mM89V",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887729454": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:15:17Z",
+    "tags": [
+      {
+        "tag": "music_jazz"
+      },
+      {
+        "tag": "9"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Amazon #music_jazz #9 cd: SAVE $8.99 - Michael Bublé - Michael Bublé $9.99 http://dealnay.com/99906 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887729454"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "Amazon #music_jazz #9 cd: SAVE $8.99 - Michael Bublé - Michael Bublé $9.99 http://dealnay.com/99906 #offer",
+    "more_info_url": "http://dealnay.com/99906",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887775494": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:18:01Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Lease, India: LAND AVAILABLE IN LUCKNOW FOR MOBILE TOWER INSTALLATION: I HAVE 3000 SQ FT OF... http://bit.ly/6UvaoO #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887775494"
+    },
+    "created_by": {
+      "provider_user_name": "land_for_lease",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/234061081/land_for_lease_normal.jpg",
+      "screen_name": "land_for_lease",
+      "more_info_url": "http://www.twitter.com/land_for_lease",
+      "match_tag": "twitter/land_for_lease"
+    },
+    "offer_text": "Land &amp; Plots For Lease, India: LAND AVAILABLE IN LUCKNOW FOR MOBILE TOWER INSTALLATION: I HAVE 3000 SQ FT OF... http://bit.ly/6UvaoO #ihave",
+    "more_info_url": "http://bit.ly/6UvaoO",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887775727": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:18:01Z",
+    "tags": [
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Land &amp; Plots For Lease, India: roof top or free land available for mobile tower: Free land or roof top avail... http://bit.ly/5LISuH #ihave",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887775727"
+    },
+    "created_by": {
+      "provider_user_name": "land_for_lease",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/234061081/land_for_lease_normal.jpg",
+      "screen_name": "land_for_lease",
+      "more_info_url": "http://www.twitter.com/land_for_lease",
+      "match_tag": "twitter/land_for_lease"
+    },
+    "offer_text": "Land &amp; Plots For Lease, India: roof top or free land available for mobile tower: Free land or roof top avail... http://bit.ly/5LISuH #ihave",
+    "more_info_url": "http://bit.ly/5LISuH",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887979879": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:30:19Z",
+    "tags": [
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $37.05 - Harajuku Lovers The Super Girls Hoody in White &amp; Black hood ,Sweatshirts for Women $34.95 http://dealnay.com/138494 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887979879"
+    },
+    "created_by": {
+      "provider_user_name": "dickerone",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/451699830/DONKEY_normal.jpg",
+      "screen_name": "dickerone",
+      "more_info_url": "http://www.twitter.com/dickerone",
+      "match_tag": "twitter/dickerone"
+    },
+    "offer_text": "SAVE $37.05 - Harajuku Lovers The Super Girls Hoody in White &amp; Black hood ,Sweatshirts for Women $34.95 http://dealnay.com/138494 #offer",
+    "more_info_url": "http://dealnay.com/138494",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6887980771": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:30:22Z",
+    "tags": [
+      {
+        "tag": "linku2"
+      },
+      {
+        "tag": "keyword"
+      },
+      {
+        "tag": "sector"
+      },
+      {
+        "tag": "location"
+      },
+      {
+        "tag": "ihave"
+      }
+    ],
+    "raw_text": "Find Businesses near you on #LinkU2 by #keyword, #sector or #Location #ihave http://bit.ly/4s62PB",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6887980771"
+    },
+    "created_by": {
+      "provider_user_name": "LinkU2",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/355177424/logo_twitter_icon_normal.png",
+      "screen_name": "LinkU2",
+      "more_info_url": "http://www.twitter.com/LinkU2",
+      "match_tag": "twitter/LinkU2"
+    },
+    "offer_text": "Find Businesses near you on #LinkU2 by #keyword, #sector or #Location #ihave http://bit.ly/4s62PB",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6888063383": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:35:13Z",
+    "tags": [
+      {
+        "tag": "pillow"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $17.06 - Buffalo Bills Bed Rest Pillow $30.93 http://dealnay.com/84429 #pillow #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888063383"
+    },
+    "created_by": {
+      "provider_user_name": "innerinner",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456912240/dog_normal.jpg",
+      "screen_name": "innerinner",
+      "more_info_url": "http://www.twitter.com/innerinner",
+      "match_tag": "twitter/innerinner"
+    },
+    "offer_text": "SAVE $17.06 - Buffalo Bills Bed Rest Pillow $30.93 http://dealnay.com/84429 #pillow #offer",
+    "more_info_url": "http://dealnay.com/84429",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6888063827": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:35:15Z",
+    "tags": [
+      {
+        "tag": "music_gospel"
+      },
+      {
+        "tag": "7"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "Amazon #music_gospel #7 cd: SAVE $1.99 - It Is Well - Kutless $11.99 http://dealnay.com/115699 #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888063827"
+    },
+    "created_by": {
+      "provider_user_name": "musicchart",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/378696923/itunes-icon_normal.png",
+      "screen_name": "musicchart",
+      "more_info_url": "http://www.twitter.com/musicchart",
+      "match_tag": "twitter/musicchart"
+    },
+    "offer_text": "Amazon #music_gospel #7 cd: SAVE $1.99 - It Is Well - Kutless $11.99 http://dealnay.com/115699 #offer",
+    "more_info_url": "http://dealnay.com/115699",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6888112400": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:38:16Z",
+    "tags": [
+      {
+        "tag": "hair_care"
+      },
+      {
+        "tag": "offer"
+      },
+      {
+        "tag": "ad"
+      }
+    ],
+    "raw_text": "SAVE $16.77 - Nioxin System 2 Starter Kit $23.23 http://dealnay.com/11489 #hair_care #offer #ad",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888112400"
+    },
+    "created_by": {
+      "provider_user_name": "youarepretty",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/369522920/cosmetic_normal.jpg",
+      "screen_name": "youarepretty",
+      "more_info_url": "http://www.twitter.com/youarepretty",
+      "match_tag": "twitter/youarepretty"
+    },
+    "offer_text": "SAVE $16.77 - Nioxin System 2 Starter Kit $23.23 http://dealnay.com/11489 #hair_care #offer #ad",
+    "more_info_url": "http://dealnay.com/11489",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6888112655": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:38:17Z",
+    "tags": [
+      {
+        "tag": "book"
+      },
+      {
+        "tag": "teens"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $5.49 - Twilight (The Twilight Saga, Book 1) $5.50 http://dealnay.com/8773 #book #teens #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888112655"
+    },
+    "created_by": {
+      "provider_user_name": "l2rdude",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/366067336/abc1_normal.jpg",
+      "screen_name": "l2rdude",
+      "more_info_url": "http://www.twitter.com/l2rdude",
+      "match_tag": "twitter/l2rdude"
+    },
+    "offer_text": "SAVE $5.49 - Twilight (The Twilight Saga, Book 1) $5.50 http://dealnay.com/8773 #book #teens #offer",
+    "more_info_url": "http://dealnay.com/8773",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6888116997": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:38:33Z",
+    "tags": [
+      {
+        "tag": "dust_cover"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $15.83 - Protection Pack Deluxe for MacBook 13&quot;, White $14.16 http://dealnay.com/20637 #dust_cover #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888116997"
+    },
+    "created_by": {
+      "provider_user_name": "dealsformac",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/385778642/snow-leopard_normal.jpg",
+      "screen_name": "dealsformac",
+      "more_info_url": "http://www.twitter.com/dealsformac",
+      "match_tag": "twitter/dealsformac"
+    },
+    "offer_text": "SAVE $15.83 - Protection Pack Deluxe for MacBook 13&quot;, White $14.16 http://dealnay.com/20637 #dust_cover #offer",
+    "more_info_url": "http://dealnay.com/20637",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6888228716": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T08:45:27Z",
+    "tags": [
+      {
+        "tag": "hub"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $13.22 - Belkin Hi-Speed USB 2.0 7-Port Lighted Hub F5U700 $16.77 http://dealnay.com/23819 #hub #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888228716"
+    },
+    "created_by": {
+      "provider_user_name": "compudah",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/456468922/180px-Cowbell2_normal.jpg",
+      "screen_name": "compudah",
+      "more_info_url": "http://www.twitter.com/compudah",
+      "match_tag": "twitter/compudah"
+    },
+    "offer_text": "SAVE $13.22 - Belkin Hi-Speed USB 2.0 7-Port Lighted Hub F5U700 $16.77 http://dealnay.com/23819 #hub #offer",
+    "more_info_url": "http://dealnay.com/23819",
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
