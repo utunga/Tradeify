@@ -24,11 +24,6 @@ namespace Offr.Query
             return _messages;
         }
 
-        protected override void Update()
-        {
-            //ignore
-        }
-
         #endregion
     }
 }

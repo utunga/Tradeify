@@ -24,12 +24,6 @@ namespace Offr.Query
             return _messageProvider.AllMessages;
         }
 
-        protected override void Update()
-        {
-            // this will end up calling back into the 'process' method here
-            _messageProvider.Update();
-        }
-
         public void Invalidate()
         {
             _seenTags = new List<ITag>();

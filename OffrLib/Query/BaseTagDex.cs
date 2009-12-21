@@ -23,12 +23,6 @@ namespace Offr.Query
         }
 
         /// <summary>
-        /// When this is called, implementing classes should ensure their data is as up to date as it can get when this is called
-        /// (static implementation will just ignore this call)
-        /// </summary>
-        protected abstract void Update();
-
-        /// <summary>
         /// Implementing classes will occasionally need to return all messages
         /// </summary>
         /// <returns></returns>
@@ -36,19 +30,27 @@ namespace Offr.Query
 
         public List<IMessage> MessagesForTags(IEnumerable<ITag> tags)
         {
-            //No longer update
-            //Update();
-        
-            List<ITag> intersectTags = new List<ITag>();
-            foreach (ITag tag in tags)
+            return MessagesForTagsAndUser(tags, null);
+        }
+
+        public List<IMessage> MessagesForUser(IUserPointer user)
+        {
+            return MessagesForTagsAndUser(new ITag[] {}, user);
+        }
+
+        public List<IMessage> MessagesForTagsAndUser(IEnumerable<ITag> tags, IUserPointer user)
+        {
+            List<string> matchTags = tags.Select(tag => tag.MatchTag).ToList();
+            if (user != null)
             {
-                intersectTags.Add(tag);
+                matchTags.Add(user.MatchTag);
             }
 
+            
             IEnumerable<IMessage> candidates;
-            if (intersectTags.Count > 0)
+            if (matchTags.Count > 0)
             {
-                candidates = _index.ContainsKey(intersectTags[0].MatchTag) ? _index[intersectTags[0].MatchTag] : new List<IMessage>();
+                candidates = _index.ContainsKey(matchTags[0]) ? _index[matchTags[0]] : new List<IMessage>();
             }
             else
             {
@@ -59,9 +61,9 @@ namespace Offr.Query
             foreach (IMessage message in candidates)
             {
                 bool include = true;
-                foreach (ITag tag in intersectTags)
+                foreach (string matchTag in matchTags)
                 {
-                    if (!message.HasTag(tag))
+                    if (!message.MatchesMatchTag(matchTag))
                     {
                         include = false;
                         break;
@@ -73,6 +75,7 @@ namespace Offr.Query
                     results.Add(message);
                 }
             }
+
             //sort results by timestamp descending
             results.Sort((a, b) => b.Timestamp.CompareTo(a.Timestamp));
             return results;
@@ -86,17 +89,26 @@ namespace Offr.Query
         {
             foreach (IMessage message in messages)
             {
-                foreach (ITag tag1 in message.Tags)
+                lock (_index)
                 {
-                    lock (_index)
+                    foreach (ITag tag1 in message.Tags)
                     {
                         if (!_index.ContainsKey(tag1.MatchTag))
                         {
-                            //FIXME this could be a bunch smarter
                             _index[tag1.MatchTag] = new List<IMessage>();
                             _seenTags.Add(tag1);
                         }
                         _index[tag1.MatchTag].Add(message);
+                    }
+                    //also index by user
+                    if (message.CreatedBy != null)
+                    {
+                        string matchTag = message.CreatedBy.MatchTag;
+                        if (!_index.ContainsKey(matchTag))
+                        {
+                            _index[matchTag] = new List<IMessage>();
+                        }
+                        _index[matchTag].Add(message);
                     }
                 }
             }

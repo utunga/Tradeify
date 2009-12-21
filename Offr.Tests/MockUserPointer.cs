@@ -63,5 +63,10 @@ namespace Offr.Tests
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return MatchTag;
+        }
     }
 }

@@ -26,10 +26,12 @@ namespace Offr.Twitter
             webRequest.Timeout = 20000;
             
             string responseData = "";
+            
             StreamReader responseReader = null;
-            WebResponse response = webRequest.GetResponse();
+            WebResponse response = null;
             try
             {
+                response = webRequest.GetResponse();
                 responseReader = new StreamReader(response.GetResponseStream());
                 responseData = responseReader.ReadToEnd();
             }
@@ -39,7 +41,10 @@ namespace Offr.Twitter
             }
             finally
             {
-                response.GetResponseStream().Close();
+                if (response != null)
+                {
+                    response.GetResponseStream().Close();
+                }
                 if (responseReader != null)
                 {
                     responseReader.Close();

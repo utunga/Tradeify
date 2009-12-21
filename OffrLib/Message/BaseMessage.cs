@@ -101,9 +101,17 @@ namespace Offr.Message
         {
             _tags.Add(tag);
         }
-        public bool HasTag(ITag tag)
+        
+        public bool MatchesMatchTag(ITag tag)
         {
             return _tags.Contains(tag);
+        }
+
+        public bool MatchesMatchTag(string matchTag)
+        {
+            //FIXME1 this method feels wrong wrong wrong! but its quite a lot faster
+            //  leave it in like this for now, till we refactor to couchdb then remove
+            return _tags.Contains(matchTag) || CreatedBy != null && string.Equals(CreatedBy.MatchTag, matchTag);
         }
 
         #endregion

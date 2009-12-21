@@ -19,7 +19,8 @@ namespace Offr.Message
         MessageType MessageType { get; }
         bool IsValid { get; }
         IEnumerable<ITag> Tags { get; }
-        bool HasTag(ITag tag);
+        bool MatchesMatchTag(ITag tag);
+        bool MatchesMatchTag(string matchTagString);
         ReadOnlyCollection<ITag> HashTags { get; }
         ReadOnlyCollection<ITag> CommunityTags { get; }
     }

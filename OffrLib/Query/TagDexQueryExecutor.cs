@@ -23,6 +23,16 @@ namespace Offr.Query
             return _globalTagIndex.MessagesForTags(tags);
         }
 
+        public IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer)
+        {
+            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer);
+        }
+
+        public IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer userPointer)
+        {
+            return _globalTagIndex.MessagesForUser(userPointer);
+        }
+        
         //public IEnumerable<IMessage> GetMessagesForKeywordAndTags(string keyword, IEnumerable<ITag> tags)
         //{
         //    // theoretically if we were caching all these objects this use of a 

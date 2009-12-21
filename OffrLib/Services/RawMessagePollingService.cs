@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using Offr.Repository;
@@ -47,7 +48,7 @@ namespace Offr.Services
         //    }
         //}
 
-        static void Run()
+        static void Run()           
         {
             // long lastUpdate = 0;
             while (true) //continue till the end of time or until the thread dies
@@ -57,7 +58,7 @@ namespace Offr.Services
                     _provider.Update();
                      Thread.Sleep(POLLING_INTERVAL);
                 }
-                catch (Exception ex)
+                catch (WebException ex)
                 {
                     _exceptionReceiver.NotifyException(ex);
                 }

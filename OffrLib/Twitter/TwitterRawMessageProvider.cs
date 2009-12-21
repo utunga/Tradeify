@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Net;
 using System.Web;
 using System.Web.Script.Serialization;
 using NLog;
@@ -95,11 +95,23 @@ namespace Offr.Twitter
             string url = _last_id == 0 ? 
                 String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query) :
                 String.Format(WebRequest.TWITTER_SEARCH_POLL_URI, _last_id, query);
-
-            string responseData = WebRequest.RetrieveContent(url);
-            TwitterResultSet resultSet = (new JavaScriptSerializer()).Deserialize<TwitterResultSet>(responseData);
-            _last_id = resultSet.max_id;
-
+            
+            TwitterResultSet resultSet = null;
+            try
+            {
+                string responseData = WebRequest.RetrieveContent(url);
+                resultSet = (new JavaScriptSerializer()).Deserialize<TwitterResultSet>(responseData);
+                _last_id = resultSet.max_id;
+            }
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.NameResolutionFailure)
+                {
+                      //no internet, return blank results
+                    return new List<IRawMessage>();
+                }
+                //handle rate limitig in case of excessive requests
+            }
             List<IRawMessage> newStatusUpdates = new List<IRawMessage>();
             foreach (TwitterStatus status in resultSet.results)
             {

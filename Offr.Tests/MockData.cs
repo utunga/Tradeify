@@ -15,12 +15,14 @@ namespace Offr.Tests
         public static List<MockRawMessage> RawMessages;
         public static int MSG_COUNT;
         public static IEnhancedUserPointer User0, User1, User2;
+        public static List<IUserPointer> Users;
         public static ILocation Location0, Location1, Location2;
         public static List<string> Offers;
         public static List<ITag> UsedTags;
         
         static MockData()
         {
+
             MSG_COUNT = 6;
             Offers = new List<string> { "mulch", "car", "vegetables", "garden supplies", "yams", "squash"};
             DateTime fixedStart = DateTime.Now.Subtract(TimeSpan.FromDays(365)).ToUniversalTime();
@@ -225,6 +227,9 @@ namespace Offr.Tests
             {
                 throw new ApplicationException("Check the MockData class, wrong number of raw messages being returned");
             }
+
+            Users = new List<IUserPointer>() { User0, User1, User2 };
+
         }
 
     }

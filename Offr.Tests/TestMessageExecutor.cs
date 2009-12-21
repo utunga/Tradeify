@@ -17,8 +17,8 @@ namespace Offr.Tests
     {
         readonly IMessageQueryExecutor _target;
       
-        public TestMessageExecutor() {
-         
+        public TestMessageExecutor() 
+        { 
             MockRawMessageProvider mockProvider = new MockRawMessageProvider();
             MockMessageParser mockParser = new MockMessageParser();
             MessageRepository messageRepository = new MessageRepository();
@@ -49,12 +49,12 @@ namespace Offr.Tests
         //}
 
         [Test]
-        public void TestTagBasedQuery()
+        public void TestSingleTagBasedQuery()
         {
             foreach (Tag tag in MockData.UsedTags)
             {
                 List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag })); //<-- target execution
-                Assert.GreaterOrEqual(results.Count, 1, "Received no results for query:" + tag);
+                Assert.GreaterOrEqual(results.Count, 1, "Received no results for tag:" + tag);
                 Console.Out.WriteLine("For " + tag.ToString() + ":");
                 foreach (IMessage message in results)
                 {
@@ -66,7 +66,70 @@ namespace Offr.Tests
                 }
             }
         }
-        
+
+        [Test]
+        public void TestDoubleTagBasedQuery()
+        {
+            foreach (Tag tag in MockData.UsedTags)
+            {
+                foreach (Tag tag2 in MockData.UsedTags)
+                {
+                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] {tag, tag2}));
+                    Console.Out.WriteLine("For " + tag.ToString() + " && " + tag2.ToString() + ":");
+                    foreach (IMessage message in results)
+                    {
+                        IOfferMessage offer = message as IOfferMessage;
+                        Assert.That(offer.Tags.Contains(tag),
+                                    "Expected to find results that contain facet:" + tag + " in message:" + message);
+                        Assert.That(offer.Tags.Contains(tag2),
+                                    "Expected to find results that contain facet:" + tag2 + " in message:" + message);
+                        Console.Out.WriteLine("\tfound " + message.ToString());
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void TestUserAndTagBasedQuery()
+        {
+            foreach (IUserPointer user in MockData.Users)
+            {
+                foreach (Tag tag in MockData.UsedTags)
+                {
+                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTagsCreatedByUser(new ITag[] { tag }, user));
+                    Console.Out.WriteLine("For " + user.ToString() + " && " + tag.ToString() + ":");
+                    foreach (IMessage message in results)
+                    {
+                        IOfferMessage offer = message as IOfferMessage;
+                        Assert.That(offer.Tags.Contains(tag),
+                                    "Expected to find results that contain facet:" + tag + " in message:" + message);
+                        Assert.That(offer.CreatedBy.Equals(user),
+                                    "Expected to find results created by user :" + user + " in message:" + message);
+                        Console.Out.WriteLine("\tfound " + message.ToString());
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void TestUserBasedQuery()
+        {
+            foreach (IUserPointer user in MockData.Users)
+            {
+                List<IMessage> results =
+                    new List<IMessage>(_target.GetMessagesCreatedByUser(user));
+                Assert.GreaterOrEqual(results.Count, 1, "Received no results created by:" + user);
+                Console.Out.WriteLine("Created By " + user.ToString() + " :");
+                foreach (IMessage message in results)
+                {
+                    IOfferMessage offer = message as IOfferMessage;
+                    Assert.That(offer.CreatedBy.Equals(user),
+                                "Expected to find results created by user :" + user + " in message:" + message);
+                    Console.Out.WriteLine("\tfound " + message.ToString());
+                }
+            }
+        }
+
         [Test]
         public void TestAllTagCounts()
         {

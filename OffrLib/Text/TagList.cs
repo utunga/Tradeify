@@ -75,10 +75,12 @@ namespace Offr.Text
 
         public bool Contains(ITag tag)
         {
-            //FIXME NOTE2J the following 'faster' method doesn't work after serialization
-            //return _matchTags.Contains(tag.MatchTag);
-            // bit faster than this..
             return _list.Contains(tag);
+        }
+
+        public bool Contains(string matchTag)
+        {
+            return _matchTags.Contains(matchTag);
         }
 
         public void CopyTo(ITag[] array, int arrayIndex)
@@ -202,10 +204,10 @@ namespace Offr.Text
 
             ITagRepository provider = Global.Kernel.Get<ITagRepository>(); //FIXME gotta figure out if this is correct thing to happen
             List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
-           
             foreach (ITag tag in temp)
             {
                 _list.Add(provider.GetAndAddTagIfAbsent(tag.Text, tag.Type));
+                _matchTags.Add(tag.MatchTag);
             }
             
 
