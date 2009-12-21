@@ -105,8 +105,11 @@ namespace Offr.Location
                 Location location = ProcessPlacemark(googleResultSet, placemark);
                 if(best==null) best = location;
                 //look through the location tags and see if you can find the location given
-                foreach(ITag tag in location._locationTags)
-                    if(Equals(tag,new Tag(TagType.loc,locationName))) return location;
+                foreach (ITag tag in location._locationTags)
+                {
+                    locationName = locationName.Replace(" ", "_");
+                    if (Equals(tag, new Tag(TagType.loc, locationName))) return location;
+                }
             }
             return best;
         }

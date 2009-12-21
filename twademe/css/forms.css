@@ -59,3 +59,19 @@ ul.choice li
 	width: 200px;
 	height: 200px;
 }
+
+.location input
+{
+    width: 400px;
+}
+li.on
+{
+    background: #CCC;
+}
+
+
+#suggested_tags li,
+#selected_tags li
+{
+	display:inline;
+}

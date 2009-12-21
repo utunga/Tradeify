@@ -43,7 +43,7 @@ namespace twademe
             IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
 
             if (messageText != null)
-                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", "Unkown", ""));
+                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", "Unkown", "",""));
         }
     }
 }

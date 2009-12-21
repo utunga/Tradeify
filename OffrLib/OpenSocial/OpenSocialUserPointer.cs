@@ -15,7 +15,9 @@ namespace Offr.Text
         public string ProviderNameSpace { get; set; }
 
         public string ProfilePicUrl { get; set; }
-
+ 
+        public string MoreInfoUrl { get; set; }
+ 
         public string MatchTag
         {
             get { return ProviderNameSpace + "/" + ProviderUserName; }
@@ -26,16 +28,12 @@ namespace Offr.Text
             get { return ProviderUserName;  }
         }
 
-        public string MoreInfoUrl
-        {
-            get { throw new System.NotImplementedException("Need to implement where on open social/oooby the user pointer is at"); }
-        }
-
-        public OpenSocialUserPointer(string nameSpace, string name, string profilePicUrl)
+        public OpenSocialUserPointer(string nameSpace, string name, string profilePicUrl, string profileUrl)
         {
             ProviderNameSpace = nameSpace;
             ProviderUserName = name;
             ProfilePicUrl = profilePicUrl;
+            MoreInfoUrl = profileUrl;
         }
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
@@ -43,6 +41,7 @@ namespace Offr.Text
             JSON.WriteProperty(serializer, writer, "provider_user_name", ProviderUserName);
             JSON.WriteProperty(serializer, writer, "provide_name_space", ProviderNameSpace);
             JSON.WriteProperty(serializer, writer, "profile_pic_url", ProfilePicUrl);
+            JSON.WriteProperty(serializer, writer, "profile_url", MoreInfoUrl);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
@@ -50,6 +49,7 @@ namespace Offr.Text
             ProviderUserName = JSON.ReadProperty<string>(serializer, reader, "provider_user_name");
             ProviderNameSpace = JSON.ReadProperty<string>(serializer, reader, "provide_name_space");
             ProfilePicUrl = JSON.ReadProperty<string>(serializer, reader, "profile_pic_url");
+            MoreInfoUrl = JSON.ReadProperty<string>(serializer, reader, "profile_url");
         }
 
         public override bool Equals(object obj)

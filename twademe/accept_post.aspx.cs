@@ -62,7 +62,8 @@ namespace twademe
             string messageText = Request.Form["RawMessage"];
             string userName = Request.Form["UserName"] ?? "unknown";
             string thumbnail = Request.Form["Thumbnail"] ?? "unknown";
-
+            string profileUrl = Request.Form["ProfileUrl"] ?? "unknown"; //FIXME need to implement this in the widget
+           
             wrapper.Username = userName;
             wrapper.Raw = messageText;
             wrapper.Thumbnail = thumbnail;
@@ -70,7 +71,7 @@ namespace twademe
 
             IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
             if (messageText != null)
-                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", userName, thumbnail));
+                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", userName, thumbnail, profileUrl));
 
         }
 

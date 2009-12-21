@@ -47,7 +47,10 @@ namespace Offr.Repository
                     foreach (string tagText in nameVals.GetValues(tagType.ToString()))
                     {
                         ITag tag = this.GetTagIfExists(tagText, tagType);
-                        tags.Add(tag);
+                        if (tag != null)
+                        {
+                            tags.Add(tag);
+                        }
                     }
                 }
             }
