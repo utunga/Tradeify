@@ -10,6 +10,17 @@ namespace twademe
 {
     public partial class tradeify_json : System.Web.UI.Page
     {
+        private void SendJSON(string message)
+        {
+            if (null != Request.Params["jsoncallback"])
+            {
+                Response.Write(Request.Params["jsoncallback"] + "(" + message + ")");
+            }
+            else
+            {
+                Response.Write(message);
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
@@ -18,7 +29,7 @@ namespace twademe
             string tags = tags_json.GetTagJson(request);
             string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
                             tags + "}";
-            Response.Write(tradeifyJson);
+            SendJSON(tradeifyJson);
             
         }
     }
