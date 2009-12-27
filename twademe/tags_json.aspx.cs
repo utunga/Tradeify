@@ -16,12 +16,23 @@ namespace twademe
 {
     public partial class tags_json : System.Web.UI.Page
     {
-      
+        private void SendJSON(string message)
+        {
+            if (null != Request.Params["jsoncallback"])
+            {
+                Response.Write(Request.Params["jsoncallback"] + "(" + message + ")");
+            }
+            else
+            {
+                Response.Write(message);
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
             NameValueCollection collection = Request.QueryString;
-            Response.Write(GetTagJson(collection));
+            SendJSON(GetTagJson(collection));
         }
 
         public static string GetTagJson(NameValueCollection request)
