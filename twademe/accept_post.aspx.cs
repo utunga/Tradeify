@@ -15,7 +15,13 @@ namespace twademe
 {
     public partial class accept_post : System.Web.UI.Page
     {
-        
+        public string TEST
+        {
+            get
+            {
+                return "TESTING";
+            }
+        }
         private static List<Post> _posts = new List<Post>();
         public string DebugData
         {
