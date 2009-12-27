@@ -12,16 +12,16 @@ namespace Offr.Twitter
     public class TwitterRawMessageProvider : IRawMessageProvider
     {
         private MessageType _forType;
-        private readonly List<IRawMessageReceiver> _receivers;
+        private readonly IRawMessageReceiver _receiver;
 
-        public TwitterRawMessageProvider(MessageType forType)
+        public TwitterRawMessageProvider(IRawMessageReceiver receiver, MessageType forType)
         {
             _forType = forType;
-            _receivers = new List<IRawMessageReceiver>();
+            _receiver = receiver;
         }
         
         //FIXME remove this
-        public TwitterRawMessageProvider() : this(MessageType.offr)
+        public TwitterRawMessageProvider(IRawMessageReceiver receiver) : this(receiver, MessageType.offr)
         {
         }
 
@@ -33,23 +33,13 @@ namespace Offr.Twitter
             get { return "twitter"; }
         }
 
-        public void RegisterForUpdates(IRawMessageReceiver receiver)
-        {
-            if (!_receivers.Contains(receiver))
-            {
-                _receivers.Add(receiver);
-            }
-        }
 
         public void Update()
         {
             IList<IRawMessage> updates = GetNewUpdates();
             if (updates.Count > 0)
             {
-                foreach (IRawMessageReceiver receiver in _receivers)
-                {
-                    receiver.Notify(updates);
-                }
+                _receiver.Notify(updates);
             }
         }
 

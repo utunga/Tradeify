@@ -6,9 +6,23 @@ using Offr.Text;
 
 namespace Offr.Tests
 {
-    class DemoMessageProvider : MockRawMessageProvider
+    class DemoMessageProvider : IRawMessageProvider
     {
-        public override void Update()
+        readonly IRawMessageReceiver _receiver;
+        private bool _updatedOnce;
+
+        public string ProviderNameSpace
+        {
+            get { return DemoData.DemoNameSpace; }
+        }
+
+        public DemoMessageProvider(IRawMessageReceiver receiver)
+        {
+            _updatedOnce = false;
+            _receiver = receiver;
+        }
+
+        public void Update()
         {
             if (_updatedOnce) { return; }
 
@@ -17,11 +31,8 @@ namespace Offr.Tests
             {
                 messages.Add(rawMessage);
             }
-
-            foreach (IRawMessageReceiver receiver in _receivers)
-            {
-                receiver.Notify(messages);
-            }
+   
+            _receiver.Notify(messages);
 
             _updatedOnce = true;
         }

@@ -8,9 +8,8 @@ namespace Offr.Text
     public interface IRawMessageProvider  
     {
         string ProviderNameSpace { get; }
-        void RegisterForUpdates(IRawMessageReceiver receiver);
         void Update();
-        IEnumerable<IRawMessage> ForQueryText(string query);
-        IRawMessage ByID(string providerMessageID);
+        //IEnumerable<IRawMessage> ForQueryText(string query);
+        //IRawMessage ByID(string providerMessageID);
     }
 }

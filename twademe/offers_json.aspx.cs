@@ -23,7 +23,6 @@ namespace twademe
             SendJSON(GetOffersJson(request));
         }
 
-
         private void SendJSON(string message)
         {
             if (null != Request.Params["jsoncallback"])
@@ -35,6 +34,7 @@ namespace twademe
                 Response.Write(message);
             }
         }
+        
         public static string GetOffersJson(NameValueCollection request)
         {
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
@@ -43,6 +43,7 @@ namespace twademe
             IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
             return GetOffersJson(messages);
         }
+
         private static string GetOffersJson(IEnumerable<IMessage> messages)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();

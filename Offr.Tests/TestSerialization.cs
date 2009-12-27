@@ -21,7 +21,7 @@ namespace Offr.Tests
     public class TestSerialization
     {
 
-        MessageProvider _messageProvider;
+        IMessageRepository _messageRepository;
         TagRepository _singletonTagProvider;
 
         public TestSerialization()
@@ -29,13 +29,13 @@ namespace Offr.Tests
             _singletonTagProvider = new TagRepository();
             _singletonTagProvider.FilePath = "data/initial_tags.json";
             _singletonTagProvider.InitializeFromFile();
-
-            IRawMessageProvider rawMessageProvider = new MockRawMessageProvider(); 
             ILocationProvider locationProvider = new MockLocationProvider();
+
             IMessageParser realMessageParser = new RegexMessageParser(_singletonTagProvider, locationProvider);
-            IMessageRepository messageRepository = new MessageRepository();
-            _messageProvider = new MessageProvider(messageRepository, rawMessageProvider, realMessageParser);
-            _messageProvider.Update();
+            _messageRepository = new MessageRepository();
+            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(_messageRepository, realMessageParser);
+            IRawMessageProvider rawMessageProvider = new MockRawMessageProvider(incomingMessageProcessor); 
+            rawMessageProvider.Update();
         }
 
         [Test]
@@ -43,7 +43,7 @@ namespace Offr.Tests
         {
            
             // grab all the messages
-            IEnumerable<IMessage> messages = _messageProvider.AllMessages;
+            IEnumerable<IMessage> messages = _messageRepository.AllMessages();
             List<IMessage> messagesToSend = new List<IMessage>(messages.Take(10));
             
             // serailize them 
@@ -57,12 +57,13 @@ namespace Offr.Tests
         [Ignore("Only do this when you want to update initial_offers.json")]
         public void SerializeDemoMessagesToFile()
         {
-            IRawMessageProvider rawMessageProvider = new DemoMessageProvider();
-            ILocationProvider locationProvider = new GoogleLocationProvider();
+             ILocationProvider locationProvider = new GoogleLocationProvider();
             IMessageParser realMessageParser = new RegexMessageParser(_singletonTagProvider, locationProvider);
             MessageRepository tempMessageRepository = new MessageRepository();
-            IMessageProvider messageProvider = new MessageProvider(tempMessageRepository, rawMessageProvider, realMessageParser);
-            messageProvider.Update();
+            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(tempMessageRepository, realMessageParser);
+            IRawMessageProvider rawMessageProvider = new DemoMessageProvider(incomingMessageProcessor);
+            rawMessageProvider.Update();
+
             tempMessageRepository.FilePath = "../../data/demo_offers.json";
             tempMessageRepository.SerializeToFile();
         }
@@ -71,7 +72,7 @@ namespace Offr.Tests
         public void TestRoundTripEachOfTheMessages()
         {
             // grab all the messages
-            IEnumerable<IMessage> messages = _messageProvider.AllMessages;
+            IEnumerable<IMessage> messages = _messageRepository.AllMessages();
             foreach (IMessage origMessage in messages)
             {
                 //MockMessagePointer origPointer = origMessage.CreatedBy;

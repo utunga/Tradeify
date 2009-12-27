@@ -4,14 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using NUnit.Framework;
+using Offr.Text;
 using Offr.Twitter;
 
 namespace Offr.Tests
 {
     [TestFixture]
-    public class TestTwitterPollingService
+    public class TestTwitterPollingService : IRawMessageReceiver
     {
-        private static TwitterRawMessageProvider twitterRawMessageProvider = new TwitterRawMessageProvider();
+        private static TwitterRawMessageProvider _target;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _target = new TwitterRawMessageProvider(this);
+        }
+
         [Test]
         public void TestSimultaneousUpdate()
         {
@@ -21,11 +29,26 @@ namespace Offr.Tests
                 t.Start();
             }
         }
+
         static void Run()
         {
             int next = new Random().Next();
             Thread.Sleep(next);
-            twitterRawMessageProvider.Update();
+            _target.Update();
         }
+
+        #region Implementation of IRawMessageReceiver
+
+        public void Notify(IEnumerable<IRawMessage> messages)
+        {
+            //don't need to do anything
+        }
+
+        public void Notify(IRawMessage messages)
+        {
+            //don't need to do anything
+        }
+
+        #endregion
     }
 }

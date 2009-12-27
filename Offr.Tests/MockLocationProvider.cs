@@ -998,7 +998,7 @@ namespace Offr.Tests
             return Parse(addressText, null);
         }
 
-       public override ILocation Parse(string addressText, string twitterLocation)
+       public override ILocation Parse(string addressText, string scopeLocation)
           {
               ILocation previouslyFound = LocationRepository.Get(addressText);
               if (previouslyFound != null) return previouslyFound;
@@ -1012,7 +1012,7 @@ namespace Offr.Tests
                   Console.Write("Had to get Address from Google: \n"+addressText);
                   resultSet = GetResultSet(addressText);
               }
-              return GetNewLocation(addressText, twitterLocation, resultSet);
+              return GetNewLocation(addressText, scopeLocation, resultSet);
           }
     }
 }

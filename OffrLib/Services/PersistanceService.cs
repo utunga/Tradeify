@@ -38,13 +38,25 @@ namespace Offr.Services
 
         #region static constructor and startup
 
+        /// <summary>
+        /// configguration in code - list of repositories that are worth persisting
+        /// </summary>
+        private static IEnumerable<IPersistedRepository> RepositoriesToPersist
+        {
+            get
+            {
+                var messages = Global.Kernel.Get<MessageRepository>();
+                if (messages is IPersistedRepository)
+                    yield return messages as IPersistedRepository;
+            }
+        }
+
         static PersistanceService()
         {
             _syncLock = new object[0];
             _busy = false;
             _stopped = false;
-            _repositories = new List<IPersistedRepository>();
-            _repositories.Add(Global.Kernel.Get<MessageRepository>());
+            _repositories = new List<IPersistedRepository>(RepositoriesToPersist);
 
         }
 

@@ -1,32 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Offr.Query.BaseTagDex">
-    <Position X="10.75" Y="1" Width="3" />
+    <Position X="8.5" Y="2.25" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAgAIAAAAAAAAAgAgAAEAAAAAIAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAIAAAAAAAAAgEgCAEAAAAAIAAgAAAAAAAAAAA=</HashCode>
       <FileName>Query\BaseTagDex.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Offr.Twitter.TwitterRawMessageProvider" Collapsed="true">
-    <Position X="6.5" Y="2.75" Width="1.5" />
+  <Class Name="Offr.Message.MessageProvider">
+    <Position X="6.25" Y="2.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAIAAAAAAgAAAAIAACAAAAAAAAAAMAAAAAAAAARCA=</HashCode>
-      <FileName>Twitter\TwitterRawMessageProvider.cs</FileName>
+      <HashCode>AAQAAAAMAAAAAAAAAAACABAAAAAAAABAEAAABAEAQAA=</HashCode>
+      <FileName>Message\MessageProvider.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="Offr.Message.IMessageReceiver">
-    <Position X="9.25" Y="0.75" Width="1.5" />
+  <Class Name="Offr.Repository.MessageRepository">
+    <Position X="4" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>Message\IMessageReceiver.cs</FileName>
+      <HashCode>AgAAAIJIAAAAAAAAAAAACAAAAAAAAAAgAAAAAAAAAEA=</HashCode>
+      <FileName>Repository\MessageRepository.cs</FileName>
     </TypeIdentifier>
-  </Interface>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Repository.BaseRepository&lt;T&gt;">
+    <Position X="4" Y="2.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAkAAAAAABACAACxAAAAAAAAAAAQgBBAAAAAAA=</HashCode>
+      <FileName>Repository\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Offr.Query.TagDexQueryExecutor">
+    <Position X="11" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Query\TagDexQueryExecutor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Offr.Message.IMessageProvider">
-    <Position X="4" Y="0.75" Width="1.5" />
+    <Position X="11" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAIAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAA=</HashCode>
       <FileName>Message\IMessageProvider.cs</FileName>
@@ -35,7 +58,7 @@
   <Interface Name="Offr.Message.IMessage" Collapsed="true">
     <Position X="0.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAgAAEAAAAEAgGAAAAAAAAIEAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AIAAAIAAgAAEAAAAEAgCAAAAAAAAIEAAAAAAAAAAAAE=</HashCode>
       <FileName>Message\IMessage.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -44,6 +67,13 @@
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Message\IMessageParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Offr.Query.IMessageQueryExecutor">
+    <Position X="0.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAIAAAAAAAAAAAAACAAAAAAAAAAgAAAAAAAAAEA=</HashCode>
+      <FileName>Query\IMessageQueryExecutor.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Tahoma" Size="8.25" />

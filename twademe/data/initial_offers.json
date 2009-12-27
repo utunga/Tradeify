@@ -3592,5 +3592,85 @@
     "end_by": null,
     "end_by_text": null,
     "location": null
+  },
+  "twitter/6888591479": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T09:08:16Z",
+    "tags": [
+      {
+        "tag": "propertywala"
+      },
+      {
+        "tag": "ihave"
+      },
+      {
+        "tag": "2bedrooms"
+      },
+      {
+        "tag": "residential"
+      },
+      {
+        "tag": "apartmentflat"
+      },
+      {
+        "tag": "forrent"
+      },
+      {
+        "tag": "vasantvihar"
+      }
+    ],
+    "raw_text": "2BHK Furnished Flat for Rent in Thane http://bit.ly/5wZwzH #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forrent #VasantVihar",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888591479"
+    },
+    "created_by": {
+      "provider_user_name": "propertiesindia",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/556355330/propertywala_icon_64_bigger_1__normal.png",
+      "screen_name": "propertiesindia",
+      "more_info_url": "http://www.twitter.com/propertiesindia",
+      "match_tag": "twitter/propertiesindia"
+    },
+    "offer_text": "2BHK Furnished Flat for Rent in Thane http://bit.ly/5wZwzH #propertywala #ihave #2Bedrooms #residential #ApartmentFlat #forrent #VasantVihar",
+    "more_info_url": "http://bit.ly/5wZwzH",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
+  },
+  "twitter/6888592062": {
+    "message_type": "offr",
+    "timestamp": "2009-12-21T09:08:18Z",
+    "tags": [
+      {
+        "tag": "8926c"
+      },
+      {
+        "tag": "fashion_watch"
+      },
+      {
+        "tag": "offer"
+      }
+    ],
+    "raw_text": "SAVE $167.71 - Invicta Men's Pro Diver Collection Coin-Edge Automatic Watch #8926C $87.29 http://dealnay.com/11055 #fashion_watch #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6888592062"
+    },
+    "created_by": {
+      "provider_user_name": "watchtalk",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/413509761/watches_normal.jpg",
+      "screen_name": "watchtalk",
+      "more_info_url": "http://www.twitter.com/watchtalk",
+      "match_tag": "twitter/watchtalk"
+    },
+    "offer_text": "SAVE $167.71 - Invicta Men's Pro Diver Collection Coin-Edge Automatic Watch #8926C $87.29 http://dealnay.com/11055 #fashion_watch #offer",
+    "more_info_url": "http://dealnay.com/11055",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": null
   }
 }

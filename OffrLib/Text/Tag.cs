@@ -42,10 +42,10 @@ namespace Offr.Text
         /// <summary>
         /// Immutable type - you can't change a tag once its created, you have to add/remove a new one
         /// </summary>
-        public Tag(TagType type, string tag)
+        public Tag(TagType type, string tagText)
         {
             this.Type = type;
-            this.Text = tag.ToLowerInvariant();
+            this.Text = Tag.CanonicalizeText(tagText);
         }
 
         internal Tag()
@@ -113,5 +113,12 @@ namespace Offr.Text
         {
             _matchTag = Type + "/" + Text;
         }
+
+        public static string CanonicalizeText(string tagText)
+        {
+            if (tagText == null) return null;
+            return tagText.ToLowerInvariant().Replace(" ", "_");
+        }
+
     }
 }

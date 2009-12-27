@@ -16,14 +16,16 @@ namespace Offr.Tests
     public class TestMessageExecutor
     {
         readonly IMessageQueryExecutor _target;
-      
+
+       
         public TestMessageExecutor() 
         { 
-            MockRawMessageProvider mockProvider = new MockRawMessageProvider();
             MockMessageParser mockParser = new MockMessageParser();
             MessageRepository messageRepository = new MessageRepository();
-            MessageProvider realMessageProvider = new MessageProvider(messageRepository, mockProvider, mockParser);
-            _target = new TagDexQueryExecutor(realMessageProvider);
+            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(messageRepository, mockParser);
+            //_target = new TagDexQueryExecutor();
+            MockRawMessageProvider mockProvider = new MockRawMessageProvider(incomingMessageProcessor);
+            _target = messageRepository;
             mockProvider.Update();
 
         }

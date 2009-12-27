@@ -72,8 +72,7 @@ namespace Offr.Location
         #region static methods
 
         /// <summary>
-        /// Copy a GoogleResultSet (serialized from GoogleAPI) into a new Location object
-        /// (retaining only the data we actually want in a Location)
+      
         /// </summary>
         public static Location From(GoogleResultSet googleResultSet)
         {
@@ -83,42 +82,52 @@ namespace Offr.Location
             // At the moment we are just taking the first result as definitieve
             // We might want to do something about multiple matches to the geo code query 
             GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0]; 
-            return ProcessPlacemark(googleResultSet,placemark);
+            return From(googleResultSet.name, placemark);
         }
         
         /// <summary>
-        /// Look through all the results in each location produced and see any of the locations matches
-        /// the given location return the first match else return the first result
+        /// Copy a GoogleResultSet (serialized from GoogleAPI) into a new Location object
+        /// (retaining only the data we actually want in a Location)
+        /// 
+        /// GoogleResultSets can contain multiple matching Placemark results. Use the scopeLocation (where not null)
+        /// to bias the choice of best placemark otherwise just use the first location google provides
         /// </summary>
-        /// <param name="googleResultSet"></param>
-        /// <param name="locationName"></param>
-        /// <returns></returns>
-        public static Location From(GoogleResultSet googleResultSet, string locationName)
+        public static Location From(GoogleResultSet googleResultSet, string scopeLocation)
         {
-            Debug.Assert((googleResultSet != null));
-            Debug.Assert((locationName != null));
-            //make sure there is location data else return null
-            if (googleResultSet.Placemark == null || googleResultSet.Placemark[0] == null) return null;
-            Location best=null;
+            Debug.Assert(googleResultSet != null);
+            if (googleResultSet.Placemark == null)
+            {
+                // no matching results
+                return null; 
+            }
+
+            Location first=null;
+            scopeLocation = Tag.CanonicalizeText(scopeLocation);
+
             foreach (GoogleResultSet.PlacemarkType placemark in googleResultSet.Placemark)
             {
-                Location location = ProcessPlacemark(googleResultSet, placemark);
-                if(best==null) best = location;
-                //look through the location tags and see if you can find the location given
-                foreach (ITag tag in location._locationTags)
+                Location location = From(googleResultSet.name, placemark);
+                if(first==null) 
+                    first = location;
+
+                if (scopeLocation != null)
                 {
-                    locationName = locationName.Replace(" ", "_");
-                    if (Equals(tag, new Tag(TagType.loc, locationName))) return location;
+                    //look through the location tags and see if you can find any that match the scope location given
+                    foreach (ITag tag in location._locationTags)
+                    {
+                        if (tag.Text.Contains(scopeLocation)) return location;
+                    }
                 }
             }
-            return best;
+            // otherwise just return the first result
+            return first;
         }
 
-        private static Location ProcessPlacemark(GoogleResultSet googleResultSet,GoogleResultSet.PlacemarkType placemark)
+        private static Location From(string addressText, GoogleResultSet.PlacemarkType placemark)
         {
             Location loc = new Location
                                {
-                                   Address = googleResultSet.name,
+                                   Address = addressText,
                                    GeoLat = placemark.Point.coordinates[1],
                                    GeoLong = placemark.Point.coordinates[0],
                                    Accuracy = int.Parse(placemark.AddressDetails.accuracy)

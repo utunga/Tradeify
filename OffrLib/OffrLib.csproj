@@ -77,7 +77,6 @@
     <Compile Include="Json\Converter\RawMessageConverter.cs" />
     <Compile Include="Json\Converter\MessagePointerConverter.cs" />
     <Compile Include="Json\JSON.cs" />
-    <Compile Include="Message\IMessageReceiver.cs" />
     <Compile Include="OpenSocial\OpenSocialJson.cs" />
     <Compile Include="OpenSocial\OpenSocialRawMessage.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
@@ -99,8 +98,7 @@
     <Compile Include="Message\MessageParseExeption.cs" />
     <Compile Include="Message\IMessageParser.cs" />
     <Compile Include="Message\IMessageProvider.cs" />
-    <Compile Include="Message\MessageProvider.cs" />
-    <Compile Include="Message\MessageProviderForKeywords.cs" />
+    <Compile Include="Message\IncomingMessageProcessor.cs" />
     <Compile Include="Message\OfferMessage.cs" />
     <Compile Include="DefaultNinjectConfig.cs" />
     <Compile Include="Message\RegexMessageParser.cs" />
@@ -108,9 +106,6 @@
     <Compile Include="OAuth\TwitterAuth.cs" />
     <Compile Include="OAuth\OAuthTwitter.cs" />
     <Compile Include="Query\IMessageQueryExecutor.cs" />
-    <Compile Include="Query\LinqMessageQueryExecutor.cs" />
-    <Compile Include="Query\MessageReceivingTagDex.cs" />
-    <Compile Include="Query\StaticTagDex.cs" />
     <Compile Include="Query\TagDexQueryExecutor.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
@@ -120,10 +115,10 @@
     <Compile Include="OpenSocial\OpenSocialMessagePointer.cs" />
     <Compile Include="OpenSocial\OpenSocialUserPointer.cs" />
     <Compile Include="Text\IRawMessageReceiver.cs" />
-    <Compile Include="Text\JustTheTextRawMessage.cs" />
+    <Compile Include="Text\TextWrapperRawMessage.cs" />
     <Compile Include="Text\RawMessage.cs" />
     <Compile Include="Text\TagCounts.cs" />
-    <Compile Include="Query\BaseTagDex.cs" />
+    <Compile Include="Query\TagDex.cs" />
     <Compile Include="Text\TagWithCount.cs" />
     <Compile Include="Text\IRawMessageProvider.cs" />
     <Compile Include="Text\IResolvedURI.cs" />
@@ -167,9 +162,6 @@
       <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
       <Name>Newtonsoft.Json</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Copy of Open Social\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

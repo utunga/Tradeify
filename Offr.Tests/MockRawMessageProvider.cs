@@ -8,25 +8,17 @@ namespace Offr.Tests
     public class MockRawMessageProvider : IRawMessageProvider
     {
         protected bool _updatedOnce;
-        protected readonly List<IRawMessageReceiver> _receivers;
+        private readonly IRawMessageReceiver _receiver;
 
-        public MockRawMessageProvider()
+        public MockRawMessageProvider(IRawMessageReceiver receiver)
         {
             _updatedOnce=false;
-             _receivers = new List<IRawMessageReceiver>();
+            _receiver = receiver;
         }
 
         public string ProviderNameSpace
         {
             get { return "Test"; }
-        }
-
-        public void RegisterForUpdates(IRawMessageReceiver receiver)
-        {
-            if (!_receivers.Contains(receiver))
-            {
-                _receivers.Add(receiver);
-            }
         }
 
         public virtual void Update()
@@ -39,10 +31,7 @@ namespace Offr.Tests
                 messages.Add(rawMessage);
             }
 
-            foreach (IRawMessageReceiver receiver in _receivers)
-            {
-                receiver.Notify(messages);
-            }
+            _receiver.Notify(messages);
             
             _updatedOnce = true;
         }

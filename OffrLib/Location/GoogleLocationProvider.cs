@@ -38,12 +38,12 @@ namespace Offr.Location
 
         public ILocation ParseFromApproxText(string address)
         {
-//search for a location then trim the array one word at a time
+            //search for a location then trim the array one word at a time
             ILocation best = null;
             while (address.Length >= 1)
             {
                 ILocation newLocation = Parse(address);
-                if (newLocation != null && newLocation.Accuracy != null)
+                if (newLocation != null)
                 {
                     if (best == null) best = newLocation;
                     if (newLocation.Accuracy >= best.Accuracy) best = newLocation;
@@ -61,23 +61,19 @@ namespace Offr.Location
             return best;
         }
 
-        public virtual ILocation Parse(string addressText, string twitterLocation)
+        public virtual ILocation Parse(string addressText, string scopeLocation)
         {
-            //make sure it can handle twitterLocation ==null
- 
+            //FIXME this next line will cause a fail if two locations are simultaneously in use with same addressText (eg Canterbury) but two different scope location 
             ILocation previouslyFound = LocationRepository.Get(addressText);
             if (previouslyFound != null) return previouslyFound;
 
-            
             GoogleResultSet resultSet = GetResultSet(addressText);
-
-            return GetNewLocation(addressText, twitterLocation, resultSet);
+            return GetNewLocation(addressText, scopeLocation, resultSet);
         }
 
-        protected ILocation GetNewLocation(string addressText, string twitterLocation, GoogleResultSet resultSet)
+        protected ILocation GetNewLocation(string addressText, string scopeLocation, GoogleResultSet resultSet)
         {
-            ILocation newlyFound = (twitterLocation == null) ? Location.From(resultSet) 
-                                       : Location.From(resultSet, twitterLocation);
+            ILocation newlyFound = Location.From(resultSet, scopeLocation);
                         
             if(newlyFound==null) return null;
 

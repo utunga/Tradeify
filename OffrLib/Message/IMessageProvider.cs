@@ -8,8 +8,6 @@ namespace Offr.Message
     public interface IMessageProvider
     {
         IList<IMessage> AllMessages { get; }
-        void Update();
-        void RegisterForUpdates(IMessageReceiver receiver);
         void Notify(IEnumerable<IMessage> parsedMessages);
     }
 }

@@ -229,8 +229,6 @@ namespace Offr.Tests
         private static void AssertLocationEquality(string forAddress, ILocation expected, ILocation actual)
         {
             //because of the fact that google coordinates like moving around for some reason lower the precision
-            Assert.AreEqual(Decimal.Parse(expected.GeoLat.ToString().Substring(0, 6)), Decimal.Parse(actual.GeoLat.ToString().Substring(0, 6)), "GeoLat for '" + forAddress + "' was not as expected");
-            Assert.AreEqual(Decimal.Parse(expected.GeoLong.ToString().Substring(0, 6)), Decimal.Parse(actual.GeoLong.ToString().Substring(0, 6)), "GeoLong for '" + forAddress + "' was not as expected");
             Assert.AreEqual(expected.Address, actual.Address, "Address for '" + forAddress + "' was not as expected");
 
             foreach (ITag locationTag in expected.Tags)
@@ -242,8 +240,11 @@ namespace Offr.Tests
             {
                 Assert.That(expected.Tags.Contains(locationTag), locationTag + " unexpectedly contained in result for " + forAddress);
             }
-
             Assert.AreEqual(expected.Tags.Count, actual.Tags.Count, "Somehow, inexplicably, the counts for expected vs actual location tags are different even though they contain the exact same set of tags");
+
+            Assert.AreEqual(Decimal.Parse(expected.GeoLat.ToString().Substring(0, 6)), Decimal.Parse(actual.GeoLat.ToString().Substring(0, 6)), "GeoLat for '" + forAddress + "' was not as expected");
+            Assert.AreEqual(Decimal.Parse(expected.GeoLong.ToString().Substring(0, 6)), Decimal.Parse(actual.GeoLong.ToString().Substring(0, 6)), "GeoLong for '" + forAddress + "' was not as expected");
+            
         }
 
         [Test]

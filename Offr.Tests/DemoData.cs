@@ -15,6 +15,11 @@ namespace Offr.Tests
     {
         public static List<IRawMessage> RawMessages;
 
+        public static string DemoNameSpace
+        {
+            get { return "DemoData"; }
+        }
+
         static DemoData()
         {
 

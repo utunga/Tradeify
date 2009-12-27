@@ -18,11 +18,12 @@ namespace Offr.Tests
 
         public TestMessageProvider()
         {
-            _mockProvider = new MockRawMessageProvider();
             MockMessageParser mockParser = new MockMessageParser();
             MessageRepository messageRepository = new MessageRepository();
-            _target = new MessageProvider(messageRepository, _mockProvider, mockParser);
+            IncomingMessageProcessor target = new IncomingMessageProcessor(messageRepository, mockParser);
+            _mockProvider = new MockRawMessageProvider(target);
             _mockProvider.Update();
+            _target = target;
 
         }
 

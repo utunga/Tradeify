@@ -20,14 +20,17 @@ namespace Offr.Tests
         {
             //for this test create real objects all the way down the line - so...more of an integration test really
             // (which is why this is disabled)
-            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(MessageType.offr);
             TagRepository singletonTagProvider = new TagRepository();
             singletonTagProvider.FilePath = "data/initial_tags.json";
             singletonTagProvider.InitializeFromFile();
+            
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             MessageRepository messageRepository = new MessageRepository();
-            _target = new MessageProvider(messageRepository, twitterProvider, realMessageParser);
+            IncomingMessageProcessor target = new IncomingMessageProcessor(messageRepository, realMessageParser);
+            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(target, MessageType.offr);
+            _target = target;
+            
         }
 
         [Test]
