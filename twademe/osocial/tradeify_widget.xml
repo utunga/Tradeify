@@ -8,7 +8,7 @@
   <!-- Content section for profile view omitted -->
   <Content type="html" view="canvas">
     <![CDATA[
-      <link href="tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 
       <div id="results_by_date">
           <span class="template">
