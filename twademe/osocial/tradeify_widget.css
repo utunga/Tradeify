@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+#results_by_date 
+{
+	/*actually not entirely necessary*/
+	width:549px;
+}
+
+#results_by_date .offer 
+{
+	border-bottom:1px solid #C7CCC5;
+	min-height:78px;
+	padding-bottom:5px;
+	padding-top:18px;
+	position:relative;
+}
+
+#results_by_date .offer a.avatar {
+	position:absolute;
+	left:0px;
+	top:15px;
+	width:64px;
+	height:59px;
+	background:transparent url(frame.png) no-repeat scroll 0 0px;
+}
+
+#results_by_date .offer a.avatar img {
+	margin-top:6px;
+	margin-left:6px;
+	width:48px;
+	height:48px;
+	border:0px;
+}
+
+#results_by_date .offer a.username {
+	position:absolute;
+	left:3px;
+	top:75px;
+	width:65px;
+	overflow:hidden;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#results_by_date .offer a.username:hover 
+{
+	text-decoration:underline;
+}
+	
+#results_by_date .offer p.msg 
+{
+	margin-left:75px;
+	margin-right:80px;
+}
+
+#results_by_date .offer p.msg .text {
+	color:#333F31;
+	font-family:Georgia,'Times New Roman',Times,serif;
+	font-size:13px;
+	line-height:18px;
+}
+
+#results_by_date .offer p.msg .tags 
+{
+	color:#333F31;
+	font-family:Helvetica, Arial;
+	font-size:11px;
+	line-height:18px;
+}
+
+#results_by_date .offer .tag a
+{
+	text-decoration:none;
+}
+
+#results_by_date .offer .tag a:hover
+{
+	text-decoration:underline;
+}
+
+#results_by_date .offer p.msg a.more_info_link {
+	float:right;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#results_by_date .offer a.user 
+{
+	color:#161B1F;
+	font-family:'Trebuchet MS',Trebuchet,Tahoma,Arial,sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	padding-right:2px;
+	text-decoration:none;
+}
+
+#results_by_date .offer a:hover 
+{
+	text-decoration:underline;
+}
+
+#results_by_date .offer .meta 
+{
+	left:440px;
+	top:0px;
+	width:100px;
+	position:absolute;
+}
+
+#results_by_date .offer .meta a.when 
+{
+	display:inline-box;
+	font-size:9px;
+	font-weight:bold;
+	float:right;
+	text-decoration:none;
+	color:#777;
+}
+
+span.on
+{
+	background: #CCC;
+}
+
+/*
+   label, input { display:block; }	
+	input.text { margin-bottom:12px; width:95%; padding: .4em; }
+	fieldset { padding:0; border:0; margin-top:25px; }
+	h1 { font-size: 1.2em; margin: .6em 0; }
+	div#users-contain {  width: 350px; margin: 20px 0; }
+	div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+	div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+	.ui-button { outline: 0; margin:0; padding: .4em 1em .5em; text-decoration:none;  !important; cursor:pointer; position: relative; text-align: center; }
+	.ui-dialog .ui-state-highlight, .ui-dialog .ui-state-error { padding: .3em;  }
+	
+		
+		*/
+		

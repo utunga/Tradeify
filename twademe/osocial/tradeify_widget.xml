@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Tradeify"
+      height="600" scrolling="true">
+    <Require feature="dynamic-height"/>
+    <Require feature="opensocial-0.7" />
+  </ModulePrefs>
+  <!-- Content section for profile view omitted -->
+  <Content type="html" view="canvas">
+    <![CDATA[
+      <link href="tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+
+      <div id="results_by_date">
+          <span class="template">
+              <div class="offer">
+                  <a href="http://twitter.com/goatlady" class="avatar"><img src="http://api.ning.com/files/uqoXvSnn314Jjgr-GPf3ZHRZPnL0QNq0ApxOCFF4Dw5rCi*jQe7*zqItmIJkcdv792gvzYzJKEKpRXxAWqt2lpPh6-sAORs5/tony.jpg?width=48&height=48&crop=1%3A1" alt="gabriella"/></a>
+                  <a href="http://twitter.com/goatlady" class="username">@gabriella</a>
+                  <p class="msg">
+                      <span class="text">cooking meatloaf for lunches this week</span><br/>
+                      <span class="tags">
+                          <span class="tag"><a href="offer">#offer</a>, </span>
+                      </span>
+                      <a class="more_info_link" href="http://dealnay.com/84107">more info &gt;&gt;</a>
+                  </p>
+                  <div class="meta">
+                      <a class="when" href="http://twitter.com/goatlady/status/4781310888">Today, 10:50 am</a>
+                  </div>
+              </div>
+          </span>
+      </div>
+      <!--[if lt IE 7]>
+      <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
+      <![endif]-->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"/>
+      </script>
+      <script type="text/javascript" src="http://tradeify.org/js/purePacked.js"/>
+      </script>
+      <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"/>
+      </script>
+      
+     <script type="text/javascript">
+      jQuery(function() {
+          compile_render_functions();
+          update_offers();
+     //     jQuery("#until").datepicker();
+      //    tooltip();
+      });
+     </script>
+    ]]>
+  </Content>
+</Module>
