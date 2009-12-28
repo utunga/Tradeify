@@ -30,7 +30,7 @@ function compile_render_functions() {
 
     jQuery('span.tags', offers).html(tagsList); //place sub-template tagsList into offers template
     $p.compile(offers, 'offers_render_fn'); //compile to a function
-	//gadgets.window.adjustHeight(5000);
+	
     /// -- end offers function
 }
           
