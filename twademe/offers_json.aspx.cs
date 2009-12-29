@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Web.Script.Serialization;
+using Offr;
 using Offr.Json;
 using Offr.Message;
 using Offr.Query;
@@ -39,7 +40,7 @@ namespace twademe
         {
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
-            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
+            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
             IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
             return GetOffersJson(messages);
         }

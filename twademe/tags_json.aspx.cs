@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Offr;
 using Offr.Json;
 using Offr.Message;
 using Offr.Query;
@@ -38,7 +39,7 @@ namespace twademe
         public static string GetTagJson(NameValueCollection request)
         {
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
-            IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageQueryExecutor>();
+            IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageRepository>();
 
             TagCounts availableTags ;
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
@@ -53,7 +54,7 @@ namespace twademe
                 // after that available tags is the tag counts for the current messages
                 // so first get the current 'messages' based on tags (NOTE2J ideally we'd be caching this result since we only just calc'd it in tradeify_json.aspx!)
                 IEnumerable<IMessage> messages = _queryExecutor.GetMessagesForTags(tags);
-                StaticTagDex oneOffTagDex = new StaticTagDex(messages); // counts up the tags for these messages
+                TagDex oneOffTagDex = new TagDex(messages); // counts up the tags for these messages
                 availableTags = oneOffTagDex.GetTagCounts();
             }
             

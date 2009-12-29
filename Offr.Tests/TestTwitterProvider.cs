@@ -14,7 +14,7 @@ namespace Offr.Tests
     [TestFixture]
     public class TestTwitterProvider
     {
-        IMessageProvider _target;
+        MessageRepository _messageRepository;
 
         public void InitializeTwitterProvider()
         {
@@ -26,11 +26,10 @@ namespace Offr.Tests
             
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
-            MessageRepository messageRepository = new MessageRepository();
-            IncomingMessageProcessor target = new IncomingMessageProcessor(messageRepository, realMessageParser);
+            _messageRepository = new MessageRepository();
+            IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, realMessageParser);
             TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(target, MessageType.offr);
-            _target = target;
-            
+            twitterProvider.Update();
         }
 
         [Test]
@@ -39,7 +38,7 @@ namespace Offr.Tests
         {
             InitializeTwitterProvider();
             // somewhat of an integration test, but gets us some of the way there
-            List<IMessage> output = new List<IMessage>( _target.AllMessages);
+            List<IMessage> output = new List<IMessage>(_messageRepository.AllMessages());
             foreach (IMessage message in output)
             {
                  Console.Out.Write(message.MessageType.ToString() + " | ");

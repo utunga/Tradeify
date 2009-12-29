@@ -157,6 +157,10 @@
   <ItemGroup>
     <Content Include="controls\twitter_auth.ascx" />
     <Content Include="accept_post.aspx" />
+    <Content Include="osocial\frame.png" />
+    <Content Include="osocial\tradeify_widget.css" />
+    <Content Include="osocial\tradeify_widget.js" />
+    <Content Include="osocial\tradeify_widget.xml" />
     <Content Include="parse.aspx" />
     <Content Include="css\forms.css" />
     <Content Include="data\initial_tags.json">
