@@ -8,35 +8,13 @@
   <!-- Content section for profile view omitted -->
   <Content type="html" view="canvas">
     <![CDATA[
-    
-<link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-<link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
-
+  <link href="http://tradeify.org//osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://tradeify.org//css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
 <form id="search">
   <input type="text" name="searchdata"/>
   <a href="javascript:queryServer()">Search</a> <a href="javascript: resetQuery()">Reset</a>
 </form>
-
-<div id="results_by_date">
-    <span class="template">
-        <div class="offer">
-            <a href="user_uri" class="avatar"><img src="user_thumb" alt="username"/></a>
-            <a href="user_uri" class="username"></a>
-            <p class="msg">
-                <span class="text"></span><br/>
-                <span class="tags">
-                    <span class="tag"><a href="offer"></a>, </span>
-                </span>
-                <a class="more_info_link" href="more_info_uri">more info &gt;&gt;</a>
-            </p>
-            <div class="meta">
-                <a class="when" href="source_uri">Today, 10:50 am</a>
-            </div>
-        </div>
-    </span>
-</div>
-
 
 <div id="post_your_own_form" class="ui-widget">
     <form>
@@ -106,6 +84,27 @@
     </form>
 </div>
 
+
+<div id="results_by_date">
+    <span class="template">
+        <div class="offer">
+            <a href="user_uri" class="avatar"><img src="user_thumb" alt="username"/></a>
+            <a href="user_uri" class="username"></a>
+            <p class="msg">
+                <span class="text"></span><br/>
+                <span class="tags">
+                    <span class="tag"><a href="offer"></a>, </span>
+                </span>
+                <a class="more_info_link" href="more_info_uri">more info &gt;&gt;</a>
+            </p>
+            <div class="meta">
+                <a class="when" href="source_uri">Today, 10:50 am</a>
+            </div>
+        </div>
+    </span>
+</div>
+
+
 <div class="regular" id="main">
 
 <div id="myform">
@@ -132,7 +131,9 @@ $(document).ready(function() {
 	
 	compile_render_functions();
 	update_offers();
-	update_tags(); //preload some tags
+	gadgets.window.adjustHeight(2000);
+
+  update_tags(); //preload some tags
 	$("#by_parts input").keyup(update_offer);
 	$("#by_parts textarea").keyup(update_offer);
 	$("#by_parts input").change(update_offer);
@@ -144,19 +145,20 @@ $(document).ready(function() {
 			 showOn: "focus"
 			 });
 	
-	//gadgets.window.adjustHeight(1000);
-
+	
 	
 	var triggers = $("#post_your_own").overlay({
 	
 		// some expose tweaks suitable for modal dialogs
+		zIndex: 9998,
+		closeOnClick	: false,
 		expose: {
+			zIndex: 9997,
 			color: '#333',
 			loadSpeed: 200,
-			opacity: 0.9
-		},
-	
-		closeOnClick: false
+			opacity: 0.9,
+			closeOnClick: false
+		}
 	});
 	
 	$("#post_your_own_form form").submit(function(e) {
@@ -175,10 +177,6 @@ $(document).ready(function() {
 		return e.preventDefault();
 	});
 	
-	//$("#post_your_own_form").hide();
-
-	
-
 });
 </script>
     ]]>

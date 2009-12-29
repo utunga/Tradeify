@@ -231,7 +231,7 @@ function timeoutKeyChange() {
 	}, threshold);
 }
 
-function onClick() {
+function ontag_click() {
 	var tagField = $("#tags").val();
 	var pushed_tag = $(this).html();
 	if ($.inArray(pushed_tag, selected_tags) <= -1) {
@@ -245,6 +245,7 @@ function onClick() {
 		$("#tags").val(replacementText);
 	}
 	update_tags(); 
+	return false; //disable actual click
 }
 
 function getTagString() {
@@ -309,7 +310,7 @@ function update_tags() {
 		var render = $p.render('suggested_tags_render_fn', tags);
 		*/
 		$('#suggested_tags').html(tagString);
-		$("#suggested_tags .select_tag").click(onClick);
+		$("#suggested_tags .select_tag").click(ontag_click);
 	});
 }
 
