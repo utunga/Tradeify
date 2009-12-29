@@ -1,5 +1,16 @@
 @charset "utf-8";
 
+/* misc */
+/* get rid of those system borders being generated for A tags */
+a:active {
+  outline:none;
+}
+
+:focus {
+  -moz-outline-style:none;
+}
+
+/* display of form */
 #results_by_date 
 {
 	/*actually not entirely necessary*/
@@ -124,17 +135,51 @@ span.on
 	background: #CCC;
 }
 
-/*
-   label, input { display:block; }	
-	input.text { margin-bottom:12px; width:95%; padding: .4em; }
-	fieldset { padding:0; border:0; margin-top:25px; }
-	h1 { font-size: 1.2em; margin: .6em 0; }
-	div#users-contain {  width: 350px; margin: 20px 0; }
-	div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-	div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-	.ui-button { outline: 0; margin:0; padding: .4em 1em .5em; text-decoration:none;  !important; cursor:pointer; position: relative; text-align: center; }
-	.ui-dialog .ui-state-highlight, .ui-dialog .ui-state-error { padding: .3em;  }
-	
 		
-		*/
-		
+/* Form related styling (in addition to the jquery theme stuff */
+						 
+#post_your_own_form 
+{
+	/*display:none;*/
+	background-color:#fff;
+	width:450px;
+	padding:15px;
+	text-align:left;
+	border:2px solid #333;
+	font-size:0.9em;
+	opacity:0.8;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-box-shadow: 0 0 50px #ccc;
+	-webkit-box-shadow: 0 0 50px #ccc;
+}
+
+#post_your_own_form div
+{
+	margin-bottom:10px;
+}
+
+#post_your_own_form label
+{
+	margin-top:20px;
+	clear:right;
+}
+
+
+#post_your_own_form  li.on 
+{
+	background:#CCC;
+}
+#post_your_own_form #tags,
+#post_your_own_form #picture,
+
+{
+	width:400px;
+}
+
+#post_your_own_form #suggested_tags li,
+#post_your_own_form #selected_tags li
+{
+	display:inline;
+}
+						 

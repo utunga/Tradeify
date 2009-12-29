@@ -104,6 +104,13 @@ namespace Offr.Twitter
                 }
                 //handle rate limitig in case of excessive requests
             }
+
+            if ((resultSet == null)  || resultSet.results == null)
+            {
+                //something else went wrong, return blank results
+                return new List<IRawMessage>();
+            }
+
             List<IRawMessage> newStatusUpdates = new List<IRawMessage>();
             foreach (TwitterStatus status in resultSet.results)
             {

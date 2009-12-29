@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+
+	<link href="tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+
+
+<form id="search">
+  <input type="text" name="searchdata"/>
+  <a href="javascript:queryServer()">Search</a> <a href="javascript: resetQuery()">Reset</a>
+</form>
+
+<div id="results_by_date">
+    <span class="template">
+        <div class="offer">
+            <a href="user_uri" class="avatar"><img src="user_thumb" alt="username"/></a>
+            <a href="user_uri" class="username"></a>
+            <p class="msg">
+                <span class="text"></span><br/>
+                <span class="tags">
+                    <span class="tag"><a href="offer"></a>, </span>
+                </span>
+                <a class="more_info_link" href="more_info_uri">more info &gt;&gt;</a>
+            </p>
+            <div class="meta">
+                <a class="when" href="source_uri">Today, 10:50 am</a>
+            </div>
+        </div>
+    </span>
+</div>
+
+
+<div id="post_your_own_form" class="ui-widget">
+    <form>
+
+		<div class="rawMessage">	
+          <fieldset>
+          	<legend>Just type your message</legend>	
+           <textarea  cols="42" rows="6" name="message" class="ui-state-default ui-corner-all" id="message"></textarea>
+           </fieldset>
+        </div>
+         
+        <fieldset id="by_parts" class="ui-corner-all">
+            <legend>Or... use this form</legend>
+            <div class="offerPart">
+                <label for="offer">I am offering ... </label>
+                <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" ></textarea>
+            </div>
+            
+            <div class="location">
+                <label for="location"> in L: </label>
+                <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location"/>:
+                <div class="infobox"></div>
+          		  <!--  <div class="example"> e.g. &quot;in L:Wellington, NZ&quot; (click to change)</div>-->
+            </div>
+            
+            <div class="currency">
+                <label for="for" class="desc"> For </label>
+                <select tabindex="4" class="ui-state-default ui-corner-all" name="for" id="for">
+                    <option value="#free">#free </option>
+                    <option value="#barter">#barter </option>
+                </select>
+            </div>
+            
+            <div class="until">  
+                <label for="until" class="desc"> Until </label>
+                <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
+            </div>
+                        
+            <div class="tags">
+                <label for="tags"> Tags? </label>
+	      		<input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" />
+                 <ul id="selected_tags">
+                    <li><a href="#" class="tag"></a></li>
+                </ul>            
+                
+                <div>Suggested Tags (click to select)</div> 
+                <div id="suggested_tags">
+                    <span class="template">
+                        <ul class="select_tag_container">
+                            <li><a href="#" class="tag"></a></li>
+                        </ul>
+                    </span>
+                </div>
+            
+            </div>
+        	
+            <div class="thumbnail">
+                <label for="picture_thumbnail"> Link to picture? </label>
+                <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
+            </div>
+            
+            <div>
+            	<button name="cancel" class="close ui-priority-secondary ui-corner-all" value="cancel" >cancel</button>
+                <button name="submit" class="ui-priority-primary ui-corner-all" value="done" >done</button>	
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="regular" id="main">
+
+<div id="myform">
+  <textarea type="text" class="ui-state-disabled" name="message" id="message_to_send"></textarea>
+  <button type="button" class="ui-button ui-state-default ui-corner-all" onclick="sendData()">Submit</button>
+</div>
+
+<button class="ui-button ui-state-default ui-corner-all" id="post_your_own" rel="#post_your_own_form">Post Your Own</button>
+
+</div>
+
+<!--[if lt IE 7]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
+<![endif]-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"/></script>-->
+<script type="text/javascript" src="../js/jquery-1.3.2.js"/></script>
+<script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"/></script>
+<script type="text/javascript" src="../js/jquery.tools.min.js"/></script>
+<script type="text/javascript" src="../js/purePacked.js"/></script>
+<script type="text/javascript" src="tradeify_widget.js"/></script>
+<script type="text/javascript">
+    
+$(document).ready(function() {
+	
+	compile_render_functions();
+	update_offers();
+	update_tags(); //preload some tags
+	$("#by_parts input").keyup(update_offer);
+	$("#by_parts textarea").keyup(update_offer);
+	$("#by_parts input").change(update_offer);
+	
+	$("#post_your_own_form #until").datepicker(
+			{minDate:0,
+			 dateFormat: "dd M yy",
+			 constrainInput: true,
+			 showOn: "focus"
+			 });
+	
+	//gadgets.window.adjustHeight(1000);
+
+	
+	var triggers = $("#post_your_own").overlay({
+	
+		// some expose tweaks suitable for modal dialogs
+		expose: {
+			color: '#333',
+			loadSpeed: 200,
+			opacity: 0.9
+		},
+	
+		closeOnClick: false
+	});
+	
+	$("#post_your_own_form form").submit(function(e) {
+	
+		// close the overlay
+		triggers.overlay().close();
+	
+		// get user input
+		var input = $(".rawMessage #message", this).val();
+	
+		// do something with the answer
+		//triggers.eq(1).html(input);
+		$("#message_to_send").val(input);
+	
+		// do not submit the form
+		return e.preventDefault();
+	});
+	
+	//$("#post_your_own_form").hide();
+
+	
+
+});
+</script>
+</div>
+</div>
+</body>
+</html>

@@ -1,6 +1,22 @@
 // JavaScript Document
 
 
+
+/* ------------------------------
+     couple useful bits and pieces  
+   ------------------------------*/
+   
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/g,"");
+}
+String.prototype.ltrim = function() {
+	return this.replace(/^\s+/,"");
+}
+String.prototype.rtrim = function() {
+	return this.replace(/\s+$/,"");
+}
+
+
 /* ------------------------------
      rendering of widget 
    ------------------------------*/
@@ -142,21 +158,6 @@ function makeRequest(url, postdata) {
      form related function
    ------------------------------*/
 		
-$('#create-user').click(function() {
-    $('#dialog').dialog('open');
-}).hover(
-    function(){ 
-        $(this).addClass("ui-state-hover"); 
-    },
-    function(){ 
-        $(this).removeClass("ui-state-hover"); 
-    }
-).mousedown(function(){
-    $(this).addClass("ui-state-active"); 
-})
-.mouseup(function(){
-        $(this).removeClass("ui-state-active");
-});
 
 function MessagePart(type, field) {
     this.prefix = type;
@@ -169,157 +170,194 @@ var locationSuffix = ": ";
 var forPrefix = " for ";
 var untilPrefix = " until ";
 var linkPrefix = "here is a link to an image: ";
-function getUntil() {
-    if ($("#until").val().length == 0) {
-        return "";
-    }
-    else {
-        return untilPrefix + $("#until").val();
-    }
+
+
+function get_until() {
+	var until =$("#until").val().trim();
+    return (until.length == 0) ?  "" : untilPrefix + until;
 }
 
-function updateOffer() {
+function get_currency() {
+    var currency =$("#for").val().trim();
+    return (currency.length == 0) ?  "" : forPrefix + currency;
+}
+
+function get_location() {
+    var location =$("#location").val().trim();
+    return (location.length == 0) ?  "" : locationPrefix + location + locationSuffix;
+}
+
+function get_offer() {
+	var offer =$("#offer").val().trim();
+    return (offer.length == 0) ?  offerPrefix + ".." : offerPrefix + offer;
+}
+
+function get_tags() {
+	if (selected_tags.length == 0) return "";
+	return " #" + selected_tags.join(" #");
+}
+
+function get_imagelink() {
+	var picture =$("#picture").val().trim();
+    return (picture.length == 0) ?  "" : " " + picture;
+}
+
+function update_offer() {
+	
     var concatMessage =
-             offerPrefix +
-             $("#offer").val() +
-             locationPrefix + $("#location").val() + locationSuffix +
-             forPrefix + $("#for").val() +
-             getUntil();
+             get_offer() +
+			 get_location() + 
+             get_currency() +
+             get_until() +
+			 get_tags() +
+			 get_imagelink();
     $("#message").val(concatMessage);
 }
+
+/* tag selection code */
+
 var selected_tags = [];
 var tags = [];
+var threshold = 200;
+var keyChangeStack=0;
+
+function timeoutKeyChange() {
+	keyChangeStack++;
+	setTimeout(function() {
+		keyChangeStack--;
+		if (keyChangeStack == 0) {
+			update_tags();
+		}
+	}, threshold);
+}
 
 function onClick() {
-    var tagField = $("#tags").val();
-    var pushed_tag = $(this).html();
-    if ($.inArray(pushed_tag, selected_tags) <= -1) {
-        if (tagField != "")
-            $("#tags").val(tagField + " " + pushed_tag);
-        else $("#tags").val(pushed_tag);
-    }
-    else {
-        //var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
-        var replacementText = tagField.replace(pushed_tag, "");
-        $("#tags").val(replacementText);
-    }
-    updateTags();
+	var tagField = $("#tags").val();
+	var pushed_tag = $(this).html();
+	if ($.inArray(pushed_tag, selected_tags) <= -1) {
+		if (tagField != "")
+			$("#tags").val(tagField + " " + pushed_tag);
+		else $("#tags").val(pushed_tag);
+	}
+	else {
+		//var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
+		var replacementText = tagField.replace(pushed_tag, "");
+		$("#tags").val(replacementText);
+	}
+	update_tags(); 
 }
 
 function getTagString() {
-    var tagString = "";
-    $.each(selected_tags, function() {
-        tagString = tagString + " #" + this;
-    });
-    return tagString;
+	var tagString=""
+	$.each(selected_tags, function() {
+		tagString = tagString + " #" + this;
+	});
+	return tagString;
 }
 
 function checkCSS() {
-    $.each($(".select_tag"), function() {
-        if ($.inArray($(this).html(), selected_tags) > -1) {
-            $(this).addClass("on");
-        }
-        else if ($(this).hasClass("on")) $(this).removeClass("on");
-    });
-}
-
-var threshold = 200;
-var keyChangeStack = 0;
-function timeoutKeyChange() {
-    keyChangeStack++;
-    setTimeout(function() {
-        keyChangeStack--;
-        if (keyChangeStack == 0) {
-            updateTags();
-        }
-    }, threshold);
-}
-
-function updateTags() {
-
-    //get rid of multiple spaces...
-    var txt = new RegExp("\\s\\s+");
-    $("#tags").val($("#tags").val().replace(txt, " "));
-    //just in case a single \t or \n is present
-    txt = new RegExp("\\s+");
-    $("#tags").val($("#tags").val().replace(txt, " "));
-
-    selected_tags = $("#tags").val().split(" ");
-
-    var selectedTagsHTML = $(selected_tags).map(function() {
-        return "#" + this;
-    }).get().join(", ");
-
-
-    $("#selected_tags").html(selectedTagsHTML);
-
-    var json_url = build_search_query_tags("http://tradeify.org/tags_json.aspx");
-    $.getJSON(json_url, function(context) {
-        tags = context.tags_json.overall;
-        var tagString = "";
-        $.each(tags, function() {
-            var on = "";
-            var endon = "";
-            if (($.inArray(this.tag, selected_tags) > -1)) {
-                on = "<li class=\"on\">";
-                endon = "</li>";
-            }
-            else {
-                on = "<li>";
-                endon = "</li>";
-            }
-            tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
-        });
-
-        $('#suggested_tags').html(tagString);
-        $("#suggested_tags .select_tag").click(onClick);
-    });
-}
-
-function build_search_query_tags(baseUrl) {
-    var query = "";
-    $.each(tags, function() {
-        if ($.inArray(this.tag, selected_tags) > -1)
-            query = query + this.type + "=" + escape(this.tag) + "&";
-    });
-    query = query.substring(0, query.length - 1);
-    return baseUrl + "?" + query +"&jsoncallback=?";
-}
-
- 
-//tooltip courtesy Alen Grakalic (http://cssglobe.com)
-// visit http://cssglobe.com/post/1695/easiest-tooltip-and-image-preview-using-$
-this.tooltip = function(){	
-	/* CONFIG */		
-		xOffset = 10;
-		yOffset = 20;		
-		// these 2 variable determine popup's distance from the cursor
-	/* END CONFIG */		
-	$("a.tooltip").hover(
-		function(e){											  
-			this.t = this.title;
-			this.title = "";									  
-			$("body").append("<p id='tooltip'>"+ this.t +"</p>");
-			$("#tooltip")
-				.css("top",(e.pageY - xOffset) + "px")
-				.css("left",(e.pageX + yOffset) + "px")
-				.fadeIn("fast");		
-		},
-		function(){
-			this.title = this.t;		
-			$("#tooltip").remove();
+	$.each($(".select_tag"), function() {
+	if ($.inArray($(this).html(), selected_tags) > -1) {
+			$(this).addClass("on");
 		}
-	);	
-	$("a.tooltip").mousemove(function(e){
-		$("#tooltip")
-			.css("top",(e.pageY - xOffset) + "px")
-			.css("left",(e.pageX + yOffset) + "px");
-	});			
-};
+	else if ($(this).hasClass("on"))$(this).removeClass("on");
+	});
+}
 
+
+function update_tags() {
+
+	//get rid of multiple spaces...
+	var txt = new RegExp("\\s\\s+");
+	$("#tags").val($("#tags").val().replace(txt, " "));
+	//just in case a single \t or \n is present
+	txt = new RegExp("\\s+");
+	$("#tags").val($("#tags").val().replace(txt, " "));
+	 
+	selected_tags = $("#tags").val().split(" ");
+	
+	var selectedTagsHTML = $(selected_tags).map(function() {
+		return "#" + this;
+	}).get().join(", ");
+
+   
+	$("#selected_tags").html(selectedTagsHTML);
+	
+	var json_url = build_tags_query("http://tradeify.org/tags_json.aspx");
+	$.getJSON(json_url, function(context) {
+		tags = context.tags_json.overall;
+		var tagString = "";
+		$.each(tags, function() {
+			var on = "";
+			var endon = "";
+			if (($.inArray(this.tag, selected_tags) > -1)) {
+				on = "<li class=\"on\">";
+				endon = "</li>";
+			}
+			else {
+				on = "<li>";
+				endon = "</li>";
+			}
+			tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
+		});  
+		
+		//alert(tagString);
+		//if (!(typeof suggested_tags_render_fn == 'function')) {
+		//if not yet compiled compile it
+		/*    compile_render_fn();
+		
+		var render = $p.render('suggested_tags_render_fn', tags);
+		*/
+		$('#suggested_tags').html(tagString);
+		$("#suggested_tags .select_tag").click(onClick);
+	});
+}
+
+
+function build_tags_query(baseUrl) {
+	if (tags.length == 0) return baseUrl + "?jsoncallback=?";
+	var query = "";
+	$.each(tags, function() {
+		if($.inArray(this.tag,selected_tags)>-1)
+			query = query + this.type + "=" + escape(this.tag) + "&";
+	});
+	query = query.substring(0, query.length - 1);
+	return baseUrl + "?" + query + "&jsoncallback=?";
+}
+
+       /* form support for styling */
+	   
+$(function() {
+    /* Bind  functions for handling css class to jQuery events */
+    $(".ui-state-default:not(.ui-state-disabled)").live("mouseover", function() {
+        $(this).addClass("ui-state-hover");
+    });
+    $(".ui-state-default:not(.ui-state-disabled)").live("mouseout", function() {
+        $(this).removeClass("ui-state-hover").removeClass("ui-state-focus");
+    });
+    $(".ui-state-default:not(.ui-state-disabled)").live("mousedown", function() {
+        $(this).addClass("ui-state-focus");
+    });
+    $(".ui-state-default:not(.ui-state-disabled)").live("mouseup", function() {
+        $(this).removeClass("ui-state-focus");
+    });
+    $(".ui-state-default:not(.ui-state-disabled)").live("focus", function() {
+        $(this).addClass("ui-state-hover");
+    });
+    $(".ui-state-default:not(.ui-state-disabled)").live("blur", function() {
+        $(this).removeClass("ui-state-hover");
+        $(this).removeClass("ui-state-focus");
+    });
+    $(".ui-state-default:not(.ui-state-disabled)").live("keydown", function() {
+        $(this).addClass("ui-state-focus");
+    });
+    $(".ui-state-default:not(.ui-state-disabled)").live("keyup", function() {
+        $(this).removeClass("ui-state-focus");
+    });
+});
 
 // on load   
-    //openForm();
-    //sendData(); 
+//openForm();
+//sendData(); 
 
 
