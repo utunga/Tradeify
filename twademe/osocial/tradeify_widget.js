@@ -10,7 +10,7 @@ var selected_tags=new Array();
 
 function compile_render_functions() {
     // most complicated is rendering to offers div
-    var offers = jQuery('#results_by_date .template').mapDirective({
+    var offers = $('#results_by_date .template').mapDirective({
         'div.offer': 'offer <- messages',
         'a.username[href]': 'offer.user.more_info_url',
         'a.username': 'offer.user.screen_name',
@@ -22,13 +22,13 @@ function compile_render_functions() {
     //// '.msg a.thumb[href]': '#{offer.thumbnail_url}',
     //.msg img[src]': 'offer.thumbnail_url',
 
-    var tagsList = jQuery('span.tags', offers).mapDirective({
+    var tagsList = $('span.tags', offers).mapDirective({
         '.tag': 'tag <- offer.tags',
         'a[href]': 'tag.tag',
         'a': 'tag.tag'
     });
 
-    jQuery('span.tags', offers).html(tagsList); //place sub-template tagsList into offers template
+    $('span.tags', offers).html(tagsList); //place sub-template tagsList into offers template
     $p.compile(offers, 'offers_render_fn'); //compile to a function
 	
     /// -- end offers function
@@ -36,10 +36,10 @@ function compile_render_functions() {
           
 function update_offers(json_url) {
     var json_url=build_search_query("http://tradeify.org/offers_json.aspx"); //?jsoncallback=?
-    jQuery.getJSON(json_url, function(context) {
+    $.getJSON(json_url, function(context) {
         //alert("context:" + context);
         offersJson=context;
-        jQuery('#results_by_date').html($p.render('offers_render_fn', context));
+        $('#results_by_date').html($p.render('offers_render_fn', context));
     });
         
 }
@@ -69,13 +69,13 @@ function search(){
     }
     offersJson=newMessages;
     alert("found "+newMessages.length);
-    jQuery('#results_by_date').html($p.render('offers_render_fn', newMessages));
+    $('#results_by_date').html($p.render('offers_render_fn', newMessages));
 } 	
     
    
 function queryServer(){
     var query=document.forms["search"].searchdata.value;
-    var queryIdx=jQuery.inArray(query,selected_tags);
+    var queryIdx=$.inArray(query,selected_tags);
     if(queryIdx!=-1){	
         return;
     }
@@ -142,20 +142,20 @@ function makeRequest(url, postdata) {
      form related function
    ------------------------------*/
 		
-jQuery('#create-user').click(function() {
-    jQuery('#dialog').dialog('open');
+$('#create-user').click(function() {
+    $('#dialog').dialog('open');
 }).hover(
     function(){ 
-        jQuery(this).addClass("ui-state-hover"); 
+        $(this).addClass("ui-state-hover"); 
     },
     function(){ 
-        jQuery(this).removeClass("ui-state-hover"); 
+        $(this).removeClass("ui-state-hover"); 
     }
 ).mousedown(function(){
-    jQuery(this).addClass("ui-state-active"); 
+    $(this).addClass("ui-state-active"); 
 })
 .mouseup(function(){
-        jQuery(this).removeClass("ui-state-active");
+        $(this).removeClass("ui-state-active");
 });
 
 function MessagePart(type, field) {
@@ -170,56 +170,56 @@ var forPrefix = " for ";
 var untilPrefix = " until ";
 var linkPrefix = "here is a link to an image: ";
 function getUntil() {
-    if (jQuery("#until").val().length == 0) {
+    if ($("#until").val().length == 0) {
         return "";
     }
     else {
-        return untilPrefix + jQuery("#until").val();
+        return untilPrefix + $("#until").val();
     }
 }
 
 function updateOffer() {
     var concatMessage =
              offerPrefix +
-             jQuery("#offer").val() +
-             locationPrefix + jQuery("#location").val() + locationSuffix +
-             forPrefix + jQuery("#for").val() +
+             $("#offer").val() +
+             locationPrefix + $("#location").val() + locationSuffix +
+             forPrefix + $("#for").val() +
              getUntil();
-    jQuery("#message").val(concatMessage);
+    $("#message").val(concatMessage);
 }
 var selected_tags = [];
 var tags = [];
 
 function onClick() {
-    var tagField = jQuery("#tags").val();
-    var pushed_tag = jQuery(this).html();
-    if (jQuery.inArray(pushed_tag, selected_tags) <= -1) {
+    var tagField = $("#tags").val();
+    var pushed_tag = $(this).html();
+    if ($.inArray(pushed_tag, selected_tags) <= -1) {
         if (tagField != "")
-            jQuery("#tags").val(tagField + " " + pushed_tag);
-        else jQuery("#tags").val(pushed_tag);
+            $("#tags").val(tagField + " " + pushed_tag);
+        else $("#tags").val(pushed_tag);
     }
     else {
         //var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
         var replacementText = tagField.replace(pushed_tag, "");
-        jQuery("#tags").val(replacementText);
+        $("#tags").val(replacementText);
     }
     updateTags();
 }
 
 function getTagString() {
     var tagString = "";
-    jQuery.each(selected_tags, function() {
+    $.each(selected_tags, function() {
         tagString = tagString + " #" + this;
     });
     return tagString;
 }
 
 function checkCSS() {
-    jQuery.each(jQuery(".select_tag"), function() {
-        if (jQuery.inArray(jQuery(this).html(), selected_tags) > -1) {
-            jQuery(this).addClass("on");
+    $.each($(".select_tag"), function() {
+        if ($.inArray($(this).html(), selected_tags) > -1) {
+            $(this).addClass("on");
         }
-        else if (jQuery(this).hasClass("on")) jQuery(this).removeClass("on");
+        else if ($(this).hasClass("on")) $(this).removeClass("on");
     });
 }
 
@@ -239,28 +239,28 @@ function updateTags() {
 
     //get rid of multiple spaces...
     var txt = new RegExp("\\s\\s+");
-    jQuery("#tags").val(jQuery("#tags").val().replace(txt, " "));
+    $("#tags").val($("#tags").val().replace(txt, " "));
     //just in case a single \t or \n is present
     txt = new RegExp("\\s+");
-    jQuery("#tags").val(jQuery("#tags").val().replace(txt, " "));
+    $("#tags").val($("#tags").val().replace(txt, " "));
 
-    selected_tags = jQuery("#tags").val().split(" ");
+    selected_tags = $("#tags").val().split(" ");
 
-    var selectedTagsHTML = jQuery(selected_tags).map(function() {
+    var selectedTagsHTML = $(selected_tags).map(function() {
         return "#" + this;
     }).get().join(", ");
 
 
-    jQuery("#selected_tags").html(selectedTagsHTML);
+    $("#selected_tags").html(selectedTagsHTML);
 
     var json_url = build_search_query_tags("http://tradeify.org/tags_json.aspx");
-    jQuery.getJSON(json_url, function(context) {
+    $.getJSON(json_url, function(context) {
         tags = context.tags_json.overall;
         var tagString = "";
-        jQuery.each(tags, function() {
+        $.each(tags, function() {
             var on = "";
             var endon = "";
-            if ((jQuery.inArray(this.tag, selected_tags) > -1)) {
+            if (($.inArray(this.tag, selected_tags) > -1)) {
                 on = "<li class=\"on\">";
                 endon = "</li>";
             }
@@ -271,15 +271,15 @@ function updateTags() {
             tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
         });
 
-        jQuery('#suggested_tags').html(tagString);
-        jQuery("#suggested_tags .select_tag").click(onClick);
+        $('#suggested_tags').html(tagString);
+        $("#suggested_tags .select_tag").click(onClick);
     });
 }
 
 function build_search_query_tags(baseUrl) {
     var query = "";
-    jQuery.each(tags, function() {
-        if (jQuery.inArray(this.tag, selected_tags) > -1)
+    $.each(tags, function() {
+        if ($.inArray(this.tag, selected_tags) > -1)
             query = query + this.type + "=" + escape(this.tag) + "&";
     });
     query = query.substring(0, query.length - 1);
@@ -288,7 +288,7 @@ function build_search_query_tags(baseUrl) {
 
  
 //tooltip courtesy Alen Grakalic (http://cssglobe.com)
-// visit http://cssglobe.com/post/1695/easiest-tooltip-and-image-preview-using-jquery
+// visit http://cssglobe.com/post/1695/easiest-tooltip-and-image-preview-using-$
 this.tooltip = function(){	
 	/* CONFIG */		
 		xOffset = 10;

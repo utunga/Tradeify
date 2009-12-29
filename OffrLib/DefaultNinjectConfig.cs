@@ -20,10 +20,9 @@ namespace Offr
             Bind<IMessageParser>().To<RegexMessageParser>();
             Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
             Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().Using<SingletonBehavior>();
-            Bind<IMessageProvider>().To<IncomingMessageProcessor>().Using<SingletonBehavior>();
             Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().Using<SingletonBehavior>();
             Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
-            Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
+            //Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
             Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
         }
     }

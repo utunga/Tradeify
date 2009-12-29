@@ -13,14 +13,14 @@ namespace Offr.Tests
     [TestFixture]
     public class TestMessageProvider
     {
-        IMessageProvider _target;
+        IRawMessageReceiver _target;
         MockRawMessageProvider _mockProvider;
-
+        MessageRepository _messageRepository;
         public TestMessageProvider()
         {
             MockMessageParser mockParser = new MockMessageParser();
-            MessageRepository messageRepository = new MessageRepository();
-            IncomingMessageProcessor target = new IncomingMessageProcessor(messageRepository, mockParser);
+            _messageRepository = new MessageRepository();
+            IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, mockParser);
             _mockProvider = new MockRawMessageProvider(target);
             _mockProvider.Update();
             _target = target;
@@ -32,7 +32,7 @@ namespace Offr.Tests
         {
             // somewhat of an integration test, but gets us some of the way there
            
-            List<IMessage> output = new List<IMessage>( _target.AllMessages);
+            List<IMessage> output = new List<IMessage>( _messageRepository.AllMessages());
             foreach (IMessage message in output)
             {
                  Console.Out.Write(message.MessageType.ToString() + " | ");

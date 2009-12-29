@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Web;
 using System.Web.Script.Serialization;
+using Ninject.Core;
 using NLog;
 using Offr.Message;
 using Offr.Text;
@@ -20,9 +21,10 @@ namespace Offr.Twitter
             _receiver = receiver;
         }
         
-        //FIXME remove this
+        [Inject]
         public TwitterRawMessageProvider(IRawMessageReceiver receiver) : this(receiver, MessageType.offr)
         {
+           
         }
 
         #region Implementation of IRawMessageProvider

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ninject.Core;
 using Offr.Message;
 using Offr.Text;
 
@@ -10,6 +11,7 @@ namespace Offr.Tests
         protected bool _updatedOnce;
         private readonly IRawMessageReceiver _receiver;
 
+        [Inject]
         public MockRawMessageProvider(IRawMessageReceiver receiver)
         {
             _updatedOnce=false;

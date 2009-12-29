@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ninject.Core;
 using Offr.Text;
 
 namespace Offr.Tests
@@ -16,6 +17,7 @@ namespace Offr.Tests
             get { return DemoData.DemoNameSpace; }
         }
 
+        [Inject]
         public DemoMessageProvider(IRawMessageReceiver receiver)
         {
             _updatedOnce = false;

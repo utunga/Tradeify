@@ -18,7 +18,7 @@ using Offr.Twitter;
 
 namespace Offr.Repository
 {
-    public class MessageRepository : BaseRepository<IMessage>, IMessageRepository, IPersistedRepository, IMessageQueryExecutor, IEnumerable<IMessage>
+    public class MessageRepository : BaseRepository<IMessage>, IMessageRepository, IPersistedRepository, IEnumerable<IMessage>
     {
         private readonly TagDex _globalTagIndex;
 

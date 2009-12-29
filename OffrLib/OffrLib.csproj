@@ -97,7 +97,6 @@
     <Compile Include="Message\BaseMessage.cs" />
     <Compile Include="Message\MessageParseExeption.cs" />
     <Compile Include="Message\IMessageParser.cs" />
-    <Compile Include="Message\IMessageProvider.cs" />
     <Compile Include="Message\IncomingMessageProcessor.cs" />
     <Compile Include="Message\OfferMessage.cs" />
     <Compile Include="DefaultNinjectConfig.cs" />
@@ -106,7 +105,6 @@
     <Compile Include="OAuth\TwitterAuth.cs" />
     <Compile Include="OAuth\OAuthTwitter.cs" />
     <Compile Include="Query\IMessageQueryExecutor.cs" />
-    <Compile Include="Query\TagDexQueryExecutor.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
     <Compile Include="Services\PersistanceService.cs" />

@@ -8,7 +8,7 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    public class IncomingMessageProcessor : IMessageProvider, IRawMessageReceiver, IMemCache
+    public class IncomingMessageProcessor : IRawMessageReceiver, IMemCache
     {
         private readonly IMessageRepository _messages; 
         private readonly IMessageParser _messageParser;
