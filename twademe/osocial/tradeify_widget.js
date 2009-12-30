@@ -115,15 +115,15 @@ function build_search_query(baseUrl) {
    ------------------------------*/
    
 function onGetData(data) {
-    var message=document.forms["myform"].message.value;
-    alert("in my form "+message);
+    var message=$("#message_to_send").val();
+//    alert("in my form "+message);
     var viewer = data.get('viewer').getData();
     var viewerJson= gadgets.json.stringify(viewer);
     var name = viewer.getDisplayName();
     var thumbnail= viewer.getField(opensocial.Person.Field.THUMBNAIL_URL,null);
-    alert("display name: "+ name);  
+//  alert("display name: "+ name);  
 
-    //REMOVE LATER
+    //not sure if we need/want this approach or not
     var dataPacket = {};
     dataPacket.Message = message;
     dataPacket.User = viewer;
