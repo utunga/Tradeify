@@ -13,12 +13,10 @@ namespace twademe
 {
     public partial class offers_json : System.Web.UI.Page
     {
-
         private const int DEFAULT_COUNT = 10;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             Response.ContentType = "application/json";
             NameValueCollection request = Request.QueryString;
             SendJSON(GetOffersJson(request));

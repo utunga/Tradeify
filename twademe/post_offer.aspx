@@ -1,17 +1,18 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/masters/site.Master" AutoEventWireup="true"
     CodeBehind="post_offer.aspx.cs" Inherits="twademe.post_offer" %>
+<%@ Import Namespace="Offr.Location"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
     <script src="http://tradeify.org/joav/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
-    <script src="http://maps.google.com/jsapi?key=ABQIAAAABEpdHyPr3QztCREcH5edthTaUEcZrrSdLPsGRmAPjnLD6mzdjRRmQoKpGS1a_BMeq5GbhgxcOOVJBg" type="text/javascript"></script>
+    <script src="http://maps.google.com/jsapi?key=<%= GoogleLocationProvider.GOOGLE_API_KEY %>" type="text/javascript"></script>
 
     <script language="Javascript" type="text/javascript">
         //<![CDATA[
         google.load("maps", "2");
-
+            
         var geocoder;
         var map;
 

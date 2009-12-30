@@ -164,12 +164,11 @@ function MessagePart(type, field) {
     this.field = field;
 }
 
-var offerPrefix = " I am offering ";
+var offerPrefix = "I am offering ";
 var locationPrefix = " in L:";
-var locationSuffix = ": ";
+var locationSuffix = ":";
 var forPrefix = " for ";
 var untilPrefix = " until ";
-var linkPrefix = "here is a link to an image: ";
 
 
 function get_until() {
@@ -178,8 +177,9 @@ function get_until() {
 }
 
 function get_currency() {
-    var currency =$("#for").val().trim();
-    return (currency.length == 0) ?  "" : forPrefix + currency;
+	//FIXME1
+    //var currency =$("#for").val().trim();
+    //return (currency.length == 0) ?  "" : forPrefix + currency;
 }
 
 function get_location() {
@@ -356,6 +356,98 @@ $(function() {
         $(this).removeClass("ui-state-focus");
     });
 });
+
+
+
+
+/* ------------------------------
+   Google API stuff
+   ------------------------------*/
+//called from widget 
+//google.load("maps", "2");
+//google.setOnLoadCallback(google_initialize);
+
+
+var geocoder;
+var map;
+var adress_marker;
+var address_keyup_threshold = 200;
+var address_keyup_stack=0;
+
+function google_initialize() {
+	geocoder = new google.maps.Geocoder();
+	var myOptions = {
+	  zoom: 13,
+	  navigationControl: true,
+      scaleControl: true,
+	  mapTypeControl:false,
+	  mapTypeId: google.maps.MapTypeId.TERRAIN,
+	  
+	}
+	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	
+	if (google.loader.ClientLocation) {
+		currentLocation = google.loader.ClientLocation;
+		var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code
+		$(".location #location").val(currentAddr);
+		geo_code_address();
+	}
+	
+	$(".location  #location").keyup(address_keyup);
+}
+
+function geo_code_address() {
+	var address = $(".location #location").val();
+	//map.clearOverlays();
+	if (geocoder) {
+		 geocoder.geocode( { 'address': address}, function(results, status) {
+			 if (status == google.maps.GeocoderStatus.OK) {
+				 map.setCenter(results[0].geometry.location);
+				 if (adress_marker!=null) {
+					 adress_marker.setMap(null); //remove any existing marker
+				 }
+				 adress_marker = new google.maps.Marker({
+					 map: map,
+					 position: results[0].geometry.location
+				 });
+			 } else {
+				if (adress_marker!=null) {
+					 adress_marker.setMap(null); //remove any existing marker
+				}
+			 }
+	 	})
+	}
+}
+
+function address_keyup() {
+	address_keyup_stack++;
+	setTimeout(function() {
+		address_keyup_stack--;
+		if (address_keyup_stack == 0) {
+			geo_code_address()
+		}
+	}, address_keyup_threshold);
+}
+
+//function address_geocoded(point) {
+//	map.clearOverlays();
+//	if (!point) {
+//		//$("#map_canvas").hide();
+//		//$(".location .infobox").html(".. unable to understand that address..");
+//		map.clearOverlays();
+//	}
+//	else {
+//		//$("#map_canvas").show();
+//		map.setCenter(point, 13);
+//		var marker = new GMarker(point);
+//		map.addOverlay(marker);
+//	}
+//}
+
+google.load("maps", "3",  {callback: google_initialize, other_params:"sensor=false"});
+
+
+
 
 // on load   
 //openForm();

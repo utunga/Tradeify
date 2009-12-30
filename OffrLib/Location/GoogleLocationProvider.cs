@@ -15,7 +15,9 @@ namespace Offr.Location
     public class GoogleLocationProvider : ILocationProvider
     {
         protected ILocationRepository LocationRepository;
-        public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}"; 
+        public const string GOOGLE_API_KEY= "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
+        public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}";
+
         private MessageType _forType;
         private readonly List<IRawMessageReceiver> _receivers;
 
@@ -90,7 +92,7 @@ namespace Offr.Location
 
         protected GoogleResultSet GetResultSet(string addressText)
         {
-            string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText));
+            string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
             string responseData = WebRequest.RetrieveContent(requestURI);
             GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
             return resultSet;

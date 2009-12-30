@@ -83,7 +83,6 @@ namespace Offr.Query
                 matchTags.Add(user.MatchTag);
             }
 
-            
             IEnumerable<IMessage> candidates;
             if (matchTags.Count > 0)
             {

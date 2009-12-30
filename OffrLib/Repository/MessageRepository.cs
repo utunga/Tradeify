@@ -7,6 +7,7 @@ using System.Text;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using NLog;
 using Offr.Json;
 using Offr.Location;
 using Offr.Message;
@@ -20,6 +21,8 @@ namespace Offr.Repository
 {
     public class MessageRepository : BaseRepository<IMessage>, IMessageRepository, IPersistedRepository, IEnumerable<IMessage>
     {
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         private readonly TagDex _globalTagIndex;
 
         public MessageRepository()
@@ -35,6 +38,7 @@ namespace Offr.Repository
         public override void Save(IMessage message)
         {
             base.Save(message);
+            _log.Info("Save:" + message);
             _globalTagIndex.Process(message);
         }
 
@@ -52,7 +56,34 @@ namespace Offr.Repository
         {
             return _globalTagIndex.MessagesForUser(userPointer);
         }
+
+        public TagCounts GetTagCounts()
+        {
+            return _globalTagIndex.GetTagCounts();
+        }
+
+        public IEnumerator<IMessage> GetEnumerator()
+        {
+            return base.GetAll().GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
         
+        public TagCounts GetTagCountsForTags(IEnumerable<ITag> tags)
+        {
+            var tagCounts = new List<TagWithCount>();
+            foreach (ITag tag in tags)
+            {
+                tagCounts.Add(_globalTagIndex.GetTagCountForTag(tag));
+            }
+
+            //tagCounts.Reverse();
+            return new TagCounts() { Tags = tagCounts, Total = -1 };
+        }
+
         //public IEnumerable<IMessage> GetMessagesForKeywordAndTags(string keyword, IEnumerable<ITag> tags)
         //{
         //    // theoretically if we were caching all these objects this use of a 
@@ -72,35 +103,5 @@ namespace Offr.Repository
         //    return tagDex.GetTagCounts();
         //}
 
-        public TagCounts GetTagCountsForTags(IEnumerable<ITag> tags)
-        {
-            var tagCounts = new List<TagWithCount>();
-            foreach (ITag tag in tags)
-            {
-                tagCounts.Add(_globalTagIndex.GetTagCountForTag(tag));
-            }
-
-            //tagCounts.Reverse();
-            return new TagCounts() { Tags = tagCounts, Total = -1 };
-        }
-
-        public TagCounts GetTagCounts()
-        {
-            return _globalTagIndex.GetTagCounts();
-        }
-
-        #region Implementation of IEnumerable
-
-        public IEnumerator<IMessage> GetEnumerator()
-        {
-            return base.GetAll().GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        #endregion
     }
 }

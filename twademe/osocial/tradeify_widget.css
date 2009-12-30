@@ -140,10 +140,9 @@ span.on
 						 
 #post_your_own_form 
 {
-	display:none;
+	/*display:none; */
 	background-color:#fff;
 	width:450px;
-	top:10px;
 	padding:15px;
 	text-align:left;
 	border:2px solid #333;
@@ -166,8 +165,44 @@ span.on
 
 #post_your_own_form label
 {
-	margin-top:20px;
-	clear:right;
+	display:block;
+}
+
+#post_your_own_form textarea,
+#post_your_own_form div.location input,
+#post_your_own_form div.thumbnail input
+{
+	width:430px;
+}
+
+#post_your_own_form div.offerPart,
+#post_your_own_form div.location,
+#post_your_own_form div.currency,
+#post_your_own_form div.tags,
+#post_your_own_form div.thumbnail
+{
+	margin-bottom:20px;
+}
+
+#post_your_own_form div.tags,
+#post_your_own_form div.thumbnail
+{
+	border-top:#EEE solid 1px;
+}
+
+#post_your_own_form div.tags h4,
+#post_your_own_form div.thumbnail h4
+{
+	font-weight:bold;
+	color:#CCC;
+	font-size:0.8em;
+	padding:0px;
+	margin:0px;
+}
+
+#post_your_own_form div.tags input 
+{
+	width:350px;
 }
 
 
@@ -175,6 +210,7 @@ span.on
 {
 	background:#CCC;
 }
+
 #post_your_own_form #tags,
 #post_your_own_form #picture,
 
@@ -187,4 +223,70 @@ span.on
 {
 	display:inline;
 }
-						 
+
+#post_your_own_form #map_canvas {
+	width:430px;
+	height:180px;
+}
+	
+.fg-button
+{
+	outline: 0;
+	margin: 0 0 0 0;
+	padding: .1em .2em;
+	text-decoration: none !important;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	zoom: 1;
+}
+
+.fg-button .ui-icon
+{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -8px;
+	margin-top: -8px;
+}
+
+
+/* remove extra button width in IE */
+button.fg-button
+{
+	width: auto;
+	overflow: visible;
+}
+
+.fg-button-icon-left
+{
+	padding-left: 20px;
+}
+
+.fg-button-icon-left .ui-icon
+{
+	right: auto;
+	left: 0;
+	margin-left: 0;
+}
+
+.ui-corner-tag {
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-bottomleft:10px;
+}
+
+/* simple css-based tooltip */ 
+div.tooltip { 
+    background-color:#000; 
+    border:1px solid #fff; 
+    padding:10px 15px; 
+    width:200px; 
+    display:none; 
+    color:#fff; 
+    text-align:left; 
+    font-size:12px; 
+ 
+    /* outline radius for mozilla/firefox only */ 
+    -moz-box-shadow:0 0 10px #000; 
+    -webkit-box-shadow:0 0 10px #000; 
+}

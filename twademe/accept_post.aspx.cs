@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NLog;
 using Offr.OAuth;
 using Offr.Text;
 using Offr.OpenSocial;
@@ -15,17 +16,12 @@ namespace twademe
 {
     public partial class accept_post : System.Web.UI.Page
     {
-        public string TEST
-        {
-            get
-            {
-                return "TESTING";
-            }
-        }
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         private static List<Post> _posts = new List<Post>();
         public string DebugData
         {
-         
+           
             get
             {
                 StringBuilder sb = new StringBuilder();
@@ -77,7 +73,11 @@ namespace twademe
 
             IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
             if (messageText != null)
-                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", userName, thumbnail, profileUrl));
+            {
+                _log.Info("Request received:" + wrapper);
+                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", userName, thumbnail,
+                                                                profileUrl));
+            }
 
         }
 
@@ -87,6 +87,10 @@ namespace twademe
             public string Raw { get; set; }
             public string Thumbnail { get; set; }
             public string Username { get; set; }
+            public override string ToString()
+            {
+                return string.Format("msg:'{0}' thumb:'{1}' user:'{2}'", Raw, Thumbnail, Username);
+            }
         }
     }
 }

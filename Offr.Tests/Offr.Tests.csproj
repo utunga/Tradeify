@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FCA5EA32-593A-4D3B-90EC-9B36D9380C98}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\ninject\Ninject.Core.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=1.0.0.505, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\nlog\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -63,7 +67,8 @@
     <Compile Include="MockRawMessageProvider.cs" />
     <Compile Include="MockUserPointer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TagListTest.cs" />
+    <Compile Include="TagListTest.cs">
+    </Compile>
     <Compile Include="TestDateUtils.cs" />
     <Compile Include="TestGoogleLocation.cs" />
     <Compile Include="TestJSONTwitterParser.cs" />
@@ -86,6 +91,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="data\initial_tags.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

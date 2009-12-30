@@ -119,9 +119,11 @@ namespace Offr.Message
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append(GetType().Name).Append(":").Append(MessageType).Append(" | ");
-            builder.Append(Timestamp).Append(" | ");
-           // builder.Append(Source).Append(" | ");
+            builder.Append(GetType().Name).Append(":").Append(MessageType).Append(":");
+            builder.Append(Timestamp).Append(":");
+            builder.Append(RawText).Append(":");
+            builder.Append(MessagePointer).Append(":");
+            builder.Append(CreatedBy);
             return builder.ToString();
         }
 
@@ -194,7 +196,6 @@ namespace Offr.Message
             JSON.WriteProperty(serializer,writer,"raw_text",RawText);	
             JSON.WriteProperty(serializer,writer,"message_pointer",MessagePointer);
             JSON.WriteProperty(serializer, writer, "created_by", CreatedBy);
-             
         }
 
         public virtual void ReadJson(JsonReader reader, JsonSerializer serializer){
