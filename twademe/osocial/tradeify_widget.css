@@ -140,7 +140,7 @@ span.on
 						 
 #post_your_own_form 
 {
-	/*display:none; */
+	display:none; 
 	background-color:#fff;
 	width:450px;
 	padding:15px;
@@ -155,6 +155,12 @@ span.on
 }
 
 .ui-datepicker {
+	/* when in pop up need to get this in front of the popup */
+	z-index:9999 !important;
+}
+
+#post_your_own_form #map_canvas {
+	/* when in pop up need to get this in front of the popup */
 	z-index:9999 !important;
 }
 
