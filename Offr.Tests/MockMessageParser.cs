@@ -34,8 +34,6 @@ namespace Offr.Tests
             {
                 msg.AddTag(tag);
             }
-            msg.IsValid = true;
-
             
             //if (CONVERT_MOCK_TO_REAL)
             //{

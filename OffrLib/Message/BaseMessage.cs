@@ -19,8 +19,6 @@ namespace Offr.Message
 
         private MessageType _messageType;
 
-        public bool IsValid { get; set; }
-
         public IUserPointer CreatedBy { get; set; }
 
         public string MoreInfoURL { get; set; }
@@ -95,6 +93,8 @@ namespace Offr.Message
         /// </summary>
         protected abstract MessageType ExpectedMessageType { get; }
 
+        public abstract bool IsValid();
+
         #region public modifier methods
 
         public void AddTag(ITag tag)
@@ -156,7 +156,6 @@ namespace Offr.Message
             {
                 int result = (_tags != null ? _tags.GetHashCode() : 0);
                 result = (result*397) ^ _messageType.GetHashCode();
-                result = (result*397) ^ IsValid.GetHashCode();
                 result = (result*397) ^ (CreatedBy != null ? CreatedBy.GetHashCode() : 0);
                 result = (result*397) ^ (MoreInfoURL != null ? MoreInfoURL.GetHashCode() : 0);
                 result = (result*397) ^ (MessagePointer != null ? MessagePointer.GetHashCode() : 0);

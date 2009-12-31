@@ -17,7 +17,7 @@ namespace Offr.Message
         DateTime Timestamp { get; }
         IUserPointer CreatedBy { get;}
         MessageType MessageType { get; }
-        bool IsValid { get; }
+        bool IsValid();
         IEnumerable<ITag> Tags { get; }
         bool MatchesMatchTag(ITag tag);
         bool MatchesMatchTag(string matchTagString);

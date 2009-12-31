@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NLog;
 using Offr.Common;
 using Offr.Repository;
 using Offr.Text;
@@ -10,6 +11,8 @@ namespace Offr.Message
 {
     public class IncomingMessageProcessor : IRawMessageReceiver, IMemCache
     {
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         private readonly IMessageRepository _messages; 
         private readonly IMessageParser _messageParser;
 
@@ -40,9 +43,13 @@ namespace Offr.Message
             foreach (IRawMessage rawMessage in updatedMessages)
             {
                 IMessage message = _messageParser.Parse(rawMessage);
-                if (message.IsValid)
+                if (message.IsValid())
                 {
                     parsedMessages.Add(message);
+                }
+                else
+                {
+                    _log.Info("Rejected invalid message:" + message);
                 }
             }
             Notify(parsedMessages);
@@ -58,7 +65,7 @@ namespace Offr.Message
 
             foreach (IMessage parsedMessage in parsedMessages)
             {
-                if (parsedMessage.IsValid)
+                if (parsedMessage.IsValid())
                 {
                     lock (_messages)
                     {

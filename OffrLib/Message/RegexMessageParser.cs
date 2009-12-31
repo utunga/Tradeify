@@ -48,7 +48,6 @@ namespace Offr.Message
                 }
             }
             msg.OfferText = sourceText;
-            msg.IsValid = true;
             msg.MoreInfoURL = GetMoreInfoUrl(sourceText);
             msg.AddThumbnail(GetImageUrl(sourceText));
             return msg;

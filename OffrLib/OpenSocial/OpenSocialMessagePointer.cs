@@ -26,10 +26,10 @@ namespace Offr.Text
             get { return ProviderNameSpace + "/" + ProviderMessageID; }
         }
 
-        public OpenSocialMessagePointer(string providerNameSpace, string providerMessageID)
+        public OpenSocialMessagePointer(string providerNameSpace)
         {
             ProviderNameSpace = providerNameSpace;
-            ProviderMessageID = providerMessageID;
+            ProviderMessageID = Guid.NewGuid().ToString();//FIXME
         }
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)

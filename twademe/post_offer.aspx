@@ -9,66 +9,7 @@
     <script src="http://tradeify.org/joav/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
     <script src="http://maps.google.com/jsapi?key=<%= GoogleLocationProvider.GOOGLE_API_KEY %>" type="text/javascript"></script>
 
-    <script language="Javascript" type="text/javascript">
-        //<![CDATA[
-        google.load("maps", "2");
-            
-        var geocoder;
-        var map;
-
-        function address_geocoded(point) {
-            if (!point) {
-                $(".location .infobox").html(".. unable to understand that address..");
-                map.clearOverlays();
-            }
-            else {
-                $(".location .infobox").html("<nobr>" + point + "</nobr>");
-                map.setCenter(point, 13);
-                var marker = new GMarker(point);
-                map.addOverlay(marker);
-                var address = $(".location #location").val();
-                $(".location a").html("<nobr>" + address + "</nobr>");
-            }
-        }
-
-        function geo_code_search_location() {
-            $("#map_canvas").show();
-            var address = $(".location #location").val();
-            if (geocoder) {
-                geocoder.getLatLng(address, address_geocoded)
-            }
-        }
-
-        // This function called after google api has been loaded
-        function google_initialize() {
-            $("#map_canvas").show();
-            map = new GMap2(document.getElementById("map_canvas"));
-            //$("#map_canvas").hide();
-            //$(".location #location").hide();
-            if (google.loader.ClientLocation) {
-                currentLocation = google.loader.ClientLocation;
-                var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code
-                $(".location #location").val(currentAddr);
-                $(".location .infobox").html("(" + currentLocation.latitude + "," + currentLocation.longitude + ")");
-                map.setCenter(new GLatLng(currentLocation.latitude, currentLocation.longitude), 12);
-            }
-            $(".location  #location").keyup(function(event) {
-                if ((event.keyCode != 27) || // escape key
-                   (event.keyCode != 13))  // enter key
-                {
-                    var timeoutID;
-                    window.clearTimeout(timeoutID);
-                    timeoutID = window.setTimeout(geo_code_search_location, 200);
-                }
-            });
-            geocoder = new GClientGeocoder();
-        }
-
-        google.setOnLoadCallback(google_initialize);
-        //]]>
-    </script>
-
-</asp:Content>
+ </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:PlaceHolder ID="AuthRequiredWarning" runat="server" Visible="true">
         <h4>
@@ -77,7 +18,7 @@
             Authorize this website using the 'sign in with twitter' button at top right then
             you can get started</h5>
     </asp:PlaceHolder>
-    <asp:PlaceHolder ID="PostMessage" runat="server">
+    <asp:PlaceHolder ID="PostMessage" runat="server" Visible="false">
         <h4>
             What are you offering?</h4>
         <div style="float: left;">
@@ -99,7 +40,7 @@
             <h4>
                 Successfully Posted</h4>
         </asp:PlaceHolder>
-        <h5>
+<%--        <h5>
             Or use the form below to gaurantee your message is valid</h5>
         <input type="hidden" id="twitterUserName" name="twitterUserName" />
         <ul>
@@ -357,7 +298,7 @@
             
         </script>
 
-    </asp:PlaceHolder>
+--%>    </asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="RightContent" runat="server">
 </asp:Content>

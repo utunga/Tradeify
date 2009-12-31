@@ -39,11 +39,11 @@ namespace twademe
                 AuthRequiredWarning.Visible = true;
                 PostMessage.Visible = true;
             }
-            string messageText = Request.Form["Message"];
-            IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
+            //string messageText = Request.Form["Message"];
+            //IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
 
-            if (messageText != null)
-                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", "Unkown", "",""));
+            //if (messageText != null)
+            //    messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "));
         }
     }
 }

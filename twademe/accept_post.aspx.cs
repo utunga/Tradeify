@@ -33,8 +33,7 @@ namespace twademe
                         sb.Append("<tr><td><b>" + key + "</b></td><td>" + post.Data[key]+ "</td></tr>");
                     }
                     sb.Append("<tr><td><b>username</b></td><td>" + post.Username + "</td></tr>");
-                    sb.Append("<tr><td><b>message</b></td><td>" + post.Raw + "</td></tr>");
-                    sb.Append("<tr><td><b>thumbnail</b></td><td>" + post.Thumbnail + "</td></tr>");
+                    sb.Append("<tr><td><b>post</b></td><td>" + post.ToString() + "</td></tr>");
                     sb.Append("</table>");
                 }
                 return sb.ToString();
@@ -61,22 +60,24 @@ namespace twademe
 
 
 
-            string messageText = Request.Form["RawMessage"];
-            string userName = Request.Form["UserName"] ?? "unknown";
-            string thumbnail = Request.Form["Thumbnail"] ?? "unknown";
-            string profileUrl = Request.Form["ProfileUrl"] ?? "unknown"; //FIXME need to implement this in the widget
-           
-            wrapper.Username = userName;
-            wrapper.Raw = messageText;
+            string message = Request.Form["message"] ?? Request["message"];
+            string username = Request.Form["username"] ?? Request["username"] ?? "unknown";
+            string nameSpace = Request.Form["namespace"] ?? Request["namespace"] ?? "ooooby";
+            string thumbnail = Request.Form["thumbnail"] ?? Request["thumbnail"] ?? "unknown";
+            string profileUrl = Request.Form["profileurl"] ?? Request["profileurl"] ?? "unknown"; 
+
+            wrapper.Username = username;
+            wrapper.Msg = message;
+            wrapper.NameSpace = nameSpace;
+            wrapper.ProfileUrl = profileUrl;
             wrapper.Thumbnail = thumbnail;
             _posts.Add(wrapper);
 
             IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
-            if (messageText != null)
+            if (!string.IsNullOrEmpty(message))
             {
                 _log.Info("Request received:" + wrapper);
-                messageReceiver.Notify(new OpenSocialRawMessage("ooooby", messageText, "100", userName, thumbnail,
-                                                                profileUrl));
+                messageReceiver.Notify(new OpenSocialRawMessage(nameSpace, message, username, thumbnail, profileUrl));
             }
 
         }
@@ -84,12 +85,14 @@ namespace twademe
         private class Post
         {
             public NameValueCollection Data = new NameValueCollection();
-            public string Raw { get; set; }
+            public string Msg { get; set; }
             public string Thumbnail { get; set; }
             public string Username { get; set; }
+            public string NameSpace { get; set; }
+            public string ProfileUrl { get; set; }
             public override string ToString()
             {
-                return string.Format("msg:'{0}' thumb:'{1}' user:'{2}'", Raw, Thumbnail, Username);
+                return string.Format("msg:'{0}' user:'{1}' namespace:{2} profileUrl:{3} ", Msg, Username, NameSpace, ProfileUrl);
             }
         }
     }

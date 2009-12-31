@@ -63,6 +63,30 @@ namespace Offr.Message
             _thumbnails = new List<string>();
         }
 
+        #region overrides of abstract base class 
+        
+        public override bool IsValid()
+        {
+            // to be a valid offer message it needs
+            // a type (of currency)
+            // a location
+            // a group tag
+            if (_tags.TagsOfType(TagType.type).Count == 0)
+            {
+                return false;
+            }
+            if (Location==null)
+            {
+                return false;
+            }
+            if (_tags.TagsOfType(TagType.group).Count == 0) 
+            {
+                return false;
+            }
+            return true;
+        }
+
+        #endregion
         /// <summary>
         /// Set end by - both params must be supplied at same time.
         /// No attempt will be made to parse the 'end by' text

@@ -20,7 +20,7 @@ namespace Offr.Tests
         public void TestOpenSocial()
         {
             IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
-            messageReceiver.Notify(new OpenSocialRawMessage("oooby", "#ihave #vege in wellington", "12312", "Joav","blah", "http://blah"));
+            messageReceiver.Notify(new OpenSocialRawMessage("oooby", "#ihave #vege in wellington", "Joav","blah", "http://blah"));
 
             IMessageRepository repository = Global.Kernel.Get<IMessageRepository>();
             foreach (IMessage message in repository.AllMessages())
