@@ -68,25 +68,25 @@ function update_offers(json_url) {
    ------------------------------*/
    
 function search(){
-    alert("start searching");
-    var tag=document.forms["search"].searchdata.value;
-    alert("searching for "+tag);	
+    //alert("start searching");
+    var tag=$("#search").val();
+    //alert("searching for "+tag);	
     var newMessages=new Array();
     var arrayCount=0;
-    alert("itterating through messages");
+    //alert("itterating through messages");
     for(var i=0;i<offersJson.messages.length;i++){
         var msg=offersJson.messages[i];
         //alert("message "+msg.offer_text);
         for(var j=0;j<msg.tags.length;j++){
             if(msg.tags[j].tag==tag){				
-                alert("found tag "+msg.tags[j].tag);
+                //alert("found tag "+msg.tags[j].tag);
                 newMessages[arrayCount]=msg;
                 arrayCount++;
             }
         }
     }
     offersJson=newMessages;
-    alert("found "+newMessages.length);
+    //alert("found "+newMessages.length);
     $('#results_by_date').html($p.render('offers_render_fn', newMessages));
 } 	
     
@@ -215,7 +215,8 @@ function update_offer() {
              get_currency() +
              get_until() +
 			 get_tags() +
-			 get_imagelink();
+			 get_imagelink() +
+			 " #ooooby";
     $("#message_to_send").val(concatMessage);
 }
 
