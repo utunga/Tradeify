@@ -10,6 +10,27 @@ namespace twademe
 {
     public partial class tradeify_json : System.Web.UI.Page
     {
+        private const int DEFAULT_MSG_COUNT = 10;
+
+    
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.ContentType = "application/json";
+            NameValueCollection request = Request.QueryString;
+            
+            int messageCount;
+            if (!int.TryParse(Request["count"], out messageCount))
+            {
+                messageCount = DEFAULT_MSG_COUNT;
+            }
+
+            string offers = offers_json.GetOffersJson(request, messageCount);
+            string tags = tags_json.GetTagJson(request);
+            string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
+                            tags + "}";
+            SendJSON(tradeifyJson);
+        }
+            
         private void SendJSON(string message)
         {
             if (null != Request.Params["jsoncallback"])
@@ -21,16 +42,6 @@ namespace twademe
                 Response.Write(message);
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            Response.ContentType = "application/json";
-            NameValueCollection request = Request.QueryString;
-            string offers = offers_json.GetOffersJson(request);
-            string tags = tags_json.GetTagJson(request);
-            string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
-                            tags + "}";
-            SendJSON(tradeifyJson);
-            
-        }
+
     }
 }

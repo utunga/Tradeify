@@ -94,6 +94,7 @@ namespace Offr.Message
         protected abstract MessageType ExpectedMessageType { get; }
 
         public abstract bool IsValid();
+        public abstract string[] ValidationFailReasons();
 
         #region public modifier methods
 
@@ -212,5 +213,7 @@ namespace Offr.Message
             CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
         }
         #endregion JSON
+
+       
     }
 }

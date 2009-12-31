@@ -13,13 +13,20 @@ namespace twademe
 {
     public partial class offers_json : System.Web.UI.Page
     {
-        private const int DEFAULT_COUNT = 10;
+        private const int DEFAULT_COUNT = 5;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
             NameValueCollection request = Request.QueryString;
-            SendJSON(GetOffersJson(request));
+
+            int messageCount;
+            if (!int.TryParse(Request["count"], out messageCount))
+            {
+                messageCount = DEFAULT_COUNT;
+            }
+
+            SendJSON(GetOffersJson(request, messageCount));
         }
 
         private void SendJSON(string message)
@@ -33,22 +40,22 @@ namespace twademe
                 Response.Write(message);
             }
         }
-        
-        public static string GetOffersJson(NameValueCollection request)
+
+        public static string GetOffersJson(NameValueCollection request, int messageCount)
         {
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
             IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
-            return GetOffersJson(messages);
+            return GetOffersJson(messages, messageCount);
         }
 
-        private static string GetOffersJson(IEnumerable<IMessage> messages)
+        private static string GetOffersJson(IEnumerable<IMessage> messages, int messageCount)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
             List<IMessage> messagesToSend = new List<IMessage>(messages);
-            messagesToSend = (messagesToSend.Count <= DEFAULT_COUNT) ? messagesToSend : messagesToSend.GetRange(0, DEFAULT_COUNT - 1);
+            messagesToSend = (messagesToSend.Count <= messageCount) ? messagesToSend : messagesToSend.GetRange(0, DEFAULT_COUNT - 1);
             return serializer.Serialize(messagesToSend);
         }
     }

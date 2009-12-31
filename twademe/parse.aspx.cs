@@ -37,7 +37,13 @@ namespace twademe
         private void SendJSON(IMessage message)
         {
             Response.ContentType = "application/json";
-            string messageJson = JSON.Serialize(message);
+
+            Dictionary<string, object> parsedOutput = new Dictionary<string, object>();
+            parsedOutput.Add("message", message);
+            List<string> failReasons = new List<string>();
+            parsedOutput.Add("validationFailReasons", message.ValidationFailReasons());
+            string messageJson = JSON.Serialize(parsedOutput);
+           
             if (null != Request.Params["jsoncallback"])
             {
                 Response.Write(Request.Params["jsoncallback"] + "(" + messageJson + ")");

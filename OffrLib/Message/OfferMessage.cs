@@ -67,23 +67,37 @@ namespace Offr.Message
         
         public override bool IsValid()
         {
-            // to be a valid offer message it needs
-            // a type (of currency)
-            // a location
-            // a group tag
+            return ValidationFailReasons().Length == 0;
+        }
+
+        /// <summary>
+        /// 
+        /// to be a valid offer message it needs
+        /// a type (of currency)
+        /// a location
+        /// a group tag
+        /// </summary>
+        /// <returns></returns>
+        public override string[] ValidationFailReasons()
+        {
+            var validationFails = new List<string>();
             if (_tags.TagsOfType(TagType.type).Count == 0)
             {
-                return false;
+                validationFails.Add(ValidationFailReason.NeedsCurrencyTag.ToString());
             }
             if (Location==null)
             {
-                return false;
+                validationFails.Add(ValidationFailReason.NeedsLocation.ToString());
             }
             if (_tags.TagsOfType(TagType.group).Count == 0) 
             {
-                return false;
+                validationFails.Add(ValidationFailReason.NeedsGroupTag.ToString());
             }
-            return true;
+            if (string.IsNullOrEmpty(OfferText))
+            {
+                validationFails.Add(ValidationFailReason.NeedsOfferMessage.ToString());
+            }
+            return validationFails.ToArray();
         }
 
         #endregion

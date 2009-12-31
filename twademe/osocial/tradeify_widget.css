@@ -140,7 +140,7 @@ span.on
 						 
 #post_your_own_form 
 {
-	display:none; 
+	/*display:none; */
 	background-color:#fff;
 	width:450px;
 	padding:15px;

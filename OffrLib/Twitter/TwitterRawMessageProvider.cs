@@ -125,7 +125,8 @@ namespace Offr.Twitter
             {
                 case MessageType.offr:
                     // filter to include any of these hash tags 
-                    return "%23ihave+OR+%23offer+OR+%23offr";
+                    //return "%23ihave+OR+%23offer+OR+%23offr";
+                    return "%23offer+OR+%23offr";
                 default:
                     return "%23" + _forType;
             }

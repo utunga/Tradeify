@@ -105,6 +105,7 @@ namespace Offr.Tests
                 EndBy = null
             };
             raw.Tags.Add(new Tag(TagType.type, "free"));
+            raw.Tags.Add(new Tag(TagType.type, "swap"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[0]));
             foreach (ITag locationTag in Location0.Tags)

@@ -18,10 +18,11 @@ namespace Offr.Message
         IUserPointer CreatedBy { get;}
         MessageType MessageType { get; }
         bool IsValid();
+        string[] ValidationFailReasons();
         IEnumerable<ITag> Tags { get; }
         bool MatchesMatchTag(ITag tag);
         bool MatchesMatchTag(string matchTagString);
         ReadOnlyCollection<ITag> HashTags { get; }
-        ReadOnlyCollection<ITag> CommunityTags { get; }
+        ReadOnlyCollection<ITag> CommunityTags { get; }
     }
 }

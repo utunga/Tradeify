@@ -3,19 +3,35 @@
 <head>
 <title>Untitled Document</title>
 
-	
-
 </head>
 <body>
 
 <link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
-
 <input type="text" class="ui-state-default ui-corner-all" name="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>
-<button class="ui-button ui-state-default ui-corner-all open_post" rel="#post_your_own_form">Post Your Own</button>
 
+<div id="results_by_date">
+    <span class="template">
+        <div class="offer">
+            <a href="user_uri" class="avatar"><img src="user_thumb" alt="username"/></a>
+            <a href="user_uri" class="username"></a>
+            <p class="msg">
+                <span class="text"></span><br/>
+                <span class="tags">
+                    <span class="tag"><a href="offer"></a>, </span>
+                </span>
+                <a class="more_info_link" href="more_info_uri">more info &gt;&gt;</a>
+            </p>
+            <div class="meta">
+                <a class="when" href="source_uri">Today, 10:50 am</a>
+            </div>
+        </div>
+    </span>
+</div>
+
+<h4>Post Your Own</h4>
 <div id="post_your_own_form" class="ui-widget">
 
 	<div class="tooltip"></div> 
@@ -23,7 +39,8 @@
     <div class="rawMessage">	
       <fieldset>
         <legend>Your message</legend>	
-       <textarea title="" cols="42" rows="6" name="message" class="ui-state-default ui-corner-all ui-state-disabled" id="message"></textarea>
+        <textarea title="" cols="42" rows="6" name="message" class="ui-state-default ui-corner-all" id="message"></textarea>
+        <button class="ui-button ui-state-default ui-corner-all" onClick="sendData()">Post</button>
        </fieldset>
     </div>
      
@@ -37,7 +54,6 @@
        <div class="currency">
             <label for="for" class="desc"> for </label>
             <div class="fg-buttonset fg-buttonset-multi">
-
                 <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
                     <span class="ui-icon ui-icon-tag"></span>barter</a>
                 <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
@@ -86,42 +102,22 @@
         </div>
         
         <div>
-            <button name="cancel" class="close ui-priority-secondary ui-corner-all" value="cancel" >cancel</button>
-            <button name="submit" class="ui-priority-primary ui-corner-all" value="done" >done</button>	
+          <button type="button" class="ui-button ui-state-default ui-corner-all" onclick="sendData()">Post</button>
+<!--            <button name="cancel" class="close ui-priority-secondary ui-corner-all" value="cancel" >cancel</button>
+            <button name="submit" class="ui-priority-primary ui-corner-all" value="done" >done</button>	-->
         </div>
     </fieldset>
 </div>
 
 
-<div id="results_by_date">
-    <span class="template">
-        <div class="offer">
-            <a href="user_uri" class="avatar"><img src="user_thumb" alt="username"/></a>
-            <a href="user_uri" class="username"></a>
-            <p class="msg">
-                <span class="text"></span><br/>
-                <span class="tags">
-                    <span class="tag"><a href="offer"></a>, </span>
-                </span>
-                <a class="more_info_link" href="more_info_uri">more info &gt;&gt;</a>
-            </p>
-            <div class="meta">
-                <a class="when" href="source_uri">Today, 10:50 am</a>
-            </div>
-        </div>
-    </span>
-</div>
-
-
+<!--
 <div class="regular" id="main">
 
 <div id="myform">
   <textarea type="text" class="ui-state-disabled" name="message" id="message_to_send"></textarea>
   <button type="button" class="ui-button ui-state-default ui-corner-all" onclick="sendData()">Submit</button>
 </div>
-
-<button class="ui-button ui-state-default ui-corner-all open_post" rel="#post_your_own_form">Post Your Own</button>
-</div>
+</div>-->
 
 <!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
