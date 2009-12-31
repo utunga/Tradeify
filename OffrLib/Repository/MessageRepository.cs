@@ -30,6 +30,14 @@ namespace Offr.Repository
             _globalTagIndex = new TagDex(this);    
         }
 
+        public int MessageCount
+        {
+             get
+             {
+                 return base._list.Count;   
+             }   
+        }
+
         public IEnumerable<IMessage> AllMessages()
         {
             return base.GetAll();

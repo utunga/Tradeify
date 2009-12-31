@@ -7,6 +7,7 @@ using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 
 using NUnit.Framework;
+using Offr.Demo;
 using Offr.Json;
 using Offr.Location;
 using Offr.Message;

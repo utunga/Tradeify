@@ -57,13 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DemoData.cs" />
     <Compile Include="DemoMessageProvider.cs" />
     <Compile Include="MockData.cs" />
     <Compile Include="MockLocationProvider.cs" />
     <Compile Include="MockMessageParser.cs" />
-    <Compile Include="MockMessagePointer.cs" />
-    <Compile Include="MockRawMessage.cs" />
     <Compile Include="MockRawMessageProvider.cs" />
     <Compile Include="MockUserPointer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

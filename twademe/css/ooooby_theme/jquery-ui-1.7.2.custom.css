@@ -404,3 +404,18 @@
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel { padding: 1em 1.4em; display: block; border-width: 0; background: none; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
+
+
+
+/*** CUSTOM ALTERATION COURTESY OF MILES ***/
+/*
+.ui-state-default .ui-icon-currency { background-image: url(images/ui-icons_6da8d5_256x240.png); }
+.ui-state-hover .ui-icon-currency, .ui-state-focus .ui-icon-currency {background-image: url(images/ui-icons_217bc0_256x240.png); }
+.ui-state-active .ui-icon-currency {background-image: url(images/ui-icons_f9bd01_256x240.png); }
+.ui-state-highlight .ui-icon-currency {background-image: url(images/ui-icons_2e83ff_256x240.png); }*/
+
+.ui-state-default .ui-icon-currency { background-image: url(images/rooooby_icon_6da8d5.png); }
+.ui-state-hover .ui-icon-currency, .ui-state-focus .ui-icon-currency {background-image: url(images/rooooby_icon_217bc0.png); }
+.ui-state-active .ui-icon-currency {background-image: url(images/rooooby_icon_f9bd01.png); }
+.ui-state-highlight .ui-icon-currency {background-image: url(images/rooooby_icon_d8e7f3.png); }
+

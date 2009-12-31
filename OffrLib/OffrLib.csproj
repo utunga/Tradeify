@@ -68,6 +68,9 @@
     <Compile Include="BackgroundExceptionReceiver.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\IMemCache.cs" />
+    <Compile Include="Demo\DemoData.cs" />
+    <Compile Include="Demo\MockMessagePointer.cs" />
+    <Compile Include="Demo\MockRawMessage.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="IBackgroundExceptionReceiver.cs" />
     <Compile Include="Json\Converter\CanJsonConverter.cs" />

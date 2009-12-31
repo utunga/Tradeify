@@ -8,7 +8,7 @@ using Offr.Message;
 using Offr.Text;
 using Offr.Twitter;
 
-namespace Offr.Tests
+namespace Offr.Demo
 {
     public class MockMessagePointer : IMessagePointer
     {

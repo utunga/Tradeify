@@ -8,31 +8,26 @@ using Offr.Message;
 using Offr.Text;
 using Offr.Twitter;
 
-namespace Offr.Tests
+namespace Offr.Demo
 {
     public class MockRawMessage : IRawMessage
     {
 
-
-        public IMessagePointer Pointer { get; internal set; }
-        public IUserPointer CreatedBy { get; internal set; }
-        public string Text { get; internal set; }
-        public DateTime? EndBy { get; internal set; }
-        public string EndByText { get; internal set; }
-
-        public DateTime Timestamp
-        {
-            get; 
-            internal set;
-        }
+        public IMessagePointer Pointer { get; set; }
+        public IUserPointer CreatedBy { get; set; }
+        public string Text { get; set; }
+        public DateTime? EndBy { get; set; }
+        public string EndByText { get;  set; }
+        public DateTime Timestamp { get;  set; }
+   
 
         //-- properties of the OfferMessage
 
-        public string OfferText { get; internal set; }
-        public string MoreInfoURL { get; internal set; }
-        public string Thumbnail { get; internal set; }
-        public ILocation Location { get; internal set; }
-        public IUserPointer OfferedBy { get; internal set; }
+        public string OfferText { get; set; }
+        public string MoreInfoURL { get;  set; }
+        public string Thumbnail { get; set; }
+        public ILocation Location { get; set; }
+        public IUserPointer OfferedBy { get; set; }
         
         internal readonly TagList _tags;
         public IList<ITag> Tags

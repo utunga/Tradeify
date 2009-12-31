@@ -5,7 +5,7 @@ using Offr.Text;
 using Offr.Twitter;
 using Offr.Users;
 
-namespace Offr.Tests
+namespace Offr.Demo
 {
     /// <summary>
     /// Basically a class that provides some data laid out in a certain form for testing purposes

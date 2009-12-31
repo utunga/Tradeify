@@ -256,7 +256,6 @@ span.on
 	margin-top: -8px;
 }
 
-
 /* remove extra button width in IE */
 button.fg-button
 {
@@ -296,3 +295,4 @@ div.tooltip {
     -moz-box-shadow:0 0 10px #000; 
     -webkit-box-shadow:0 0 10px #000; 
 }
+

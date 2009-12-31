@@ -12,6 +12,8 @@
 <input type="text" class="ui-state-default ui-corner-all" name="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>
 
+<div id="current_tags"></div>
+
 <div id="results_by_date">
     <span class="template">
         <div class="offer">
@@ -53,13 +55,7 @@
         
        <div class="currency">
             <label for="for" class="desc"> for </label>
-            <div class="fg-buttonset fg-buttonset-multi">
-                <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
-                    <span class="ui-icon ui-icon-tag"></span>barter</a>
-                <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
-                    <span class="ui-icon ui-icon-tag"></span>free</a>
-            </div>
-
+            <div id="currency_tags"></div>
         </div>
         
         <div class="location">
@@ -122,19 +118,20 @@
 <!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
 <![endif]-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"/></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
 <!-- google maps API v3 doesn't need an API key! -->
+<script type="text/javascript" src="../js/jquery-1.3.2.js"/></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<!--<script type="text/javascript" src="../js/jquery-1.3.2.js"/></script>-->
-<script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"/></script>
-<script type="text/javascript" src="../js/jquery.tools.min.js"/></script>
-<script type="text/javascript" src="../js/purePacked.js"/></script>
-<script type="text/javascript" src="../osocial/tradeify_widget.js"/></script>
+<script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="../js/purePacked.js"></script>
+<script type="text/javascript" src="../js/tag_support.js"></script>
+<script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 <script type="text/javascript">
-   
-var maps_initializing=false;
 
+var currency_tags;
+var current_tags;
 $(document).ready(function() {
 	
 	compile_render_functions();
@@ -144,28 +141,30 @@ $(document).ready(function() {
 	$("#by_parts textarea").keyup(update_offer);
 	$("#by_parts input").change(update_offer);
 
-	$(".location input").keydown(function() {
-		if (!maps_initializing) {
-			maps_initializing = true;
-			$("#map_canvas").show();
-		}
-    });
-	
-	//hover and click logic for tag links
-	$(".fg-button:not(.ui-state-disabled)")
-	.mousedown(function(){
-			if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') )
-				{ $(this).removeClass("ui-state-active"); }
-			else { $(this).addClass("ui-state-active"); }	
-	})
-	.mouseup(function(){
-		if(! $(this).is('.fg-button-toggleable, .fg-buttonset-multi .fg-button') ){
-			$(this).removeClass("ui-state-active");
-		}
+	currency_tags = new Tags();
+	currency_tags.tag_click( function() {
+		var tag = currency_tags.find_tag(this.text);
+		tag.active = !tag.active;
+		update_offer();	
+		return false;	
 	});
-
-
-
+	currency_tags.target_selector="#currency_tags";
+	currency_tags.add_tag_type_active("type", "free", false);
+	currency_tags.add_tag_type_active("type", "barter", false);
+	currency_tags.add_tag_type_active("type", "swap", false);
+	currency_tags.add_tag_type_active("type", "nzd", false);
+	
+	current_tags = new Tags();
+	current_tags.tag_click( function() {
+		var tag = current_tags.find_tag(this.text);
+		if (tag.text=="ooooby") return false; // don't allow removal of this tag
+		current_tags.remove_tag(tag.text);
+		update_offers();	
+		return false;	
+	});
+	current_tags.target_selector="#current_tags";
+	current_tags.add_tag_type("group", "ooooby", false);
+	
 	$("#post_your_own_form #until").datepicker(
 			{minDate:0,
 			 dateFormat: "dd M yy",

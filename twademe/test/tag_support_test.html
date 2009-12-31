@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Tag Suppport Test</title>
+    <link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+
+<div>
+    <label for="for" class="desc"> Tags </label>
+    <div class="fg-buttonset fg-buttonset-multi">
+        <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
+            <span class="ui-icon ui-icon-tag"></span>barter</a>
+        <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
+            <span class="ui-icon ui-icon-tag"></span>free</a>
+    </div>
+    <div id="tag_test"></div>
+    <a href="#" onclick="tags.add_tag('test'); return false;">add test</a>  
+    <a href="#" onclick="tags.add_tag_with_type('group','ooooby');return false;">add ooooby</a>  
+    <a href="#" onclick="tags.add_tag_with_type('type','free');return false;">add free</a>  
+    <a href="#" onclick="tags.remove_tag('free');return false;">remove free</a>  
+    <a href="#" onclick="tags.remove_tag('ooooby');return false;">remove ooooby</a>  
+</div>
+
+<script type="text/javascript" src="../js/jquery-1.3.2.js"></script>
+<!--<script type="text/javascript" src="http://www.google.com/jsapi"></script>-->
+<script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="../js/purePacked.js"></script>
+<!--<script type="text/javascript" src="../osocial/tradeify_widget.js"></script>-->
+<script type="text/javascript" src="../js/tag_support.js"></script>
+
+<script type="text/javascript">
+var tags;
+
+$(document).ready(function() {
+
+	tags = new Tags();
+	tags.target_selector = "#tag_test";
+});
+</script>
+</body>
+</html>

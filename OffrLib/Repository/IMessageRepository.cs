@@ -14,5 +14,6 @@ namespace Offr
         void Save(IMessage instance);
         void Remove(IMessage instance);
         IEnumerable<IMessage> AllMessages();
+        int MessageCount { get; }
     }
 }

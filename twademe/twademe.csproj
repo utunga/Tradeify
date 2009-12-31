@@ -199,9 +199,32 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\ooooby_theme\images\rooooby_icon_d8e7f3.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_100_f5f8f9_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_100_fcfdfd_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_55_5c9ccc_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_75_d0e5f5_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_85_dfeffc_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-bg_flat_95_fef1ec_40x100.png" />
+    <Content Include="css\ooooby_theme\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="css\ooooby_theme\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\ooooby_theme\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="css\ooooby_theme\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="css\ooooby_theme\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\ooooby_theme\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\ooooby_theme\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="css\ooooby_theme\images\validno.png" />
+    <Content Include="css\ooooby_theme\images\validyes.png" />
+    <Content Include="css\ooooby_theme\jquery-ui-1.7.2.custom.css" />
+    <Content Include="js\jquery-ui-1.7.2.custom.min.js" />
+    <Content Include="js\jquery.tools.min.js" />
+    <Content Include="js\tag_support.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="test\tag_support_test.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_GlobalResources\" />

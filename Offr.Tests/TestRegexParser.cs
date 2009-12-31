@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using NUnit.Framework;
+using Offr.Demo;
 using Offr.Location;
 using Offr.Message;
 using Offr.Repository;

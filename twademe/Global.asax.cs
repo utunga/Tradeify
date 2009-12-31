@@ -8,9 +8,11 @@ using System.Web.SessionState;
 using Ninject.Core;
 using NLog;
 using Offr;
+using Offr.Demo;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Services;
+using Offr.Text;
 
 namespace twademe
 {
@@ -33,6 +35,20 @@ namespace twademe
         {
             try
             {
+                ITagRepository tagRepository = Kernel.Get<ITagRepository>();
+                if (tagRepository is IPersistedRepository)
+                {
+                    ((IPersistedRepository)tagRepository).FilePath = Server.MapPath(INITIAL_TAGS_FILE);
+                    ((IPersistedRepository)tagRepository).InitializeFromFile();
+                }
+            }
+            catch (Exception ex)
+            {
+                NotifyException(new ApplicationException("Failed during tag initialization", ex));
+            }
+
+            try
+            {
                 IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
                 if (messageRepository is IPersistedRepository)
                 {
@@ -42,22 +58,29 @@ namespace twademe
             }
             catch (Exception ex)
             {
-                NotifyException(new ApplicationException("Failed during message initialization",ex));
+                NotifyException(new ApplicationException("Failed during message initialization from file",ex));
             }
 
             try
             {
-                ITagRepository tagRepository = Kernel.Get<ITagRepository>();
-                if (tagRepository is IPersistedRepository)
+                IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
+                if (messageRepository.MessageCount == 0)
                 {
-                    ((IPersistedRepository) tagRepository).FilePath = Server.MapPath(INITIAL_TAGS_FILE);
-                    ((IPersistedRepository) tagRepository).InitializeFromFile();
+                    IList<IRawMessage> messages = new List<IRawMessage>();
+                    foreach (IRawMessage rawMessage in DemoData.RawMessages)
+                    {
+                        messages.Add(rawMessage);
+                    }
+                    IRawMessageReceiver messageReceiver = Kernel.Get<IRawMessageReceiver>();
+                    messageReceiver.Notify(messages);
                 }
             }
             catch (Exception ex)
             {
-                NotifyException(new ApplicationException("Failed during tag initialization", ex));
+                NotifyException(new ApplicationException("Failed during demo initialization", ex));
             }
+
+          
 
             PersistanceService.Start(this);
             RawMessagePollingService.Start(this);
