@@ -121,6 +121,8 @@ function onGetData(data) {
     var viewerJson= gadgets.json.stringify(viewer);
     var name = viewer.getDisplayName();
     var thumbnail= viewer.getField(opensocial.Person.Field.THUMBNAIL_URL,null);
+    var profileUrl = viewer.getField(opensocial.Person.Field.PROFILE_URL,null);
+
 //  alert("display name: "+ name);  
 
     //not sure if we need/want this approach or not
@@ -130,9 +132,11 @@ function onGetData(data) {
     var dataPacketJSON = gadgets.json.stringify(dataPacket);
     
     var mes = {
-        RawMessage:message,
-        UserName:name,
-        Thumbnail:thumbnail,
+        message:message,
+        username:name,
+        thumbnail:thumbnail,
+        namespace:"ooooby", //FIXME
+        profileurl:profileUrl,
         DataPacket:dataPacketJSON
     };
     makeRequest("http://tradeify.org/accept_post.aspx",mes);
