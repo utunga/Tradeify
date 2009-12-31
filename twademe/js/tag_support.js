@@ -23,7 +23,7 @@ function Tags() {
     
     this.add_tag_type = function(type, text) 
     {
-        this.add_tag_with_type_active(type, text, true);
+        this.add_tag_type_active(type, text, true);
         this.update_view();   
     }
     
