@@ -216,7 +216,7 @@ function update_offer() {
              get_until() +
 			 get_tags() +
 			 get_imagelink();
-    $("#message").val(concatMessage);
+    $("#message_to_send").val(concatMessage);
 }
 
 /* tag selection code */

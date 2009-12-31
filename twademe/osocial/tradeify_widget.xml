@@ -44,7 +44,7 @@
     <div class="rawMessage">	
       <fieldset>
         <legend>Your message</legend>	
-        <textarea title="" cols="42" rows="6" name="message" class="ui-state-default ui-corner-all" id="message"></textarea>
+        <textarea title="" cols="42" rows="6" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
         <button class="ui-button ui-state-default ui-corner-all" onClick="sendData()">Post</button>
        </fieldset>
     </div>
@@ -204,7 +204,7 @@ $(document).ready(function() {
 		triggers.overlay().close();
 	
 		// get user input
-		var input = $(".rawMessage #message", this).val();
+		var input = $(".rawMessage #message_to_send", this).val();
 	
 		// do something with the answer
 		//triggers.eq(1).html(input);
