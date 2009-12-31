@@ -51,9 +51,9 @@ function compile_render_functions() {
 }
           
 function update_offers(json_url) {
-    var json_url = current_tags.decorate_url("http://tradeify.org/offers_json.aspx");
-    json_url = json_url + "&jsoncallback=?";
-    //var json_url=build_search_query("http://tradeify.org/offers_json.aspx"); //?jsoncallback=?
+    //var json_url = current_tags.decorate_url("http://tradeify.org/offers_json.aspx");
+    //json_url = json_url + "&jsoncallback=?";
+    var json_url=build_search_query("http://tradeify.org/offers_json.aspx"); //?jsoncallback=?
     $.getJSON(json_url, function(context) {
         //alert("context:" + context);
         offersJson=context;
