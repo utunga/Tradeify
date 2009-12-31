@@ -175,7 +175,7 @@ $(document).ready(function() {
 			 showOn: "focus"
 			 });
 	
-	//gadgets.window.adjustHeight(1000);
+	gadgets.window.adjustHeight(3000);
 
 	
 	var triggers = $(".open_post").overlay({
