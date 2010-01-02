@@ -169,7 +169,6 @@
     <Content Include="data\initial_offers.json">
     </Content>
     <Content Include="images\tradeify_logo.PNG" />
-    <Content Include="js\pure.js" />
     <Content Include="post_offer.aspx" />
     <Content Include="tags_json.aspx" />
     <Content Include="css\ie.css" />
@@ -220,10 +219,13 @@
     <Content Include="css\ooooby_theme\jquery-ui-1.7.2.custom.css" />
     <Content Include="js\jquery-ui-1.7.2.custom.min.js" />
     <Content Include="js\jquery.tools.min.js" />
+    <Content Include="js\pure_packed_v2.js" />
+    <Content Include="js\pure_v2.js" />
     <Content Include="js\tag_support.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="osocial\widget_mock.html" />
     <Content Include="test\tag_support_test.html" />
   </ItemGroup>
   <ItemGroup>

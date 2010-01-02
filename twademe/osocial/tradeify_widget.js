@@ -23,43 +23,41 @@ String.prototype.rtrim = function() {
 
 var offersJson=-1; 
 var selected_tags=new Array(); 
+var offers_render_fn;
 
 function compile_render_functions() {
-    // most complicated is rendering to offers div
-    var offers = $('#results_by_date .template').mapDirective({
-        'div.offer': 'offer <- messages',
-        'a.username[href]': 'offer.user.more_info_url',
-        'a.username': 'offer.user.screen_name',
-		'.avatar img[src]': 'offer.user.profile_pic_url',
-        '.msg .text': 'offer.offer_text',
-        '.msg a.more_info_link[href]': '#{offer.more_info_url}',
-        '.when': 'offer.date'
-	});
-    //// '.msg a.thumb[href]': '#{offer.thumbnail_url}',
-    //.msg img[src]': 'offer.thumbnail_url',
-
-    var tagsList = $('span.tags', offers).mapDirective({
-        '.tag': 'tag <- offer.tags',
-        'a[href]': 'tag.tag',
-        'a': 'tag.tag'
-    });
-
-    $('span.tags', offers).html(tagsList); //place sub-template tagsList into offers template
-    $p.compile(offers, 'offers_render_fn'); //compile to a function
-	
-    /// -- end offers function
+    
+    var offers_directives = { 
+        'div.offer': { 
+            'offer <- messages' : {
+                'a.username@href': 'offer.user.more_info_url',
+                'a.username': 'offer.user.screen_name',
+                '.avatar img@src': 'offer.user.profile_pic_url',
+                '.msg .text': 'offer.offer_text',
+                '.msg a.more_info_link@href': 'offer.more_info_url',
+                'span.tags': {
+                    'tag <- offer.tags' : {
+                        'a@onclick': 'return add_filter(#{tag.type}, #{tag.tag});',
+                        'a': 'tag.tag'
+                        }
+                },
+                '.when': 'offer.date'
+            }
+        }
+   };
+   
+    //compile to a function
+    offers_render_fn = $('#results_by_date .template').compile(offers_directives);
 }
           
 function update_offers(json_url) {
     //var json_url = current_tags.decorate_url("http://tradeify.org/offers_json.aspx");
     //json_url = json_url + "&jsoncallback=?";
     var json_url=build_search_query("http://tradeify.org/offers_json.aspx"); //?jsoncallback=?
-    $.getJSON(json_url, function(context) {
-        //alert("context:" + context);
-        offersJson=context;
-        $('#results_by_date').html($p.render('offers_render_fn', context));
+    $.getJSON(json_url, function(data) {
+        offersJson=data;
+        $('#results_by_date').render(data, offers_render_fn);
     });
-        
 }
 
 
