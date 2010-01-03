@@ -5,17 +5,14 @@
   "cash": {
     "type": "cash"
   },
-  "cash only": {
-    "type": "cash only"
+  "swap": {
+    "type": "swap"
   },
-  "etc": {
-    "msg_type": "etc"
+  "cash_only": {
+    "type": "cash_only"
   },
   "free": {
     "type": "free"
-  },
-  "freecycle": {
-    "group": "freecycle"
   },
   "nzd": {
     "type": "nzd"

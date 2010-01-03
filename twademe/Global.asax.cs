@@ -18,7 +18,7 @@ namespace twademe
 {
     public class Global : System.Web.HttpApplication, IBackgroundExceptionReceiver
     {
-        public const string INITIAL_OFFERS_FILE = "/data/initial_offers.json";
+        public const string INITIAL_OFFERS_FILE = "/data/offers.json";
         public const string INITIAL_TAGS_FILE = "/data/initial_tags.json";
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
@@ -80,10 +80,8 @@ namespace twademe
                 NotifyException(new ApplicationException("Failed during demo initialization", ex));
             }
 
-          
-
             PersistanceService.Start(this);
-            RawMessagePollingService.Start(this);
+            //RawMessagePollingService.Start(this);
         }
 
         protected void Session_Start(object sender, EventArgs e)

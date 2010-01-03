@@ -42,9 +42,9 @@ namespace Offr.Tests
             string replaced = expected.Replace("PM", "p.m.");
             replaced = replaced.Replace("AM", "a.m.");
             string utc = DateUtils.FriendlyLocalTimeStampFromUTC(DateTime.Parse(timeToParse).ToUniversalTime());
-            bool milesPC = Equals(expected,utc);
-            bool joavPC = Equals(replaced, utc);
-            Assert.That(milesPC || joavPC, "Time from 'today' formatted wrong");           
+            bool usTimeFormat = Equals(expected,utc);
+            bool nzTimeFormat = Equals(replaced, utc);
+            Assert.That(usTimeFormat || nzTimeFormat, "Time for 'today' formatted wrong");           
         }
 
         [Test]

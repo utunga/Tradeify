@@ -41,27 +41,27 @@ namespace Offr.Demo
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(3);
-            raw = new MockRawMessage("#offr Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:home: #freecycle", msgPointer, User0, "2009-06-24");
+            raw = new MockRawMessage("#offr Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:Petone, Lower Hutt: #freecycle", msgPointer, User0, "2009-06-24");
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(4);
-            raw = new MockRawMessage("#offr Big lemon tree, #free #lemons L:Paekakariki http://bit.ly/1231 #free #lemons #ooooby", msgPointer, User0, "2009-06-24");
+            raw = new MockRawMessage("#offr Big lemon tree, #free #lemons L:Paekakariki: http://bit.ly/1231 #free #lemons #ooooby", msgPointer, User0, "2009-06-24");
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(5);
-            raw = new MockRawMessage("#offr Come get some of our beautiful #pumpkin #barter for other veges L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #ooooby", msgPointer, User0, "2009-06-24");
+            raw = new MockRawMessage("#offr Come get some of our beautiful #pumpkin #barter for other veges on L:Waiheke Island: http://bit.ly/1234 #ooooby", msgPointer, User0, "2009-06-24");
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(6);
-            raw = new MockRawMessage("#offr Corn L:55 Wellington Road, Paekakariki: for http://bit.ly/234 #ooooby", msgPointer, User1, "2009-06-24");
+            raw = new MockRawMessage("#offr Corn L:55 Wellington Road, Paekakariki: for #swap http://bit.ly/234 #ooooby", msgPointer, User1, "2009-06-24");
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(7);
-            raw = new MockRawMessage("#offr Kitchen jug, works great, in L:K Road, Auckland: http://bit.ly/1231 #freecycle", msgPointer, User1, "2009-06-24");
+            raw = new MockRawMessage("#offr Kitchen jug, works great, in L:K Road, Auckland: http://bit.ly/1231 #freecycle #free", msgPointer, User1, "2009-06-24");
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(8);
-            raw = new MockRawMessage("#offr Keen to swap our old fridge for anything smaller #barter in L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #household #freecycle", msgPointer, User1, "2009-06-24");
+            raw = new MockRawMessage("#offr Keen to swap our old fridge for anything smaller #barter on L:Waiheke: http://bit.ly/1234 #waiheke #household #freecycle", msgPointer, User1, "2009-06-24");
             RawMessages.Add(raw);
 
             msgPointer = new TwitterMessagePointer(9);

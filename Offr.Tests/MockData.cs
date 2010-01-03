@@ -105,6 +105,7 @@ namespace Offr.Tests
                 EndByText = null,
                 EndBy = null
             };
+            raw.Tags.Add(new Tag(TagType.group, "ooooby"));
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "swap"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
@@ -128,6 +129,7 @@ namespace Offr.Tests
                 EndByText = null,
                 EndBy = null
             };
+            raw.Tags.Add(new Tag(TagType.group, "ooooby"));
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[1]));
@@ -150,6 +152,7 @@ namespace Offr.Tests
                 EndByText = null,
                 EndBy = null
             };
+            raw.Tags.Add(new Tag(TagType.group, "ooooby"));
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[2]));
@@ -172,6 +175,7 @@ namespace Offr.Tests
                 EndByText = null,
                 EndBy = null
             };
+            raw.Tags.Add(new Tag(TagType.group, "ooooby"));
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, "garden_supplies")); 
@@ -194,6 +198,7 @@ namespace Offr.Tests
                 EndByText = null,
                 EndBy = null
             };
+            raw.Tags.Add(new Tag(TagType.group, "ooooby"));
             raw.Tags.Add(new Tag(TagType.type, "free"));
             raw.Tags.Add(new Tag(TagType.type, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[4]));
@@ -216,6 +221,7 @@ namespace Offr.Tests
                 EndByText = null,
                 EndBy = null
             };
+            raw.Tags.Add(new Tag(TagType.group, "ooooby"));
             raw.Tags.Add(new Tag(TagType.type, "cash"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[5]));
             foreach (ITag locationTag in Location2.Tags)

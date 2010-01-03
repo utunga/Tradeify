@@ -46,7 +46,7 @@ namespace Offr.Demo
             _tags = new TagList();
         }
 
-        public MockRawMessage(string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, DateTime dateTimeUTC)
+        public MockRawMessage(string sourceText, IMessagePointer messagePointer, IUserPointer createdBy, DateTime dateTimeUTC) : this()
         {
             Text = sourceText;
             Pointer = messagePointer;
@@ -81,7 +81,10 @@ namespace Offr.Demo
                 builder.Append("#").Append(tag.Text).Append(" ");
             }
             builder.Append(this.OfferText).Append(" ");
-            builder.Append("in l:").Append(Location.Address).Append(": ");
+            if (Location != null)
+            {
+                builder.Append("in l:").Append(Location.Address).Append(": ");
+            }
             builder.Append("for ");
             foreach (ITag tag in _tags.TagsOfType(TagType.type))
             {

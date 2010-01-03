@@ -28,7 +28,7 @@ function Tags() {
     }
     
     this.add_tag = function(text) {
-        this.add_tag_with_type("tag", text);   
+        this.add_tag_type("tag", text);   
     }
     
     this.remove_tag = function(text) {

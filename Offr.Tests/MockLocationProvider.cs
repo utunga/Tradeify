@@ -1009,8 +1009,9 @@ namespace Offr.Tests
               }
               catch (KeyNotFoundException)
               {
-                  Console.Write("Had to get Address from Google: \n"+addressText);
                   resultSet = GetResultSet(addressText);
+                  Console.WriteLine("Mock location provider had to request address from Google for: \n" + addressText + "\n should've been found in hard coded location lookups to point to:" + resultSet);
+
               }
               return GetNewLocation(addressText, scopeLocation, resultSet);
           }

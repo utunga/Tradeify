@@ -56,7 +56,7 @@ function update_offers(json_url) {
     var json_url=build_search_query("http://tradeify.org/offers_json.aspx"); //?jsoncallback=?
     $.getJSON(json_url, function(data) {
         offersJson=data;
-        $('#results_by_date').render(data, offers_render_fn);
+        $('#results_by_date .template').render(data, offers_render_fn);
     });
 }
 
@@ -109,53 +109,6 @@ function build_search_query(baseUrl) {
     return baseUrl + "?" + query+"&jsoncallback=?";
 }
  
-    
-/* ------------------------------
-     sending data from form
-   ------------------------------*/
-   
-function onGetData(data) {
-    var message=$("#message_to_send").val();
-//    alert("in my form "+message);
-    var viewer = data.get('viewer').getData();
-    var viewerJson= gadgets.json.stringify(viewer);
-    var name = viewer.getDisplayName();
-    var thumbnail= viewer.getField(opensocial.Person.Field.THUMBNAIL_URL,null);
-    var profileUrl = viewer.getField(opensocial.Person.Field.PROFILE_URL,null);
-
-//  alert("display name: "+ name);  
-
-    //not sure if we need/want this approach or not
-    var dataPacket = {};
-    dataPacket.Message = message;
-    dataPacket.User = viewer;
-    var dataPacketJSON = gadgets.json.stringify(dataPacket);
-    
-    var mes = {
-        message:message,
-        username:name,
-        thumbnail:thumbnail,
-        namespace:"ooooby", //FIXME
-        profileurl:profileUrl,
-        DataPacket:dataPacketJSON
-    };
-    makeRequest("http://tradeify.org/accept_post.aspx",mes);
-} 
-
-function sendData(){
-    var req = opensocial.newDataRequest();
-    req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
-    req.send(onGetData);
-}
-
-function makeRequest(url, postdata) {
-    var params = {};
-    postdata = gadgets.io.encodeValues(postdata);
-    params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-    params[gadgets.io.RequestParameters.POST_DATA]= postdata;
-    var response=-1;
-    gadgets.io.makeRequest(url,response , params);
-}
 
 
 /* ------------------------------
@@ -333,7 +286,7 @@ function build_tags_query(baseUrl) {
        /* form support for styling */
 	   
 $(function() {
-    /* Bind  functions for handling css class to jQuery events */
+    /* Bind  functions for handling css jquery-ui class to jQuery events */
     $(".ui-state-default:not(.ui-state-disabled)").live("mouseover", function() {
         $(this).addClass("ui-state-hover");
     });

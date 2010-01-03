@@ -36,8 +36,6 @@ namespace Offr.Location
             return Parse(addressText, null);
         }
 
-        
-
         public ILocation ParseFromApproxText(string address)
         {
             //search for a location then trim the array one word at a time

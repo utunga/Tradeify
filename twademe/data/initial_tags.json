@@ -5,17 +5,14 @@
   "cash": {
     "type": "cash"
   },
-  "cash only": {
-    "type": "cash only"
+  "swap": {
+    "type": "swap"
   },
-  "etc": {
-    "msg_type": "etc"
+  "cash_only": {
+    "type": "cash_only"
   },
   "free": {
     "type": "free"
-  },
-  "freecycle": {
-    "group": "freecycle"
   },
   "nzd": {
     "type": "nzd"
@@ -26,8 +23,14 @@
   "offr_test": {
     "msg_type": "offr_test"
   },
+  "oooobywaiheke": {
+    "group": "oooobywaiheke"
+  },
   "ooooby": {
     "group": "ooooby"
+  },
+  "freecycle": {
+    "group": "freecycle"
   },
   "recipient_feedback": {
     "msg_type": "recipient_feedback"

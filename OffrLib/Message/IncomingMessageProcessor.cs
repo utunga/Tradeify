@@ -49,7 +49,7 @@ namespace Offr.Message
                 }
                 else
                 {
-                    _log.Info("Rejected invalid message:" + ValidationFailureString( message.ValidationFailReasons()));
+                    _log.Info("Rejected invalid message:" + Util.ConcatStringArray(message.ValidationFailReasons()) + " \"" + message + "\"");
                 }
             }
             Notify(parsedMessages);
@@ -74,21 +74,9 @@ namespace Offr.Message
                 }
                 else
                 {
-                    _log.Info("Rejected invalid message:" + ValidationFailureString(parsedMessage.ValidationFailReasons()));
+                    _log.Info("Rejected invalid message:" + Util.ConcatStringArray(parsedMessage.ValidationFailReasons()));
                 }
             }
-        }
-
-        //FIXME is this method necessary now that the IEnumerable is a string array? (leave it in just ni case)
-        private static string ValidationFailureString(IEnumerable<string> reasons)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (string reason in reasons)
-            {
-                sb.Append(reason.ToString());
-                sb.Append(",");
-            }
-            return sb.ToString();
         }
     }
 
