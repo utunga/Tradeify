@@ -148,7 +148,6 @@ $(document).ready(function() {
 	});
   
 	compile_render_functions();
-	update_offers();
 	update_tags(); //preload some tags
 	$("#by_parts input").keyup(update_offer);
 	$("#by_parts textarea").keyup(update_offer);
@@ -169,7 +168,7 @@ $(document).ready(function() {
 	
 	current_tags = new Tags();
 	current_tags.tag_click( function() {
-		var tag = current_tags.find_tag(this.text);
+		var tag = current_tags.find_tag($(this).text());
 		if (tag.text=="ooooby") return false; // don't allow removal of this tag
 		current_tags.remove_tag(tag.text);
 		update_offers();	
@@ -177,6 +176,7 @@ $(document).ready(function() {
 	});
 	current_tags.target_selector="#current_tags";
 	current_tags.add_tag_type("group", "ooooby", false);
+	update_offers();
 	
 	$("#post_your_own_form #until").datepicker(
 			{minDate:0,

@@ -20,10 +20,11 @@ String.prototype.rtrim = function() {
 /* ------------------------------
      rendering of widget 
    ------------------------------*/
-
+var offers_uri = "http://tradeify.org/offers_json.aspx";
 var offersJson=-1; 
 var selected_tags=new Array(); 
 var offers_render_fn;
+var current_tags;
 
 function compile_render_functions() {
     
@@ -37,7 +38,7 @@ function compile_render_functions() {
                 '.msg a.more_info_link@href': 'offer.more_info_url',
                 'span.tags': {
                     'tag <- offer.tags' : {
-                        'a@onclick': 'return add_filter(#{tag.type}, #{tag.tag});',
+                        'a@onclick': 'return add_filter("#{tag.type}", "#{tag.tag}");',
                         'a': 'tag.tag'
                         }
                 },
@@ -50,17 +51,21 @@ function compile_render_functions() {
     offers_render_fn = $('#results_by_date .template').compile(offers_directives);
 }
           
-function update_offers(json_url) {
-    //var json_url = current_tags.decorate_url("http://tradeify.org/offers_json.aspx");
+function update_offers() {
+    var json_url = current_tags.decorate_url(container.offers_uri);
     //json_url = json_url + "&jsoncallback=?";
-    var json_url=build_search_query("http://tradeify.org/offers_json.aspx"); //?jsoncallback=?
+    //var json_urla=build_search_query(container.offers_uri); //?jsoncallback=?
+    //alert("json_urla,json_url:"+ json_urla +"," + json_url);
     $.getJSON(json_url, function(data) {
         offersJson=data;
         $('#results_by_date .template').render(data, offers_render_fn);
     });
 }
 
-
+function add_filter(tag_type, tag_text) {
+    current_tags.add_tag_type(tag_type,tag_text);
+    update_offers();
+}
 /* ------------------------------
      search
    ------------------------------*/
@@ -238,10 +243,9 @@ function update_tags() {
 		return "#" + this;
 	}).get().join(", ");
 
-   
 	$("#selected_tags").html(selectedTagsHTML);
 	
-	var json_url = build_tags_query("http://tradeify.org/tags_json.aspx");
+	var json_url = build_tags_query(container.tags_uri);
 	$.getJSON(json_url, function(context) {
 		tags = context.tags_json.overall;
 		var tagString = "";

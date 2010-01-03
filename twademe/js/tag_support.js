@@ -92,9 +92,9 @@ function Tags() {
     
     this.decorate_url = function(baseUrl) {
         var query = $(this.tags).map(function() {
-            return this.type + "=" + escape(this.tag);
+            return this.type + "=" + escape(this.text);
         }).get().join("&");
-        return baseUrl + "?" + query;
+        return baseUrl + "?" + query + "&jsoncallback=?";
     }
 
     this.get_html = function() {

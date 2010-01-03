@@ -88,7 +88,8 @@ namespace Offr.Json
                                 {
                                     tags.Add(new Dictionary<string, object>()
                                                  {
-                                                     {"tag", tag.Text}
+                                                     {"tag", tag.Text},
+                                                     {"type", tag.Type.ToString()}
                                                  });
                                 }
                             }

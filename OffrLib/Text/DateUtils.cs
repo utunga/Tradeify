@@ -17,9 +17,13 @@ namespace Offr.Text
 
         public static string FriendlyLocalTimeStampFromUTC(DateTime utcDateTime)
         {
+            #if DEBUG 
             // holding 'now' constant during testing (and lifetime of this method excution)
             DateTime now = TestingNow ?? DateTime.Now;
-            
+            #else
+            DateTime now = DateTime.Now;
+            #endif
+
             // localTime is actually 'server local time' of course..
             DateTime localTime = utcDateTime.ToLocalTime();
             TimeSpan timeSince = TimeSpan.FromTicks(now.Ticks -localTime.Ticks);
