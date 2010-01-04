@@ -19,7 +19,10 @@ function OSocialContainer() {
          sending data from form
        ------------------------------*/
 
-    this.postMessage = function(message) {
+    this.post_message = function(message) {
+    
+        callback = (arguments.length>1) ? arguments[1] : function() {}
+        
         var message = message;
         var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
@@ -45,17 +48,16 @@ function OSocialContainer() {
                 profileurl:profileUrl,
                 DataPacket:dataPacketJSON
             };
-            this.postToURL(this.accept_post_url,message_data);
+            this.postToURL(this.accept_post_url,callback,message_data);
         });
     }
 
-    this.postToURL = function(url, postdata) {
+    this.postToURL = function(url, callback, postdata) {
         var params = {};
         postdata = gadgets.io.encodeValues(postdata);
         params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
         params[gadgets.io.RequestParameters.POST_DATA]= postdata;
-        var response=-1;
-        gadgets.io.makeRequest(url,response , params);
+        gadgets.io.makeRequest(url,callback,params);
     }
 }
 

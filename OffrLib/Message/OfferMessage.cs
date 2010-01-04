@@ -15,7 +15,7 @@ namespace Offr.Message
     public class OfferMessage : BaseMessage, IOfferMessage, IEquatable<OfferMessage>
     {
         #region fields
-        public static string HASHTAG = "#" + MessageType.offr_test;
+        public static string HASHTAG = "#" + MessageType.offr;
 
         public string OfferText { get; set; }
 
@@ -44,7 +44,7 @@ namespace Offr.Message
 
         protected override MessageType ExpectedMessageType
         {
-            get { return MessageType.offr_test; }
+            get { return MessageType.offr; }
         }
        
         public string Thumbnail

@@ -37,27 +37,9 @@ namespace Offr.Json
                     Dictionary<string, object> dict;
                     switch(msg.MessageType)
                     {
-                        case MessageType.offr_test:
                         case MessageType.offr:
                             OfferMessage offer = (OfferMessage) msg;
-                            /* A dictionary is made up of:
-                             * "offer_text"
-                             * "more_info_url"
-                             *"date"
-                             * A User:A dictionary also contains a userDict which has a
-                             *      "screen_name"
-                             *          and if the offer is created by an enhanced user
-                             *          more_info_url"
-                             *          "ratings_pos_count"
-                             *          "ratings_neg_count
-                             *          "ratings_inc_count"
-                             * A tags: A dictionary also contains a list of tags that arent locations or msg types
-                             * 
-                             * After you are done with each dictionary add it to your message list 
-                             * 
-                             * Once you are done with the message list add it to a new dictionary under the key messages
-                             */
-
+          
                             dict = new Dictionary<string, object>() {
                                                                         {"offer_text", TruncateSourceText(offer)}, 
                                                                         {"more_info_url", offer.MoreInfoURL},
@@ -74,17 +56,13 @@ namespace Offr.Json
                                 userDict.Add("more_info_url", ((IEnhancedUserPointer)offer.CreatedBy).MoreInfoUrl);
                                 string pic = offer.Thumbnail ?? ((IEnhancedUserPointer)offer.CreatedBy).ProfilePicUrl;
                                 userDict.Add("profile_pic_url", pic);
-                                //userDict.Add("ratings_pos_count", FAKE_POS_COUNT);
-                                //userDict.Add("ratings_neg_count", FAKE_NEG_COUNT);
-                                //userDict.Add("ratings_inc_count", FAKE_INC_COUNT);
                             }
                             dict.Add("user", userDict);
 
                             List<Dictionary<string, object>> tags = new List<Dictionary<string, object>>();
                             foreach (ITag tag in offer.Tags)
                             {
-                                if ((tag.Type != TagType.msg_type) &&
-                                    (tag.Type != TagType.loc))
+                                if ((tag.Type != TagType.msg_type))
                                 {
                                     tags.Add(new Dictionary<string, object>()
                                                  {

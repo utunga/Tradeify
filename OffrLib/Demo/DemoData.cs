@@ -23,11 +23,13 @@ namespace Offr.Demo
         static DemoData()
         {
 
-            TwitterUserPointer User1 = new TwitterUserPointer("twollar_test_1");
-            User1.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg";
+            IUserPointer User1 = new OpenSocialUserPointer("ooooby", "just_a_test",
+             "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
+             "");
 
-            TwitterUserPointer User0 = new TwitterUserPointer("twooooby");
-            User0.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg";
+            IUserPointer User0 = new OpenSocialUserPointer("ooooby", "just_a_test",
+            "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+             "");
 
             //---- set up the raw messages
             RawMessages = new List<IRawMessage>();

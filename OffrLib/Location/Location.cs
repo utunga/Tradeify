@@ -5,6 +5,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using Offr.Json;
 using Offr.Json.Converter;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Location
@@ -193,18 +194,29 @@ namespace Offr.Location
 
         private static void AddTags(string countryName, Location loc, string countryCode, string region, string localityName)
         {
+            ITagRepository tagRepository = Global.Kernel.Get<ITagRepository>();
+
             if (!string.IsNullOrEmpty(countryName))
-                loc.Tags.Add(new Tag(TagType.loc, countryName));
+            {
+                ITag tag = tagRepository.GetAndAddTagIfAbsent(countryName, TagType.loc);
+                loc.Tags.Add(tag);
+            }
 
             //Dont add Country code for now
-           /* if (!string.IsNullOrEmpty(countryCode))
-                loc.Tags.Add(new Tag(TagType.loc, countryCode));*/
-            
+            /* if (!string.IsNullOrEmpty(countryCode))
+                 loc.Tags.Add(new Tag(TagType.loc, countryCode));*/
+
             if (!string.IsNullOrEmpty(region))
-                loc.Tags.Add(new Tag(TagType.loc, region));
-            
+            {
+                ITag tag = tagRepository.GetAndAddTagIfAbsent(region, TagType.loc);
+                loc.Tags.Add(tag);
+            }
+
             if (!string.IsNullOrEmpty(localityName))
-                loc.Tags.Add(new Tag(TagType.loc, localityName));
+            {
+                ITag tag = tagRepository.GetAndAddTagIfAbsent(localityName, TagType.loc);
+                loc.Tags.Add(tag);
+            }
         }
 
         #endregion

@@ -20,9 +20,9 @@ a:active {
 #results_by_date .offer 
 {
 	border-bottom:1px solid #C7CCC5;
-	min-height:78px;
+	min-height:85px;
 	padding-bottom:5px;
-	padding-top:18px;
+	padding-top:1px;
 	position:relative;
 }
 
@@ -239,12 +239,17 @@ span.on
 {
 	outline: 0;
 	margin: 0 0 0 0;
-	padding: .1em .2em;
+	padding: 0 2px 0 2px;
 	text-decoration: none !important;
 	cursor: pointer;
 	position: relative;
 	text-align: center;
 	zoom: 1;
+}
+
+a.fg-button:hover
+{
+	text-decoration:underline;
 }
 
 .fg-button .ui-icon

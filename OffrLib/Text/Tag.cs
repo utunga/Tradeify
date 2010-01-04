@@ -41,6 +41,7 @@ namespace Offr.Text
 
         /// <summary>
         /// Immutable type - you can't change a tag once its created, you have to add/remove a new one
+        /// FIXME: should be internal
         /// </summary>
         public Tag(TagType type, string tagText)
         {

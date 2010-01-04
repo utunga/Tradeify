@@ -8,5 +8,6 @@ namespace Offr.Location
     public interface ILocationProvider
     {
         ILocation Parse(string locationSource);
+        ILocation ParseFromApproxText(string address);
     }
 }

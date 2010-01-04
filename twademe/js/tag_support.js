@@ -1,52 +1,42 @@
-// JScript source code
+
+/* ------------------------------
+     couple useful bits and pieces  
+   ------------------------------*/
+   
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/g,"");
+}
+String.prototype.ltrim = function() {
+	return this.replace(/^\s+/,"");
+}
+String.prototype.rtrim = function() {
+	return this.replace(/\s+$/,"");
+}
+
+//define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
+if (!console) {
+        var console = {}
+    console.log = function(text) {
+        return; //ie do nothing
+    }
+}
+
 
 function Tag() {
     this.text = "";
     this.type = "tag";
     this.active = false;
+    this.fixed = false;
 }
 
-function Tags() {
+function Tags(target_selector) {
 
+    if (!(this instanceof arguments.callee)) 
+        return new Tags(target_selector); //ensure context even if someone forgets to create via 'new'
+        
     this.tags = [];
-    this.target_selector;
+    this.target_selector = target_selector;
 
-    this.add_tag_type_active = function(type, text, active) 
-    {
-        var tag = new Tag();
-        tag.type = type;
-        tag.text = text;
-        tag.active = active;
-        this.tags.push(tag);
-        this.update_view();
-    }
-    
-    this.add_tag_type = function(type, text) 
-    {
-        this.add_tag_type_active(type, text, true);
-        this.update_view();   
-    }
-    
-    this.add_tag = function(text) {
-        this.add_tag_type("tag", text);   
-    }
-    
-    this.remove_tag = function(text) {
-        var found_tag_to_remove = false;
-        var tmp = []; 
-        $.each(this.tags, function() {
-            if (text != this.text) {
-                tmp.push(this);
-            }
-            else {
-                found_tag_to_remove = true;
-            }
-        });
-        this.tags = tmp;
-        this.update_view();
-        return found_tag_to_remove;
-    }
-    
     this.find_tag = function(text) {
         var found_tag = null;
          $.each(this.tags, function() {
@@ -55,6 +45,75 @@ function Tags() {
             }
         });
         return found_tag;
+    }
+    
+    this.add_tag = function(text) 
+    {
+        if (!!this.find_tag(text)) {
+            console.log("refuse to add tag " + text + " as it already exists");
+            return;
+        }
+        
+        var type = (arguments.length>1) ? arguments[1] : "tag";
+        var active = (arguments.length>2) ? arguments[2] : false;
+      
+        var tag = new Tag();
+        tag.type = type;
+        tag.text = text;
+        tag.active = active;
+        this.tags.push(tag);
+        this.update_view();
+        return tag;
+    }
+    
+    // a fixed tag can't be removed by 'normal' add/remove operations
+    // you have to call explicit 'remove_fixed_tag' operation
+    this.add_fixed_tag = function(text) 
+    {
+        var existing = this.find_tag(text);
+        if (!!existing) {
+            existing.fixed = true;
+            return existing;
+        }
+        else {
+            var new_tag = this.add_tag.apply(this,arguments);
+            new_tag.fixed = true;
+            return new_tag;
+        }
+    }
+     
+    this.remove_tag = function(text) {
+        text = text.trim();
+        var found_tag_to_remove = false;
+        var tmp = []; 
+        //removes all instances of tags with this text (in the case there is more than one)
+        $.each(this.tags, function() {
+            if (text != this.text) {
+                tmp.push(this);
+            }
+            else {
+                if (this.fixed) 
+                {
+                    console.log("won't remove fixed tag " + text);
+                     tmp.push(this);
+                }
+                else 
+                {
+                    found_tag_to_remove = true;
+                }
+            }
+        });
+        this.tags = tmp;
+        this.update_view();
+        return found_tag_to_remove;
+    }
+     
+    this.remove_fixed_tag = function(text) {
+        var existing = this.find_tag(text)
+        if (!!existing) {
+            existing.fixed = false;
+        }
+        this.remove_tag.apply(arguments);
     }
 
     this._tag_click_ref = function () {
@@ -102,14 +161,20 @@ function Tags() {
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";
         $.each(this.tags, function() {
         	
-	        var ui_state_class = (this.active) ?  "ui-state-active" : "ui-state-default";
+	        var ui_state_class = (this.active) ?  "ui-state-active" : "";
 	        var ui_icon_class;
 	        switch(this.type) {
 	            case("group"):
 	                ui_icon_class = "ui-icon-person";
 	                break;
+	              case("loc"):
+                    //FIXME the icon here is not great - a map would be beter
+                    // eg http://famfamfam.com/lab/icons/mini/icons/page_url.gif
+	                ui_icon_class = "ui-icon-image";
+	                break;
 	            case("type"):
-	                ui_icon_class = "ui-icon-currency";
+	                //FIXME created the icon 'ui-icon-currency' but has bad jaggies so use this for now
+	                ui_icon_class = "ui-icon-transfer-e-w";
 	                break;
 	            default:
 	                ui_icon_class = "ui-icon-tag";

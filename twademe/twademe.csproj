@@ -206,7 +206,6 @@
     <Content Include="masters\site.Master" />
     <Content Include="oauth\oauth_fail.aspx" />
     <Content Include="offers_json.aspx" />
-    <Content Include="test\tag_selector.html" />
     <Content Include="tradeify_json.aspx" />
   </ItemGroup>
   <ItemGroup>

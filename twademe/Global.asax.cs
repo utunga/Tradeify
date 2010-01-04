@@ -81,7 +81,7 @@ namespace twademe
             }
 
             PersistanceService.Start(this);
-            //RawMessagePollingService.Start(this);
+            RawMessagePollingService.Start(this);
         }
 
         protected void Session_Start(object sender, EventArgs e)

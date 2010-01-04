@@ -45,6 +45,8 @@ namespace Offr.Message
                 foreach (ITag s in location.Tags)
                 {
                     msg.AddTag(s);
+
+
                 }
             }
             msg.OfferText = sourceText;
@@ -62,36 +64,50 @@ namespace Offr.Message
         // 3. add 'location' tags to the message for all the tags in the location
         private ILocation ParseLocation(string sourceText)
         {
+            ILocation result = null;
+
             //Look for 'l:' followed by one or more of any character except ':' followed by ':'
             Regex re = new Regex("[ l| L]:([^:]+):", RegexOptions.IgnoreCase);
-            Match match = re.Match(sourceText);
-            if (match.Groups.Count > 1)
+            Match matchStrictL = re.Match(sourceText);
+            if (matchStrictL.Groups.Count > 1)
             {
                 //grab the first part of the address
-                string address = match.Groups[1].Value;
-                return _locationProvider.Parse(address);
+                string address = matchStrictL.Groups[1].Value;
+                result = _locationProvider.Parse(address);
             }
 
-            GoogleLocationProvider locationProvider = _locationProvider as GoogleLocationProvider;
+            if (result!=null) return result;
 
             Regex reOpenEnd = new Regex("(( l:| L:)([^:]+))", RegexOptions.IgnoreCase);
             Match matchOpenEnd = reOpenEnd.Match(sourceText);
             if (matchOpenEnd.Groups.Count > 1)
             {
-                string afterL = match.Groups[3].Value;
+                string afterL = matchOpenEnd.Groups[3].Value;
                 string address = afterL;
-                return locationProvider.ParseFromApproxText(address);
+                result = _locationProvider.ParseFromApproxText(address);
             }
 
-            Regex reIn = new Regex(" in .*$$", RegexOptions.IgnoreCase);
+            if (result != null) return result;
+            //in  bounded by "."    
+            Regex reIn = new Regex(" in (.*)\\.", RegexOptions.IgnoreCase);
             Match matchIn = reIn.Match(sourceText);
             if (matchIn.Groups.Count >= 1)
             {
-                string afterL = match.Groups[0].Value;
-                string address = afterL;
-                address = address.TrimStart(" in ".ToCharArray());
-                return locationProvider.ParseFromApproxText(address);
+                string afterL = matchIn.Groups[1].Value;
+                //string address = afterL;
+                //address = address.TrimStart(" in ".ToCharArray());
+                result = _locationProvider.ParseFromApproxText(afterL);
             }
+            if (result != null) return result;
+
+            Regex reOpenIn = new Regex(" in (.*)", RegexOptions.IgnoreCase);
+            Match matchOpenIn = reOpenIn.Match(sourceText);
+            if (matchOpenIn.Groups.Count >= 1)
+            {
+                string afterL = matchOpenIn.Groups[1].Value;
+                result = _locationProvider.ParseFromApproxText(afterL);
+            }
+            if (result != null) return result;
 
             // didn't find any location
             return null;

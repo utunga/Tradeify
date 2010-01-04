@@ -18,19 +18,14 @@ namespace Offr.Location
         public const string GOOGLE_API_KEY= "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}";
 
-        private MessageType _forType;
-        private readonly List<IRawMessageReceiver> _receivers;
+       private readonly List<IRawMessageReceiver> _receivers;
 
-        public GoogleLocationProvider(MessageType forType)
+        public GoogleLocationProvider()
         {
-            _forType = forType;
             _receivers = new List<IRawMessageReceiver>();
             LocationRepository=new LocationRepository();
         }
         
-        public GoogleLocationProvider()
-            : this(MessageType.offr_test){}
-
         public virtual ILocation Parse(string addressText)
         {
             return Parse(addressText, null);

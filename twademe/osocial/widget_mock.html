@@ -18,18 +18,19 @@
 <div id="results_by_date">
     <span class="template">
         <div class="offer">
-            <a href="user_uri" class="avatar"><img src="user_thumb" width="16" height="16" alt="username"/></a>
-            <a href="user_uri" class="username"></a>
-            <p class="msg">
-                <span class="text"></span><br/>
-                <span class="tags">
-                    <span class="tag"><a href="#" onclick=""></a>, </span>
-                </span>
-                <a class="more_info_link" href="more_info_uri">more info &gt;&gt;</a>
-            </p>
-            <div class="meta">
-                <a class="when" href="source_uri">Today, 10:50 am</a>
-            </div>
+            <a href="#" class="offer_overall"><span>
+                <a href="user_uri" class="avatar"><img src="user_thumb" width="16" height="16" alt="username"/></a>
+                <a href="user_uri" class="username"></a>
+                <p class="msg">
+                    <span class="text"></span><br/>
+                    <span class="tags">
+                        <span class="tag"><a href="#" onclick=""></a>, </span>
+                    </span>
+                </p>
+                <div class="meta">
+                    <a class="when" href="source_uri">Today, 10:50 am</a>
+                </div>
+            </span></a>
         </div>
     </span>
 </div>
@@ -119,10 +120,10 @@
 <!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
 <![endif]-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+--><!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
 <!-- google maps API v3 doesn't need an API key! -->
-<!--<script type="text/javascript" src="../js/jquery-1.3.2.js"/></script>-->
+<script type="text/javascript" src="../js/jquery-1.3.2.js"/></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript" src="../js/jquery.tools.min.js"></script>
@@ -139,43 +140,38 @@ $(document).ready(function() {
 
     // adjusts height in ning, does nothing in test
     container.adjustHeight(3000);
-	
-	$(".offer tags tag").click(function() {
-										
-	var tag = current_tags.add_tag(this.text);
-		update_offers();	
-		return false;	
-	});
-  
 	compile_render_functions();
 	update_tags(); //preload some tags
-	$("#by_parts input").keyup(update_offer);
+	
+	$(".offer tags tag").click(function() {								
+	    var tag = current_tags.add_tag(this.text);
+		    update_offers();	
+		    return false;	
+	    });
+    $("#by_parts input").keyup(update_offer);
 	$("#by_parts textarea").keyup(update_offer);
 	$("#by_parts input").change(update_offer);
 
-	currency_tags = new Tags();
+	currency_tags = new Tags("#currency_tags");
 	currency_tags.tag_click( function() {
 		var tag = currency_tags.find_tag(this.text);
 		tag.active = !tag.active;
 		update_offer();	
 		return false;	
 	});
-	currency_tags.target_selector="#currency_tags";
-	currency_tags.add_tag_type_active("type", "free", false);
-	currency_tags.add_tag_type_active("type", "barter", false);
-	currency_tags.add_tag_type_active("type", "swap", false);
-	currency_tags.add_tag_type_active("type", "nzd", false);
+	currency_tags.add_tag("free", "type", false);
+	currency_tags.add_tag("barter", "type",  false);
+	currency_tags.add_tag("swap", "type", false);
+	currency_tags.add_tag("nzd", "type", false);
 	
 	current_tags = new Tags();
 	current_tags.tag_click( function() {
-		var tag = current_tags.find_tag($(this).text());
-		if (tag.text=="ooooby") return false; // don't allow removal of this tag
-		current_tags.remove_tag(tag.text);
+		current_tags.remove_tag($(this).text());
 		update_offers();	
 		return false;	
 	});
 	current_tags.target_selector="#current_tags";
-	current_tags.add_tag_type("group", "ooooby", false);
+	current_tags.add_fixed_tag("ooooby", "group", false);
 	update_offers();
 	
 	$("#post_your_own_form #until").datepicker(
@@ -187,9 +183,13 @@ $(document).ready(function() {
 	
     $(".send_message").click(function() {
         var message=$("#message_to_send").val();
-        container.postMessage(message);
+        container.post_message(message, function(response_data) {
+            console.log("post_message result:" + response_data);
+            alert("message posted");
+            update_offers();
+        });
         // how long to wait?
-        update_offers();
+       
      });
 	
 	var triggers = $(".open_post").overlay({

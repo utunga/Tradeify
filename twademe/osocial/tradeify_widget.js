@@ -1,20 +1,24 @@
-// JavaScript Document
-
-
-
 /* ------------------------------
      couple useful bits and pieces  
    ------------------------------*/
-   
-String.prototype.trim = function() {
-	return this.replace(/^\s+|\s+$/g,"");
-}
-String.prototype.ltrim = function() {
-	return this.replace(/^\s+/,"");
-}
-String.prototype.rtrim = function() {
-	return this.replace(/\s+$/,"");
-}
+//   
+//String.prototype.trim = function() {
+//	return this.replace(/^\s+|\s+$/g,"");
+//}
+//String.prototype.ltrim = function() {
+//	return this.replace(/^\s+/,"");
+//}
+//String.prototype.rtrim = function() {
+//	return this.replace(/\s+$/,"");
+//}
+
+////define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
+//if (!console) {
+//    var console = {}
+//    console.log = function(text) {
+//        return; //ie do nothing
+//    }
+//}
 
 
 /* ------------------------------
@@ -22,7 +26,7 @@ String.prototype.rtrim = function() {
    ------------------------------*/
 var offers_uri = "http://tradeify.org/offers_json.aspx";
 var offersJson=-1; 
-var selected_tags=new Array(); 
+var search_tags=new Array(); 
 var offers_render_fn;
 var current_tags;
 
@@ -35,7 +39,6 @@ function compile_render_functions() {
                 'a.username': 'offer.user.screen_name',
                 '.avatar img@src': 'offer.user.profile_pic_url',
                 '.msg .text': 'offer.offer_text',
-                '.msg a.more_info_link@href': 'offer.more_info_url',
                 'span.tags': {
                     'tag <- offer.tags' : {
                         'a@onclick': 'return add_filter("#{tag.type}", "#{tag.tag}");',
@@ -63,7 +66,7 @@ function update_offers() {
 }
 
 function add_filter(tag_type, tag_text) {
-    current_tags.add_tag_type(tag_type,tag_text);
+    current_tags.add_tag(tag_text,tag_type);
     update_offers();
 }
 /* ------------------------------
@@ -96,20 +99,20 @@ function search(){
    
 function queryServer(){
     var query=document.forms["search"].searchdata.value;
-    var queryIdx=$.inArray(query,selected_tags);
+    var queryIdx=$.inArray(query,search_tags);
     if(queryIdx!=-1){	
         return;
     }
-    selected_tags.push(query);
+    search_tags.push(query);
     update_offers();
 }
 
 function build_search_query(baseUrl) {
     var query="";
-    for(tag in selected_tags) {
+    for(tag in search_tags) {
         if(query!="")
             query = query + "&";
-        query = query+"tag="+selected_tags[tag];
+        query = query+"tag="+search_tags[tag];
     }
     return baseUrl + "?" + query+"&jsoncallback=?";
 }

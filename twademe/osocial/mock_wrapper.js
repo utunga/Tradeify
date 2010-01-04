@@ -17,8 +17,10 @@ function mock_container() {
         //does nothing in test
     }
     
-    this.postMessage = function(message) {
+    this.post_message = function(message) {
        
+        callback = (arguments.length>1) ? arguments[1] : function() {}
+        
         var name = "utunga";
         var thumbnail= "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1";
         var profileUrl ="http://utunga.ning.com/profile/MilesThompson";
@@ -32,9 +34,7 @@ function mock_container() {
         };
         
         
-        $.post(this.accept_post_url, message_data, function(data) {
-            alert("post:" + data);
-        });
+        $.post(this.accept_post_url, message_data, callback);
     }
 }
 

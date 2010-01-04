@@ -28,6 +28,11 @@ namespace Offr.Text
             get { return ProviderUserName;  }
         }
 
+        //needed for deserialization
+        internal OpenSocialUserPointer()
+        {
+
+        }
         public OpenSocialUserPointer(string nameSpace, string name, string profilePicUrl, string profileUrl)
         {
             ProviderNameSpace = nameSpace;

@@ -8,7 +8,6 @@ namespace Offr.Message
     public enum MessageType
     {
         offr,
-        offr_test,
         takedown,
         wanted,
         recipient_feedback,

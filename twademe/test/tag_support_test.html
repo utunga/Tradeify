@@ -9,18 +9,15 @@
 
 <div>
     <label for="for" class="desc"> Tags </label>
-    <div class="fg-buttonset fg-buttonset-multi">
-        <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
-            <span class="ui-icon ui-icon-tag"></span>barter</a>
-        <a href="#" class="fg-button fg-button-icon-left ui-state-default ui-corner-tag">
-            <span class="ui-icon ui-icon-tag"></span>free</a>
-    </div>
     <div id="tag_test"></div>
+    <div id="tag_suggest"></div>
     <a href="#" onclick="tags.add_tag('test'); return false;">add test</a>  
-    <a href="#" onclick="tags.add_tag_type('group','ooooby');return false;">add ooooby</a>  
-    <a href="#" onclick="tags.add_tag_type('type','free');return false;">add free</a>  
+    <a href="#" onclick="tags.add_tag('ooooby', 'group');return false;">add ooooby</a>  
+    <a href="#" onclick="tags.add_tag('free', 'type', false);return false;">add free</a>  
+    <a href="#" onclick="tags.add_tag('waiheke','loc', false);return false;">add waiheke, inactive</a>  
     <a href="#" onclick="tags.remove_tag('free');return false;">remove free</a>  
-    <a href="#" onclick="tags.remove_tag('ooooby');return false;">remove ooooby</a>  
+    <a href="#" onclick="tags.remove_tag('ooooby');return false;">remove ooooby</a> 
+    <a href="#" onclick="tags.remove_tag('waiheke');return false;">remove waiheke</a>   
 </div>
 
 <script type="text/javascript" src="../js/jquery-1.3.2.js"></script>
@@ -33,12 +30,19 @@
 
 <script type="text/javascript">
 var tags;
-
+var tag_suggest
 $(document).ready(function() {
-
-	tags = new Tags();
-	tags.target_selector = "#tag_test";
+	tags = new Tags("#tag_test");
+	  tags.add_fixed_tag("ooooby", "group");
+	
+	tag_suggest = new Tags("#tag_suggest");
+	tag_suggest.add_tag("pumpkin");
+	tag_suggest.add_tag("free", "type");
+	tag_suggest.add_tag("barter", "type");
+	tag_suggest.add_tag("waiheke", "loc");
 });
+
+
 </script>
 </body>
 </html>
