@@ -9,6 +9,7 @@
   <Content type="html" view="canvas">
     <![CDATA[
  
+
 <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -20,18 +21,19 @@
 <div id="results_by_date">
     <span class="template">
         <div class="offer">
-            <a href="user_uri" class="avatar"><img src="user_thumb" alt="username"/></a>
-            <a href="user_uri" class="username"></a>
-            <p class="msg">
-                <span class="text"></span><br/>
-                <span class="tags">
-                    <span class="tag"><a href="#"></a>, </span>
-                </span>
-                <a class="more_info_link" href="more_info_uri">more info &gt;&gt;</a>
-            </p>
-            <div class="meta">
-                <a class="when" href="source_uri">Today, 10:50 am</a>
-            </div>
+            <a href="#" class="offer_overall"><span>
+                <a href="user_uri" class="avatar"><img src="user_thumb" width="16" height="16" alt="username"/></a>
+                <a href="user_uri" class="username"></a>
+                <p class="msg">
+                    <span class="text"></span><br/>
+                    <span class="tags">
+                        <span class="tag"><a href="#" onclick=""></a>, </span>
+                    </span>
+                </p>
+                <div class="meta">
+                    <a class="when" href="source_uri">Today, 10:50 am</a>
+                </div>
+            </span></a>
         </div>
     </span>
 </div>
@@ -45,7 +47,7 @@
       <fieldset>
         <legend>Your message</legend>	
         <textarea title="" cols="42" rows="6" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
-        <button class="ui-button ui-state-default ui-corner-all" onClick="sendData()">Post</button>
+        <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
        </fieldset>
     </div>
      
@@ -101,7 +103,7 @@
         </div>
         
         <div>
-          <button type="button" class="ui-button ui-state-default ui-corner-all" onclick="sendData()">Post</button>
+          <button type="button" class="send_message ui-button ui-state-default ui-corner-all">Post</button>
 <!--            <button name="cancel" class="close ui-priority-secondary ui-corner-all" value="cancel" >cancel</button>
             <button name="submit" class="ui-priority-primary ui-corner-all" value="done" >done</button>	-->
         </div>
@@ -114,7 +116,7 @@
 
 <div id="myform">
   <textarea type="text" class="ui-state-disabled" name="message" id="message_to_send"></textarea>
-  <button type="button" class="ui-button ui-state-default ui-corner-all" onclick="sendData()">Submit</button>
+  <button type="button" class="send_message ui-button ui-state-default ui-corner-all" >Submit</button>
 </div>
 </div>-->
 
@@ -124,55 +126,55 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
 <!-- google maps API v3 doesn't need an API key! -->
-<!--<script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js"/></script>-->
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>
-<script type="text/javascript" src="http://tradeify.org/js/purePacked.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
 <script type="text/javascript" src="http://tradeify.org/js/tag_support.js"></script>
 <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
+<script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
+
 <script type="text/javascript">
 
 var currency_tags;
 var current_tags;
 $(document).ready(function() {
-	
-  $(".offer tags tag").click(function() {
-    var tag = current_tags.add_tag(this.text);
-		update_offers();	
-		return false;	
-  });
-  
+
+    // adjusts height in ning, does nothing in test
+    container.adjustHeight(3000);
 	compile_render_functions();
-	update_offers();
 	update_tags(); //preload some tags
-	$("#by_parts input").keyup(update_offer);
+	
+	$(".offer tags tag").click(function() {								
+	    var tag = current_tags.add_tag(this.text);
+		    update_offers();	
+		    return false;	
+	    });
+    $("#by_parts input").keyup(update_offer);
 	$("#by_parts textarea").keyup(update_offer);
 	$("#by_parts input").change(update_offer);
 
-	currency_tags = new Tags();
+	currency_tags = new Tags("#currency_tags");
 	currency_tags.tag_click( function() {
 		var tag = currency_tags.find_tag(this.text);
 		tag.active = !tag.active;
 		update_offer();	
 		return false;	
 	});
-	currency_tags.target_selector="#currency_tags";
-	currency_tags.add_tag_type_active("type", "free", false);
-	currency_tags.add_tag_type_active("type", "barter", false);
-	currency_tags.add_tag_type_active("type", "swap", false);
-	currency_tags.add_tag_type_active("type", "nzd", false);
+	currency_tags.add_tag("free", "type", false);
+	currency_tags.add_tag("barter", "type",  false);
+	currency_tags.add_tag("swap", "type", false);
+	currency_tags.add_tag("nzd", "type", false);
 	
 	current_tags = new Tags();
 	current_tags.tag_click( function() {
-		var tag = current_tags.find_tag(this.text);
-		if (tag.text=="ooooby") return false; // don't allow removal of this tag
-		current_tags.remove_tag(tag.text);
+		current_tags.remove_tag($(this).text());
 		update_offers();	
 		return false;	
 	});
 	current_tags.target_selector="#current_tags";
-	current_tags.add_tag_type("group", "ooooby", false);
+	current_tags.add_fixed_tag("ooooby", "group", false);
+	update_offers();
 	
 	$("#post_your_own_form #until").datepicker(
 			{minDate:0,
@@ -181,8 +183,16 @@ $(document).ready(function() {
 			 showOn: "focus"
 			 });
 	
-	gadgets.window.adjustHeight(3000);
-
+    $(".send_message").click(function() {
+        var message=$("#message_to_send").val();
+        container.post_message(message, function(response_data) {
+            console.log("post_message result:" + response_data);
+            alert("message posted");
+            update_offers();
+        });
+        // how long to wait?
+       
+     });
 	
 	var triggers = $(".open_post").overlay({
 	
