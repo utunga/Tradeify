@@ -48,17 +48,16 @@ function OSocialContainer() {
                 profileurl:profileUrl,
                 DataPacket:dataPacketJSON
             };
-            this.postToURL(this.accept_post_url,callback,message_data);
+            
+            var params = {};
+            postdata = gadgets.io.encodeValues(postdata);
+            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+            params[gadgets.io.RequestParameters.POST_DATA]= postdata;
+            gadgets.io.makeRequest(url,callback,params);
+            
         });
     }
 
-    this.postToURL = function(url, callback, postdata) {
-        var params = {};
-        postdata = gadgets.io.encodeValues(postdata);
-        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-        params[gadgets.io.RequestParameters.POST_DATA]= postdata;
-        gadgets.io.makeRequest(url,callback,params);
-    }
 }
 
 var container = new OSocialContainer();
