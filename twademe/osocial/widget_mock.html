@@ -52,7 +52,7 @@
         <legend>Or... use this form</legend>
         <div class="offerPart">
             <label for="offer">I am offering ... </label>
-            <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" ></textarea>
+            <textarea tabindex="0" cols="42" rows="3" type="text" title="What are you offering?" name="offer" class="ui-state-default ui-corner-all" id="offer" ></textarea>
         </div>
         
        <div class="currency">
@@ -62,7 +62,7 @@
         
         <div class="location">
             <label for="location"> in </label>
-            <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location"/>
+            <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" title="Where are you at, roughly? Just type the name and locality here. When the address parses correctly, it will show up in the map below" id="location"/>
             <div id="map_canvas" ></div> <!--map goes here -->
             <div class="infobox"></div>
               <!--  <div class="example"> e.g. &quot;in L:Wellington, NZ&quot; (click to change)</div>-->
@@ -71,7 +71,7 @@
       
         <div class="until">  
             <label for="until" class="desc"> until </label>
-            <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
+            <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" title="When should the offer expire (if ever)"/>
         </div>
                     
         <div class="tags">
@@ -89,14 +89,14 @@
                     </span>
                 </div>
                 <h4>Or type to add more</h4> 
-                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" />
+                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" title="Pick some words to find or categorize your message. Create your own or pick from the list." class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" />
             </blockquote>
         
         </div>
         
         <div class="thumbnail">
             <label for="picture_thumbnail"> Link to picture? </label>
-            <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
+            <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" "If there is a picture already on the web, put a link to it here." name="picture" id="picture" >
         </div>
         
         <div>
