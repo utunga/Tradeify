@@ -43,6 +43,7 @@ namespace Offr.Text
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
+            JSON.WriteProperty(serializer, writer, "type", "OpenSocialUserPointer");
             JSON.WriteProperty(serializer, writer, "provider_user_name", ProviderUserName);
             JSON.WriteProperty(serializer, writer, "provide_name_space", ProviderNameSpace);
             JSON.WriteProperty(serializer, writer, "profile_pic_url", ProfilePicUrl);

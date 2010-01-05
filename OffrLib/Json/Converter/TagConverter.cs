@@ -10,7 +10,7 @@ namespace Offr.Json.Converter
 {
     public class TagConverter : CanJsonConvertor<ITag>
     {
-        public override ITag Create(JsonReader reader)
+        public override ITag Create(JsonReader reader, JsonSerializer serializer)
         {
             return new Tag();
         }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
+using NLog;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
@@ -15,6 +16,8 @@ namespace Offr.Location
     public class GoogleLocationProvider : ILocationProvider
     {
         protected ILocationRepository LocationRepository;
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         public const string GOOGLE_API_KEY= "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}";
 
@@ -85,10 +88,31 @@ namespace Offr.Location
 
         protected GoogleResultSet GetResultSet(string addressText)
         {
-            string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
-            string responseData = WebRequest.RetrieveContent(requestURI);
-            GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
-            return resultSet;
+            try
+            {
+                string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
+                string responseData = WebRequest.RetrieveContent(requestURI);
+                GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
+                return resultSet;
+            }
+            catch (System.Net.WebException ex)
+            {
+                _log.ErrorException("Failure during parsing of address will just return null", ex);
+                GoogleResultSet blankResult = new GoogleResultSet();
+                blankResult.name = addressText;
+                GoogleResultSet.PlacemarkType dummyPlace=new GoogleResultSet.PlacemarkType();
+                dummyPlace.AddressDetails=new GoogleResultSet.PlacemarkType.AddressDetailsType();
+                dummyPlace.AddressDetails.accuracy = "0";
+                dummyPlace.Point=new GoogleResultSet.PlacemarkType.PointType();
+                dummyPlace.Point.coordinates=new decimal[2];
+                dummyPlace.Point.coordinates[0] = 0;
+                dummyPlace.Point.coordinates[1] = 0;
+                blankResult.Placemark= new GoogleResultSet.PlacemarkType[1];
+                blankResult.Placemark[0] = dummyPlace;
+                //FIXME need to introduce an 'error occured' status..
+                //blankResult.Status = GoogleResultSet.StatusType.ERROR;
+                return blankResult;
+            }
         }
        
     }

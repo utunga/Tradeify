@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ namespace Offr.Json.Converter
 {
     public class RawMessageConverter : CanJsonConvertor<IRawMessage>
     {
-        public override IRawMessage Create(JsonReader reader)
+        public override IRawMessage Create(JsonReader reader, JsonSerializer serializer)
         {
             //FIXME1 really, we need to create the right TYPE of RawMessage here
             //       then we can base RawMessage abstract, and mroe to the point

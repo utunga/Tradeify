@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ namespace Offr.Json.Converter
     public class LocationConverter : CanJsonConvertor<ILocation>
     {
 
-        public override ILocation Create(JsonReader reader)
+        public override ILocation Create(JsonReader reader, JsonSerializer serializer)
         {
             return new Location.Location();
         }
