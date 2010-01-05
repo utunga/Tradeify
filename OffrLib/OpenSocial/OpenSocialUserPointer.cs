@@ -8,7 +8,7 @@ using Offr.Users;
 
 namespace Offr.Text
 {
-    public class OpenSocialUserPointer :IEnhancedUserPointer
+    public class OpenSocialUserPointer : IUserPointer,IEnhancedUserPointer
     {
         public string ProviderUserName { get; set; }
 
@@ -28,8 +28,7 @@ namespace Offr.Text
             get { return ProviderUserName;  }
         }
 
-        //needed for deserialization
-        internal OpenSocialUserPointer()
+        public OpenSocialUserPointer()
         {
 
         }

@@ -25,8 +25,9 @@ namespace twademe
             {
                 messageCount = DEFAULT_COUNT;
             }
-
-            SendJSON(GetOffersJson(request, messageCount));
+            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
+            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
+            SendJSON(GetOffersJson(tags, messageCount));
         }
 
         private void SendJSON(string message)
@@ -41,10 +42,8 @@ namespace twademe
             }
         }
 
-        public static string GetOffersJson(NameValueCollection request, int messageCount)
+        public static string GetOffersJson(List<ITag> tags, int messageCount)
         {
-            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
-            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
             IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
             return GetOffersJson(messages, messageCount);

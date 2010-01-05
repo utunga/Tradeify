@@ -55,7 +55,7 @@ function compile_render_functions() {
 }
           
 function update_offers() {
-    var json_url = current_tags.decorate_url(container.offers_uri);
+    var json_url = build_search_query(container.offers_uri);
     //json_url = json_url + "&jsoncallback=?";
     //var json_urla=build_search_query(container.offers_uri); //?jsoncallback=?
     //alert("json_urla,json_url:"+ json_urla +"," + json_url);
@@ -72,7 +72,7 @@ function add_filter(tag_type, tag_text) {
 /* ------------------------------
      search
    ------------------------------*/
-   
+ /*  
 function search(){
     //alert("start searching");
     var tag=$("#search").val();
@@ -94,25 +94,25 @@ function search(){
     offersJson=newMessages;
     //alert("found "+newMessages.length);
     $('#results_by_date').html($p.render('offers_render_fn', newMessages));
-} 	
+} 	*/
     
    
 function queryServer(){
-    var query=document.forms["search"].searchdata.value;
-    var queryIdx=$.inArray(query,search_tags);
+    var query=$("#searchdata").val();
+    /*var queryIdx=$.inArray(query,search_tags);
     if(queryIdx!=-1){	
         return;
-    }
-    search_tags.push(query);
-    update_offers();
+    }*/
+    add_filter("tag",query);
+    //update_offers();
 }
 
 function build_search_query(baseUrl) {
     var query="";
-    for(tag in search_tags) {
+    for(tag in current_tags.tags) {
         if(query!="")
             query = query + "&";
-        query = query+"tag="+search_tags[tag];
+        query = query+"tag="+current_tags.tags[tag].text;
     }
     return baseUrl + "?" + query+"&jsoncallback=?";
 }

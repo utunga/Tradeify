@@ -13,7 +13,7 @@
 <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
-<input type="text" class="ui-state-default ui-corner-all" name="searchdata"/>
+<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>
 
 <div id="current_tags"></div>
