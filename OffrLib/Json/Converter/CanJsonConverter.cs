@@ -23,7 +23,7 @@ namespace Offr.Json.Converter
         /// Creates an object which will then be populated by the serializer.
         /// </summary>
         /// <returns></returns>
-        public abstract T Create(JsonReader reader);
+        public abstract T Create(JsonReader reader, JsonSerializer serializer);
 
         /// <summary>
         /// Writes the JSON representation of the object by calling the WriteJson method on the target
@@ -56,7 +56,7 @@ namespace Offr.Json.Converter
                 return null;
             }
 
-            ICanJson value = Create(reader);
+            ICanJson value = Create(reader, serializer);
             if (value == null)
                 throw new JsonSerializationException("No object created.");
             value.ReadJson(reader, serializer);

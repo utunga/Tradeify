@@ -86,7 +86,7 @@ namespace Offr.Location
             if (googleResultSet.Placemark == null || googleResultSet.Placemark [0]== null) return null;
             // At the moment we are just taking the first result as definitieve
             // We might want to do something about multiple matches to the geo code query 
-            GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0]; 
+            GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0];
             return From(googleResultSet.name, placemark);
         }
         

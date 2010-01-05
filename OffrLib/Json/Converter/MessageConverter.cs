@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ namespace Offr.Json.Converter
 {
     public class MessageConverter : CanJsonConvertor<IMessage>
     {
-        public override IMessage Create(JsonReader reader)
+        public override IMessage Create(JsonReader reader, JsonSerializer serializer)
         {
             return new OfferMessage();
         }

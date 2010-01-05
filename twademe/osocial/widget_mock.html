@@ -10,7 +10,7 @@
 <link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
-<input type="text" class="ui-state-default ui-corner-all" name="searchdata"/>
+<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>
 
 <div id="current_tags"></div>
@@ -138,7 +138,9 @@ var currency_tags;
 var current_tags;
 $(document).ready(function() {
 
+    current_tags = new Tags();
     // adjusts height in ning, does nothing in test
+    
     container.adjustHeight(3000);
 	compile_render_functions();
 	update_tags(); //preload some tags
@@ -164,7 +166,7 @@ $(document).ready(function() {
 	currency_tags.add_tag("swap", "type", false);
 	currency_tags.add_tag("nzd", "type", false);
 	
-	current_tags = new Tags();
+	
 	current_tags.tag_click( function() {
 		current_tags.remove_tag($(this).text());
 		update_offers();	

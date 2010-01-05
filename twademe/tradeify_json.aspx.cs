@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Offr.Repository;
+using Offr.Text;
 
 namespace twademe
 {
@@ -23,11 +25,12 @@ namespace twademe
             {
                 messageCount = DEFAULT_MSG_COUNT;
             }
-
-            string offers = offers_json.GetOffersJson(request, messageCount);
-            string tags = tags_json.GetTagJson(request);
+            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
+            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
+            string offers = offers_json.GetOffersJson(tags, messageCount);
+            string tagString = tags_json.GetTagJson(tags);
             string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
-                            tags + "}";
+                            tagString + "}";
             SendJSON(tradeifyJson);
         }
             

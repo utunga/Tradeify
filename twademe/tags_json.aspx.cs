@@ -32,17 +32,17 @@ namespace twademe
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
-            NameValueCollection collection = Request.QueryString;
-            SendJSON(GetTagJson(collection));
+            NameValueCollection request = Request.QueryString;
+            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
+            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
+            SendJSON(GetTagJson(tags));
         }
 
-        public static string GetTagJson(NameValueCollection request)
+        public static string GetTagJson(List<ITag> tags)
         {
-            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageRepository>();
 
             TagCounts availableTags ;
-            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
 
             if (tags.Count == 0)
             {

@@ -201,8 +201,14 @@ namespace Offr.Tests
             }
         }
         [Test]
-        public void TestMockDataSerialization()
+        public void TestUserInitialiazedCorrectly()
         {
+            TwitterUserPointer original=new TwitterUserPointer();
+            string twitterString = JSON.Serialize(original);
+            Assert.AreEqual(original, JSON.Deserialize<TwitterUserPointer>(twitterString));
+            OpenSocialUserPointer originalOS = new OpenSocialUserPointer();
+            string oSString = JSON.Serialize(originalOS);
+            Assert.AreEqual(originalOS, JSON.Deserialize<OpenSocialUserPointer>(oSString));
             //Moc
         }
     }
