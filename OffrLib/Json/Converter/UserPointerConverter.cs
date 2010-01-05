@@ -16,11 +16,12 @@ namespace Offr.Json.Converter
             //FIXME1need to read into the JSon decide what type of convertor to create
             //return new TwitterUserPointer();
             string type = JSON.ReadProperty<string>(serializer, reader, "type");
+            log.Info("Trying to create object of type: "+ type);
             if (type.Equals("OpenSocialUserPointer"))
                 return new OpenSocialUserPointer();
             else if (type.Equals("TwitterUserPointer") || type.Equals("MockUserPointer"))
                 return new TwitterUserPointer();
-            else return new TwitterUserPointer();//throw new JsonReaderException("Failed to recognize User pointer of type:"+type);
+            throw new JsonReaderException("Failed to recognize User pointer of type:"+type);
         }
     }
 }
