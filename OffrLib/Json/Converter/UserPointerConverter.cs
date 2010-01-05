@@ -20,7 +20,7 @@ namespace Offr.Json.Converter
                 return new OpenSocialUserPointer();
             else if (type.Equals("TwitterUserPointer") || type.Equals("MockUserPointer"))
                 return new TwitterUserPointer();
-            else throw new JsonReaderException();
+            else return new TwitterUserPointer();//throw new JsonReaderException("Failed to recognize User pointer of type:"+type);
         }
     }
 }
