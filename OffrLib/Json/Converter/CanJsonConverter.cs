@@ -5,12 +5,13 @@ using System.Runtime.Serialization;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NLog;
 
 namespace Offr.Json.Converter
 {
     public abstract class CanJsonConvertor<T> : JsonConverter where T:ICanJson
     {
-
+        protected static readonly Logger log = LogManager.GetCurrentClassLogger();
         /// <summary>
         /// CanJsonConvertor can convert any object implementing CanJson
         /// </summary>
