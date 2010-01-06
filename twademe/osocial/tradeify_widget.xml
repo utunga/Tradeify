@@ -138,6 +138,7 @@
 
 var currency_tags;
 var current_tags;
+var container=new mock_container();
 $(document).ready(function() {
 
     // adjusts height in ning, does nothing in test

@@ -4,7 +4,7 @@
     this.tags_uri = "http://tradeify.org/tags_json.aspx";
 
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
-
+    
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
