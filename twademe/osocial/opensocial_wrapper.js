@@ -2,7 +2,7 @@
 
     this.offers_uri = "http://tradeify.org/offers_json.aspx";
     this.tags_uri = "http://tradeify.org/tags_json.aspx";
-
+    this.parse_uri ="http://tradeify.org/parse.aspx";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
     
     this.adjustHeight = function(height) {
@@ -52,6 +52,16 @@
             gadgets.io.makeRequest(url, callback, params);
 
         });
+    }
+    this.parse_message = function(message,callback) {
+        var message_data = {
+            message: message,
+        };
+        var params = {};
+        var postdata = gadgets.io.encodeValues(message_data);
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+        params[gadgets.io.RequestParameters.POST_DATA] = postdata;
+        gadgets.io.makeRequest(this.parse_uri, callback, params);
     }
 
 }

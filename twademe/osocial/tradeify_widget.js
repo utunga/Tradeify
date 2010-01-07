@@ -177,9 +177,17 @@ function update_offer() {
 			 get_imagelink() +
 			 " #ooooby";
     $("#message_to_send").val(concatMessage);
+    //make sure the updated message to send is parsed again
+    parse_offer(concatMessage);
 }
 
 /* tag selection code */
+function parse_offer(message){
+container.parse_message(message,display_results_of_parse_offer);
+}
+function display_results_of_parse_offer(response){
+alert(response);
+}
 
 var selected_tags = [];
 var tags = [];
@@ -187,13 +195,14 @@ var threshold = 200;
 var keyChangeStack=0;
 
 function timeoutKeyChange() {
-	keyChangeStack++;
+ keyup(update_tags,threshold);
+	/*keyChangeStack++;
 	setTimeout(function() {
 		keyChangeStack--;
 		if (keyChangeStack == 0) {
 			update_tags();
 		}
-	}, threshold);
+	}, threshold);*/
 }
 
 function ontag_click() {
@@ -360,7 +369,7 @@ function google_initialize() {
 	//		geo_code_address();
 	//	}
 
-	$(".location  #location").keyup(address_keyup);
+	$(".location  #location").keyup(function(){keyup(geo_code_address,address_keyup_threshold);});
 }
 
 function geo_code_address() {
@@ -395,7 +404,18 @@ function address_keyup() {
 		}
 	}, address_keyup_threshold);
 }
-
+function message_keyup(){
+    keyup(parse_offer,threshold);
+}
+function keyup(fun,threshold) {
+	address_keyup_stack++;
+	setTimeout(function() {
+		address_keyup_stack--;
+		if (address_keyup_stack == 0) {
+			fun();
+		}
+	}, threshold);
+}
 //function address_geocoded(point) {
 //	map.clearOverlays();
 //	if (!point) {
