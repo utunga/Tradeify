@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json", "lib\Newt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Offr.Tests", "Offr.Tests\Offr.Tests.csproj", "{FCA5EA32-593A-4D3B-90EC-9B36D9380C98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffrConsole", "OffrConsole\OffrConsole.csproj", "{56A2A2F3-565B-4A5B-9554-BCC08C900DFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,12 @@ Global
 		{FCA5EA32-593A-4D3B-90EC-9B36D9380C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCA5EA32-593A-4D3B-90EC-9B36D9380C98}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCA5EA32-593A-4D3B-90EC-9B36D9380C98}.Release|x86.ActiveCfg = Release|x86
+		{56A2A2F3-565B-4A5B-9554-BCC08C900DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A2A2F3-565B-4A5B-9554-BCC08C900DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A2A2F3-565B-4A5B-9554-BCC08C900DFF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{56A2A2F3-565B-4A5B-9554-BCC08C900DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A2A2F3-565B-4A5B-9554-BCC08C900DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A2A2F3-565B-4A5B-9554-BCC08C900DFF}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
