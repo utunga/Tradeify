@@ -115,7 +115,7 @@
 <div class="regular" id="main">
 
 <div id="myform">
-  <textarea type="text" class="ui-state-disabled" name="message" id="message_to_send"></textarea>
+  <textarea type="text" class="ui-state-disabled" onkeyup="message_keyup()" name="message" id="message_to_send"></textarea>
   <button type="button" class="send_message ui-button ui-state-default ui-corner-all" >Submit</button>
 </div>
 </div>-->
