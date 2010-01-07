@@ -202,13 +202,14 @@ namespace Offr.Message
  
             _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
             //HACK not sure why this is throwing an exception
-            Timestamp = DateTime.Parse(JSON.ReadProperty<String>(serializer, reader, "timestamp"));
+            //Timestamp = DateTime.Parse(JSON.ReadProperty<string>(serializer, reader, "timestamp"));
+            Timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
 
-             _tags = new TagList(); 
-             _tags.ReadJson(reader, serializer);
+            _tags = new TagList(); 
+            _tags.ReadJson(reader, serializer);
             RawText = JSON.ReadProperty<string>(serializer, reader, "raw_text");
             MessagePointer =JSON.ReadProperty<IMessagePointer>(serializer,reader,"message_pointer");
-            CreatedBy = JSON.ReadProperty<TwitterUserPointer>(serializer, reader, "created_by");
+            CreatedBy = JSON.ReadProperty<IUserPointer>(serializer, reader, "created_by");
         }
         #endregion JSON
 

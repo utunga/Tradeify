@@ -55,3 +55,5 @@
     }
 
 }
+
+var container = new OSocialContainer();

@@ -11,6 +11,7 @@ using Offr.Demo;
 using Offr.Json;
 using Offr.Location;
 using Offr.Message;
+using Offr.OpenSocial;
 using Offr.Query;
 using Offr.Repository;
 using Offr.Text;
@@ -211,5 +212,48 @@ namespace Offr.Tests
             Assert.AreEqual(originalOS, JSON.Deserialize<OpenSocialUserPointer>(oSString));
             //Moc
         }
+        [Test]
+        public void TestDateRoundTrip()
+        {
+            //"2010-01-06T02:05:51.830746Z"
+            //string timestring = "\"2010-01-06T02:05:51.830746Z\"";
+            //string timestring2 = "2010-01-06T02:05:51.830746Z";
+            //DateTime time = DateTime.Parse(timestring2);
+            DateTime time = DateTime.Now;
+            Assert.AreEqual(time, JSON.Deserialize<DateTime>(JSON.Serialize(time)));
+        }
+
+        [Test]
+        public void TestVariableTypeSerialization()
+        {
+
+            MessageRepository messageRepository = new MessageRepository(); // need to keep this seperate so as not to mess up other tests
+            IMessageParser messageParser = new RegexMessageParser(_singletonTagProvider, new MockLocationProvider());
+            IRawMessageReceiver messageReceiver = new IncomingMessageProcessor(messageRepository, messageParser);
+            
+            //add two messages of different types
+            messageReceiver.Notify(DemoData.RawMessages[0]);
+            messageReceiver.Notify(MockData.RawMessages[0]);
+            var openSocialRawMessage = new OpenSocialRawMessage("ooooby", "i have vegetables available in wellington. for #free. #ooooby", "utunga", "", "");
+            messageReceiver.Notify(openSocialRawMessage);
+
+            //serialize out 
+            string tempFileName = "testOffers.json";
+            messageRepository.FilePath = tempFileName;
+            messageRepository.SerializeToFile();
+
+            // ok great now check that we can deserialize
+            messageRepository = new MessageRepository(); // need to keep this seperate so as not to mess up other tests
+            messageRepository.FilePath = tempFileName;
+            messageRepository.InitializeFromFile();
+
+            Assert.AreEqual(messageRepository.MessageCount, 3, "expected to find 3 messages after deserialization");
+
+            //TwitterStatusXml twitterStatus = new TwitterStatusXml();
+            //twitterStatus.CreatedAt = DateUtils.TwitterTimeStampFromUTCDateTime(DateTime.Now);
+            //twitterStatus. = DateUtils.TwitterTimeStampFromUTCDateTime(DateTime.Now);
+           
+        }
+
     }
 }
