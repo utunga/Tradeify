@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -38,12 +39,13 @@ namespace twademe
         {
             Response.ContentType = "application/json";
 
-            Dictionary<string, object> parsedOutput = new Dictionary<string, object>();
+            /*Dictionary<string, object> parsedOutput = new Dictionary<string, object>();
             parsedOutput.Add("message", message);
             List<string> failReasons = new List<string>();
-            parsedOutput.Add("validationFailReasons", message.ValidationFailReasons());
-            string messageJson = JSON.Serialize(parsedOutput);
-           
+            parsedOutput.Add("validationFailReasons", message.ValidationFailReasons());*/
+            string messageJson = "{\"message\":" + JSON.Serialize(message) + ",\"validationFailReasons\":" +
+                  JSON.Serialize(message.ValidationFailReasons()) + "}";//JSON.Serialize(parsedOutput);
+           messageJson = Regex.Replace(messageJson, @"\s", "");
             if (null != Request.Params["jsoncallback"])
             {
                 Response.Write(Request.Params["jsoncallback"] + "(" + messageJson + ")");

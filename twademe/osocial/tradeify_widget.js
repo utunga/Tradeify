@@ -186,7 +186,8 @@ function parse_offer(message){
 container.parse_message(message,display_results_of_parse_offer);
 }
 function display_results_of_parse_offer(response){
-alert(response);
+var reasons=response.validationFailReasons;
+if(reasons.length==0)$(".send_message").attr("disabled","enabled");
 }
 
 var selected_tags = [];
@@ -303,6 +304,8 @@ function build_tags_query(baseUrl) {
 	   
 $(function() {
     /* Bind  functions for handling css jquery-ui class to jQuery events */
+    $(".send_message").attr("disabled","disabled");
+
     $(".ui-state-default:not(.ui-state-disabled)").live("mouseover", function() {
         $(this).addClass("ui-state-hover");
     });
