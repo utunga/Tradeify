@@ -178,16 +178,20 @@ function update_offer() {
 			 " #ooooby";
     $("#message_to_send").val(concatMessage);
     //make sure the updated message to send is parsed again
-    parse_offer(concatMessage);
+    parse_offer();
 }
 
 /* tag selection code */
-function parse_offer(message){
-container.parse_message(message,display_results_of_parse_offer);
+function parse_offer(){
+    container.parse_message($("#message_to_send").val(),display_results_of_parse_offer);
 }
 function display_results_of_parse_offer(response){
-var reasons=response.validationFailReasons;
-if(reasons.length==0)$(".send_message").attr("disabled","enabled");
+    var responseObject= (new Function( "return( " + response + " );" ))();
+    var reasons=responseObject.validationFailReasons;
+    if(reasons.length==0){
+    $(".send_message").removeAttr("disabled");
+    }
+    else $(".send_message").attr("disabled","disabled");
 }
 
 var selected_tags = [];
