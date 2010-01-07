@@ -55,9 +55,9 @@ function compile_render_functions() {
 }
           
 function update_offers() {
-    var json_url = build_search_query(container.offers_uri);
+    var json_url = build_search_query(this.container.offers_uri);
     //json_url = json_url + "&jsoncallback=?";
-    //var json_urla=build_search_query(container.offers_uri); //?jsoncallback=?
+    //var json_urla=build_search_query(this.container.offers_uri); //?jsoncallback=?
     //alert("json_urla,json_url:"+ json_urla +"," + json_url);
     $.getJSON(json_url, function(data) {
         offersJson=data;
@@ -248,7 +248,7 @@ function update_tags() {
 
 	$("#selected_tags").html(selectedTagsHTML);
 	
-	var json_url = build_tags_query(container.tags_uri);
+	var json_url = build_tags_query(this.container.tags_uri);
 	$.getJSON(json_url, function(context) {
 		tags = context.tags_json.overall;
 		var tagString = "";
