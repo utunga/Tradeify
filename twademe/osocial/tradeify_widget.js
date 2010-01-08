@@ -55,9 +55,9 @@ function compile_render_functions() {
 }
           
 function update_offers() {
-    var json_url = build_search_query(container.offers_uri);
+    var json_url = build_search_query(this.container.offers_uri);
     //json_url = json_url + "&jsoncallback=?";
-    //var json_urla=build_search_query(container.offers_uri); //?jsoncallback=?
+    //var json_urla=build_search_query(this.container.offers_uri); //?jsoncallback=?
     //alert("json_urla,json_url:"+ json_urla +"," + json_url);
     $.getJSON(json_url, function(data) {
         offersJson=data;
@@ -168,6 +168,11 @@ function get_imagelink() {
 
 function update_offer() {
 	
+    update_and_dont_parse();
+    //make sure the updated message to send is parsed again
+    parse_offer();
+}
+function update_and_dont_parse() {
     var concatMessage =
              get_offer() +
 			 get_location() + 
@@ -178,8 +183,19 @@ function update_offer() {
 			 " #ooooby";
     $("#message_to_send").val(concatMessage);
 }
-
 /* tag selection code */
+function parse_offer(){
+    container.parse_message($("#message_to_send").val(),display_results_of_parse_offer);
+}
+function display_results_of_parse_offer(response){
+    if(response.charAt(0)=="?")response=response.substr(1);
+    var responseObject= (new Function( "return( " + response + " );" ))();
+    var reasons=responseObject.validationFailReasons;
+    if(reasons.length==0){
+    $(".send_message").removeAttr("disabled");
+    }
+    else $(".send_message").attr("disabled","disabled");
+}
 
 var selected_tags = [];
 var tags = [];
@@ -187,13 +203,14 @@ var threshold = 200;
 var keyChangeStack=0;
 
 function timeoutKeyChange() {
-	keyChangeStack++;
+ keyup(update_tags,threshold);
+	/*keyChangeStack++;
 	setTimeout(function() {
 		keyChangeStack--;
 		if (keyChangeStack == 0) {
 			update_tags();
 		}
-	}, threshold);
+	}, threshold);*/
 }
 
 function ontag_click() {
@@ -209,7 +226,8 @@ function ontag_click() {
 		var replacementText = tagField.replace(pushed_tag, "");
 		$("#tags").val(replacementText);
 	}
-	update_tags(); 
+	update_tags();
+	update_and_dont_parse(); 
 	return false; //disable actual click
 }
 
@@ -238,17 +256,20 @@ function update_tags() {
 	$("#tags").val($("#tags").val().replace(txt, " "));
 	//just in case a single \t or \n is present
 	txt = new RegExp("\\s+");
-	$("#tags").val($("#tags").val().replace(txt, " "));
-	 
-	selected_tags = $("#tags").val().split(" ");
-	
+	//var txt = new RegExp("\\s\\s*"); 
+	var tagString=$("#tags").val().replace(txt, " ").trim();
+	$("#tags").val(tagString);
+	//if(selected_tags.length>0) 
+	if(tagString!=""&&tagString!=" ")
+	selected_tags = tagString.split(" ");
+	else selected_tags=[];
 	var selectedTagsHTML = $(selected_tags).map(function() {
 		return "#" + this;
 	}).get().join(", ");
 
 	$("#selected_tags").html(selectedTagsHTML);
 	
-	var json_url = build_tags_query(container.tags_uri);
+	var json_url = build_tags_query(this.container.tags_uri);
 	$.getJSON(json_url, function(context) {
 		tags = context.tags_json.overall;
 		var tagString = "";
@@ -294,6 +315,8 @@ function build_tags_query(baseUrl) {
 	   
 $(function() {
     /* Bind  functions for handling css jquery-ui class to jQuery events */
+    $(".send_message").attr("disabled","disabled");
+
     $(".ui-state-default:not(.ui-state-disabled)").live("mouseover", function() {
         $(this).addClass("ui-state-hover");
     });
@@ -360,7 +383,7 @@ function google_initialize() {
 	//		geo_code_address();
 	//	}
 
-	$(".location  #location").keyup(address_keyup);
+	$(".location  #location").keyup(function(){keyup(geo_code_address,address_keyup_threshold);});
 }
 
 function geo_code_address() {
@@ -395,7 +418,18 @@ function address_keyup() {
 		}
 	}, address_keyup_threshold);
 }
-
+function message_keyup(){
+    keyup(parse_offer,threshold);
+}
+function keyup(fun,threshold) {
+	address_keyup_stack++;
+	setTimeout(function() {
+		address_keyup_stack--;
+		if (address_keyup_stack == 0) {
+			fun();
+		}
+	}, threshold);
+}
 //function address_geocoded(point) {
 //	map.clearOverlays();
 //	if (!point) {

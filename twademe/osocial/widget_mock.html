@@ -43,7 +43,7 @@
     <div class="rawMessage">	
       <fieldset>
         <legend>Your message</legend>	
-        <textarea title="" cols="42" rows="6" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
+        <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
         <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
        </fieldset>
     </div>
@@ -137,116 +137,115 @@
 var currency_tags;
 var current_tags;
 $(document).ready(function() {
-
     current_tags = new Tags();
     // adjusts height in ning, does nothing in test
-    
-    container.adjustHeight(3000);
-	compile_render_functions();
-	update_tags(); //preload some tags
-	
-	$(".offer tags tag").click(function() {								
-	    var tag = current_tags.add_tag(this.text);
-		    update_offers();	
-		    return false;	
-	    });
-    $("#by_parts input").keyup(update_offer);
-	$("#by_parts textarea").keyup(update_offer);
-	$("#by_parts input").change(update_offer);
 
-	currency_tags = new Tags("#currency_tags");
-	currency_tags.tag_click( function() {
-		var tag = currency_tags.find_tag(this.text);
-		tag.active = !tag.active;
-		update_offer();	
-		return false;	
-	});
-	currency_tags.add_tag("free", "type", false);
-	currency_tags.add_tag("barter", "type",  false);
-	currency_tags.add_tag("swap", "type", false);
-	currency_tags.add_tag("nzd", "type", false);
-	
-	
-	current_tags.tag_click( function() {
-		current_tags.remove_tag($(this).text());
-		update_offers();	
-		return false;	
-	});
-	current_tags.target_selector="#current_tags";
-	current_tags.add_fixed_tag("ooooby", "group", false);
-	update_offers();
-	
-	$("#post_your_own_form #until").datepicker(
-			{minDate:0,
-			 dateFormat: "dd M yy",
-			 constrainInput: true,
-			 showOn: "focus"
-			 });
-	
+    container.adjustHeight(3000);
+    compile_render_functions();
+    update_tags(); //preload some tags
+
+    $(".offer tags tag").click(function() {
+        var tag = current_tags.add_tag(this.text);
+        update_offers();
+        return false;
+    });
+    $("#by_parts input").keyup(update_offer);
+    $("#by_parts textarea").keyup(update_offer);
+    $("#by_parts input").change(update_offer);
+
+    currency_tags = new Tags("#currency_tags");
+    currency_tags.tag_click(function() {
+        var tag = currency_tags.find_tag(this.text);
+        tag.active = !tag.active;
+        update_offer();
+        return false;
+    });
+    currency_tags.add_tag("free", "type", false);
+    currency_tags.add_tag("barter", "type", false);
+    currency_tags.add_tag("swap", "type", false);
+    currency_tags.add_tag("nzd", "type", false);
+
+
+    current_tags.tag_click(function() {
+        current_tags.remove_tag($(this).text());
+        update_offers();
+        return false;
+    });
+    current_tags.target_selector = "#current_tags";
+    current_tags.add_fixed_tag("ooooby", "group", false);
+    update_offers();
+
+    $("#post_your_own_form #until").datepicker(
+			{ minDate: 0,
+			    dateFormat: "dd M yy",
+			    constrainInput: true,
+			    showOn: "focus"
+			});
+
     $(".send_message").click(function() {
-        var message=$("#message_to_send").val();
+        var message = $("#message_to_send").val();
         container.post_message(message, function(response_data) {
             console.log("post_message result:" + response_data);
             alert("message posted");
             update_offers();
         });
         // how long to wait?
-       
-     });
-	
-	var triggers = $(".open_post").overlay({
-	
-		// some expose tweaks suitable for modal dialogs
-		zIndex: 9998,
-		closeOnClick	: false,
-		expose: {
-			zIndex: 9997,
-			color: '#333',
-			loadSpeed: 200,
-			opacity: 0.9,
-			closeOnClick: false
-		}
-	});
-	
-	$("#post_your_own_form form").submit(function(e) {
-	
-		// close the overlay
-		triggers.overlay().close();
-	
-		// get user input
-		var input = $(".rawMessage #message_to_send", this).val();
-	
-		// do something with the answer
-		//triggers.eq(1).html(input);
-		$("#message_to_send").val(input);
-	
-		// do not submit the form
-		return e.preventDefault();
-	});
-    
-    // select all desired input fields and attach tooltips to them 
-    $("#post_your_own_form :input").tooltip({ 
-     
-        // place tooltip on the right edge 
-        position: "center below", 
-     
-        // a little tweaking of the position 
-        offset: [-2, 10], 
-     
-        // use the built-in fadeIn/fadeOut effect 
-        effect: "fade", 
-     
-        // custom opacity setting 
-        opacity: 0.7, 
-     
-        // use this single tooltip element 
-        tip: '.tooltip' 
-     
-    });
-	
-	//$("#post_your_own_form").hide();
 
-	
+    });
+
+    var triggers = $(".open_post").overlay({
+
+        // some expose tweaks suitable for modal dialogs
+        zIndex: 9998,
+        closeOnClick: false,
+        expose: {
+            zIndex: 9997,
+            color: '#333',
+            loadSpeed: 200,
+            opacity: 0.9,
+            closeOnClick: false
+        }
+    });
+
+    $("#post_your_own_form form").submit(function(e) {
+
+        // close the overlay
+        triggers.overlay().close();
+
+        // get user input
+        var input = $(".rawMessage #message_to_send", this).val();
+
+        // do something with the answer
+        //triggers.eq(1).html(input);
+        $("#message_to_send").val(input);
+
+        // do not submit the form
+        return e.preventDefault();
+    });
+
+    // select all desired input fields and attach tooltips to them 
+    $("#post_your_own_form :input").tooltip({
+
+        // place tooltip on the right edge 
+        position: "center below",
+
+        // a little tweaking of the position 
+        offset: [-2, 10],
+
+        // use the built-in fadeIn/fadeOut effect 
+        effect: "fade",
+
+        // custom opacity setting 
+        opacity: 0.7,
+
+        // use this single tooltip element 
+        tip: '.tooltip'
+
+    });
+
+    //$("#post_your_own_form").hide();
+
+
 });
 </script>
 </div>

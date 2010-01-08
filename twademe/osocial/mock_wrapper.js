@@ -9,7 +9,7 @@ function mock_container() {
 
     this.offers_uri = "/offers_json.aspx";
     this.tags_uri = "/tags_json.aspx";
-    
+    this.parse_uri ="/parse.aspx";
     //assumes test is running in local web
     this.accept_post_url = "/accept_post.aspx";
    
@@ -35,6 +35,12 @@ function mock_container() {
         
         
         $.post(this.accept_post_url, message_data, callback);
+    }
+    this.parse_message = function(message,callback) {
+        var message_data = {
+        message: message,
+        };
+        $.post(this.parse_uri,message_data, callback);
     }
 }
 
