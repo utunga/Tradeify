@@ -168,6 +168,11 @@ function get_imagelink() {
 
 function update_offer() {
 	
+    update_and_dont_parse();
+    //make sure the updated message to send is parsed again
+    parse_offer();
+}
+function update_and_dont_parse() {
     var concatMessage =
              get_offer() +
 			 get_location() + 
@@ -177,10 +182,7 @@ function update_offer() {
 			 get_imagelink() +
 			 " #ooooby";
     $("#message_to_send").val(concatMessage);
-    //make sure the updated message to send is parsed again
-    parse_offer();
 }
-
 /* tag selection code */
 function parse_offer(){
     container.parse_message($("#message_to_send").val(),display_results_of_parse_offer);
@@ -223,7 +225,8 @@ function ontag_click() {
 		var replacementText = tagField.replace(pushed_tag, "");
 		$("#tags").val(replacementText);
 	}
-	update_tags(); 
+	update_tags();
+	update_and_dont_parse(); 
 	return false; //disable actual click
 }
 
@@ -252,10 +255,13 @@ function update_tags() {
 	$("#tags").val($("#tags").val().replace(txt, " "));
 	//just in case a single \t or \n is present
 	txt = new RegExp("\\s+");
-	$("#tags").val($("#tags").val().replace(txt, " "));
-	 
-	selected_tags = $("#tags").val().split(" ");
-	
+	//var txt = new RegExp("\\s\\s*"); 
+	var tagString=$("#tags").val().replace(txt, " ").trim();
+	$("#tags").val(tagString);
+	//if(selected_tags.length>0) 
+	if(tagString!=""&&tagString!=" ")
+	selected_tags = tagString.split(" ");
+	else selected_tags=[];
 	var selectedTagsHTML = $(selected_tags).map(function() {
 		return "#" + this;
 	}).get().join(", ");
