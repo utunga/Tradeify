@@ -188,6 +188,7 @@ function parse_offer(){
     container.parse_message($("#message_to_send").val(),display_results_of_parse_offer);
 }
 function display_results_of_parse_offer(response){
+    if(response.charAt(0)=="?")response=response.substr(1);
     var responseObject= (new Function( "return( " + response + " );" ))();
     var reasons=responseObject.validationFailReasons;
     if(reasons.length==0){
