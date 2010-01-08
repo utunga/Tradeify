@@ -61,7 +61,7 @@
         var postdata = gadgets.io.encodeValues(message_data);
         params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
         params[gadgets.io.RequestParameters.POST_DATA] = postdata;
-        gadgets.io.makeRequest(this.parse_uri, callback, params);
+        gadgets.io.makeRequest(this.parse_uri+"?jsoncallback=?", callback, params);
     }
 
 }
