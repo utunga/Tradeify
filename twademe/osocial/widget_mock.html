@@ -132,16 +132,21 @@
 <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 <script type="text/javascript" src="../osocial/opensocial_wrapper.js"></script>
 <script type="text/javascript" src="../osocial/mock_wrapper.js"></script>
+<script type="text/javascript" src="../osocial/widget_support.js"></script>
 <script type="text/javascript">
 
 var currency_tags;
 var current_tags;
+var main_widget;
+
 $(document).ready(function() {
-    current_tags = new Tags();
+
+    main_widget = new TradeifyWidget("#results_by_date", "#current_tags");
+
     // adjusts height in ning, does nothing in test
 
     container.adjustHeight(3000);
-    compile_render_functions();
+    
     update_tags(); //preload some tags
 
     $(".offer tags tag").click(function() {
@@ -164,16 +169,6 @@ $(document).ready(function() {
     currency_tags.add_tag("barter", "type", false);
     currency_tags.add_tag("swap", "type", false);
     currency_tags.add_tag("nzd", "type", false);
-
-
-    current_tags.tag_click(function() {
-        current_tags.remove_tag($(this).text());
-        update_offers();
-        return false;
-    });
-    current_tags.target_selector = "#current_tags";
-    current_tags.add_fixed_tag("ooooby", "group", false);
-    update_offers();
 
     $("#post_your_own_form #until").datepicker(
 			{ minDate: 0,

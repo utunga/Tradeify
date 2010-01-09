@@ -24,78 +24,12 @@
 /* ------------------------------
      rendering of widget 
    ------------------------------*/
-var offers_uri = "http://tradeify.org/offers_json.aspx";
-var offersJson=-1; 
-var search_tags=new Array(); 
-var offers_render_fn;
-var current_tags;
 
-function compile_render_functions() {
-    
-    var offers_directives = { 
-        'div.offer': { 
-            'offer <- messages' : {
-                'a.username@href': 'offer.user.more_info_url',
-                'a.username': 'offer.user.screen_name',
-                '.avatar img@src': 'offer.user.profile_pic_url',
-                '.msg .text': 'offer.offer_text',
-                'span.tags': {
-                    'tag <- offer.tags' : {
-                        'a@onclick': 'return add_filter("#{tag.type}", "#{tag.tag}");',
-                        'a': 'tag.tag'
-                        }
-                },
-                '.when': 'offer.date'
-            }
-        }
-   };
-   
-    //compile to a function
-    offers_render_fn = $('#results_by_date .template').compile(offers_directives);
-}
-          
-function update_offers() {
-    var json_url = build_search_query(this.container.offers_uri);
-    //json_url = json_url + "&jsoncallback=?";
-    //var json_urla=build_search_query(this.container.offers_uri); //?jsoncallback=?
-    //alert("json_urla,json_url:"+ json_urla +"," + json_url);
-    $.getJSON(json_url, function(data) {
-        offersJson=data;
-        $('#results_by_date .template').render(data, offers_render_fn);
-    });
-}
 
-function add_filter(tag_type, tag_text) {
-    current_tags.add_tag(tag_text,tag_type);
-    update_offers();
-}
+
 /* ------------------------------
      search
    ------------------------------*/
- /*  
-function search(){
-    //alert("start searching");
-    var tag=$("#search").val();
-    //alert("searching for "+tag);	
-    var newMessages=new Array();
-    var arrayCount=0;
-    //alert("itterating through messages");
-    for(var i=0;i<offersJson.messages.length;i++){
-        var msg=offersJson.messages[i];
-        //alert("message "+msg.offer_text);
-        for(var j=0;j<msg.tags.length;j++){
-            if(msg.tags[j].tag==tag){				
-                //alert("found tag "+msg.tags[j].tag);
-                newMessages[arrayCount]=msg;
-                arrayCount++;
-            }
-        }
-    }
-    offersJson=newMessages;
-    //alert("found "+newMessages.length);
-    $('#results_by_date').html($p.render('offers_render_fn', newMessages));
-} 	*/
-    
    
 function queryServer(){
     var query=$("#searchdata").val();
@@ -106,17 +40,6 @@ function queryServer(){
     add_filter("tag",query);
     //update_offers();
 }
-
-function build_search_query(baseUrl) {
-    var query="";
-    for(tag in current_tags.tags) {
-        if(query!="")
-            query = query + "&";
-        query = query+"tag="+current_tags.tags[tag].text;
-    }
-    return baseUrl + "?" + query+"&jsoncallback=?";
-}
- 
 
 
 /* ------------------------------
