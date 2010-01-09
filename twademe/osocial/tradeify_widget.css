@@ -1,6 +1,5 @@
-@charset "utf-8";
+/** MISC **/
 
-/* misc */
 /* get rid of those system borders being generated for A tags */
 a:active {
   outline:none;
@@ -10,14 +9,10 @@ a:active {
   -moz-outline-style:none;
 }
 
-/* display of form */
-#results_by_date 
-{
-	/*actually not entirely necessary*/
-	width:549px;
-}
 
-#results_by_date .offer 
+/** OFFERS **/
+
+.offer 
 {
 	border-bottom:1px solid #C7CCC5;
 	min-height:85px;
@@ -26,7 +21,7 @@ a:active {
 	position:relative;
 }
 
-#results_by_date .offer a.avatar {
+.offer a.avatar {
 	position:absolute;
 	left:0px;
 	top:15px;
@@ -35,7 +30,7 @@ a:active {
 	background:transparent url(frame.png) no-repeat scroll 0 0px;
 }
 
-#results_by_date .offer a.avatar img {
+.offer a.avatar img {
 	margin-top:6px;
 	margin-left:6px;
 	width:48px;
@@ -43,7 +38,7 @@ a:active {
 	border:0px;
 }
 
-#results_by_date .offer a.username {
+.offer a.username {
 	position:absolute;
 	left:3px;
 	top:75px;
@@ -54,25 +49,26 @@ a:active {
 	text-decoration:none;
 }
 
-#results_by_date .offer a.username:hover 
+.offer a.username:hover 
 {
 	text-decoration:underline;
 }
 	
-#results_by_date .offer p.msg 
+.offer p.msg 
 {
 	margin-left:75px;
-	margin-right:80px;
+	margin-top:20px;
+	margin-right:10px;
 }
 
-#results_by_date .offer p.msg .text {
+.offer p.msg .text {
 	color:#333F31;
 	font-family:Georgia,'Times New Roman',Times,serif;
 	font-size:13px;
 	line-height:18px;
 }
 
-#results_by_date .offer p.msg .tags 
+.offer p.msg .tags 
 {
 	color:#333F31;
 	font-family:Helvetica, Arial;
@@ -80,24 +76,24 @@ a:active {
 	line-height:18px;
 }
 
-#results_by_date .offer .tag a
+.offer .tag a
 {
 	text-decoration:none;
 }
 
-#results_by_date .offer .tag a:hover
+.offer .tag a:hover
 {
 	text-decoration:underline;
 }
 
-#results_by_date .offer p.msg a.more_info_link {
+.offer p.msg a.more_info_link {
 	float:right;
 	font-size:11px;
 	font-weight:bold;
 	text-decoration:none;
 }
 
-#results_by_date .offer a.user 
+.offer a.user 
 {
 	color:#161B1F;
 	font-family:'Trebuchet MS',Trebuchet,Tahoma,Arial,sans-serif;
@@ -107,20 +103,20 @@ a:active {
 	text-decoration:none;
 }
 
-#results_by_date .offer a:hover 
+.offer a:hover 
 {
 	text-decoration:underline;
 }
 
-#results_by_date .offer .meta 
+.offer .meta 
 {
-	left:440px;
-	top:0px;
+	right:0px;
+	top:6px;
 	width:100px;
 	position:absolute;
 }
 
-#results_by_date .offer .meta a.when 
+.offer .meta a.when 
 {
 	display:inline-box;
 	font-size:9px;
@@ -218,8 +214,7 @@ span.on
 }
 
 #post_your_own_form #tags,
-#post_your_own_form #picture,
-
+#post_your_own_form #picture
 {
 	width:400px;
 }
