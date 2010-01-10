@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{66B5FC71-7D50-4DBA-ACAC-77B17E3E05DE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -200,8 +200,6 @@
     <Content Include="images\vincent_van_gogh.jpg" />
     <Content Include="index.aspx" />
     <Content Include="js\jquery-1.3.2.js" />
-    <Content Include="js\jquery-jtemplates.js" />
-    <Content Include="js\jquery.micro_template.js" />
     <Content Include="js\purePacked.js" />
     <Content Include="masters\site.Master" />
     <Content Include="oauth\oauth_fail.aspx" />
@@ -237,12 +235,15 @@
     <Content Include="js\pure_packed_v2.js" />
     <Content Include="js\pure_v2.js" />
     <Content Include="js\tag_support.js" />
+    <Content Include="js\widget_support.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="osocial\mock_wrapper.js" />
     <Content Include="osocial\opensocial_wrapper.js" />
     <Content Include="osocial\widget_mock.html" />
+    <Content Include="osocial\widget_support.js" />
+    <Content Include="test\standalone_widget_test.html" />
     <Content Include="test\tag_support_test.html" />
   </ItemGroup>
   <ItemGroup>
@@ -268,9 +269,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

@@ -29,20 +29,29 @@
 <script type="text/javascript" src="../js/tag_support.js"></script>
 
 <script type="text/javascript">
-var tags;
+var selected_tags;
 var tag_suggest
 $(document).ready(function() {
-	tags = new Tags("#tag_test");
-	  tags.add_fixed_tag("ooooby", "group");
+	selected_tags = new Tags("#tag_test");
+	selected_tags.add_fixed_tag("ooooby", "group");
 	
 	tag_suggest = new Tags("#tag_suggest");
 	tag_suggest.add_tag("pumpkin");
 	tag_suggest.add_tag("free", "type");
 	tag_suggest.add_tag("barter", "type");
 	tag_suggest.add_tag("waiheke", "loc");
+	tag_suggest.tag_click(function() {
+	    var tag = tag_suggest.find_tag($(this).text());
+	    tag.active = !tag.active;
+	    if (tag.active) {
+	        selected_tags.add_tag(tag.text, tag.type);
+	    }
+	    else {
+	        selected_tags.add_tag(tag.text, tag.type);
+	    }
+	});
+
 });
-
-
 </script>
 </body>
 </html>
