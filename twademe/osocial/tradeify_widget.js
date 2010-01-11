@@ -111,7 +111,9 @@ function parse_offer(){
         var message_data = {
         message: $("#message_to_send").val()
         };
-        $.post(container.parse_uri,message_data, display_results_of_parse_offer, "json");
+        //encodeURIComponent()
+        //$.post(container.parse_uri,message_data, display_results_of_parse_offer, "json");
+        $.getJson(container.parse_uri,message_data, display_results_of_parse_offer);
      }
 
 function display_results_of_parse_offer(response){
