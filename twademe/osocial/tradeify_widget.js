@@ -37,7 +37,7 @@ function queryServer(){
     if(queryIdx!=-1){	
         return;
     }*/
-    add_filter("tag",query);
+    main_widget.add_filter(query,"tag");
     //update_offers();
 }
 
