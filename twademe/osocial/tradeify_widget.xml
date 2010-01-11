@@ -226,24 +226,24 @@ $(document).ready(function() {
 	});
     
     // select all desired input fields and attach tooltips to them 
-    $("#post_your_own_form :input").tooltip({ 
+    /*$("#post_your_own_form :input").tooltip({ 
      
-        // place tooltip on the right edge 
+        place tooltip on the right edge 
         position: "center below", 
      
-        // a little tweaking of the position 
+        a little tweaking of the position 
         offset: [-2, 10], 
      
-        // use the built-in fadeIn/fadeOut effect 
+        use the built-in fadeIn/fadeOut effect 
         effect: "fade", 
      
-        // custom opacity setting 
+        custom opacity setting 
         opacity: 0.7, 
      
-        // use this single tooltip element 
+        use this single tooltip element 
         tip: '.tooltip' 
      
-    });
+    });*/
 	
 	//$("#post_your_own_form").hide();
 
