@@ -133,7 +133,7 @@
 <script type="text/javascript" src="http://tradeify.org/js/tag_support.js"></script>
 <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
 <script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
-
+<script type="text/javascript" src="http://tradeify.org/osocial/widget_support.js"></script>
 <script type="text/javascript">
 
 var currency_tags;
