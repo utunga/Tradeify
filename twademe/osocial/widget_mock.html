@@ -146,12 +146,12 @@ $(document).ready(function() {
     // adjusts height in ning, does nothing in test
 
     container.adjustHeight(3000);
-    
+
     update_tags(); //preload some tags
 
     $(".offer tags tag").click(function() {
         var tag = current_tags.add_tag(this.text);
-        update_offers();
+        main_widget.update_offers();
         return false;
     });
     $("#by_parts input").keyup(update_offer);
@@ -182,7 +182,7 @@ $(document).ready(function() {
         container.post_message(message, function(response_data) {
             console.log("post_message result:" + response_data);
             alert("message posted");
-            update_offers();
+            main_widget.update_offers();
         });
         // how long to wait?
 
@@ -218,25 +218,25 @@ $(document).ready(function() {
         return e.preventDefault();
     });
 
-    // select all desired input fields and attach tooltips to them 
-    $("#post_your_own_form :input").tooltip({
+    //    // select all desired input fields and attach tooltips to them 
+    //    $("#post_your_own_form :input").tooltip({
 
-        // place tooltip on the right edge 
-        position: "center below",
+    //        // place tooltip on the right edge 
+    //        position: "center below",
 
-        // a little tweaking of the position 
-        offset: [-2, 10],
+    //        // a little tweaking of the position 
+    //        offset: [-2, 10],
 
-        // use the built-in fadeIn/fadeOut effect 
-        effect: "fade",
+    //        // use the built-in fadeIn/fadeOut effect 
+    //        effect: "fade",
 
-        // custom opacity setting 
-        opacity: 0.7,
+    //        // custom opacity setting 
+    //        opacity: 0.7,
 
-        // use this single tooltip element 
-        tip: '.tooltip'
+    //        // use this single tooltip element 
+    //        tip: '.tooltip'
 
-    });
+    //    });
 
     //$("#post_your_own_form").hide();
 

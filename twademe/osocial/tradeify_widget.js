@@ -108,12 +108,14 @@ function update_and_dont_parse() {
 }
 /* tag selection code */
 function parse_offer(){
-    container.parse_message($("#message_to_send").val(),display_results_of_parse_offer);
-}
+        var message_data = {
+        message: $("#message_to_send").val()
+        };
+        $.post(container.parse_uri,message_data, display_results_of_parse_offer, "json");
+     }
+
 function display_results_of_parse_offer(response){
-    if(response.charAt(0)=="?")response=response.substring(1);
-    var responseObject= (new Function( "return( " + response + " );" ))();
-    var reasons=responseObject.validationFailReasons;
+    var reasons = response.validationFailReasons;
     if(reasons.length==0){
     $(".send_message").removeAttr("disabled");
     }

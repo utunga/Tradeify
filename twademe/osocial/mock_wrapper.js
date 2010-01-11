@@ -36,12 +36,7 @@ function mock_container() {
         
         $.post(this.accept_post_url, message_data, callback);
     }
-    this.parse_message = function(message,callback) {
-        var message_data = {
-        message: message,
-        };
-        $.post(this.parse_uri,message_data, callback);
-    }
+ 
 }
 
 var container = new mock_container();

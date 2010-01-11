@@ -138,8 +138,9 @@
 
 var currency_tags;
 var current_tags;
+var main_widget;
 $(document).ready(function() {
-
+  main_widget = new TradeifyWidget("#results_by_date", "#current_tags");
     // adjusts height in ning, does nothing in test
     container.adjustHeight(3000);
 	compile_render_functions();
@@ -147,7 +148,7 @@ $(document).ready(function() {
 	
 	$(".offer tags tag").click(function() {								
 	    var tag = current_tags.add_tag(this.text);
-		    update_offers();	
+		    main_widget.update_offers();	
 		    return false;	
 	    });
     $("#by_parts input").keyup(update_offer);
@@ -169,12 +170,12 @@ $(document).ready(function() {
 	current_tags = new Tags();
 	current_tags.tag_click( function() {
 		current_tags.remove_tag($(this).text());
-		update_offers();	
+		main_widget.update_offers();	
 		return false;	
 	});
 	current_tags.target_selector="#current_tags";
 	current_tags.add_fixed_tag("ooooby", "group", false);
-	update_offers();
+	main_widget.update_offers();
 	
 	$("#post_your_own_form #until").datepicker(
 			{minDate:0,
@@ -188,7 +189,7 @@ $(document).ready(function() {
         container.post_message(message, function(response_data) {
             console.log("post_message result:" + response_data);
             alert("message posted");
-            update_offers();
+            main_widget.update_offers();
         });
         // how long to wait?
        

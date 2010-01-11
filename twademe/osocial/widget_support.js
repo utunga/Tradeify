@@ -2,7 +2,7 @@
 function TradeifyWidget(offers_selector, current_tags_selector) {
 
     var offers_render_fn;
-    var current_tags; ;
+    var current_tags; 
     var offers_uri;
 
     var init = function() {

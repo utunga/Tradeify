@@ -54,7 +54,7 @@ namespace twademe
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
             List<IMessage> messagesToSend = new List<IMessage>(messages);
-            messagesToSend = (messagesToSend.Count <= messageCount) ? messagesToSend : messagesToSend.GetRange(0, DEFAULT_COUNT - 1);
+            messagesToSend = (messagesToSend.Count <= messageCount) ? messagesToSend : messagesToSend.GetRange(0, messageCount - 1);
             return serializer.Serialize(messagesToSend);
         }
     }

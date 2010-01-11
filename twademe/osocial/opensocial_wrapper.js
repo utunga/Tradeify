@@ -53,16 +53,16 @@
 
         });
     }
-    this.parse_message = function(message,callback) {
-        var message_data = {
-            message: message,
-        };
-        var params = {};
-        var postdata = gadgets.io.encodeValues(message_data);
-        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-        params[gadgets.io.RequestParameters.POST_DATA] = postdata;
-        gadgets.io.makeRequest(this.parse_uri+"?jsoncallback=?",callback, params);
-    }
+//    this.parse_message = function(message,callback) {
+//        var message_data = {
+//            message: message,
+//        };
+//        var params = {};
+//        var postdata = gadgets.io.encodeValues(message_data);
+//        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+//        params[gadgets.io.RequestParameters.POST_DATA] = postdata;
+//        gadgets.io.makeRequest(this.parse_uri+"?jsoncallback=?",callback, params);
+//    }
 
 }
 

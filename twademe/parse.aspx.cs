@@ -45,7 +45,7 @@ namespace twademe
             parsedOutput.Add("validationFailReasons", message.ValidationFailReasons());*/
             string messageJson = "{\"message\":" + JSON.Serialize(message) + ",\"validationFailReasons\":" +
                   JSON.Serialize(message.ValidationFailReasons()) + "}";//JSON.Serialize(parsedOutput);
-           messageJson = Regex.Replace(messageJson, @"\s", "");
+           //messageJson = Regex.Replace(messageJson, @"\s", "");
             if (null != Request.Params["jsoncallback"])
             {
                 Response.Write(Request.Params["jsoncallback"] + "(" + messageJson + ")");
