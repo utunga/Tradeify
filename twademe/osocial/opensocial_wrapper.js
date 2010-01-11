@@ -2,7 +2,7 @@
 
     this.offers_uri = "http://tradeify.org/offers_json.aspx";
     this.tags_uri = "http://tradeify.org/tags_json.aspx";
-    this.parse_uri ="http://tradeify.org/parse.aspx";
+    this.parse_uri = "http://tradeify.org/parse.aspx?jsoncallback=?";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
     
     this.adjustHeight = function(height) {
