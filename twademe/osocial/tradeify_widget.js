@@ -113,7 +113,7 @@ function parse_offer(){
         };
         //encodeURIComponent()
         //$.post(container.parse_uri,message_data, display_results_of_parse_offer, "json");
-        $.getJson(container.parse_uri,message_data, display_results_of_parse_offer);
+        $.getJSON(container.parse_uri,message_data, display_results_of_parse_offer);
      }
 
 function display_results_of_parse_offer(response){
