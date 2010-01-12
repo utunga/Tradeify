@@ -1,6 +1,6 @@
 ﻿
 function TradeifyWidget(offers_selector, current_tags_selector) {
-
+    var offers;
     var offers_render_fn;
     var current_tags; 
     var offers_uri;
@@ -36,18 +36,20 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             return false;
         });
         update_offers();
+        
     }
 
     var update_offers = function() {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
+            this.offers = data.messages;
             $(offers_selector + ' .template').render(data, offers_render_fn);
 
             $(offers_selector + ' .tags a').click(function() {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
-
+            $(".template").quickPager({ pageSize: 2 });
         });
     };
 

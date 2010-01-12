@@ -303,7 +303,7 @@ function google_initialize() {
 	  navigationControl: true,
       scaleControl: true,
 	  mapTypeControl:false,
-	  mapTypeId: google.maps.MapTypeId.TERRAIN,
+	  mapTypeId: google.maps.MapTypeId.TERRAIN
 	  
 	};
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);

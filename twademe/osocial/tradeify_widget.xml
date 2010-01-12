@@ -234,7 +234,8 @@ $(document).ready(function() {
 		// do not submit the form
 		return e.preventDefault();
 	});
-    
+  //parse offer just in case there is infromation already there
+    parse_offer(); 
     // select all desired input fields and attach tooltips to them 
     /*$("#post_your_own_form :input").tooltip({ 
      
