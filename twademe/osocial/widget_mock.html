@@ -44,7 +44,21 @@
       <fieldset>
         <legend>Your message</legend>	
         <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
+        <div id=post_and_message_details>
         <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
+        <!--style="background-image: url(Cross.png);padding-left:20px; background-repeat:no-repeat;"-->
+        <a class=message_details>
+        <a class="location_detail status">
+        <a>Location</a>
+        </a>
+        <a class="currency_detail status" >
+        <a>Method of Trade</a>
+        </a>
+        <a class="group_detail status">
+        <a>Group</a>
+        </a>        
+        </a>
+        </div>
        </fieldset>
     </div>
      
@@ -239,7 +253,8 @@ $(document).ready(function() {
     //    });
 
     //$("#post_your_own_form").hide();
-
+    //parse offer just in case there is already text in the box on page load
+    parse_offer();
 
 });
 </script>

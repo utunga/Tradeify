@@ -122,8 +122,16 @@ function display_results_of_parse_offer(response){
     $(".send_message").removeAttr("disabled");
     }
     else $(".send_message").attr("disabled","disabled");
+    //"NeedsCurrencyTag", "NeedsLocation", "NeedsGroupTag"
+    switchStatus("NeedsCurrencyTag","currency_detail",reasons);
+    switchStatus("NeedsLocation","location_detail",reasons);
+    switchStatus("NeedsGroupTag","group_detail",reasons);  
 }
-
+function switchStatus(value,selector,array){
+    if($.inArray(value,array)>-1)
+    $("."+selector).css({"background-image": "url('Cross.png')"});     
+    else $("."+selector).css({"background-image": "url('Tick.png')"});
+}
 var selected_tags = [];
 var tags = [];
 var threshold = 200;
@@ -297,7 +305,7 @@ function google_initialize() {
 	  mapTypeControl:false,
 	  mapTypeId: google.maps.MapTypeId.TERRAIN,
 	  
-	}
+	};
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	
 	//funny but in quick 'hallway testing' with Louise the fact that twas already filled

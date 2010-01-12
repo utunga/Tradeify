@@ -279,7 +279,12 @@ button.fg-button
 	-moz-border-radius-topleft:10px;
 	-moz-border-radius-bottomleft:10px;
 }
-
+.status 
+{
+	background-image: url(Cross.png);
+	padding-left:20px; 
+	background-repeat:no-repeat;	
+}
 /* simple css-based tooltip */ 
 div.tooltip { 
     background-color:#000; 

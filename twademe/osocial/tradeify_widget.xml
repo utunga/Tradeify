@@ -48,6 +48,17 @@
         <legend>Your message</legend>	
         <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
         <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
+        <a class=message_details>
+        <a class="location_detail status">
+        <a>Location</a>
+        </a>
+        <a class="currency_detail status" >
+        <a>Method of Trade</a>
+        </a>
+        <a class="group_detail status">
+        <a>Group</a>
+        </a>        
+        </a>
        </fieldset>
     </div>
      
