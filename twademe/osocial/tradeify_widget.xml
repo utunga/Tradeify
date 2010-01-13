@@ -36,9 +36,10 @@
             </span></a>
         </div>
     </span>
+    <div id="pager" ></div>
 </div>
 
-<h4>Post Your Own</h4>
+<h4><br/><br/>Post Your Own</h4>
 <div id="post_your_own_form" class="ui-widget">
 
 	<div class="tooltip"></div> 
