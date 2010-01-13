@@ -49,7 +49,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
-            $(".template").quickPager({ pageSize: 2 });
+            $("#offers").quickPager({ pageSize: 4 });
         });
     };
 

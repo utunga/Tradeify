@@ -30,18 +30,18 @@ function pageClick(currentPage) {
 
         options = $.extend(defaults, options);
 
-
+        //pageCount = (((this)[0]).firstChild.length / options.pageSize).toFixed(0) + 1;
         return this.each(function() {
 
 
             selector = $(this);
             var pageCounter = 1;
 
-            selector.wrap("<div class='simplePagerContainer'></div>");
+            //selector.wrap("<div class='simplePagerContainer'></div>");
 
             selector.children().each(function(i) {
 
-            if (i < pageCounter * options.pageSize && i >= (pageCounter - 1) * options.pageSize) {
+                if (i < pageCounter * options.pageSize && i >= (pageCounter - 1) * options.pageSize) {
                     $(this).addClass("pagerPage");
                     $(this).addClass("simplePagerPage" + pageCounter);
                 }

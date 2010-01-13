@@ -19,7 +19,7 @@
 <div id="current_tags"></div>
 
 <div id="results_by_date">
-    <span class="template">
+    <span class="template" id="offers">
         <div class="offer">
             <a href="#" class="offer_overall"><span>
                 <a href="user_uri" class="avatar"><img src="user_thumb" width="16" height="16" alt="username"/></a>
@@ -145,6 +145,8 @@
 <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
 <script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
 <script type="text/javascript" src="http://tradeify.org/osocial/widget_support.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
 <script type="text/javascript">
 
 var currency_tags;
