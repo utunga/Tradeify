@@ -42,14 +42,15 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var update_offers = function() {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
-            this.offers = data.messages;
+            offers = data.messages;
             $(offers_selector + ' .template').render(data, offers_render_fn);
 
             $(offers_selector + ' .tags a').click(function() {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
-            $("#offers").quickPager({ pageSize: 4 });
+            $("#offer_template").quickPager({ pageSize: 2 });
+            initialize();
         });
     };
 
@@ -77,6 +78,26 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         }
         return baseUrl + "?" + query + "&jsoncallback=?";
     };
+    var map;
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+        var myOptions = {
+            zoom: 2,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
+        //google.maps.event.addListener(map, "click", clicked);
+        $.each(offers, function() {
+            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            var marker = new google.maps.Marker({
+                clickable: true,
+                title: this.offer_text,
+                position: post,
+                map: map
+            });
+        });
+    }
 
     init();
 

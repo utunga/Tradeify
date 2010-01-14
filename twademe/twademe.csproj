@@ -245,6 +245,7 @@
     <Content Include="osocial\mock_wrapper.js" />
     <Content Include="osocial\opensocial_wrapper.js" />
     <Content Include="js\quickpager.jquery.js" />
+    <Content Include="osocial\tabs_test.html" />
     <Content Include="osocial\widget_mock.html" />
     <Content Include="osocial\widget_support.js" />
     <Content Include="test\standalone_widget_test.html" />

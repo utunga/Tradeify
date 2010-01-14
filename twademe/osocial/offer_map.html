@@ -5,11 +5,36 @@
     <title>Google Maps JavaScript API v3 Example: Marker Simple</title>
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <!--<script src="http://maps.google.com/maps?file=api&amp;v=2.133d&amp;key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"-->
+
 
     <script type="text/javascript" src="../js/jquery-1.3.2.js" ></script>
 
     <script type="text/javascript">
         var offers_uri = "/offers_json.aspx";
+        var map;
+        var geocoder = new google.maps.Geocoder();
+        var address;
+
+    function clicked(overlay) {
+
+        if (overlay.latLng) {
+
+            geocoder.geocode({ latLng: overlay.latLng }, function(addresses, status) {
+
+                if (status != "OK") {
+ //                   alert("reverse geocoder failed to find an address for " + overlay.latlng.toUrlValue());
+                }
+                else {
+                    var address = addresses[0];
+                    var myHtml = address.formatted_address;
+                    alert(myHtml);
+                }
+
+            });
+            
+        }
+      }
     function initialize() {
         var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
     var myOptions = {
@@ -17,7 +42,8 @@
       center: myLatlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    google.maps.event.addListener(map, "click", clicked);
 
     $.getJSON(offers_uri, function(data) {
         $.each(data.messages, function() {
@@ -30,7 +56,10 @@
             });
         });
     });
+
 }
+
+
 /*
 
 clickable  	boolean  	If true, the marker can be clicked
