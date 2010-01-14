@@ -3,89 +3,117 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>Google Maps JavaScript API v3 Example: Marker Simple</title>
-
+        <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
     <!--<script src="http://maps.google.com/maps?file=api&amp;v=2.133d&amp;key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"-->
 
+    <script type="text/javascript" src="../js/jquery-1.3.2.js"></script>
 
-    <script type="text/javascript" src="../js/jquery-1.3.2.js" ></script>
+    <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
 
     <script type="text/javascript">
+        $(function() {
+            //alert("blah");
+        //$("#results").tabs();
+        $("#results").tabs({
+            //event: 'mouseover'
+            fx: { height: 'toggle', opacity: 'toggle' },
+            show: function(event, ui) {
+                if (ui.panel.id == "results-1") {
+                    $(ui.panel).css("height", "100%")
+                    initialize()
+                } 
+            }
+        });
+
+            //initialize()
+        });
+
         var offers_uri = "/offers_json.aspx";
         var map;
         var geocoder = new google.maps.Geocoder();
         var address;
 
-    function clicked(overlay) {
+        function clicked(overlay) {
 
-        if (overlay.latLng) {
+            if (overlay.latLng) {
 
-            geocoder.geocode({ latLng: overlay.latLng }, function(addresses, status) {
+                geocoder.geocode({ latLng: overlay.latLng }, function(addresses, status) {
 
-                if (status != "OK") {
- //                   alert("reverse geocoder failed to find an address for " + overlay.latlng.toUrlValue());
-                }
-                else {
-                    var address = addresses[0];
-                    var myHtml = address.formatted_address;
-                    alert(myHtml);
-                }
+                    if (status != "OK") {
+                        //                   alert("reverse geocoder failed to find an address for " + overlay.latlng.toUrlValue());
+                    }
+                    else {
+                        var address = addresses[0];
+                        var myHtml = address.formatted_address;
+                        alert(myHtml);
+                    }
 
-            });
-            
+                });
+
+            }
         }
-      }
-    function initialize() {
-        var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-    var myOptions = {
-      zoom: 2,
-      center: myLatlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-    google.maps.event.addListener(map, "click", clicked);
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+            var myOptions = {
+                zoom: 2,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+            google.maps.event.addListener(map, "click", clicked);
 
-    $.getJSON(offers_uri, function(data) {
-        $.each(data.messages, function() {
-            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
-            var marker = new google.maps.Marker({
-                clickable: true,
-                title: this.offer_text,
-                position: post,
-                map: map
+            $.getJSON(offers_uri, function(data) {
+                $.each(data.messages, function() {
+                    var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+                    var marker = new google.maps.Marker({
+                        clickable: true,
+                        title: this.offer_text,
+                        position: post,
+                        map: map
+                    });
+                });
             });
-        });
-    });
 
-}
+        }
 
 
-/*
+        /*
 
 clickable  	boolean  	If true, the marker can be clicked
-cursor 	string 	Mouse cursor to show on hover
-draggable 	boolean 	If true, the marker can be dragged.
-flat 	boolean 	If true, the marker shadow will not be displayed.
-icon 		Icon for the foreground
-map 	Map 	Map on which to display Marker.
-position 	LatLng 	Marker position. Required.
-shadow 		Shadow image
-shape 	Object 	Image map region for drag/click. Array of x/y values that define the perimeter of the icon.
-title 	string 	Rollover text
-visible 	boolean 	If true, the marker is visible
-zIndex 	number 	All Markers are displayed on the map in order of their zIndex, with higher values displaying in front of Markers with lower values. By default, Markers are displayed according to their latitude, with Markers of lower latitudes appearing in front of Markers at higher latitudes.
-*/
-/*var marker = new google.maps.Marker({
-position: myLatlng, 
-map: map,
-title:"Hello World!"
-});   */
+        cursor 	string 	Mouse cursor to show on hover
+        draggable 	boolean 	If true, the marker can be dragged.
+        flat 	boolean 	If true, the marker shadow will not be displayed.
+        icon 		Icon for the foreground
+        map 	Map 	Map on which to display Marker.
+        position 	LatLng 	Marker position. Required.
+        shadow 		Shadow image
+        shape 	Object 	Image map region for drag/click. Array of x/y values that define the perimeter of the icon.
+        title 	string 	Rollover text
+        visible 	boolean 	If true, the marker is visible
+        zIndex 	number 	All Markers are displayed on the map in order of their zIndex, with higher values displaying in front of Markers with lower values. By default, Markers are displayed according to their latitude, with Markers of lower latitudes appearing in front of Markers at higher latitudes.
+        */
+        /*var marker = new google.maps.Marker({
+        position: myLatlng, 
+        map: map,
+        title:"Hello World!"
+        });   */
   
     </script>
 
 </head>
-<body style="margin: 0px; padding: 0px;" onload="initialize()">
-    <div id="map_canvas" style="width: 100%; height: 100%;">
+<body style="margin: 0px; padding: 0px;">
+<div id="results">
+    <ul>
+        <li><a href="#results-1">List</a></li>
+        <li><a href="#results-2">Map</a></li>
+    </ul>
+    <div id="results-1" style="padding-bottom: 30px;">
+     <div id="map_canvas" style="width: 100%; height: 100%;">
     </div>
-</body>
+    </div>
+<div id="results-2">
+    blah</div>
+</div> </body>
 </html>

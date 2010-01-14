@@ -50,7 +50,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 add_filter($(this).text(), $(this).css());
             });
             $("#offer_template").quickPager({ pageSize: 2 });
-            initialize();
+            
         });
     };
 
@@ -78,26 +78,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         }
         return baseUrl + "?" + query + "&jsoncallback=?";
     };
-    var map;
-    function initialize() {
-        var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
-        var myOptions = {
-            zoom: 2,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
-        //google.maps.event.addListener(map, "click", clicked);
-        $.each(offers, function() {
-            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
-            var marker = new google.maps.Marker({
-                clickable: true,
-                title: this.offer_text,
-                position: post,
-                map: map
-            });
-        });
-    }
+
 
     init();
 
@@ -105,5 +86,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     this.update_offers = update_offers;
     this.add_filter = add_filter;
     this.add_fixed_filter = add_fixed_filter;
-
+    this.get_offers = function() {
+        return offers;
+    }
 }

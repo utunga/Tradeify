@@ -183,17 +183,49 @@
     <script type="text/javascript" src="../js/jquery.pager.js"></script>
 
     <script type="text/javascript">
+        var currency_tags;
+        var current_tags;
+        var main_widget;
+
         $(function() {
             //alert("blah");
-            $("#results").tabs();
+            $("#results").tabs({
+                //event: 'mouseover'
+                fx: { height: 'toggle', opacity: 'toggle' },
+                show: function(event, ui) {
+                    if (ui.panel.id == "results-2") {
+                        $(ui.panel).css("height", "100%");
+                        initialize();
+                        // map.checkResize();
+                        
+                    }
+                }
+            });
         });
+    var map;
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+        var myOptions = {
+            zoom: 2,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
+        //google.maps.event.addListener(map, "click", clicked);
+        $.each(main_widget.get_offers(), function() {
+            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            var marker = new google.maps.Marker({
+                clickable: true,
+                title: this.offer_text,
+                position: post,
+                map: map
+            });
+        });
+    }
         /*$(function() {
         alert("blah");
         $("#results").tabs();
         });*/
-        var currency_tags;
-        var current_tags;
-        var main_widget;
 
         $(document).ready(function() {
 
