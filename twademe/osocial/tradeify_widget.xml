@@ -175,6 +175,7 @@ var main_widget;
                     if (ui.panel.id == "results-2") {
                         $(ui.panel).css("height", "100%");
                         initialize();
+                        google.maps.event.trigger(map, 'resize');
                         // map.checkResize();
                         
                     }
@@ -249,7 +250,7 @@ $(document).ready(function() {
 	});
 	current_tags.target_selector="#current_tags";
 	current_tags.add_fixed_tag("ooooby", "group", false);
-	main_widget.update_offers();
+  setTimeout(main_widget.update_offers,300);
 	
 	$("#post_your_own_form #until").datepicker(
 			{minDate:0,
