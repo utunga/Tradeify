@@ -167,7 +167,7 @@ var current_tags;
 var main_widget;
         $(function() {
             //alert("blah");
-            $("#results").tabs();
+            //$("#results").tabs();
             /*$("#results").tabs({
                 //event: 'mouseover'
                 fx: { height: 'toggle', opacity: 'toggle' },
