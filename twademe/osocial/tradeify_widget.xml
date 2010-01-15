@@ -166,9 +166,9 @@ var currency_tags;
 var current_tags;
 var main_widget;
         $(function() {
-          main_widget = new TradeifyWidget("#results-1", "#current_tags");
             //alert("blah");
-            $("#results").tabs({
+            $("#results").tabs();
+            /*$("#results").tabs({
                 //event: 'mouseover'
                 fx: { height: 'toggle', opacity: 'toggle' },
                 show: function(event, ui) {
@@ -179,7 +179,7 @@ var main_widget;
                         
                     }
                 }
-            });
+            });*/
         });
     var map;
     function initialize() {
@@ -202,7 +202,7 @@ var main_widget;
         });
     } 
 $(document).ready(function() {
-
+            main_widget = new TradeifyWidget("#results-1", "#current_tags");
     // adjusts height in ning, does nothing in test
     container.adjustHeight(3000);
 	update_tags(); //preload some tags
