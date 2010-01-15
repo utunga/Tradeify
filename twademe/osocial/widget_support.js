@@ -35,7 +35,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             remove_filter($(this).text());
             return false;
         });
-        update_offers();
+        //update_offers();
         
     }
 
