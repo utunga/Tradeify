@@ -203,7 +203,19 @@ var main_widget;
     } 
 $(document).ready(function() {
             main_widget = new TradeifyWidget("#results-1", "#current_tags");
-            $("#results").tabs();
+            //$("#results").tabs();
+            $("#results").tabs({
+                //event: 'mouseover'
+                fx: { height: 'toggle', opacity: 'toggle' },
+                show: function(event, ui) {
+                    if (ui.panel.id == "results-2") {
+                        $(ui.panel).css("height", "100%");
+                        initialize();
+                        // map.checkResize();
+                        
+                    }
+                }
+            });
     // adjusts height in ning, does nothing in test
     container.adjustHeight(3000);
 	update_tags(); //preload some tags
