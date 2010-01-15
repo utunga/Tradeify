@@ -16,28 +16,38 @@
 <input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>
 
-<div id="current_tags"></div>
-
-<div id="results_by_date">
-    <span class="template" id="offers">
-        <div class="offer">
-            <a href="#" class="offer_overall"><span>
-                <a href="user_uri" class="avatar"><img src="user_thumb" width="16" height="16" alt="username"/></a>
-                <a href="user_uri" class="username"></a>
-                <p class="msg">
-                    <span class="text"></span><br/>
-                    <span class="tags">
-                        <span class="tag"><a href="#" onclick=""></a>, </span>
-                    </span>
-                </p>
-                <div class="meta">
-                    <a class="when" href="source_uri">Today, 10:50 am</a>
+<div id="current_tags"><br/>
+    </div>
+    <div id="results">
+        <ul>
+            <li><a href="#results-1">List</a></li>
+            <li><a href="#results-2">Map</a></li>
+        </ul>
+        <div id="results-1" style="padding-bottom: 30px;">
+            <span class="template" id="offer_template">
+                <div class="offer">
+                    <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar">
+                        <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
+                            class="username"></a>
+                        <p class="msg">
+                            <span class="text"></span>
+                            <br />
+                            <span class="tags"><span class="tag"><a href="#" onclick=""></a>, </span></span>
+                        </p>
+                        <div class="meta">
+                            <a class="when" href="source_uri">Today, 10:50 am</a>
+                        </div>
+                    </span></a>
                 </div>
-            </span></a>
+            </span>
+            <div id="pager"></div>
         </div>
-    </span>
-    <div id="pager" ></div>
-</div>
+        <div id="results-2">
+            <div id="offer_map" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+    </div>
+    </div>
 
 <h4><br/><br/>Post Your Own</h4>
 <div id="post_your_own_form" class="ui-widget">
@@ -140,7 +150,9 @@
 <!-- google maps API v3 doesn't need an API key! -->
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
+<!--
 <script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>
+-->
 <script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
 <script type="text/javascript" src="http://tradeify.org/js/tag_support.js"></script>
 <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
@@ -153,6 +165,41 @@
 var currency_tags;
 var current_tags;
 var main_widget;
+        $(function() {
+            //alert("blah");
+            $("#results").tabs({
+                //event: 'mouseover'
+                fx: { height: 'toggle', opacity: 'toggle' },
+                show: function(event, ui) {
+                    if (ui.panel.id == "results-2") {
+                        $(ui.panel).css("height", "100%");
+                        initialize();
+                        // map.checkResize();
+                        
+                    }
+                }
+            });
+        });
+    var map;
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+        var myOptions = {
+            zoom: 2,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
+        //google.maps.event.addListener(map, "click", clicked);
+        $.each(main_widget.get_offers(), function() {
+            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            var marker = new google.maps.Marker({
+                clickable: true,
+                title: this.offer_text,
+                position: post,
+                map: map
+            });
+        });
+    } 
 $(document).ready(function() {
   main_widget = new TradeifyWidget("#results_by_date", "#current_tags");
     // adjusts height in ning, does nothing in test
