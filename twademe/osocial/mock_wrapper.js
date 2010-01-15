@@ -6,7 +6,8 @@
 //override this url
     
 function mock_container() {
-
+    this.cross_uri = "Cross.png";
+    this.tick_uri = "Tick.png";
     this.offers_uri = "/offers_json.aspx";
     this.tags_uri = "/tags_json.aspx";
     this.parse_uri ="/parse.aspx";
