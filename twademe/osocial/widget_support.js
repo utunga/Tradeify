@@ -50,7 +50,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 add_filter($(this).text(), $(this).css());
             });
             $("#offer_template").quickPager({ pageSize: 2 });
-            $("#results").tabs();
+            //$("#results").tabs();
         });
     };
 
