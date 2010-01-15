@@ -201,7 +201,7 @@ var main_widget;
         });
     } 
 $(document).ready(function() {
-  main_widget = new TradeifyWidget("#results_by_date", "#current_tags");
+  main_widget = new TradeifyWidget("#results-1", "#current_tags");
     // adjusts height in ning, does nothing in test
     container.adjustHeight(3000);
 	update_tags(); //preload some tags
