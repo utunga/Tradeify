@@ -129,8 +129,8 @@ function display_results_of_parse_offer(response){
 }
 function switchStatus(value,selector,array){
     if($.inArray(value,array)>-1)
-    $("."+selector).css({"background-image": "url('"+container.cross_uri+"')"});
-else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
+        $("."+selector).css({"background-image": "url('"+container.cross_uri+"')"});
+    else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
 }
 var selected_tags = [];
 var tags = [];
