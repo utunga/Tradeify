@@ -85,8 +85,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         });
     }
     function createPopup(map, marker) {
-        var map_popup = $("#map_popup" + ' .map_template').compile(offers_directives);
-        $("#map_popup" + ' .map_template').render(offers, offers_render_fn)
+        var map_popup = $("#map_popup" + ' .template').compile(offers_directives);
+        $("#map_popup" + ' .template').render(offers, offers_render_fn)
         $("#map_offer_template").quickPager({ pageSize: 2 });
         var infowindow = new google.maps.InfoWindow(
             { content: $("#map_popup").html()
