@@ -59,11 +59,14 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 position: post,
                 map: map
             });
-            /*open info window not yet implemented in v3!
-            google.maps.event.addListener(marker, "click", function() {
-                marker.openInfoWindowHtml()
+            var infowindow = new google.maps.InfoWindow(
+            { content: title
             });
-            */
+            
+            google.maps.event.addListener(marker, "click", function() {
+                infowindow.open(map, marker);
+            });
+            
         });    
     }
     var init = function() {
