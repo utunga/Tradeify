@@ -86,7 +86,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     }
     function createPopup(map, marker) {
         var map_popup = $("#map_popup" + ' .map_template').compile(offers_directives);
-        $("#map_popup" + ' .map_template').render(offers, offers_render_fn)
+        $("#map_popup" + ' .map_template').render(offers, map_popup)
         $("#map_offer_template").quickPager({ pageSize: 2 });
         var infowindow = new google.maps.InfoWindow(
             { content: $("#map_popup").html()
@@ -134,8 +134,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
-            $("#offer_template").quickPager({ pageSize: 4 });
             updateMap();
+            $("#offer_template").quickPager({ pageSize: 4 });
             //$("#results").tabs();
         });
     };

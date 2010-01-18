@@ -132,7 +132,7 @@
     </fieldset>
 </div>
         <div id="map_popup" style="padding-bottom: 30px;">
-            <span class="map_template" id="map_offer_template">
+            <span class="map_template" id="map_template">
                 <div class="offer" style="padding-bottom: 20px;">
                     <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar">
                         <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
@@ -265,7 +265,7 @@ $(document).ready(function() {
         // how long to wait?
        
      });
-	
+	/*
 	var triggers = $(".open_post").overlay({
 	
 		// some expose tweaks suitable for modal dialogs
@@ -279,7 +279,7 @@ $(document).ready(function() {
 			closeOnClick: false
 		}
 	});
-	
+	*/
 	$("#post_your_own_form form").submit(function(e) {
 	
 		// close the overlay
