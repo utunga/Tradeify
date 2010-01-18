@@ -41,6 +41,23 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         this._setMap(map);
     };
     */
+    var offers_directives = {
+        'div.offer': {
+            'offer <- messages': {
+                'a.username@href': 'offer.user.more_info_url',
+                'a.username': 'offer.user.screen_name',
+                '.avatar img@src': 'offer.user.profile_pic_url',
+                '.msg .text': 'offer.offer_text',
+                'span.tags': {
+                    'tag <- offer.tags': {
+                        'a': 'tag.tag',
+                        '+a@class': 'tag.type'
+                    }
+                },
+                '.when': 'offer.date'
+            }
+        }
+    };
     function updateMap() {
         var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
         var myOptions = {
@@ -91,23 +108,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     }); 
         offers_uri = container.offers_uri;
 
-        var offers_directives = {
-            'div.offer': {
-                'offer <- messages': {
-                    'a.username@href': 'offer.user.more_info_url',
-                    'a.username': 'offer.user.screen_name',
-                    '.avatar img@src': 'offer.user.profile_pic_url',
-                    '.msg .text': 'offer.offer_text',
-                    'span.tags': {
-                        'tag <- offer.tags': {
-                            'a': 'tag.tag',
-                            '+a@class': 'tag.type'
-                        }
-                    },
-                    '.when': 'offer.date'
-                }
-            }
-        };
+
   
         
 
