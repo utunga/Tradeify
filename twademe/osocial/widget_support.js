@@ -51,10 +51,11 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
         //map.clearMarkers();
         $.each(offers, function() {
-            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+        var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            var title=this.offer_text+" "+this.user.more_info_url;
             var marker = new google.maps.Marker({
                 clickable: true,
-                title: this.offer_text+" "+this.user.more_info_url,
+                title: title,
                 position: post,
                 map: map
             });
