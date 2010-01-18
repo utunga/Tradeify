@@ -44,7 +44,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             map.markers[map.markers.length] = this;
         }
         this._setMap(map);
-    }
+    };
 
     function updateMap() {
         map.clearMarkers();
@@ -61,9 +61,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 marker.openInfoWindowHtml()
             });
             */
-        });
-    }
-    
+        });    
     }
     var init = function() {
     $("#results").tabs({
