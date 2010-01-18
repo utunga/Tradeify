@@ -15,7 +15,23 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
+        updateMap();
         //google.maps.event.addListener(map, "click", clicked);
+        /*
+         marker2viidz465dm6r = new GMarker(point2viidz465dm6r,{icon:baseIcon, title:"nick myhre"});
+390 GEvent.addListener(marker2viidz465dm6r, "click", function() {
+391 marker2viidz465dm6r.openInfoWindowHtml("<div class='user'><a href='http://ooooby.ning.com/profile/2viidz465dm6r' target='_top'><img src='http://api.ning.com/files/SJx7Iz4Taic-OTZQzUhOX-FAuVIAXziERFXalCQwepEAud*5Bn4pXWljYZ1p9n*DKnJYP-TvAacNsqtvkd39nCmINYjRK-gq/ATT000022.jpg?crop=1%3A1&width=75' class='upic'/></a><b><a href='http://ooooby.ning.com/profile/2viidz465dm6r' target='_top'>nick myhre</a></b><br /><small style='color:#000000 !important;'>over five foot ten</small><br /><br /><small style='float:right;'><a href='http://ooooby.ning.com/profile/2viidz465dm6r' target='_top'>View My Profile Page &gt;&gt;</a></small></div>");
+392 }); */
+
+    }
+    google.maps.Map.prototype.clearMarkers = function() {
+        for (var i = 0; i < this.markers.length; i++) {
+            this.markers[i].setMap(null);
+        }
+        this.markers = new Array(); 
+    };
+    function updateMap() {
+        map.clearMarkers();
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
             var marker = new google.maps.Marker({
@@ -24,9 +40,16 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 position: post,
                 map: map
             });
+            GEvent.addListener(marker, "click", function() {
+                marker.openInfoWindowHtml()
+            });
         });
     }
-
+    
+    function makeMapPopup(){
+   
+    
+    }
     var init = function() {
     $("#results").tabs({
         //event: 'mouseover'
@@ -73,7 +96,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         //update_offers();
         
     }
-    
+
     var update_offers = function() {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
@@ -84,7 +107,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
-            $("#offer_template").quickPager({ pageSize: 2 });
+            $("#offer_template").quickPager({ pageSize: 4 });
+            updateMap();
             //$("#results").tabs();
         });
     };

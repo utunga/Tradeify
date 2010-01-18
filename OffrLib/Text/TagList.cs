@@ -60,12 +60,17 @@ namespace Offr.Text
         
         public void Add(ITag tag)
         {
-            _list.Add(tag);
-            _tagsByType[tag.Type].Add(tag);
-            if (!_matchTags.Contains(tag.MatchTag))
+            //only one of the same tag
+            if (!_list.Contains(tag))
             {
-                _matchTags.Add(tag.MatchTag);
+                _list.Add(tag);
+                _tagsByType[tag.Type].Add(tag);
+                if (!_matchTags.Contains(tag.MatchTag))
+                {
+                    _matchTags.Add(tag.MatchTag);
+                }
             }
+            
         }
 
         public void Clear()
