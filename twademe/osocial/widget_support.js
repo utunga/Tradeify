@@ -8,13 +8,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
     var map;
     function initialize() {
-        var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
-        var myOptions = {
-            zoom: 2,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
+
         updateMap();
         //google.maps.event.addListener(map, "click", clicked);
         /*
@@ -24,6 +18,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 392 }); */
 
     }
+    /*
     google.maps.Map.prototype.markers = new Array();
 
     google.maps.Map.prototype.getMarkers = function() {
@@ -45,9 +40,16 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         }
         this._setMap(map);
     };
-
+    */
     function updateMap() {
-        map.clearMarkers();
+        var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+        var myOptions = {
+            zoom: 2,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
+        //map.clearMarkers();
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
             var marker = new google.maps.Marker({
