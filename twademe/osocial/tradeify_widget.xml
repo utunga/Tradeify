@@ -25,7 +25,7 @@
         </ul>
         <div id="results-1" style="padding-bottom: 30px;">
             <span class="template" id="offer_template">
-                <div class="offer">
+                <div class="offer" style="padding-bottom: 20px;">
                     <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar">
                         <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
                             class="username"></a>
@@ -49,7 +49,7 @@
     </div>
     </div>
 
-<h4><br/><br/>Post Your Own</h4>
+<h4>Post Your Own</h4>
 <div id="post_your_own_form" class="ui-widget">
 
 	<div class="tooltip"></div> 

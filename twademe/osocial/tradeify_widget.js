@@ -206,31 +206,33 @@ function update_tags() {
 	
 	var json_url = build_tags_query(this.container.tags_uri);
 	$.getJSON(json_url, function(context) {
-		tags = context.tags_json.overall;
-		var tagString = "";
-		$.each(tags, function() {
-			var on = "";
-			var endon = "";
-			if (($.inArray(this.tag, selected_tags) > -1)) {
-				on = "<li class=\"on\">";
-				endon = "</li>";
-			}
-			else {
-				on = "<li>";
-				endon = "</li>";
-			}
-			tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
-		});  
-		
-		//alert(tagString);
-		//if (!(typeof suggested_tags_render_fn == 'function')) {
-		//if not yet compiled compile it
-		/*    compile_render_fn();
+	    tags = context.tags_json.overall;
+	    var tagString = "";
+	    $.each(tags, function() {
+	        if (this.type != "loc" && this.type !="type") {
+	            var on = "";
+	            var endon = "";
+	            if (($.inArray(this.tag, selected_tags) > -1)) {
+	                on = "<li class=\"on\">";
+	                endon = "</li>";
+	            }
+	            else {
+	                on = "<li>";
+	                endon = "</li>";
+	            }
+	            tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
+	        }
+	    });
+
+	    //alert(tagString);
+	    //if (!(typeof suggested_tags_render_fn == 'function')) {
+	    //if not yet compiled compile it
+	    /*    compile_render_fn();
 		
 		var render = $p.render('suggested_tags_render_fn', tags);
-		*/
-		$('#suggested_tags').html(tagString);
-		$("#suggested_tags .select_tag").click(ontag_click);
+	    */
+	    $('#suggested_tags').html(tagString);
+	    $("#suggested_tags .select_tag").click(ontag_click);
 	});
 }
 
