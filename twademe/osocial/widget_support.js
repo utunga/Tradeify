@@ -51,23 +51,30 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
         //map.clearMarkers();
         $.each(offers, function() {
-        var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
-            var title=this.offer_text+" "+this.user.more_info_url;
+            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            var title = this.offer_text + " " + this.user.more_info_url;
             var marker = new google.maps.Marker({
                 clickable: true,
                 title: title,
                 position: post,
                 map: map
             });
-            var infowindow = new google.maps.InfoWindow(
-            { content: title
-            });
-            
+
+
             google.maps.event.addListener(marker, "click", function() {
-                infowindow.open(map, marker);
+                createPopup(map,marker);
             });
-            
-        });    
+
+        });
+    }
+    function createPopup(map, marker) {
+        var map_popup = $("map_popup" + ' .map_template').compile(offers_directives);
+        $("map_popup" + ' .map_template').render(data, offers_render_fn)
+        $("#map_offer_template").quickPager({ pageSize: 2 });
+        var infowindow = new google.maps.InfoWindow(
+            { content: $("#map_popup").html()
+            });
+            infowindow.open(map, marker);    
     }
     var init = function() {
     $("#results").tabs({
