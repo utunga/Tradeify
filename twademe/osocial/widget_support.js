@@ -52,18 +52,17 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
             var marker = new google.maps.Marker({
                 clickable: true,
-                title: this.offer_text,
+                title: this.offer_text+" "+this.user.more_info_url,
                 position: post,
                 map: map
             });
-            GEvent.addListener(marker, "click", function() {
+            /*open info window not yet implemented in v3!
+            google.maps.event.addListener(marker, "click", function() {
                 marker.openInfoWindowHtml()
             });
+            */
         });
     }
-    
-    function makeMapPopup(){
-   
     
     }
     var init = function() {
