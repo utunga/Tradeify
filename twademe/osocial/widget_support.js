@@ -4,7 +4,6 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var offers_render_fn;
     var current_tags; 
     var offers_uri;
-    var raw_data;
     
     var map;
     function initialize() {
@@ -66,9 +65,9 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         '.map_avatar img@src': 'map_offer.user.profile_pic_url',
         '.map_msg .map_text': 'map_offer.offer_text',
         'span.map_tags': {
-        'tag <- map_offer.tags': {
-        'a': 'tag.map_tag',
-        '+a@class': 'tag.map_type'
+        'map_tag <- map_offer.tags': {
+        'a': 'map_tag.map_tag',
+        '+a@class': 'map_tag.map_type'
                     }
                 },
                 '.map_when': 'map_offer.date'
@@ -86,7 +85,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         //map.clearMarkers();
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
-            var title = this.offer_text + " " + this.user.more_info_url;
+            var title = "wellington"//this.offer_text + " " + this.user.more_info_url;
             var marker = new google.maps.Marker({
                 clickable: true,
                 title: title,
@@ -103,12 +102,15 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     }
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     function createPopup(map, marker) {
+        build_search_query(offers_uri);
+        $.getJSON(json_url, function(raw_data) {
         $("#map_popup" + ' .map_template').render(raw_data, map_popup);
         //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
         var infowindow = new google.maps.InfoWindow(
             { content: $("#map_popup").html()
             });
             infowindow.open(map, marker);    
+        }
     }
     var init = function() {
     $("#results").tabs({
@@ -140,22 +142,25 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         //update_offers();
         
     }
+    function _offers(onCompletion){
+       var json_url = build_search_query(offers_uri);
+       $.getJSON(json_url, function(data) {
+           $(offers_selector + ' .template').render(data, offers_render_fn);
 
+           $(offers_selector + ' .tags a').click(function() {
+               //add a filter when tags under a message are clicked
+               add_filter($(this).text(), $(this).css());
+           });
+           onCompletion();
+       });
+    }
     var update_offers = function() {
-        var json_url = build_search_query(offers_uri);
-        $.getJSON(json_url, function(data) {
+    _offers(function() {
             offers = data.messages;
-            raw_data = data;
-            $(offers_selector + ' .template').render(data, offers_render_fn);
-
-            $(offers_selector + ' .tags a').click(function() {
-                //add a filter when tags under a message are clicked
-                add_filter($(this).text(), $(this).css());
-            });
             updateMap();
             $("#offer_template").quickPager({ pageSize: 4 }, "#pager");
-            //$("#results").tabs();
         });
+        //$("#results").tabs();
     };
 
     var add_filter = function(tag_text, tag_type) {
