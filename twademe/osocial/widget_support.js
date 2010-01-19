@@ -64,7 +64,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         'a.map_username@href': 'offer.user.more_info_url',
         'a.map_username': 'offer.user.screen_name',
         '.map_avatar img@src': 'offer.user.profile_pic_url',
-        '.map_msg .text': 'offer.offer_text',
+        '.map_msg .map_text': 'offer.offer_text',
         'span.map_tags': {
         'tag <- map_offer.tags': {
         'a': 'tag.map_tag',
