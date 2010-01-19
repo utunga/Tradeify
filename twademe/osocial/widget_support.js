@@ -93,8 +93,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     function createPopup(map, marker) {
         var json_url = build_search_query(offers_uri);
-        var tags_backup=current_tags;
-        add_filter(marker.title,"loc");
+        var tags_backup = current_tags;
+        current_tags.add_tag(marker.title, "loc");
         $.getJSON(json_url, function(raw_data) {
             $("#map_popup" + ' .map_template').render(raw_data, map_popup);
             //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
