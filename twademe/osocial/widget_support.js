@@ -92,9 +92,9 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     }
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     function createPopup(map, marker) {
-        var json_url = build_search_query(offers_uri);
         var tags_backup = current_tags;
-        current_tags.add_tag(marker.title, "loc");
+        tags_backup.add_tag(marker.title, "loc");
+        var json_url = build_search_query(offers_uri, tags_backup);        
         $.getJSON(json_url, function(raw_data) {
             $("#map_popup" + ' .map_template').render(raw_data, map_popup);
             //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
@@ -104,7 +104,6 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             );
             infowindow.open(map, marker);
         });
-        current_tags=tags_backup;
     }
     var init = function() {
     $("#results").tabs({
@@ -172,7 +171,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     };
 
     var build_search_query = function(baseUrl) {
-        var query = "";
+    var query = "";
+    var current_tags = (arguments.length > 1) ? arguments[1] : this.current_tags;
         for (tag in current_tags.tags) {
             if (query != "")
                 query = query + "&";
