@@ -144,11 +144,11 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                //add a filter when tags under a message are clicked
                add_filter($(this).text(), $(this).css());
            });
-           onCompletion();
+           onCompletion(data);
        });
     }
     var update_offers = function() {
-    offers_(function() {
+    offers_(function(data) {
             offers = data.messages;
             updateMap();
             $("#offer_template").quickPager({ pageSize: 4 }, "#pager");
