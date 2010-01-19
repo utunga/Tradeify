@@ -57,6 +57,23 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 '.when': 'offer.date'
             }
         }
+    }; 
+    var map_directives = {
+        'div.map_offer': {
+        'map_offer <- messages': {
+                'a.username@href': 'offer.user.more_info_url',
+                'a.username': 'offer.user.screen_name',
+                '.avatar img@src': 'offer.user.profile_pic_url',
+                '.msg .text': 'offer.offer_text',
+                'span.tags': {
+                    'tag <- offer.tags': {
+                        'a': 'tag.tag',
+                        '+a@class': 'tag.type'
+                    }
+                },
+                '.when': 'offer.date'
+            }
+        }
     };
     function updateMap() {
         var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
@@ -85,9 +102,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         });
     }
     function createPopup(map, marker) {
-        //$("#map_popup" + ' .map_template')
-       var map_popup = $(/*"#map_popup" + */'.map_template').compile(offers_directives);
-       $(/*"#map_popup"+*/'. map_template').render(offers, map_popup);
+       var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
+        $("#map_popup" + ' .map_template').render(offers, map_popup);
         //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
         var infowindow = new google.maps.InfoWindow(
             { content: $("#results-1").html()

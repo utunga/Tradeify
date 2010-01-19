@@ -133,7 +133,7 @@
 </div>
         <div id="map_popup" style="padding-bottom: 30px;">
             <span class="map_template" id="map_template">
-                <div class="offer" style="padding-bottom: 20px;">
+                <div class="map_offer" style="padding-bottom: 20px;">
                     <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar">
                         <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
                             class="username"></a>
