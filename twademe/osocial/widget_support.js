@@ -4,8 +4,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var offers_render_fn;
     var current_tags; 
     var offers_uri;
-
-
+    var raw_data;
+    
     var map;
     function initialize() {
 
@@ -101,12 +101,12 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
         });
     }
+    var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     function createPopup(map, marker) {
-       var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
-        $("#map_popup" + ' .map_template').render(offers, map_popup);
+        $("#map_popup" + ' .map_template').render(raw_data, map_popup);
         //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
         var infowindow = new google.maps.InfoWindow(
-            { content: $("#results-1").html()
+            { content: $("#map_popup").html()
             });
             infowindow.open(map, marker);    
     }
@@ -145,6 +145,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
             offers = data.messages;
+            raw_data = data;
             $(offers_selector + ' .template').render(data, offers_render_fn);
 
             $(offers_selector + ' .tags a').click(function() {
@@ -152,7 +153,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 add_filter($(this).text(), $(this).css());
             });
             updateMap();
-            $("#offer_template").quickPager({ pageSize: 4 },"#pager");
+            $("#offer_template").quickPager({ pageSize: 4 }, "#pager");
             //$("#results").tabs();
         });
     };
