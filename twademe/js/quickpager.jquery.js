@@ -9,17 +9,18 @@
 var pageCount=-2;
 var selector;
 var options;
+var pageSelector;
 function initialPageClick(currentPage) {
     $(".pagerPage").hide();
     $(".simplePagerPage" + currentPage).show();
 }
 function pageClick(currentPage) {
     initialPageClick(currentPage);
-    $("#pager").pager({ pagenumber: currentPage, pagecount: pageCount, buttonClickCallback: pageClick });
+    $(pageSelector).pager({ pagenumber: currentPage, pagecount: pageCount, buttonClickCallback: pageClick });
 }
 (function($) {
 
-    $.fn.quickPager = function(options) {
+    $.fn.quickPager = function(options, pager) {
 
         var defaults = {
             pageSize: 10,
@@ -27,7 +28,7 @@ function pageClick(currentPage) {
             holder: null,
             pagerLocation: "after"
         };
-
+        pageSelector = pager;
         options = $.extend(defaults, options);
 
         //pageCount = (((this)[0]).firstChild.length / options.pageSize).toFixed(0) + 1;
