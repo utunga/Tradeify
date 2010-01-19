@@ -134,16 +134,16 @@
         <div id="map_popup" style="padding-bottom: 30px;">
             <span class="map_template" id="map_template">
                 <div class="map_offer" style="padding-bottom: 20px;">
-                    <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar">
-                        <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
-                            class="username"></a>
-                        <p class="msg">
-                            <span class="text"></span>
+                    <a href="#" class="map_offer_overall"><span><a href="user_uri" class="avatar">
+                        <img src="map_user_thumb" width="16" height="16" alt="username" /></a> <a href="map_user_uri"
+                            class="map_username"></a>
+                        <p class="map_msg">
+                            <span class="map_text"></span>
                             <br />
-                            <span class="tags"><span class="tag"><a href="#" onclick=""></a>, </span></span>
+                            <span class="map_tags"><span class="map_tag"><a href="#" onclick=""></a>, </span></span>
                         </p>
                         <div class="meta">
-                            <a class="when" href="source_uri">Today, 10:50 am</a>
+                            <a class="map_when" href="source_uri">Today, 10:50 am</a>
                         </div>
                     </span></a>
                 </div>

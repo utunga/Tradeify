@@ -61,17 +61,17 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var map_directives = {
         'div.map_offer': {
         'map_offer <- messages': {
-                'a.username@href': 'offer.user.more_info_url',
-                'a.username': 'offer.user.screen_name',
-                '.avatar img@src': 'offer.user.profile_pic_url',
-                '.msg .text': 'offer.offer_text',
-                'span.tags': {
-                    'tag <- offer.tags': {
-                        'a': 'tag.tag',
-                        '+a@class': 'tag.type'
+        'a.map_username@href': 'offer.user.more_info_url',
+        'a.map_username': 'offer.user.screen_name',
+        '.map_avatar img@src': 'offer.user.profile_pic_url',
+        '.map_msg .text': 'offer.offer_text',
+        'span.map_tags': {
+        'tag <- map_offer.tags': {
+        'a': 'tag.map_tag',
+        '+a@class': 'tag.map_type'
                     }
                 },
-                '.when': 'offer.date'
+                '.map_when': 'offer.date'
             }
         }
     };
