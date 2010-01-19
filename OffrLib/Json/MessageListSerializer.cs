@@ -46,7 +46,8 @@ namespace Offr.Json
                                                                         {"thumbnail_url",offer.Thumbnail},
                                                                         {"date", offer.FriendlyTimeStamp },
                                                                         {"offer_latitude",offer.Location.GeoLat},
-                                                                        {"offer_longitude",offer.Location.GeoLong}
+                                                                        {"offer_longitude",offer.Location.GeoLong},
+                                                                        {"offer_address",offer.Location.Address}
                                                                     };
 
                             Dictionary<string, object> userDict = new Dictionary<string, object>() 

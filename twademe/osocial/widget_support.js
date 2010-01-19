@@ -75,7 +75,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         //map.clearMarkers();
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
-            var title = "wellington"//this.offer_text + " " + this.user.more_info_url;
+            var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
             var marker = new google.maps.Marker({
                 clickable: true,
                 title: title,
@@ -85,7 +85,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
 
             google.maps.event.addListener(marker, "click", function() {
-                createPopup(map,marker);
+                createPopup(map, marker);
             });
 
         });
