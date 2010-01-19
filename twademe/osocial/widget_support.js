@@ -6,17 +6,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var offers_uri;
     
     var map;
-    function initialize() {
 
-        updateMap();
-        //google.maps.event.addListener(map, "click", clicked);
-        /*
-         marker2viidz465dm6r = new GMarker(point2viidz465dm6r,{icon:baseIcon, title:"nick myhre"});
-390 GEvent.addListener(marker2viidz465dm6r, "click", function() {
-391 marker2viidz465dm6r.openInfoWindowHtml("<div class='user'><a href='http://ooooby.ning.com/profile/2viidz465dm6r' target='_top'><img src='http://api.ning.com/files/SJx7Iz4Taic-OTZQzUhOX-FAuVIAXziERFXalCQwepEAud*5Bn4pXWljYZ1p9n*DKnJYP-TvAacNsqtvkd39nCmINYjRK-gq/ATT000022.jpg?crop=1%3A1&width=75' class='upic'/></a><b><a href='http://ooooby.ning.com/profile/2viidz465dm6r' target='_top'>nick myhre</a></b><br /><small style='color:#000000 !important;'>over five foot ten</small><br /><br /><small style='float:right;'><a href='http://ooooby.ning.com/profile/2viidz465dm6r' target='_top'>View My Profile Page &gt;&gt;</a></small></div>");
-392 }); */
-
-    }
     /*
     google.maps.Map.prototype.markers = new Array();
 
@@ -103,14 +93,18 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     function createPopup(map, marker) {
         build_search_query(offers_uri);
+        var tags_backup=current_tags;
+        add_filter(marker.title,"loc");
         $.getJSON(json_url, function(raw_data) {
-        $("#map_popup" + ' .map_template').render(raw_data, map_popup);
-        //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
-        var infowindow = new google.maps.InfoWindow(
+            $("#map_popup" + ' .map_template').render(raw_data, map_popup);
+            //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
+            var infowindow = new google.maps.InfoWindow(
             { content: $("#map_popup").html()
-            });
-            infowindow.open(map, marker);    
-        }
+            }
+            );
+            infowindow.open(map, marker);
+        });
+        current_tags=tags_backup;
     }
     var init = function() {
     $("#results").tabs({
@@ -119,7 +113,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         show: function(event, ui) {
             if (ui.panel.id == "results-2") {
                 $(ui.panel).css("height", "100%");
-                initialize();
+                updateMap();
                 // map.checkResize();
 
             }
@@ -140,9 +134,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             return false;
         });
         //update_offers();
-        
-    }
-    function _offers(onCompletion){
+        }
+    function offers_(onCompletion){
        var json_url = build_search_query(offers_uri);
        $.getJSON(json_url, function(data) {
            $(offers_selector + ' .template').render(data, offers_render_fn);
@@ -155,7 +148,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
        });
     }
     var update_offers = function() {
-    _offers(function() {
+    offers_(function() {
             offers = data.messages;
             updateMap();
             $("#offer_template").quickPager({ pageSize: 4 }, "#pager");
