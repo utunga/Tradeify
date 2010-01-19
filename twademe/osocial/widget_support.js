@@ -92,8 +92,11 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     }
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     function createPopup(map, marker) {
-        var tags_backup=current_tags.tags.slice();
-        tags_backup.push(marker.title);
+        var tags_backup = current_tags.tags.slice();
+        var tag = new Tag();
+        tag.type = "loc";
+        tag.text = marker.title;
+        tags_backup.push(tag);
         var json_url = build_search_query(offers_uri, tags_backup);        
         $.getJSON(json_url, function(raw_data) {
             $("#map_popup" + ' .map_template').render(raw_data, map_popup);
@@ -172,7 +175,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
     var build_search_query = function(baseUrl) {
     var query = "";
-    var current_tags_array = (arguments.length > 1) ? arguments[1] : this.current_tags.tags;
+    var current_tags_array = (arguments.length > 1) ? arguments[1] : current_tags.tags;
     for (tag in current_tags_array) {
             if (query != "")
                 query = query + "&";
