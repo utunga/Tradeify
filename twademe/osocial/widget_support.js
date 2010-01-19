@@ -85,8 +85,9 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         });
     }
     function createPopup(map, marker) {
-       var map_popup = $("#map_popup" + ' .map_template').compile(offers_directives);
-        $("#map_popup" + ' .map_template').render(offers, map_popup);
+        //$("#map_popup" + ' .map_template')
+       var map_popup = $(/*"#map_popup" + */'.map_template').compile(offers_directives);
+       $(/*"#map_popup"+*/'. map_template').render(offers, map_popup);
         //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
         var infowindow = new google.maps.InfoWindow(
             { content: $("#results-1").html()
