@@ -190,7 +190,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     for (tag in current_tags_array) {
             if (query != "")
                 query = query + "&";
-            query = query + "tag=" + current_tags_array[tag].text;
+            query = query + "tag=" + current_tags_array[tag].tag;
         }
         return baseUrl + "?" + query + "&jsoncallback=?";
     };
