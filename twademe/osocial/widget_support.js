@@ -56,8 +56,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         '.map_msg .map_text': 'map_offer.offer_text',
         'span.map_tags': {
         'map_tag <- map_offer.tags': {
-        'a': 'map_tag.map_tag',
-        '+a@class': 'map_tag.map_type'
+        'a': 'map_tag.tag',
+        '+a@class': 'map_tag.type'
                     }
                 },
                 '.map_when': 'map_offer.date'
