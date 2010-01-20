@@ -76,11 +76,16 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
             var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
+            var tags = new Array();
+            $.each(this.tags,function(){
+            if(this.type=="loc")tags.push(this);
+            });
             var marker = new google.maps.Marker({
                 clickable: true,
                 title: title,
                 position: post,
-                map: map
+                map: map,
+                tags: tags
             });
 
 
@@ -92,17 +97,23 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     }
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     function createPopup(map, marker) {
-        var tags_backup = current_tags.tags.slice();
+        var tags_backup = current_tags.tags.concat(marker.tags);
+        /*
+        current_tags.tags.slice();
+        $.each(marker.tags,function{
         var tag = new Tag();
         tag.type = "loc";
         tag.text = marker.title;
         tags_backup.push(tag);
+        });        
+        */
         var json_url = build_search_query(offers_uri, tags_backup);        
         $.getJSON(json_url, function(raw_data) {
             $("#map_popup" + ' .map_template').render(raw_data, map_popup);
             //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
             var infowindow = new google.maps.InfoWindow(
-            { content: $("#map_popup").html()
+            { 
+                content: $("#map_popup").html(),
             }
             );
             infowindow.open(map, marker);
