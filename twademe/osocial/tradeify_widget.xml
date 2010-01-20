@@ -99,7 +99,7 @@
             <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
         </div>
                     
-        <div class="tags">
+        <div class="tags" style="width: 430px;">
             <label> Tags </label>
             <ul id="selected_tags">
                 <li><a href="#" class="tag"></a></li>
@@ -114,7 +114,7 @@
                     </span>
                 </div>
                 <h4>Or type to add more</h4> 
-                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" />
+                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
             </blockquote>
         
         </div>
