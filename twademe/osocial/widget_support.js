@@ -111,12 +111,13 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         var json_url = build_search_query(offers_uri, tags_backup);        
         $.getJSON(json_url, function(raw_data) {
             $("#map_popup" + ' .map_template').render(raw_data, map_popup);
+            
             //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
             var infowindow = new google.maps.InfoWindow(
             { 
                 content: $("#map_popup").html(),
-            }
-            );
+            });
+            $("#map_popup" + ' .map_template').hide();
             infowindow.open(map, marker);
         });
     }
