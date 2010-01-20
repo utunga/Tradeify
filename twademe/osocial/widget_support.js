@@ -78,7 +78,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
             var tags = new Array();
             $.each(this.tags,function(){
-            if(this.type=="loc")tags.push(this);
+                if(this.type=="loc")tags.push(this);
             });
             var marker = new google.maps.Marker({
                 clickable: true,
@@ -96,6 +96,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         });
     }
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
+    $("#map_popup" + ' .map_template').hide();
     function createPopup(map, marker) {
         var tags_backup = current_tags.tags.concat(marker.tags);
         /*
