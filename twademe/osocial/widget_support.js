@@ -34,7 +34,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         'div.offer': {
             'offer <- messages': {
                 'a.username@href': 'offer.user.more_info_url',
-                'a.avatar@href': 'offer.user.profile_pic_url',
+                'a.avatar@href': 'offer.user.more_info_url',
                 'a.username': 'offer.user.screen_name',
                 '.avatar img@src': 'offer.user.profile_pic_url',
                 '.msg .text': 'offer.offer_text',
