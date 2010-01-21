@@ -161,6 +161,22 @@ namespace Offr.Tests
                                                           }
                                    };
             _addressToExpectedTags.Add(address, france);
+            address = "1 Tawa St, 1081, New Zealand";
+            ILocation waiheke = new Location.Location
+            {
+                GeoLat = (decimal)-36.7853580,
+                GeoLong = (decimal)175.0169530,
+                Address = address,
+                Tags = new List<ITag>
+                              {
+                                  (new Tag(TagType.loc, "New Zealand")),
+                                  (new Tag(TagType.loc, "Oneroa")),
+/*,
+                                  (new Tag(TagType.loc, "GB"))*/
+                              }
+            };
+
+            _addressToExpectedTags.Add(address, waiheke);
             address = "30 Borough Rd, London";
             ILocation uk = new Location.Location
                        {

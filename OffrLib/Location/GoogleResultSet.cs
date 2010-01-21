@@ -24,6 +24,7 @@ namespace Offr.Location
                 public CountryType Country { get; set; }
                 public class CountryType
                 {
+                    public AdministrativeAreaType.DependentLocalityType DependentLocality { get; set; }
                     public AdministrativeAreaType AdministrativeArea { get; set; }
                     public AdministrativeAreaType.SubAdministrativeAreaType.LocalityType Locality { get; set; }
                     public class AdministrativeAreaType{

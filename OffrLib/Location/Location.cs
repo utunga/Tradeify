@@ -144,6 +144,15 @@ namespace Offr.Location
             string region = null;
             if (placemark.AddressDetails.Country != null)
             {
+                if (placemark.AddressDetails.Country.DependentLocality != null)
+                {
+                    localityName =
+                           placemark.AddressDetails.Country.DependentLocality.DependentLocalityName;
+                    if (placemark.AddressDetails.Country.DependentLocality.Thoroughfare != null)
+                        streetAddress =
+                            placemark.AddressDetails.Country.DependentLocality.Thoroughfare.
+                                ThoroughfareName;
+                }
                 if (placemark.AddressDetails.Country.Locality != null)
                 {
                     localityName = placemark.AddressDetails.Country.Locality.LocalityName;
