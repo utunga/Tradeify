@@ -74,8 +74,10 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         }
         map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
         //map.clearMarkers();
+        var latlng = new Array();
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            latlng.add(post);
             var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
             var tags = new Array();
             $.each(this.tags,function(){
@@ -93,8 +95,12 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             google.maps.event.addListener(marker, "click", function() {
                 createPopup(map, marker);
             });
-
         });
+        var latlngbounds = new GLatLngBounds();
+        for (var i = 0; i < latlng.length; i++) {
+            latlngbounds.extend(latlng[i]);
+        }
+        map.setCenter(latlngbounds.getCenter(), map.getBoundsZoomLevel(latlngbounds));
     }
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     $("#map_popup" + ' .map_template').hide();
