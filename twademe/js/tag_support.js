@@ -23,7 +23,7 @@ if (!console) {
 
 
 function Tag() {
-    this.text = "";
+    this.tag = "";
     this.type = "tag";
     this.active = false;
     this.fixed = false;
@@ -40,7 +40,7 @@ function Tags(target_selector) {
     this.find_tag = function(text) {
         var found_tag = null;
          $.each(this.tags, function() {
-            if (text == this.text) {
+            if (text == this.tag) {
                 found_tag = this;
             }
         });
@@ -59,7 +59,7 @@ function Tags(target_selector) {
       
         var tag = new Tag();
         tag.type = type;
-        tag.text = text;
+        tag.tag = text;
         tag.active = active;
         this.tags.push(tag);
         this.update_view();
@@ -88,7 +88,7 @@ function Tags(target_selector) {
         var tmp = []; 
         //removes all instances of tags with this text (in the case there is more than one)
         $.each(this.tags, function() {
-            if (text != this.text) {
+            if (text != this.tag) {
                 tmp.push(this);
             }
             else {
@@ -157,7 +157,7 @@ function Tags(target_selector) {
     
     this.decorate_url = function(baseUrl) {
         var query = $(this.tags).map(function() {
-            return this.type + "=" + escape(this.text);
+            return this.type + "=" + escape(this.tag);
         }).get().join("&");
         return baseUrl + "?" + query + "&jsoncallback=?";
     }
@@ -188,7 +188,7 @@ function Tags(target_selector) {
         	
 	        tagString = tagString + "\n" +
             "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n"+
-                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + this.text + "</a>";
+                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + this.tag + "</a>";
         });
 
         tagString = tagString + "</div>";
@@ -199,7 +199,7 @@ function Tags(target_selector) {
     	var tagString="";
 	    $.each(this.tags, function() {
 	        if(this.active) {
-		        tagString = tagString + " #" + this.text;
+		        tagString = tagString + " #" + this.tag;
 		    }
 	    });
 	    return tagString;
