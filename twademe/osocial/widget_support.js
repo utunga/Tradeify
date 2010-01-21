@@ -145,7 +145,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
         current_tags = new Tags(current_tags_selector);
         current_tags.tag_click(function() {
-            remove_filter($(this).tag());
+            remove_filter($(this).text());
             return false;
         });
         //update_offers();
@@ -157,7 +157,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
            $(offers_selector + ' .tags a').click(function() {
                //add a filter when tags under a message are clicked
-               add_filter($(this).tag(), $(this).css());
+               add_filter($(this).text(), $(this).css());
            });
            onCompletion(data);
        });
