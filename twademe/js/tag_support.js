@@ -138,17 +138,17 @@ function Tags(target_selector) {
         }
         
         //hover and click view changes for tag links
-        $(".fg-button:not(.ui-state-disabled)")
-        .mousedown(function(){
-		        if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') )
-			        { $(this).removeClass("ui-state-active"); }
-		        else { $(this).addClass("ui-state-active"); }	
-        })
-        .mouseup(function(){
-	        if(! $(this).is('.fg-button-toggleable, .fg-buttonset-multi .fg-button') ){
-		        $(this).removeClass("ui-state-active");
-	        }
-        });
+//        $(".fg-button:not(.ui-state-disabled)")
+//        .mousedown(function(){
+//		        if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') )
+//			        { $(this).removeClass("ui-state-active"); }
+//		        else { $(this).addClass("ui-state-active"); }	
+//        })
+//        .mouseup(function(){
+//	        if(! $(this).is('.fg-button-toggleable, .fg-buttonset-multi .fg-button') ){
+//		        $(this).removeClass("ui-state-active");
+//	        }
+//        });
         
         //re-attach click event
          $(".fg-buttonset a.tag").click(this._tag_click_ref);

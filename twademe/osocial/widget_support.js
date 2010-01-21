@@ -115,7 +115,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
             var infowindow = new google.maps.InfoWindow(
             { 
-                content: $("#map_popup").html(),
+                content: $("#map_popup").html()
             });
             $("#map_popup" + ' .map_template').hide();
             infowindow.open(map, marker);
