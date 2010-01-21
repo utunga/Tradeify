@@ -220,7 +220,7 @@ $(document).ready(function() {
 
 	currency_tags = new Tags("#currency_tags");
 	currency_tags.tag_click( function() {
-		var tag = currency_tags.find_tag(this.text);
+		var tag = currency_tags.find_tag($(this).text);
 		tag.active = !tag.active;
 		update_offer();	
 		return false;	
