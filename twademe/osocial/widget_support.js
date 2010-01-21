@@ -77,7 +77,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         var latlng = new Array();
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
-            latlng.add(post);
+            latlng.push(post);
             var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
             var tags = new Array();
             $.each(this.tags,function(){
