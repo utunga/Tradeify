@@ -96,7 +96,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 createPopup(map, marker);
             });
         });
-        var latlngbounds = new google.maps.LatLng();
+        var latlngbounds = new google.maps.LatLngBounds();
         for (var i = 0; i < latlng.length; i++) {
             // latlngbounds.extend(latlng[i]);
             $.extend(latlngbounds, latlngbounds, latlng[i]);
