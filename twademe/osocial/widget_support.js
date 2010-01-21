@@ -98,7 +98,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         });
         var latlngbounds = new google.maps.LatLng();
         for (var i = 0; i < latlng.length; i++) {
-            latlngbounds.extend(latlng[i]);
+            // latlngbounds.extend(latlng[i]);
+            $.extend(latlngbounds, latlngbounds, latlng[i]);
         }
         map.setCenter(latlngbounds.getCenter(), map.getBoundsZoomLevel(latlngbounds));
     }
