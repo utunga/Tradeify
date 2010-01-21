@@ -232,7 +232,7 @@ $(document).ready(function() {
 
 	current_tags = new Tags();
 	current_tags.tag_click( function() {
-		current_tags.remove_tag($(this).text());
+		current_tags.remove_tag($(this).text().replace("\n",""));
 		main_widget.update_offers();	
 		return false;	
 	});
