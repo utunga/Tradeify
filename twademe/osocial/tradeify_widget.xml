@@ -224,8 +224,8 @@ $(document).ready(function() {
 	currency_tags.add_tag("swap", "type", false);
 	currency_tags.add_tag("nzd", "type", false);
 	currency_tags.tag_click( function() {
-		var tag = currency_tags.find_tag($(this).text().replace("\n",""));
-		tag.active = !tag.active;
+    var tag_text = $(this).text().replace("\n","");
+		currency_tags.toggle_active(tag_text);
 		update_offer();	
 		return false;	
 	});

@@ -115,6 +115,15 @@ function Tags(target_selector) {
         }
         this.remove_tag.apply(arguments);
     }
+    
+    this.toggle_active = function (text) {
+        var existing = this.find_tag(text)
+        if (!!existing) {
+            existing.active = !existing.active;
+            this.update_view();
+        }
+    }
+    
     this.get_fixed_tags = function() {
         var fixed_tags = new Array();
         $.each(this.tags, function() {
