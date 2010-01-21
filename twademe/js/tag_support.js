@@ -115,7 +115,13 @@ function Tags(target_selector) {
         }
         this.remove_tag.apply(arguments);
     }
-
+    this.get_fixed_tags = function() {
+        var fixed_tags = new Array();
+        $.each(this.tags, function() {
+            if (this.fixed == true) fixed_tags.push(this);
+        });
+        return fixed_tags;
+    }
     this._tag_click_ref = function () {
         return false;
     }  

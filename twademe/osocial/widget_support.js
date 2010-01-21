@@ -204,6 +204,9 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     this.update_offers = update_offers;
     this.add_filter = add_filter;
     this.add_fixed_filter = add_fixed_filter;
+    this.get_fixed_tags = function(){
+        return current_tags.get_fixed_tags();
+    }
     this.get_offers = function() {
         return offers;
     }

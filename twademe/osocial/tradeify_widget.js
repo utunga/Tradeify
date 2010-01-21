@@ -57,6 +57,7 @@ var locationPrefix = " in L:";
 var locationSuffix = ":";
 var forPrefix = " for ";
 var untilPrefix = " until ";
+var group = "ooooby";
 
 
 function get_until() {
@@ -103,7 +104,7 @@ function update_and_dont_parse() {
              get_until() +
 			 get_tags() +
 			 get_imagelink() +
-			 " #ooooby";
+			 " #"+group;
     $("#message_to_send").val(concatMessage);
 }
 /* tag selection code */
@@ -208,8 +209,9 @@ function update_tags() {
 	$.getJSON(json_url, function(context) {
 	    tags = context.tags_json.overall;
 	    var tagString = "";
+	    //var fixedTags = main_widget.get_fixed_tags();
 	    $.each(tags, function() {
-	        if (this.type != "loc" && this.type !="type") {
+	        if (this.type != "loc" && this.type != "type" && this.tag!=group/*$.inArray(this.tag,fixedTags)<=-1*/) {
 	            var on = "";
 	            var endon = "";
 	            if (($.inArray(this.tag, selected_tags) > -1)) {
