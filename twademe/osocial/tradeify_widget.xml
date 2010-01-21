@@ -219,17 +219,17 @@ $(document).ready(function() {
 	$("#by_parts input").change(update_offer);
 
 	currency_tags = new Tags("#currency_tags");
+  currency_tags.add_tag("free", "type", false);
+	currency_tags.add_tag("barter", "type",  false);
+	currency_tags.add_tag("swap", "type", false);
+	currency_tags.add_tag("nzd", "type", false);
 	currency_tags.tag_click( function() {
 		var tag = currency_tags.find_tag($(this).text);
 		tag.active = !tag.active;
 		update_offer();	
 		return false;	
 	});
-	currency_tags.add_tag("free", "type", false);
-	currency_tags.add_tag("barter", "type",  false);
-	currency_tags.add_tag("swap", "type", false);
-	currency_tags.add_tag("nzd", "type", false);
-	
+
 	current_tags = new Tags();
 	current_tags.tag_click( function() {
 		current_tags.remove_tag($(this).text());
