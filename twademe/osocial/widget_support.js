@@ -101,7 +101,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             // latlngbounds.extend(latlng[i]);
             $.extend(latlngbounds, latlngbounds, latlng[i]);
         }
-        map.setCenter(latlngbounds.getCenter(), map.getBoundsZoomLevel(latlngbounds));
+        map.setCenter(latlngbounds);
     }
     var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
     $("#map_popup" + ' .map_template').hide();
