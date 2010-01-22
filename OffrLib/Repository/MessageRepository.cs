@@ -27,20 +27,20 @@ namespace Offr.Repository
 
         public MessageRepository(IIgnoredUserRepository ignoredUsers)
         {
-            _globalTagIndex = new TagDex(this,ignoredUsers);
+            _globalTagIndex = new TagDex(this, ignoredUsers);
         }
 
         public MessageRepository()
         {
-            _globalTagIndex = new TagDex(this);    
+            _globalTagIndex = new TagDex(this);
         }
 
         public int MessageCount
         {
-             get
-             {
-                 return base._list.Count;   
-             }   
+            get
+            {
+                return base._list.Count;
+            }
         }
 
         public IEnumerable<IMessage> AllMessages()
@@ -57,13 +57,13 @@ namespace Offr.Repository
 
         public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags, bool includeIgnoredUsers)
         {
-            return _globalTagIndex.MessagesForTags(tags,includeIgnoredUsers);
+            return _globalTagIndex.MessagesForTags(tags, includeIgnoredUsers);
         }
 
         public IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer)
         {
             //not sure if 'true' is correct
-            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer,true);
+            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer, true);
         }
 
         public IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer userPointer)
@@ -85,7 +85,7 @@ namespace Offr.Repository
         {
             return GetEnumerator();
         }
-        
+
         public TagCounts GetTagCountsForTags(IEnumerable<ITag> tags)
         {
             var tagCounts = new List<TagWithCount>();
@@ -97,11 +97,56 @@ namespace Offr.Repository
             //tagCounts.Reverse();
             return new TagCounts() { Tags = tagCounts, Total = -1 };
         }
+        /*
+          *Fruit
+Vegetables
+Eggs
+Honey
+Nuts & Beans
+Grains
+--
+Food Growing Books
+Food Growing Consultancy
+Food Transport
+Food Trees
+Gardening and Yard Work
+Glass/Shade Houses
+Incidentals; Piping, Net, etc.
+Prepared Food
+Recipe Books
+Seedlings
+Seeds
+Soils & Fertilisers
+Teaching
+Tools & Equipment
+Workshops
+Miscellaneous  
+          */
+
         public void InitializeFromFile()
         {
+            
+            addDummyMessages();
+            //msg.AddThumbnail(GetImageUrl(sourceText));
+            base.InitializeFromFile();
+        }
+        private static void addDummyMessages()
+        {
             var dummy = new OpenSocialUserPointer("ooooby", "Dummy",
-                                                  "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
-                                                  "");
+                                               "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
+                                               "");
+
+            saveDummyMessage(dummy, "ooooby", "Vegetables");
+            saveDummyMessage(dummy, "ooooby", "Fruit");
+            saveDummyMessage(dummy, "ooooby", "Eggs");
+            saveDummyMessage(dummy, "ooooby", "Honey");
+            saveDummyMessage(dummy, "ooooby", "Nuts & Beans");
+            saveDummyMessage(dummy, "ooooby", "Grains");
+            saveDummyMessage(dummy, "ooooby", "Food Growing Books");
+
+        }
+        private static void saveDummyMessage(IUserPointer dummy, string group, string term)
+        {
             for (int i = 0; i < 10; i++)
             {
                 OfferMessage msg = new OfferMessage();
@@ -112,12 +157,10 @@ namespace Offr.Repository
                 msg.RawText = "";
                 msg.OfferText = "";
                 msg.MoreInfoURL = "";
-                msg.AddTag(new Tag(TagType.tag, "Ooooby"));
-                msg.AddTag(new Tag(TagType.tag, "Ooooby_Cool"));
+                msg.AddTag(new Tag(TagType.tag, group));
+                msg.AddTag(new Tag(TagType.tag, term));
                 this.Save(msg);
-            }           
-            //msg.AddThumbnail(GetImageUrl(sourceText));
-            base.InitializeFromFile();
+            }
         }
         //public IEnumerable<IMessage> GetMessagesForKeywordAndTags(string keyword, IEnumerable<ITag> tags)
         //{
