@@ -97,7 +97,28 @@ namespace Offr.Repository
             //tagCounts.Reverse();
             return new TagCounts() { Tags = tagCounts, Total = -1 };
         }
-
+        public void InitializeFromFile()
+        {
+            var dummy = new OpenSocialUserPointer("ooooby", "Dummy",
+                                                  "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
+                                                  "");
+            for (int i = 0; i < 10; i++)
+            {
+                OfferMessage msg = new OfferMessage();
+                msg.CreatedBy = dummy;
+                ////msg.Source = source; //Remove this
+                msg.Timestamp = DateTime.MinValue;
+                msg.MessagePointer = new OpenSocialMessagePointer("ooooby");
+                msg.RawText = "";
+                msg.OfferText = "";
+                msg.MoreInfoURL = "";
+                msg.AddTag(new Tag(TagType.tag, "Ooooby"));
+                msg.AddTag(new Tag(TagType.tag, "Ooooby_Cool"));
+                this.Save(msg);
+            }           
+            //msg.AddThumbnail(GetImageUrl(sourceText));
+            base.InitializeFromFile();
+        }
         //public IEnumerable<IMessage> GetMessagesForKeywordAndTags(string keyword, IEnumerable<ITag> tags)
         //{
         //    // theoretically if we were caching all these objects this use of a 
