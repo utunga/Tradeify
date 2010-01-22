@@ -130,7 +130,7 @@ Miscellaneous
             //msg.AddThumbnail(GetImageUrl(sourceText));
             base.InitializeFromFile();
         }
-        private static void addDummyMessages()
+        private void addDummyMessages()
         {
             var dummy = new OpenSocialUserPointer("ooooby", "Dummy",
                                                "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
@@ -145,7 +145,7 @@ Miscellaneous
             saveDummyMessage(dummy, "ooooby", "Food Growing Books");
 
         }
-        private static void saveDummyMessage(IUserPointer dummy, string group, string term)
+        private void saveDummyMessage(IUserPointer dummy, string group, string term)
         {
             for (int i = 0; i < 10; i++)
             {
