@@ -77,8 +77,8 @@ namespace Offr.Text
         {
             unchecked
             {
-                int result = (ProviderUserName != null ? ProviderUserName.GetHashCode() : 0);
-                result = (result*397) ^ (ProviderNameSpace != null ? ProviderNameSpace.GetHashCode() : 0);
+                int result = (MatchTag != null ? MatchTag.GetHashCode() : 0);
+                result = (result * 397) ^ (MatchTag != null ? MatchTag.GetHashCode() : 0);
                 return result;
             }
         }

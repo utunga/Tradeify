@@ -21,7 +21,10 @@ namespace Offr.Tests
         public TestMessageExecutor() 
         { 
             MockMessageParser mockParser = new MockMessageParser();
-            MessageRepository messageRepository = new MessageRepository();
+            var ignoredUsers = new HashSet<IUserPointer>();
+            var ignoredUser = new MockUserPointer("ooooby","Joav");
+            ignoredUsers.Add(ignoredUser);
+            MessageRepository messageRepository = new MessageRepository(ignoredUsers);
             IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(messageRepository, mockParser);
             //_target = new TagDexQueryExecutor();
             MockRawMessageProvider mockProvider = new MockRawMessageProvider(incomingMessageProcessor);
@@ -55,7 +58,7 @@ namespace Offr.Tests
         {
             foreach (Tag tag in MockData.UsedTags)
             {
-                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag })); //<-- target execution
+                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false)); //<-- target execution
                 Assert.GreaterOrEqual(results.Count, 1, "Received no results for tag:" + tag);
                 Console.Out.WriteLine("For " + tag.ToString() + ":");
                 foreach (IMessage message in results)
@@ -76,7 +79,7 @@ namespace Offr.Tests
             {
                 foreach (Tag tag2 in MockData.UsedTags)
                 {
-                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] {tag, tag2}));
+                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag, tag2 }, false));
                     Console.Out.WriteLine("For " + tag.ToString() + " && " + tag2.ToString() + ":");
                     foreach (IMessage message in results)
                     {
@@ -185,7 +188,7 @@ namespace Offr.Tests
                         multiTags.Add(facet2);
                         multiTags.Add(facet3);
 
-                        List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(multiTags)); //<-- target execution
+                        List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(multiTags,false)); //<-- target execution
                         queryCount++;
                         foreach (IMessage message in results)
                         {
@@ -211,6 +214,12 @@ namespace Offr.Tests
             List<ITag> multiTags = new List<ITag>();
             TagCounts results =  _target.GetTagCountsForTags(multiTags);
             Assert.That(results.Tags.Count == 0);
+        }
+        [Test]
+        public void testIgnoreList()
+        {
+            //_target.
+
         }
     }
 

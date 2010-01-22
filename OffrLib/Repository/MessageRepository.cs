@@ -25,6 +25,11 @@ namespace Offr.Repository
 
         private readonly TagDex _globalTagIndex;
 
+        public MessageRepository(HashSet<IUserPointer> ignoredUsers)
+        {
+            _globalTagIndex = new TagDex(this,ignoredUsers);
+        }
+
         public MessageRepository()
         {
             _globalTagIndex = new TagDex(this);    
@@ -50,14 +55,15 @@ namespace Offr.Repository
             _globalTagIndex.Process(message);
         }
 
-        public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags)
+        public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags, bool includeIgnoredUsers)
         {
-            return _globalTagIndex.MessagesForTags(tags);
+            return _globalTagIndex.MessagesForTags(tags,includeIgnoredUsers);
         }
 
         public IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer)
         {
-            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer);
+            //not sure if 'true' is correct
+            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer,true);
         }
 
         public IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer userPointer)

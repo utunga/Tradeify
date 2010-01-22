@@ -45,7 +45,7 @@ namespace twademe
         public static string GetOffersJson(List<ITag> tags, int messageCount)
         {
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
-            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
+            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags,false);
             return GetOffersJson(messages, messageCount);
         }
 

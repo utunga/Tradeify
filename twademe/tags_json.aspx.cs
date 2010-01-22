@@ -53,7 +53,7 @@ namespace twademe
             {
                 // after that available tags is the tag counts for the current messages
                 // so first get the current 'messages' based on tags (NOTE2J ideally we'd be caching this result since we only just calc'd it in tradeify_json.aspx!)
-                IEnumerable<IMessage> messages = _queryExecutor.GetMessagesForTags(tags);
+                IEnumerable<IMessage> messages = _queryExecutor.GetMessagesForTags(tags,true);
                 TagDex oneOffTagDex = new TagDex(messages); // counts up the tags for these messages
                 availableTags = oneOffTagDex.GetTagCounts();
             }

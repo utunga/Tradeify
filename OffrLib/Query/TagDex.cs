@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -15,13 +16,23 @@ namespace Offr.Query
         private readonly List<ITag> _seenTags;
         private readonly SortedList<string, List<IMessage>> _index;
         private readonly IEnumerable<IMessage> _allMessageSource;
-
-        public TagDex(IEnumerable<IMessage> allMessageSource)
+        private HashSet<IUserPointer> _ignoredUsers;
+        public TagDex(IEnumerable<IMessage> allMessageSource, HashSet<IUserPointer> IgnoredUsers)
         {
+            this._ignoredUsers =IgnoredUsers;
             _seenTags = new List<ITag>();
             _index = new SortedList<string, List<IMessage>>();
             _allMessageSource = allMessageSource;
-            //process whatever messages are currently available, but expect that there may be more
+            Process(allMessageSource);
+           //this._ignoredUsers ?? new HashSet<IUserPointer>(); 
+
+        }
+        public TagDex(IEnumerable<IMessage> allMessageSource)
+        {
+            this._ignoredUsers= new HashSet<IUserPointer>();
+            _seenTags = new List<ITag>();
+            _index = new SortedList<string, List<IMessage>>();
+            _allMessageSource = allMessageSource;
             Process(allMessageSource);
         }
 
@@ -65,17 +76,17 @@ namespace Offr.Query
             }
         }
 
-        public List<IMessage> MessagesForTags(IEnumerable<ITag> tags)
+        public List<IMessage> MessagesForTags(IEnumerable<ITag> tags, bool includeIgnoredUsers)
         {
-            return MessagesForTagsAndUser(tags, null);
+            return MessagesForTagsAndUser(tags, null, includeIgnoredUsers);
         }
 
         public List<IMessage> MessagesForUser(IUserPointer user)
         {
-            return MessagesForTagsAndUser(new ITag[] {}, user);
+            return MessagesForTagsAndUser(new ITag[] { }, user, true);
         }
 
-        public List<IMessage> MessagesForTagsAndUser(IEnumerable<ITag> tags, IUserPointer user)
+        public List<IMessage> MessagesForTagsAndUser(IEnumerable<ITag> tags, IUserPointer user,bool includeIgnoredUsers)
         {
             List<string> matchTags = tags.Select(tag => tag.MatchTag).ToList();
             if (user != null)
@@ -108,7 +119,16 @@ namespace Offr.Query
 
                 if (include)
                 {
-                    results.Add(message);
+                    if (includeIgnoredUsers)
+                    {
+                        results.Add(message);
+                       
+                    }
+                    else if (!_ignoredUsers.Contains(message.CreatedBy))
+                    {
+                            results.Add(message);
+                    }
+                    
                 }
             }
 

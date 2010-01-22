@@ -11,7 +11,7 @@ namespace Offr.Query
     {
         TagCounts GetTagCounts();
         TagCounts GetTagCountsForTags(IEnumerable<ITag> tags);
-        IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags);
+        IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags,bool includeIgnoredUsers);
         //IEnumerable<IMessage> GetMessagesForKeywordAndTags(string keyword, IEnumerable<ITag> tags);
         IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer);
         IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer userPointer);
