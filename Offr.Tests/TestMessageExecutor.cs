@@ -16,14 +16,14 @@ namespace Offr.Tests
     public class TestMessageExecutor
     {
         readonly IMessageQueryExecutor _target;
-        private HashSet<IUserPointer> ignoredUsers;
+        private IgnoredUserRepository ignoredUsers;
        
         public TestMessageExecutor() 
         { 
             MockMessageParser mockParser = new MockMessageParser();
-            ignoredUsers = new HashSet<IUserPointer>();
+            ignoredUsers = new IgnoredUserRepository();
             var ignoredUser = MockData.Users[0];
-            ignoredUsers.Add(ignoredUser);
+            ignoredUsers.Save(ignoredUser);
             MessageRepository messageRepository = new MessageRepository(ignoredUsers);
             IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(messageRepository, mockParser);
             //_target = new TagDexQueryExecutor();
@@ -231,7 +231,8 @@ namespace Offr.Tests
                     IOfferMessage offer = message as IOfferMessage;
                     Assert.IsNotNull(offer);
                     Assert.That(offer.Tags.Contains(tag), "Expected to find results that contain facet:" + tag + " in message:" + message);
-                    Assert.That(!ignoredUsers.Contains(message.CreatedBy));
+                    //ensure there are no messages in ignored users that have the ID of the message
+                    Assert.That(ignoredUsers.Get(message.CreatedBy.ID)==null);
                     Console.Out.WriteLine("\tfound " + message.ToString());
                 }
             }

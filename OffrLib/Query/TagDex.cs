@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using Offr.Common;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Query
@@ -16,8 +17,8 @@ namespace Offr.Query
         private readonly List<ITag> _seenTags;
         private readonly SortedList<string, List<IMessage>> _index;
         private readonly IEnumerable<IMessage> _allMessageSource;
-        private HashSet<IUserPointer> _ignoredUsers;
-        public TagDex(IEnumerable<IMessage> allMessageSource, HashSet<IUserPointer> IgnoredUsers)
+        private IIgnoredUserRepository _ignoredUsers;
+        public TagDex(IEnumerable<IMessage> allMessageSource, IIgnoredUserRepository IgnoredUsers)
         {
             this._ignoredUsers =IgnoredUsers;
             _seenTags = new List<ITag>();
@@ -29,7 +30,7 @@ namespace Offr.Query
         }
         public TagDex(IEnumerable<IMessage> allMessageSource)
         {
-            this._ignoredUsers= new HashSet<IUserPointer>();
+            this._ignoredUsers = Global.Kernel.Get<IIgnoredUserRepository>();
             _seenTags = new List<ITag>();
             _index = new SortedList<string, List<IMessage>>();
             _allMessageSource = allMessageSource;
@@ -124,7 +125,8 @@ namespace Offr.Query
                         results.Add(message);
                        
                     }
-                    else if (!_ignoredUsers.Contains(message.CreatedBy))
+                    //if there is no user in ignored users add the message to the results
+                    else if (_ignoredUsers.Get(message.CreatedBy.ID)==null)
                     {
                             results.Add(message);
                     }

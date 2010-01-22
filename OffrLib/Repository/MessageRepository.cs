@@ -25,7 +25,7 @@ namespace Offr.Repository
 
         private readonly TagDex _globalTagIndex;
 
-        public MessageRepository(HashSet<IUserPointer> ignoredUsers)
+        public MessageRepository(IIgnoredUserRepository ignoredUsers)
         {
             _globalTagIndex = new TagDex(this,ignoredUsers);
         }

@@ -23,7 +23,7 @@ namespace twademe
             Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().Using<SingletonBehavior>();
 
             //ugly but it works - since messageRepository also implements 
-            Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
+             Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
             Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
             
         }

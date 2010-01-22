@@ -20,6 +20,7 @@ namespace twademe
     {
         public const string INITIAL_OFFERS_FILE = "/data/offers.json";
         public const string INITIAL_TAGS_FILE = "/data/initial_tags.json";
+        public const string IGNORE_USER_FILE = "/data/ignore_user_list.json";
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         public static bool IsProductionDeployment
@@ -33,6 +34,19 @@ namespace twademe
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            try
+            {
+                IIgnoredUserRepository ignoredUserRepository = Kernel.Get<IIgnoredUserRepository>();
+                if (ignoredUserRepository is IPersistedRepository)
+                {
+                    //((IPersistedRepository)ignoredUserRepository).FilePath = Server.MapPath(INITIAL_OFFERS_FILE);
+                    ((IPersistedRepository)ignoredUserRepository).InitializeFromFile();
+                }
+            }
+            catch (Exception ex)
+            {
+                NotifyException(new ApplicationException("Failed during message initialization from file", ex));
+            }
             try
             {
                 ITagRepository tagRepository = Kernel.Get<ITagRepository>();

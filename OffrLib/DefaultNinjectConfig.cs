@@ -18,6 +18,7 @@ namespace Offr
         public override void Load()
         {
             Bind<IMessageParser>().To<RegexMessageParser>();
+            Bind<IIgnoredUserRepository>().To<IgnoredUserRepository>().Using<SingletonBehavior>();
             Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
             Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().Using<SingletonBehavior>();
             Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().Using<SingletonBehavior>();
