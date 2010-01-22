@@ -16,13 +16,13 @@ namespace Offr.Tests
     public class TestMessageExecutor
     {
         readonly IMessageQueryExecutor _target;
-
+        private HashSet<IUserPointer> ignoredUsers;
        
         public TestMessageExecutor() 
         { 
             MockMessageParser mockParser = new MockMessageParser();
-            var ignoredUsers = new HashSet<IUserPointer>();
-            var ignoredUser = new MockUserPointer("ooooby","Joav");
+            ignoredUsers = new HashSet<IUserPointer>();
+            var ignoredUser = MockData.Users[0];
             ignoredUsers.Add(ignoredUser);
             MessageRepository messageRepository = new MessageRepository(ignoredUsers);
             IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(messageRepository, mockParser);
@@ -58,7 +58,7 @@ namespace Offr.Tests
         {
             foreach (Tag tag in MockData.UsedTags)
             {
-                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false)); //<-- target execution
+                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, true)); //<-- target execution
                 Assert.GreaterOrEqual(results.Count, 1, "Received no results for tag:" + tag);
                 Console.Out.WriteLine("For " + tag.ToString() + ":");
                 foreach (IMessage message in results)
@@ -71,6 +71,8 @@ namespace Offr.Tests
                 }
             }
         }
+
+
 
         [Test]
         public void TestDoubleTagBasedQuery()
@@ -218,7 +220,21 @@ namespace Offr.Tests
         [Test]
         public void testIgnoreList()
         {
-            //_target.
+            foreach (Tag tag in MockData.UsedTags)
+            {
+                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false)); //<-- target execution
+                //Assert.GreaterOrEqual(results.Count, 1, "Received no results for tag:" + tag);
+                Console.Out.WriteLine("For " + tag.ToString() + ":");
+                foreach (IMessage message in results)
+                {
+                    Assert.That(message is IOfferMessage);
+                    IOfferMessage offer = message as IOfferMessage;
+                    Assert.IsNotNull(offer);
+                    Assert.That(offer.Tags.Contains(tag), "Expected to find results that contain facet:" + tag + " in message:" + message);
+                    Assert.That(!ignoredUsers.Contains(message.CreatedBy));
+                    Console.Out.WriteLine("\tfound " + message.ToString());
+                }
+            }
 
         }
     }
