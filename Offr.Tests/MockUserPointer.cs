@@ -19,6 +19,13 @@ namespace Offr.Tests
             ProviderNameSpace = providerNameSpace;
             ProviderUserName = providerUserID;
         }
+        public string ID
+        {
+            get
+            {
+                return MatchTag;
+            }
+        }
 
         #region Implementation of IEnhancedUserPointer
 

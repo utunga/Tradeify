@@ -14,7 +14,13 @@ namespace Offr.Text
         public string MatchTag { get { return ProviderNameSpace + "/" + ProviderUserName; } }
         public string ProviderUserName { get; set; }
         public string ProviderNameSpace { get; set; }
-
+        public string ID
+        {
+            get
+            {
+                return MatchTag;               
+            }
+        }
         // extra properties added to twitter user pointer that save us having to look up from the user provider when we have results from the search provider
         public string ProfilePicUrl { get; set; }
         public string ScreenName { get; set; }

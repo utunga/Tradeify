@@ -104,6 +104,8 @@
     <Compile Include="Message\ValidationFailReason.cs" />
     <Compile Include="OpenSocial\OpenSocialJson.cs" />
     <Compile Include="OpenSocial\OpenSocialRawMessage.cs" />
+    <Compile Include="Repository\IgnoredUserRepository.cs" />
+    <Compile Include="Repository\IIgnoredUserRepository.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
     <Compile Include="ITopic.cs" />

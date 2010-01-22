@@ -22,7 +22,13 @@ namespace Offr.Text
         {
             get { return ProviderNameSpace + "/" + ProviderUserName; }
         }
-
+        public string ID
+        {
+            get
+            {
+                return MatchTag;
+            }
+        }
         public string ScreenName
         {
             get { return ProviderUserName;  }
