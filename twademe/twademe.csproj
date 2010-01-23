@@ -236,7 +236,7 @@
     <Content Include="css\ooooby_theme\Pager.css" />
     <Content Include="js\pure_packed_v2.js" />
     <Content Include="js\pure_v2.js" />
-    <Content Include="js\tag_support.js" />
+    <Content Include="js\tag_support.js.bak.js" />
     <Content Include="js\widget_support.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

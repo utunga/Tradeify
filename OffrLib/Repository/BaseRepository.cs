@@ -96,6 +96,7 @@ namespace Offr.Repository
 
         public virtual void InitializeFromFile()
         {
+
             if (FilePath == null) throw new ApplicationException("Please set the FilePath before calling this method");
             FileInfo jsonFile;
             if (!(jsonFile = new FileInfo(FilePath)).Exists)
