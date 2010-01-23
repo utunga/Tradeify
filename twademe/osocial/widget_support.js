@@ -108,6 +108,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 function MapWidget(map_selector, map_popup_selector, list_widget) {
 
     var map;
+    var map_popup_render_fn;
     var offers_uri;
     
     var map_directives = {
@@ -130,7 +131,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
     var init = function() {
 
-        var map_popup = $(map_popup_selector + ' .template').compile(map_directives);
+        map_popup_render_fn = $(map_popup_selector + ' .template').compile(map_directives);
         $(map_popup_selector + ' .template').hide();
         offers_uri = container.offers_uri;
     }
@@ -140,8 +141,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
         var json_url = list_widget.build_search_query(offers_uri, tags_backup);
         $.getJSON(json_url, function(raw_data) {
-            $(map_popup_selector + ' .template').render(raw_data, map_popup);
-
+            $(map_popup_selector + ' .template').render(raw_data, map_popup_render_fn);
              var infowindow = new google.maps.InfoWindow(
             {
                 content: $(map_popup_selector).html()
