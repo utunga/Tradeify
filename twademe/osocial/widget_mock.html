@@ -43,24 +43,26 @@
         </div>
     </div>
 
-<h4>What do you have to offer?</h4>
+<h4>How about you?</h4>
 <div id="post_your_own_form" class="ui-widget">
 
 	<div class="tooltip"></div> 
    
     <fieldset id="by_parts" class="ui-corner-all">
+    
+        <h4><input type="radio" name="message_type" value="OFFER" />I am offering<input type="radio" name="message_type" value="WANT" /> I want</h4>
+     
         <div class="tags">
             <div id="category_tags"></div>
         </div>
         
         <div class="offerPart">
-            <label for="offer">I am offering ... </label>
-            <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" ></textarea>
+            <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" >(details)</textarea>
         </div>
         
         <div class="location">
             <label for="location"> in </label>
-            <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location"/>
+            <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location" value="(suburb)"/>
             <div id="map_canvas" ></div> <!--map goes here -->
             <div class="infobox"></div>
         </div>
@@ -167,6 +169,7 @@
 <script type="text/javascript">
 
     var category_tags;
+    //var message_type;
     var currency_tags;
     var current_tags;
     var list_widget;
@@ -218,13 +221,32 @@
         category_tags = new Tags("#category_tags");
         category_tags.add_tag("veges");
         category_tags.add_tag("fruit");
-        category_tags.add_tag("gardening");
+        category_tags.add_tag("eggs");
+        category_tags.add_tag("honey");
+        category_tags.add_tag("nuts");
+        category_tags.add_tag("grains");
+        category_tags.add_tag("seeds");
+        category_tags.add_tag("seedlings");
+        category_tags.add_tag("garden_supplies");
+        category_tags.add_tag("garden_services");
+        category_tags.add_tag("books");
+        category_tags.add_tag("workshops");
         category_tags.tag_click(function() {
             var tag_text = $(this).text().replace("\n", "");
             category_tags.toggle_active(tag_text);
             update_offer();
             return false;
         });
+
+//        message_type = new Tags("#message_type");
+//        message_type.add_tag("I am offering:", "type");
+//        message_type.add_tag("I want:", "type");
+//        message_type.tag_click(function() {
+//            var tag_text = $(this).text().replace("\n", "");
+//            message_type.toggle_active(tag_text);
+//            update_offer();
+//            return false;
+//        });
         
         current_tags = new Tags();
         current_tags.tag_click(function() {

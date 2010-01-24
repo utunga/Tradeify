@@ -52,7 +52,7 @@ function MessagePart(type, field) {
     this.field = field;
 }
 
-var offerPrefix = "I am offering ";
+var offerPrefix = "OFFER: ";
 var locationPrefix = " in l:";
 var locationSuffix = ":";
 var forPrefix = " for ";
