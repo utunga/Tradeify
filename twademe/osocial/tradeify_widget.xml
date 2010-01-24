@@ -9,9 +9,9 @@
   <Content type="html" view="canvas">
     <![CDATA[
  
-<link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-<link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
-<link href="../css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
 <input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>
 
@@ -153,23 +153,23 @@
 <!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
 <![endif]-->
-<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
-<script type="text/javascript" src="../js/jquery-1.3.2.js">      </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+<!--<script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js"></script>-->
 <!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
 <!-- google maps API v3 doesn't need an API key! -->
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
-<script type="text/javascript" src="../js/quickpager.jquery.js"></script>
-<script type="text/javascript" src="../js/jquery.pager.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
 <!--
-<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>
 -->
-<script type="text/javascript" src="../js/pure_packed_v2.js"></script>
-<script type="text/javascript" src="../js/tag_support.js"></script>
-<script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
-<!--<script type="text/javascript" src="../osocial/opensocial_wrapper.js"></script>--><!--uncomment for running on ning as part of tradiefy_widget.xml-->
-<script type="text/javascript" src="../osocial/mock_wrapper.js"></script><!--             un comment for running as part of widget_mock.html-->
-<script type="text/javascript" src="../osocial/widget_support.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/tag_support.js"></script>
+<script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
+<script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script><!--uncomment for running on ning as part of tradiefy_widget.xml-->
+<!--<script type="text/javascript" src="http://tradeify.org/osocial/mock_wrapper.js"></script>--><!--             un comment for running as part of widget_mock.html-->
+<script type="text/javascript" src="http://tradeify.org/osocial/widget_support.js"></script>
 <script type="text/javascript">
 
     var category_tags;
