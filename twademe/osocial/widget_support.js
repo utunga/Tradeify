@@ -92,7 +92,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
 
     init();
-
+    this.current_tags = current_tags;
     /* 'public' methods */
     this.update_offers = update_offers;
     this.on_offers_updated = on_offers_updated;
@@ -137,7 +137,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
     }
  
     var create_popup = function (map, marker) {
-        var tags_backup = current_tags.tags.concat(marker.tags);
+        var tags_backup = list_widget.current_tags.tags.concat(marker.tags);
 
         var json_url = list_widget.build_search_query(offers_uri, tags_backup);
         $.getJSON(json_url, function(raw_data) {
@@ -200,7 +200,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
     }
 
     init();
-    
+
     this.update_map = update_map;
 
 };
