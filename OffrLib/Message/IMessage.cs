@@ -23,6 +23,7 @@ namespace Offr.Message
         bool MatchesMatchTag(ITag tag);
         bool MatchesMatchTag(string matchTagString);
         ReadOnlyCollection<ITag> HashTags { get; }
-        ReadOnlyCollection<ITag> CommunityTags { get; }
+        ReadOnlyCollection<ITag> CommunityTags { get; }
+        bool CheckMessageIsExpired();
     }
 }

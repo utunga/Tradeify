@@ -189,7 +189,16 @@ namespace Offr.Message
             JSON.WriteProperty(serializer, writer, "end_by_text", EndByText);
             JSON.WriteProperty(serializer, writer, "location", Location);
         }
+        public bool CheckMessageIsExpired()
+        {
+            if (this.EndBy != null)
+            {              
+                if (EndBy.Value.CompareTo(DateTime.Now) <= -1) 
+                    return true;
+            }
 
+            return false;
+        }
         public override void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
             base.ReadJson(reader,serializer);

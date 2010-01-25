@@ -117,7 +117,9 @@ namespace Offr.Query
                         break;
                     }
                 }
-
+                //check whether the offer is expired
+                if (message.CheckMessageIsExpired()) continue;
+                //check ignored user list
                 if (include)
                 {
                     if (includeIgnoredUsers)
@@ -138,7 +140,7 @@ namespace Offr.Query
             results.Sort((a, b) => b.Timestamp.CompareTo(a.Timestamp));
             return results;
         }
-   
+ 
 
         public TagWithCount GetTagCountForTag(ITag tag)
         {

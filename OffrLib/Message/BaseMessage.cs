@@ -80,7 +80,12 @@ namespace Offr.Message
         {
             get { return _tags.TagsOfType(TagType.group); }
         }
-        
+
+        public virtual bool CheckMessageIsExpired()
+        {
+            return false;
+        }
+
         #endregion
 
         protected BaseMessage()
@@ -201,8 +206,6 @@ namespace Offr.Message
         public virtual void ReadJson(JsonReader reader, JsonSerializer serializer){
  
             _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
-            //HACK not sure why this is throwing an exception
-            //Timestamp = DateTime.Parse(JSON.ReadProperty<string>(serializer, reader, "timestamp"));
             Timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
 
             _tags = new TagList(); 
