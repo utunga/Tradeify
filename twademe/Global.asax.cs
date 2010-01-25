@@ -18,7 +18,7 @@ namespace twademe
 {
     public class Global : System.Web.HttpApplication, IBackgroundExceptionReceiver
     {
-        public const string INITIAL_OFFERS_FILE = "/data/offers.json";
+        public const string OFFERS_FILE = "/data/offers.json";
         public const string INITIAL_TAGS_FILE = "/data/initial_tags.json";
         public const string IGNORE_USER_FILE = "/data/ignore_user_list.json";
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
@@ -39,7 +39,7 @@ namespace twademe
                 IIgnoredUserRepository ignoredUserRepository = Kernel.Get<IIgnoredUserRepository>();
                 if (ignoredUserRepository is IPersistedRepository)
                 {
-                    //((IPersistedRepository)ignoredUserRepository).FilePath = Server.MapPath(INITIAL_OFFERS_FILE);
+                    //((IPersistedRepository)ignoredUserRepository).FilePath = Server.MapPath(OFFERS_FILE);
                     ((IPersistedRepository)ignoredUserRepository).InitializeFromFile();
                 }
             }
@@ -66,7 +66,7 @@ namespace twademe
                 IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
                 if (messageRepository is IPersistedRepository)
                 {
-                    ((IPersistedRepository) messageRepository).FilePath = Server.MapPath(INITIAL_OFFERS_FILE);
+                    ((IPersistedRepository) messageRepository).FilePath = Server.MapPath(OFFERS_FILE);
                     ((IPersistedRepository) messageRepository).InitializeFromFile();
                 }
             }

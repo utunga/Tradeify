@@ -52,8 +52,8 @@ function MessagePart(type, field) {
     this.field = field;
 }
 
-var offerPrefix = "I am offering ";
-var locationPrefix = " in L:";
+var offerPrefix = "OFFER: ";
+var locationPrefix = " in l:";
 var locationSuffix = ":";
 var forPrefix = " for ";
 var untilPrefix = " until ";
@@ -80,15 +80,20 @@ function get_offer() {
     return (offer.length == 0) ?  offerPrefix + ".." : offerPrefix + offer;
 }
 
-function get_tags() {
-	if (selected_tags.length == 0) return "";
-	return " #" + selected_tags.join(" #");
+function get_category_tags() {
+    var categories = category_tags.get_active_tags_text();
+    return (categories.length == 0) ? "" : categories;
 }
 
-function get_imagelink() {
-	var picture =$("#picture").val().trim();
-    return (picture.length == 0) ?  "" : " " + picture;
-}
+//function get_tags() {
+//	if (selected_tags.length == 0) return "";
+//	return " #" + selected_tags.join(" #");
+//}
+
+//function get_imagelink() {
+//	var picture =$("#picture").val().trim();
+//    return (picture.length == 0) ?  "" : " " + picture;
+//}
 
 function update_offer() {
 	
@@ -102,22 +107,21 @@ function update_and_dont_parse() {
 			 get_location() + 
              get_currency() +
              get_until() +
-			 get_tags() +
-			 get_imagelink() +
+             get_category_tags() +
+    //			 get_tags() +  //SUGGESTED TAGS (NOT USED FOR NOW)
+//			 get_imagelink() +
 			 " #"+group;
     $("#message_to_send").val(concatMessage);
 }
 /* tag selection code */
-function parse_offer(){
+function parse_offer() {
         var message_data = {
-        message: $("#message_to_send").val()
+            message: $("#message_to_send").val()
         };
-        //encodeURIComponent()
-        //$.post(container.parse_uri,message_data, display_results_of_parse_offer, "json");
         $.getJSON(container.parse_uri,message_data, display_results_of_parse_offer);
      }
 
-function display_results_of_parse_offer(response){
+function display_results_of_parse_offer(response) {
     var reasons = response.validationFailReasons;
     if(reasons.length==0){
     $(".send_message").removeAttr("disabled");
@@ -133,122 +137,7 @@ function switchStatus(value,selector,array){
         $("."+selector).css({"background-image": "url('"+container.cross_uri+"')"});
     else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
 }
-var selected_tags = [];
-var tags = [];
-var threshold = 200;
-var keyChangeStack=0;
 
-function timeoutKeyChange() {
- keyup(update_tags,threshold);
-	/*keyChangeStack++;
-	setTimeout(function() {
-		keyChangeStack--;
-		if (keyChangeStack == 0) {
-			update_tags();
-		}
-	}, threshold);*/
-}
-
-function ontag_click() {
-	var tagField = $("#tags").val();
-	var pushed_tag = $(this).html();
-	if ($.inArray(pushed_tag, selected_tags) <= -1) {
-		if (tagField != "")
-			$("#tags").val(tagField + " " + pushed_tag);
-		else $("#tags").val(pushed_tag);
-	}
-	else {
-		//var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
-		var replacementText = tagField.replace(pushed_tag, "");
-		$("#tags").val(replacementText);
-	}
-	update_tags();
-	update_and_dont_parse(); 
-	return false; //disable actual click
-}
-
-function getTagString() {
-	var tagString=""
-	$.each(selected_tags, function() {
-		tagString = tagString + " #" + this;
-	});
-	return tagString;
-}
-
-function checkCSS() {
-	$.each($(".select_tag"), function() {
-	if ($.inArray($(this).html(), selected_tags) > -1) {
-			$(this).addClass("on");
-		}
-	else if ($(this).hasClass("on"))$(this).removeClass("on");
-	});
-}
-
-
-function update_tags() {
-
-	//get rid of multiple spaces...
-	var txt = new RegExp("\\s\\s+");
-	$("#tags").val($("#tags").val().replace(txt, " "));
-	//just in case a single \t or \n is present
-	txt = new RegExp("\\s+");
-	//var txt = new RegExp("\\s\\s*"); 
-	var tagString=$("#tags").val().replace(txt, " ").trim();
-	$("#tags").val(tagString);
-	//if(selected_tags.length>0) 
-	if(tagString!=""&&tagString!=" ")
-	selected_tags = tagString.split(" ");
-	else selected_tags=[];
-	var selectedTagsHTML = $(selected_tags).map(function() {
-		return "#" + this;
-	}).get().join(", ");
-
-	$("#selected_tags").html(selectedTagsHTML);
-	
-	var json_url = build_tags_query(this.container.tags_uri);
-	$.getJSON(json_url, function(context) {
-	    tags = context.tags_json.overall;
-	    var tagString = "";
-	    //var fixedTags = main_widget.get_fixed_tags();
-	    $.each(tags, function() {
-	        if (this.type != "loc" && this.type != "type" && this.tag!=group/*$.inArray(this.tag,fixedTags)<=-1*/) {
-	            var on = "";
-	            var endon = "";
-	            if (($.inArray(this.tag, selected_tags) > -1)) {
-	                on = "<li class=\"on\">";
-	                endon = "</li>";
-	            }
-	            else {
-	                on = "<li>";
-	                endon = "</li>";
-	            }
-	            tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
-	        }
-	    });
-
-	    //alert(tagString);
-	    //if (!(typeof suggested_tags_render_fn == 'function')) {
-	    //if not yet compiled compile it
-	    /*    compile_render_fn();
-		
-		var render = $p.render('suggested_tags_render_fn', tags);
-	    */
-	    $('#suggested_tags').html(tagString);
-	    $("#suggested_tags .select_tag").click(ontag_click);
-	});
-}
-
-
-function build_tags_query(baseUrl) {
-	if (tags.length == 0) return baseUrl + "?jsoncallback=?";
-	var query = "";
-	$.each(tags, function() {
-		if($.inArray(this.tag,selected_tags)>-1)
-			query = query + this.type + "=" + escape(this.tag) + "&";
-	});
-	query = query.substring(0, query.length - 1);
-	return baseUrl + "?" + query + "&jsoncallback=?";
-}
 
        /* form support for styling */
 	   
@@ -297,8 +186,9 @@ $(function() {
 var geocoder;
 var map;
 var adress_marker;
-var address_keyup_threshold = 200;
-var address_keyup_stack=0;
+var keyup_threshold = 200;
+var address_keyup_stack = 0;
+var message_keyup_stack = 0;
 
 function google_initialize() {
 	geocoder = new google.maps.Geocoder();
@@ -322,7 +212,7 @@ function google_initialize() {
 	//		geo_code_address();
 	//	}
 
-	$(".location  #location").keyup(function(){keyup(geo_code_address,address_keyup_threshold);});
+	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
 }
 
 function geo_code_address() {
@@ -355,34 +245,19 @@ function address_keyup() {
 		if (address_keyup_stack == 0) {
 			geo_code_address()
 		}
-	}, address_keyup_threshold);
+	}, keyup_threshold);
 }
-function message_keyup(){
-    keyup(parse_offer,threshold);
-}
-function keyup(fun,threshold) {
-	address_keyup_stack++;
+
+function message_keyup() {
+    message_keyup_stack++;
 	setTimeout(function() {
-		address_keyup_stack--;
-		if (address_keyup_stack == 0) {
-			fun();
-		}
-	}, threshold);
+	    message_keyup_stack--;
+	    if (message_keyup_stack == 0) {
+	        parse_offer();
+	    }
+	}, keyup_threshold);
 }
-//function address_geocoded(point) {
-//	map.clearOverlays();
-//	if (!point) {
-//		//$("#map_canvas").hide();
-//		//$(".location .infobox").html(".. unable to understand that address..");
-//		map.clearOverlays();
-//	}
-//	else {
-//		//$("#map_canvas").show();
-//		map.setCenter(point, 13);
-//		var marker = new GMarker(point);
-//		map.addOverlay(marker);
-//	}
-//}
+
 
 google.load("maps", "3",  {callback: google_initialize, other_params:"sensor=false"});
 
@@ -391,6 +266,132 @@ google.load("maps", "3",  {callback: google_initialize, other_params:"sensor=fal
 
 // on load   
 //openForm();
-//sendData(); 
+//sendData();
 
 
+
+
+/* ------------------------------
+ Support for suggested tags 
+ SUGGESTED TAGS (NOT USED FOR NOW)
+------------------------------*/
+
+
+/* dont need suggested tags for now */
+
+//var selected_tags = [];
+//var tags = [];
+//var threshold = 200;
+//var keyChangeStack = 0;
+
+//function timeoutKeyChange() {
+//    keyup(update_tags, threshold);
+//    /*keyChangeStack++;
+//    setTimeout(function() {
+//    keyChangeStack--;
+//    if (keyChangeStack == 0) {
+//    update_tags();
+//    }
+//    }, threshold);*/
+//}
+
+//function ontag_click() {
+//    var tagField = $("#tags").val();
+//    var pushed_tag = $(this).html();
+//    if ($.inArray(pushed_tag, selected_tags) <= -1) {
+//        if (tagField != "")
+//            $("#tags").val(tagField + " " + pushed_tag);
+//        else $("#tags").val(pushed_tag);
+//    }
+//    else {
+//        //var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
+//        var replacementText = tagField.replace(pushed_tag, "");
+//        $("#tags").val(replacementText);
+//    }
+//    update_tags();
+//    update_and_dont_parse();
+//    return false; //disable actual click
+//}
+
+//function getTagString() {
+//    var tagString = ""
+//    $.each(selected_tags, function() {
+//        tagString = tagString + " #" + this;
+//    });
+//    return tagString;
+//}
+
+//function checkCSS() {
+//    $.each($(".select_tag"), function() {
+//        if ($.inArray($(this).html(), selected_tags) > -1) {
+//            $(this).addClass("on");
+//        }
+//        else if ($(this).hasClass("on")) $(this).removeClass("on");
+//    });
+//}
+
+
+//function update_tags() {
+
+//    //get rid of multiple spaces...
+//    var txt = new RegExp("\\s\\s+");
+//    $("#tags").val($("#tags").val().replace(txt, " "));
+//    //just in case a single \t or \n is present
+//    txt = new RegExp("\\s+");
+//    //var txt = new RegExp("\\s\\s*"); 
+//    var tagString = $("#tags").val().replace(txt, " ").trim();
+//    $("#tags").val(tagString);
+//    //if(selected_tags.length>0) 
+//    if (tagString != "" && tagString != " ")
+//        selected_tags = tagString.split(" ");
+//    else selected_tags = [];
+//    var selectedTagsHTML = $(selected_tags).map(function() {
+//        return "#" + this;
+//    }).get().join(", ");
+
+//    $("#selected_tags").html(selectedTagsHTML);
+
+//    var json_url = build_tags_query(this.container.tags_uri);
+//    $.getJSON(json_url, function(context) {
+//        tags = context.tags_json.overall;
+//        var tagString = "";
+//        //var fixedTags = main_widget.get_fixed_tags();
+//        $.each(tags, function() {
+//            if (this.type != "loc" && this.type != "type" && this.tag != group/*$.inArray(this.tag,fixedTags)<=-1*/) {
+//                var on = "";
+//                var endon = "";
+//                if (($.inArray(this.tag, selected_tags) > -1)) {
+//                    on = "<li class=\"on\">";
+//                    endon = "</li>";
+//                }
+//                else {
+//                    on = "<li>";
+//                    endon = "</li>";
+//                }
+//                tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
+//            }
+//        });
+
+//        //alert(tagString);
+//        //if (!(typeof suggested_tags_render_fn == 'function')) {
+//        //if not yet compiled compile it
+//        /*    compile_render_fn();
+//		
+//		var render = $p.render('suggested_tags_render_fn', tags);
+//        */
+//        $('#suggested_tags').html(tagString);
+//        $("#suggested_tags .select_tag").click(ontag_click);
+//    });
+//}
+
+
+//function build_tags_query(baseUrl) {
+//    if (tags.length == 0) return baseUrl + "?jsoncallback=?";
+//    var query = "";
+//    $.each(tags, function() {
+//        if ($.inArray(this.tag, selected_tags) > -1)
+//            query = query + this.type + "=" + escape(this.tag) + "&";
+//    });
+//    query = query.substring(0, query.length - 1);
+//    return baseUrl + "?" + query + "&jsoncallback=?";
+//}

@@ -52,6 +52,14 @@
             params[gadgets.io.RequestParameters.POST_DATA] = postdata;
             gadgets.io.makeRequest(url, callback, params);
 
+            var params = {};
+            params[opensocial.Activity.Field.TITLE] = message;
+            var activity = opensocial.newActivity(params);
+            /*"If the activity is of high importance, it will be created even if this requires asking the user for permission. 
+            This may cause the container to open a user flow which may navigate away from your gagdet. 
+            If the activity is of low importance, it will not be created if the user has not given permission for the current app to create activities.
+            With this priority, the requestCreateActivity call will never open a user flow"*/
+            opensocial.requestCreateActivity(activity, opensocial.CreateActivityPriority.LOW);
         });
     }
 //    this.parse_message = function(message,callback) {

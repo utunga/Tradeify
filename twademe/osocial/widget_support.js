@@ -4,32 +4,10 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var offers_render_fn;
     var current_tags; 
     var offers_uri;
-    
+    var _offers_updated;
     var map;
 
-    /*
-    google.maps.Map.prototype.markers = new Array();
-
-    google.maps.Map.prototype.getMarkers = function() {
-        return this.markers
-    };
-
-    google.maps.Map.prototype.clearMarkers = function() {
-        for (var i = 0; i < this.markers.length; i++) {
-            this.markers[i].setMap(null);
-        }
-        this.markers = new Array();
-    };
-
-    google.maps.Marker.prototype._setMap = google.maps.Marker.prototype.setMap;
-
-    google.maps.Marker.prototype.setMap = function(map) {
-        if (map) {
-            map.markers[map.markers.length] = this;
-        }
-        this._setMap(map);
-    };
-    */
+ 
     var offers_directives = {
         'div.offer': {
             'offer <- messages': {
@@ -48,105 +26,11 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             }
         }
     }; 
-    var map_directives = {
-        'div.map_offer': {
-        'map_offer <- messages': {
-        'a.map_username@href': 'map_offer.user.more_info_url',
-        'a.map_username': 'map_offer.user.screen_name',
-        '.map_avatar img@src': 'map_offer.user.profile_pic_url',
-        '.map_msg .map_text': 'map_offer.offer_text',
-        'span.map_tags': {
-        'map_tag <- map_offer.tags': {
-        'a': 'map_tag.tag',
-        '+a@class': 'map_tag.type'
-                    }
-                },
-                '.map_when': 'map_offer.date'
-            }
-        }
-    };
-    function updateMap() {
-        var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
-        var myOptions = {
-            zoom: 2,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        map = new google.maps.Map(document.getElementById("offer_map"), myOptions);
-        //map.clearMarkers();
-        var latlng = new Array();
-        $.each(offers, function() {
-            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
-            latlng.push(post);
-            var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
-            var tags = new Array();
-            $.each(this.tags,function(){
-                if(this.type=="loc")tags.push(this);
-            });
-            var marker = new google.maps.Marker({
-                clickable: true,
-                title: title,
-                position: post,
-                map: map,
-                tags: tags
-            });
-
-
-            google.maps.event.addListener(marker, "click", function() {
-                createPopup(map, marker);
-            });
-        });
-        var latlngbounds = new google.maps.LatLngBounds();
-        for (var i = 0; i < latlng.length; i++) {
-            // latlngbounds.extend(latlng[i]);
-           latlngbounds.extend(latlng[i]);
-        }
-        map.fitBounds(latlngbounds);
-    }
-    var map_popup = $("#map_popup" + ' .map_template').compile(map_directives);
-    $("#map_popup" + ' .map_template').hide();
-    function createPopup(map, marker) {
-        var tags_backup = current_tags.tags.concat(marker.tags);
-        /*
-        current_tags.tags.slice();
-        $.each(marker.tags,function{
-        var tag = new Tag();
-        tag.type = "loc";
-        tag.text = marker.title;
-        tags_backup.push(tag);
-        });        
-        */
-        var json_url = build_search_query(offers_uri, tags_backup);        
-        $.getJSON(json_url, function(raw_data) {
-            $("#map_popup" + ' .map_template').render(raw_data, map_popup);
-            
-            //$("#map_offer_template").quickPager({ pageSize: 2},"#pager");
-            var infowindow = new google.maps.InfoWindow(
-            { 
-                content: $("#map_popup").html()
-            });
-            $("#map_popup" + ' .map_template').hide();
-            infowindow.open(map, marker);
-        });
-    }
-    var init = function() {
-    $("#results").tabs({
-        //event: 'mouseover'
-        fx: { height: 'toggle', opacity: 'toggle' },
-        show: function(event, ui) {
-            if (ui.panel.id == "results-2") {
-                $(ui.panel).css("height", "100%");
-                updateMap();
-                // map.checkResize();
-
-            }
-        }
-    }); 
-        offers_uri = container.offers_uri;
-
-
   
-        
+   
+    var init = function() {
+       
+        offers_uri = container.offers_uri;
 
         //compile to a function as soon as possible (ie in 'constructor')
         offers_render_fn = $(offers_selector + ' .template').compile(offers_directives);
@@ -157,24 +41,25 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             return false;
         });
         //update_offers();
-        }
-    function offers_(onCompletion){
-       var json_url = build_search_query(offers_uri);
-       $.getJSON(json_url, function(data) {
-           $(offers_selector + ' .template').render(data, offers_render_fn);
-
-           $(offers_selector + ' .tags a').click(function() {
-               //add a filter when tags under a message are clicked
-               add_filter($(this).text(), $(this).css());
-           });
-           onCompletion(data);
-       });
     }
+
+    var on_offers_updated = function(functionRef) {
+        _offers_updated = functionRef;
+    }
+
     var update_offers = function() {
-    offers_(function(data) {
+        var json_url = build_search_query(offers_uri);
+        $.getJSON(json_url, function(data) {
+            $(offers_selector + ' .template').render(data, offers_render_fn);
+            $(offers_selector + ' .tags a').click(function() {
+                //add a filter when tags under a message are clicked
+                add_filter($(this).text(), $(this).css());
+            });
             offers = data.messages;
-            updateMap();
-            $("#offer_template").quickPager({ pageSize: 4 }, "#pager");
+            if (!!_offers_updated) {
+                _offers_updated(offers);
+            }
+            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager");
         });
         //$("#results").tabs();
     };
@@ -195,12 +80,12 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     };
 
     var build_search_query = function(baseUrl) {
-    var query = "";
-    var current_tags_array = (arguments.length > 1) ? arguments[1] : current_tags.tags;
-    for (tag in current_tags_array) {
-            if (query != "")
-                query = query + "&";
-            query = query + "tag=" + current_tags_array[tag].tag;
+        var query = "";
+        var current_tags_array = (arguments.length > 1) ? arguments[1] : current_tags.tags;
+        for (tag in current_tags_array) {
+                if (query != "")
+                    query = query + "&";
+                query = query + "tag=" + current_tags_array[tag].tag;
         }
         return baseUrl + "?" + query + "&jsoncallback=?";
     };
@@ -210,12 +95,137 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
     /* 'public' methods */
     this.update_offers = update_offers;
+    this.on_offers_updated = on_offers_updated;
     this.add_filter = add_filter;
     this.add_fixed_filter = add_fixed_filter;
-    this.get_fixed_tags = function(){
-        return current_tags.get_fixed_tags();
-    }
+    this.build_search_query = build_search_query;
     this.get_offers = function() {
         return offers;
     }
 }
+
+
+function MapWidget(map_selector, map_popup_selector, list_widget) {
+
+    var map;
+    var map_popup_render_fn;
+    var offers_uri;
+    
+    var map_directives = {
+        'div.map_offer': {
+            'map_offer <- messages': {
+                'a.map_username@href': 'map_offer.user.more_info_url',
+                'a.map_username': 'map_offer.user.screen_name',
+                '.map_avatar img@src': 'map_offer.user.profile_pic_url',
+                '.map_msg .map_text': 'map_offer.offer_text',
+                'span.map_tags': {
+                    'map_tag <- map_offer.tags': {
+                        'a': 'map_tag.tag',
+                        '+a@class': 'map_tag.type'
+                    }
+                },
+                '.map_when': 'map_offer.date'
+            }
+        }
+    };
+
+    var init = function() {
+
+        map_popup_render_fn = $(map_popup_selector + ' .template').compile(map_directives);
+        $(map_popup_selector + ' .template').hide();
+        offers_uri = container.offers_uri;
+    }
+ 
+    var create_popup = function (map, marker) {
+        var tags_backup = current_tags.tags.concat(marker.tags);
+
+        var json_url = list_widget.build_search_query(offers_uri, tags_backup);
+        $.getJSON(json_url, function(raw_data) {
+            $(map_popup_selector + ' .template').render(raw_data, map_popup_render_fn);
+             var infowindow = new google.maps.InfoWindow(
+            {
+                content: $(map_popup_selector).html()
+            });
+            $(map_popup_selector + ' .template').hide();
+            infowindow.open(map, marker);
+        });
+    }
+
+    var update_map = function() {
+
+        if (map == undefined) {
+            var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+            var myOptions = {
+                zoom: 2,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById(map_selector), myOptions);
+            list_widget.on_offers_updated(update_map);
+        }
+        else {
+            // map.clearMarkers();
+        }
+
+        var offers = list_widget.get_offers();
+        var latlng = new Array();
+        $.each(offers, function() {
+            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            latlng.push(post);
+            var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
+            var tags = new Array();
+            $.each(this.tags, function() {
+                if (this.type == "loc") tags.push(this);
+            });
+            var marker = new google.maps.Marker({
+                clickable: true,
+                title: title,
+                position: post,
+                map: map,
+                tags: tags
+            });
+
+            google.maps.event.addListener(marker, "click", function() {
+                create_popup(map, marker);
+            });
+        });
+
+        var latlngbounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < latlng.length; i++) {
+            // latlngbounds.extend(latlng[i]);
+            latlngbounds.extend(latlng[i]);
+        }
+        map.fitBounds(latlngbounds);
+        if (map.getZoom() > 15) { map.setZoom(15) };
+    }
+
+    init();
+    
+    this.update_map = update_map;
+
+};
+
+
+/*
+google.maps.Map.prototype.markers = new Array();
+
+google.maps.Map.prototype.getMarkers = function() {
+return this.markers
+};
+
+google.maps.Map.prototype.clearMarkers = function() {
+for (var i = 0; i < this.markers.length; i++) {
+this.markers[i].setMap(null);
+}
+this.markers = new Array();
+};
+
+google.maps.Marker.prototype._setMap = google.maps.Marker.prototype.setMap;
+
+google.maps.Marker.prototype.setMap = function(map) {
+if (map) {
+map.markers[map.markers.length] = this;
+}
+this._setMap(map);
+};
+*/
