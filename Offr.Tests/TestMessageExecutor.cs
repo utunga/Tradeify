@@ -238,9 +238,40 @@ namespace Offr.Tests
             }
 
         }
+        [Test]
         public void TestMessageExpiry()
         {
-            
+            ITag tag = MockData.UsedTags[1];
+            List<IMessage> oldResults=new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false));
+            ITag expiredTag=tag;
+            OfferMessage message = new OfferMessage();
+            message.CreatedBy = new MockUserPointer("x", "jim"); ;
+            ////msg.Source = source; //Remove this
+            message.Timestamp = DateTime.MinValue;
+            message.MessagePointer = new OpenSocialMessagePointer("ooooby");
+            message.RawText = "";
+            message.OfferText = "";
+            message.MoreInfoURL = "";
+            message.SetEndBy("",DateTime.Now.AddMonths(-1));
+            message.AddTag(tag);
+            ((MessageRepository)_target).Save(message);
+            List<IMessage>  newResults = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false));
+            Assert.AreEqual(newResults,oldResults);
+            OfferMessage message2 = new OfferMessage();
+            message2.CreatedBy = new MockUserPointer("x", "jim"); 
+            ////msg.Source = source; //Remove this
+            message2.Timestamp = DateTime.MinValue;
+            message2.MessagePointer = new OpenSocialMessagePointer("ooooby2");
+            message2.RawText = "";
+            message2.OfferText = "";
+            message2.MoreInfoURL = "";
+            message2.SetEndBy("", DateTime.Now.AddMonths(3));
+            message2.AddTag(tag);
+            ((MessageRepository)_target).Save(message2);
+            newResults = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false));
+            Assert.AreNotEqual(newResults, oldResults);
+
+
         }
     }
 
