@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,6 +24,6 @@ namespace Offr.Message
         bool MatchesMatchTag(string matchTagString);
         ReadOnlyCollection<ITag> HashTags { get; }
         ReadOnlyCollection<ITag> CommunityTags { get; }
-        bool CheckMessageIsExpired();
+        bool IsExpired();
     }
 }

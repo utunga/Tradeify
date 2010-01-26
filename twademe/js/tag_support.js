@@ -45,8 +45,15 @@ function Tags(target_selector) {
             }
         });
         return found_tag;
-    }
-    
+    };
+    this.toggle_filter=function(text){
+        if (!!this.find_tag(text)) {
+            this.remove_tag(text);
+        }
+        else{
+          this.add_tag(text,(arguments.length>1) ? arguments[1] : "tag",(arguments.length>2) ? arguments[2] : false);
+        }
+    };
     this.add_tag = function(text) 
     {
         if (!!this.find_tag(text)) {

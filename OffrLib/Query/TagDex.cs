@@ -118,7 +118,7 @@ namespace Offr.Query
                     }
                 }
                 //check whether the offer is expired
-                if (message.CheckMessageIsExpired()) continue;
+                if (message.IsExpired()) continue;
                 //check ignored user list
                 if (include)
                 {

@@ -4,7 +4,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var offers_render_fn;
     var current_tags; 
     var offers_uri;
-    var _offers_updated;
+    var _offers_updated=new Array();
     var map;
 
  
@@ -44,7 +44,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     }
 
     var on_offers_updated = function(functionRef) {
-        _offers_updated = functionRef;
+        _offers_updated.push(functionRef);
     }
 
     var update_offers = function() {
@@ -57,7 +57,9 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             });
             offers = data.messages;
             if (!!_offers_updated) {
-                _offers_updated(offers);
+                $.each(_offers_updated, function() {
+                    this(offers);
+                });
             }
             $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager");
         });
@@ -68,7 +70,10 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         current_tags.add_tag(tag_text, tag_type);
         update_offers();
     };
-
+    var toggle_filter = function(tag_text, tag_type) {
+        current_tags.toggle_filter(tag_text, tag_type);
+        update_offers();
+    };
     var remove_filter = function(tag_text) {
         current_tags.remove_tag(tag_text);
         update_offers();
@@ -92,11 +97,13 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
 
 
     init();
+    this.toggle_filter = toggle_filter;
     this.current_tags = current_tags;
     /* 'public' methods */
     this.update_offers = update_offers;
     this.on_offers_updated = on_offers_updated;
     this.add_filter = add_filter;
+    this.remove_filter = remove_filter;
     this.add_fixed_filter = add_fixed_filter;
     this.build_search_query = build_search_query;
     this.get_offers = function() {
@@ -110,11 +117,11 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
     var map;
     var map_popup_render_fn;
     var offers_uri;
-    
     var map_directives = {
         'div.map_offer': {
             'map_offer <- messages': {
                 'a.map_username@href': 'map_offer.user.more_info_url',
+                'a.map_avatar@href': 'map_offer.user.more_info_url',
                 'a.map_username': 'map_offer.user.screen_name',
                 '.map_avatar img@src': 'map_offer.user.profile_pic_url',
                 '.map_msg .map_text': 'map_offer.offer_text',
@@ -205,7 +212,29 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
 };
 
+function TagsWidget(selector, category_tags, list_widget) {
+    var tags;
+    var init = function() {
+        tags = new Tags(selector);
+        var after_click = (arguments.length > 3) ? arguments[3] : function() { };
 
+        $.each(category_tags, function() {
+            tags.add_tag(this);
+        });
+
+        tags.tag_click(function() {
+            var tag_text = $(this).text().replace("\n", "");
+            tags.toggle_active(tag_text);
+            after_click(tag_text);
+            return false;
+        });
+    }
+    init();
+    
+    this.get_active_tags_text = function() {
+        return tags.get_active_tags_text()
+    };
+};
 /*
 google.maps.Map.prototype.markers = new Array();
 

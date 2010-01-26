@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -81,7 +81,7 @@ namespace Offr.Message
             get { return _tags.TagsOfType(TagType.group); }
         }
 
-        public virtual bool CheckMessageIsExpired()
+        public virtual bool IsExpired()
         {
             return false;
         }

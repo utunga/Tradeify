@@ -66,8 +66,8 @@ function get_until() {
 }
 
 function get_currency() {
-    var currency = currency_tags.get_active_tags_text();
-    return (currency.length == 0) ?  "" : forPrefix + currency;
+    var currency = post_your_own_currency_tags.get_active_tags_text();
+    return (post_your_own_currency_tags.length == 0) ? "" : forPrefix + currency;
 }
 
 function get_location() {
@@ -81,8 +81,8 @@ function get_offer() {
 }
 
 function get_category_tags() {
-    var categories = category_tags.get_active_tags_text();
-    return (categories.length == 0) ? "" : categories;
+    var categories = post_your_own_general_tags.get_active_tags_text();
+    return (post_your_own_general_tags.length == 0) ? "" : categories;
 }
 
 //function get_tags() {
