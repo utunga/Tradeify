@@ -16,7 +16,7 @@ String.prototype.rtrim = function() {
 //define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
 if (!console) {
         var console = {}
-    console.log = function(text) {
+        console.log = function(text) {
         return; //ie do nothing
     }
 }

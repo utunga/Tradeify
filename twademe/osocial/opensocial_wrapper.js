@@ -1,7 +1,7 @@
 ﻿function OSocialContainer() {
     this.cross_uri = "http://tradeify.org/osocial/Cross.png";
     this.tick_uri = "http://tradeify.org/osocial/Tick.png";
-    this.offers_uri = "http://tradeify.org/offers_json.aspx";
+    this.offers_uri = "http://tradeify.org/tradeify_json.aspx";
     this.tags_uri = "http://tradeify.org/tags_json.aspx";
     this.parse_uri = "http://tradeify.org/parse.aspx?jsoncallback=?";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";

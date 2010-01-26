@@ -258,8 +258,9 @@ function message_keyup() {
 	}, keyup_threshold);
 }
 
-
-google.load("maps", "3",  {callback: google_initialize, other_params:"sensor=false"});
+//if (typeof google !== 'undefined') {
+    google.load("maps", "3",  {callback: google_initialize, other_params:"sensor=false"});
+//}
 
 
 

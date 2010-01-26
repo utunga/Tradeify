@@ -1,6 +1,7 @@
 ﻿
 function TradeifyWidget(offers_selector, current_tags_selector) {
     var offers;
+    var tags;
     var offers_render_fn;
     var current_tags; 
     var offers_uri;
@@ -50,12 +51,13 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var update_offers = function() {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
-            $(offers_selector + ' .template').render(data, offers_render_fn);
+            $(offers_selector + ' .template').render(data.offers_json, offers_render_fn);
             $(offers_selector + ' .tags a').click(function() {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
-            offers = data.messages;
+            offers = data.offers_json.messages;
+            tags = data.tags_json.tags_json.overall; //FIXME (hurrrl!)
             if (!!_offers_updated) {
                 $.each(_offers_updated, function() {
                     this(offers);
@@ -109,6 +111,9 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     this.get_offers = function() {
         return offers;
     }
+    this.get_tags = function() {
+        return tags;
+    }
 }
 
 
@@ -160,18 +165,18 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
     var update_map = function() {
 
-        if (map == undefined) {
-            var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
-            var myOptions = {
-                zoom: 2,
-                center: myLatlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-            map = new google.maps.Map(document.getElementById(map_selector), myOptions);
-            list_widget.on_offers_updated(update_map);
-        }
-        else {
-            // map.clearMarkers();
+        //if (typeof google == 'undefined') return; //do nothing
+        
+        if (map == undefined)
+        {
+                var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+                var myOptions = {
+                    zoom: 2,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+                map = new google.maps.Map(document.getElementById(map_selector), myOptions);
+                list_widget.on_offers_updated(update_map);
         }
 
         var offers = list_widget.get_offers();
@@ -212,15 +217,16 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
 };
 
-function TagsWidget(selector, initial_tags, tag_type) {
+function TagsWidget(selector, initial_tags, active_tags, tag_type) {
     var tags;
-    var after_click = (arguments.length > 3) ? arguments[3] : function() { };
+    var after_click = (arguments.length > 4) ? arguments[4] : function() {};
     
     var init = function() {
         tags = new Tags(selector);
 
         $.each(initial_tags, function() {
-            tags.add_tag(this, tag_type);
+            var isInActiveTags = !!active_tags.find_tag(this);
+            tags.add_tag(this, tag_type, isInActiveTags);
         });
 
         tags.tag_click(function() {

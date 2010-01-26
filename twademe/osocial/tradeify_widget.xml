@@ -9,20 +9,22 @@
   <Content type="html" view="canvas">
     <![CDATA[
  
+    
 <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 <link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
-<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
-<button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>
+<!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
+<button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
 
-<div id="current_tags"><br/>
-    </div>
-    <div id="results">
-        <ul>
-            <li><a href="#results-1">List</a></li>
-            <li><a href="#results-2">Map</a></li>
-        </ul>
-        <div id="results-1" style="padding-bottom: 30px;">
+<div id="current_tags"><br/></div>
+<div id="results">
+    <ul>
+        <li><a href="#results-1">List</a></li>
+        <li><a href="#results-2">Map</a></li>
+        <li><a href="#results-3">Post your own</a></li>
+    </ul>
+    <div class="left_col">
+        <div id="results-1">
             <span class="template" id="offer_template">
                 <div class="offer" style="padding-bottom: 20px;">
                     <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
@@ -45,89 +47,98 @@
             <div id="offer_map" style="width: 100%; height: 100%; height:500px">
             </div>
         </div>
-    </div>
+        <div id="results-3">
+            <div id="post_your_own_form" >
 
-<h4>How about you?</h4>
-<div id="post_your_own_form" class="ui-widget">
+            <div class="tooltip"></div> 
+           
+            <fieldset id="by_parts" class="ui-corner-all">
+            
+                <h4><input type="radio" name="message_type" value="OFFER" />I am offering<input type="radio" name="message_type" value="WANT" /> I want</h4>
+             
 
-	<div class="tooltip"></div> 
-   
-    <fieldset id="by_parts" class="ui-corner-all">
-    
-        <h4><input type="radio" name="message_type" value="OFFER" />I am offering<input type="radio" name="message_type" value="WANT" /> I want</h4>
-     
-        <div class="tags">
-            <div id="category_tags"></div>
-        </div>
-        
-        <div class="offerPart">
-            <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" >(details)</textarea>
-        </div>
-        
-        <div class="location">
-            <label for="location"> in </label>
-            <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location" value="(suburb)"/>
-            <div id="map_canvas" ></div> <!--map goes here -->
-            <div class="infobox"></div>
-        </div>
-        
-        <div class="currency">
-            <label for="for" class="desc"> for </label>
-            <div id="currency_tags"></div>
-        </div>
-        
-        <div class="until">  
-            <label for="until" class="desc"> until </label>
-            <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
-        </div>
-                    
-       <!-- <div class="tags" style="width: 430px;">
-            <label> Tags </label>
-            <ul id="selected_tags">
-                <li><a href="#" class="tag"></a></li>
-            </ul>
-            <blockquote>
-                <h4>Suggested Tags (click to select)</h4> 
-                <div id="suggested_tags">
-                    <span class="template">
-                        <ul class="select_tag_container">
-                            <li><a href="#" class="tag"></a></li>
-                        </ul>
-                    </span>
+                    <div id="post_your_own_general_tags"></div>
+               
+                
+                <div class="offerPart">
+                    <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" >(details)</textarea>
                 </div>
-                <h4>Or type to add more</h4> 
-                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
-            </blockquote>
-        
-        </div>-->
-        
- <!--       <div class="thumbnail">
-            <label for="picture_thumbnail"> Link to picture? </label>
-            <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
-        </div>-->
-        
+                
+                <div class="location">
+                    <label for="location"> in </label>
+                    <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location" value="(suburb)"/>
+                    <div id="map_canvas" ></div> <!--map goes here -->
+                    <div class="infobox"></div>
+                </div>
+                
+                <div class="currency">
+                    <label for="for" class="desc"> for </label>
+                    <div id="post_your_own_currency_tags"></div>
+                </div>
+                
+                <div class="until">  
+                    <label for="until" class="desc"> until </label>
+                    <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
+                </div>
+                            
+               <!-- <div class="tags" style="width: 430px;">
+                    <label> Tags </label>
+                    <ul id="selected_tags">
+                        <li><a href="#" class="tag"></a></li>
+                    </ul>
+                    <blockquote>
+                        <h4>Suggested Tags (click to select)</h4> 
+                        <div id="suggested_tags">
+                            <span class="template">
+                                <ul class="select_tag_container">
+                                    <li><a href="#" class="tag"></a></li>
+                                </ul>
+                            </span>
+                        </div>
+                        <h4>Or type to add more</h4> 
+                        <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
+                    </blockquote>
+                
+                </div>-->
+                
+         <!--       <div class="thumbnail">
+                    <label for="picture_thumbnail"> Link to picture? </label>
+                    <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
+                </div>-->
+                
 
-    </fieldset>
-    
-     <div class="rawMessage">	
-      <fieldset>
-        <!--<legend>Your offer</legend>	-->
-        <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
-        <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
-        <a class=message_details>
-        <a class="location_detail status">
-        <a>Location</a>
-        </a>
-        <a class="currency_detail status" >
-        <a>Type of Trade</a>
-        </a>
-        <a class="group_detail status">
-        <a>Oooby tag</a>
-        </a>        
-        </a>
-       </fieldset>
+            </fieldset>
+            
+             <div class="rawMessage">	
+              <fieldset>
+                <!--<legend>Your offer</legend>	-->
+                <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
+                <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
+                <a class=message_details>
+                <a class="location_detail status">
+                <a>Location</a>
+                </a>
+                <a class="currency_detail status" >
+                <a>Type of Trade</a>
+                </a>
+                <a class="group_detail status">
+                <a>Ooooby tag</a>
+                </a>        
+                </a>
+               </fieldset>
+            </div>
+             </div>
+        </div>
     </div>
-     
+   <div class="right_col">
+        <h3>Find</h3>
+        <h4>Categories/Tags</h4>
+        <div id="filter_general_tags"></div>
+        <h4>Type of trade</h4>
+        <div id="filter_currency_tags"></div>
+        <h4>Location</h4>
+        <div id="filter_location_tags"></div>
+    </div>
 </div>
 
 <div id="map_popup" style="padding-bottom: 30px;">
@@ -153,17 +164,15 @@
 <!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
 <![endif]-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
-<!--<script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js"></script>-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
+<script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js">      </script>
 <!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
 <!-- google maps API v3 doesn't need an API key! -->
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
 <script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
-<!--
-<script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>
--->
+<!--<script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>-->
 <script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
 <script type="text/javascript" src="http://tradeify.org/js/tag_support.js"></script>
 <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
@@ -172,16 +181,55 @@
 <script type="text/javascript" src="http://tradeify.org/osocial/widget_support.js"></script>
 <script type="text/javascript">
 
-    var category_tags;
+    var post_your_own_general_tags;
     //var message_type;
-    var currency_tags;
-    var current_tags;
+    var post_your_own_currency_tags;
+    var currency_tagset = new Array("free","barter","cash");
+    var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
+    , "seedlings", "garden_supplies", "garden_services", "books", "workshops");
+    
+    var filter_general_tags;
+    var filter_currency_tags;
+    var filter_location_tags;
+    
+    //var current_tags;
     var list_widget;
     var map_widget;
 
     $(document).ready(function() {
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
+
+        //RHS Tags 
+        var createRHSTags = function() {
+
+            var general_tags = new Array();
+            var currency_tags = new Array();
+            var location_tags = new Array();
+            $.each(list_widget.get_tags(), function() {
+                switch(this.type) {
+                    case "tag":
+                        general_tags.push(this.tag);
+                        break;
+                    case "type":
+                         currency_tags.push(this.tag);
+                         break;
+                    case "loc":
+                         location_tags.push(this.tag);
+                         break;
+                }
+            });
+            
+            var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
+            filter_general_tags = new TagsWidget("#filter_general_tags", general_tags, list_widget.current_tags, "tag", update_filter);
+            filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tags, list_widget.current_tags, "type", update_filter);
+            filter_location_tags = new TagsWidget("#filter_location_tags", location_tags, list_widget.current_tags, "loc", update_filter);
+        }
+        list_widget.on_offers_updated(createRHSTags);
+
+        //END RHS Tags 
+
+
         $("#results").tabs({
             //event: 'mouseover'
             fx: { height: 'toggle', opacity: 'toggle' },
@@ -200,65 +248,68 @@
 
         // SUGGESTED TAGS (NOT USED FOR NOW)
         //update_tags(); //preload some tags
-
+        /*
         $(".offer tags tag").click(function() {
-            var tag = current_tags.add_tag(this.text);
-            list_widget.update_offers();
-            return false;
+        var tag = current_tags.add_tag(this.text);
+        list_widget.update_offers();
+        return false;
         });
+        */
         $("#by_parts input").keyup(update_offer);
         $("#by_parts textarea").keyup(update_offer);
         $("#by_parts input").change(update_offer);
 
-        currency_tags = new Tags("#currency_tags");
-        currency_tags.add_tag("free", "type", false);
-        currency_tags.add_tag("barter", "type", false);
-        currency_tags.add_tag("cash", "type", false);
-        currency_tags.tag_click(function() {
-            var tag_text = $(this).text().replace("\n", "");
-            currency_tags.toggle_active(tag_text);
-            update_offer();
-            return false;
-        });
-
-
-        category_tags = new Tags("#category_tags");
-        category_tags.add_tag("veges");
-        category_tags.add_tag("fruit");
-        category_tags.add_tag("eggs");
-        category_tags.add_tag("honey");
-        category_tags.add_tag("nuts");
-        category_tags.add_tag("grains");
-        category_tags.add_tag("seeds");
-        category_tags.add_tag("seedlings");
-        category_tags.add_tag("garden_supplies");
-        category_tags.add_tag("garden_services");
-        category_tags.add_tag("books");
-        category_tags.add_tag("workshops");
-        category_tags.tag_click(function() {
-            var tag_text = $(this).text().replace("\n", "");
-            category_tags.toggle_active(tag_text);
-            update_offer();
-            return false;
-        });
-
-//        message_type = new Tags("#message_type");
-//        message_type.add_tag("I am offering:", "type");
-//        message_type.add_tag("I want:", "type");
-//        message_type.tag_click(function() {
-//            var tag_text = $(this).text().replace("\n", "");
-//            message_type.toggle_active(tag_text);
-//            update_offer();
-//            return false;
-//        });
+        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, list_widget.current_tags, "type", update_offer);
+        /*
+        post_your_own_currency_tags.add_tag("free", "type", false);
+        post_your_own_currency_tags.add_tag("barter", "type", false);
+        post_your_own_currency_tags.add_tag("cash", "type", false);
         
-        current_tags = new Tags();
-        current_tags.tag_click(function() {
-            current_tags.remove_tag($(this).text());
-            list_widget.update_offers();
-            return false;
+        post_your_own_currency_tags.tag_click(function() {
+        var tag_text = $(this).text().replace("\n", "");
+        post_your_own_currency_tags.toggle_active(tag_text);
+        update_offer();
+        return false;
         });
-        current_tags.target_selector = "#current_tags";
+        */
+        post_your_own_general_tags = new TagsWidget("#post_your_own_general_tags", general_tagset, list_widget.current_tags, "tag", update_offer);
+        /*
+        post_your_own_general_tags = new Tags("#post_your_own_general_tags");
+        post_your_own_general_tags.add_tag("veges");
+        post_your_own_general_tags.add_tag("fruit");
+        post_your_own_general_tags.add_tag("eggs");
+        post_your_own_general_tags.add_tag("honey");
+        post_your_own_general_tags.add_tag("nuts");
+        post_your_own_general_tags.add_tag("grains");
+        post_your_own_general_tags.add_tag("seeds");
+        post_your_own_general_tags.add_tag("seedlings");
+        post_your_own_general_tags.add_tag("garden_supplies");
+        post_your_own_general_tags.add_tag("garden_services");
+        post_your_own_general_tags.add_tag("books");
+        post_your_own_general_tags.add_tag("workshops");
+        post_your_own_general_tags.tag_click(function() {
+        var tag_text = $(this).text().replace("\n", "");
+        post_your_own_general_tags.toggle_active(tag_text);
+        return false;
+        });
+        */
+        //        message_type = new Tags("#message_type");
+        //        message_type.add_tag("I am offering:", "type");
+        //        message_type.add_tag("I want:", "type");
+        //        message_type.tag_click(function() {
+        //            var tag_text = $(this).text().replace("\n", "");
+        //            message_type.toggle_active(tag_text);
+        //            update_offer();
+        //            return false;
+        //        });
+
+        /*urrent_tags = new Tags();
+        current_tags.tag_click(function() {
+        current_tags.remove_tag($(this).text());
+        list_widget.update_offers();
+        return false;
+        });
+        current_tags.target_selector = "#current_tags";*/
         //current_tags.add_fixed_tag("ooooby", "group", false);
         setTimeout(list_widget.update_offers, 300);
 
@@ -335,6 +386,8 @@
 
 
     });
+    
+    
 </script>
 
     ]]>
