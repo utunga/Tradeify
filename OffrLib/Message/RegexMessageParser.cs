@@ -31,7 +31,7 @@ namespace Offr.Message
             msg.MessagePointer = rawMessage.Pointer;
             msg.RawText = rawMessage.Text;
 
-            string sourceText = rawMessage.Text; 
+            string sourceText = rawMessage.Text;
             foreach (ITag tag in ParseTags(sourceText))
             {
                 if (tag.Type == TagType.msg_type) continue; //skip messages of this Type
@@ -76,7 +76,7 @@ namespace Offr.Message
                 result = _locationProvider.Parse(address);
             }
 
-            if (result!=null) return result;
+            if (result != null) return result;
 
             Regex reOpenEnd = new Regex("(( l:| L:)([^:]+))", RegexOptions.IgnoreCase);
             Match matchOpenEnd = reOpenEnd.Match(sourceText);
@@ -139,7 +139,7 @@ namespace Offr.Message
         //    //}
         //    //return best;
         //}
-       
+
         private IEnumerable<ITag> ParseTags(string sourceText)
         {
             Regex re = new Regex("(#[a-zA-Z0-9_]+)");
@@ -148,7 +148,7 @@ namespace Offr.Message
             {
                 string tagString = match.Groups[0].Value;
                 tagString = tagString.Replace("#", "");
-                yield return _tagProvider.GetAndAddTagIfAbsent(tagString,TagType.tag);
+                yield return _tagProvider.GetAndAddTagIfAbsent(tagString, TagType.tag);
             }
         }
 
@@ -163,7 +163,31 @@ namespace Offr.Message
             }
             return null;
         }
+        private DateTime? GetEndByInfo(string offerText)
+        {
+            while (offerText.Length >= 1)
+            {
 
+                try
+                {
+                    return DateTime.Parse(offerText);
+                }
+                catch (Exception e)
+                {
+                }
+                Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
+                Match endMatch = endRegex.Match(offerText);
+                if (endMatch.Groups.Count > 1)
+                {
+                    offerText = offerText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
+                    offerText = offerText.Trim();
+                }
+                else break;
+                //address = address.Substring(0, address.Length - 2);
+            }
+
+            return null;
+        }
         private string GetImageUrl(string offerText)
         {
             const string imageURL = @"http://([^\s]+)\.((jpg)|(png)|(gif))";
@@ -187,7 +211,7 @@ namespace Offr.Message
         #endregion
 
         #region Test
-        #if DEBUG
+#if DEBUG
         //Test accessors
         public string TEST_GetMoreInfoUrl(string offerText)
         {
@@ -200,7 +224,7 @@ namespace Offr.Message
             return GetImageUrl(offerText);
         }
 
-        #endif
+#endif
         #endregion Test
     }
 }
