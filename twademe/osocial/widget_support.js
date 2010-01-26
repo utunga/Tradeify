@@ -212,29 +212,36 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
 };
 
-function TagsWidget(selector, category_tags, list_widget) {
+function TagsWidget(selector, initial_tags, tag_type) {
     var tags;
+    var after_click = (arguments.length > 3) ? arguments[3] : function() { };
+    
     var init = function() {
         tags = new Tags(selector);
-        var after_click = (arguments.length > 3) ? arguments[3] : function() { };
 
-        $.each(category_tags, function() {
-            tags.add_tag(this);
+        $.each(initial_tags, function() {
+            tags.add_tag(this, tag_type);
         });
 
         tags.tag_click(function() {
             var tag_text = $(this).text().replace("\n", "");
-            tags.toggle_active(tag_text);
+            tags.toggle_active(tag_text,tag_type);
             after_click(tag_text);
             return false;
         });
     }
+    
+    
     init();
     
     this.get_active_tags_text = function() {
         return tags.get_active_tags_text()
     };
+
 };
+
+
+
 /*
 google.maps.Map.prototype.markers = new Array();
 

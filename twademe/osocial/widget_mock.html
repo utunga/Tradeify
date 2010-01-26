@@ -4,6 +4,9 @@
     <title>Widget</title>
 </head>
 <body>
+<div style="width:737px; padding:5px">
+   
+<!-- copy to tradeify_widget.xml starts below here -->
     
 <link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
@@ -11,15 +14,15 @@
 <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
 
-<div id="current_tags"><br/>
-    </div>
-    <div id="results">
-        <ul>
-            <li><a href="#results-1">List</a></li>
-            <li><a href="#results-2">Map</a></li>
-            <li><a href="#results-3">Post your own</a></li>
-        </ul>
-        <div id="results-1" style="padding-bottom: 30px;">
+<div id="current_tags"><br/></div>
+<div id="results">
+    <ul>
+        <li><a href="#results-1">List</a></li>
+        <li><a href="#results-2">Map</a></li>
+        <li><a href="#results-3">Post your own</a></li>
+    </ul>
+    <div class="left_col">
+        <div id="results-1">
             <span class="template" id="offer_template">
                 <div class="offer" style="padding-bottom: 20px;">
                     <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
@@ -37,97 +40,99 @@
                 </div>
             </span>
             <div id="pager"></div>
-            <div id="general_tags">
-            </div>
         </div>
         <div id="results-2">
             <div id="offer_map" style="width: 100%; height: 100%; height:500px">
             </div>
         </div>
-  
-<div id="results-3">
-<div id="post_your_own_form" class="ui-widget">
+        <div id="results-3">
+            <div id="post_your_own_form" >
 
-	<div class="tooltip"></div> 
-   
-    <fieldset id="by_parts" class="ui-corner-all">
-    
-        <h4><input type="radio" name="message_type" value="OFFER" />I am offering<input type="radio" name="message_type" value="WANT" /> I want</h4>
-     
+            <div class="tooltip"></div> 
+           
+            <fieldset id="by_parts" class="ui-corner-all">
+            
+                <h4><input type="radio" name="message_type" value="OFFER" />I am offering<input type="radio" name="message_type" value="WANT" /> I want</h4>
+             
 
-            <div id="post_your_own_general_tags"></div>
-       
-        
-        <div class="offerPart">
-            <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" >(details)</textarea>
-        </div>
-        
-        <div class="location">
-            <label for="location"> in </label>
-            <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location" value="(suburb)"/>
-            <div id="map_canvas" ></div> <!--map goes here -->
-            <div class="infobox"></div>
-        </div>
-        
-        <div class="currency">
-            <label for="for" class="desc"> for </label>
-            <div id="post_your_own_currency_tags"></div>
-        </div>
-        
-        <div class="until">  
-            <label for="until" class="desc"> until </label>
-            <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
-        </div>
-                    
-       <!-- <div class="tags" style="width: 430px;">
-            <label> Tags </label>
-            <ul id="selected_tags">
-                <li><a href="#" class="tag"></a></li>
-            </ul>
-            <blockquote>
-                <h4>Suggested Tags (click to select)</h4> 
-                <div id="suggested_tags">
-                    <span class="template">
-                        <ul class="select_tag_container">
-                            <li><a href="#" class="tag"></a></li>
-                        </ul>
-                    </span>
+                    <div id="post_your_own_general_tags"></div>
+               
+                
+                <div class="offerPart">
+                    <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all" id="offer" >(details)</textarea>
                 </div>
-                <h4>Or type to add more</h4> 
-                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
-            </blockquote>
-        
-        </div>-->
-        
- <!--       <div class="thumbnail">
-            <label for="picture_thumbnail"> Link to picture? </label>
-            <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
-        </div>-->
-        
+                
+                <div class="location">
+                    <label for="location"> in </label>
+                    <input type="text" class="ui-state-default ui-corner-all" tabindex="1" name="location" id="location" value="(suburb)"/>
+                    <div id="map_canvas" ></div> <!--map goes here -->
+                    <div class="infobox"></div>
+                </div>
+                
+                <div class="currency">
+                    <label for="for" class="desc"> for </label>
+                    <div id="post_your_own_currency_tags"></div>
+                </div>
+                
+                <div class="until">  
+                    <label for="until" class="desc"> until </label>
+                    <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
+                </div>
+                            
+               <!-- <div class="tags" style="width: 430px;">
+                    <label> Tags </label>
+                    <ul id="selected_tags">
+                        <li><a href="#" class="tag"></a></li>
+                    </ul>
+                    <blockquote>
+                        <h4>Suggested Tags (click to select)</h4> 
+                        <div id="suggested_tags">
+                            <span class="template">
+                                <ul class="select_tag_container">
+                                    <li><a href="#" class="tag"></a></li>
+                                </ul>
+                            </span>
+                        </div>
+                        <h4>Or type to add more</h4> 
+                        <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
+                    </blockquote>
+                
+                </div>-->
+                
+         <!--       <div class="thumbnail">
+                    <label for="picture_thumbnail"> Link to picture? </label>
+                    <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
+                </div>-->
+                
 
-    </fieldset>
-    
-     <div class="rawMessage">	
-      <fieldset>
-        <!--<legend>Your offer</legend>	-->
-        <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
-        <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
-        <a class=message_details>
-        <a class="location_detail status">
-        <a>Location</a>
-        </a>
-        <a class="currency_detail status" >
-        <a>Type of Trade</a>
-        </a>
-        <a class="group_detail status">
-        <a>Ooooby tag</a>
-        </a>        
-        </a>
-       </fieldset>
+            </fieldset>
+            
+             <div class="rawMessage">	
+              <fieldset>
+                <!--<legend>Your offer</legend>	-->
+                <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all" id="message_to_send"></textarea>
+                <button class="send_message ui-button ui-state-default ui-corner-all" >Post</button>
+                <a class=message_details>
+                <a class="location_detail status">
+                <a>Location</a>
+                </a>
+                <a class="currency_detail status" >
+                <a>Type of Trade</a>
+                </a>
+                <a class="group_detail status">
+                <a>Ooooby tag</a>
+                </a>        
+                </a>
+               </fieldset>
+            </div>
+             </div>
+        </div>
     </div>
-     </div>
+   <div class="right_col">
+        <div id="general_tags"></div>
+    </div>
 </div>
-  </div>
+
 <div id="map_popup" style="padding-bottom: 30px;">
     <span class="template" >
         <div class="map_offer" style="padding-bottom: 20px;">
@@ -176,7 +181,11 @@
     var currency_tagset = new Array("free","barter","cash");
     var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
     , "seedlings", "garden_supplies", "garden_services", "books", "workshops");
-    var general_tags;
+    
+    var filter_general_tags;
+    var filter_currency_tags;
+    var filter_location_tags;
+    
     //var current_tags;
     var list_widget;
     var map_widget;
@@ -184,7 +193,17 @@
     $(document).ready(function() {
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
-        general_tags = new TagsWidget("#general_tags", general_tagset, list_widget, function(tag_text) { list_widget.toggle_filter(tag_text, "tag"); });
+
+        var createRHSTags = function() {
+
+            var filter_select = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
+            
+            filter_general_tags = new TagsWidget("#filter_general_tags", general_tagset, "tag", filter_select);
+            filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tagset, "type", filter_select);
+            filter_location_tags = new TagsWidget("#filter_location_tags", general_tagset, "loc", filter_select);
+        }
+        list_widget.on_offers_updated(createRHSTags);
+
         $("#results").tabs({
             //event: 'mouseover'
             fx: { height: 'toggle', opacity: 'toggle' },
@@ -214,20 +233,20 @@
         $("#by_parts textarea").keyup(update_offer);
         $("#by_parts input").change(update_offer);
 
-        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, list_widget, update_offer);
+        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, "type", update_offer);
         /*
         post_your_own_currency_tags.add_tag("free", "type", false);
         post_your_own_currency_tags.add_tag("barter", "type", false);
         post_your_own_currency_tags.add_tag("cash", "type", false);
         
         post_your_own_currency_tags.tag_click(function() {
-            var tag_text = $(this).text().replace("\n", "");
-            post_your_own_currency_tags.toggle_active(tag_text);
-            update_offer();
-            return false;
+        var tag_text = $(this).text().replace("\n", "");
+        post_your_own_currency_tags.toggle_active(tag_text);
+        update_offer();
+        return false;
         });
         */
-        post_your_own_general_tags = new TagsWidget("#post_your_own_general_tags", general_tagset, list_widget,update_offer);
+        post_your_own_general_tags = new TagsWidget("#post_your_own_general_tags", general_tagset, "tag", update_offer);
         /*
         post_your_own_general_tags = new Tags("#post_your_own_general_tags");
         post_your_own_general_tags.add_tag("veges");
@@ -345,6 +364,7 @@
     
 </script>
 
-
+<!-- end copy to tradeify_widget.xml -->
+</div>
 </body>
 </html>
