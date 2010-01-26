@@ -109,7 +109,7 @@ namespace Offr.Message
         /// 
         /// 
         #region Setter Methods
-        public void SetEndBy(string endByText, DateTime endBy)
+        public void SetEndBy(string endByText, DateTime? endBy)
         {
             EndByText = endByText;
             EndBy = endBy;

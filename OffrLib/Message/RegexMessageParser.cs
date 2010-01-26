@@ -30,7 +30,6 @@ namespace Offr.Message
             msg.Timestamp = rawMessage.Timestamp;
             msg.MessagePointer = rawMessage.Pointer;
             msg.RawText = rawMessage.Text;
-
             string sourceText = rawMessage.Text;
             foreach (ITag tag in ParseTags(sourceText))
             {
@@ -51,6 +50,7 @@ namespace Offr.Message
             }
             msg.OfferText = sourceText;
             msg.MoreInfoURL = GetMoreInfoUrl(sourceText);
+            msg.SetEndBy("", GetEndByInfo(sourceText));
             msg.AddThumbnail(GetImageUrl(sourceText));
             return msg;
         }
@@ -165,27 +165,31 @@ namespace Offr.Message
         }
         private DateTime? GetEndByInfo(string offerText)
         {
-            while (offerText.Length >= 1)
+            Regex EndBy = new Regex(" until (.*)", RegexOptions.IgnoreCase);
+            Match matchEndBy = EndBy.Match(offerText);
+            offerText = matchEndBy.Groups[1].Value;
+            if (matchEndBy.Groups.Count >= 1)
             {
-
-                try
+                while (offerText.Length >= 1)
                 {
-                    return DateTime.Parse(offerText);
+                    try
+                    {
+                        return DateTime.Parse(offerText);
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                    Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
+                    Match endMatch = endRegex.Match(offerText);
+                    if (endMatch.Groups.Count > 1)
+                    {
+                        offerText = offerText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
+                        offerText = offerText.Trim();
+                    }
+                    else break;
+                    //address = address.Substring(0, address.Length - 2);
                 }
-                catch (Exception e)
-                {
-                }
-                Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
-                Match endMatch = endRegex.Match(offerText);
-                if (endMatch.Groups.Count > 1)
-                {
-                    offerText = offerText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
-                    offerText = offerText.Trim();
-                }
-                else break;
-                //address = address.Substring(0, address.Length - 2);
             }
-
             return null;
         }
         private string GetImageUrl(string offerText)
@@ -223,7 +227,10 @@ namespace Offr.Message
         {
             return GetImageUrl(offerText);
         }
-
+        public DateTime? TEST_GetEndByInfo(string offerText)
+        {
+            return GetEndByInfo(offerText);
+        }
 #endif
         #endregion Test
     }

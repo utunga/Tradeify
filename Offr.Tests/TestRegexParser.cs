@@ -131,7 +131,16 @@ namespace Offr.Tests
             string imageUrl = regexMessageParser.TEST_GetImageUrl(text);
             Assert.AreEqual("http://twitpic.com/show/thumb/r5aon", imageUrl, "didn't received expected image url for twitpic");
         }
-
+        [Test]
+        public void TestGetEndBy()
+        {
+            // a specific real example for which i know the query was failing
+            string text = "#offr_test #ooooby mulch available now in L:Paekakariki: for #free until 17 Jan 2010";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
+            DateTime? date = regexMessageParser.TEST_GetEndByInfo(text);
+            DateTime expected = new DateTime(2010,1,17);
+            Assert.AreEqual(expected,date);
+         }
     }
 
 
