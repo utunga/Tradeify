@@ -169,10 +169,10 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
         
         if (map == undefined)
         {
-                var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
+                //var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
                 var myOptions = {
                     zoom: 2,
-                    center: myLatlng,
+                    //center: myLatlng,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 }
                 map = new google.maps.Map(document.getElementById(map_selector), myOptions);
@@ -232,7 +232,7 @@ function TagsWidget(selector, initial_tags, active_tags, tag_type) {
         tags.tag_click(function() {
             var tag_text = $(this).text().replace("\n", "");
             tags.toggle_active(tag_text,tag_type);
-            after_click(tag_text);
+            after_click(tag_text, tag_type);
             return false;
         });
     }
