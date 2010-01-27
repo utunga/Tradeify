@@ -18,7 +18,7 @@ namespace Offr.Repository
              "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
              ""));
              */
-            Save(new OpenSocialUserPointer("ooooby", "Dummy","http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",""));
+            //Save(new OpenSocialUserPointer("ooooby", "Dummy","http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",""));
         }
 
     }

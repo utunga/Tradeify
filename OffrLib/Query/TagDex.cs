@@ -79,15 +79,15 @@ namespace Offr.Query
 
         public List<IMessage> MessagesForTags(IEnumerable<ITag> tags, bool includeIgnoredUsers)
         {
-            return MessagesForTagsAndUser(tags, null, includeIgnoredUsers);
+            return MessagesForTagsAndUser(tags, null);
         }
 
         public List<IMessage> MessagesForUser(IUserPointer user)
         {
-            return MessagesForTagsAndUser(new ITag[] { }, user, true);
+            return MessagesForTagsAndUser(new ITag[] { }, user);
         }
 
-        public List<IMessage> MessagesForTagsAndUser(IEnumerable<ITag> tags, IUserPointer user,bool includeIgnoredUsers)
+        public List<IMessage> MessagesForTagsAndUser(IEnumerable<ITag> tags, IUserPointer user)
         {
             List<string> matchTags = tags.Select(tag => tag.MatchTag).ToList();
             if (user != null)
@@ -122,13 +122,8 @@ namespace Offr.Query
                 //check ignored user list
                 if (include)
                 {
-                    if (includeIgnoredUsers)
-                    {
-                        results.Add(message);
-                       
-                    }
                     //if there is no user in ignored users add the message to the results
-                    else if (_ignoredUsers.Get(message.CreatedBy.ID)==null)
+                    if (_ignoredUsers.Get(message.CreatedBy.ID)==null)
                     {
                             results.Add(message);
                     }

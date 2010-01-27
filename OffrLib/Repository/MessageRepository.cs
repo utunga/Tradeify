@@ -63,7 +63,7 @@ namespace Offr.Repository
         public IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer)
         {
             //not sure if 'true' is correct
-            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer, true);
+            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer);
         }
 
         public IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer userPointer)
@@ -122,14 +122,15 @@ Tools & Equipment
 Workshops
 Miscellaneous  
           */
-
+        
         public void InitializeFromFile()
         {
             
-            addDummyMessages();
+            //addDummyMessages();
             //msg.AddThumbnail(GetImageUrl(sourceText));
             base.InitializeFromFile();
         }
+         
         private void addDummyMessages()
         {
             var dummy = new OpenSocialUserPointer("ooooby", "Dummy",
