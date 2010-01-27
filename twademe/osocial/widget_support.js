@@ -56,8 +56,8 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
-            offers = data.offers_json.messages;
-            tags = data.tags_json.tags_json.overall; //FIXME (hurrrl!)
+            offers = data.Messages;
+            tags = data.Tags; //FIXME (hurrrl!)
             if (!!_offers_updated) {
                 $.each(_offers_updated, function() {
                     this(offers);
