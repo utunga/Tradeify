@@ -12,22 +12,22 @@ namespace twademe
 {
     public partial class tradeify_json : System.Web.UI.Page
     {
-        private const int DEFAULT_MSG_COUNT = 10;
 
     
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
             NameValueCollection request = Request.QueryString;
-            
+            /*
             int messageCount;
             if (!int.TryParse(Request["count"], out messageCount))
             {
-                messageCount = DEFAULT_MSG_COUNT;
+                messageCount = int.MaxValue;
             }
+             */
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
-            string offers = offers_json.GetOffersJson(tags, messageCount);
+            string offers = offers_json.GetOffersJson(tags);
             string tagString = tags_json.GetTagJson(tags);
             string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
                             tagString + "}";
