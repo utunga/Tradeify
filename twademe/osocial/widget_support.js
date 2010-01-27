@@ -145,13 +145,32 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
     var map;
     var map_popup_render_fn;
     var offers_uri;
+    /*'div.offer': {
+            'offer <- Messages': {          
+                'a.username@href': 'offer.created_by.provider_url',
+                'a.avatar@href': 'offer.created_by.provider_url',
+                'a.username': 'offer.created_by.provider_user_name',
+                '.avatar img@src': 'offer.created_by.profile_pic_url',
+                
+                '.msg .text': 'offer.offer_text',
+                
+                'span.tags': {
+                    'tag <- offer.tags': {
+                        'a': 'tag.tag',
+                        '+a@class': 'tag.type'
+                    }
+                },
+                '.when': 'offer.timestamp'
+                
+            }
+        }*/
     var map_directives = {
         'div.map_offer': {
-            'map_offer <- messages': {
-                'a.map_username@href': 'map_offer.user.more_info_url',
-                'a.map_avatar@href': 'map_offer.user.more_info_url',
-                'a.map_username': 'map_offer.user.screen_name',
-                '.map_avatar img@src': 'map_offer.user.profile_pic_url',
+            'map_offer <- Messages': {
+            'a.map_username@href': 'map_offer.created_by.provider_url',
+            'a.map_avatar@href': 'map_offer.created_by.provider_url',
+            'a.map_username': 'map_offer.created_by.provider_user_name',
+            '.map_avatar img@src': 'map_offer.created_by.profile_pic_url',
                 '.map_msg .map_text': 'map_offer.offer_text',
                 'span.map_tags': {
                     'map_tag <- map_offer.tags': {
@@ -159,7 +178,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
                         '+a@class': 'map_tag.type'
                     }
                 },
-                '.map_when': 'map_offer.date'
+                '.map_when': 'offer.timestamp'
             }
         }
     };
@@ -176,7 +195,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
         var json_url = list_widget.build_search_query(offers_uri, tags_backup);
         $.getJSON(json_url, function(raw_data) {
-            $(map_popup_selector + ' .template').render(raw_data.Messages, map_popup_render_fn);
+            $(map_popup_selector + ' .template').render(raw_data, map_popup_render_fn);
              var infowindow = new google.maps.InfoWindow(
             {
                 content: $(map_popup_selector).html()
@@ -205,9 +224,9 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
         var offers = list_widget.get_offers();
         var latlng = new Array();
         $.each(offers, function() {
-            var post = new google.maps.LatLng(this.offer_latitude, this.offer_longitude);
+            var post = new google.maps.LatLng(this.location.geo_lat, this.location.geo_long);
             latlng.push(post);
-            var title = this.offer_address; //this.offer_text + " " + this.user.more_info_url;
+            var title = this.address; //this.offer_text + " " + this.user.more_info_url;
             var tags = new Array();
             $.each(this.tags, function() {
                 if (this.type == "loc") tags.push(this);
