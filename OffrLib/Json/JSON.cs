@@ -9,6 +9,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Offr.Json.Converter;
+using Offr.Text;
 
 namespace Offr.Json
 {
@@ -43,6 +44,8 @@ namespace Offr.Json
                 jsonSerializer.Converters.Add(new TagListConverter());
                 jsonSerializer.Converters.Add(new TagConverter());
                 jsonSerializer.Converters.Add(new UserPointerConverter());
+                jsonSerializer.Converters.Add(new CanJsonConvertor<TagWithCount>());
+
                 return jsonSerializer;
             }
         }

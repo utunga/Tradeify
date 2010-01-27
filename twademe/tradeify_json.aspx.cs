@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Offr;
+using Offr.Json;
 using Offr.Message;
 using Offr.Query;
 using Offr.Repository;
@@ -21,22 +22,18 @@ namespace twademe
         {
             Response.ContentType = "application/json";
             NameValueCollection request = Request.QueryString;
-            /*
-            int messageCount;
-            if (!int.TryParse(Request["count"], out messageCount))
-            {
-                messageCount = int.MaxValue;
-            }
-             */
-            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
-            List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
+            
+            ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
-            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
-            string offers = offers_json.GetOffersJson(messages);
-            string tagString = tags_json.GetTagJson(tags,messages);
-            string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
-                            tagString + "}";
-            SendJSON(tradeifyJson);
+            
+            List<ITag> tags = tagProvider.GetTagsFromNameValueCollection(request);
+            MessagesWithTagCounts messagesWithTags = queryExecutor.GetMessagesWithTagCounts(tags);
+            
+            //string offers = offers_json.GetOffersJson(messagesWithTags);
+            //string tagString = tags_json.GetTagJson(tags,messagesWithTags);
+            //string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
+            //                tagString + "}";
+            SendJSON(JSON.Serialize(messagesWithTags));
         }
             
         private void SendJSON(string message)

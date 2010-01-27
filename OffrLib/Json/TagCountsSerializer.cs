@@ -17,25 +17,21 @@ namespace Offr.Json
                                 
         public override IEnumerable<Type> SupportedTypes
         {
-            get { return new ReadOnlyCollection<Type>(new List<Type>(new Type[] { typeof(TagCounts) })); }
+            get { return new ReadOnlyCollection<Type>(new List<Type>(new Type[] { typeof(List<TagWithCount>) })); }
         }
        
         public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
         {
-            TagCounts tagCounts = obj as TagCounts;
-            if (tagCounts != null)
+            IEnumerable<TagWithCount> tags = obj as IEnumerable<TagWithCount>;
+            if (tags != null)
             {
                 // Create the representation.
                 Dictionary<string, object> result = new Dictionary<string, object>();
-                result.Add("total", tagCounts.Total);
-
+                
                 ArrayList overall = new ArrayList();
 
-                tagCounts.Tags.Sort();
-                tagCounts.Tags.Reverse();
-
                 SortedList<TagType,int> counters = new SortedList<TagType, int>();
-                foreach (TagWithCount tagCount in tagCounts.Tags)
+                foreach (TagWithCount tagCount in tags)
                 {
                     TagType type = tagCount.tag.Type;
                     counters[type] = counters.ContainsKey(type) ? counters[type] + 1 : 0;
@@ -46,15 +42,14 @@ namespace Offr.Json
                                 {
                                     {"type", type.ToString()},
                                     {"tag", tagCount.tag.Text},
-                                    {"count", tagCount.count},
-                                    {"pct", Math.Floor(((double) tagCount.count/(double) tagCounts.Total)*100)}
+                                    {"count", tagCount.count}
                                 };
                         overall.Add(dict);
                     }
 
                 }
 
-                result["overall"] = overall;
+                result["tags"] = overall;
                 return result;
             }
             // blank return, shouldn't happen

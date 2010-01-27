@@ -9,7 +9,7 @@ using NLog;
 
 namespace Offr.Json.Converter
 {
-    public abstract class CanJsonConvertor<T> : JsonConverter where T:ICanJson
+    public class CanJsonConvertor<T> : JsonConverter where T:ICanJson
     {
         protected static readonly Logger log = LogManager.GetCurrentClassLogger();
         /// <summary>
@@ -24,7 +24,10 @@ namespace Offr.Json.Converter
         /// Creates an object which will then be populated by the serializer.
         /// </summary>
         /// <returns></returns>
-        public abstract T Create(JsonReader reader, JsonSerializer serializer);
+        public virtual T Create(JsonReader reader, JsonSerializer serializer)
+        {
+            return default(T);
+        }
 
         /// <summary>
         /// Writes the JSON representation of the object by calling the WriteJson method on the target

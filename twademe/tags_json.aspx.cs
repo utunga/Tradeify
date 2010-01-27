@@ -38,61 +38,20 @@ namespace twademe
             SendJSON(GetTagJson(tags));
         }
 
-
         public static string GetTagJson(List<ITag> tags)
         {
-
             IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageRepository>();
-            IEnumerable<IMessage> messages = _queryExecutor.GetMessagesForTags(tags);
-            return GetTagJson(tags, _queryExecutor,messages);
-            //tagcounts stuff
+            MessagesWithTagCounts messagesWithTags = _queryExecutor.GetMessagesWithTagCounts(tags);
+            return SerializeTagsOnly(messagesWithTags);
         }
 
-        public static string GetTagJson(List<ITag> tags,IEnumerable<IMessage> messages)
+        private static string SerializeTagsOnly(MessagesWithTagCounts messagesWithTags)
         {
-            IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageRepository>();
-            return GetTagJson(tags, _queryExecutor,messages);
-            //tagcounts stuff
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            serializer.RegisterConverters(new JavaScriptConverter[] { new TagCountsSerializer() });
 
-        }
-        private static string GetTagJson(List<ITag> tags, IMessageQueryExecutor _queryExecutor, IEnumerable<IMessage> messages)
-        {
-
-            TagCounts availableTags = GetAvailableTags(tags, _queryExecutor,messages);
-            return GetTagJson(tags, availableTags, _queryExecutor);
-            //tagcounts stuff
-
-        }
-        private static string GetTagJson(List<ITag> tags, TagCounts availableTags, IMessageQueryExecutor _queryExecutor)
-        {
-            MessagesWithTagCounts tagCounts = _queryExecutor.GetMessagesWithTagCounts(tags);
-            return GetJsonOutput(availableTags, tagCounts.TagCounts);
-        }
-
-        private static TagCounts GetAvailableTags(List<ITag> tags, IMessageQueryExecutor _queryExecutor, IEnumerable<IMessage> messages)
-        {
-            TagCounts availableTags;
-
-            if (tags.Count == 0)
-            {
-                // at start the 'available tags' is just all the tags
-                availableTags = _queryExecutor.GetAllTagCounts();
-            }
-            else
-            {
-                // after that available tags is the tag counts for the current messages
-                // so first get the current 'messages' based on tags (NOTE2J ideally we'd be caching this result since we only just calc'd it in tradeify_json.aspx!)
-                TagDex oneOffTagDex = new TagDex(messages); // counts up the tags for these messages
-                availableTags = oneOffTagDex.GetTagCounts();
-            }
-            return availableTags;
-        }
-        private static string GetJsonOutput(TagCounts tags_json, TagCounts tagcounts_json)
-        {
-            JavaScriptSerializer Tags = new JavaScriptSerializer();
-            Tags.RegisterConverters(new JavaScriptConverter[] {new TagCountsSerializer()});
-            return "{\"tags_json\":" + Tags.Serialize(tags_json) + ",\"tagcounts_json\":" +
-                   Tags.Serialize(tagcounts_json)+"}";
+            return "{\"tags_json\":" + serializer.Serialize(messagesWithTags.Tags) + ",\"tagcount\":" +
+                   serializer.Serialize(messagesWithTags.TagCount)+"}";
         }
     }
 }

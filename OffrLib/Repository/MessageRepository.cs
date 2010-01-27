@@ -69,8 +69,9 @@ namespace Offr.Repository
         {
             //NOTE2JOAV
             // this is the method that may be worth caching
-            MessagesWithTagCounts allMessages = GetMessagesWithTagCounts(new Tag[] {});
-            return allMessages.TagCounts;
+            TagDex allValidMessageIndex = new TagDex(QueryMessagesImpl(new Tag[] { }, null));
+            return allValidMessageIndex.GetTagCounts();
+
         }
 
         public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags)
@@ -120,7 +121,7 @@ namespace Offr.Repository
         //    {
         //        tagCounts.Add(_globalTagIndex.GetTagCountForTag(tag));
         //    }
-
+        //
         //    //tagCounts.Reverse();
         //    return new TagCounts() { Tags = tagCounts, Total = -1 };
         //}
