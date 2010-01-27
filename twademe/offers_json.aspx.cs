@@ -50,7 +50,7 @@ namespace twademe
             return GetOffersJson(messages);
         }
 
-        private static string GetOffersJson(IEnumerable<IMessage> messages)
+        public static string GetOffersJson(IEnumerable<IMessage> messages)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });

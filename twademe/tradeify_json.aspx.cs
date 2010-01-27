@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Offr;
+using Offr.Message;
+using Offr.Query;
 using Offr.Repository;
 using Offr.Text;
 
@@ -27,8 +30,10 @@ namespace twademe
              */
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
-            string offers = offers_json.GetOffersJson(tags);
-            string tagString = tags_json.GetTagJson(tags);
+            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
+            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags, false);
+            string offers = offers_json.GetOffersJson(messages);
+            string tagString = tags_json.GetTagJson(tags,messages);
             string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +
                             tagString + "}";
             SendJSON(tradeifyJson);
