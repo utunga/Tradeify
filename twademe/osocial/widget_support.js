@@ -8,7 +8,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var _offers_updated=new Array();
     var map;
 
- 
+ /*
     var offers_directives = {
         'div.offer': {
             'offer <- messages': {
@@ -27,7 +27,30 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
             }
         }
     }; 
-  
+  */
+    var offers_directives = {
+        'div.offer': {
+            'offer <- Messages': {          
+                'a.username@href': 'offer.created_by.provider_url',
+                'a.avatar@href': 'offer.created_by.provider_url',
+                'a.username': 'offer.created_by.provider_user_name',
+                '.avatar img@src': 'offer.created_by.profile_pic_url',
+                
+                '.msg .text': 'offer.offer_text',
+                
+                'span.tags': {
+                    'tag <- offer.tags': {
+                        'a': 'tag.tag'/*,
+                        '+a@class': 'tag.type'*/
+                    }
+                },
+                '.when': 'offer.timestamp'
+                
+            }
+        }
+    }; 
+   
+   
    
     var init = function() {
        
@@ -51,7 +74,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var update_offers = function() {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
-            $(offers_selector + ' .template').render(data.offers_json, offers_render_fn);
+            $(offers_selector + ' .template').render(data, offers_render_fn);
             $(offers_selector + ' .tags a').click(function() {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
@@ -153,7 +176,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
         var json_url = list_widget.build_search_query(offers_uri, tags_backup);
         $.getJSON(json_url, function(raw_data) {
-            $(map_popup_selector + ' .template').render(raw_data.offers_json, map_popup_render_fn);
+            $(map_popup_selector + ' .template').render(raw_data.Messages, map_popup_render_fn);
              var infowindow = new google.maps.InfoWindow(
             {
                 content: $(map_popup_selector).html()

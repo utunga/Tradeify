@@ -93,11 +93,16 @@ namespace Offr.Text
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            JSON.WriteProperty(serializer,writer,Type.ToString(),Text);
+            JSON.WriteProperty(serializer,writer,"tag",Text);
+            JSON.WriteProperty(serializer, writer, "type", Type);
         }
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
+            /*
+                Text = JSON.ReadProperty<string>(serializer, reader, "tag");
+                Type = JSON.ReadProperty<TagType>(serializer, reader, "type");
+            */
             JSON.ReadAndAssert(reader);
             if (reader.TokenType != JsonToken.PropertyName)
                 throw new JsonSerializationException(string.Format("Expected JSON property"));
@@ -106,9 +111,10 @@ namespace Offr.Text
             Type = (TagType)Enum.Parse(typeof(TagType), typeStr, true);
             JSON.ReadAndAssert(reader);
             Text = (string)serializer.Deserialize(reader, typeof(string));
+             
         }
 
-        #endregion JSSON
+        #endregion JSON
 
         private void UpdateMatchTag()
         {
