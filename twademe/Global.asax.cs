@@ -36,7 +36,7 @@ namespace twademe
         {
             try
             {
-                IIgnoredUserRepository ignoredUserRepository = Kernel.Get<IIgnoredUserRepository>();
+                IUserPointerRepository ignoredUserRepository = Kernel.Get<IUserPointerRepository>();
                 if (ignoredUserRepository is IPersistedRepository)
                 {
                     //((IPersistedRepository)ignoredUserRepository).FilePath = Server.MapPath(OFFERS_FILE);

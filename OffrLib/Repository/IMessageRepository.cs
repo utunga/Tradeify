@@ -8,7 +8,7 @@ using Offr.Repository;
 
 namespace Offr
 {
-    public interface IMessageRepository: IMemCache, IMessageQueryExecutor
+    public interface IMessageRepository : IMemCache, IMessageQueryExecutor
     {
         IMessage Get(string id);
         void Save(IMessage instance);

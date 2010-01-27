@@ -17,20 +17,9 @@ namespace Offr.Query
         private readonly List<ITag> _seenTags;
         private readonly SortedList<string, List<IMessage>> _index;
         private readonly IEnumerable<IMessage> _allMessageSource;
-        private IIgnoredUserRepository _ignoredUsers;
-        public TagDex(IEnumerable<IMessage> allMessageSource, IIgnoredUserRepository IgnoredUsers)
-        {
-            this._ignoredUsers =IgnoredUsers;
-            _seenTags = new List<ITag>();
-            _index = new SortedList<string, List<IMessage>>();
-            _allMessageSource = allMessageSource;
-            Process(allMessageSource);
-           //this._ignoredUsers ?? new HashSet<IUserPointer>(); 
-
-        }
+        
         public TagDex(IEnumerable<IMessage> allMessageSource)
         {
-            this._ignoredUsers = Global.Kernel.Get<IIgnoredUserRepository>();
             _seenTags = new List<ITag>();
             _index = new SortedList<string, List<IMessage>>();
             _allMessageSource = allMessageSource;
@@ -77,17 +66,7 @@ namespace Offr.Query
             }
         }
 
-        public List<IMessage> MessagesForTags(IEnumerable<ITag> tags, bool includeIgnoredUsers)
-        {
-            return MessagesForTagsAndUser(tags, null);
-        }
-
-        public List<IMessage> MessagesForUser(IUserPointer user)
-        {
-            return MessagesForTagsAndUser(new ITag[] { }, user);
-        }
-
-        public List<IMessage> MessagesForTagsAndUser(IEnumerable<ITag> tags, IUserPointer user)
+        public IEnumerable<IMessage> QueryMessages(IEnumerable<ITag> tags, IUserPointer user)
         {
             List<string> matchTags = tags.Select(tag => tag.MatchTag).ToList();
             if (user != null)
@@ -105,7 +84,6 @@ namespace Offr.Query
                 candidates = _allMessageSource;
             }
 
-            List<IMessage> results = new List<IMessage>();
             foreach (IMessage message in candidates)
             {
                 bool include = true;
@@ -117,26 +95,13 @@ namespace Offr.Query
                         break;
                     }
                 }
-                //check whether the offer is expired
-                if (message.IsExpired()) continue;
-                //check ignored user list
                 if (include)
                 {
-                    //if there is no user in ignored users add the message to the results
-                    if (_ignoredUsers.Get(message.CreatedBy.ID)==null)
-                    {
-                            results.Add(message);
-                    }
-                    
+                    yield return message;
                 }
             }
-
-            //sort results by timestamp descending
-            results.Sort((a, b) => b.Timestamp.CompareTo(a.Timestamp));
-            return results;
         }
  
-
         public TagWithCount GetTagCountForTag(ITag tag)
         {
             return _index.ContainsKey(tag.MatchTag) ? 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E2C87F3A-170E-4F3A-9C45-3DF87188B582}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -101,11 +101,12 @@
     <Compile Include="Json\Converter\RawMessageConverter.cs" />
     <Compile Include="Json\Converter\MessagePointerConverter.cs" />
     <Compile Include="Json\JSON.cs" />
+    <Compile Include="Json\MessagesWithTagCounts.cs" />
     <Compile Include="Message\ValidationFailReason.cs" />
     <Compile Include="OpenSocial\OpenSocialJson.cs" />
     <Compile Include="OpenSocial\OpenSocialRawMessage.cs" />
     <Compile Include="Repository\IgnoredUserRepository.cs" />
-    <Compile Include="Repository\IIgnoredUserRepository.cs" />
+    <Compile Include="Repository\IUserPointerRepository.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
     <Compile Include="Repository\IMessageRepository.cs" />
     <Compile Include="ITopic.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="OAuth\OAuthTwitter.cs" />
     <Compile Include="Query\IMessageQueryExecutor.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\NullRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
     <Compile Include="Services\PersistanceService.cs" />
     <Compile Include="Services\RawMessagePollingService.cs" />

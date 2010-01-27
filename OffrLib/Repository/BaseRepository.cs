@@ -11,7 +11,7 @@ using Offr.Json;
 
 namespace Offr.Repository
 {
-
+    
     public abstract class BaseRepository<T> : IMemCache where T : ITopic
     {
         protected SortedList<string, T> _list;
@@ -22,6 +22,11 @@ namespace Offr.Repository
         public bool IsDirty
         {
             get { return dirty; }
+        }
+
+        public int Count
+        {
+            get { return _list.Count; }
         }
 
         protected BaseRepository()

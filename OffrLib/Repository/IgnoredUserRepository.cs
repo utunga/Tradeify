@@ -9,16 +9,12 @@ using Offr.Text;
 
 namespace Offr.Repository
 {
-    public class IgnoredUserRepository : BaseRepository<IUserPointer>, IIgnoredUserRepository, IPersistedRepository
+    public class IgnoredUserRepository : BaseRepository<IUserPointer>, IUserPointerRepository, IPersistedRepository
     {
-        public void InitializeFromFile()
+        public IgnoredUserRepository()
         {
-            /*
-            Save(new OpenSocialUserPointer("ooooby", "just_a_test",
-             "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
-             ""));
-             */
-            Save(new OpenSocialUserPointer("ooooby", "Dummy","http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",""));
+            //for now
+            base.Save(new OpenSocialUserPointer("ooooby", "Dummy","http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",""));
         }
 
     }

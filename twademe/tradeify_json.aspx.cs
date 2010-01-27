@@ -31,7 +31,7 @@ namespace twademe
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
-            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags, false);
+            IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
             string offers = offers_json.GetOffersJson(messages);
             string tagString = tags_json.GetTagJson(tags,messages);
             string tradeifyJson = "{\"offers_json\":" + offers + ",\"tags_json\":" +

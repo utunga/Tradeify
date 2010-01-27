@@ -42,17 +42,14 @@ namespace twademe
         public static string GetTagJson(List<ITag> tags)
         {
 
-
             IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageRepository>();
-            IEnumerable<IMessage> messages = _queryExecutor.GetMessagesForTags(tags, true);
+            IEnumerable<IMessage> messages = _queryExecutor.GetMessagesForTags(tags);
             return GetTagJson(tags, _queryExecutor,messages);
             //tagcounts stuff
-
         }
+
         public static string GetTagJson(List<ITag> tags,IEnumerable<IMessage> messages)
         {
-
-
             IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageRepository>();
             return GetTagJson(tags, _queryExecutor,messages);
             //tagcounts stuff
@@ -68,8 +65,8 @@ namespace twademe
         }
         private static string GetTagJson(List<ITag> tags, TagCounts availableTags, IMessageQueryExecutor _queryExecutor)
         {
-            TagCounts tagCounts = _queryExecutor.GetTagCountsForTags(tags);
-            return GetJsonOutput(availableTags, tagCounts);
+            MessagesWithTagCounts tagCounts = _queryExecutor.GetMessagesWithTagCounts(tags);
+            return GetJsonOutput(availableTags, tagCounts.TagCounts);
         }
 
         private static TagCounts GetAvailableTags(List<ITag> tags, IMessageQueryExecutor _queryExecutor, IEnumerable<IMessage> messages)
@@ -79,7 +76,7 @@ namespace twademe
             if (tags.Count == 0)
             {
                 // at start the 'available tags' is just all the tags
-                availableTags = _queryExecutor.GetTagCounts();
+                availableTags = _queryExecutor.GetAllTagCounts();
             }
             else
             {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Timers;
 using NUnit.Framework;
+using Offr.Json;
 using Offr.Message;
 using Offr.Query;
 using Offr.Repository;
@@ -58,7 +59,7 @@ namespace Offr.Tests
         {
             foreach (Tag tag in MockData.UsedTags)
             {
-                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, true)); //<-- target execution
+                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag })); //<-- target execution
                 Assert.GreaterOrEqual(results.Count, 1, "Received no results for tag:" + tag);
                 Console.Out.WriteLine("For " + tag.ToString() + ":");
                 foreach (IMessage message in results)
@@ -81,7 +82,7 @@ namespace Offr.Tests
             {
                 foreach (Tag tag2 in MockData.UsedTags)
                 {
-                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag, tag2 }, false));
+                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag, tag2 }));
                     Console.Out.WriteLine("For " + tag.ToString() + " && " + tag2.ToString() + ":");
                     foreach (IMessage message in results)
                     {
@@ -140,7 +141,7 @@ namespace Offr.Tests
         [Test]
         public void TestAllTagCounts()
         {
-            TagCounts allResults = _target.GetTagCounts();
+            TagCounts allResults = _target.GetAllTagCounts();
             Assert.AreEqual(MockData.MSG_COUNT, allResults.Total, "Expected total count to equal message count for blank query");
         }
 
@@ -150,12 +151,12 @@ namespace Offr.Tests
             
             foreach (Tag tag in MockData.UsedTags)
             {
-                TagCounts results = _target.GetTagCountsForTags(new[] { tag });
+                MessagesWithTagCounts results = _target.GetMessagesWithTagCounts(new[] { tag });
                 foreach(TagWithCount foundTag in results.Tags)
                 {
                     if (foundTag.Equals(tag))
                     {
-                        Assert.AreEqual(results.Total, foundTag.count, "Expected anything that is in the search query to have max count");
+                        Assert.AreEqual(results.MessageCount, foundTag.count, "Expected anything that is in the search query to have max count");
                     }
                 }
 
@@ -190,7 +191,7 @@ namespace Offr.Tests
                         multiTags.Add(facet2);
                         multiTags.Add(facet3);
 
-                        List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(multiTags,false)); //<-- target execution
+                        List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(multiTags)); //<-- target execution
                         queryCount++;
                         foreach (IMessage message in results)
                         {
@@ -214,15 +215,16 @@ namespace Offr.Tests
         {
 
             List<ITag> multiTags = new List<ITag>();
-            TagCounts results =  _target.GetTagCountsForTags(multiTags);
-            Assert.That(results.Tags.Count == 0);
+            MessagesWithTagCounts results =  _target.GetMessagesWithTagCounts(multiTags);
+            Assert.That(results.TagCount == 0);
         }
+
         [Test]
         public void testIgnoreList()
         {
             foreach (Tag tag in MockData.UsedTags)
             {
-                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false)); //<-- target execution
+                List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag })); //<-- target execution
                 //Assert.GreaterOrEqual(results.Count, 1, "Received no results for tag:" + tag);
                 Console.Out.WriteLine("For " + tag.ToString() + ":");
                 foreach (IMessage message in results)
@@ -242,7 +244,7 @@ namespace Offr.Tests
         public void TestMessageExpiry()
         {
             ITag tag = MockData.UsedTags[1];
-            List<IMessage> oldResults=new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false));
+            List<IMessage> oldResults=new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }));
             ITag expiredTag=tag;
             OfferMessage message = new OfferMessage();
             message.CreatedBy = new MockUserPointer("x", "jim"); ;
@@ -255,7 +257,7 @@ namespace Offr.Tests
             message.SetEndBy("",DateTime.Now.AddMonths(-1));
             message.AddTag(tag);
             ((MessageRepository)_target).Save(message);
-            List<IMessage>  newResults = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false));
+            List<IMessage>  newResults = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }));
             Assert.AreEqual(newResults,oldResults);
             OfferMessage message2 = new OfferMessage();
             message2.CreatedBy = new MockUserPointer("x", "jim"); 
@@ -268,7 +270,7 @@ namespace Offr.Tests
             message2.SetEndBy("", DateTime.Now.AddMonths(3));
             message2.AddTag(tag);
             ((MessageRepository)_target).Save(message2);
-            newResults = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }, false));
+            newResults = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }));
             Assert.AreNotEqual(newResults, oldResults);
 
 

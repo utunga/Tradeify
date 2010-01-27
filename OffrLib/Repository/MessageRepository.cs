@@ -19,27 +19,32 @@ using Offr.Twitter;
 
 namespace Offr.Repository
 {
-    public class MessageRepository : BaseRepository<IMessage>, IMessageRepository, IPersistedRepository, IEnumerable<IMessage>
+    public class MessageRepository : BaseRepository<IMessage>, IMessageRepository, IMessageQueryExecutor, IPersistedRepository, IEnumerable<IMessage>
     {
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         private readonly TagDex _globalTagIndex;
+        private readonly IUserPointerRepository _ignoredUsers;
 
-        public MessageRepository(IIgnoredUserRepository ignoredUsers)
+        public MessageRepository(IUserPointerRepository ignoredUsers)
         {
-            _globalTagIndex = new TagDex(this, ignoredUsers);
+            _ignoredUsers = ignoredUsers;
+            _globalTagIndex = new TagDex(this);
         }
 
-        public MessageRepository()
+        /// <summary>
+        /// Constructor that doesn't allow for blocking of invalid messages
+        /// </summary>
+        [Obsolete("Only used in testing, we should remove this call")]
+        public MessageRepository() : this(new IgnoredUserRepository())
         {
-            _globalTagIndex = new TagDex(this);
         }
 
         public int MessageCount
         {
             get
             {
-                return base._list.Count;
+                return base.Count;
             }
         }
 
@@ -55,26 +60,70 @@ namespace Offr.Repository
             _globalTagIndex.Process(message);
         }
 
-        public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags, bool includeIgnoredUsers)
+        public MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags)
         {
-            return _globalTagIndex.MessagesForTags(tags, includeIgnoredUsers);
+            return new MessagesWithTagCounts(QueryMessagesImpl(tags, null));
         }
 
-        public IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer)
+        public TagCounts GetAllTagCounts()
         {
-            //not sure if 'true' is correct
-            return _globalTagIndex.MessagesForTagsAndUser(tags, userPointer);
+            //NOTE2JOAV
+            // this is the method that may be worth caching
+            MessagesWithTagCounts allMessages = GetMessagesWithTagCounts(new Tag[] {});
+            return allMessages.TagCounts;
         }
 
-        public IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer userPointer)
+        public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags)
         {
-            return _globalTagIndex.MessagesForUser(userPointer);
+            return QueryMessagesImpl(tags, null);
         }
 
-        public TagCounts GetTagCounts()
+        public IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer user)
         {
-            return _globalTagIndex.GetTagCounts();
+            return QueryMessagesImpl(new ITag[] { }, user);
         }
+
+        public IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer user)
+        {
+            return QueryMessagesImpl(tags, user);
+        }
+
+        private List<IMessage> QueryMessagesImpl(IEnumerable<ITag> tags, IUserPointer user)
+        {
+            List<IMessage> results = new List<IMessage>();
+            foreach (IMessage message in _globalTagIndex.QueryMessages(tags, user))
+            {
+                
+                //check whether the offer is expired
+                if (message.IsExpired()) continue;
+                //check if user is in ignored user list
+                if (_ignoredUsers.Get(message.CreatedBy.ID) == null)
+                {
+                    results.Add(message);
+                }
+            } 
+
+            //sort results by timestamp descending
+            results.Sort((a, b) => b.Timestamp.CompareTo(a.Timestamp));
+            return results;
+        }
+
+        //public TagCounts GetTagCounts()
+        //{
+        //    return _globalTagIndex.GetTagCounts();
+        //}
+
+        //public TagCounts GetTagCountsForTags(IEnumerable<ITag> tags)
+        //{
+        //    var tagCounts = new List<TagWithCount>();
+        //    foreach (ITag tag in tags)
+        //    {
+        //        tagCounts.Add(_globalTagIndex.GetTagCountForTag(tag));
+        //    }
+
+        //    //tagCounts.Reverse();
+        //    return new TagCounts() { Tags = tagCounts, Total = -1 };
+        //}
 
         public IEnumerator<IMessage> GetEnumerator()
         {
@@ -86,17 +135,6 @@ namespace Offr.Repository
             return GetEnumerator();
         }
 
-        public TagCounts GetTagCountsForTags(IEnumerable<ITag> tags)
-        {
-            var tagCounts = new List<TagWithCount>();
-            foreach (ITag tag in tags)
-            {
-                tagCounts.Add(_globalTagIndex.GetTagCountForTag(tag));
-            }
-
-            //tagCounts.Reverse();
-            return new TagCounts() { Tags = tagCounts, Total = -1 };
-        }
         /*
           *Fruit
 Vegetables
