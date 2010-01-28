@@ -31,16 +31,24 @@
      search
    ------------------------------*/
    
-function queryServer(){
-    var query=$("#searchdata").val();
+function queryGeneralTag(){
+    var query = $("#search_general_tag").val();
     /*var queryIdx=$.inArray(query,search_tags);
     if(queryIdx!=-1){	
         return;
     }*/
-    main_widget.add_filter(query,"tag");
+    list_widget.add_filter(query, "tag");
     //update_offers();
 }
-
+function queryLocationTag() {
+    var query = $("#search_location_tag").val();
+    /*var queryIdx=$.inArray(query,search_tags);
+    if(queryIdx!=-1){	
+    return;
+    }*/
+    list_widget.add_filter(query, "tag");
+    //update_offers();
+}
 
 /* ------------------------------
      form related function

@@ -135,10 +135,13 @@
         <h4>Categories/Tags</h4>
         <div id="filter_general_tags"></div>
         <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
+        <button class="ui-button ui-state-default ui-corner-all" onclick="queryGeneralTag()">search</button>
         <h4>Type of trade</h4>
         <div id="filter_currency_tags"></div>
         <h4>Location</h4>
         <div id="filter_location_tags"></div>
+        <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag"/>
+        <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">search</button>
     </div>
 </div>
 
@@ -204,7 +207,8 @@
 
         // adjusts height in ning, does nothing in test
         container.adjustHeight(600);
-        $("#search_general_tag").autocomplete(container.tags_ahead_uri);
+        $("#search_general_tag").autocomplete(container.tags_ahead_uri +"?type=tag");
+        $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
 

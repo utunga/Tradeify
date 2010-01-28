@@ -18,13 +18,26 @@ namespace twademe
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             NameValueCollection request = Request.QueryString;
             List<string>tags=new List<string>();
+            TagType? type = null;
+            if (null != Request.Params["type"])
+            {
+                try
+                {
+                    type = (TagType) Enum.Parse(typeof (TagType), Request.Params["type"]);
+                }catch(Exception ex){}
+            }
             foreach (var key in request)
             {
                 string q=request.GetValues(key.ToString())[0];
-                tags.AddRange(_tagProvider.GetTagsFromTypeAhead(q,null));
+                tags.AddRange(_tagProvider.GetTagsFromTypeAhead(q,type));
                 
             }
-            SendJSON(JSON.Serialize(tags));
+            string tagString = "";
+            foreach (var tag in tags)
+            {
+                tagString += tag + "\n";
+            }
+            SendJSON(tagString);
         }
         private void SendJSON(string message)
         {
