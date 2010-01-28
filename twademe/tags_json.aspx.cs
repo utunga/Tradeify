@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
-using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Offr;
@@ -47,11 +46,11 @@ namespace twademe
 
         private static string SerializeTagsOnly(MessagesWithTagCounts messagesWithTags)
         {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            serializer.RegisterConverters(new JavaScriptConverter[] { new TagCountsSerializer() });
+            //JavaScriptSerializer serializer = new JavaScriptSerializer();
+            //serializer.RegisterConverters(new JavaScriptConverter[] { new TagCountsSerializer() });
 
-            return "{\"tags_json\":" + serializer.Serialize(messagesWithTags.Tags) + ",\"tagcount\":" +
-                   serializer.Serialize(messagesWithTags.TagCount)+"}";
+            return "{\"tags_json\":" + JSON.Serialize(messagesWithTags.Tags) + ",\"tagcount\":" +
+                   JSON.Serialize(messagesWithTags.TagCount) + "}";
         }
     }
 }

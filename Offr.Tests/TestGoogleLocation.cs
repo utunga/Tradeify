@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Script.Serialization;
+using Offr.Json;
 using Offr.Location;
 using Offr.Message;
 using Offr.Text;
@@ -199,7 +199,7 @@ namespace Offr.Tests
         [Test]
         public void TestDeserialize()
         {
-            GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(_testJSON);
+            GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(_testJSON);
             Assert.AreEqual("1500 Amphitheatre Parkway, Mountain View, CA", resultSet.name, "name did not serialize correctly");
         }
 

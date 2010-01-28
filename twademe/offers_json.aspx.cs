@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Web.Script.Serialization;
 using Offr;
 using Offr.Json;
 using Offr.Message;
@@ -47,16 +46,7 @@ namespace twademe
         {
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
             IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
-            return GetOffersJson(messages);
-        }
-
-        public static string GetOffersJson(IEnumerable<IMessage> messages)
-        {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            serializer.RegisterConverters(new JavaScriptConverter[] { new MessageListSerializer() });
-            //List<IMessage> messagesToSend = new List<IMessage>(messages);
-                //(messagesToSend.Count <= messageCount) ? messagesToSend : messagesToSend.GetRange(0, messageCount - 1);
-            return serializer.Serialize(messages);
+            return JSON.Serialize(messages);
         }
     }
 }

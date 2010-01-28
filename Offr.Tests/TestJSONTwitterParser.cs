@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using NUnit.Framework;
+using Offr.Json;
 using Offr.Twitter;
 
 namespace Offr.Tests
@@ -29,8 +29,7 @@ namespace Offr.Tests
         public void TestResultsDeSerialize()
         {
 
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            TwitterResultSet resultSet = serializer.Deserialize<TwitterResultSet>(TwitterVerifyJSON);
+            TwitterResultSet resultSet = JSON.Deserialize<TwitterResultSet>(TwitterVerifyJSON);
             Assert.AreEqual(1, resultSet.results.Count());
             Assert.AreEqual("twollar_test_1", resultSet.results[0].from_user);
             Assert.AreEqual(null, resultSet.results[0].to_user_id);

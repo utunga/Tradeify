@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.Script.Serialization;
+using Offr.Json;
 using Offr.Location;
 
 namespace Offr.Tests
@@ -990,7 +990,7 @@ namespace Offr.Tests
        }
        private GoogleResultSet deserialize(string data)
        {
-           return (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(data);
+           return JSON.Deserialize<GoogleResultSet>(data);
 
        }
        public override ILocation Parse(string addressText)

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Web;
-using System.Web.Script.Serialization;
 using Ninject.Core;
 using NLog;
+using Offr.Json;
 using Offr.Message;
 using Offr.Text;
 
@@ -58,7 +58,7 @@ namespace Offr.Twitter
             //Console.WriteLine("url =" + url);
             string responseData = WebRequest.RetrieveContent(url);
             Console.WriteLine("responseData =" + responseData);
-            TwitterResultSet resultSet = (new JavaScriptSerializer()).Deserialize<TwitterResultSet>(responseData);
+            TwitterResultSet resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
             //note that we don't update _last_id in this case (we're not caching this data)
             List<IRawMessage> statusUpdatesForQuery = new List<IRawMessage>();
             foreach (TwitterStatus status in resultSet.results)
@@ -92,7 +92,7 @@ namespace Offr.Twitter
             try
             {
                 string responseData = WebRequest.RetrieveContent(url);
-                resultSet = (new JavaScriptSerializer()).Deserialize<TwitterResultSet>(responseData);
+                resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
                 _last_id = resultSet.max_id;
             }
             catch (WebException ex)

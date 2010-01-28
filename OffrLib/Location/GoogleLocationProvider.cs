@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using System.Web.Script.Serialization;
 using NLog;
+using Offr.Json;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
@@ -92,7 +92,7 @@ namespace Offr.Location
             {
                 string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
                 string responseData = WebRequest.RetrieveContent(requestURI);
-                GoogleResultSet resultSet = (new JavaScriptSerializer()).Deserialize<GoogleResultSet>(responseData);
+                GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
                 return resultSet;
             }
             catch (System.Net.WebException ex)
