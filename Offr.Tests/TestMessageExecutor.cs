@@ -23,8 +23,8 @@ namespace Offr.Tests
         { 
             MockMessageParser mockParser = new MockMessageParser();
             ignoredUsers = new IgnoredUserRepository();
-            var ignoredUser = MockData.Users[0];
-            ignoredUsers.Save(ignoredUser);
+            //var ignoredUser = MockData.Users[0];
+            //signoredUsers.Save(ignoredUser);
             MessageRepository messageRepository = new MessageRepository(ignoredUsers);
             IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(messageRepository, mockParser);
             //_target = new TagDexQueryExecutor();
@@ -213,15 +213,17 @@ namespace Offr.Tests
         [Test]
         public void testBlankQuery()
         {
-
+            //Is this desirable behaviour?
             List<ITag> multiTags = new List<ITag>();
             MessagesWithTagCounts results =  _target.GetMessagesWithTagCounts(multiTags);
             Assert.That(results.TagCount == 0);
         }
 
         [Test]
-        public void testIgnoreList()
+        public void TestIgnoreList()
         {
+            var ignoredUser = MockData.Users[0];
+            ignoredUsers.Save(ignoredUser);
             foreach (Tag tag in MockData.UsedTags)
             {
                 List<IMessage> results = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag })); //<-- target execution
