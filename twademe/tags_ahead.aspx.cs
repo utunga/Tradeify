@@ -17,7 +17,7 @@ namespace twademe
         {
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
             NameValueCollection request = Request.QueryString;
-            List<ITag>tags=new List<ITag>();
+            List<string>tags=new List<string>();
             foreach (var key in request)
             {
                 string q=request.GetValues(key.ToString())[0];

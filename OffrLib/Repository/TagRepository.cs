@@ -18,10 +18,10 @@ namespace Offr.Repository
         public TagRepository()
         {
         }
-        public List<ITag> GetTagsFromTypeAhead(string query,TagType? type)
+        public List<string> GetTagsFromTypeAhead(string query,TagType? type)
         {
-            List<ITag>tags=new List<ITag>();
-            tags.OrderBy(x => x.Text);
+            List<string> tags = new List<string>();
+            tags.OrderBy(x=>x);
             if (type != null)
             {
                 foreach (ITag tag in _list.Values)
@@ -32,7 +32,7 @@ namespace Offr.Repository
                         if (query.Equals(matchText, StringComparison.OrdinalIgnoreCase))
                         {
                             if (tag.Type == type)
-                                tags.Add(tag);
+                                tags.Add(tag.Text);
                         }
                     }
                 }
@@ -46,7 +46,7 @@ namespace Offr.Repository
                         string matchText = tag.Text.Substring(0, query.Length);
                         if (query.Equals(matchText, StringComparison.OrdinalIgnoreCase))
                         {
-                            tags.Add(tag);
+                            tags.Add(tag.Text);
                         }
                     }
                 }

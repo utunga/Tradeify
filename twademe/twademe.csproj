@@ -236,16 +236,16 @@
     <Content Include="css\ooooby_theme\images\validno.png" />
     <Content Include="css\ooooby_theme\images\validyes.png" />
     <Content Include="css\ooooby_theme\jquery-ui-1.7.2.custom.css" />
+    <Content Include="css\ooooby_theme\jquery.autocomplete.css" />
     <Content Include="data\initial_tags.json" />
     <Content Include="js\jquery-ui-1.7.2.custom.min.js" />
+    <Content Include="js\jquery.autocomplete.min.js" />
     <Content Include="js\jquery.pager.js" />
     <Content Include="js\jquery.tools.min.js" />
     <Content Include="css\ooooby_theme\Pager.css" />
     <Content Include="js\pure_packed_v2.js" />
     <Content Include="js\pure_v2.js" />
     <Content Include="js\tag_support.js" />
-    <Content Include="js\tag_support.js.bak.js" />
-    <Content Include="js\widget_support.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -20,7 +20,7 @@ namespace Offr.Tests
                 tagRepository.Save(tag);
 
             }
-            List<ITag> tags = tagRepository.GetTagsFromTypeAhead("fr", null);
+            List<string> tags = tagRepository.GetTagsFromTypeAhead("fr", null);
             Assert.That(tags.Count==1);
             tags = tagRepository.GetTagsFromTypeAhead("fxyz", null);
             Assert.That(tags.Count == 0);

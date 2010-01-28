@@ -9,7 +9,9 @@
 <!-- copy to tradeify_widget.xml starts below here -->
     
 <link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
+
 <link href="../css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
 <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
@@ -132,6 +134,7 @@
         <h3>Find</h3>
         <h4>Categories/Tags</h4>
         <div id="filter_general_tags"></div>
+        <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
         <h4>Type of trade</h4>
         <div id="filter_currency_tags"></div>
         <h4>Location</h4>
@@ -170,6 +173,7 @@
 <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript" src="../js/quickpager.jquery.js"></script>
 <script type="text/javascript" src="../js/jquery.pager.js"></script>
+<script type="text/javascript" src="../js/jquery.autocomplete.min.js"></script>
 <!--
 <script type="text/javascript" src="../js/jquery.tools.min.js"></script>
 -->
@@ -197,10 +201,10 @@
     var map_widget;
 
     $(document).ready(function() {
-    
+
         // adjusts height in ning, does nothing in test
         container.adjustHeight(600);
-
+        $("#search_general_tag").autocomplete(container.tags_ahead_uri);
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
 
@@ -211,19 +215,19 @@
             var currency_tags = new Array();
             var location_tags = new Array();
             $.each(list_widget.get_tags(), function() {
-                switch(this.type) {
+                switch (this.type) {
                     case "tag":
                         general_tags.push(this.tag);
                         break;
                     case "type":
-                         currency_tags.push(this.tag);
-                         break;
+                        currency_tags.push(this.tag);
+                        break;
                     case "loc":
-                         location_tags.push(this.tag);
-                         break;
+                        location_tags.push(this.tag);
+                        break;
                 }
             });
-            
+
             var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
             filter_general_tags = new TagsWidget("#filter_general_tags", general_tags, list_widget.current_tags, "tag", update_filter);
             filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tags, list_widget.current_tags, "type", update_filter);
@@ -247,7 +251,7 @@
         });
 
         //map_widget.update_map();
-      
+
         // SUGGESTED TAGS (NOT USED FOR NOW)
         //update_tags(); //preload some tags
         /*

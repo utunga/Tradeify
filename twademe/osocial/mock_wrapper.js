@@ -10,7 +10,8 @@ function mock_container() {
     this.tick_uri = "Tick.png";
     this.offers_uri = "/tradeify_json.aspx";
     this.tags_uri = "/tags_json.aspx";
-    this.parse_uri ="/parse.aspx";
+    this.parse_uri = "/parse.aspx";
+    this.tags_ahead_uri = "/tags_ahead.aspx";
     //assumes test is running in local web
     this.accept_post_url = "/accept_post.aspx";
    

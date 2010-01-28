@@ -3,7 +3,7 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var offers;
     var tags;
     var offers_render_fn;
-    var current_tags; 
+    var current_tags;
     var offers_uri;
     var _offers_updated=new Array();
     var map;
