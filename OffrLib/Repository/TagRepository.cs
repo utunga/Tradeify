@@ -18,7 +18,7 @@ namespace Offr.Repository
         public TagRepository()
         {
         }
-        public List<string> GetTagsFromTypeAhead(string query,TagType? type)
+        public List<string> GetTagsFromTypeAhead(string query,TagType? type,int count)
         {
             List<string> tags = new List<string>();
             tags.OrderBy(x=>x);
@@ -51,7 +51,7 @@ namespace Offr.Repository
                     }
                 }
             }
-            return tags;
+            return tags.Count > count ? tags.GetRange(0, count) : tags;
         }
 
         public ITag GetAndAddTagIfAbsent(string tagString, TagType type)

@@ -13,6 +13,7 @@ namespace twademe
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        public const int TYPE_AHEAD_NUMBER = 20;
         protected void Page_Load(object sender, EventArgs e)
         {
             ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
@@ -26,12 +27,18 @@ namespace twademe
                     type = (TagType) Enum.Parse(typeof (TagType), Request.Params["type"]);
                 }catch(Exception ex){}
             }
+            if (null != Request.Params["q"])
+            {
+                string q = Request.Params["q"];
+                tags.AddRange(_tagProvider.GetTagsFromTypeAhead(q, type, TYPE_AHEAD_NUMBER));
+            }
+            /*
             foreach (var key in request)
             {
                 string q=request.GetValues(key.ToString())[0];
-                tags.AddRange(_tagProvider.GetTagsFromTypeAhead(q,type));
                 
-            }
+                
+            }*/
             string tagString = "";
             foreach (var tag in tags)
             {

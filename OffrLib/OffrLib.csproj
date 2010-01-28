@@ -102,7 +102,9 @@
     <Compile Include="Json\Converter\MessagePointerConverter.cs" />
     <Compile Include="Json\JSON.cs" />
     <Compile Include="Json\MessagesWithTagCounts.cs" />
+    <Compile Include="Message\BaseMarketMessage.cs" />
     <Compile Include="Message\ValidationFailReason.cs" />
+    <Compile Include="Message\WantedMessage.cs" />
     <Compile Include="OpenSocial\OpenSocialJson.cs" />
     <Compile Include="OpenSocial\OpenSocialRawMessage.cs" />
     <Compile Include="Repository\IgnoredUserRepository.cs" />

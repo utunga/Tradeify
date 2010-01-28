@@ -20,11 +20,11 @@ namespace Offr.Tests
                 tagRepository.Save(tag);
 
             }
-            List<string> tags = tagRepository.GetTagsFromTypeAhead("fr", null);
+            List<string> tags = tagRepository.GetTagsFromTypeAhead("fr", null,20);
             Assert.That(tags.Count==1);
-            tags = tagRepository.GetTagsFromTypeAhead("fxyz", null);
+            tags = tagRepository.GetTagsFromTypeAhead("fxyz", null, 20);
             Assert.That(tags.Count == 0);
-            tags = tagRepository.GetTagsFromTypeAhead("", null);
+            tags = tagRepository.GetTagsFromTypeAhead("", null, 20);
             Assert.That(tags.Count == MockData.UsedTags.Distinct().Count());
         }
     }
