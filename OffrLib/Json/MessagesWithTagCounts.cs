@@ -27,6 +27,9 @@ namespace Offr.Json
             TagCounts tagCounts = index.GetTagCounts();
          
             Tags = tagCounts.Tags;
+            // results.Sort((a, b) => b.Timestamp.CompareTo(a.Timestamp));
+            //sort by count descending
+            Tags.Sort((a, b) => b.count.CompareTo(a.count));
             TagCount = tagCounts.Tags.Count;
 
             Messages = messages;
