@@ -18,7 +18,41 @@ namespace Offr.Repository
         public TagRepository()
         {
         }
-
+        public List<ITag> GetTagsFromTypeAhead(string query,TagType? type)
+        {
+            List<ITag>tags=new List<ITag>();
+            tags.OrderBy(x => x.Text);
+            if (type != null)
+            {
+                foreach (ITag tag in _list.Values)
+                {
+                    if (tag.Text.Length >= query.Length)
+                    {
+                        string matchText = tag.Text.Substring(0, query.Length);
+                        if (query.Equals(matchText, StringComparison.OrdinalIgnoreCase))
+                        {
+                            if (tag.Type == type)
+                                tags.Add(tag);
+                        }
+                    }
+                }
+            }            
+            else
+            {
+                foreach (ITag tag in _list.Values)
+                {
+                    if (tag.Text.Length >= query.Length)
+                    {
+                        string matchText = tag.Text.Substring(0, query.Length);
+                        if (query.Equals(matchText, StringComparison.OrdinalIgnoreCase))
+                        {
+                            tags.Add(tag);
+                        }
+                    }
+                }
+            }
+            return tags;
+        }
 
         public ITag GetAndAddTagIfAbsent(string tagString, TagType type)
         {
