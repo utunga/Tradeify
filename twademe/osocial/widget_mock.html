@@ -207,7 +207,7 @@
 
         // adjusts height in ning, does nothing in test
         container.adjustHeight(600);
-        $("#search_general_tag").autocomplete(container.tags_ahead_uri +"?type=tag");
+        $("#search_general_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
         $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
@@ -251,6 +251,10 @@
                     map_widget.update_map();
                     // map.checkResize();
                 }
+                if (ui.panel.id == "results-3") {
+                    $(".right_col").hide();
+                }
+                else $(".right_col").show();
             }
         });
 
