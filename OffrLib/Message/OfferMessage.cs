@@ -19,14 +19,18 @@ namespace Offr.Message
         #endregion fields
 
         #region read only properties
-
+        public override MessageType type
+        {
+            get { return Message.MessageType.offr; }
+        }
         #endregion
 
-        public OfferMessage() : base()
+        public OfferMessage()
+            : base()
         {
         }
 
-        #region overrides of abstract base class 
+        #region overrides of abstract base class
 
         #endregion
         /// <summary>
@@ -47,5 +51,7 @@ namespace Offr.Message
         #region JSON
 
         #endregion
+
+
     }
 }

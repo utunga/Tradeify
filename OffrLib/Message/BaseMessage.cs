@@ -20,7 +20,7 @@ namespace Offr.Message
         private MessageType _messageType;
 
         public IUserPointer CreatedBy { get; set; }
-
+        public abstract MessageType type { get; }
         public string MoreInfoURL { get; set; }
 
         public IEnumerable<ITag> Tags
