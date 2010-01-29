@@ -75,7 +75,7 @@ namespace Offr.Demo
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append("#").Append(MessageType.offr).Append(" ");
+            builder.Append("#").Append(MessageType.offer).Append(" ");
             foreach (ITag tag in _tags.TagsOfType(TagType.group))
             {
                 builder.Append("#").Append(tag.Text).Append(" ");

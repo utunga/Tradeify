@@ -123,7 +123,25 @@ namespace Offr.Repository
         {
             return new Tag(tagType, tagText);
         }
+#if DEBUG
 
+        public void TEST_initializeDummy()
+        {
+            foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
+            {
+                string tagText = msgType.ToString();
+                Save(FromTypeAndText(TagType.msg_type, tagText));
+            }
+            Save(FromTypeAndText(TagType.group, "ooooby"));
+            Save(FromTypeAndText(TagType.group, "freecycle"));
+            Save(FromTypeAndText(TagType.type, "cash only"));
+            Save(FromTypeAndText(TagType.type, "cash"));
+            Save(FromTypeAndText(TagType.type, "nzd"));
+            Save(FromTypeAndText(TagType.type, "barter"));
+            Save(FromTypeAndText(TagType.type, "free"));
+            string list=JSON.Serialize(_list);
+        }
+#endif 
     }
     }
 

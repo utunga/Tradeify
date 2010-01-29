@@ -7,7 +7,7 @@ namespace Offr.Message
 {
     public enum MessageType
     {
-        offr,
+        offer,
         takedown,
         wanted,
         recipient_feedback,

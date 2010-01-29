@@ -22,8 +22,9 @@ namespace Offr.Tests
         {
             TagRepository tagRepository = new TagRepository();
             tagRepository.FilePath = "data/initial_tags.json";
-            tagRepository.InitializeFromFile();
+            //tagRepository.TEST_initializeDummy();
             //singletonTagProvider.Initialize();
+            tagRepository.InitializeFromFile();
             MockLocationProvider locationProvider = new MockLocationProvider();
             _target = new RegexMessageParser(tagRepository, locationProvider);
         }
@@ -141,6 +142,17 @@ namespace Offr.Tests
             DateTime expected = new DateTime(2010,1,17);
             Assert.AreEqual(expected,date);
          }
+        [Test]
+        public void TestGetMessageType()
+        {
+            string text = "Wanted #ooooby mulch available now in L:Paekakariki: for #free until 17 Jan 2010";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
+            MessageType type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> {});
+            Assert.That(type==MessageType.wanted);
+            text="#ooooby mulch available now in L:Paekakariki: #want for #free until 17 Jan 2010";
+            type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.msg_type,"Wanted") });
+            Assert.That(type == MessageType.wanted);
+        }
     }
 
 

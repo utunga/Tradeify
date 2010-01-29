@@ -22,7 +22,7 @@ namespace Offr.Twitter
         }
         
         [Inject]
-        public TwitterRawMessageProvider(IRawMessageReceiver receiver) : this(receiver, MessageType.offr)
+        public TwitterRawMessageProvider(IRawMessageReceiver receiver) : this(receiver, MessageType.offer)
         {
            
         }
@@ -123,7 +123,7 @@ namespace Offr.Twitter
         {
             switch (forType)
             {
-                case MessageType.offr:
+                case MessageType.offer:
                     // filter to include any of these hash tags 
                     //return "%23ihave+OR+%23offer+OR+%23offr";
                     return "%23offer+OR+%23offr";

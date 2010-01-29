@@ -28,7 +28,7 @@ namespace Offr.Tests
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             _messageRepository = new MessageRepository();
             IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, realMessageParser);
-            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(target, MessageType.offr);
+            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(target, MessageType.offer);
             twitterProvider.Update();
         }
 

@@ -24,14 +24,18 @@ namespace Offr.Message
 
         public IMessage Parse(IRawMessage rawMessage)
         {
-            OfferMessage msg = new OfferMessage();
+            string sourceText = rawMessage.Text;
+            IEnumerable<ITag> tags = ParseTags(sourceText);
+            MessageType type = this.GetMessageType(sourceText, tags);
+            BaseMarketMessage msg=null;
+            if (type == MessageType.wanted) msg = new WantedMessage();
+            else if (type == MessageType.offer) msg = new OfferMessage();
             msg.CreatedBy = rawMessage.CreatedBy;
             ////msg.Source = source; //Remove this
             msg.Timestamp = rawMessage.Timestamp;
             msg.MessagePointer = rawMessage.Pointer;
-            msg.RawText = rawMessage.Text;
-            string sourceText = rawMessage.Text;
-            foreach (ITag tag in ParseTags(sourceText))
+            msg.RawText = rawMessage.Text;                        
+            foreach (ITag tag in tags)
             {
                 if (tag.Type == TagType.msg_type) continue; //skip messages of this Type
                 msg.AddTag(tag);
@@ -148,8 +152,19 @@ namespace Offr.Message
             {
                 string tagString = match.Groups[0].Value;
                 tagString = tagString.Replace("#", "");
+                tagString = SubstituteTagIfSubstituteExists(tagString);
                 yield return _tagProvider.GetAndAddTagIfAbsent(tagString, TagType.tag);
             }
+        }
+
+        private string SubstituteTagIfSubstituteExists(string s)
+        {
+            if (s.Equals("Wants", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("Wanted", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("Wanting", StringComparison.OrdinalIgnoreCase))
+                return "Want";
+            else if (s.Equals("Offering", StringComparison.OrdinalIgnoreCase)) return "Offer";
+            return s;
         }
 
         private string GetMoreInfoUrl(string offerText)
@@ -212,6 +227,25 @@ namespace Offr.Message
 
             return null;
         }
+        private MessageType GetMessageType(string offerText,IEnumerable<ITag> tags)
+        {
+            offerText=offerText.Trim();
+            string REGEX = @"([\w]+\s+){" + 1 + "}";
+            string firstWord= Regex.Match(offerText, REGEX).Value;
+            firstWord = firstWord.Trim();
+            if (firstWord.Equals("Offer", StringComparison.OrdinalIgnoreCase))
+                return MessageType.offer;
+            else if (firstWord.Equals("Wanted", StringComparison.OrdinalIgnoreCase))
+                return MessageType.wanted;
+            foreach(ITag tag in tags)
+            {
+                if (tag.Text.Equals("offer")) return MessageType.offer;
+                else if(tag.Text.Equals("wanted")) return MessageType.wanted;
+            }
+            //Default to offer for now?
+            return MessageType.offer;
+        }
+
         #endregion
 
         #region Test
@@ -230,6 +264,10 @@ namespace Offr.Message
         public DateTime? TEST_GetEndByInfo(string offerText)
         {
             return GetEndByInfo(offerText);
+        }
+        public MessageType TEST_GetMessageType(string offerText, IEnumerable<ITag> tags)
+        {
+            return GetMessageType(offerText,tags);
         }
 #endif
         #endregion Test

@@ -12,7 +12,7 @@ using Offr.Text;
 
 namespace Offr.Message
 {
-    public class OfferMessage : BaseMarketMessage
+    public class OfferMessage : BaseMarketMessage, IOfferMessage
     {
         #region fields
 
@@ -21,7 +21,7 @@ namespace Offr.Message
         #region read only properties
         public override MessageType type
         {
-            get { return Message.MessageType.offr; }
+            get { return Message.MessageType.offer; }
         }
         #endregion
 
