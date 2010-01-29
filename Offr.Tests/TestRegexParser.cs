@@ -17,10 +17,11 @@ namespace Offr.Tests
     public class TestRegexParser
     {
         readonly IMessageParser _target;
+        private TagRepository tagRepository;
 
         public TestRegexParser()
         {
-            TagRepository tagRepository = new TagRepository();
+            tagRepository = new TagRepository();
             tagRepository.FilePath = "data/initial_tags.json";
             tagRepository.TEST_initializeDummy();
             //singletonTagProvider.Initialize();
@@ -114,7 +115,31 @@ namespace Offr.Tests
             string moreInfoUrl = regexMessageParser.TEST_GetMoreInfoUrl(text);
             Assert.AreEqual("http://dealnay.com/8548", moreInfoUrl, "didn't received expected more info url");
         }
-
+        [Test]
+        public void TestMessageType()
+        {
+            // a specific real example for which i know the query was failing
+            RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
+            MockRawMessage raw = new MockRawMessage(0)
+            {
+                Timestamp = DateTime.Now.AddHours(-5),
+                CreatedBy = MockData.User0,
+                Location = MockData.Location0,
+                MoreInfoURL = "http://bit.ly/message0Info",
+                Text = "WANTED #ooooby mulch available now in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch",
+                EndByText = null,
+                EndBy = null
+            };
+            //List<ITag> expectedTags = new List<ITag>();
+            IMessage message = _target.Parse(raw);
+            
+            Type type = typeof(WantedMessage);
+            Assert.That(message.GetType() == type);
+            raw.Text = "#ooooby #wanted mulch available now in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch";
+            message = _target.Parse(raw);
+            type = typeof(WantedMessage);
+            Assert.That(message.GetType() == type);
+        }
         [Test]
         public void TestGetImageUrl()
         {
@@ -148,11 +173,11 @@ namespace Offr.Tests
         public void TestGetMessageType()
         {
             string text = "Wanted #ooooby mulch available now in L:Paekakariki: for #free until 17 Jan 2010";
-            RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
+            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, null);
             MessageType type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> {});
             Assert.That(type==MessageType.wanted);
             text="#ooooby mulch available now in L:Paekakariki: #want for #free until 17 Jan 2010";
-            type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.msg_type,"Wanted") });
+            type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.msg_type,"Want") });
             Assert.That(type == MessageType.wanted);
         }
     }

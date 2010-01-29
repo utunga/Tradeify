@@ -234,13 +234,21 @@ namespace Offr.Message
             string firstWord= Regex.Match(offerText, REGEX).Value;
             firstWord = firstWord.Trim();
             if (firstWord.Equals("Offer", StringComparison.OrdinalIgnoreCase))
+            {
+                _tagProvider.GetAndAddTagIfAbsent("offer", TagType.msg_type);
                 return MessageType.offer;
+            }
+           
             else if (firstWord.Equals("Wanted", StringComparison.OrdinalIgnoreCase))
+            {
+                _tagProvider.GetAndAddTagIfAbsent("wanted", TagType.msg_type);
                 return MessageType.wanted;
+            }
+                
             foreach(ITag tag in tags)
             {
                 if (tag.Text.Equals("offer")) return MessageType.offer;
-                else if(tag.Text.Equals("wanted")) return MessageType.wanted;
+                else if(tag.Text.Equals("want")) return MessageType.wanted;
             }
             //Default to offer for now?
             return MessageType.offer;
