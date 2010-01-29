@@ -243,7 +243,7 @@ namespace Offr.Message
 
             else if (firstWord.Contains("want"))
             {
-                _tagProvider.GetAndAddTagIfAbsent("wanted", TagType.msg_type);
+                _tagProvider.GetAndAddTagIfAbsent("want", TagType.msg_type);
                 return MessageType.wanted;
             }
                 
