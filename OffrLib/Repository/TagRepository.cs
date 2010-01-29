@@ -138,6 +138,7 @@ namespace Offr.Repository
             Save(FromTypeAndText(TagType.type, "cash"));
             Save(FromTypeAndText(TagType.type, "nzd"));
             Save(FromTypeAndText(TagType.type, "barter"));
+            Save(FromTypeAndText(TagType.type, "swap"));
             Save(FromTypeAndText(TagType.type, "free"));
             string list=JSON.Serialize(_list);
         }
