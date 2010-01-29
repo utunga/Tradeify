@@ -1,0 +1,107 @@
+{
+  "barter": {
+    "tag": "barter",
+    "type": "type"
+  },
+  "cash": {
+    "tag": "cash",
+    "type": "type"
+  },
+  "cash_only": {
+    "tag": "cash_only",
+    "type": "type"
+  },
+  "etc": {
+    "tag": "etc",
+    "type": "msg_type"
+  },
+  "free": {
+    "tag": "free",
+    "type": "type"
+  },
+  "freecycle": {
+    "tag": "freecycle",
+    "type": "group"
+  },
+  "nzd": {
+    "tag": "nzd",
+    "type": "type"
+  },
+  "offer": {
+    "tag": "offer",
+    "type": "msg_type"
+  },
+  "ooooby": {
+    "tag": "ooooby",
+    "type": "group"
+  },
+  "recipient_feedback": {
+    "tag": "recipient_feedback",
+    "type": "msg_type"
+  },
+  "supplier_feedback": {
+    "tag": "supplier_feedback",
+    "type": "msg_type"
+  },
+  "takedown": {
+    "tag": "takedown",
+    "type": "msg_type"
+  },
+  "wanted": {
+    "tag": "wanted",
+    "type": "msg_type"
+  }
+}{
+  "barter": {
+    "tag": "barter",
+    "type": "type"
+  },
+  "cash": {
+    "tag": "cash",
+    "type": "type"
+  },
+  "cash_only": {
+    "tag": "cash_only",
+    "type": "type"
+  },
+  "etc": {
+    "tag": "etc",
+    "type": "msg_type"
+  },
+  "free": {
+    "tag": "free",
+    "type": "type"
+  },
+  "freecycle": {
+    "tag": "freecycle",
+    "type": "group"
+  },
+  "nzd": {
+    "tag": "nzd",
+    "type": "type"
+  },
+  "offer": {
+    "tag": "offer",
+    "type": "msg_type"
+  },
+  "ooooby": {
+    "tag": "ooooby",
+    "type": "group"
+  },
+  "recipient_feedback": {
+    "tag": "recipient_feedback",
+    "type": "msg_type"
+  },
+  "supplier_feedback": {
+    "tag": "supplier_feedback",
+    "type": "msg_type"
+  },
+  "takedown": {
+    "tag": "takedown",
+    "type": "msg_type"
+  },
+  "wanted": {
+    "tag": "wanted",
+    "type": "msg_type"
+  }
+}

@@ -17,10 +17,8 @@ namespace Offr.Message
         #region fields
         internal TagList _tags;
 
-        private MessageType _messageType;
-
+        public abstract MessageType MessageType{ get;}
         public IUserPointer CreatedBy { get; set; }
-        public abstract MessageType type { get; }
         public string MoreInfoURL { get; set; }
 
         public IEnumerable<ITag> Tags
@@ -28,14 +26,6 @@ namespace Offr.Message
             get { return _tags; }
         }
 
-        public MessageType MessageType
-        {
-            get { return _messageType; }
-            internal set
-            {
-                _messageType = value;
-            }
-        }
 
         public IMessagePointer MessagePointer
         {
@@ -96,7 +86,6 @@ namespace Offr.Message
         /// <summary>
         /// Implementing classes should supply The MessageType they expect for their class and the base will throw a parse expection if it doesn't match
         /// </summary>
-        protected abstract MessageType ExpectedMessageType { get; }
 
         public abstract bool IsValid();
         public abstract string[] ValidationFailReasons();
@@ -138,8 +127,8 @@ namespace Offr.Message
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(other._tags, _tags) && 
-                Equals(other._messageType, _messageType)    && 
+            return Equals(other._tags, _tags) &&
+                Equals(MessageType, MessageType) && 
                 /*other.IsValid.Equals(IsValid)               && */
                 Equals(other.CreatedBy,CreatedBy)          && 
                 Equals(other.MoreInfoURL, MoreInfoURL)      && 
@@ -161,7 +150,7 @@ namespace Offr.Message
             unchecked
             {
                 int result = (_tags != null ? _tags.GetHashCode() : 0);
-                result = (result*397) ^ _messageType.GetHashCode();
+                result = (result * 397) ^ MessageType.GetHashCode();
                 result = (result*397) ^ (CreatedBy != null ? CreatedBy.GetHashCode() : 0);
                 result = (result*397) ^ (MoreInfoURL != null ? MoreInfoURL.GetHashCode() : 0);
                 result = (result*397) ^ (MessagePointer != null ? MessagePointer.GetHashCode() : 0);
@@ -192,7 +181,7 @@ namespace Offr.Message
         #region JSON
         public virtual void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            JSON.WriteProperty(serializer, writer, "message_type", _messageType.ToString());
+            JSON.WriteProperty(serializer, writer, "message_type", MessageType.ToString());
             JSON.WriteProperty(serializer, writer, "timestamp", Timestamp);
 
             //JSON.WriteProperty(serializer, writer, "tags", _tags);
@@ -205,7 +194,7 @@ namespace Offr.Message
 
         public virtual void ReadJson(JsonReader reader, JsonSerializer serializer){
  
-            _messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
+            //_messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
             Timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
 
             _tags = new TagList(); 

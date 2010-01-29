@@ -12,7 +12,6 @@ namespace Offr.Message
     public interface IMessage : ICanJson , IComparable, Offr.Repository.ITopic 
     {
         //IRawMessage Source { get; set; }
-        MessageType type { get; }
         IMessagePointer MessagePointer { get; }
         string RawText { get; }
         DateTime Timestamp { get; }

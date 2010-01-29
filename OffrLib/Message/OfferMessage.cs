@@ -15,11 +15,11 @@ namespace Offr.Message
     public class OfferMessage : BaseMarketMessage, IOfferMessage
     {
         #region fields
-
+        public static string HASHTAG = "#" + MessageType.offer;
         #endregion fields
 
         #region read only properties
-        public override MessageType type
+        public override MessageType MessageType
         {
             get { return Message.MessageType.offer; }
         }

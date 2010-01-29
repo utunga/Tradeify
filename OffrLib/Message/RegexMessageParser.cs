@@ -153,6 +153,7 @@ namespace Offr.Message
                 string tagString = match.Groups[0].Value;
                 tagString = tagString.Replace("#", "");
                 tagString = SubstituteTagIfSubstituteExists(tagString);
+                //Dont do this only for message parsing!
                 yield return _tagProvider.GetAndAddTagIfAbsent(tagString, TagType.tag);
             }
         }
@@ -233,13 +234,14 @@ namespace Offr.Message
             string REGEX = @"([\w]+\s+){" + 1 + "}";
             string firstWord= Regex.Match(offerText, REGEX).Value;
             firstWord = firstWord.Trim();
-            if (firstWord.Equals("Offer", StringComparison.OrdinalIgnoreCase))
+            firstWord = firstWord.ToLowerInvariant();
+            if (firstWord.Contains("offer"))
             {
                 _tagProvider.GetAndAddTagIfAbsent("offer", TagType.msg_type);
                 return MessageType.offer;
             }
-           
-            else if (firstWord.Equals("Wanted", StringComparison.OrdinalIgnoreCase))
+
+            else if (firstWord.Contains("want"))
             {
                 _tagProvider.GetAndAddTagIfAbsent("wanted", TagType.msg_type);
                 return MessageType.wanted;
