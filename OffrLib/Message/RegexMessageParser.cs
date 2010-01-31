@@ -179,35 +179,34 @@ namespace Offr.Message
             }
             return null;
         }
+
         private DateTime? GetEndByInfo(string offerText)
         {
             Regex EndBy = new Regex(" until (.*)", RegexOptions.IgnoreCase);
             Match matchEndBy = EndBy.Match(offerText);
-            offerText = matchEndBy.Groups[1].Value;
+            string untilText = matchEndBy.Groups[1].Value;
             if (matchEndBy.Groups.Count >= 1)
             {
-                while (offerText.Length >= 1)
+                while (untilText.Length >= 1)
                 {
-                    try
+                    DateTime result;
+                    if (DateTime.TryParse(untilText, out result))
                     {
-                        return DateTime.Parse(offerText);
-                    }
-                    catch (Exception e)
-                    {
+                        return result;
                     }
                     Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
-                    Match endMatch = endRegex.Match(offerText);
+                    Match endMatch = endRegex.Match(untilText);
                     if (endMatch.Groups.Count > 1)
                     {
-                        offerText = offerText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
-                        offerText = offerText.Trim();
+                        untilText = untilText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
+                        untilText = untilText.Trim();
                     }
                     else break;
-                    //address = address.Substring(0, address.Length - 2);
                 }
             }
             return null;
         }
+
         private string GetImageUrl(string offerText)
         {
             const string imageURL = @"http://([^\s]+)\.((jpg)|(png)|(gif))";
