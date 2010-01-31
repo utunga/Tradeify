@@ -14,44 +14,10 @@ namespace Offr.Message
 {
     public class OfferMessage : BaseMarketMessage, IOfferMessage
     {
-        #region fields
-        public static string HASHTAG = "#" + MessageType.offer;
-        #endregion fields
-
-        #region read only properties
         public override MessageType MessageType
         {
-            get { return Message.MessageType.offer; }
+            get { return MessageType.offer; }
         }
-        #endregion
-
-        public OfferMessage()
-            : base()
-        {
-        }
-
-        #region overrides of abstract base class
-
-        #endregion
-        /// <summary>
-        /// Set end by - both params must be supplied at same time.
-        /// No attempt will be made to parse the 'end by' text
-        /// FIXME: ideally these set methods would be internal, not public
-        /// </summary>
-        /// 
-        /// 
-        #region Setter Methods
-
-        #endregion Setter Methods
-
-        #region Equals
-
-        #endregion Equals
-
-        #region JSON
-
-        #endregion
-
 
     }
 }

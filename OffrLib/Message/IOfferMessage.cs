@@ -11,7 +11,7 @@ namespace Offr.Message
 {
     public interface IOfferMessage : IMessage
     {
-        string OfferText { get; }
+        string MessageText { get; }
         string MoreInfoURL { get; }
         string Thumbnail { get; }
         ILocation Location { get; }

@@ -11,21 +11,15 @@ namespace Offr.Message
 {
     public abstract class BaseMarketMessage : BaseMessage, IEquatable<BaseMarketMessage>
     {
+        public string MessageText { get; set; }
 
-        private List<String> _thumbnails;
-        public BaseMarketMessage() : base()
-        {
-            _thumbnails = new List<string>();
-        }
-
-        public string OfferText { get; set; }
         public ILocation Location { get; set; }
-
-        public IUserPointer OfferedBy { get { return base.CreatedBy; }
-        }
-
+        
         public DateTime? EndBy { get; private set; }
+        
         public string EndByText { get; private set; }
+        
+        public IUserPointer OfferedBy { get { return base.CreatedBy; } }
 
         public IEnumerable<ITag> Currencies
         {
@@ -37,6 +31,7 @@ namespace Offr.Message
             get { return _tags.TagsOfType(TagType.loc); }
         }
 
+        private readonly List<String> _thumbnails;
         public string Thumbnail
         {
             //return first thumb nail for now
@@ -44,6 +39,12 @@ namespace Offr.Message
             {
                 return (_thumbnails.Count >0) ? _thumbnails[0] : null;
             }
+        }
+      
+        protected BaseMarketMessage()
+            : base()
+        {
+            _thumbnails = new List<string>();
         }
 
         public override bool IsValid()
@@ -74,7 +75,7 @@ namespace Offr.Message
             {
                 validationFails.Add(ValidationFailReason.NeedsGroupTag.ToString());
             }
-            if (string.IsNullOrEmpty(OfferText))
+            if (string.IsNullOrEmpty(MessageText))
             {
                 validationFails.Add(ValidationFailReason.NeedsOfferMessage.ToString());
             }
@@ -105,7 +106,7 @@ namespace Offr.Message
             if (ReferenceEquals(this, other)) return true;
             return base.Equals(other) &&
                    _thumbnails.SequenceEqual(other._thumbnails) &&
-                   Equals(other.OfferText, OfferText)  &&
+                   Equals(other.MessageText, MessageText)  &&
                    Equals(other.MoreInfoURL, MoreInfoURL) &&
                    other.EndBy.Equals(EndBy) &&
                    Equals(other.EndByText, EndByText) &&
@@ -125,7 +126,7 @@ namespace Offr.Message
             {
                 int result = base.GetHashCode();
                 result = (result * 397) ^ (_thumbnails != null ? _thumbnails.GetHashCode() : 0);
-                result = (result * 397) ^ (OfferText != null ? OfferText.GetHashCode() : 0);
+                result = (result * 397) ^ (MessageText != null ? MessageText.GetHashCode() : 0);
                 result = (result * 397) ^ (MoreInfoURL != null ? MoreInfoURL.GetHashCode() : 0);
                 result = (result * 397) ^ (EndBy.HasValue ? EndBy.Value.GetHashCode() : 0);
                 result = (result * 397) ^ (EndByText != null ? EndByText.GetHashCode() : 0);
@@ -138,7 +139,7 @@ namespace Offr.Message
         {
             StringBuilder builder = new StringBuilder();
             builder.Append(base.ToString());
-            builder.Append(":offer_text:").Append(OfferText);
+            builder.Append(":offer_text:").Append(MessageText);
             builder.Append(":more_info_url:").Append(MoreInfoURL);
             builder.Append(":thumbnail:").Append(Thumbnail);
             builder.Append(":end_by:").Append(EndBy);
@@ -146,10 +147,21 @@ namespace Offr.Message
             return builder.ToString();
         }
 
+        public override void ReadJson(JsonReader reader, JsonSerializer serializer)
+        {
+            base.ReadJson(reader, serializer);
+            MessageText = JSON.ReadProperty<string>(serializer, reader, "offer_text");
+            MoreInfoURL = JSON.ReadProperty<string>(serializer, reader, "more_info_url");
+            AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "thumbnail"));
+            EndBy = JSON.ReadProperty<DateTime?>(serializer, reader, "end_by");
+            EndByText = JSON.ReadProperty<string>(serializer, reader, "end_by_text");
+            Location = JSON.ReadProperty<Location.Location>(serializer, reader, "location");
+        }
+        
         public override void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             base.WriteJson(writer,serializer);
-            JSON.WriteProperty(serializer, writer, "offer_text", OfferText);
+            JSON.WriteProperty(serializer, writer, "offer_text", MessageText);
             JSON.WriteProperty(serializer, writer, "more_info_url", MoreInfoURL);
             JSON.WriteProperty(serializer, writer, "thumbnail", Thumbnail);
             JSON.WriteProperty(serializer, writer, "end_by", EndBy);
@@ -162,15 +174,6 @@ namespace Offr.Message
             return EndBy != null && (EndBy.Value.CompareTo(DateTime.Now) <= -1);
         }
 
-        public override void ReadJson(JsonReader reader, JsonSerializer serializer)
-        {
-            base.ReadJson(reader,serializer);
-            OfferText = JSON.ReadProperty<string>(serializer, reader, "offer_text");
-            MoreInfoURL = JSON.ReadProperty<string>(serializer, reader, "more_info_url");
-            AddThumbnail(JSON.ReadProperty<string>(serializer, reader, "thumbnail")); 
-            EndBy = JSON.ReadProperty<DateTime?>(serializer, reader, "end_by");
-            EndByText = JSON.ReadProperty<string>(serializer, reader, "end_by_text");
-            Location = JSON.ReadProperty<Location.Location>(serializer, reader, "location");
-        }
+        
     }
 }

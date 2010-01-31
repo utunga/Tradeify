@@ -975,45 +975,49 @@ namespace Offr.Tests
        public MockLocationProvider()
        {
            dummyResultSetMap=new Dictionary<string, GoogleResultSet>();
-           dummyResultSetMap.Add("1600 Amphitheatre Parkway, Mountain View, CA",deserialize(cali));
-           dummyResultSetMap.Add("20 Lambton Quay", deserialize(lambton));
-           dummyResultSetMap.Add("20 Pitt Street,Sydney", deserialize(sydney));
-           dummyResultSetMap.Add("30 Borough Rd, London", deserialize(london));
-           dummyResultSetMap.Add("30 Fitzroy Street, New Plymouth", deserialize(fitzroy));
-           dummyResultSetMap.Add("30+Rue+Baudin,+Paris,+France",deserialize(france));
-           dummyResultSetMap.Add("Sheikh+Zayed+Road,+Dubai,+UAE",deserialize(dubai));
-           dummyResultSetMap.Add("30 Borough Rd",deserialize(borough));
-           dummyResultSetMap.Add("Paekakariki", deserialize(pae));
-           dummyResultSetMap.Add("Wellington City", deserialize(welCity));
-           dummyResultSetMap.Add("Waiheke Island", deserialize(waiheke));
-
+           dummyResultSetMap.Add("1600 Amphitheatre Parkway, Mountain View, CA",Deserialize(cali));
+           dummyResultSetMap.Add("20 Lambton Quay", Deserialize(lambton));
+           dummyResultSetMap.Add("20 Pitt Street,Sydney", Deserialize(sydney));
+           dummyResultSetMap.Add("30 Borough Rd, London", Deserialize(london));
+           dummyResultSetMap.Add("30 Fitzroy Street, New Plymouth", Deserialize(fitzroy));
+           dummyResultSetMap.Add("30+Rue+Baudin,+Paris,+France",Deserialize(france));
+           dummyResultSetMap.Add("Sheikh+Zayed+Road,+Dubai,+UAE",Deserialize(dubai));
+           dummyResultSetMap.Add("30 Borough Rd",Deserialize(borough));
+           dummyResultSetMap.Add("Paekakariki", Deserialize(pae));
+           dummyResultSetMap.Add("Wellington City", Deserialize(welCity));
+           dummyResultSetMap.Add("Waiheke Island", Deserialize(waiheke));
+           dummyResultSetMap.Add("Cardboard box in town", Deserialize(london));
        }
-       private GoogleResultSet deserialize(string data)
+
+       private GoogleResultSet Deserialize(string data)
        {
            return JSON.Deserialize<GoogleResultSet>(data);
 
        }
+
        public override ILocation Parse(string addressText)
-        {
-            return Parse(addressText, null);
-        }
+       {
+           return Parse(addressText, null);
+       }
 
        public override ILocation Parse(string addressText, string scopeLocation)
-          {
-              ILocation previouslyFound = LocationRepository.Get(addressText);
-              if (previouslyFound != null) return previouslyFound;
-              GoogleResultSet resultSet=null;
-              try
-              {
-                  resultSet = dummyResultSetMap[addressText];
-              }
-              catch (KeyNotFoundException)
-              {
-                  resultSet = GetResultSet(addressText);
-                  Console.WriteLine("Mock location provider had to request address from Google for: \n" + addressText + "\n should've been found in hard coded location lookups to point to:" + resultSet);
+       {
+           ILocation previouslyFound = LocationRepository.Get(addressText);
+           if (previouslyFound != null) return previouslyFound;
+           GoogleResultSet resultSet = null;
+           try
+           {
+               resultSet = dummyResultSetMap[addressText];
+           }
+           catch (KeyNotFoundException)
+           {
+               resultSet = GetResultSet(addressText);
+               Console.WriteLine("Mock location provider had to request address from Google for: \n" + addressText +
+                                 "\n should've been found in hard coded location lookups to point to:" + resultSet.ToString());
 
-              }
-              return GetNewLocation(addressText, scopeLocation, resultSet);
-          }
+           }
+           return GetNewLocation(addressText, scopeLocation, resultSet);
+       }
+
     }
 }

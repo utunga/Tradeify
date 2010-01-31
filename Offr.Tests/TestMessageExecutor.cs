@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -254,7 +254,7 @@ namespace Offr.Tests
             message.Timestamp = DateTime.MinValue;
             message.MessagePointer = new OpenSocialMessagePointer("ooooby");
             message.RawText = "";
-            message.OfferText = "";
+            message.MessageText = "";
             message.MoreInfoURL = "";
             message.SetEndBy("",DateTime.Now.AddMonths(-1));
             message.AddTag(tag);
@@ -267,7 +267,7 @@ namespace Offr.Tests
             message2.Timestamp = DateTime.MinValue;
             message2.MessagePointer = new OpenSocialMessagePointer("ooooby2");
             message2.RawText = "";
-            message2.OfferText = "";
+            message2.MessageText = "";
             message2.MoreInfoURL = "";
             message2.SetEndBy("", DateTime.Now.AddMonths(3));
             message2.AddTag(tag);

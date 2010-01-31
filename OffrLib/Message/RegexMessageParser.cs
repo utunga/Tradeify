@@ -52,7 +52,7 @@ namespace Offr.Message
 
                 }
             }
-            msg.OfferText = sourceText;
+            msg.MessageText = sourceText;
             msg.MoreInfoURL = GetMoreInfoUrl(sourceText);
             msg.SetEndBy("", GetEndByInfo(sourceText));
             msg.AddThumbnail(GetImageUrl(sourceText));

@@ -86,9 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackgroundExceptionReceiver.cs" />
-    <Compile Include="Demo\Common\Enums.cs" />
-    <Compile Include="Demo\Common\IMemCache.cs" />
-    <Compile Include="Demo\Common\Util.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Common\IMemCache.cs" />
+    <Compile Include="Common\Util.cs" />
     <Compile Include="Demo\DemoData.cs" />
     <Compile Include="Demo\MockMessagePointer.cs" />
     <Compile Include="Demo\MockRawMessage.cs" />

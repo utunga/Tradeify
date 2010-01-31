@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +34,7 @@ namespace twademe
         //          timestamp = msg.TimeStamp,
         //          end_by = ((OfferMessage) msg).EndByText,
         //          tags = ((OfferMessage)msg).Tags,
-        //          offer_text = ((OfferMessage)msg).OfferText
+        //          offer_text = ((OfferMessage)msg).MessageText
         //      };
 
         //    return messageData.Take(Count);

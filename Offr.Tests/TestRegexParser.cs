@@ -83,7 +83,7 @@ namespace Offr.Tests
                 Assert.That(expectedTags.Contains(tag), "Messages contains unexpected tag" + tag.MatchTag);
             }
             
-            Assert.AreEqual(raw.Text, message.OfferText,
+            Assert.AreEqual(raw.Text, message.MessageText,
                             "Expect extracted message to work for " + raw);
         }
 
@@ -118,28 +118,34 @@ namespace Offr.Tests
         [Test]
         public void TestMessageType()
         {
-            // a specific real example for which i know the query was failing
-            RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
             MockRawMessage raw = new MockRawMessage(0)
-            {
-                Timestamp = DateTime.Now.AddHours(-5),
-                CreatedBy = MockData.User0,
-                Location = MockData.Location0,
-                MoreInfoURL = "http://bit.ly/message0Info",
-                Text = "WANTED #ooooby mulch available now in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch",
-                EndByText = null,
-                EndBy = null
-            };
-            //List<ITag> expectedTags = new List<ITag>();
+             {
+                 Timestamp = DateTime.Now.AddHours(-5),
+                 CreatedBy = MockData.User0,
+                 Location = MockData.Location0,
+                 MoreInfoURL = "http://bit.ly/message0Info",
+                 Text = "WANTED #ooooby mulch available now in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch",
+                 EndByText = null,
+                 EndBy = null
+             };
+          
             IMessage message = _target.Parse(raw);
-            
-            Type type = typeof(WantedMessage);
-            Assert.That(message.GetType() == type);
-            raw.Text = "#ooooby #wanted mulch available now in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch";
+            Assert.That(message.GetType() == typeof(WantedMessage), "expected to receive message of type 'WantedMessage'");
+
+            raw.Text = "#ooooby #wanted mulch in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch";
             message = _target.Parse(raw);
-            type = typeof(WantedMessage);
-            Assert.That(message.GetType() == type);
+            Assert.That(message.GetType() == typeof(WantedMessage), "expected to receive message of type 'WantedMessage'");
+
+            raw.Text = "#offer mulch available now in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch #ooooby";
+            message = _target.Parse(raw);
+            Assert.That(message.GetType() == typeof(OfferMessage), "expected to receive message of type 'OfferMessage'");
+
+            raw.Text = "OFFER: mulch available now in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch #ooooby";
+            message = _target.Parse(raw);
+            Assert.That(message.GetType() == typeof(OfferMessage), "expected to receive message of type 'OfferMessage'");
         }
+
+
         [Test]
         public void TestGetImageUrl()
         {

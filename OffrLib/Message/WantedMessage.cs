@@ -7,7 +7,6 @@ namespace Offr.Message
 {
     public class WantedMessage:BaseMarketMessage
     {
-        public static string HASHTAG = "#" + MessageType.wanted;
         public override MessageType MessageType
         {
             get { return MessageType.wanted; }

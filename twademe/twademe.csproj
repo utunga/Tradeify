@@ -257,6 +257,7 @@
     <Content Include="osocial\widget_mock.html" />
     <Content Include="osocial\widget_support.js" />
     <Content Include="test\standalone_widget_test.html" />
+    <Content Include="test\tag_suggest_test.htm" />
     <Content Include="test\tag_support_test.html" />
     <Content Include="tags_ahead.aspx" />
   </ItemGroup>

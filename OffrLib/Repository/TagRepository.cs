@@ -22,35 +22,20 @@ namespace Offr.Repository
         {
             List<string> tags = new List<string>();
             tags.OrderBy(x=>x);
-            if (type != null)
+
+            foreach (ITag tag in _list.Values)
             {
-                foreach (ITag tag in _list.Values)
+                if (tag.Text.Length >= query.Length)
                 {
-                    if (tag.Text.Length >= query.Length)
+                    string matchText = tag.Text.Substring(0, query.Length);
+                    if (query.Equals(matchText, StringComparison.OrdinalIgnoreCase))
                     {
-                        string matchText = tag.Text.Substring(0, query.Length);
-                        if (query.Equals(matchText, StringComparison.OrdinalIgnoreCase))
-                        {
-                            if (tag.Type == type)
-                                tags.Add(tag.Text);
-                        }
-                    }
-                }
-            }            
-            else
-            {
-                foreach (ITag tag in _list.Values)
-                {
-                    if (tag.Text.Length >= query.Length)
-                    {
-                        string matchText = tag.Text.Substring(0, query.Length);
-                        if (query.Equals(matchText, StringComparison.OrdinalIgnoreCase))
-                        {
+                        if (type == null || tag.Type == type)
                             tags.Add(tag.Text);
-                        }
                     }
                 }
             }
+
             return tags.Count > count ? tags.GetRange(0, count) : tags;
         }
 

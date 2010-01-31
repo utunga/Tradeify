@@ -21,7 +21,7 @@ namespace Offr.Tests
             msg.Location = mockRaw.Location;
             msg.MoreInfoURL = mockRaw.MoreInfoURL;
             msg.CreatedBy = mockRaw.CreatedBy;
-            msg.OfferText = mockRaw.OfferText;
+            msg.MessageText = mockRaw.OfferText;
             if (mockRaw.EndBy.HasValue)
             {
                 msg.SetEndBy(mockRaw.EndByText, mockRaw.EndBy.Value);

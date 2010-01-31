@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -194,7 +194,7 @@ Miscellaneous
                 msg.Timestamp = DateTime.MinValue;
                 msg.MessagePointer = new OpenSocialMessagePointer("ooooby");
                 msg.RawText = "";
-                msg.OfferText = "";
+                msg.MessageText = "";
                 msg.MoreInfoURL = "";
                 msg.AddTag(new Tag(TagType.tag, group));
                 msg.AddTag(new Tag(TagType.tag, term));
