@@ -21,25 +21,21 @@
 //}
 
 
-/* ------------------------------
-     rendering of widget 
-   ------------------------------*/
-
-
 
 /* ------------------------------
      search
    ------------------------------*/
    
-function queryGeneralTag(){
-    var query = $("#search_general_tag").val();
-    /*var queryIdx=$.inArray(query,search_tags);
-    if(queryIdx!=-1){	
-        return;
-    }*/
-    list_widget.add_filter(query, "tag");
-    //update_offers();
-}
+//function queryGeneralTag(){
+//    var query = $("#search_general_tag").val();
+//    /*var queryIdx=$.inArray(query,search_tags);
+//    if(queryIdx!=-1){	
+//        return;
+//    }*/
+//    list_widget.add_filter(query, "tag");
+//    //update_offers();
+//}
+
 function queryLocationTag() {
     var query = $("#search_location_tag").val();
     /*var queryIdx=$.inArray(query,search_tags);
@@ -61,12 +57,12 @@ function MessagePart(type, field) {
 }
 
 var offerPrefix = "OFFER: ";
+var wantedPrefix = "WANTED: ";
 var locationPrefix = " in l:";
 var locationSuffix = ":";
 var forPrefix = " for ";
 var untilPrefix = " until ";
 var group = "ooooby";
-
 
 function get_until() {
 	var until =$("#until").val().trim();
@@ -213,12 +209,12 @@ function google_initialize() {
 	//funny but in quick 'hallway testing' with Louise the fact that twas already filled
 	// in caused great confusion, so just leave it blank for them to fill in
 	
-	//if (google.loader.ClientLocation) {
-	//		currentLocation = google.loader.ClientLocation;
-	//		var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code
-	//		$(".location #location").val(currentAddr);
-	//		geo_code_address();
-	//	}
+	if (google.loader.ClientLocation) {
+			currentLocation = google.loader.ClientLocation;
+			var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code
+			$(".location #location").val(currentAddr);
+			geo_code_address();
+	}
 
 	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
 }
@@ -266,16 +262,12 @@ function message_keyup() {
 	}, keyup_threshold);
 }
 
-//if (typeof google !== 'undefined') {
+if (typeof google !== 'undefined') {
     google.load("maps", "3",  {callback: google_initialize, other_params:"sensor=false"});
-//}
+}
 
 
 
-
-// on load   
-//openForm();
-//sendData();
 
 
 
@@ -288,119 +280,3 @@ function message_keyup() {
 
 /* dont need suggested tags for now */
 
-//var selected_tags = [];
-//var tags = [];
-//var threshold = 200;
-//var keyChangeStack = 0;
-
-//function timeoutKeyChange() {
-//    keyup(update_tags, threshold);
-//    /*keyChangeStack++;
-//    setTimeout(function() {
-//    keyChangeStack--;
-//    if (keyChangeStack == 0) {
-//    update_tags();
-//    }
-//    }, threshold);*/
-//}
-
-//function ontag_click() {
-//    var tagField = $("#tags").val();
-//    var pushed_tag = $(this).html();
-//    if ($.inArray(pushed_tag, selected_tags) <= -1) {
-//        if (tagField != "")
-//            $("#tags").val(tagField + " " + pushed_tag);
-//        else $("#tags").val(pushed_tag);
-//    }
-//    else {
-//        //var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
-//        var replacementText = tagField.replace(pushed_tag, "");
-//        $("#tags").val(replacementText);
-//    }
-//    update_tags();
-//    update_and_dont_parse();
-//    return false; //disable actual click
-//}
-
-//function getTagString() {
-//    var tagString = ""
-//    $.each(selected_tags, function() {
-//        tagString = tagString + " #" + this;
-//    });
-//    return tagString;
-//}
-
-//function checkCSS() {
-//    $.each($(".select_tag"), function() {
-//        if ($.inArray($(this).html(), selected_tags) > -1) {
-//            $(this).addClass("on");
-//        }
-//        else if ($(this).hasClass("on")) $(this).removeClass("on");
-//    });
-//}
-
-
-//function update_tags() {
-
-//    //get rid of multiple spaces...
-//    var txt = new RegExp("\\s\\s+");
-//    $("#tags").val($("#tags").val().replace(txt, " "));
-//    //just in case a single \t or \n is present
-//    txt = new RegExp("\\s+");
-//    //var txt = new RegExp("\\s\\s*"); 
-//    var tagString = $("#tags").val().replace(txt, " ").trim();
-//    $("#tags").val(tagString);
-//    //if(selected_tags.length>0) 
-//    if (tagString != "" && tagString != " ")
-//        selected_tags = tagString.split(" ");
-//    else selected_tags = [];
-//    var selectedTagsHTML = $(selected_tags).map(function() {
-//        return "#" + this;
-//    }).get().join(", ");
-
-//    $("#selected_tags").html(selectedTagsHTML);
-
-//    var json_url = build_tags_query(this.container.tags_uri);
-//    $.getJSON(json_url, function(context) {
-//        tags = context.tags_json.overall;
-//        var tagString = "";
-//        //var fixedTags = main_widget.get_fixed_tags();
-//        $.each(tags, function() {
-//            if (this.type != "loc" && this.type != "type" && this.tag != group/*$.inArray(this.tag,fixedTags)<=-1*/) {
-//                var on = "";
-//                var endon = "";
-//                if (($.inArray(this.tag, selected_tags) > -1)) {
-//                    on = "<li class=\"on\">";
-//                    endon = "</li>";
-//                }
-//                else {
-//                    on = "<li>";
-//                    endon = "</li>";
-//                }
-//                tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
-//            }
-//        });
-
-//        //alert(tagString);
-//        //if (!(typeof suggested_tags_render_fn == 'function')) {
-//        //if not yet compiled compile it
-//        /*    compile_render_fn();
-//		
-//		var render = $p.render('suggested_tags_render_fn', tags);
-//        */
-//        $('#suggested_tags').html(tagString);
-//        $("#suggested_tags .select_tag").click(ontag_click);
-//    });
-//}
-
-
-//function build_tags_query(baseUrl) {
-//    if (tags.length == 0) return baseUrl + "?jsoncallback=?";
-//    var query = "";
-//    $.each(tags, function() {
-//        if ($.inArray(this.tag, selected_tags) > -1)
-//            query = query + this.type + "=" + escape(this.tag) + "&";
-//    });
-//    query = query.substring(0, query.length - 1);
-//    return baseUrl + "?" + query + "&jsoncallback=?";
-//}

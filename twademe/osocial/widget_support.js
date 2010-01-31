@@ -207,7 +207,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 
     var update_map = function() {
 
-        //if (typeof google == 'undefined') return; //do nothing
+        if (typeof google == 'undefined') return; //do nothing
         
         if (map == undefined)
         {

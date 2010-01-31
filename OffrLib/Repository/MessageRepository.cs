@@ -34,7 +34,6 @@ namespace Offr.Repository
         /// <summary>
         /// Constructor that doesn't allow for blocking of invalid messages
         /// </summary>
-        [Obsolete("Only used in testing, we should remove this call")]
         public MessageRepository() : this(new IgnoredUserRepository())
         {
         }
@@ -161,15 +160,7 @@ Workshops
 Miscellaneous  
           */
         
-        public void InitializeFromFile()
-        {
-            
-            //addDummyMessages();
-            //msg.AddThumbnail(GetImageUrl(sourceText));
-            base.InitializeFromFile();
-        }
-         
-        private void addDummyMessages()
+        private void AddDummyMessages()
         {
             var dummy = new OpenSocialUserPointer("ooooby", "Dummy",
                                                "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
