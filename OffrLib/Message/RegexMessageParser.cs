@@ -25,7 +25,7 @@ namespace Offr.Message
         public IMessage Parse(IRawMessage rawMessage)
         {
             string sourceText = rawMessage.Text;
-            IEnumerable<ITag> tags = ParseTags(sourceText);
+            IEnumerable<ITag> tags = ParseTags(sourceText, rawMessage);
             MessageType type = this.GetMessageType(sourceText, tags);
             BaseMarketMessage msg=null;
             if (type == MessageType.wanted) msg = new WantedMessage();
@@ -144,7 +144,7 @@ namespace Offr.Message
         //    //return best;
         //}
 
-        private IEnumerable<ITag> ParseTags(string sourceText)
+        private IEnumerable<ITag> ParseTags(string sourceText, IRawMessage message)
         {
             Regex re = new Regex("(#[a-zA-Z0-9_]+)");
             MatchCollection results = re.Matches(sourceText);
@@ -154,7 +154,13 @@ namespace Offr.Message
                 tagString = tagString.Replace("#", "");
                 tagString = SubstituteTagIfSubstituteExists(tagString);
                 //Dont do this only for message parsing!
-                yield return _tagProvider.GetAndAddTagIfAbsent(tagString, TagType.tag);
+                if(!(message is TextWrapperRawMessage))
+                    yield return _tagProvider.GetAndAddTagIfAbsent(tagString, TagType.tag);
+                else
+                {
+                    ITag tag = _tagProvider.GetTagIfExists(tagString, TagType.tag);
+                    yield return tag ?? new Tag(TagType.tag, tagString);
+                }
             }
         }
 

@@ -78,7 +78,7 @@ namespace Offr.Repository
             return tags;
         }
 
-        private ITag GetTagIfExists(string tagString, TagType type)
+        public ITag GetTagIfExists(string tagString, TagType type)
         {
             string tagStringLowerCase = tagString.ToLowerInvariant();
             ITag tag;
