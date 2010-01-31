@@ -211,8 +211,8 @@ namespace Offr.Text
             List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
             foreach (ITag tag in temp)
             {
-                _list.Add(provider.GetAndAddTagIfAbsent(tag.Text, tag.Type));
-                _matchTags.Add(tag.MatchTag);
+                Add(provider.GetAndAddTagIfAbsent(tag.Text, tag.Type));
+                //_matchTags.Add(tag.MatchTag);
             }
             
 

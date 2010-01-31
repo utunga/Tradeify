@@ -17,7 +17,7 @@ namespace Offr.Json.Converter
             if (type.Equals("offer"))
                 return new OfferMessage();
             else if (type.Equals("wanted"))
-                return new OfferMessage();
+                return new WantedMessage();
            throw new JsonReaderException("Failed to recognize Message of type:" + type);
         }
     }

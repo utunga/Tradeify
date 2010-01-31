@@ -136,15 +136,6 @@ namespace Offr.Tests
         [Test]
         public void TestMessageTypesRoundTrip()
         {
-           WantedMessage wantedMessage = new WantedMessage();
-            wantedMessage.AddTag(new Tag(TagType.group, "ooooby"));
-            wantedMessage.AddTag(new Tag(TagType.loc, "wellington"));
-            wantedMessage.RawText = "WANTED mulch in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch #ooooby";
-            wantedMessage.MessageText = "mulch in l:Cardboard box in town: for #free";
-
-            string serialized = JSON.Serialize(wantedMessage);
-            WantedMessage deserializedWanted = JSON.Deserialize<WantedMessage>(serialized);
-            Assert.AreEqual(wantedMessage, deserializedWanted, "Expected to deserialize to the same object");
 
             OfferMessage offerMessage = new OfferMessage();
             offerMessage.AddTag(new Tag(TagType.group, "ooooby"));
@@ -153,9 +144,20 @@ namespace Offr.Tests
             offerMessage.MessageText = "mulch available now in l:Cardboard box in town: for #free";
 
 
-            serialized = JSON.Serialize(offerMessage);
+            string serialized = JSON.Serialize(offerMessage);
             OfferMessage deserializedOffer = JSON.Deserialize<OfferMessage>(serialized);
-            Assert.AreEqual(offerMessage, deserializedOffer, "Expected to deserialize to the same object");
+             Assert.AreEqual(offerMessage, deserializedOffer, "Expected to deserialize to the same object");
+           
+            WantedMessage wantedMessage = new WantedMessage();
+            wantedMessage.AddTag(new Tag(TagType.group, "ooooby"));
+            wantedMessage.AddTag(new Tag(TagType.loc, "wellington"));
+            wantedMessage.RawText = "WANTED mulch in l:Cardboard box in town: for #free http://bit.ly/message0Info #mulch #ooooby";
+            wantedMessage.MessageText = "mulch in l:Cardboard box in town: for #free";
+
+            serialized = JSON.Serialize(wantedMessage);
+            WantedMessage deserializedWanted = JSON.Deserialize<WantedMessage>(serialized);
+            AssertMessagesIsTheSame(wantedMessage, deserializedWanted);
+            //Assert.AreEqual(wantedMessage, deserializedWanted, "Expected to deserialize to the same object");
 
         }
 
@@ -207,6 +209,17 @@ namespace Offr.Tests
             Assert.AreEqual(messages, initialMessageobj);
             Console.WriteLine(initialMessages);
         }
+
+         private void AssertMessagesIsTheSame(BaseMarketMessage expected,BaseMarketMessage actual)
+         {
+             Assert.AreEqual(expected.Location, actual.Location, "Location was not the same");
+             Assert.AreEqual(expected.MessageText, actual.MessageText, "Offer text was not the same");
+             Assert.AreEqual(expected.MoreInfoURL, actual.MoreInfoURL, "MoreInfoURL was not the same");
+             Assert.AreEqual(expected.LocationTags, actual.LocationTags, "LocationTags not the same");
+             Assert.AreEqual(expected.Currencies, actual.Currencies, "Currencies not the same");
+             Assert.AreEqual(expected.EndBy, actual.EndBy, "EndBy not the same");
+             Assert.AreEqual(expected.EndByText, actual.EndByText, "EndByText not the same");
+         }
 
         private void AssertMessagesAreTheSame(List<OfferMessage> expectedList, List<OfferMessage> actualList)
         {
