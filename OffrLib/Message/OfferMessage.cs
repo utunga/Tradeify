@@ -19,5 +19,10 @@ namespace Offr.Message
             get { return MessageType.offer; }
         }
 
+        public OfferMessage() : base()
+        {
+            base.AddTag(new Tag(TagType.msg_type, MessageType.offer.ToString()));
+        }
+
     }
 }

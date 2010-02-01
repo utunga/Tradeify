@@ -26,6 +26,5 @@ namespace Offr.Message
         ReadOnlyCollection<ITag> HashTags { get; }
         ReadOnlyCollection<ITag> CommunityTags { get; }
         bool IsExpired();
-        void SaveTags(ITagRepository repository);
     }
 }

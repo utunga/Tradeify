@@ -26,7 +26,9 @@ namespace Offr.Tests
             //var ignoredUser = MockData.Users[0];
             //signoredUsers.Save(ignoredUser);
             MessageRepository messageRepository = new MessageRepository(ignoredUsers);
-            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(messageRepository, mockParser);
+
+            TagRepository tagRepository = new TagRepository();
+            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(messageRepository,tagRepository, mockParser);
             //_target = new TagDexQueryExecutor();
             MockRawMessageProvider mockProvider = new MockRawMessageProvider(incomingMessageProcessor);
             _target = messageRepository;

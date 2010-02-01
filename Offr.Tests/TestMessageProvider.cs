@@ -16,11 +16,14 @@ namespace Offr.Tests
         IRawMessageReceiver _target;
         MockRawMessageProvider _mockProvider;
         MessageRepository _messageRepository;
+        TagRepository _tagRepository;
+
         public TestMessageProvider()
         {
             MockMessageParser mockParser = new MockMessageParser();
             _messageRepository = new MessageRepository();
-            IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, mockParser);
+            _tagRepository = new TagRepository();
+            IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, _tagRepository, mockParser);
             _mockProvider = new MockRawMessageProvider(target);
             _mockProvider.Update();
             _target = target;

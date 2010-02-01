@@ -60,6 +60,7 @@ namespace Offr.Tests
                                          EndBy = null
                                      };
             List<ITag> expectedTags = new List<ITag>();
+            expectedTags.Add(new Tag(TagType.msg_type, MessageType.offer.ToString()));
             expectedTags.Add(new Tag(TagType.type, "free"));
             expectedTags.Add(new Tag(TagType.group, "ooooby"));
             expectedTags.Add(new Tag(TagType.tag, "mulch"));
@@ -73,7 +74,7 @@ namespace Offr.Tests
             Assert.AreEqual(raw.MoreInfoURL, message.MoreInfoURL);
             Assert.AreEqual(raw.Thumbnail, message.Thumbnail);
             // actually this will certainly fail even for any kinda regex parser i can think of doing in a short time
-            Assert.AreEqual(6, expectedTags.Count, "Expect count of tags to be 5 for message " + raw);
+            Assert.AreEqual(7, expectedTags.Count, "Expect count of tags to be 5 for message " + raw);
             foreach (ITag tag in expectedTags)
             {
                 Assert.That(message.Tags.Contains(tag), "Expected results to contain " + tag.MatchTag);
@@ -183,8 +184,10 @@ namespace Offr.Tests
             MessageType type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> {});
             Assert.That(type==MessageType.wanted);
             text="#ooooby mulch available now in L:Paekakariki: #want for #free until 17 Jan 2010";
-            type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.msg_type,"Want") });
-            Assert.That(type == MessageType.wanted);
+            type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.tag,MessageType.wanted.ToString()) });
+            Assert.AreEqual(MessageType.wanted, type);
+            //type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.tag, "Iwant") });
+            //Assert.AreEqual(MessageType.wanted, type);
         }
     }
 

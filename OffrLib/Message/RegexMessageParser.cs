@@ -34,12 +34,21 @@ namespace Offr.Message
         {
             string sourceText = rawMessage.Text;
             IEnumerable<ITag> tags = ParseTags(sourceText, rawMessage);
-            MessageType type = this.GetMessageType(sourceText, tags);
-            BaseMarketMessage msg=null;
-            if (type == MessageType.wanted) msg = new WantedMessage();
-            else if (type == MessageType.offer) msg = new OfferMessage();
+            
+            BaseMarketMessage msg;
+            switch (GetMessageType(sourceText, tags))
+            {
+                case MessageType.wanted:
+                    msg= new WantedMessage();
+                    break;
+
+                case MessageType.offer:
+                default:
+                    msg= new OfferMessage();
+                    break;
+            }
+
             msg.CreatedBy = rawMessage.CreatedBy;
-            ////msg.Source = source; //Remove this
             msg.Timestamp = rawMessage.Timestamp;
             msg.MessagePointer = rawMessage.Pointer;
             msg.RawText = rawMessage.Text;                        
@@ -56,8 +65,6 @@ namespace Offr.Message
                 foreach (ITag s in location.Tags)
                 {
                     msg.AddTag(s);
-
-
                 }
             }
             msg.MessageText = sourceText;
@@ -176,11 +183,16 @@ namespace Offr.Message
 
         private string SubstituteTagIfSubstituteExists(string s)
         {
-            if (s.Equals("Wants", StringComparison.OrdinalIgnoreCase) ||
-                s.Equals("Wanted", StringComparison.OrdinalIgnoreCase) ||
-                s.Equals("Wanting", StringComparison.OrdinalIgnoreCase))
-                return "Want";
-            else if (s.Equals("Offering", StringComparison.OrdinalIgnoreCase)) return "Offer";
+            if (s.Equals("wants", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("iwant", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("want", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("wanting", StringComparison.OrdinalIgnoreCase))
+                return MessageType.wanted.ToString();
+            
+            if (s.Equals("offering", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("ioffer", StringComparison.OrdinalIgnoreCase)) 
+                return MessageType.offer.ToString();
+            
             return s;
         }
 
@@ -252,20 +264,17 @@ namespace Offr.Message
             firstWord = firstWord.ToLowerInvariant();
             if (firstWord.Contains("offer"))
             {
-                _tagProvider.GetAndAddTagIfAbsent("offer", TagType.msg_type);
                 return MessageType.offer;
             }
-
             else if (firstWord.Contains("want"))
             {
-                _tagProvider.GetAndAddTagIfAbsent("want", TagType.msg_type);
                 return MessageType.wanted;
             }
                 
             foreach(ITag tag in tags)
             {
-                if (tag.Text.Equals("offer")) return MessageType.offer;
-                else if(tag.Text.Equals("want")) return MessageType.wanted;
+                if (tag.Text.Equals(MessageType.offer.ToString())) return MessageType.offer;
+                else if(tag.Text.Equals(MessageType.wanted.ToString())) return MessageType.wanted;
             }
             //Default to offer for now?
             return MessageType.offer;

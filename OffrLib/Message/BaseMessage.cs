@@ -77,13 +77,6 @@ namespace Offr.Message
             return false;
         }
 
-        public void SaveTags(ITagRepository repository)
-        {
-            if(repository==null) return;
-            foreach (ITag tag in Tags)
-                repository.GetAndAddTagIfAbsent(tag.Text, tag.Type);
-        }
-
         #endregion
 
         protected BaseMessage()

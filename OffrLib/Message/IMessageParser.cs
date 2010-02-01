@@ -9,7 +9,6 @@ namespace Offr.Message
 {
     public interface IMessageParser
     {
-        ITagRepository TagProvider { get; }
         IMessage Parse(IRawMessage source);
     }
 }

@@ -13,13 +13,16 @@ namespace Offr.Message
     {
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        private readonly IMessageRepository _messages; 
+        private readonly IMessageRepository _messageRepository; 
         private readonly IMessageParser _messageParser;
+        private readonly ITagRepository _tagRepository;
 
-        public IncomingMessageProcessor(IMessageRepository messageRepository, IMessageParser messageParser)
+
+        public IncomingMessageProcessor(IMessageRepository messageRepository, ITagRepository tagRepository, IMessageParser messageParser)
         {
-            _messages = messageRepository;
+            _messageRepository = messageRepository;
             _messageParser = messageParser;
+            _tagRepository = tagRepository;
             //_sourceProvider.Update();
         }
 
@@ -27,14 +30,14 @@ namespace Offr.Message
         {
             get
             {
-                return new List<IMessage>(_messages.AllMessages());
+                return new List<IMessage>(_messageRepository.AllMessages());
             }
         }
 
 
         public void Invalidate()
         {
-            _messages.Invalidate();
+            _messageRepository.Invalidate();
         }
 
         public void Notify(IEnumerable<IRawMessage> updatedMessages)
@@ -46,7 +49,6 @@ namespace Offr.Message
                 if (message.IsValid())
                 {
                     parsedMessages.Add(message);
-                    message.SaveTags(_messageParser.TagProvider);
                 }
                 else
                 {
@@ -68,9 +70,12 @@ namespace Offr.Message
             {
                 if (parsedMessage.IsValid())
                 {
-                    lock (_messages)
+                    lock (_messageRepository)
                     {
-                        _messages.Save(parsedMessage);
+                        _messageRepository.Save(parsedMessage);
+                        //_tagRepository.s
+                        foreach (ITag tag in parsedMessage.Tags)
+                            _tagRepository.GetAndAddTagIfAbsent(tag.Text, tag.Type);
                     }
                 }
                 else

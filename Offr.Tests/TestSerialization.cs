@@ -23,6 +23,7 @@ namespace Offr.Tests
     {
 
         IMessageRepository _messageRepository;
+        ITagRepository _tagRepository;
         TagRepository _singletonTagProvider;
 
         public TestSerialization()
@@ -34,7 +35,8 @@ namespace Offr.Tests
 
             IMessageParser realMessageParser = new RegexMessageParser(_singletonTagProvider, locationProvider);
             _messageRepository = new MessageRepository();
-            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(_messageRepository, realMessageParser);
+            _tagRepository = new TagRepository();
+            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(_messageRepository, _tagRepository, realMessageParser);
             IRawMessageProvider rawMessageProvider = new MockRawMessageProvider(incomingMessageProcessor); 
             rawMessageProvider.Update();
         }
@@ -58,10 +60,11 @@ namespace Offr.Tests
         [Ignore("Only do this when you want to update initial_offers.json")]
         public void SerializeDemoMessagesToFile()
         {
-             ILocationProvider locationProvider = new GoogleLocationProvider();
+            ILocationProvider locationProvider = new GoogleLocationProvider();
             IMessageParser realMessageParser = new RegexMessageParser(_singletonTagProvider, locationProvider);
             MessageRepository tempMessageRepository = new MessageRepository();
-            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(tempMessageRepository, realMessageParser);
+            TagRepository tempTagRepository = new TagRepository();
+            IncomingMessageProcessor incomingMessageProcessor = new IncomingMessageProcessor(tempMessageRepository, tempTagRepository, realMessageParser);
             IRawMessageProvider rawMessageProvider = new DemoMessageProvider(incomingMessageProcessor);
             rawMessageProvider.Update();
 
@@ -266,8 +269,9 @@ namespace Offr.Tests
         {
 
             MessageRepository messageRepository = new MessageRepository(); // need to keep this seperate so as not to mess up other tests
+            TagRepository tempTagRepository = new TagRepository(); //ditto
             IMessageParser messageParser = new RegexMessageParser(_singletonTagProvider, new MockLocationProvider());
-            IRawMessageReceiver messageReceiver = new IncomingMessageProcessor(messageRepository, messageParser);
+            IRawMessageReceiver messageReceiver = new IncomingMessageProcessor(messageRepository, tempTagRepository, messageParser);
             
             //add two messages of different types
             messageReceiver.Notify(DemoData.RawMessages[0]);

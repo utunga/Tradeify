@@ -80,8 +80,9 @@ function get_location() {
 }
 
 function get_offer() {
-	var offer =$("#offer").val().trim();
-    return (offer.length == 0) ?  offerPrefix + ".." : offerPrefix + offer;
+    var offer = $("#offer").val().trim();
+    var prefix = $("input[@name='message_type']:checked").val();
+    return (offer.length == 0) ?  prefix + ".." : prefix + offer;
 }
 
 function get_category_tags() {

@@ -15,6 +15,7 @@ namespace Offr.Tests
     public class TestTwitterProvider
     {
         MessageRepository _messageRepository;
+        private TagRepository _tagRepository;
 
         public void InitializeTwitterProvider()
         {
@@ -27,7 +28,8 @@ namespace Offr.Tests
             GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             _messageRepository = new MessageRepository();
-            IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, realMessageParser);
+            _tagRepository = new TagRepository();
+            IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, _tagRepository, realMessageParser);
             TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(target, MessageType.offer);
             twitterProvider.Update();
         }
