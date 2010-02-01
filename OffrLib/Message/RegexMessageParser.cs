@@ -258,9 +258,8 @@ namespace Offr.Message
         private MessageType GetMessageType(string offerText,IEnumerable<ITag> tags)
         {
             offerText=offerText.Trim();
-            string REGEX = @"([\w]+\s+){" + 1 + "}";
-            string firstWord= Regex.Match(offerText, REGEX).Value;
-            firstWord = firstWord.Trim();
+            //string REGEX = @"([\w]+\s+){" + 0 + "}";
+            string firstWord = Regex.Split(offerText, @"\s+")[0];
             firstWord = firstWord.ToLowerInvariant();
             if (firstWord.Contains("offer"))
             {
