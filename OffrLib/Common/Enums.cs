@@ -30,5 +30,20 @@ namespace Offr.Common
             return (TEnum)Enum.Parse(typeof(TEnum), strEnumValue);
         }
 
+
+        public static bool TryParse<TEnum>(string strEnumValue, out TEnum parsedEnum)
+        {
+            if (!Enum.IsDefined(typeof(TEnum), strEnumValue))
+            {
+                parsedEnum = default(TEnum);
+                return false;
+            }
+            else
+            {
+                parsedEnum = (TEnum) Enum.Parse(typeof (TEnum), strEnumValue);
+                return true;
+            }
+
+        }
     }
 }

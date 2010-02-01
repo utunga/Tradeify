@@ -63,13 +63,30 @@ namespace Offr.Repository
             return new MessagesWithTagCounts(QueryMessagesImpl(tags, null));
         }
 
+        public IEnumerable<TagWithCount> GetSuggestedTags(IEnumerable<ITag> tags, TagType? tagType)
+        {
+            //immediately processs message source and count the number of instances of each tag
+            TagDex index = new TagDex(QueryMessagesImpl(tags, null));
+            TagCounts tagCounts = index.GetTagCounts();
+
+            List<TagWithCount> results = new List<TagWithCount>();
+            foreach (TagWithCount tagWithCount in tagCounts.Tags)   
+            {
+                if (tagType==null || tagWithCount.tag.Type==tagType)
+                {
+                    results.Add(tagWithCount);
+                }
+            }
+            results.Sort((a, b) => b.count.CompareTo(a.count));
+            return results;
+        }
+
         public TagCounts GetAllTagCounts()
         {
             //NOTE2JOAV
             // this is the method that may be worth caching
             TagDex allValidMessageIndex = new TagDex(QueryMessagesImpl(new Tag[] { }, null));
             return allValidMessageIndex.GetTagCounts();
-
         }
 
         public IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags)

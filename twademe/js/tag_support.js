@@ -46,6 +46,18 @@ function Tags(target_selector) {
         });
         return found_tag;
     };
+    
+    
+    this.has_tag = function(text) {
+        var found = false;
+        $.each(this.tags, function() {
+            if (text == this.tag) {
+                found=true;
+            }
+        });
+        return found;
+    };
+    
     this.toggle_filter=function(text){
         if (!!this.find_tag(text)) {
             this.remove_tag(text);
@@ -54,6 +66,7 @@ function Tags(target_selector) {
           this.add_tag(text,(arguments.length>1) ? arguments[1] : "tag",(arguments.length>2) ? arguments[2] : false);
         }
     };
+    
     this.add_tag = function(text) 
     {
         if (!!this.find_tag(text)) {

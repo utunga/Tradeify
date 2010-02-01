@@ -34,7 +34,6 @@ namespace Offr.Json
 
             Messages = messages;
             MessageCount = tagCounts.Total;
-
         }
 
         //#region Implementation of ICanJson
