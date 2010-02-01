@@ -4,10 +4,10 @@
     "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "nzd"
+        "currency": "nzd"
       },
       {
-        "type": "barter"
+        "currency": "barter"
       },
       {
         "group": "freecycle"
@@ -65,10 +65,10 @@
         "tag": "wood"
       },
       {
-        "type": "barter"
+        "currency": "barter"
       },
       {
-        "type": "barter"
+        "currency": "barter"
       },
       {
         "tag": "wood"
@@ -200,7 +200,7 @@
         "tag": "pumpkin"
       },
       {
-        "type": "barter"
+        "currency": "barter"
       },
       {
         "tag": "waiheke"
@@ -338,7 +338,7 @@
     "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "barter"
+        "currency": "barter"
       },
       {
         "tag": "waiheke"
@@ -375,10 +375,10 @@
     "timestamp": "2009-06-23T12:00:00Z",
     "tags": [
       {
-        "type": "nzd"
+        "currency": "nzd"
       },
       {
-        "type": "barter"
+        "currency": "barter"
       },
       {
         "group": "freecycle"

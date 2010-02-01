@@ -182,7 +182,7 @@
 
     function update_json() {
         var json_url = build_search_query("/tradeify_json.aspx");
-        var tag_types = ["tag", "loc", "group", "type"];
+        var tag_types = ["tag", "loc", "group", "currency"];
         $.getJSON(json_url, function(context) {
         //update offers
         $('#results_by_date').html($p.render('offers_render_fn', context.offers_json));
@@ -319,7 +319,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="RightContent" runat="server">             
 
-    <div class="sorted_tags box type">
+    <div class="sorted_tags box currency">
         <h3><span>Filter by Type</span>
             <span class="any"><input type="checkbox"  value="any_type" />Any</span>
 		</h3>

@@ -1,15 +1,15 @@
 {
   "barter": {
     "tag": "barter",
-    "type": "type"
+    "type": "currency"
   },
   "cash": {
     "tag": "cash",
-    "type": "type"
+    "type": "currency"
   },
   "cash_only": {
     "tag": "cash_only",
-    "type": "type"
+    "type": "currency"
   },
   "etc": {
     "tag": "etc",
@@ -17,7 +17,7 @@
   },
   "free": {
     "tag": "free",
-    "type": "type"
+    "type": "currency"
   },
   "freecycle": {
     "tag": "freecycle",
@@ -25,7 +25,7 @@
   },
   "nzd": {
     "tag": "nzd",
-    "type": "type"
+    "type": "currency"
   },
   "offer": {
     "tag": "offer",

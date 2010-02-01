@@ -86,7 +86,7 @@ namespace Offr.Demo
                 builder.Append("in l:").Append(Location.Address).Append(": ");
             }
             builder.Append("for ");
-            foreach (ITag tag in _tags.TagsOfType(TagType.type))
+            foreach (ITag tag in _tags.TagsOfType(TagType.currency))
             {
                 builder.Append("#").Append(tag.Text).Append(" ");
             }

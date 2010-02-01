@@ -12,5 +12,5 @@ namespace Offr.Text
     //msg_type = a tag identifying how the message should be parsed (eg "#offr")
     //text = word from the message (not used currently)
     
-    public enum TagType { text, tag, type, loc, group, msg_type}
+    public enum TagType { text, tag, currency, loc, group, msg_type}
 }

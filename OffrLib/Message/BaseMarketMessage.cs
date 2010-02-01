@@ -23,7 +23,7 @@ namespace Offr.Message
 
         public IEnumerable<ITag> Currencies
         {
-            get { return _tags.TagsOfType(TagType.type); }
+            get { return _tags.TagsOfType(TagType.currency); }
         }
 
         public IEnumerable<ITag> LocationTags
@@ -55,7 +55,7 @@ namespace Offr.Message
         /// <summary>
         /// 
         /// to be a valid offer message it needs
-        /// a type (of currency)
+        /// a currency (where 'free' can be a currency
         /// a location
         /// a group tag
         /// </summary>
@@ -63,7 +63,7 @@ namespace Offr.Message
         public override string[] ValidationFailReasons()
         {
             var validationFails = new List<string>();
-            if (_tags.TagsOfType(TagType.type).Count == 0)
+            if (_tags.TagsOfType(TagType.currency).Count == 0)
             {
                 validationFails.Add(ValidationFailReason.NeedsCurrencyTag.ToString());
             }

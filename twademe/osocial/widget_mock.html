@@ -252,7 +252,7 @@
                             case "tag":
                                 general_tags.push(this.tag);
                                 break;
-                            case "type":
+                            case "currency":
                                 currency_tags.push(this.tag);
                                 break;
                             case "loc":
@@ -263,7 +263,7 @@
 
                     var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
                     filter_general_tags = new TagsWidget("#filter_general_tags", general_tags, list_widget.current_tags, "tag", update_filter);
-                    filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tags, list_widget.current_tags, "type", update_filter);
+                    filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tags, list_widget.current_tags, "currency", update_filter);
                     filter_location_tags = new TagsWidget("#filter_location_tags", location_tags, list_widget.current_tags, "loc", update_filter);
                 }
                 list_widget.on_offers_updated(createRHSTags);
@@ -304,9 +304,9 @@
 
                 post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, list_widget.current_tags, "type", update_offer);
                 /*
-                post_your_own_currency_tags.add_tag("free", "type", false);
-                post_your_own_currency_tags.add_tag("barter", "type", false);
-                post_your_own_currency_tags.add_tag("cash", "type", false);
+                post_your_own_currency_tags.add_tag("free", "currency", false);
+                post_your_own_currency_tags.add_tag("barter", "currency", false);
+                post_your_own_currency_tags.add_tag("cash", "currency", false);
         
         post_your_own_currency_tags.tag_click(function() {
                 var tag_text = $(this).text().replace("\n", "");
@@ -337,8 +337,8 @@
                 });
                 */
                 //        message_type = new Tags("#message_type");
-                //        message_type.add_tag("I am offering:", "type");
-                //        message_type.add_tag("I want:", "type");
+                //        message_type.add_tag("I am offering:", "currency");
+                //        message_type.add_tag("I want:", "currency");
                 //        message_type.tag_click(function() {
                 //            var tag_text = $(this).text().replace("\n", "");
                 //            message_type.toggle_active(tag_text);

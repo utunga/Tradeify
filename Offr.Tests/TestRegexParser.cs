@@ -61,7 +61,7 @@ namespace Offr.Tests
                                      };
             List<ITag> expectedTags = new List<ITag>();
             expectedTags.Add(new Tag(TagType.msg_type, MessageType.offer.ToString()));
-            expectedTags.Add(new Tag(TagType.type, "free"));
+            expectedTags.Add(new Tag(TagType.currency, "free"));
             expectedTags.Add(new Tag(TagType.group, "ooooby"));
             expectedTags.Add(new Tag(TagType.tag, "mulch"));
             expectedTags.Add(new Tag(TagType.loc, "Paekakariki"));

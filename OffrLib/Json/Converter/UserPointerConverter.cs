@@ -13,8 +13,6 @@ namespace Offr.Json.Converter
     {
         public override IUserPointer Create(JsonReader reader, JsonSerializer serializer)
         {
-            //FIXME1need to read into the JSon decide what type of convertor to create
-            //return new TwitterUserPointer();
             string type = JSON.ReadProperty<string>(serializer, reader, "type");
             log.Info("Trying to create object of type: "+ type);
             if (type.Equals("OpenSocialUserPointer"))

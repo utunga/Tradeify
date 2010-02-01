@@ -71,9 +71,9 @@ namespace Offr.Tests
           
             // -- setup facets 
             UsedTags= new List<ITag>();
-            UsedTags.Add(new Tag(TagType.type, "cash"));
-            UsedTags.Add(new Tag(TagType.type, "free"));
-            UsedTags.Add(new Tag(TagType.type, "barter"));
+            UsedTags.Add(new Tag(TagType.currency, "cash"));
+            UsedTags.Add(new Tag(TagType.currency, "free"));
+            UsedTags.Add(new Tag(TagType.currency, "barter"));
             foreach (string offer in Offers)
             {
                 string tagText = offer.Replace(" ", "_");
@@ -106,9 +106,9 @@ namespace Offr.Tests
                 EndBy = null
             };
             raw.Tags.Add(new Tag(TagType.group, "ooooby"));
-            raw.Tags.Add(new Tag(TagType.type, "free"));
-            raw.Tags.Add(new Tag(TagType.type, "swap"));
-            raw.Tags.Add(new Tag(TagType.type, "barter"));
+            raw.Tags.Add(new Tag(TagType.currency, "free"));
+            raw.Tags.Add(new Tag(TagType.currency, "swap"));
+            raw.Tags.Add(new Tag(TagType.currency, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[0]));
             foreach (ITag locationTag in Location0.Tags)
             {
@@ -130,8 +130,8 @@ namespace Offr.Tests
                 EndBy = null
             };
             raw.Tags.Add(new Tag(TagType.group, "ooooby"));
-            raw.Tags.Add(new Tag(TagType.type, "free"));
-            raw.Tags.Add(new Tag(TagType.type, "barter"));
+            raw.Tags.Add(new Tag(TagType.currency, "free"));
+            raw.Tags.Add(new Tag(TagType.currency, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[1]));
             foreach (ITag locationTag in Location1.Tags)
             {
@@ -153,8 +153,8 @@ namespace Offr.Tests
                 EndBy = null
             };
             raw.Tags.Add(new Tag(TagType.group, "ooooby"));
-            raw.Tags.Add(new Tag(TagType.type, "free"));
-            raw.Tags.Add(new Tag(TagType.type, "barter"));
+            raw.Tags.Add(new Tag(TagType.currency, "free"));
+            raw.Tags.Add(new Tag(TagType.currency, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[2]));
             foreach (ITag locationTag in Location2.Tags)
             {
@@ -176,8 +176,8 @@ namespace Offr.Tests
                 EndBy = null
             };
             raw.Tags.Add(new Tag(TagType.group, "ooooby"));
-            raw.Tags.Add(new Tag(TagType.type, "free"));
-            raw.Tags.Add(new Tag(TagType.type, "barter"));
+            raw.Tags.Add(new Tag(TagType.currency, "free"));
+            raw.Tags.Add(new Tag(TagType.currency, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, "garden_supplies")); 
             foreach (ITag locationTag in Location0.Tags)
             {
@@ -199,8 +199,8 @@ namespace Offr.Tests
                 EndBy = null
             };
             raw.Tags.Add(new Tag(TagType.group, "ooooby"));
-            raw.Tags.Add(new Tag(TagType.type, "free"));
-            raw.Tags.Add(new Tag(TagType.type, "barter"));
+            raw.Tags.Add(new Tag(TagType.currency, "free"));
+            raw.Tags.Add(new Tag(TagType.currency, "barter"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[4]));
             foreach (ITag locationTag in Location2.Tags)
             {
@@ -222,7 +222,7 @@ namespace Offr.Tests
                 EndBy = null
             };
             raw.Tags.Add(new Tag(TagType.group, "ooooby"));
-            raw.Tags.Add(new Tag(TagType.type, "cash"));
+            raw.Tags.Add(new Tag(TagType.currency, "cash"));
             raw.Tags.Add(new Tag(TagType.tag, Offers[5]));
             foreach (ITag locationTag in Location2.Tags)
             {

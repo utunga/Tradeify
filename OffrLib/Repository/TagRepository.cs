@@ -89,22 +89,22 @@ namespace Offr.Repository
             return null;
         }
 
-/*        public void Initialize()
-        {
-            foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
-            {
-                string tagText = msgType.ToString();
-                Save(FromTypeAndText(TagType.msg_type, tagText));
-            }
-            Save(FromTypeAndText(TagType.group, "ooooby"));
-            Save(FromTypeAndText(TagType.group, "freecycle"));
-            Save(FromTypeAndText(TagType.type, "cash only"));
-            Save(FromTypeAndText(TagType.type, "cash"));
-            Save(FromTypeAndText(TagType.type, "nzd"));
-            Save(FromTypeAndText(TagType.type, "barter"));
-            Save(FromTypeAndText(TagType.type, "free"));
-            String serializedList = JSON.Serialize(_list);  
-        }*/
+        /*        public void Initialize()
+                {
+                    foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
+                    {
+                        string tagText = msgType.ToString();
+                        Save(FromTypeAndText(TagType.msg_type, tagText));
+                    }
+                    Save(FromTypeAndText(TagType.group, "ooooby"));
+                    Save(FromTypeAndText(TagType.group, "freecycle"));
+                    Save(FromTypeAndText(TagType.currency, "cash only"));
+                    Save(FromTypeAndText(TagType.currency, "cash"));
+                    Save(FromTypeAndText(TagType.currency, "nzd"));
+                    Save(FromTypeAndText(TagType.currency, "barter"));
+                    Save(FromTypeAndText(TagType.currency, "free"));
+                    String serializedList = JSON.Serialize(_list);  
+                }*/
 
         private ITag FromTypeAndText(TagType tagType, string tagText)
         {
@@ -121,12 +121,12 @@ namespace Offr.Repository
             }
             Save(FromTypeAndText(TagType.group, "ooooby"));
             Save(FromTypeAndText(TagType.group, "freecycle"));
-            Save(FromTypeAndText(TagType.type, "cash only"));
-            Save(FromTypeAndText(TagType.type, "cash"));
-            Save(FromTypeAndText(TagType.type, "nzd"));
-            Save(FromTypeAndText(TagType.type, "barter"));
-            Save(FromTypeAndText(TagType.type, "swap"));
-            Save(FromTypeAndText(TagType.type, "free"));
+            Save(FromTypeAndText(TagType.currency, "cash only"));
+            Save(FromTypeAndText(TagType.currency, "cash"));
+            Save(FromTypeAndText(TagType.currency, "nzd"));
+            Save(FromTypeAndText(TagType.currency, "barter"));
+            Save(FromTypeAndText(TagType.currency, "swap"));
+            Save(FromTypeAndText(TagType.currency, "free"));
             string list=JSON.Serialize(_list);
         }
 #endif 

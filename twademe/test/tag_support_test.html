@@ -13,7 +13,7 @@
     <div id="tag_suggest"></div>
     <a href="#" onclick="tags.add_tag('test'); return false;">add test</a>  
     <a href="#" onclick="tags.add_tag('ooooby', 'group');return false;">add ooooby</a>  
-    <a href="#" onclick="tags.add_tag('free', 'type', false);return false;">add free</a>  
+    <a href="#" onclick="tags.add_tag('free', 'currency', false);return false;">add free</a>  
     <a href="#" onclick="tags.add_tag('waiheke','loc', false);return false;">add waiheke, inactive</a>  
     <a href="#" onclick="tags.remove_tag('free');return false;">remove free</a>  
     <a href="#" onclick="tags.remove_tag('ooooby');return false;">remove ooooby</a> 
@@ -37,8 +37,8 @@ $(document).ready(function() {
 	
 	tag_suggest = new Tags("#tag_suggest");
 	tag_suggest.add_tag("pumpkin");
-	tag_suggest.add_tag("free", "type");
-	tag_suggest.add_tag("barter", "type");
+	tag_suggest.add_tag("free", "currency");
+	tag_suggest.add_tag("barter", "currency");
 	tag_suggest.add_tag("waiheke", "loc");
 	tag_suggest.tag_click(function() {
 	    var tag = tag_suggest.find_tag($(this).text());

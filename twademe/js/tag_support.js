@@ -194,7 +194,7 @@ function Tags(target_selector) {
                     // eg http://famfamfam.com/lab/icons/mini/icons/page_url.gif
 	                ui_icon_class = "ui-icon-image";
 	                break;
-	            case("type"):
+	            case("currency"):
 	                //FIXME created the icon 'ui-icon-currency' but has bad jaggies so use this for now
 	                ui_icon_class = "ui-icon-transfer-e-w";
 	                break;
