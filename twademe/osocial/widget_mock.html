@@ -210,6 +210,7 @@
         container.adjustHeight(600);
         $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
+        list_widget.add_fixed_filter("ooooby", "group");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
 
         //RHS Tags 

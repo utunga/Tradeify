@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using Offr.Json.Converter;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Message
@@ -24,6 +25,7 @@ namespace Offr.Message
         bool MatchesMatchTag(string matchTagString);
         ReadOnlyCollection<ITag> HashTags { get; }
         ReadOnlyCollection<ITag> CommunityTags { get; }
-        bool IsExpired();
+        bool IsExpired();
+        void SaveTags(ITagRepository repository);
     }
 }

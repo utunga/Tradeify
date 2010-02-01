@@ -1,12 +1,18 @@
 using System;
 using Offr.Demo;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Tests
 {
     public class MockMessageParser : IMessageParser
     {
+        public ITagRepository TagProvider
+        {
+            get { return null; }
+        }
+
         public IMessage Parse(IRawMessage source)
         {
             if (!(source is MockRawMessage))

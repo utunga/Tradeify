@@ -46,6 +46,7 @@ namespace Offr.Message
                 if (message.IsValid())
                 {
                     parsedMessages.Add(message);
+                    message.SaveTags(_messageParser.TagProvider);
                 }
                 else
                 {

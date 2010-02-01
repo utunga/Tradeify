@@ -7,6 +7,7 @@ using Newtonsoft.Json.Converters;
 using Offr.Json;
 using Offr.Json.Converter;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Message
@@ -74,6 +75,13 @@ namespace Offr.Message
         public virtual bool IsExpired()
         {
             return false;
+        }
+
+        public void SaveTags(ITagRepository repository)
+        {
+            if(repository==null) return;
+            foreach (ITag tag in Tags)
+                repository.GetAndAddTagIfAbsent(tag.Text, tag.Type);
         }
 
         #endregion

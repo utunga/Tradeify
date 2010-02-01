@@ -11,8 +11,16 @@ namespace Offr.Message
 {
     public class RegexMessageParser : IMessageParser
     {
-        readonly ITagRepository _tagProvider;
-        readonly ILocationProvider _locationProvider;
+        private readonly ITagRepository _tagProvider;
+        private readonly ILocationProvider _locationProvider;
+        public
+        ITagRepository TagProvider
+    {
+        get
+        {
+            return _tagProvider;
+        }
+    } 
 
         public RegexMessageParser(ITagRepository tagProvider, ILocationProvider locationProvider)
         {
@@ -154,13 +162,15 @@ namespace Offr.Message
                 tagString = tagString.Replace("#", "");
                 tagString = SubstituteTagIfSubstituteExists(tagString);
                 //Dont do this only for message parsing!
+                /*
                 if(!(message is TextWrapperRawMessage))
                     yield return _tagProvider.GetAndAddTagIfAbsent(tagString, TagType.tag);
                 else
                 {
+                 */
                     ITag tag = _tagProvider.GetTagIfExists(tagString, TagType.tag);
                     yield return tag ?? new Tag(TagType.tag, tagString);
-                }
+                
             }
         }
 
