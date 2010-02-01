@@ -49,8 +49,8 @@ function set_form_text() {
     var val = $("#offer").val();
     if (val == "(details)") $("#offer").val("");
 }
-var toggle_wanted_on=false;
-var toggle_offered_on = false;
+var toggle_wanted_on=true;
+var toggle_offered_on = true;
 
 function toggle_wanted() {
     //if()
@@ -122,6 +122,7 @@ function get_location() {
 function get_offer() {
     var offer = $("#offer").val().trim();
     var prefix = $("input[@name='message_type']:checked").val();
+    prefix = (prefix == "OFFER") ? offerPrefix : wantedPrefix;
     return (offer.length == 0) ?  prefix + ".." : prefix + offer;
 }
 
