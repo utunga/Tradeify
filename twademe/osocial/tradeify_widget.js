@@ -45,7 +45,47 @@ function queryLocationTag() {
     list_widget.add_filter(query, "tag");
     //update_offers();
 }
+function set_form_text() {
+    var val = $("#offer").val();
+    if (val == "(details)") $("#offer").val("");
+}
+var toggle_wanted_on=false;
+var toggle_offered_on = false;
 
+function toggle_wanted() {
+    //if()
+    toggle_wanted_on = !toggle_wanted_on;
+    if (toggle_wanted_on) $("#wanted_filter").addClass("ui-state-active");
+    else $("#wanted_filter").removeClass("ui-state-active");
+    update_type_filters(); 
+    
+}
+function toggle_offered() {
+    //if()
+    toggle_offered_on = !toggle_offered_on;
+    if (toggle_offered_on) $("#offered_filter").addClass("ui-state-active");
+    else $("#offered_filter").removeClass("ui-state-active");
+    update_type_filters();
+}
+function update_type_filters() {
+    if (toggle_offered_on && toggle_wanted_on) {
+        list_widget.remove_filter("offer", "msg_type");
+        list_widget.remove_filter("wanted", "msg_type");
+    }
+    else if (toggle_offered_on && !toggle_wanted_on) {
+        list_widget.add_filter("offer", "msg_type");
+        list_widget.remove_filter("wanted", "msg_type");
+    }
+    else if (!toggle_offered_on && toggle_wanted_on) {
+        list_widget.add_filter("wanted", "msg_type");
+        list_widget.remove_filter("offer", "msg_type");
+    }
+    //bit counterintuitve but we want no messages shown and adding both filters works
+    else {
+        list_widget.add_filter("wanted","msg_type");
+        list_widget.add_filter("offer","msg_type");
+    }
+}
 /* ------------------------------
      form related function
    ------------------------------*/
