@@ -5,6 +5,7 @@
     this.tags_uri = "http://tradeify.org/tags_json.aspx";
     this.parse_uri = "http://tradeify.org/parse.aspx?jsoncallback=?";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
+    this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx";
     
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
