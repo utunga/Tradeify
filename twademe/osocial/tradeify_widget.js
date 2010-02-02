@@ -247,10 +247,7 @@ function google_initialize() {
 	  
 	};
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	
-	//funny but in quick 'hallway testing' with Louise the fact that twas already filled
-	// in caused great confusion, so just leave it blank for them to fill in
-	
+		
 	if (google.loader.ClientLocation) {
 			currentLocation = google.loader.ClientLocation;
 			var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code

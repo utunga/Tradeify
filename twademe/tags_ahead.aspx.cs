@@ -22,7 +22,7 @@ namespace twademe
 
             if (Request.Params["type"] != null || Request.Params["q"] !=null)
             {
-                TagType type = Request.Params["type"] == null ? TagType.tag : Request.Params["type"].ToEnum(TagType.tag);
+                TagType? type = Request.Params["type"] == null ? (TagType?) null : Request.Params["type"].ToEnum(TagType.tag);
 
                 string prefix = Request.Params["q"] ?? "";
 
