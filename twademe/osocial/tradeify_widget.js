@@ -248,12 +248,12 @@ function google_initialize() {
 	};
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 		
-	if (google.loader.ClientLocation) {
-			currentLocation = google.loader.ClientLocation;
-			var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code
-			$(".location #location").val(currentAddr);
-			geo_code_address();
-	}
+//	if (google.loader.ClientLocation) {
+//			currentLocation = google.loader.ClientLocation;
+//			var currentAddr = currentLocation.address.city + ", " + currentLocation.address.region + ", " + currentLocation.address.country_code
+//			$(".location #location").val(currentAddr);
+//			geo_code_address();
+//	}
 
 	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
 }
