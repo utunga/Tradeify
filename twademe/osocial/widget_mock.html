@@ -59,6 +59,8 @@
                                 I want</h4>
                             <div id="post_your_own_general_tags">
                             </div>
+                            <input type="text" class="ui-state-default ui-corner-all" id="typed_tag"/>
+                            <button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>
                             <div class="offerPart">
                                 <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all"
                                     id="offer" onclick="set_form_text()">(details)</textarea>
@@ -240,7 +242,11 @@
                 list_widget = new TradeifyWidget("#results-1", "#current_tags");
                 list_widget.add_fixed_filter("ooooby", "group");
                 map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
-
+                $("#add_typed_tag").click(function() {
+                    var typed_tag_text = $("#typed_tag").val();
+                    post_your_own_general_tags.get_tag_widget().add_tag(typed_tag_text, "tag",true);
+                    tags_widget_click();
+                });
                 //RHS Tags 
                 var createRHSTags = function() {
 
@@ -315,7 +321,7 @@
                 return false;
                 });
                 */
-                post_your_own_general_tags = new TagsWidget("#post_your_own_general_tags", general_tagset, list_widget.current_tags, "tag", update_offer);
+                post_your_own_general_tags = new TagsWidget("#post_your_own_general_tags", general_tagset, list_widget.current_tags, "tag", tags_widget_click);
                 /*
                 post_your_own_general_tags = new Tags("#post_your_own_general_tags");
                 post_your_own_general_tags.add_tag("veges");

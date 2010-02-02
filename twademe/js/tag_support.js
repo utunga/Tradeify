@@ -127,7 +127,13 @@ function Tags(target_selector) {
         this.update_view();
         return found_tag_to_remove;
     }
-     
+    this.get_active_tags = function() {
+        var active_tags = new Array();
+        $.each(this.tags, function() {
+            if(this.active) active_tags.push(this.tag.toString());
+        });
+        return active_tags;
+    } 
     this.remove_fixed_tag = function(text) {
         var existing = this.find_tag(text)
         if (!!existing) {
@@ -147,7 +153,7 @@ function Tags(target_selector) {
     this.get_fixed_tags = function() {
         var fixed_tags = new Array();
         $.each(this.tags, function() {
-            if (this.fixed == true) fixed_tags.push(this);
+            if (this.fixed == true) fixed_tags.push(this.tag);
         });
         return fixed_tags;
     }
@@ -190,7 +196,14 @@ function Tags(target_selector) {
         }).get().join("&");
         return baseUrl + "?" + query + "&jsoncallback=?";
     }
-
+    this.decorate_active_url = function(baseUrl) {
+        var query = "";
+        $.each(this.tags, function() {
+            if (this.active) query +="&"+this.type + "=" + escape(this.tag);
+        });
+        
+        return baseUrl + query + "&jsoncallback=?";
+    }
     this.get_html = function() {
 
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";

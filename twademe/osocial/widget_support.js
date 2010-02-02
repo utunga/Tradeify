@@ -304,16 +304,57 @@ function TagsWidget(selector, initial_tags, active_tags, tag_type) {
     }
     
     init();
-    
-    this.get_active_tags_text = function() {
-        return tags.get_active_tags_text()
-    };
 
+    this.get_active_tags_text = function() {
+        return tags.get_active_tags_text();
+    };
+    this.get_active_tags = function() {
+        return tags.get_active_tags();
+    };
     this.update_view = function() {
         tags.update_view();
     };
+    this.get_tag_widget = function() {
+        return tags;
+    };
 };
 
+function TagsWidgetTwo(selector, initial_tags, active_tags, tag_type) {
+    var tags;
+    var after_click = (arguments.length > 4) ? arguments[4] : function() { };
+
+    var init = function() {
+        tags = new Tags(selector);
+
+        $.each(initial_tags, function() {
+            var str = this.toString();
+            var isInActiveTags = ($.inArray(str, active_tags) >= 0);
+            tags.add_tag(str, tag_type, isInActiveTags);
+        });
+
+        tags.tag_click(function() {
+            var tag_text = $(this).text().replace("\n", "");
+            tags.toggle_active(tag_text, tag_type);
+            after_click(tag_text, tag_type);
+            return false;
+        });
+    }
+
+    init();
+
+    this.get_active_tags_text = function() {
+        return tags.get_active_tags_text();
+    };
+    this.get_active_tags = function() {
+        return tags.get_active_tags();
+    };
+    this.update_view = function() {
+        tags.update_view();
+    };
+    this.get_tag_widget = function() {
+        return tags;
+    };
+    };
 
 
 /*

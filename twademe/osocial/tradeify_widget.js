@@ -321,4 +321,38 @@ if (typeof google !== 'undefined') {
 
 
 /* dont need suggested tags for now */
+var update_suggested_tags = function() {
+    var selected_tags = post_your_own_general_tags.get_active_tags();
+    if (selected_tags.length > 0) {
+        var tags_widget = post_your_own_general_tags.get_tag_widget();
+        var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
+        var suggested_tags = new Array();
+        $.getJSON(json_url, function(data) {
+            $.each(data, function() {
+                if (this.type == "tag")
+                    suggested_tags.push(this.tag);
+            });
 
+            //rebuild the whole widget
+
+            $.each(selected_tags, function() {
+                if ($.inArray(this, suggested_tags) < 0) suggested_tags.push(this);
+            });
+            post_your_own_general_tags = new TagsWidgetTwo("#post_your_own_general_tags", suggested_tags, selected_tags, "tag", tags_widget_click);
+        });
+    }
+    else post_your_own_general_tags = new TagsWidgetTwo("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+
+
+};
+
+var tags_widget_click = function(tag_text, tag_type) {
+    /*if (selected_tags.has_tag(tag_text)) {
+        selected_tags.remove_tag(tag_text);
+    }
+    else {
+        selected_tags.add_tag(tag_text, tag_type);
+    }*/
+    update_offer();
+    update_suggested_tags();
+}
