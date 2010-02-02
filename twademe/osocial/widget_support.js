@@ -319,7 +319,7 @@ function TagsWidget(selector, initial_tags, active_tags, tag_type) {
     };
 };
 
-function TagsWidgetTwo(selector, initial_tags, active_tags, tag_type) {
+function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
     var tags;
     var after_click = (arguments.length > 4) ? arguments[4] : function() { };
 

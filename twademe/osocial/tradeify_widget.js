@@ -338,10 +338,10 @@ var update_suggested_tags = function() {
             $.each(selected_tags, function() {
                 if ($.inArray(this, suggested_tags) < 0) suggested_tags.push(this);
             });
-            post_your_own_general_tags = new TagsWidgetTwo("#post_your_own_general_tags", suggested_tags, selected_tags, "tag", tags_widget_click);
+            post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", suggested_tags, selected_tags, "tag", tags_widget_click);
         });
     }
-    else post_your_own_general_tags = new TagsWidgetTwo("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+    else post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
 
 
 };

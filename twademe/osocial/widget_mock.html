@@ -239,12 +239,13 @@
                 // adjusts height in ning, does nothing in test
                 container.adjustHeight(600);
                 $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
+                $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
                 list_widget = new TradeifyWidget("#results-1", "#current_tags");
                 list_widget.add_fixed_filter("ooooby", "group");
                 map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
                 $("#add_typed_tag").click(function() {
                     var typed_tag_text = $("#typed_tag").val();
-                    post_your_own_general_tags.get_tag_widget().add_tag(typed_tag_text, "tag",true);
+                    post_your_own_general_tags.get_tag_widget().add_tag(typed_tag_text, "tag", true);
                     tags_widget_click();
                 });
                 //RHS Tags 
@@ -321,7 +322,7 @@
                 return false;
                 });
                 */
-                post_your_own_general_tags = new TagsWidget("#post_your_own_general_tags", general_tagset, list_widget.current_tags, "tag", tags_widget_click);
+                post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
                 /*
                 post_your_own_general_tags = new Tags("#post_your_own_general_tags");
                 post_your_own_general_tags.add_tag("veges");
