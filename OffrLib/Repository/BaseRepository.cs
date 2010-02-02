@@ -64,10 +64,15 @@ namespace Offr.Repository
                 else
                 {
                     _list[id] = instance;
-                    dirty = true;
+                    SetDirty();
                     //String serializedList = JSON.Serialize(_list);             
                 }
             }
+        }
+
+        protected virtual void SetDirty()
+        {
+            dirty = true;
         }
 
         public virtual void Remove(T instance)

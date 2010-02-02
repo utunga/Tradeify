@@ -25,7 +25,6 @@ namespace twademe
             
             ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
-            
             List<ITag> tags = tagProvider.GetTagsFromNameValueCollection(request);
             MessagesWithTagCounts messagesWithTags = queryExecutor.GetMessagesWithTagCounts(tags);
             

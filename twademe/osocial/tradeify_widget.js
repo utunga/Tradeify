@@ -350,6 +350,6 @@ var tags_widget_click = function(tag_text, tag_type) {
     else {
         selected_tags.add_tag(tag_text, tag_type);
     }*/
-    update_offer();
+    update_and_dont_parse();
     update_suggested_tags();
 }

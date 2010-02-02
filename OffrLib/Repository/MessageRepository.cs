@@ -24,11 +24,13 @@ namespace Offr.Repository
 
         private readonly TagDex _globalTagIndex;
         private readonly IUserPointerRepository _ignoredUsers;
+        private Dictionary<ITag, MessagesWithTagCounts> cache;
 
         public MessageRepository(IUserPointerRepository ignoredUsers)
         {
             _ignoredUsers = ignoredUsers;
             _globalTagIndex = new TagDex(this);
+            cache = new Dictionary<ITag, MessagesWithTagCounts>();
         }
 
         /// <summary>
@@ -50,7 +52,11 @@ namespace Offr.Repository
         {
             return base.GetAll();
         }
-
+        protected override void SetDirty()
+        {
+            cache.Clear();
+            dirty = true;
+        }
         public override void Save(IMessage message)
         {
             base.Save(message);
@@ -60,7 +66,12 @@ namespace Offr.Repository
 
         public MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags)
         {
-            return new MessagesWithTagCounts(QueryMessagesImpl(tags, null));
+            if (tags.Count() == 1 && tags.First().Type == TagType.group && cache.ContainsKey(tags.First()))
+                return cache[tags.First()];
+            MessagesWithTagCounts messages = new MessagesWithTagCounts(QueryMessagesImpl(tags, null));
+            if (tags.Count() == 1 && tags.First().Type == TagType.group) 
+                cache[tags.First()] = messages;
+            return messages;
         }
 
         public IEnumerable<TagWithCount> GetSuggestedTags(IEnumerable<ITag> tags, TagType? tagType)
