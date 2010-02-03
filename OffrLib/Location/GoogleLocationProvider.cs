@@ -19,7 +19,7 @@ namespace Offr.Location
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         public const string GOOGLE_API_KEY= "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
-        public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}";
+        public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&gl=NZ";
 
        private readonly List<IRawMessageReceiver> _receivers;
 
