@@ -64,7 +64,7 @@
                             <button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>
                             </div>
                             <div class="offerPart">
-                                <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText"
+                                <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     id="offer" title="(details)"></textarea>
                             </div>
                             <div class="location">
@@ -119,7 +119,7 @@
                         <div class="rawMessage">
                             <fieldset>
                                 <!--<legend>Your offer</legend>	-->
-                                <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all "
+                                <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all clear_on_post"
                                     id="message_to_send" title="(Details)"></textarea>
                                 <button class="send_message ui-button ui-state-default ui-corner-all">
                                     Post</button>
@@ -334,8 +334,16 @@
             var message = $("#message_to_send").val();
             container.post_message(message, function(response_data) {
                 console.log("post_message result:" + response_data);
-                alert("message posted");
+                //alert("message posted");
+                //.tabs( 'select' , index )
                 list_widget.update_offers();
+                $("#results").tabs('select', 0);
+                $(".clear_on_post").each(function() {
+                    $(this).val($(this).attr("title"));
+                });
+                //it is possible that the first child will not be the message posted however this is unlikely
+                setTimeout(function() { $("#offer_template").children(":first-child").effect("highlight", {}, 3000) }, 300);
+
             });
 
             // how long to wait after submit for the form to load?
@@ -360,7 +368,7 @@
         //parse offer just in case there is infromation already there
         parse_offer();
 
-    });  //end document.ready
+    });     //end document.ready
 
 
 </script>
