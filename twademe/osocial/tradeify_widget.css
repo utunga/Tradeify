@@ -308,7 +308,15 @@ button.fg-button
 	padding-left:20px; 
 	background-repeat:no-repeat;	
 }
-
+.defaultText
+{
+	width: 300px;
+}
+.defaultTextActive
+{
+	color: #a1a1a1;
+	font-style: italic;
+}
 /* simple css-based tooltip */ 
 div.tooltip { 
     background-color:#000; 
