@@ -8,34 +8,13 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var _offers_updated=new Array();
     var map;
 
- /*
     var offers_directives = {
         'div.offer': {
-            'offer <- messages': {
-                'a.username@href': 'offer.user.more_info_url',
-                'a.avatar@href': 'offer.user.more_info_url',
-                'a.username': 'offer.user.screen_name',
-                '.avatar img@src': 'offer.user.profile_pic_url',
-                '.msg .text': 'offer.offer_text',
-                'span.tags': {
-                    'tag <- offer.tags': {
-                        'a': 'tag.tag',
-                        '+a@class': 'tag.type'
-                    }
-                },
-                '.when': 'offer.date'
-            }
-        }
-    }; 
-  */
-    var offers_directives = {
-        'div.offer': {
-            'offer <- Messages': {          
-                'a.username@href': 'offer.created_by.provider_url',
-                'a.avatar@href': 'offer.created_by.provider_url',
+            'offer <- Messages': {
+                'a.username@href': 'offer.created_by.profile_url',
+                'a.avatar@href': 'offer.created_by.profile_url',
                 'a.username': 'offer.created_by.provider_user_name',
                 '.avatar img@src': 'offer.created_by.profile_pic_url',
-                
                 '.msg .text': 'offer.offer_text',
                 
                 'span.tags': {
@@ -144,25 +123,7 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
     var map;
     var map_popup_render_fn;
     var offers_uri;
-    /*'div.offer': {
-            'offer <- Messages': {          
-                'a.username@href': 'offer.created_by.provider_url',
-                'a.avatar@href': 'offer.created_by.provider_url',
-                'a.username': 'offer.created_by.provider_user_name',
-                '.avatar img@src': 'offer.created_by.profile_pic_url',
-                
-                '.msg .text': 'offer.offer_text',
-                
-                'span.tags': {
-                    'tag <- offer.tags': {
-                        'a': 'tag.tag',
-                        '+a@class': 'tag.type'
-                    }
-                },
-                '.when': 'offer.timestamp'
-                
-            }
-        }*/
+  
     var map_directives = {
         'div.map_offer': {
             'map_offer <- Messages': {
@@ -183,11 +144,11 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
     };
 
     var init = function() {
-
         map_popup_render_fn = $(map_popup_selector + ' .template').compile(map_directives);
         $(map_popup_selector + ' .template').hide();
         offers_uri = container.offers_uri;
     }
+    
     function count_location_tags(tags) {
         var count=0;
         $.each(tags, function() {

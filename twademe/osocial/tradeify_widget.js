@@ -49,22 +49,30 @@ function set_form_text() {
     var val = $("#offer").val();
     if (val == "(details)") $("#offer").val("");
 }
-var toggle_wanted_on=true;
+var toggle_wanted_on = true;
 var toggle_offered_on = true;
 
 function toggle_wanted() {
-    //if()
     toggle_wanted_on = !toggle_wanted_on;
-    if (toggle_wanted_on) $("#wanted_filter").addClass("ui-state-active");
-    else $("#wanted_filter").removeClass("ui-state-active");
-    update_type_filters(); 
-    
+    if (!toggle_wanted_on && !toggle_offered_on) {
+        // neither toggle is on, not legal
+        // set this one back to 'on' and return
+        toggle_wanted_on = true;
+        return;
+    }
+    $("#wanted_filter").toggleClass("ui-state-active");
+    update_type_filters();
 }
+
 function toggle_offered() {
-    //if()
     toggle_offered_on = !toggle_offered_on;
-    if (toggle_offered_on) $("#offered_filter").addClass("ui-state-active");
-    else $("#offered_filter").removeClass("ui-state-active");
+    if (!toggle_wanted_on && !toggle_offered_on) {
+        // neither toggle is on, not legal
+        // set this one back to 'on' and return
+        toggle_offered_on = true;
+        return;
+    }
+    $("#offered_filter").toggleClass("ui-state-active");
     update_type_filters();
 }
 function update_type_filters() {
@@ -235,6 +243,19 @@ var adress_marker;
 var keyup_threshold = 200;
 var address_keyup_stack = 0;
 var message_keyup_stack = 0;
+var post_your_own_form_initialized = false;
+
+// this function called on tab show()
+// we wait till now to initalized the map 
+// inside the tab - so as to avoid a bug 
+function post_your_own_form_init() {
+    
+    if (post_your_own_form_initialized) return; //already initalized
+    
+    if (typeof google !== 'undefined') {
+        google.load("maps", "3", { callback: google_initialize, other_params: "sensor=false" });
+    }
+}
 
 function google_initialize() {
 	geocoder = new google.maps.Geocoder();
@@ -256,6 +277,7 @@ function google_initialize() {
 //	}
 
 	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
+	post_your_own_form_initialized = true;
 }
 
 function geo_code_address() {
@@ -301,9 +323,7 @@ function message_keyup() {
 	}, keyup_threshold);
 }
 
-if (typeof google !== 'undefined') {
-    google.load("maps", "3",  {callback: google_initialize, other_params:"sensor=false"});
-}
+
 
 
 
