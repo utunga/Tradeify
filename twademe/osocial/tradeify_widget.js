@@ -256,9 +256,9 @@ function post_your_own_form_init() {
         google.load("maps", "3", { callback: google_initialize, other_params: "sensor=false" });
     }
 }
-
+var region="NZ"
 function google_initialize() {
-	geocoder = new google.maps.Geocoder();
+	geocoder = new google.maps.Geocoder({'region':region});
 	var myOptions = {
 	  zoom: 13,
 	  navigationControl: true,
@@ -284,7 +284,7 @@ function geo_code_address() {
 	var address = $(".location #location").val();
 	//map.clearOverlays();
 	if (geocoder) {
-		 geocoder.geocode( { 'address': address}, function(results, status) {
+	    geocoder.geocode({ 'address': address, 'region': region }, function(results, status) {
 			 if (status == google.maps.GeocoderStatus.OK) {
 				 map.setCenter(results[0].geometry.location);
 				 if (adress_marker!=null) {
