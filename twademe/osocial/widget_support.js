@@ -275,9 +275,7 @@ function TagsWidget(selector, initial_tags, active_tags, tag_type) {
     this.update_view = function() {
         tags.update_view();
     };
-    this.get_tag_widget = function() {
-        return tags;
-    };
+    this.Tags = tags;
 };
 
 function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
@@ -312,10 +310,8 @@ function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
     this.update_view = function() {
         tags.update_view();
     };
-    this.get_tag_widget = function() {
-        return tags;
-    };
-    };
+    this.Tags = tags;
+};
 
 
 /*

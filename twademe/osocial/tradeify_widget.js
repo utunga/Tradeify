@@ -341,8 +341,8 @@ function message_keyup() {
 var update_suggested_tags = function() {
     var selected_tags = post_your_own_general_tags.get_active_tags();
     if (selected_tags.length > 0) {
-        var tags_widget = post_your_own_general_tags.get_tag_widget();
-        var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
+        var tags = post_your_own_general_tags.Tags;
+        var json_url = tags.decorate_active_url(container.tags_uri + "?type=tag");
         var suggested_tags = new Array();
         $.getJSON(json_url, function(data) {
             $.each(data, function() {
@@ -351,7 +351,6 @@ var update_suggested_tags = function() {
             });
 
             //rebuild the whole widget
-
             $.each(selected_tags, function() {
                 if ($.inArray(this, suggested_tags) < 0) suggested_tags.push(this);
             });

@@ -219,228 +219,131 @@
 
         <script type="text/javascript" src="../osocial/widget_support.js"></script>
 
-        <script type="text/javascript">
+<script type="text/javascript">
 
-            var post_your_own_general_tags;
-            //var message_type;
-            var post_your_own_currency_tags;
-            var currency_tagset = new Array("free", "barter", "cash");
-            var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
-    , "seedlings", "garden_supplies", "garden_services", "books", "workshops");
+    var post_your_own_general_tags;
+    //var message_type;
+    var post_your_own_currency_tags;
+    var currency_tagset = new Array("free", "barter", "cash");
+    var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
+, "seedlings", "garden_supplies", "garden_services", "books", "workshops");
 
-            var filter_general_tags;
-            var filter_currency_tags;
-            var filter_location_tags;
+    var filter_general_tags;
+    var filter_currency_tags;
+    var filter_location_tags;
 
-            //var current_tags;
-            var list_widget;
-            var map_widget;
+    //var current_tags;
+    var list_widget;
+    var map_widget;
 
-            $(document).ready(function() {
+    //RHS Tags 
+    var createRHSTags = function() {
 
-                // adjusts height in ning, does nothing in test
-                container.adjustHeight(1000);
-                $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
-                $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
-                list_widget = new TradeifyWidget("#results-1", "#current_tags");
-                list_widget.add_fixed_filter("ooooby", "group");
-                map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
-                $("#add_typed_tag").click(function() {
-                    var typed_tag_text = $("#typed_tag").val();
-                    post_your_own_general_tags.get_tag_widget().add_tag(typed_tag_text, "tag", true);
-                    tags_widget_click();
-                });
-                //RHS Tags 
-                var createRHSTags = function() {
+        var general_tags = new Array();
+        var currency_tags = new Array();
+        var location_tags = new Array();
+        $.each(list_widget.get_tags(), function() {
+            switch (this.type) {
+                case "tag":
+                    general_tags.push(this.tag);
+                    break;
+                case "currency":
+                    currency_tags.push(this.tag);
+                    break;
+                case "loc":
+                    location_tags.push(this.tag);
+                    break;
+            }
+        });
 
-                    var general_tags = new Array();
-                    var currency_tags = new Array();
-                    var location_tags = new Array();
-                    $.each(list_widget.get_tags(), function() {
-                        switch (this.type) {
-                            case "tag":
-                                general_tags.push(this.tag);
-                                break;
-                            case "currency":
-                                currency_tags.push(this.tag);
-                                break;
-                            case "loc":
-                                location_tags.push(this.tag);
-                                break;
-                        }
-                    });
+        var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
+        filter_general_tags = new TagsWidget("#filter_general_tags", general_tags, list_widget.current_tags, "tag", update_filter);
+        filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tags, list_widget.current_tags, "currency", update_filter);
+        filter_location_tags = new TagsWidget("#filter_location_tags", location_tags, list_widget.current_tags, "loc", update_filter);
+    }
 
-                    var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
-                    filter_general_tags = new TagsWidget("#filter_general_tags", general_tags, list_widget.current_tags, "tag", update_filter);
-                    filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tags, list_widget.current_tags, "currency", update_filter);
-                    filter_location_tags = new TagsWidget("#filter_location_tags", location_tags, list_widget.current_tags, "loc", update_filter);
-                }
-                list_widget.on_offers_updated(createRHSTags);
+    $(document).ready(function() {
 
-                //END RHS Tags 
-
-
-                $("#results").tabs({
-                    //event: 'mouseover'
-                    fx: { height: 'toggle', opacity: 'toggle' },
-                    show: function(event, ui) {
-                        if (ui.panel.id == "results-2") {
-                            $(ui.panel).css("height", "100%");
-                            map_widget.update_map();
-                            // map.checkResize();
-                        }
-                        if (ui.panel.id == "results-3") {
-                            $(".right_col").hide();
-                            post_your_own_form_init();
-                        }
-                        else $(".right_col").show();
-                    }
-                });
-
-               
-                // SUGGESTED TAGS (NOT USED FOR NOW)
-                //update_tags(); //preload some tags
-                /*
-                $(".offer tags tag").click(function() {
-                var tag = current_tags.add_tag(this.text);
-                list_widget.update_offers();
-                return false;
-                });
-                */
-                $("#by_parts input").keyup(update_offer);
-                $("#by_parts textarea").keyup(update_offer);
-                $("#by_parts input").change(update_offer);
-
-                post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, list_widget.current_tags, "type", update_offer);
-                /*
-                post_your_own_currency_tags.add_tag("free", "currency", false);
-                post_your_own_currency_tags.add_tag("barter", "currency", false);
-                post_your_own_currency_tags.add_tag("cash", "currency", false);
+        // adjusts height in ning, does nothing in test
+        container.adjustHeight(1000);
+        $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
+        $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
         
-        post_your_own_currency_tags.tag_click(function() {
-                var tag_text = $(this).text().replace("\n", "");
-                post_your_own_currency_tags.toggle_active(tag_text);
-                update_offer();
-                return false;
-                });
-                */
-                post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
-                /*
-                post_your_own_general_tags = new Tags("#post_your_own_general_tags");
-                post_your_own_general_tags.add_tag("veges");
-                post_your_own_general_tags.add_tag("fruit");
-                post_your_own_general_tags.add_tag("eggs");
-                post_your_own_general_tags.add_tag("honey");
-                post_your_own_general_tags.add_tag("nuts");
-                post_your_own_general_tags.add_tag("grains");
-                post_your_own_general_tags.add_tag("seeds");
-                post_your_own_general_tags.add_tag("seedlings");
-                post_your_own_general_tags.add_tag("garden_supplies");
-                post_your_own_general_tags.add_tag("garden_services");
-                post_your_own_general_tags.add_tag("books");
-                post_your_own_general_tags.add_tag("workshops");
-                post_your_own_general_tags.tag_click(function() {
-                var tag_text = $(this).text().replace("\n", "");
-                post_your_own_general_tags.toggle_active(tag_text);
-                return false;
-                });
-                */
-                //        message_type = new Tags("#message_type");
-                //        message_type.add_tag("I am offering:", "currency");
-                //        message_type.add_tag("I want:", "currency");
-                //        message_type.tag_click(function() {
-                //            var tag_text = $(this).text().replace("\n", "");
-                //            message_type.toggle_active(tag_text);
-                //            update_offer();
-                //            return false;
-                //        });
+        list_widget = new TradeifyWidget("#results-1", "#current_tags");
+        list_widget.add_fixed_filter("ooooby", "group");
+        map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
+        
+        $("#add_typed_tag").click(function() {
+            var typed_tag_text = $("#typed_tag").val();
+            post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
+            tags_widget_click();
+        });
+        
+        list_widget.on_offers_updated(createRHSTags);
 
-                /*urrent_tags = new Tags();
-                current_tags.tag_click(function() {
-                current_tags.remove_tag($(this).text());
-                list_widget.update_offers();
-                return false;
-                });
-                current_tags.target_selector = "#current_tags";*/
-                //current_tags.add_fixed_tag("ooooby", "group", false);
-                setTimeout(list_widget.update_offers, 300);
-
-                $("#post_your_own_form #until").datepicker(
-			{ minDate: 0,
-			    dateFormat: "dd M yy",
-			    constrainInput: true,
-			    showOn: "focus"
-			});
-
-                $(".send_message").click(function() {
-                    var message = $("#message_to_send").val();
-                    container.post_message(message, function(response_data) {
-                        console.log("post_message result:" + response_data);
-                        alert("message posted");
-                        list_widget.update_offers();
-                    });
-                    // how long to wait?
-
-                });
-                /*
-                var triggers = $(".open_post").overlay({
-	
-		// some expose tweaks suitable for modal dialogs
-                zIndex: 9998,
-                closeOnClick	: false,
-                expose: {
-                zIndex: 9997,
-                color: '#333',
-                loadSpeed: 200,
-                opacity: 0.9,
-                closeOnClick: false
+        $("#results").tabs({
+            fx: { height: 'toggle', opacity: 'toggle' },
+            show: function(event, ui) {
+                if (ui.panel.id == "results-2") {
+                    $(ui.panel).css("height", "100%");
+                    map_widget.update_map(); //need to create the google map *after* tab shown
                 }
-                });
-                */
-                $("#post_your_own_form form").submit(function(e) {
+                if (ui.panel.id == "results-3") {
+                    $(".right_col").hide();
+                    post_your_own_form_init(); //need to create the google map for the form *after* tab shown
+                }
+                else $(".right_col").show();
+            }
+        });
 
-                    // close the overlay
-                    triggers.overlay().close();
+        $("#by_parts input").keyup(update_offer);
+        $("#by_parts textarea").keyup(update_offer);
+        $("#by_parts input").change(update_offer);
 
-                    // get user input
-                    var input = $(".rawMessage #message_to_send", this).val();
+        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, list_widget.current_tags, "type", update_offer);
+        post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
 
-                    // do something with the answer
-                    //triggers.eq(1).html(input);
-                    $("#message_to_send").val(input);
+        $("#post_your_own_form #until").datepicker({
+            minDate: 0,
+            dateFormat: "dd M yy",
+            constrainInput: true,
+            showOn: "focus"
+        });
 
-                    // do not submit the form
-                    return e.preventDefault();
-                });
-                //parse offer just in case there is infromation already there
-                parse_offer();
-                // select all desired input fields and attach tooltips to them 
-                /*$("#post_your_own_form :input").tooltip({ 
-     
-        place tooltip on the right edge 
-                position: "center below", 
-     
-        a little tweaking of the position 
-                offset: [-2, 10], 
-     
-        use the built-in fadeIn/fadeOut effect 
-                effect: "fade", 
-     
-        custom opacity setting 
-                opacity: 0.7, 
-     
-        use this single tooltip element 
-                tip: '.tooltip' 
-     
-    });*/
-
-                //$("#post_your_own_form").hide();
-
-
+        $(".send_message").click(function() {
+            var message = $("#message_to_send").val();
+            container.post_message(message, function(response_data) {
+                console.log("post_message result:" + response_data);
+                alert("message posted");
+                list_widget.update_offers();
             });
-    
-    
-        </script>
+            
+            // how long to wait after submit for the form to load?
+            setTimeout(list_widget.update_offers, 300);
+
+            // reset / clear the form
+            // scrolIntoView the top tab
+            // set tab to list view
+            // check that filters wont hide the message
+        });
+        
+        $("#post_your_own_form form").submit(function(e) {
+
+            // FIXME: this looks a heck of a lot like a no-op to me
+            var input = $(".rawMessage #message_to_send", this).val();
+            $("#message_to_send").val(input);
+
+            // do not submit the form
+            return e.preventDefault();
+        });
+        
+        //parse offer just in case there is infromation already there
+        parse_offer();
+        
+    }); //end document.ready
+
+
+</script>
 
         <!-- end copy to tradeify_widget.xml -->
     </div>
