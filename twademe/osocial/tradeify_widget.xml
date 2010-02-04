@@ -8,13 +8,8 @@
   <!-- Content section for profile view omitted -->
   <Content type="html" view="canvas">
     <![CDATA[
-<<<<<<< HEAD
-        <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
-=======
           <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
->>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
             media="all" />
         <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
             media="all" />
@@ -291,14 +286,9 @@
 
     $(document).ready(function() {
 
-<<<<<<< HEAD
-        // adjusts height in ning, does nothing in test
-        container.adjustHeight(1000);
-=======
 
         // adjusts height in ning, does nothing in test
         container.adjustHeight(1200);
->>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
         $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
 
@@ -353,10 +343,7 @@
                 //alert("message posted");
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
-<<<<<<< HEAD
-=======
                 container.adjustHeight(600);
->>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
@@ -365,13 +352,8 @@
                 
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {
-<<<<<<< HEAD
-                    $("#results").animate({ scrollTop: 0 }, 'slow');
-                    $("#offer_template").children(":first-child").effect("highlight", {}, 10000)
-=======
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
                     $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
->>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
                 }, 300);
 
             });
@@ -403,14 +385,11 @@
 
 
 
-<<<<<<< HEAD
-=======
     google.load("maps", "3", { other_params: "sensor=false" });
 
 
 </script>
 
->>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
 
     ]]>
   </Content>
