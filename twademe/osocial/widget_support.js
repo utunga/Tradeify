@@ -127,8 +127,8 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
     var map_directives = {
         'div.map_offer': {
             'map_offer <- Messages': {
-            'a.map_username@href': 'map_offer.created_by.provider_url',
-            'a.map_avatar@href': 'map_offer.created_by.provider_url',
+            'a.map_username@href': 'map_offer.created_by.profile_url',
+            'a.map_avatar@href': 'map_offer.created_by.profile_url',
             'a.map_username': 'map_offer.created_by.provider_user_name',
             '.map_avatar img@src': 'map_offer.created_by.profile_pic_url',
                 '.map_msg .map_text': 'map_offer.offer_text',
