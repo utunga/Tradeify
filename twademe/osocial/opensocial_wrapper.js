@@ -16,6 +16,7 @@
          sending data from form
        ------------------------------*/
     this.get_user_location = function() {
+        var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
         var location;
         req.send(function(response) {
