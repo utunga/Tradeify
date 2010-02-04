@@ -8,15 +8,7 @@
   <!-- Content section for profile view omitted -->
   <Content type="html" view="canvas">
     <![CDATA[
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Widget</title>
-</head>
-<body>
-    <div style="width: 737px; padding: 5px">
-        <!-- copy to tradeify_widget.xml starts below here -->
-        <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+         <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
             media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
@@ -295,7 +287,7 @@
     $(document).ready(function() {
 
         // adjusts height in ning, does nothing in test
-        container.adjustHeight(1000);
+
         $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
 
@@ -310,7 +302,7 @@
         });
 
         list_widget.on_offers_updated(createRHSTags);
-        var spinner_message = "Retrieving data...";
+        var spinner_message = "Retrieving data..."
         $("#results").tabs({
             fx: { height: 'toggle', opacity: 'toggle' },
             show: function(event, ui) {
@@ -320,11 +312,15 @@
                 }
                 if (ui.panel.id == "results-3") {
                     $(".right_col").hide();
+                    container.adjustHeight(1000);
                     post_your_own_form_init(); //need to create the google map for the form *after* tab shown
                 }
-                else $(".right_col").show();
+                else {
+                    container.adjustHeight(600);
+                    $(".right_col").show();
+                }
             },
-            spinner:spinner_message
+            spinner: spinner_message
         });
 
         $("#by_parts input").keyup(update_offer);
@@ -349,14 +345,16 @@
                 //.tabs( 'select' , index )
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
+                container.adjustHeight(600);
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
                 //it is possible that the first child will not be the message posted however this is unlikely
-                setTimeout(function() {
-                    $('html, body').animate({ scrollTop: 0 }, 'slow');
-                    $("#offer_template").children(":first-child").effect("highlight", {}, 3000) 
+                setTimeout(function() {                   
+                    //$('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
                 }, 300);
+
             });
 
             // how long to wait after submit for the form to load?
@@ -381,7 +379,7 @@
         //parse offer just in case there is infromation already there
         parse_offer();
 
-    });     //end document.ready
+    });       //end document.ready
 
 
 </script>
