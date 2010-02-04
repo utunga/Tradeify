@@ -19,6 +19,8 @@
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
         var location;
         req.send(function(response) {
+            var viewer = response.get('viewer').getData();
+            //var viewerJson = gadgets.json.stringify(viewer);
             location = viewer.getField(opensocial.Person.Field.UNSTRUCTURED_ADDRESS, null);
         });
         return location;
@@ -35,7 +37,7 @@
         req.send(function(response) {
 
             var viewer = response.get('viewer').getData();
-            var viewerJson = gadgets.json.stringify(viewer);
+            //var viewerJson = gadgets.json.stringify(viewer);
             var name = viewer.getDisplayName();
             var thumbnail = viewer.getField(opensocial.Person.Field.THUMBNAIL_URL, null);
             var profileUrl = viewer.getField(opensocial.Person.Field.PROFILE_URL, null);
