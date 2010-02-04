@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Market Place"
+  <ModulePrefs title="Marketplace (Beta)"
       height="600" scrolling="true">
     <Require feature="dynamic-height"/>
     <Require feature="opensocial-0.7" />
@@ -8,12 +8,17 @@
   <!-- Content section for profile view omitted -->
   <Content type="html" view="canvas">
     <![CDATA[
+<<<<<<< HEAD
         <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
+=======
+          <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
+>>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
             media="all" />
-        <link href="http://www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
+        <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
             media="all" />
-        <link href="http://www.tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
         <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
         <div id="current_tags">
@@ -73,7 +78,7 @@
                                 <label for="location">
                                     in
                                 </label>
-                                <input type="text" class="ui-state-default ui-corner-all defaultText" tabindex="1" name="location"
+                                <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post" tabindex="1" name="location"
                                     id="location" title="(suburb)" />
                                 <div id="map_canvas">
                                 </div>
@@ -92,7 +97,7 @@
                                 <label for="until" class="desc">
                                     until
                                 </label>
-                                <input type="text" name="until" id="until" class="ui-state-default ui-corner-all" />
+                                <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
                             </div>
                             <!-- <div class="tags" style="width: 430px;">
                     <label> Tags </label>
@@ -187,39 +192,39 @@
 <![endif]-->
         <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
 
-        <script type="text/javascript" src="http://www.tradeify.org/js/jquery-1.3.2.js">      </script>
+        <script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js">      </script>
 
         <!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
         <!-- google maps API v3 doesn't need an API key! -->
 
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
-        <script type="text/javascript" src="http://www.tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
 
-        <script type="text/javascript" src="http://www.tradeify.org/js/quickpager.jquery.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
 
-        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.pager.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
 
-        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/js/jquery.autocomplete.min.js"></script>
 
         <!--
-<script type="text/javascript" src="http://www.tradeify.org/js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>
 -->
 
-        <script type="text/javascript" src="http://www.tradeify.org/js/pure_packed_v2.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
 
-        <script type="text/javascript" src="http://www.tradeify.org/js/tag_support.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/js/tag_support.js"></script>
 
-        <script type="text/javascript" src="http://www.tradeify.org/osocial/tradeify_widget.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
 
-        <script type="text/javascript" src="http://www.tradeify.org/osocial/opensocial_wrapper.js"></script>
         <!--uncomment for running on ning as part of tradiefy_widget.xml-->
+        <script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
+        
+        <!-- uncomment for running as part of widget_mock.html-->
+        <!--<script type="text/javascript" src="http://tradeify.org/osocial/mock_wrapper.js"></script>-->
 
-        <!--<script type="text/javascript" src="http://www.tradeify.org/osocial/mock_wrapper.js"></script>-->
-
-        <!--             un comment for running as part of widget_mock.html-->
-
-        <script type="text/javascript" src="http://www.tradeify.org/osocial/widget_support.js"></script>
+        
+        <script type="text/javascript" src="http://tradeify.org/osocial/widget_support.js"></script>
 
 <script type="text/javascript">
 
@@ -286,8 +291,14 @@
 
     $(document).ready(function() {
 
+<<<<<<< HEAD
         // adjusts height in ning, does nothing in test
         container.adjustHeight(1000);
+=======
+
+        // adjusts height in ning, does nothing in test
+        container.adjustHeight(1200);
+>>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
         $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
 
@@ -340,16 +351,27 @@
             container.post_message(message, function(response_data) {
                 console.log("post_message result:" + response_data);
                 //alert("message posted");
-                //.tabs( 'select' , index )
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
+<<<<<<< HEAD
+=======
+                container.adjustHeight(600);
+>>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
+                post_your_own_currency_tags.reset();
+                post_your_own_general_tags.reset();
+                
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {
+<<<<<<< HEAD
                     $("#results").animate({ scrollTop: 0 }, 'slow');
                     $("#offer_template").children(":first-child").effect("highlight", {}, 10000)
+=======
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
+>>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
                 }, 300);
 
             });
@@ -376,11 +398,19 @@
         //parse offer just in case there is infromation already there
         parse_offer();
 
-    });       //end document.ready
+       
+    });         //end document.ready
+
+
+
+<<<<<<< HEAD
+=======
+    google.load("maps", "3", { other_params: "sensor=false" });
 
 
 </script>
 
+>>>>>>> e513f1adfbce90e4238aa1471494e9900d099867
 
     ]]>
   </Content>

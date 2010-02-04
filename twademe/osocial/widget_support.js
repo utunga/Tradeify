@@ -275,6 +275,9 @@ function TagsWidget(selector, initial_tags, active_tags, tag_type) {
     this.update_view = function() {
         tags.update_view();
     };
+    this.reset = function() {
+        init();
+    };
     this.Tags = tags;
 };
 
