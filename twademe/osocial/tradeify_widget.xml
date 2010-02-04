@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Market Place"
+  <ModulePrefs title="Marketplace (Beta)"
       height="600" scrolling="true">
     <Require feature="dynamic-height"/>
     <Require feature="opensocial-0.7" />

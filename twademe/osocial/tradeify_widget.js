@@ -75,6 +75,7 @@ function toggle_offered() {
     $("#offered_filter").toggleClass("ui-state-active");
     update_type_filters();
 }
+
 function update_type_filters() {
     if (toggle_offered_on && toggle_wanted_on) {
         list_widget.remove_filter("offer", "msg_type");
@@ -251,11 +252,11 @@ var post_your_own_form_initialized = false;
 function post_your_own_form_init() {
     
     if (post_your_own_form_initialized) return; //already initalized
-    
     if (typeof google !== 'undefined') {
-        google.load("maps", "3", { callback: google_initialize, other_params: "sensor=false" });
+        google_initialize();
     }
 }
+
 var region="NZ"
 function google_initialize() {
 	geocoder = new google.maps.Geocoder({'region':region});
