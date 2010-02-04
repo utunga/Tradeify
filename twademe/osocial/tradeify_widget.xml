@@ -310,7 +310,7 @@
         });
 
         list_widget.on_offers_updated(createRHSTags);
-        var spinner_message = "Retrieving data..."
+        var spinner_message = "Retrieving data...";
         $("#results").tabs({
             fx: { height: 'toggle', opacity: 'toggle' },
             show: function(event, ui) {
@@ -324,7 +324,7 @@
                 }
                 else $(".right_col").show();
             },
-            spinner:spinner_message;
+            spinner:spinner_message
         });
 
         $("#by_parts input").keyup(update_offer);
