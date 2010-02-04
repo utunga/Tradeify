@@ -342,7 +342,10 @@
                     $(this).val($(this).attr("title"));
                 });
                 //it is possible that the first child will not be the message posted however this is unlikely
-                setTimeout(function() { $("#offer_template").children(":first-child").effect("highlight", {}, 3000) }, 300);
+                setTimeout(function() {
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $("#offer_template").children(":first-child").effect("highlight", {}, 3000) 
+                }, 300);
 
             });
 
