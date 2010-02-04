@@ -300,7 +300,7 @@
         });
 
         list_widget.on_offers_updated(createRHSTags);
-
+        var spinner_message = "Retrieving data..."
         $("#results").tabs({
             fx: { height: 'toggle', opacity: 'toggle' },
             show: function(event, ui) {
@@ -313,7 +313,8 @@
                     post_your_own_form_init(); //need to create the google map for the form *after* tab shown
                 }
                 else $(".right_col").show();
-            }
+            },
+            spinner:spinner_message
         });
 
         $("#by_parts input").keyup(update_offer);
