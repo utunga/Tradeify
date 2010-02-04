@@ -285,7 +285,7 @@
     $(document).ready(function() {
 
         // adjusts height in ning, does nothing in test
-
+        container.adjustHeight(1000);
         $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
 
@@ -310,11 +310,9 @@
                 }
                 if (ui.panel.id == "results-3") {
                     $(".right_col").hide();
-                    container.adjustHeight(1000);
                     post_your_own_form_init(); //need to create the google map for the form *after* tab shown
                 }
                 else {
-                    container.adjustHeight(600);
                     $(".right_col").show();
                 }
             },
@@ -343,14 +341,13 @@
                 //.tabs( 'select' , index )
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
-                container.adjustHeight(600);
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
                 //it is possible that the first child will not be the message posted however this is unlikely
-                setTimeout(function() {                   
-                    $('html, body').animate({ scrollTop: 0 }, 'slow');
-                    $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
+                setTimeout(function() {
+                    $("#results").animate({ scrollTop: 0 }, 'slow');
+                    $("#offer_template").children(":first-child").effect("highlight", {}, 10000)
                 }, 300);
 
             });
