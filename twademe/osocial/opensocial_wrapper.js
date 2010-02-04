@@ -22,7 +22,11 @@
         req.send(function(response) {
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);
-            location = viewer.getField(opensocial.Person.Field.UNSTRUCTURED_ADDRESS, null);
+            var viewerlocations = viewer.getField(opensocial.Person.Field.ADDRESSES, null);
+            var viewerlocation = viewerlocations[0];
+            if (!!viewerlocation) {
+                location = viewerlocation.getField(opensocial.Address.Field.UNSTRUCTURED_ADDRESS, null);
+            }
         });
         return location;
     };
