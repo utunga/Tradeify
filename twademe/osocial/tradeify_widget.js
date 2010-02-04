@@ -275,12 +275,17 @@ function google_initialize() {
 //			$(".location #location").val(currentAddr);
 //			geo_code_address();
 //	}
-
+    var user_location=container.get_user_location();
+    if (!!user_location) {
+        $(".location #location").val(currentAddr);
+        geo_code_address();
+    }
+    
 	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
 	post_your_own_form_initialized = true;
 }
 
-function geo_code_address() {
+function geo_code_address(adress) {
 	var address = $(".location #location").val();
 	//map.clearOverlays();
 	if (geocoder) {

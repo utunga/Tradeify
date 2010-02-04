@@ -18,7 +18,7 @@ function mock_container() {
     this.adjustHeight = function(height) {    
         //does nothing in test
     }
-    
+    this.get_user_location = function() { }
     this.post_message = function(message) {
        
         callback = (arguments.length>1) ? arguments[1] : function() {}

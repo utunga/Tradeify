@@ -15,6 +15,14 @@
     /* ------------------------------
          sending data from form
        ------------------------------*/
+    this.get_user_location = function() {
+        req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
+        var location;
+        req.send(function(response) {
+            location = viewer.getField(opensocial.Person.Field.UNSTRUCTURED_ADDRESS, null);
+        });
+        return location;
+    };
 
     this.post_message = function(message) {
 
