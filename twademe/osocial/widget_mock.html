@@ -54,7 +54,7 @@
                         </div>
                         <fieldset id="by_parts" class="ui-corner-all">
                             <h4>
-                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer()"/>I am offering<input type="radio"
+                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked=""/>I am offering<input type="radio"
                                     name="message_type" value="WANT" onclick="update_offer()"/>
                                 I want</h4>
                                 
@@ -67,7 +67,7 @@
                             <span class="ui-icon ui-icon-tag"/>
                             
                             </a>
-                            <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag" onKeyUp="tag_keyup()" title="Insert another tag here"/>
+                            <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="Insert another tag here"/>
                             </div>
                             <!--<button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>-->
                             <!--</div>-->
@@ -360,8 +360,8 @@
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
-                post_your_own_currency_tags.reset();
-                post_your_own_general_tags.reset();
+                post_your_own_currency_tags.val("");
+                post_your_own_general_tags.val("");
                 
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {

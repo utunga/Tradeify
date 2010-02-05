@@ -344,9 +344,13 @@ function tag_keyup() {
     }, 4000);
 }
 function custom_tag() {
-    post_your_own_general_tags.Tags.add_tag($("#typed_tag").val(), "tag", true);
+    var tag=$("#typed_tag").val();
+    if (tag.trim() != "") {
+        post_your_own_general_tags.Tags.add_tag("tag", true);
+        tags_widget_click();
+    }
     $("#typed_tag").val("");
-    tags_widget_click();
+    
 }
 
 
