@@ -5,194 +5,73 @@
 </head>
 <body>
 
+<link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
 
-
-<div id="tags_widget"></div>
+<div id="post_your_own_general_tags">
+</div>
+<div id="type_tag_div style="margin-bottom:15px">
 <input type="text" class="ui-state-default ui-corner-all" id="typed_tag"/>
 <button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>
-
-<div id="selected_tags"></div>
+</div>
+                         
 <script type="text/javascript" src="../js/jquery-1.3.2.js"></script>
 <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript" src="../js/jquery.tools.min.js"></script>
 <script type="text/javascript" src="../js/jquery.autocomplete.min.js"></script>
 <script type="text/javascript" src="../js/tag_support.js"></script>
 <script type="text/javascript" src="../osocial/widget_support.js"></script>
+<script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 <script type="text/javascript" src="../osocial/mock_wrapper.js"></script><!--             un comment for running as part of widget_mock.html-->
 
 <script type="text/javascript">
 
-var suggested_tags;
-var selected_tags;
-var tags_widget;
+    var post_your_own_general_tags;
+    //var message_type;
+    var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
+, "seedlings", "garden_supplies", "garden_services", "books", "workshops");
 
-var update_suggested_tags = function() {
-    var json_url = selected_tags.decorate_url(container.tags_uri +"?type=tag");
-    suggested_tags = new Array();
-    $.getJSON(json_url, function(data) {
-        $.each(data, function() {
-            if (this.type == "tag") 
-                suggested_tags.push(this.tag);
+    function default_tag_setup() {
+        $(".defaultText").focus(function(srcc) {
+            if ($(this).val() == $(this)[0].title) {
+                $(this).removeClass("defaultTextActive");
+                $(this).val("");
+            }
         });
-        
-        //rebuild the whole widget
-        tags_widget = new TagsWidget("#tags_widget", suggested_tags, selected_tags, "tag", tags_widget_click);
-    });
-};
 
-var tags_widget_click = function(tag_text, tag_type) {
-    if (selected_tags.has_tag(tag_text)) {
-        selected_tags.remove_tag(tag_text);
+        $(".defaultText").blur(function() {
+            if ($(this).val() == "") {
+                $(this).addClass("defaultTextActive");
+                $(this).val($(this)[0].title);
+            }
+        });
+
+        $(".defaultText").blur();      
+
     }
-    else {        
-        selected_tags.add_tag(tag_text, tag_type);
-    }
-    update_suggested_tags();
+
+
+    $(document).ready(function() {
+        $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
+
+        $("#add_typed_tag").click(function() {
+            var typed_tag_text = $("#typed_tag").val();
+            post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
+            tags_widget_click();
+        });
+
+        default_tag_setup();
+        post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+
+    });         //end document.ready
+
+
+function update_and_dont_parse() {
+    //no op to allow testing
 }
 
-// merge tags from the list of most common tags, given current selected tags
-// with the lsit of hard coded suggested tags from hiarchy of categories
-// to create 'suggested_tags'...
-
-$(function() {
-     $("#search_general_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
-     selected_tags = new Tags("#selected_tags");
-     update_suggested_tags(); 
-     $("#add_typed_tag").click(function() {
-        var typed_tag_text = $("#typed_tag").val();
-        selected_tags.add_tag(typed_tag_text, "tag");
-        update_suggested_tags();
-     });
-});
-
-//function queryGeneralTag(){
-//    /*var queryIdx=$.inArray(query,search_tags);
-//    if(queryIdx!=-1){	
-//        return;
-//    }*/
-//    list_widget.add_filter(query, "tag");
-//    //update_offers();
-//}
-
-//var selected_tags = [];
-//var tags = [];
-//var threshold = 200;
-//var keyChangeStack = 0;
-
-//function timeoutKeyChange() {
-//    keyup(update_tags, threshold);
-//    /*keyChangeStack++;
-//    setTimeout(function() {
-//    keyChangeStack--;
-//    if (keyChangeStack == 0) {
-//    update_tags();
-//    }
-//    }, threshold);*/
-//}
-
-//function ontag_click() {
-//    var tagField = $("#tags").val();
-//    var pushed_tag = $(this).html();
-//    if ($.inArray(pushed_tag, selected_tags) <= -1) {
-//        if (tagField != "")
-//            $("#tags").val(tagField + " " + pushed_tag);
-//        else $("#tags").val(pushed_tag);
-//    }
-//    else {
-//        //var txt = new RegExp("(,\s*" + pushed_tag + "\s*)|(^\s*" + pushed_tag + "\s*,*)");
-//        var replacementText = tagField.replace(pushed_tag, "");
-//        $("#tags").val(replacementText);
-//    }
-//    update_tags();
-//    update_and_dont_parse();
-//    return false; //disable actual click
-//}
-
-//function getTagString() {
-//    var tagString = ""
-//    $.each(selected_tags, function() {
-//        tagString = tagString + " #" + this;
-//    });
-//    return tagString;
-//}
-
-//function checkCSS() {
-//    $.each($(".select_tag"), function() {
-//        if ($.inArray($(this).html(), selected_tags) > -1) {
-//            $(this).addClass("on");
-//        }
-//        else if ($(this).hasClass("on")) $(this).removeClass("on");
-//    });
-//}
-
-
-//function update_tags() {
-
-//    //get rid of multiple spaces...
-//    var txt = new RegExp("\\s\\s+");
-//    $("#tags").val($("#tags").val().replace(txt, " "));
-//    //just in case a single \t or \n is present
-//    txt = new RegExp("\\s+");
-//    //var txt = new RegExp("\\s\\s*"); 
-//    var tagString = $("#tags").val().replace(txt, " ").trim();
-//    $("#tags").val(tagString);
-//    //if(selected_tags.length>0) 
-//    if (tagString != "" && tagString != " ")
-//        selected_tags = tagString.split(" ");
-//    else selected_tags = [];
-//    var selectedTagsHTML = $(selected_tags).map(function() {
-//        return "#" + this;
-//    }).get().join(", ");
-
-//    $("#selected_tags").html(selectedTagsHTML);
-
-//    var json_url = build_tags_query(this.container.tags_uri);
-//    $.getJSON(json_url, function(context) {
-//        tags = context.tags_json.overall;
-//        var tagString = "";
-//        //var fixedTags = main_widget.get_fixed_tags();
-//        $.each(tags, function() {
-//            if (this.type != "loc" && this.type != "currency" && this.tag != group/*$.inArray(this.tag,fixedTags)<=-1*/) {
-//                var on = "";
-//                var endon = "";
-//                if (($.inArray(this.tag, selected_tags) > -1)) {
-//                    on = "<li class=\"on\">";
-//                    endon = "</li>";
-//                }
-//                else {
-//                    on = "<li>";
-//                    endon = "</li>";
-//                }
-//                tagString = (tags === "") ? this.tag : tagString + "\n" + on + "<a href=\"#\" class=\"select_tag\">" + this.tag + "</a>" + endon;
-//            }
-//        });
-
-//        //alert(tagString);
-//        //if (!(typeof suggested_tags_render_fn == 'function')) {
-//        //if not yet compiled compile it
-//        /*    compile_render_fn();
-//		
-//		var render = $p.render('suggested_tags_render_fn', tags);
-//        */
-//        $('#suggested_tags').html(tagString);
-//        $("#suggested_tags .select_tag").click(ontag_click);
-//    });
-//}
-
-
-//function build_tags_query(baseUrl) {
-//    if (tags.length == 0) return baseUrl + "?jsoncallback=?";
-//    var query = "";
-//    $.each(tags, function() {
-//        if ($.inArray(this.tag, selected_tags) > -1)
-//            query = query + this.type + "=" + escape(this.tag) + "&";
-//    });
-//    query = query.substring(0, query.length - 1);
-//    return baseUrl + "?" + query + "&jsoncallback=?";
-//}
 
 </script>
 </body>

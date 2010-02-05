@@ -339,11 +339,8 @@ function message_keyup() {
 
 /* ------------------------------
  Support for suggested tags 
- SUGGESTED TAGS (NOT USED FOR NOW)
 ------------------------------*/
 
-
-/* dont need suggested tags for now */
 var update_suggested_tags = function() {
     var selected_tags = post_your_own_general_tags.get_active_tags();
     if (selected_tags.length > 0) {
