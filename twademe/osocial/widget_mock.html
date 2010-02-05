@@ -59,10 +59,15 @@
                                 I want</h4>
                             <div id="post_your_own_general_tags">
                             </div>
-                            <div id="type_tag_div style="margin-bottom:15px">
-                            <input type="text" class="ui-state-default ui-corner-all" id="typed_tag"/>
-                            <button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>
-                            </div>
+                            <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
+                            <!--ui-state-default ui-corner-all-->
+                            <a class=" tag fg-button-icon-left  ui-corner-tag">
+                            <span class="ui-icon ui-icon-tag"/>
+                            
+                            </a>
+                            <input type="text" class="ui-state-default ui-corner-all" id="typed_tag" onKeyUp="tag_keyup()"/>
+                            <!--<button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>-->
+                            <!--</div>-->
                             <div class="offerPart">
                                 <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     id="offer" title="(details)"></textarea>
@@ -293,13 +298,13 @@
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
         list_widget.add_fixed_filter("ooooby", "group");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
-
+        /*
         $("#add_typed_tag").click(function() {
             var typed_tag_text = $("#typed_tag").val();
             post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
             tags_widget_click();
         });
-
+        */
         list_widget.on_offers_updated(createRHSTags);
         var spinner_message = "Retrieving data..."
         $("#results").tabs({
@@ -328,6 +333,7 @@
         post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
 
         $("#post_your_own_form #until").datepicker({
+            defaultDate: +14,
             minDate: 0,
             dateFormat: "dd M yy",
             constrainInput: true,

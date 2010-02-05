@@ -282,7 +282,7 @@ function google_initialize() {
         geo_code_address();
     }
     
-	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
+	$(".location  #location").keyup(function() { address_keyup(); });
 	post_your_own_form_initialized = true;
 }
 
@@ -328,6 +328,21 @@ function message_keyup() {
 	    }
 	}, keyup_threshold);
 }
+var tag_keyup_stack = 0;
+function tag_keyup() {
+    tag_keyup_stack++;
+    setTimeout(function() {
+        tag_keyup_stack--;
+        if (tag_keyup_stack == 0) {
+            custom_tag();
+        }
+    }, 4000);
+}
+function custom_tag() {
+    post_your_own_general_tags.Tags.add_tag($("#typed_tag").val(), "tag", true);
+    $("#typed_tag").val("");
+    tags_widget_click();
+}
 
 
 
@@ -361,9 +376,11 @@ var update_suggested_tags = function() {
                 if ($.inArray(this, suggested_tags) < 0) suggested_tags.push(this);
             });
             post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", suggested_tags, selected_tags, "tag", tags_widget_click);
+            
         });
     }
     else post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+    
 
 
 };
