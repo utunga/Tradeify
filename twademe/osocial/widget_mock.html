@@ -360,8 +360,8 @@
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
-                post_your_own_currency_tags.val("");
-                post_your_own_general_tags.val("");
+                post_your_own_currency_tags.reset();
+                post_your_own_general_tags.reset();
                 
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {

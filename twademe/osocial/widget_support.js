@@ -319,6 +319,9 @@ function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
 
     init();
 
+    this.reset = function() {
+        init();
+    };
     this.get_active_tags_text = function() {
         return tags.get_active_tags_text();
     };
