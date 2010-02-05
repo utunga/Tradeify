@@ -57,6 +57,7 @@
                                 <input type="radio" name="message_type" value="OFFER" onclick="update_offer()"/>I am offering<input type="radio"
                                     name="message_type" value="WANT" onclick="update_offer()"/>
                                 I want</h4>
+                                
                             <div id="post_your_own_general_tags">
                             </div>
                             <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
@@ -136,15 +137,23 @@
                     </div>
                 </div>
             </div>
-            <div class="right_col">
+            <div class="right_col">               
+               
                 <h3>
-                    Find</h3>
-                <div id="type_filter" style="font-size:150%">
+                Find
+                <a id="type_filter" style="font-size:150%">
                     <a id="offered_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_offered()">Offered
                     </a> |
                     <a id="wanted_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_wanted()">Wanted
                     </a>
-                </div>
+                </a>
+                </h3>
+                
+                <div style="margin-top:10px">
+                <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
+                <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
+                    Search tags</button>
+                </div>    
                 <h4>
                     Categories/Tags</h4>
                 <div id="filter_general_tags">
@@ -160,9 +169,7 @@
                     Location</h4>
                 <div id="filter_location_tags">
                 </div>
-                <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" />
-                <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
-                    search</button>
+
             </div>
         </div>
         <div id="map_popup" style="padding-bottom: 30px;">
@@ -292,7 +299,7 @@
 
         // adjusts height in ning, does nothing in test
         container.adjustHeight(1200);
-        $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
+        $("#search_location_tag").autocomplete(container.tags_ahead_uri);
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
 
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
