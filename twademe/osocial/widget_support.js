@@ -54,10 +54,12 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
-                var times = this.timestamp.split("T");
-                var dates = times[0].split("-");
+                var overall = this.timestamp.split("T");
+                var dates = overall[0].split("-");
+                var times = overall[1].split(":");
+                var time = times[0] + ":" + times[1];
                 var date = dates[2] + "-" + dates[1] + "-" + dates[0];
-                this.timestamp = times[1] +" " + date;
+                this.timestamp = time + " " + date;
                 //this.timestamp = Date.parse(this.timestamp);
             }
             );
