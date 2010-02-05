@@ -56,7 +56,7 @@
                         </div>
                         <fieldset id="by_parts" class="ui-corner-all">
                             <h4>
-                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer()"/>I am offering<input type="radio"
+                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer() " checked=""/>I am offering<input type="radio"
                                     name="message_type" value="WANT" onclick="update_offer()"/>
                                 I want</h4>
                                 
