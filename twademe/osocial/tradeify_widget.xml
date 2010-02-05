@@ -8,7 +8,7 @@
   <!-- Content section for profile view omitted -->
   <Content type="html" view="canvas">
     <![CDATA[
-          <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
             media="all" />
         <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
@@ -59,12 +59,20 @@
                                 <input type="radio" name="message_type" value="OFFER" onclick="update_offer()"/>I am offering<input type="radio"
                                     name="message_type" value="WANT" onclick="update_offer()"/>
                                 I want</h4>
+                                
                             <div id="post_your_own_general_tags">
                             </div>
-                            <div id="type_tag_div style="margin-bottom:15px">
-                            <input type="text" class="ui-state-default ui-corner-all" id="typed_tag"/>
-                            <button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>
+                            <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
+                            <!--ui-state-default ui-corner-all-->
+                            <div>
+                            <a class=" tag fg-button-icon-left  ui-corner-tag">
+                            <span class="ui-icon ui-icon-tag"/>
+                            
+                            </a>
+                            <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag" onKeyUp="tag_keyup()" title="Insert another tag here"/>
                             </div>
+                            <!--<button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>-->
+                            <!--</div>-->
                             <div class="offerPart">
                                 <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     id="offer" title="(details)"></textarea>
@@ -133,15 +141,23 @@
                     </div>
                 </div>
             </div>
-            <div class="right_col">
+            <div class="right_col">               
+               
                 <h3>
-                    Find</h3>
-                <div id="type_filter" style="font-size:150%">
+                Find
+                <a id="type_filter" style="font-size:150%">
                     <a id="offered_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_offered()">Offered
                     </a> |
                     <a id="wanted_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_wanted()">Wanted
                     </a>
-                </div>
+                </a>
+                </h3>
+                
+                <div style="margin-top:10px">
+                <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
+                <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
+                    Search tags</button>
+                </div>    
                 <h4>
                     Categories/Tags</h4>
                 <div id="filter_general_tags">
@@ -157,9 +173,7 @@
                     Location</h4>
                 <div id="filter_location_tags">
                 </div>
-                <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" />
-                <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
-                    search</button>
+
             </div>
         </div>
         <div id="map_popup" style="padding-bottom: 30px;">
@@ -212,13 +226,13 @@
 
         <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
 
-        <!--uncomment for running on ning as part of tradiefy_widget.xml-->
         <script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
-        
-        <!-- uncomment for running as part of widget_mock.html-->
+        <!--uncomment for running on ning as part of tradiefy_widget.xml-->
+
         <!--<script type="text/javascript" src="http://tradeify.org/osocial/mock_wrapper.js"></script>-->
 
-        
+        <!--             un comment for running as part of widget_mock.html-->
+
         <script type="text/javascript" src="http://tradeify.org/osocial/widget_support.js"></script>
 
 <script type="text/javascript">
@@ -289,19 +303,19 @@
 
         // adjusts height in ning, does nothing in test
         container.adjustHeight(1200);
-        $("#search_location_tag").autocomplete(container.tags_ahead_uri + "?type=loc");
+        $("#search_location_tag").autocomplete(container.tags_ahead_uri);
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
 
         list_widget = new TradeifyWidget("#results-1", "#current_tags");
         list_widget.add_fixed_filter("ooooby", "group");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
-
+        /*
         $("#add_typed_tag").click(function() {
             var typed_tag_text = $("#typed_tag").val();
             post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
             tags_widget_click();
         });
-
+        */
         list_widget.on_offers_updated(createRHSTags);
         var spinner_message = "Retrieving data..."
         $("#results").tabs({
@@ -330,6 +344,7 @@
         post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
 
         $("#post_your_own_form #until").datepicker({
+            defaultDate: +14,
             minDate: 0,
             dateFormat: "dd M yy",
             constrainInput: true,
@@ -343,6 +358,7 @@
                 //alert("message posted");
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
+                container.adjustHeight(600);
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
@@ -385,6 +401,7 @@
 
 
     google.load("maps", "3", { other_params: "sensor=false" });
+
 
 
 </script>
