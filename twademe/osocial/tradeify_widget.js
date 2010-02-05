@@ -333,6 +333,7 @@ function message_keyup() {
 	    }
 	}, keyup_threshold);
 }
+/*
 var tag_keyup_stack = 0;
 function tag_keyup() {
     tag_keyup_stack++;
@@ -353,7 +354,7 @@ function custom_tag() {
     
 }
 
-
+*/
 
 
 

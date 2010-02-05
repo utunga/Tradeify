@@ -309,12 +309,24 @@
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
         /*
         $("#add_typed_tag").click(function() {
-            var typed_tag_text = $("#typed_tag").val();
-            post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
-            tags_widget_click();
+        var typed_tag_text = $("#typed_tag").val();
+        post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
+        tags_widget_click();
         });
         */
         list_widget.on_offers_updated(createRHSTags);
+        //easiest way to reconcile the autocomplete and wish to submit after timeout
+        var previous_tag = "";
+        //need to check whether autocomplete is currently open
+        setInterval(function() {
+            var tag = $("#typed_tag").val();
+            if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title) {
+                post_your_own_general_tags.Tags.add_tag(tag,"tag", true);
+                tags_widget_click();
+                $("#typed_tag").val("");
+            }            
+            previous_tag = tag;
+        }, 2000);
         var spinner_message = "Retrieving data..."
         $("#results").tabs({
             fx: { height: 'toggle', opacity: 'toggle' },
@@ -362,7 +374,7 @@
                 });
                 post_your_own_currency_tags.reset();
                 post_your_own_general_tags.reset();
-                
+
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -393,8 +405,8 @@
         //parse offer just in case there is infromation already there
         parse_offer();
 
-       
-    });         //end document.ready
+
+    });            //end document.ready
 
 
 
