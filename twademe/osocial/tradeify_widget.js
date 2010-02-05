@@ -129,17 +129,21 @@ function get_location() {
 }
 
 function get_offer() {
+
     var offer = $("#offer").val().trim();
-    var prefix = $("input[@name='message_type']:checked").val();
-    prefix = (prefix == "OFFER") ? offerPrefix : wantedPrefix;
-    return (offer.length == 0) ?  prefix + ".." : prefix + offer;
+    return (offer.length == 0) ? " .." : " "+offer;
 }
 
 function get_category_tags() {
     var categories = post_your_own_general_tags.get_active_tags_text();
     return (post_your_own_general_tags.length == 0) ? "" : categories;
 }
+function get_prefix() {
+   
+    var prefix = $("input[@name='message_type']:checked").val();
+    return(prefix == "OFFER") ? offerPrefix : wantedPrefix;
 
+}
 //function get_tags() {
 //	if (selected_tags.length == 0) return "";
 //	return " #" + selected_tags.join(" #");
@@ -158,11 +162,12 @@ function update_offer() {
 }
 function update_and_dont_parse() {
     var concatMessage =
+            get_prefix() +
+             get_category_tags() + 
              get_offer() +
 			 get_location() + 
              get_currency() +
-             get_until() +
-             get_category_tags() +
+             get_until() +             
     //			 get_tags() +  //SUGGESTED TAGS (NOT USED FOR NOW)
 //			 get_imagelink() +
 			 " #"+group;
