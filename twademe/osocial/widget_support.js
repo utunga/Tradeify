@@ -53,13 +53,23 @@ function TradeifyWidget(offers_selector, current_tags_selector) {
     var update_offers = function() {
         var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
+            $.each(data.Messages, function() {
+                var overall = this.timestamp.split("T");
+                var dates = overall[0].split("-");
+                var times = overall[1].split(":");
+                var time = times[0] + ":" + times[1];
+                var date = dates[2] + "-" + dates[1] + "-" + dates[0];
+                this.timestamp = time + " " + date;
+                //this.timestamp = Date.parse(this.timestamp);
+            }
+            );
             $(offers_selector + ' .template').render(data, offers_render_fn);
             $(offers_selector + ' .tags a').click(function() {
                 //add a filter when tags under a message are clicked
                 add_filter($(this).text(), $(this).css());
             });
             offers = data.Messages;
-            tags = data.Tags; 
+            tags = data.Tags;
             if (!!_offers_updated) {
                 $.each(_offers_updated, function() {
                     this(offers);
@@ -172,6 +182,10 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
             var infowindow = new google.maps.InfoWindow(
             {
                 content: $(map_popup_selector).html()
+            });
+            $('.map_tag').click(function() {
+                //add a filter when tags under a message are clicked
+                add_filter($(this).text(), $(this).css());
             });
             $(map_popup_selector + ' .template').hide();
             infowindow.open(map, marker);
@@ -300,10 +314,14 @@ function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
             after_click(tag_text, tag_type);
             return false;
         });
+        
     }
 
     init();
 
+    this.reset = function() {
+        init();
+    };
     this.get_active_tags_text = function() {
         return tags.get_active_tags_text();
     };

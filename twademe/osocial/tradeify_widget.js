@@ -129,17 +129,21 @@ function get_location() {
 }
 
 function get_offer() {
+
     var offer = $("#offer").val().trim();
-    var prefix = $("input[@name='message_type']:checked").val();
-    prefix = (prefix == "OFFER") ? offerPrefix : wantedPrefix;
-    return (offer.length == 0) ?  prefix + ".." : prefix + offer;
+    return (offer.length == 0) ? " .." : " "+offer;
 }
 
 function get_category_tags() {
     var categories = post_your_own_general_tags.get_active_tags_text();
     return (post_your_own_general_tags.length == 0) ? "" : categories;
 }
+function get_prefix() {
+   
+    var prefix = $("input[@name='message_type']:checked").val();
+    return(prefix == "OFFER") ? offerPrefix : wantedPrefix;
 
+}
 //function get_tags() {
 //	if (selected_tags.length == 0) return "";
 //	return " #" + selected_tags.join(" #");
@@ -158,11 +162,12 @@ function update_offer() {
 }
 function update_and_dont_parse() {
     var concatMessage =
+            get_prefix() +
+             get_category_tags() + 
              get_offer() +
 			 get_location() + 
              get_currency() +
-             get_until() +
-             get_category_tags() +
+             get_until() +             
     //			 get_tags() +  //SUGGESTED TAGS (NOT USED FOR NOW)
 //			 get_imagelink() +
 			 " #"+group;
@@ -282,7 +287,7 @@ function google_initialize() {
         geo_code_address();
     }
     
-	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
+	$(".location  #location").keyup(function() { address_keyup(); });
 	post_your_own_form_initialized = true;
 }
 
@@ -328,8 +333,28 @@ function message_keyup() {
 	    }
 	}, keyup_threshold);
 }
+/*
+var tag_keyup_stack = 0;
+function tag_keyup() {
+    tag_keyup_stack++;
+    setTimeout(function() {
+        tag_keyup_stack--;
+        if (tag_keyup_stack == 0) {
+            custom_tag();
+        }
+    }, 4000);
+}
+function custom_tag() {
+    var tag=$("#typed_tag").val();
+    if (tag.trim() != "") {
+        post_your_own_general_tags.Tags.add_tag("tag", true);
+        tags_widget_click();
+    }
+    $("#typed_tag").val("");
+    
+}
 
-
+*/
 
 
 
@@ -358,9 +383,11 @@ var update_suggested_tags = function() {
                 if ($.inArray(this, suggested_tags) < 0) suggested_tags.push(this);
             });
             post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", suggested_tags, selected_tags, "tag", tags_widget_click);
+            
         });
     }
     else post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+    
 
 
 };

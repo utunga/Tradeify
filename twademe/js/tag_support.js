@@ -204,35 +204,36 @@ function Tags(target_selector) {
         
         return baseUrl + query + "&jsoncallback=?";
     }
+    var max_tag_count = 20;
     this.get_html = function() {
 
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";
-        $.each(this.tags, function() {
-        	
-	        var ui_state_class = (this.active) ?  "ui-state-active" : "";
-	        var ui_icon_class;
-	        switch(this.type) {
-	            case("group"):
-	                ui_icon_class = "ui-icon-person";
-	                break;
-	              case("loc"):
+        //$.each(this.tags, function() {
+        for(var i=0;i<this.tags.length&&i<=max_tag_count;i++){
+            var ui_state_class = (this.tags[i].active) ? "ui-state-active" : "";
+            var ui_icon_class;
+            switch (this.tags[i].type) {
+                case ("group"):
+                    ui_icon_class = "ui-icon-person";
+                    break;
+                case ("loc"):
                     //FIXME the icon here is not great - a map would be beter
                     // eg http://famfamfam.com/lab/icons/mini/icons/page_url.gif
-	                ui_icon_class = "ui-icon-image";
-	                break;
-	            case("currency"):
-	                //FIXME created the icon 'ui-icon-currency' but has bad jaggies so use this for now
-	                ui_icon_class = "ui-icon-transfer-e-w";
-	                break;
-	            default:
-	                ui_icon_class = "ui-icon-tag";
-	        }
-        	
-	        tagString = tagString + "\n" +
-            "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n"+
-                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + this.tag + "</a>";
-        });
+                    ui_icon_class = "ui-icon-image";
+                    break;
+                case ("currency"):
+                    //FIXME created the icon 'ui-icon-currency' but has bad jaggies so use this for now
+                    ui_icon_class = "ui-icon-transfer-e-w";
+                    break;
+                default:
+                    ui_icon_class = "ui-icon-tag";
+            }
 
+            tagString = tagString + "\n" +
+            "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n" +
+                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + this.tags[i].tag + "</a>";
+        }
+    
         tagString = tagString + "</div>";
         return tagString;
     }
