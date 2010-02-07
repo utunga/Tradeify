@@ -397,11 +397,12 @@ var update_suggested_tags = function() {
 
 var tags_widget_click = function(tag_text, tag_type) {
     /*if (selected_tags.has_tag(tag_text)) {
-        selected_tags.remove_tag(tag_text);
+    selected_tags.remove_tag(tag_text);
     }
     else {
-        selected_tags.add_tag(tag_text, tag_type);
+    selected_tags.add_tag(tag_text, tag_type);
     }*/
     update_and_dont_parse();
     update_suggested_tags();
+    $("#post_your_own_general_tags").effect("highlight", {}, 3000);
 }
