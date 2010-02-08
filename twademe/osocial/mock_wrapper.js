@@ -14,10 +14,26 @@ function mock_container() {
     this.tags_ahead_uri = "/tags_ahead.aspx";
     //assumes test is running in local web
     this.accept_post_url = "/accept_post.aspx";
+    this.active_prompt = false;
    
     this.adjustHeight = function(height) {    
         //does nothing in test
     }
+    this.autocomplete_suggested_tags=function(selector){
+       // var active_prompt = false;
+        $(selector).autocomplete(this.tags_ahead_uri, {
+            formatItem: function(row) { active_prompt = true; return row[0]; },
+            extraParams: {type:"tag"}
+            //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
+        });
+        $(selector).result(function(){active_prompt=false});
+    }
+    
+    this.autocomplete_tag_search=function(selector){
+        $(selector).autocomplete(container.tags_ahead_uri);
+    }
+    
+    
     this.get_user_location = function() { }
     this.post_message = function(message) {
        
