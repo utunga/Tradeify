@@ -239,6 +239,7 @@
     <Content Include="css\ooooby_theme\jquery.autocomplete.css" />
     <Content Include="data\initial_tags.json" />
     <Content Include="js\jquery-ui-1.7.2.custom.min.js" />
+    <Content Include="js\jquery.autocomplete.js" />
     <Content Include="js\jquery.autocomplete.min.js" />
     <Content Include="js\jquery.pager.js" />
     <Content Include="js\jquery.tools.min.js" />
