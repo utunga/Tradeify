@@ -6,12 +6,25 @@
     this.parse_uri = "http://tradeify.org/parse.aspx?jsoncallback=?";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
     this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx?jsoncallback=?";
+    this.active_prompt = false;
     
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
 
-  
+    this.autocomplete_suggested_tags=function(selector){
+        $(selector).autocomplete(this.tags_ahead_uri+"&type=tag", {
+            formatItem: function(row) { active_prompt = true; return row[0]; },
+            extraParams: {/*type:"tag", jsoncallback:"?"*/
+        }
+            //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
+        });
+        $(selector).result(function(){active_prompt=false});
+    }
+
+    this.autocomplete_tag_search = function(selector) {
+    $(selector).autocomplete(this.tags_ahead_uri/*, { extraParams: { jsoncallback: "?"} }*/);
+    }
     /* ------------------------------
          sending data from form
        ------------------------------*/
