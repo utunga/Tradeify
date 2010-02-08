@@ -15,14 +15,14 @@
     this.autocomplete_suggested_tags=function(selector){
         $(selector).autocomplete(this.tags_ahead_uri, {
             formatItem: function(row) { active_prompt = true; return row[0]; },
-            extraParams: {type:"tag", jsoncallback:"?" }
+            extraParams: { type: "tag", jsoncallback: "jsonp1265547085850&_=1265547093369" }
             //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
         });
         $(selector).result(function(){active_prompt=false});
     }
 
     this.autocomplete_tag_search = function(selector) {
-        $(selector).autocomplete(this.tags_ahead_uri, { extraParams: { jsoncallback: "?"} });
+    $(selector).autocomplete(this.tags_ahead_uri, { extraParams: { jsoncallback: "jsonp1265543085850&_=1265543093369"} });
     }
     /* ------------------------------
          sending data from form
