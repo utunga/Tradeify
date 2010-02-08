@@ -20,9 +20,9 @@
         });
         $(selector).result(function(){active_prompt=false});
     }
-    
-    this.autocomplete_tag_search=function(selector){
-        $(selector).autocomplete(this.tags_ahead_uri,{extraParams: {jsoncallback:"?" });
+
+    this.autocomplete_tag_search = function(selector) {
+        $(selector).autocomplete(this.tags_ahead_uri, { extraParams: { jsoncallback: "?"} });
     }
     /* ------------------------------
          sending data from form
