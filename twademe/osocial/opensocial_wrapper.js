@@ -23,7 +23,7 @@
     }
 
     this.autocomplete_tag_search = function(selector) {
-    $(selector).autocomplete(this.tags_ahead_uri/*, { extraParams: { jsoncallback: "?"} }*/);
+    $(selector).autocomplete(this.tags_ahead_uri, { dataType: "json"}/*, { extraParams: { jsoncallback: "?"} }*/);
     }
     /* ------------------------------
          sending data from form
