@@ -383,7 +383,8 @@ $.Autocompleter = function(input, options) {
 	};
 	
 	function parse(data) {
-		var parsed = [];
+	    var parsed = [];
+		//CUSTOM MODIFICATION
 		var rows = data//data.split("\n");
 		for (var i=0; i < rows.length; i++) {
 			var row = $.trim(rows[i]);

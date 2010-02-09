@@ -21,7 +21,8 @@ function mock_container() {
     }
     this.autocomplete_suggested_tags=function(selector){
        // var active_prompt = false;
-        $(selector).autocomplete(this.tags_ahead_uri, {
+    $(selector).autocomplete(this.tags_ahead_uri, {
+            dataType:"json",
             formatItem: function(row) { active_prompt = true; return row[0]; },
             extraParams: {type:"tag"}
             //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }

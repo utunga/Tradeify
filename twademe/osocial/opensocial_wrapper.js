@@ -13,7 +13,8 @@
     }
 
     this.autocomplete_suggested_tags=function(selector){
-        $(selector).autocomplete(this.tags_ahead_uri+"&type=tag", {
+    $(selector).autocomplete(this.tags_ahead_uri + "&type=tag", {
+            dataType: "json",
             formatItem: function(row) { active_prompt = true; return row[0]; },
             extraParams: {/*type:"tag", jsoncallback:"?"*/
         }
