@@ -204,9 +204,9 @@ function Tags(target_selector) {
         
         return baseUrl + query + "&jsoncallback=?";
     }
-    var max_tag_count = 20;
-    this.get_html = function() {
 
+    this.get_html = function() {
+        var max_tag_count = 20;
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";
         //$.each(this.tags, function() {
         for(var i=0;i<this.tags.length&&i<=max_tag_count;i++){

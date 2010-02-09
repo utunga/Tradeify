@@ -28,13 +28,13 @@ namespace twademe
 
                 List<string> tags = _tagProvider.GetTagsFromTypeAhead(prefix, type, MAX_RESULTS);
 
-           
+                /*
                 string tagString = "";
                 foreach (var tag in tags)
                 {
                     tagString += tag + "\n";
-                }
-                SendJSON(tagString);
+                }*/
+                SendJSON(JSON.Serialize(tags));
                 Response.Flush();
                 Response.End();
            

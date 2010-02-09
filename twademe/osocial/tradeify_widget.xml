@@ -214,7 +214,7 @@
 
         <script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" src="http://tradeify.org/js/jquery.autocomplete.js"></script>
 
         <!--
 <script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>
