@@ -309,7 +309,6 @@
         //
         container.autocomplete_tag_search("#search_location_tag");
         /*
-        var active_prompt = false;
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "&type=tag", {
             formatItem: function(row) { active_prompt = true; return row[0]; },
             //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
@@ -332,7 +331,7 @@
         //need to check whether autocomplete is currently open
         setInterval(function() {
             var tag = $("#typed_tag").val();
-            if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !active_prompt) {
+            if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
                 post_your_own_general_tags.Tags.add_tag(tag, "tag", true);
                 tags_widget_click();
                 $("#typed_tag").val("");
