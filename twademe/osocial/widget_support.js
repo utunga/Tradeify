@@ -261,18 +261,18 @@ function MapWidget(map_selector, map_popup_selector, list_widget) {
 function TagsWidget(selector, initial_tags, active_tags, tag_type) {
     var tags;
     var after_click = (arguments.length > 4) ? arguments[4] : function() {};
-    
+
     var init = function() {
         tags = new Tags(selector);
 
         $.each(initial_tags, function() {
             var isInActiveTags = !!active_tags.find_tag(this);
-            tags.add_tag(this, tag_type, isInActiveTags);
+            tags.add_tag_without_updating(this, tag_type, isInActiveTags);
         });
-
+        tags.update_view();
         tags.tag_click(function() {
             var tag_text = $(this).text().replace("\n", "");
-            tags.toggle_active(tag_text,tag_type);
+            tags.toggle_active(tag_text, tag_type);
             after_click(tag_text, tag_type);
             return false;
         });
@@ -305,9 +305,9 @@ function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
         $.each(initial_tags, function() {
             var str = this.toString();
             var isInActiveTags = ($.inArray(str, active_tags) >= 0);
-            tags.add_tag(str, tag_type, isInActiveTags);
+            tags.add_tag_without_updating(str, tag_type, isInActiveTags);
         });
-
+        tags.update_view();
         tags.tag_click(function() {
             var tag_text = $(this).text().replace("\n", "");
             tags.toggle_active(tag_text, tag_type);
