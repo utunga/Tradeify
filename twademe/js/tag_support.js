@@ -1,22 +1,22 @@
 
 /* ------------------------------
-     couple useful bits and pieces  
-   ------------------------------*/
-   
+couple useful bits and pieces  
+------------------------------*/
+
 String.prototype.trim = function() {
-	return this.replace(/^\s+|\s+$/g,"");
+    return this.replace(/^\s+|\s+$/g, "");
 }
 String.prototype.ltrim = function() {
-	return this.replace(/^\s+/,"");
+    return this.replace(/^\s+/, "");
 }
 String.prototype.rtrim = function() {
-	return this.replace(/\s+$/,"");
+    return this.replace(/\s+$/, "");
 }
 
 //define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
 if (!console) {
-        var console = {}
-        console.log = function(text) {
+    var console = {}
+    console.log = function(text) {
         return; //ie do nothing
     }
 }
@@ -31,94 +31,97 @@ function Tag() {
 
 function Tags(target_selector) {
 
-    if (!(this instanceof arguments.callee)) 
+    if (!(this instanceof arguments.callee))
         return new Tags(target_selector); //ensure context even if someone forgets to create via 'new'
-        
+
     this.tags = [];
     this.target_selector = target_selector;
 
     this.find_tag = function(text) {
         var found_tag = null;
-         $.each(this.tags, function() {
+        $.each(this.tags, function() {
             if (text == this.tag) {
                 found_tag = this;
             }
         });
         return found_tag;
     };
-    
-    
+
+
     this.has_tag = function(text) {
         var found = false;
         $.each(this.tags, function() {
             if (text == this.tag) {
-                found=true;
+                found = true;
             }
         });
         return found;
     };
-    
-    this.toggle_filter=function(text){
+
+    this.toggle_filter = function(text) {
         if (!!this.find_tag(text)) {
             this.remove_tag(text);
         }
-        else{
-          this.add_tag(text,(arguments.length>1) ? arguments[1] : "tag",(arguments.length>2) ? arguments[2] : false);
+        else {
+            this.add_tag(text, (arguments.length > 1) ? arguments[1] : "tag", (arguments.length > 2) ? arguments[2] : false);
         }
     };
-    
-    this.add_tag = function(text) 
-    {
+    this.add_tag_without_updating = function(text) {
+        var type = (arguments.length > 1) ? arguments[1] : "tag";
+        var active = (arguments.length > 2) ? arguments[2] : false;
+        return _add_tag(this, text, false, type, active);
+
+    }
+    this.add_tag = function(text) {
         if (!!this.find_tag(text)) {
             console.log("refuse to add tag " + text + " as it already exists");
             return;
         }
-        
-        var type = (arguments.length>1) ? arguments[1] : "tag";
-        var active = (arguments.length>2) ? arguments[2] : false;
-      
+        var type = (arguments.length > 1) ? arguments[1] : "tag";
+        var active = (arguments.length > 2) ? arguments[2] : false;
+        return _add_tag(this, text, true, type, active);
+
+
+    }
+    function _add_tag(tag_support, text, update, type, active) {
         var tag = new Tag();
         tag.type = type;
         tag.tag = text;
         tag.active = active;
-        this.tags.push(tag);
-        this.update_view();
+        tag_support.tags.push(tag);
+        if (update) tag_support.update_view();
         return tag;
     }
-    
     // a fixed tag can't be removed by 'normal' add/remove operations
     // you have to call explicit 'remove_fixed_tag' operation
-    this.add_fixed_tag = function(text) 
-    {
+    this.add_fixed_tag = function(text) {
         var existing = this.find_tag(text);
         if (!!existing) {
             existing.fixed = true;
             return existing;
         }
         else {
-            var new_tag = this.add_tag.apply(this,arguments);
+            var new_tag = this.add_tag.apply(this, arguments);
             new_tag.fixed = true;
             return new_tag;
         }
     }
-     
+
     this.remove_tag = function(text) {
         text = text.trim();
         var found_tag_to_remove = false;
-        var tmp = []; 
+        var tmp = [];
         //removes all instances of tags with this text (in the case there is more than one)
         $.each(this.tags, function() {
             if (text != this.tag) {
                 tmp.push(this);
             }
             else {
-                if (this.fixed) 
-                {
+                if (this.fixed) {
                     console.log("won't remove fixed tag " + text);
-                     tmp.push(this);
+                    tmp.push(this);
                 }
-                else 
-                {
+                else {
                     found_tag_to_remove = true;
                 }
             }
@@ -130,10 +133,10 @@ function Tags(target_selector) {
     this.get_active_tags = function() {
         var active_tags = new Array();
         $.each(this.tags, function() {
-            if(this.active) active_tags.push(this.tag.toString());
+            if (this.active) active_tags.push(this.tag.toString());
         });
         return active_tags;
-    } 
+    }
     this.remove_fixed_tag = function(text) {
         var existing = this.find_tag(text)
         if (!!existing) {
@@ -141,15 +144,15 @@ function Tags(target_selector) {
         }
         this.remove_tag.apply(arguments);
     }
-    
-    this.toggle_active = function (text) {
+
+    this.toggle_active = function(text) {
         var existing = this.find_tag(text)
         if (!!existing) {
             existing.active = !existing.active;
             this.update_view();
         }
     }
-    
+
     this.get_fixed_tags = function() {
         var fixed_tags = new Array();
         $.each(this.tags, function() {
@@ -157,39 +160,47 @@ function Tags(target_selector) {
         });
         return fixed_tags;
     }
-    this._tag_click_ref = function () {
+    this._tag_click_ref = function() {
         return false;
-    }  
-      
+    }
+
     this.tag_click = function(functionRef) {
         this._tag_click_ref = functionRef;
         //set the onclick to the externally provided click function
         $(".fg-buttonset a.tag").click(this._tag_click_ref);
     }
-    
-    this.update_view = function() {
+
+    this.set_update_view_ref = function() {
         if ($(this.target_selector)) {
             $(this.target_selector).html(this.get_html());
         }
-        
-        //hover and click view changes for tag links
-//        $(".fg-button:not(.ui-state-disabled)")
-//        .mousedown(function(){
-//		        if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') )
-//			        { $(this).removeClass("ui-state-active"); }
-//		        else { $(this).addClass("ui-state-active"); }	
-//        })
-//        .mouseup(function(){
-//	        if(! $(this).is('.fg-button-toggleable, .fg-buttonset-multi .fg-button') ){
-//		        $(this).removeClass("ui-state-active");
-//	        }
-//        });
-        
-        //re-attach click event
-         $(".fg-buttonset a.tag").click(this._tag_click_ref);
-        
     }
-    
+    this.set_update_view_function = function(functionRef) {
+        this.set_update_view_ref = functionRef;
+    }
+    this.update_view = function() {
+        this.set_update_view_ref();
+        // if ($(this.target_selector)) {
+        //   $(this.target_selector).html(this.get_html());
+
+        //hover and click view changes for tag links
+        //        $(".fg-button:not(.ui-state-disabled)")
+        //        .mousedown(function(){
+        //		        if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') )
+        //			        { $(this).removeClass("ui-state-active"); }
+        //		        else { $(this).addClass("ui-state-active"); }	
+        //        })
+        //        .mouseup(function(){
+        //	        if(! $(this).is('.fg-button-toggleable, .fg-buttonset-multi .fg-button') ){
+        //		        $(this).removeClass("ui-state-active");
+        //	        }
+        //        });
+
+        //re-attach click event
+        $(".fg-buttonset a.tag").click(this._tag_click_ref);
+
+    }
+
     this.decorate_url = function(baseUrl) {
         var query = $(this.tags).map(function() {
             return this.type + "=" + escape(this.tag);
@@ -199,17 +210,17 @@ function Tags(target_selector) {
     this.decorate_active_url = function(baseUrl) {
         var query = "";
         $.each(this.tags, function() {
-            if (this.active) query +="&"+this.type + "=" + escape(this.tag);
+            if (this.active) query += "&" + this.type + "=" + escape(this.tag);
         });
-        
+
         return baseUrl + query + "&jsoncallback=?";
     }
 
     this.get_html = function() {
-        var max_tag_count = 20;
+        var max_tag_count = 15;
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";
         //$.each(this.tags, function() {
-        for(var i=0;i<this.tags.length&&i<=max_tag_count;i++){
+        for (var i = 0; i < this.tags.length && i < max_tag_count; i++) {
             var ui_state_class = (this.tags[i].active) ? "ui-state-active" : "";
             var ui_icon_class;
             switch (this.tags[i].type) {
@@ -233,18 +244,18 @@ function Tags(target_selector) {
             "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n" +
                 "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + this.tags[i].tag + "</a>";
         }
-    
+
         tagString = tagString + "</div>";
         return tagString;
     }
 
     this.get_active_tags_text = function() {
-    	var tagString="";
-	    $.each(this.tags, function() {
-	        if(this.active) {
-		        tagString = tagString + " #" + this.tag;
-		    }
-	    });
-	    return tagString;
+        var tagString = "";
+        $.each(this.tags, function() {
+            if (this.active) {
+                tagString = tagString + " #" + this.tag;
+            }
+        });
+        return tagString;
     }
 }

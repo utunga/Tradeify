@@ -188,6 +188,11 @@ function display_results_of_parse_offer(response) {
     }
     else $(".send_message").attr("disabled","disabled");
     //"NeedsCurrencyTag", "NeedsLocation", "NeedsGroupTag"
+    if ($.inArray("TooLong", reasons) > -1) {
+        if($("#too_long").length==0)
+            $('<div id="too_long" style="color: red;">Message is too long</div>').insertAfter("#message_to_send");
+    }
+    else $("#too_long").remove();
     switchStatus("NeedsCurrencyTag","currency_detail",reasons);
     switchStatus("NeedsLocation","location_detail",reasons);
     switchStatus("NeedsGroupTag","group_detail",reasons);  

@@ -7,6 +7,6 @@ namespace Offr.Message
 {
     public enum ValidationFailReason
     {
-        NeedsCurrencyTag, NeedsLocation, NeedsGroupTag, NeedsOfferMessage
+        NeedsCurrencyTag, NeedsLocation, NeedsGroupTag, NeedsOfferMessage,TooLong
     }
 }

@@ -11,6 +11,8 @@ namespace Offr.Message
 {
     public abstract class BaseMarketMessage : BaseMessage, IEquatable<BaseMarketMessage>
     {
+        const decimal MAX_MESSAGE_LENGTH = 200;
+
         public string MessageText { get; set; }
 
         public ILocation Location { get; set; }
@@ -32,6 +34,7 @@ namespace Offr.Message
         }
 
         private readonly List<String> _thumbnails;
+        
         public string Thumbnail
         {
             //return first thumb nail for now
@@ -63,6 +66,10 @@ namespace Offr.Message
         public override string[] ValidationFailReasons()
         {
             var validationFails = new List<string>();
+            if (MessageText.Length>MAX_MESSAGE_LENGTH)
+            {
+                validationFails.Add(ValidationFailReason.TooLong.ToString());
+            }
             if (_tags.TagsOfType(TagType.currency).Count == 0)
             {
                 validationFails.Add(ValidationFailReason.NeedsCurrencyTag.ToString());
