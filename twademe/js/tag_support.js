@@ -217,10 +217,10 @@ function Tags(target_selector) {
     }
 
     this.get_html = function() {
-        var max_tag_count = 20;
+        var max_tag_count = 15;
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";
         //$.each(this.tags, function() {
-        for (var i = 0; i < this.tags.length && i <= max_tag_count; i++) {
+        for (var i = 0; i < this.tags.length && i < max_tag_count; i++) {
             var ui_state_class = (this.tags[i].active) ? "ui-state-active" : "";
             var ui_icon_class;
             switch (this.tags[i].type) {
