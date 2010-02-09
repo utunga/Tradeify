@@ -28,9 +28,10 @@ function mock_container() {
         });
         $(selector).result(function(){active_prompt=false});
     }
-    
-    this.autocomplete_tag_search=function(selector){
-        $(selector).autocomplete(container.tags_ahead_uri);
+
+    this.autocomplete_tag_search = function(selector) {
+        var sel = $(selector);
+        sel.autocomplete(container.tags_ahead_uri, {dataType:"json"});
     }
     
     

@@ -244,9 +244,13 @@
     <Content Include="js\jquery.pager.js" />
     <Content Include="js\jquery.tools.min.js" />
     <Content Include="css\ooooby_theme\Pager.css" />
+    <Content Include="js\jquery.ui.autocomplete.js" />
+    <Content Include="js\jquery.ui.core.js" />
+    <Content Include="js\jquery.ui.widget.js" />
     <Content Include="js\pure_packed_v2.js" />
     <Content Include="js\pure_v2.js" />
     <Content Include="js\tag_support.js" />
+    <Content Include="js\ui.autocomplete.css" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
