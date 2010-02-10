@@ -59,7 +59,7 @@
                             name="message_type" value="WANT" onclick="update_offer()"/>
                         I want</h4>
                         
-                    <div id="post_your_own_general_tags">
+                    <div id="suggested_tags_widget">
                     </div>
                     <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
                     <!--ui-state-default ui-corner-all-->
@@ -220,7 +220,7 @@
 
 <script type="text/javascript">
 
-    var post_your_own_general_tags;
+    var suggested_tags_widget;
     //var message_type;
     var post_your_own_currency_tags;
     var currency_tagset = new Array("free", "barter", "cash");
@@ -256,9 +256,17 @@
         });
 
         var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
-        filter_general_tags = new TagsWidget("#filter_general_tags", general_tags, list_widget.current_tags, "tag", update_filter);
-        filter_currency_tags = new TagsWidget("#filter_currency_tags", currency_tags, list_widget.current_tags, "currency", update_filter);
-        filter_location_tags = new TagsWidget("#filter_location_tags", location_tags, list_widget.current_tags, "loc", update_filter);
+        filter_general_tags = new TagsWidget("#filter_general_tags");
+        filter_general_tags.init_from(general_tags, list_widget.current_tags, "tag");
+        filter_general_tags.on_tag_click(update_filter);
+        
+        filter_currency_tags = new TagsWidget("#filter_currency_tags");
+        filter_currency_tags.init_from(currency_tags, list_widget.current_tags, "currency");
+        filter_currency_tags.on_tag_click(update_filter);
+        
+        filter_location_tags = new TagsWidget("#filter_location_tags");
+        filter_location_tags.init_from( location_tags, list_widget.current_tags, "loc");
+        filter_location_tags.on_tag_click(update_filter);
     }
 
     function default_tag_setup() {
@@ -305,7 +313,7 @@
         /*
         $("#add_typed_tag").click(function() {
         var typed_tag_text = $("#typed_tag").val();
-        post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
+        suggested_tags_widget.Tags.add_tag(typed_tag_text, "tag", true);
         tags_widget_click();
         });
         */
@@ -316,7 +324,7 @@
         setInterval(function() {
             var tag = $("#typed_tag").val();
             if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
-                post_your_own_general_tags.Tags.add_tag(tag, "tag", true);
+                suggested_tags_widget.Tags.add_tag(tag, "tag", true);
                 tags_widget_click();
                 $("#typed_tag").val("");
             }
@@ -345,8 +353,11 @@
         $("#by_parts textarea").keyup(update_offer);
         $("#by_parts input").change(update_offer);
         default_tag_setup();
-        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, list_widget.current_tags, "type", update_offer);
-        post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags");
+        post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags, "type");
+        post_your_own_currency_tags.on_tag_click(update_offer);
+        
+        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
 
         $("#post_your_own_form #until").datepicker({
             defaultDate: +14,
@@ -368,7 +379,7 @@
                     $(this).val($(this).attr("title"));
                 });
                 post_your_own_currency_tags.reset();
-                post_your_own_general_tags.reset();
+                suggested_tags_widget.reset();
 
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {

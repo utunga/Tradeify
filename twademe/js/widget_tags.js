@@ -7,17 +7,16 @@ function Tag() {
     this.fixed = false;
 }
 
-function Tags(target_selector) {
+function Tags() {
 
     if (!(this instanceof arguments.callee))
-        return new Tags(target_selector); //ensure context even if someone forgets to create via 'new'
+        return new Tags(); //ensure context even if someone forgets to create via 'new'
 
-    this.tags = [];
-    this.target_selector = target_selector;
+    var tags = [];
 
-    this.find_tag = function(text) {
+    var find_tag = function(text) {
         var found_tag = null;
-        $.each(this.tags, function() {
+        $.each(tags, function() {
             if (text == this.tag) {
                 found_tag = this;
             }
@@ -26,9 +25,9 @@ function Tags(target_selector) {
     };
 
 
-    this.has_tag = function(text) {
+    var has_tag = function(text) {
         var found = false;
-        $.each(this.tags, function() {
+        $.each(tags, function() {
             if (text == this.tag) {
                 found = true;
             }
@@ -36,62 +35,53 @@ function Tags(target_selector) {
         return found;
     };
 
-    this.toggle_filter = function(text) {
-        if (!!this.find_tag(text)) {
-            this.remove_tag(text);
+    var toggle_filter = function(text) {
+        if (!!find_tag(text)) {
+            remove_tag(text);
         }
         else {
-            this.add_tag(text, (arguments.length > 1) ? arguments[1] : "tag", (arguments.length > 2) ? arguments[2] : false);
+            add_tag(text, (arguments.length > 1) ? arguments[1] : "tag", (arguments.length > 2) ? arguments[2] : false);
         }
     };
-    this.add_tag_without_updating = function(text) {
-        var type = (arguments.length > 1) ? arguments[1] : "tag";
-        var active = (arguments.length > 2) ? arguments[2] : false;
-        return _add_tag(this, text, false, type, active);
-
-    }
-    this.add_tag = function(text) {
-        if (!!this.find_tag(text)) {
+    
+    var add_tag = function(text) {
+        if (!!find_tag(text)) {
             console.log("refuse to add tag " + text + " as it already exists");
             return;
         }
         var type = (arguments.length > 1) ? arguments[1] : "tag";
         var active = (arguments.length > 2) ? arguments[2] : false;
-        return _add_tag(this, text, true, type, active);
 
-
-    }
-    function _add_tag(tag_support, text, update, type, active) {
         var tag = new Tag();
         tag.type = type;
         tag.tag = text;
         tag.active = active;
-        tag_support.tags.push(tag);
-        if (update) tag_support.update_view();
+        
+        tags.push(tag);
         return tag;
     }
     
     // a fixed tag can't be removed by 'normal' add/remove operations
     // you have to call explicit 'remove_fixed_tag' operation
-    this.add_fixed_tag = function(text) {
-        var existing = this.find_tag(text);
+    var add_fixed_tag = function(text) {
+        var existing = find_tag(text);
         if (!!existing) {
             existing.fixed = true;
             return existing;
         }
         else {
-            var new_tag = this.add_tag.apply(this, arguments);
+            var new_tag = add_tag.apply(this, arguments);
             new_tag.fixed = true;
             return new_tag;
         }
     }
 
-    this.remove_tag = function(text) {
+    var remove_tag = function(text) {
         text = text.trim();
         var found_tag_to_remove = false;
         var tmp = [];
         //removes all instances of tags with this text (in the case there is more than one)
-        $.each(this.tags, function() {
+        $.each(tags, function() {
             if (text != this.tag) {
                 tmp.push(this);
             }
@@ -105,87 +95,139 @@ function Tags(target_selector) {
                 }
             }
         });
-        this.tags = tmp;
-        this.update_view();
+        tags = tmp;
         return found_tag_to_remove;
     }
-    this.get_active_tags = function() {
+    
+    var get_active_tags = function() {
         var active_tags = new Array();
-        $.each(this.tags, function() {
+        $.each(tags, function() {
             if (this.active) active_tags.push(this.tag.toString());
         });
         return active_tags;
     }
-    this.remove_fixed_tag = function(text) {
-        var existing = this.find_tag(text)
+    
+    var remove_fixed_tag = function(text) {
+        var existing = find_tag(text)
         if (!!existing) {
             existing.fixed = false;
         }
-        this.remove_tag.apply(arguments);
+        remove_tag.apply(arguments);
     }
 
-    this.toggle_active = function(text) {
-        var existing = this.find_tag(text)
+    var toggle_active = function(text) {
+        var existing = find_tag(text)
         if (!!existing) {
             existing.active = !existing.active;
-            this.update_view();
         }
     }
 
-    this.get_fixed_tags = function() {
+    var get_fixed_tags = function() {
         var fixed_tags = new Array();
-        $.each(this.tags, function() {
+        $.each(tags, function() {
             if (this.fixed == true) fixed_tags.push(this.tag);
         });
         return fixed_tags;
     }
-    this._tag_click_ref = function() {
-        return false;
-    }
-
-    this.tag_click = function(functionRef) {
-        this._tag_click_ref = functionRef;
-        //set the onclick to the externally provided click function
-        $(".fg-buttonset a.tag").click(this._tag_click_ref);
-    }
-
-    this.update_view_event = function() {
-    }
     
-    this.set_update_view_function = function(functionRef) {
-        this.update_view_event = functionRef;
-    }
-    
-    this.update_view = function() {
-        this.update_view_event();
-        if ($(this.target_selector)) {
-            $(this.target_selector).html(this.get_html());
-        }
-    }
-
-    this.decorate_url = function(baseUrl) {
-        var query = $(this.tags).map(function() {
+    var decorate_url = function(baseUrl) {
+        var query = $(tags).map(function() {
             return this.type + "=" + escape(this.tag);
         }).get().join("&");
         return baseUrl + "?" + query + "&jsoncallback=?";
     }
-    this.decorate_active_url = function(baseUrl) {
+    
+    var decorate_active_url = function(baseUrl) {
         var query = "";
-        $.each(this.tags, function() {
+        $.each(tags, function() {
             if (this.active) query += "&" + this.type + "=" + escape(this.tag);
         });
 
         return baseUrl + query + "&jsoncallback=?";
     }
 
-    this.get_html = function() {
+    var get_active_tags_text = function() {
+        var tagString = "";
+        $.each(tags, function() {
+            if (this.active) {
+                tagString = tagString + " #" + this.tag;
+            }
+        });
+        return tagString;
+    }
+
+    // make all methods public
+    this.find_tag = find_tag;
+    this.has_tag = has_tag;
+    this.toggle_filter = toggle_filter;
+    this.add_tag = add_tag;
+    this.add_fixed_tag = add_fixed_tag;
+    this.remove_tag = remove_tag;
+    this.get_active_tags = get_active_tags;
+    this.remove_fixed_tag = remove_fixed_tag;
+    this.toggle_active = toggle_active;
+    this.get_fixed_tags = get_fixed_tags;
+    this.decorate_url = decorate_url;
+    this.decorate_active_url = decorate_active_url;
+    this.get_active_tags_text = get_active_tags_text;
+    
+    this.Tags = tags;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+function TagsWidget(selector) {
+
+    var tags;
+    var _tag_click_ref;
+   
+    var init = function() {
+        tags = new Tags();
+        _tag_click_ref = new function() {} //no-op
+    }
+    
+    var init_from = function(initial_tags, active_tags, tag_type) 
+    {
+        tags = new Tags();
+        $.each(initial_tags, function() {
+            var isInActiveTags = !!active_tags.find_tag(this);
+            tags.add_tag(this, tag_type, isInActiveTags);
+        });
+        update_view();
+    }
+
+    var update_view = function() {
+        if ($(selector)) {
+            $(selector).html(_get_html());
+            //fix the onclick (again) as html has been reset
+            $(selector + " .fg-buttonset a.tag").click(_tag_click);
+        }
+    }
+
+    var on_tag_click = function(functionRef) {
+        _tag_click_ref = functionRef;
+    }
+
+    var _tag_click = function() {
+        var tag_text = $(this).text().replace("\n", "");
+        tags.toggle_active(tag_text);
+        
+        var existing = tags.find_tag(tag_text);
+        if (!!existing) {
+            _tag_click_ref(existing.tag, existing.type);
+        }
+        update_view();
+        return false;
+    }
+
+    var _get_html = function() {
         var max_tag_count = 15;
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";
-        //$.each(this.tags, function() {
-        for (var i = 0; i < this.tags.length && i < max_tag_count; i++) {
-            var ui_state_class = (this.tags[i].active) ? "ui-state-active" : "";
+        for (var i = 0; i < tags.Tags.length && i < max_tag_count; i++) {
+            var tag = tags.Tags[i];
+            var ui_state_class = (tag.active) ? "ui-state-active" : "";
             var ui_icon_class;
-            switch (this.tags[i].type) {
+            switch (tag.type) {
                 case ("group"):
                     ui_icon_class = "ui-icon-person";
                     break;
@@ -204,101 +246,77 @@ function Tags(target_selector) {
 
             tagString = tagString + "\n" +
             "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n" +
-                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + this.tags[i].tag + "</a>";
+                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + tag.tag + "</a>";
         }
 
         tagString = tagString + "</div>";
         return tagString;
     }
+     
 
-    this.get_active_tags_text = function() {
-        var tagString = "";
-        $.each(this.tags, function() {
-            if (this.active) {
-                tagString = tagString + " #" + this.tag;
-            }
-        });
-        return tagString;
-    }
-}
-
-//////////////////////////////////////////////////////////////////////
-
-function TagsWidget(selector, initial_tags, active_tags, tag_type) {
-    var tags;
-    var after_click = (arguments.length > 4) ? arguments[4] : function() {};
-
-    var init = function() {
-        tags = new Tags(selector);
-
-        $.each(initial_tags, function() {
-            var isInActiveTags = !!active_tags.find_tag(this);
-            tags.add_tag_without_updating(this, tag_type, isInActiveTags);
-        });
-        tags.update_view();
-        tags.tag_click(function() {
-            var tag_text = $(this).text().replace("\n", "");
-            tags.toggle_active(tag_text, tag_type);
-            after_click(tag_text, tag_type);
-            return false;
-        });
-    }
-    
     init();
 
-    this.get_active_tags_text = function() {
-        return tags.get_active_tags_text();
-    };
-    this.get_active_tags = function() {
-        return tags.get_active_tags();
-    };
-    this.update_view = function() {
-        tags.update_view();
-    };
-    this.reset = function() {
-        init();
-    };
-    this.Tags = tags;
+
+    // public methods
+    this.reset = init;
+    this.on_tag_click = on_tag_click;
+    this.update_view = update_view;
+    this.init_from = init_from;
+   
+    //properties/methods exposed from the inner 'tags' object
+    this.Tags = tags.Tags;
+    // note these methods are exposed 'raw' the external caller
+    // still has to remember to call update_view() (whcih is a bit suboptimal really) 
+    this.find_tag = tags.find_tag;
+    this.has_tag = tags.has_tag;
+    this.toggle_filter = tags.toggle_filter;
+    this.add_tag = tags.add_tag;
+    this.add_fixed_tag = tags.add_fixed_tag;
+    this.remove_tag = tags.remove_tag;
+    this.get_active_tags = tags.get_active_tags;
+    this.remove_fixed_tag = tags.remove_fixed_tag;
+    this.toggle_active = tags.toggle_active;
+    this.get_fixed_tags = tags.get_fixed_tags;
+    this.decorate_url = tags.decorate_url;
+    this.decorate_active_url = tags.decorate_active_url;
+    this.get_active_tags_text = tags.get_active_tags_text;
+
 };
 
 ////////////////////////////////////////////////////////////////////////
 
-function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
-    var tags;
-    var after_click = (arguments.length > 4) ? arguments[4] : function() { };
+function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type, tags_widget_click) {
+    var tags_widget;
 
     var init = function() {
-        tags = new Tags(selector);
-
+        
+        tags_widget = new TagsWidget(selector);
         $.each(initial_tags, function() {
             var str = this.toString();
             var isInActiveTags = ($.inArray(str, active_tags) >= 0);
-            tags.add_tag_without_updating(str, tag_type, isInActiveTags);
-        });
-        tags.update_view();
-        tags.tag_click(function() {
-            var tag_text = $(this).text().replace("\n", "");
-            tags.toggle_active(tag_text, tag_type);
-            after_click(tag_text, tag_type);
-            return false;
+            tags_widget.add_tag(str, tag_type, isInActiveTags);
         });
         
+        tags_widget.on_tag_click(tags_widget_click);
+        tags_widget.update_view();
     }
 
     init();
 
     this.reset = function() {
-        init();
+        tags_widget.reset();
     };
+    
     this.get_active_tags_text = function() {
-        return tags.get_active_tags_text();
+        return tags_widget.get_active_tags_text();
     };
+    
     this.get_active_tags = function() {
-        return tags.get_active_tags();
+        return tags_widget.get_active_tags();
     };
+    
     this.update_view = function() {
-        tags.update_view();
+        tags_widget.update_view();
     };
-    this.Tags = tags;
 };
 

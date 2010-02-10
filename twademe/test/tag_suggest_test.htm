@@ -10,7 +10,7 @@
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
 
-<div id="post_your_own_general_tags">
+<div id="suggested_tags_widget">
 </div>
 <div id="type_tag_div style="margin-bottom:15px">
 <input type="text" class="ui-state-default ui-corner-all" id="typed_tag"/>
@@ -29,7 +29,7 @@
 
 <script type="text/javascript">
 
-    var post_your_own_general_tags;
+    var suggested_tags_widget;
     //var message_type;
     var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
 , "seedlings", "garden_supplies", "garden_services", "books", "workshops");
@@ -59,12 +59,12 @@
 
         $("#add_typed_tag").click(function() {
             var typed_tag_text = $("#typed_tag").val();
-            post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
+            suggested_tags_widget.Tags.add_tag(typed_tag_text, "tag", true);
             tags_widget_click();
         });
 
         default_tag_setup();
-        post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
 
     });         //end document.ready
 

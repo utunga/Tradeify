@@ -60,7 +60,7 @@
                             name="message_type" value="WANT" onclick="update_offer()"/>
                         I want</h4>
                         
-                    <div id="post_your_own_general_tags">
+                    <div id="suggested_tags_widget">
                     </div>
                     <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
                     <!--ui-state-default ui-corner-all-->
@@ -221,7 +221,7 @@
 
 <script type="text/javascript">
 
-    var post_your_own_general_tags;
+    var suggested_tags_widget;
     //var message_type;
     var post_your_own_currency_tags;
     var currency_tagset = new Array("free", "barter", "cash");
@@ -306,7 +306,7 @@
         /*
         $("#add_typed_tag").click(function() {
         var typed_tag_text = $("#typed_tag").val();
-        post_your_own_general_tags.Tags.add_tag(typed_tag_text, "tag", true);
+        suggested_tags_widget.Tags.add_tag(typed_tag_text, "tag", true);
         tags_widget_click();
         });
         */
@@ -317,7 +317,7 @@
         setInterval(function() {
             var tag = $("#typed_tag").val();
             if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
-                post_your_own_general_tags.Tags.add_tag(tag, "tag", true);
+                suggested_tags_widget.Tags.add_tag(tag, "tag", true);
                 tags_widget_click();
                 $("#typed_tag").val("");
             }
@@ -347,7 +347,7 @@
         $("#by_parts input").change(update_offer);
         default_tag_setup();
         post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags", currency_tagset, list_widget.current_tags, "type", update_offer);
-        post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
 
         $("#post_your_own_form #until").datepicker({
             defaultDate: +14,
@@ -369,7 +369,7 @@
                     $(this).val($(this).attr("title"));
                 });
                 post_your_own_currency_tags.reset();
-                post_your_own_general_tags.reset();
+                suggested_tags_widget.reset();
 
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {

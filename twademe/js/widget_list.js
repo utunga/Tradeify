@@ -32,13 +32,11 @@
     var init = function() {
        
         offers_uri = container.offers_uri;
-
         //compile to a function as soon as possible (ie in 'constructor')
         offers_render_fn = $(offers_selector + ' .template').compile(offers_directives);
-
-        current_tags = new Tags(current_tags_selector);
-        current_tags.tag_click(function() {
-            remove_filter($(this).text());
+        current_tags = new TagsWidget(current_tags_selector);
+        current_tags.on_tag_click(function(tag_text, tag_type) {
+            remove_filter(tag_text);
             return false;
         });
     }
@@ -78,27 +76,31 @@
 
     var add_filter = function(tag_text, tag_type) {
         current_tags.add_tag(tag_text, tag_type);
+        current_tags.update_view();
         update_offers();
     };
     
     var toggle_filter = function(tag_text, tag_type) {
         current_tags.toggle_filter(tag_text, tag_type);
+        current_tags.update_view();
         update_offers();
     };
     
     var remove_filter = function(tag_text) {
         current_tags.remove_tag(tag_text);
+        //current_tags.update_view();
         update_offers();
     };
 
     var add_fixed_filter = function(tag_text, tag_type) {
         current_tags.add_fixed_tag(tag_text, tag_type, false);
+        current_tags.update_view();
         update_offers();
     };
 
     var build_search_query = function(baseUrl) {
         var query = "";
-        var current_tags_array = (arguments.length > 1) ? arguments[1] : current_tags.tags;
+        var current_tags_array = (arguments.length > 1) ? arguments[1] : current_tags.Tags;
         for (tag in current_tags_array) {
                 if (query != "")
                     query = query + "&";
