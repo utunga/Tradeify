@@ -28,6 +28,7 @@ function pageClick(currentPage) {
             holder: null,
             pagerLocation: "after"
         };
+        pageCount = -2;
         pageSelector = pager;
         options = $.extend(defaults, options);
 
@@ -57,11 +58,11 @@ function pageClick(currentPage) {
             initialPageClick(options.currentPage);
 
 
-            if (pageCounter <= 1) {
+            if (pageCount < 1) {
                 return;
             }
             //selector.after("<div id=\"pager\" ></div>");
-            $("#pager").pager({ pagenumber: 1, pagecount: pageCounter, buttonClickCallback: pageClick });
+            $("#pager").pager({ pagenumber: 1, pagecount: pageCount, buttonClickCallback: pageClick });
         });
 
 
