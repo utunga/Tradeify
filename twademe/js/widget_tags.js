@@ -1,26 +1,4 @@
-
-/* ------------------------------
-couple useful bits and pieces  
-------------------------------*/
-
-String.prototype.trim = function() {
-    return this.replace(/^\s+|\s+$/g, "");
-}
-String.prototype.ltrim = function() {
-    return this.replace(/^\s+/, "");
-}
-String.prototype.rtrim = function() {
-    return this.replace(/\s+$/, "");
-}
-
-//define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
-if (!console) {
-    var console = {}
-    console.log = function(text) {
-        return; //ie do nothing
-    }
-}
-
+﻿
 
 function Tag() {
     this.tag = "";
@@ -92,6 +70,7 @@ function Tags(target_selector) {
         if (update) tag_support.update_view();
         return tag;
     }
+    
     // a fixed tag can't be removed by 'normal' add/remove operations
     // you have to call explicit 'remove_fixed_tag' operation
     this.add_fixed_tag = function(text) {
@@ -170,35 +149,18 @@ function Tags(target_selector) {
         $(".fg-buttonset a.tag").click(this._tag_click_ref);
     }
 
-    this.set_update_view_ref = function() {
+    this.update_view_event = function() {
+    }
+    
+    this.set_update_view_function = function(functionRef) {
+        this.update_view_event = functionRef;
+    }
+    
+    this.update_view = function() {
+        this.update_view_event();
         if ($(this.target_selector)) {
             $(this.target_selector).html(this.get_html());
         }
-    }
-    this.set_update_view_function = function(functionRef) {
-        this.set_update_view_ref = functionRef;
-    }
-    this.update_view = function() {
-        this.set_update_view_ref();
-        // if ($(this.target_selector)) {
-        //   $(this.target_selector).html(this.get_html());
-
-        //hover and click view changes for tag links
-        //        $(".fg-button:not(.ui-state-disabled)")
-        //        .mousedown(function(){
-        //		        if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') )
-        //			        { $(this).removeClass("ui-state-active"); }
-        //		        else { $(this).addClass("ui-state-active"); }	
-        //        })
-        //        .mouseup(function(){
-        //	        if(! $(this).is('.fg-button-toggleable, .fg-buttonset-multi .fg-button') ){
-        //		        $(this).removeClass("ui-state-active");
-        //	        }
-        //        });
-
-        //re-attach click event
-        $(".fg-buttonset a.tag").click(this._tag_click_ref);
-
     }
 
     this.decorate_url = function(baseUrl) {
@@ -259,3 +221,84 @@ function Tags(target_selector) {
         return tagString;
     }
 }
+
+//////////////////////////////////////////////////////////////////////
+
+function TagsWidget(selector, initial_tags, active_tags, tag_type) {
+    var tags;
+    var after_click = (arguments.length > 4) ? arguments[4] : function() {};
+
+    var init = function() {
+        tags = new Tags(selector);
+
+        $.each(initial_tags, function() {
+            var isInActiveTags = !!active_tags.find_tag(this);
+            tags.add_tag_without_updating(this, tag_type, isInActiveTags);
+        });
+        tags.update_view();
+        tags.tag_click(function() {
+            var tag_text = $(this).text().replace("\n", "");
+            tags.toggle_active(tag_text, tag_type);
+            after_click(tag_text, tag_type);
+            return false;
+        });
+    }
+    
+    init();
+
+    this.get_active_tags_text = function() {
+        return tags.get_active_tags_text();
+    };
+    this.get_active_tags = function() {
+        return tags.get_active_tags();
+    };
+    this.update_view = function() {
+        tags.update_view();
+    };
+    this.reset = function() {
+        init();
+    };
+    this.Tags = tags;
+};
+
+////////////////////////////////////////////////////////////////////////
+
+function SuggestedTagsWidget(selector, initial_tags, active_tags, tag_type) {
+    var tags;
+    var after_click = (arguments.length > 4) ? arguments[4] : function() { };
+
+    var init = function() {
+        tags = new Tags(selector);
+
+        $.each(initial_tags, function() {
+            var str = this.toString();
+            var isInActiveTags = ($.inArray(str, active_tags) >= 0);
+            tags.add_tag_without_updating(str, tag_type, isInActiveTags);
+        });
+        tags.update_view();
+        tags.tag_click(function() {
+            var tag_text = $(this).text().replace("\n", "");
+            tags.toggle_active(tag_text, tag_type);
+            after_click(tag_text, tag_type);
+            return false;
+        });
+        
+    }
+
+    init();
+
+    this.reset = function() {
+        init();
+    };
+    this.get_active_tags_text = function() {
+        return tags.get_active_tags_text();
+    };
+    this.get_active_tags = function() {
+        return tags.get_active_tags();
+    };
+    this.update_view = function() {
+        tags.update_view();
+    };
+    this.Tags = tags;
+};
+

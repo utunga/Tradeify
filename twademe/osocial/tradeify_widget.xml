@@ -5,235 +5,219 @@
     <Require feature="dynamic-height"/>
     <Require feature="opensocial-0.7" />
   </ModulePrefs>
-  <!-- Content section for profile view omitted -->
-  <Content type="html" view="canvas">
+  <!-- Content section for canvas view -->
+  <Content type="html" view="canvas,profile">
     <![CDATA[
-        <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="http://tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
-            media="all" />
-        <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
-            media="all" />
-        <link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
-        <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
+    <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
+    media="all" />
+<link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
+    media="all" />
+<link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+<!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
-        <div id="current_tags">
-            <br />
-        </div>
-        <div id="results">
-            <ul>
-                <li><a href="#results-1">List</a></li>
-                <li><a href="#results-2">Map</a></li>
-                <li><a href="#results-3">Post your own</a></li>
-            </ul>
-            <div class="left_col">
-                <div id="results-1">
-                    <span class="template" id="offer_template">
-                        <div class="offer" style="padding-bottom: 20px;">
-                            <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
-                                <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
-                                    target="_top" class="username"></a>
-                                <p class="msg">
-                                    <span class="text"></span>
-                                    <br />
-                                    <span class="tags"><span class="tag"><a href="#" onclick=""></a>, </span></span>
-                                </p>
-                                <div class="meta">
-                                    <a class="when" href="source_uri">Today, 10:50 am</a>
-                                </div>
-                            </span></a>
-                        </div>
-                    </span>
-                    <div id="pager">
-                    </div>
-                </div>
-                <div id="results-2">
-                    <div id="offer_map">
-                    </div>
-                </div>
-                <div id="results-3">
-                    <div id="post_your_own_form">
-                        <div class="tooltip">
-                        </div>
-                        <fieldset id="by_parts" class="ui-corner-all">
-                            <h4>
-                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked=""/>I am offering<input type="radio"
-                                    name="message_type" value="WANT" onclick="update_offer()"/>
-                                I want</h4>
-                                
-                            <div id="post_your_own_general_tags">
-                            </div>
-                            <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
-                            <!--ui-state-default ui-corner-all-->
-                            <div>
-                            <a class=" tag fg-button-icon-left  ui-corner-tag">
-                            <span class="ui-icon ui-icon-tag"/>
-                            
-                            </a>
-                            <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="Insert another tag here"/>
-                            </div>
-                            <!--<button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>-->
-                            <!--</div>-->
-                            <div class="offerPart">
-                                <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
-                                    id="offer" title="(details)"></textarea>
-                            </div>
-                            <div class="location">
-                                <label for="location">
-                                    in
-                                </label>
-                                <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post" tabindex="1" name="location"
-                                    id="location" title="(suburb)" />
-                                <div id="map_canvas">
-                                </div>
-                                <!--map goes here -->
-                                <div class="infobox">
-                                </div>
-                            </div>
-                            <div class="currency">
-                                <label for="for" class="desc">
-                                    for
-                                </label>
-                                <div id="post_your_own_currency_tags">
-                                </div>
-                            </div>
-                            <div class="until">
-                                <label for="until" class="desc">
-                                    until
-                                </label>
-                                <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
-                            </div>
-                            <!-- <div class="tags" style="width: 430px;">
-                    <label> Tags </label>
-                    <ul id="selected_tags">
-                        <li><a href="#" class="tag"></a></li>
-                    </ul>
-                    <blockquote>
-                        <h4>Suggested Tags (click to select)</h4> 
-                        <div id="suggested_tags">
-                            <span class="template">
-                                <ul class="select_tag_container">
-                                    <li><a href="#" class="tag"></a></li>
-                                </ul>
-                            </span>
-                        </div>
-                        <h4>Or type to add more</h4> 
-                        <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
-                    </blockquote>
-                
-                </div>-->
-                            <!--       <div class="thumbnail">
-                    <label for="picture_thumbnail"> Link to picture? </label>
-                    <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
-                </div>-->
-                        </fieldset>
-                        <div class="rawMessage">
-                            <fieldset>
-                                <!--<legend>Your offer</legend>	-->
-                                <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all clear_on_post"
-                                    id="message_to_send" title="(Details)"></textarea>
-                                <button class="send_message ui-button ui-state-default ui-corner-all">
-                                    Post</button>
-                                <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
-                                    class="currency_detail status"><a>Type of Trade</a> </a><a class="group_detail status">
-                                        <a>Ooooby tag</a> </a></a>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="right_col">               
-               
-                <h3>
-                Find
-                <a id="type_filter" style="font-size:150%">
-                    <a id="offered_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_offered()">Offered
-                    </a> |
-                    <a id="wanted_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_wanted()">Wanted
-                    </a>
-                </a>
-                </h3>
-                
-                <div style="margin-top:10px">
-                <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
-                <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
-                    Search tags</button>
-                </div>    
-                <h4>
-                    Categories/Tags</h4>
-                <div id="filter_general_tags">
-                </div>
-                <!-- <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
-        <button class="ui-button ui-state-default ui-corner-all" onclick="queryGeneralTag()">search</button>
-       -->
-                <h4>
-                    Type of trade</h4>
-                <div id="filter_currency_tags">
-                </div>
-                <h4>
-                    Location</h4>
-                <div id="filter_location_tags">
-                </div>
-
-            </div>
-        </div>
-        <div id="map_popup" style="padding-bottom: 30px;">
-            <span class="template">
-                <div class="map_offer" style="padding-bottom: 20px;">
-                    <a href="#" class="map_offer_overall"><span><a href="user_uri" class="map_avatar"
-                        target="_top">
-                        <img src="map_user_thumb" width="16" height="16" alt="username" /></a> <a href="map_user_uri"
-                            target="_top" class="map_username"></a>
-                        <p class="map_msg">
-                            <span class="map_text"></span>
+<div id="current_tags">
+    <br />
+</div>
+<div id="results">
+    <ul>
+        <li><a href="#results-1">List</a></li>
+        <li><a href="#results-2">Map</a></li>
+        <li><a href="#results-3">Post your own</a></li>
+    </ul>
+    <div class="left_col">
+        <div id="results-1">
+            <span class="template" id="offer_template">
+                <div class="offer" style="padding-bottom: 20px;">
+                    <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
+                        <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
+                            target="_top" class="username"></a>
+                        <p class="msg">
+                            <span class="text"></span>
                             <br />
-                            <span class="map_tags"><span class="map_tag"><a href="#" onclick=""></a>, </span>
-                            </span>
+                            <span class="tags"><span class="tag"><a href="#" onclick=""></a>, </span></span>
                         </p>
                         <div class="meta">
-                            <a class="map_when" href="source_uri">Today, 10:50 am</a>
+                            <a class="when" href="source_uri">Today, 10:50 am</a>
                         </div>
                     </span></a>
                 </div>
             </span>
+            <div id="pager">
+            </div>
         </div>
-        <!--[if lt IE 7]>
+        <div id="results-2">
+            <div id="offer_map">
+            </div>
+        </div>
+        <div id="results-3">
+            <div id="post_your_own_form">
+                <div class="tooltip">
+                </div>
+                <fieldset id="by_parts" class="ui-corner-all">
+                    <h4>
+                        <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked=""/>I am offering<input type="radio"
+                            name="message_type" value="WANT" onclick="update_offer()"/>
+                        I want</h4>
+                        
+                    <div id="post_your_own_general_tags">
+                    </div>
+                    <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
+                    <!--ui-state-default ui-corner-all-->
+                    <div>
+                    <a class=" tag fg-button-icon-left  ui-corner-tag">
+                    <span class="ui-icon ui-icon-tag"/>
+                    
+                    </a>
+                    <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="Insert another tag here"/>
+                    </div>
+                    <!--<button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>-->
+                    <!--</div>-->
+                    <div class="offerPart">
+                        <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
+                            id="offer" title="(details)"></textarea>
+                    </div>
+                    <div class="location">
+                        <label for="location">
+                            in
+                        </label>
+                        <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post" tabindex="1" name="location"
+                            id="location" title="(suburb)" />
+                        <div id="map_canvas">
+                        </div>
+                        <!--map goes here -->
+                        <div class="infobox">
+                        </div>
+                    </div>
+                    <div class="currency">
+                        <label for="for" class="desc">
+                            for
+                        </label>
+                        <div id="post_your_own_currency_tags">
+                        </div>
+                    </div>
+                    <div class="until">
+                        <label for="until" class="desc">
+                            until
+                        </label>
+                        <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
+                    </div>
+                    <!-- <div class="tags" style="width: 430px;">
+            <label> Tags </label>
+            <ul id="selected_tags">
+                <li><a href="#" class="tag"></a></li>
+            </ul>
+            <blockquote>
+                <h4>Suggested Tags (click to select)</h4> 
+                <div id="suggested_tags">
+                    <span class="template">
+                        <ul class="select_tag_container">
+                            <li><a href="#" class="tag"></a></li>
+                        </ul>
+                    </span>
+                </div>
+                <h4>Or type to add more</h4> 
+                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
+            </blockquote>
+        
+        </div>-->
+                    <!--       <div class="thumbnail">
+            <label for="picture_thumbnail"> Link to picture? </label>
+            <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
+        </div>-->
+                </fieldset>
+                <div class="rawMessage">
+                    <fieldset>
+                        <!--<legend>Your offer</legend>	-->
+                        <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all clear_on_post"
+                            id="message_to_send" title="(Details)"></textarea>
+                        <button class="send_message ui-button ui-state-default ui-corner-all">
+                            Post</button>
+                        <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
+                            class="currency_detail status"><a>Type of Trade</a> </a><a class="group_detail status">
+                                <a>Ooooby tag</a> </a></a>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right_col">               
+       
+        <h3>
+        Find
+        <a id="type_filter" style="font-size:150%">
+            <a id="offered_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_offered()">Offered
+            </a> |
+            <a id="wanted_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_wanted()">Wanted
+            </a>
+        </a>
+        </h3>
+        
+        <div style="margin-top:10px">
+        <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
+        <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
+            Search tags</button>
+        </div>    
+        <h4>
+            Categories/Tags</h4>
+        <div id="filter_general_tags">
+        </div>
+        <!-- <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
+<button class="ui-button ui-state-default ui-corner-all" onclick="queryGeneralTag()">search</button>
+-->
+        <h4>
+            Type of trade</h4>
+        <div id="filter_currency_tags">
+        </div>
+        <h4>
+            Location</h4>
+        <div id="filter_location_tags">
+        </div>
+
+    </div>
+</div>
+<div id="map_popup" style="padding-bottom: 30px;">
+    <span class="template">
+        <div class="map_offer" style="padding-bottom: 20px;">
+            <a href="#" class="map_offer_overall"><span><a href="user_uri" class="map_avatar"
+                target="_top">
+                <img src="map_user_thumb" width="16" height="16" alt="username" /></a> <a href="map_user_uri"
+                    target="_top" class="map_username"></a>
+                <p class="map_msg">
+                    <span class="map_text"></span>
+                    <br />
+                    <span class="map_tags"><span class="map_tag"><a href="#" onclick=""></a>, </span>
+                    </span>
+                </p>
+                <div class="meta">
+                    <a class="map_when" href="source_uri">Today, 10:50 am</a>
+                </div>
+            </span></a>
+        </div>
+    </span>
+</div>
+
+<!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
 <![endif]-->
-        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
 
-        <script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js">      </script>
-
-        <!--OOOOBY.NING.ORG GOOGLE API KEY = ABQIAAAABEpdHyPr3QztCREcH5edthQJninID-M6PHkd65PL9JwO4W5uJxR_4_SFIiW5EiCw9BgVYD7J-NQ32w -->
-        <!-- google maps API v3 doesn't need an API key! -->
-
-        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-
-        <script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
-
-        <script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
-
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
-
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.autocomplete.js"></script>
-
-        <!--
-<script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>
--->
-
-        <script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
-
-        <script type="text/javascript" src="http://tradeify.org/js/tag_support.js"></script>
-
-        <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
-
-        <script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
-        <!--uncomment for running on ning as part of tradiefy_widget.xml-->
-
-        <!--<script type="text/javascript" src="http://tradeify.org/osocial/mock_wrapper.js"></script>-->
-
-        <!--             un comment for running as part of widget_mock.html-->
-
-        <script type="text/javascript" src="http://tradeify.org/osocial/widget_support.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js">      </script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.autocomplete.js"></script>
+<!--<script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script> -->
+<script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/widget_tags.js"></script>
+<script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
+<script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
+<!--uncomment for running on ning as part of tradiefy_widget.xml-->
+<!--<script type="text/javascript" src="http://tradeify.org/osocial/mock_wrapper.js"></script>-->
+<!-- uncomment above when running as part of widget_mock.html-->
+<script type="text/javascript" src="http://tradeify.org/js/widget_list.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/widget_map.js"></script>
 
 <script type="text/javascript">
 
@@ -309,13 +293,14 @@
         //
         container.autocomplete_tag_search("#search_location_tag");
         /*
+        var active_prompt = false;
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "&type=tag", {
             formatItem: function(row) { active_prompt = true; return row[0]; },
             //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
         });
         $("#typed_tag").result(function(){active_prompt=false});
         */
-        list_widget = new TradeifyWidget("#results-1", "#current_tags");
+        list_widget = new ListWidget("#results-1", "#current_tags");
         list_widget.add_fixed_filter("ooooby", "group");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
         /*
@@ -425,7 +410,6 @@
 
 
 </script>
-
 
 
     ]]>

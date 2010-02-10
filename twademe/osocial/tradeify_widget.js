@@ -1,57 +1,43 @@
+
 /* ------------------------------
-     couple useful bits and pieces  
-   ------------------------------*/
-//   
-//String.prototype.trim = function() {
-//	return this.replace(/^\s+|\s+$/g,"");
-//}
-//String.prototype.ltrim = function() {
-//	return this.replace(/^\s+/,"");
-//}
-//String.prototype.rtrim = function() {
-//	return this.replace(/\s+$/,"");
-//}
+couple useful bits and pieces  
+------------------------------*/
 
-////define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
-//if (!console) {
-//    var console = {}
-//    console.log = function(text) {
-//        return; //ie do nothing
-//    }
-//}
+String.prototype.trim = function() {
+    return this.replace(/^\s+|\s+$/g, "");
+}
+String.prototype.ltrim = function() {
+    return this.replace(/^\s+/, "");
+}
+String.prototype.rtrim = function() {
+    return this.replace(/\s+$/, "");
+}
 
+//define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
+if (!console) {
+    var console = {}
+    console.log = function(text) {
+        return; //ie do nothing
+    }
+}
 
 
 /* ------------------------------
      search
    ------------------------------*/
-   
-//function queryGeneralTag(){
-//    var query = $("#search_general_tag").val();
-//    /*var queryIdx=$.inArray(query,search_tags);
-//    if(queryIdx!=-1){	
-//        return;
-//    }*/
-//    list_widget.add_filter(query, "tag");
-//    //update_offers();
-//}
 
 function queryLocationTag() {
     var query = $("#search_location_tag").val();
-    /*var queryIdx=$.inArray(query,search_tags);
-    if(queryIdx!=-1){	
-    return;
-    }*/
     list_widget.add_filter(query, "tag");
-    //update_offers();
 }
+
 function set_form_text() {
     var val = $("#offer").val();
     if (val == "(details)") $("#offer").val("");
 }
+
 var toggle_wanted_on = true;
 var toggle_offered_on = true;
-
 function toggle_wanted() {
     toggle_wanted_on = !toggle_wanted_on;
     if (!toggle_wanted_on && !toggle_offered_on) {
@@ -95,6 +81,8 @@ function update_type_filters() {
         list_widget.add_filter("offer","msg_type");
     }
 }
+
+
 /* ------------------------------
      form related function
    ------------------------------*/
