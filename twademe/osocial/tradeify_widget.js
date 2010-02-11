@@ -13,13 +13,13 @@ String.prototype.rtrim = function() {
     return this.replace(/\s+$/, "");
 }
 
-//define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
-if (!console) {
-    var console = {}
-    console.log = function(text) {
-        return; //ie do nothing
-    }
-}
+////define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
+//if (!console) {
+//    var console = {}
+//    console.log = function(text) {
+//        return; //ie do nothing
+//    }
+//}
 
 
 /* ------------------------------
@@ -123,8 +123,10 @@ function get_offer() {
 }
 
 function get_category_tags() {
-    var categories = suggested_tags_widget.get_active_tags_text();
-    return (suggested_tags_widget.length() == 0) ? "" : categories;
+    if (suggested_tags_widget.get_active_tags().length == 0) 
+        return "";
+    else 
+       return suggested_tags_widget.get_active_tags_text();
 }
 
 function get_prefix() {

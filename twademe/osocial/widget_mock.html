@@ -365,7 +365,7 @@
         post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags, "type");
         post_your_own_currency_tags.on_tag_click(update_offer);
 
-        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
+        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
 
         $("#post_your_own_form #until").datepicker({
             defaultDate: +14,
