@@ -211,7 +211,7 @@
 <script type="text/javascript" src="../js/quickpager.jquery.js"></script>
 <script type="text/javascript" src="../js/jquery.pager.js"></script>
 <script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
-<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
+<!--<script type="text/javascript" src="../js/jquery.tools.min.js"></script>-->
 <script type="text/javascript" src="../js/pure_packed_v2.js"></script>
 <script type="text/javascript" src="../js/widget_tags.js"></script>
 <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
@@ -332,7 +332,7 @@
         setInterval(function() {
             var tag = $("#typed_tag").val();
             if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
-                suggested_tags_widget.Tags.add_tag(tag, "tag", true);
+                suggested_tags_widget.add_tag(tag, "tag", true);
                 tags_widget_click();
                 $("#typed_tag").val("");
             }
