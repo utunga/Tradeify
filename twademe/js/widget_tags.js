@@ -310,38 +310,25 @@ function SuggestedTagsWidget(selector, general_tagset) {
         update_suggested_tags();
     }
 
-    var init_from_arrays = function(suggested_tags) {
+    
+    var update_suggested_tags = function() {
+    
         //store currently selected tags (if any) 
         var active_tags = tags_widget.get_active_tags();
         
         // (re)create the widget
         tags_widget = new TagsWidget(selector);
-        tags_widget.on_tag_click(tags_widget_click);
-        
-        // add new suggested tags
-        $.each(suggested_tags, function() {
-            var str = this.toString();
-            var isSelected = ($.inArray(str, active_tags) >= 0);
-            tags_widget.add_tag(str, tag_type, isSelected);
-        });
-        
-        tags_widget.update_view();
-    }
-    
-    
-    var update_suggested_tags = function() {
-    
+                
         // currently selected tags are the 'active' tags on the internal widget
         var tag_string_before = tags_widget.get_all_tags_text();
-        
+        var suggested_tags = [];        
         if (tags_widget.get_active_tags().length == 0) {
-            init_from_arrays(general_tagset);
+            suggested_tags = general_tagset;
         }
         else {
         
-            // get suggested tags from the site
+            // get suggested tags based on currently active tags
             var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
-            var suggested_tags = new Array();
             $.getJSON(json_url, function(data) {
                 $.each(data, function() {
                     if (this.type == tag_type) {
@@ -349,13 +336,22 @@ function SuggestedTagsWidget(selector, general_tagset) {
                     }
                 });
             });
-            init_from_arrays(suggested_tags);
         }
+
+        // add suggested tags to the list
+        $.each(suggested_tags, function() {
+            var str = this.toString();
+            var isSelected = ($.inArray(str, active_tags) >= 0);
+            tags_widget.add_tag(str, tag_type, isSelected);
+        });
         
         var tag_string_after = tags_widget.get_all_tags_text();
         if (tag_string_before!=tag_string_after) {
             $(selector).effect("highlight", {}, 3000);
         }
+        
+        tags_widget.update_view();
+        tags_widget.on_tag_click(tags_widget_click);
     };
 
     init();
