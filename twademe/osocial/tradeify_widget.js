@@ -124,8 +124,9 @@ function get_offer() {
 
 function get_category_tags() {
     var categories = suggested_tags_widget.get_active_tags_text();
-    return (suggested_tags_widget.length == 0) ? "" : categories;
+    return (suggested_tags_widget.length() == 0) ? "" : categories;
 }
+
 function get_prefix() {
    
     var prefix = $("input[@name='message_type']:checked").val();
@@ -340,7 +341,7 @@ function tag_keyup() {
 function custom_tag() {
     var tag=$("#typed_tag").val();
     if (tag.trim() != "") {
-        suggested_tags_widget.Tags.add_tag("tag", true);
+        suggested_tags_widget.add_tag("tag", true);
         tags_widget_click();
     }
     $("#typed_tag").val("");
@@ -359,38 +360,3 @@ function custom_tag() {
  Support for suggested tags 
 ------------------------------*/
 
-var update_suggested_tags = function() {
-    var selected_tags = suggested_tags_widget.get_active_tags();
-    if (selected_tags.length > 0) {
-        var tags = suggested_tags_widget.Tags;
-        var json_url = tags.decorate_active_url(container.tags_uri + "?type=tag");
-        var suggested_tags = new Array();
-        $.getJSON(json_url, function(data) {
-            $.each(data, function() {
-                if (this.type == "tag")
-                    suggested_tags.push(this.tag);
-            });
-
-            //rebuild the whole widget
-            $.each(selected_tags, function() {
-                if ($.inArray(this, suggested_tags) < 0) suggested_tags.push(this);
-            });
-            suggested_tags_widget = new SuggestedTagsWidget("#post_your_own_general_tags", suggested_tags, selected_tags, "tag", tags_widget_click);
-            
-        });
-    }
-    else suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
-    
-};
-
-var tags_widget_click = function(tag_text, tag_type) {
-    /*if (selected_tags.has_tag(tag_text)) {
-    selected_tags.remove_tag(tag_text);
-    }
-    else {
-    selected_tags.add_tag(tag_text, tag_type);
-    }*/
-    update_and_dont_parse();
-    update_suggested_tags();
-    $("#suggested_tags_widget").effect("highlight", {}, 3000);
-}

@@ -310,13 +310,7 @@
         list_widget = new ListWidget("#results-1", "#current_tags");
         list_widget.add_fixed_filter("ooooby", "group");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
-        /*
-        $("#add_typed_tag").click(function() {
-        var typed_tag_text = $("#typed_tag").val();
-        suggested_tags_widget.Tags.add_tag(typed_tag_text, "tag", true);
-        tags_widget_click();
-        });
-        */
+
         list_widget.on_offers_updated(createRHSTags);
         //easiest way to reconcile the autocomplete and wish to submit after timeout
         var previous_tag = "";
@@ -324,7 +318,7 @@
         setInterval(function() {
             var tag = $("#typed_tag").val();
             if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
-                suggested_tags_widget.Tags.add_tag(tag, "tag", true);
+                suggested_tags_widget.add_tag(tag, "tag", true);
                 tags_widget_click();
                 $("#typed_tag").val("");
             }
@@ -357,7 +351,7 @@
         post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags, "type");
         post_your_own_currency_tags.on_tag_click(update_offer);
         
-        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
+        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
 
         $("#post_your_own_form #until").datepicker({
             defaultDate: +14,

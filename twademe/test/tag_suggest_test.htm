@@ -59,7 +59,7 @@
 
         $("#add_typed_tag").click(function() {
             var typed_tag_text = $("#typed_tag").val();
-            suggested_tags_widget.Tags.add_tag(typed_tag_text, "tag", true);
+            suggested_tags_widget.add_tag(typed_tag_text, "tag", true);
             tags_widget_click();
         });
 
