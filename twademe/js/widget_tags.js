@@ -12,7 +12,18 @@ function Tags() {
     if (!(this instanceof arguments.callee))
         return new Tags(); //ensure context even if someone forgets to create via 'new'
 
-    var tags = [];
+    var tags;
+    
+    var init = function() {
+        tags = [];
+    }
+    
+    var init_from_simple_array = function(tags_array, tag_type) {
+        tags = [];
+        $.each(tags_array, function() {
+            add_tag(this.toString(), tag_type, false);
+        });
+    }
 
     var find_tag = function(text) {
         var found_tag = null;
@@ -23,7 +34,6 @@ function Tags() {
         });
         return found_tag;
     };
-
 
     var has_tag = function(text) {
         var found = false;
@@ -164,6 +174,14 @@ function Tags() {
         return tagString;
     }
 
+    // madness but if you want multiple 'constructors' you kinda have to do this???
+    if (arguments.length ==0 ) {
+        init();
+    }
+    else {
+        init_from_simple_array(arguments[0], arguments[1]);
+    }
+    
     // make all methods public
     this.find_tag = find_tag;
     this.has_tag = has_tag;
@@ -201,8 +219,8 @@ function TagsWidget(selector) {
     {
         tags = new Tags();
         $.each(initial_tags, function() {
-            var isInActiveTags = !!active_tags.find_tag(this);
-            tags.add_tag(this, tag_type, isInActiveTags);
+            var active = active_tags.has_tag(this);
+            tags.add_tag(this, tag_type, active);
         });
         update_view();
     }
@@ -270,7 +288,11 @@ function TagsWidget(selector) {
 
 
     // public methods
-    this.reset = init;
+    this.reset = function() {
+        init();
+        update_view();
+    }
+    
     this.on_tag_click = on_tag_click;
     this.update_view = update_view;
     this.init_from = init_from;
@@ -296,63 +318,61 @@ function TagsWidget(selector) {
 ////////////////////////////////////////////////////////////////////////
 
 function SuggestedTagsWidget(selector, general_tagset) {
+
+    if (!(this instanceof arguments.callee))
+        return new SuggestedTagsWidget(selector, general_tagset); //ensure context even if someone forgets to create via 'new'
+
     var tags_widget;
     var tag_type = "tag";
     
     var init = function() {
         tags_widget = new TagsWidget(selector);
         tags_widget.on_tag_click(tags_widget_click);
-        update_suggested_tags();
+        set_suggested_from_array(tags_widget, general_tagset);
     }
     
-    var tags_widget_click = function(tag_text, tag_type) {
-        //update_and_dont_parse();
-        update_suggested_tags();
-    }
+    var set_suggested_from_array = function(tags_widget_tmp, suggested_tags) {
 
-    
-    var update_suggested_tags = function() {
-    
-        //store currently selected tags (if any) 
-        var active_tags = tags_widget.get_active_tags();
+        var tag_string_before = tags_widget_tmp.get_all_tags_text();
+        var active_tags = new Tags(tags_widget_tmp.get_active_tags());
+        //tags_widget = new TagsWidget(selector);
+        tags_widget_tmp.init_from(suggested_tags, active_tags, tag_type);
         
-        // (re)create the widget
-        tags_widget = new TagsWidget(selector);
-                
-        // currently selected tags are the 'active' tags on the internal widget
-        var tag_string_before = tags_widget.get_all_tags_text();
-        var suggested_tags = [];        
+        tags_widget_tmp.update_view();
+        tags_widget_tmp.on_tag_click(tags_widget_click);
+        var tag_string_after = tags_widget_tmp.get_all_tags_text();
+        if (tag_string_before!=tag_string_after) {
+            $(selector).effect("highlight", {}, 3000);
+        }
+    }
+    
+    var update_suggested_tags = function(source) {
+    
         if (tags_widget.get_active_tags().length == 0) {
-            suggested_tags = general_tagset;
+            // if no tags currently, just set to the main categories
+            set_suggested_from_array(tags_widget, general_tagset);
         }
         else {
         
-            // get suggested tags based on currently active tags
+            // otherwise, get suggested tags based on currently active tags
             var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
+            var tags_widget_tmp = tags_widget;
             $.getJSON(json_url, function(data) {
+                var suggested_tags = [];
                 $.each(data, function() {
                     if (this.type == tag_type) {
                         suggested_tags.push(this.tag);
                     }
                 });
+                set_suggested_from_array(tags_widget_tmp,suggested_tags);
             });
         }
-
-        // add suggested tags to the list
-        $.each(suggested_tags, function() {
-            var str = this.toString();
-            var isSelected = ($.inArray(str, active_tags) >= 0);
-            tags_widget.add_tag(str, tag_type, isSelected);
-        });
-        
-        var tag_string_after = tags_widget.get_all_tags_text();
-        if (tag_string_before!=tag_string_after) {
-            $(selector).effect("highlight", {}, 3000);
-        }
-        
-        tags_widget.update_view();
-        tags_widget.on_tag_click(tags_widget_click);
     };
+
+    var tags_widget_click = function(tag_text, tag_type) {
+        //update_and_dont_parse();
+        update_suggested_tags();
+    }
 
     init();
 
@@ -368,5 +388,18 @@ function SuggestedTagsWidget(selector, general_tagset) {
         return tags_widget.get_active_tags();
     };
 
+    this.add_custom_tag = function(tag_text) {
+        if (tags_widget.has_tag(tag_text)) {
+            tags_widget.toggle_active(tag_text);
+        }
+        else {
+            tags_widget.add_tag(tag_text, tag_type, true);
+        }
+    };
+    
+    this.update_view = function() {
+        tags_widget.update_view();
+    }
+    
 };
 

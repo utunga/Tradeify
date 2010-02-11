@@ -55,27 +55,24 @@
                 </div>
                 <fieldset id="by_parts" class="ui-corner-all">
                     <h4>
-                        <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked=""/>I am offering<input type="radio"
-                            name="message_type" value="WANT" onclick="update_offer()"/>
-                        I want</h4>
+                        <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked=""/>OFFER:
+                        <input type="radio" name="message_type" value="WANT" onclick="update_offer()"/>WANTED:
+                    </h4>
                         
-                    <div id="suggested_tags_widget">
-                    </div>
-                    <!--<div id="type_tag_div style="mar gin-bottom:15px">-->
-                    <!--ui-state-default ui-corner-all-->
-                    <div>
-                    <a class=" tag fg-button-icon-left  ui-corner-tag">
-                    <span class="ui-icon ui-icon-tag"/>
-                    
-                    </a>
-                    <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="Insert another tag here"/>
-                    <img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="custom_tag_help" />
-                    </div>
-                    <!--<button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>-->
-                    <!--</div>-->
                     <div class="offerPart">
                         <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
-                            id="offer" title="(details)"></textarea>
+                            id="offer" title="(explain here what are you offering or wanting, eg 'delicous small tomatoes')"></textarea>
+                    </div>
+                    <div>
+                        <p>(tags, to find your message by)</p>
+                        <span id="suggested_tags_widget"></span>
+                        <span>
+                            <a class=" tag fg-button-icon-left  ui-corner-tag">
+                                <span class="ui-icon ui-icon-tag"></span>
+                            </a>
+                            <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="add your own tag"/>
+                        </span>
+                        <a style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="custom_tag_help" />What are tags?</a>
                     </div>
                     <div class="location">
                         <label for="location">
@@ -144,9 +141,7 @@
     </div>
     <div class="right_col">               
        
-        <h3>
-        Find
-        <a id="type_filter" style="font-size:150%">
+        <h3><a id="type_filter" style="font-size:150%">
             <a id="offered_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_offered()">Offered
             </a> |
             <a id="wanted_filter" class="tag type_filter fg-button ui-state-active" onclick="toggle_wanted()">Wanted
@@ -154,20 +149,21 @@
         </a>
         </h3>
         
+<!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
         <div style="margin-top:10px">
         <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
         <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
             Search tags</button>
         </div>    
-        <h4>
-            Categories/Tags</h4>
+-->     
+
+           <h4>Most Common Tags</h4>
         <div id="filter_general_tags">
         </div>
         <!-- <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryGeneralTag()">search</button>
 -->
-        <h4>
-            Type of trade</h4>
+        <h4>Type of trade</h4>
         <div id="filter_currency_tags">
         </div>
         <h4>
@@ -332,8 +328,8 @@
         setInterval(function() {
             var tag = $("#typed_tag").val();
             if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
-                suggested_tags_widget.add_tag(tag, "tag", true);
-                tags_widget_click();
+                suggested_tags_widget.add_custom_tag(tag);
+                suggested_tags_widget.update_view();
                 $("#typed_tag").val("");
             }
             previous_tag = tag;
