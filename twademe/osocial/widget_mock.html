@@ -69,6 +69,7 @@
                     
                     </a>
                     <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="Insert another tag here"/>
+                    <img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="custom_tag_help" />
                     </div>
                     <!--<button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>-->
                     <!--</div>-->
@@ -100,6 +101,7 @@
                             until
                         </label>
                         <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
+                        <img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="until_help" />
                     </div>
                     <!-- <div class="tags" style="width: 430px;">
             <label> Tags </label>
@@ -175,6 +177,8 @@
 
     </div>
 </div>
+<div id="custom_tag_help" class="help">help</div>
+<div id="until_help" class="help">until</div>
 <div id="map_popup" style="padding-bottom: 30px;">
     <span class="template">
         <div class="map_offer" style="padding-bottom: 20px;">
@@ -207,7 +211,7 @@
 <script type="text/javascript" src="../js/quickpager.jquery.js"></script>
 <script type="text/javascript" src="../js/jquery.pager.js"></script>
 <script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
-<!--<script type="text/javascript" src="../js/jquery.tools.min.js"></script> -->
+<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
 <script type="text/javascript" src="../js/pure_packed_v2.js"></script>
 <script type="text/javascript" src="../js/widget_tags.js"></script>
 <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
@@ -296,14 +300,18 @@
         container.adjustHeight(1200);
         //$("#search_location_tag").autocomplete(container.tags_ahead_uri);
         container.autocomplete_suggested_tags("#typed_tag");
-        
+
         //
         container.autocomplete_tag_search("#search_location_tag");
+        $(".help").dialog({ autoOpen: false });
+        $(".help_icon").click(function() {
+            $("#" + $(this)[0].title).dialog("open");
+        });
         /*
         var active_prompt = false;
         $("#typed_tag").autocomplete(container.tags_ahead_uri + "&type=tag", {
-            formatItem: function(row) { active_prompt = true; return row[0]; },
-            //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
+        formatItem: function(row) { active_prompt = true; return row[0]; },
+        //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
         });
         $("#typed_tag").result(function(){active_prompt=false});
         */
@@ -356,7 +364,7 @@
         post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags");
         post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags, "type");
         post_your_own_currency_tags.on_tag_click(update_offer);
-        
+
         suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
 
         $("#post_your_own_form #until").datepicker({
@@ -412,7 +420,7 @@
         parse_offer();
 
 
-    });                        //end document.ready
+    });                           //end document.ready
 
 
 

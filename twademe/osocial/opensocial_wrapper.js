@@ -15,7 +15,7 @@
     this.autocomplete_suggested_tags=function(selector){
     $(selector).autocomplete(this.tags_ahead_uri + "&type=tag", {
             dataType: "json",
-            formatItem: function(row) { active_prompt = true; return row[0]; },
+            formatItem: function(row) { this.active_prompt = true; return row[0]; },
             extraParams: {/*type:"tag", jsoncallback:"?"*/
         }
             //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
