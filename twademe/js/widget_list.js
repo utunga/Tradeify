@@ -46,7 +46,7 @@
     }
 
     var update_offers = function() {
-        var json_url = current_tags.decorate_url(offers_uri);
+        var json_url = build_search_query(offers_uri);
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 var overall = this.timestamp.split("T");
@@ -88,7 +88,7 @@
     
     var remove_filter = function(tag_text) {
         current_tags.remove_tag(tag_text);
-        current_tags.update_view();
+        //current_tags.update_view();
         update_offers();
     };
 
@@ -97,6 +97,18 @@
         current_tags.update_view();
         update_offers();
     };
+
+    var build_search_query = function(baseUrl) {
+        var query = "";
+        var current_tags_array = (arguments.length > 1) ? arguments[1] : current_tags.Tags;
+        for (tag in current_tags_array) {
+                if (query != "")
+                    query = query + "&";
+                query = query + "tag=" + current_tags_array[tag].tag;
+        }
+        return baseUrl + "?" + query + "&jsoncallback=?";
+    };
+
 
     init();
     
@@ -108,6 +120,7 @@
     this.add_filter = add_filter;
     this.remove_filter = remove_filter;
     this.add_fixed_filter = add_fixed_filter;
+    this.build_search_query = build_search_query;
     this.get_offers = function() {
         return offers;
     }

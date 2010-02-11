@@ -352,6 +352,15 @@ function SuggestedTagsWidget(selector, general_tagset) {
         
         tags_widget.update_view();
         tags_widget.on_tag_click(tags_widget_click);
+
+          $.each(initial_tags, function() {
+            var str = this.toString();
+            var isInActiveTags = ($.inArray(str, active_tags) >= 0);
+            tags_widget.add_tag(str, tag_type, isInActiveTags);
+        });
+        
+        tags_widget.on_tag_click(tags_widget_click);
+        tags_widget.update_view();
     };
 
     init();
