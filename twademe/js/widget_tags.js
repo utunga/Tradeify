@@ -139,8 +139,9 @@ function Tags() {
         });
         return fixed_tags;
     }
-    
+
     var decorate_url = function(baseUrl) {
+        var tags = (arguments.length > 1) ? arguments[1] : tags;
         var query = $(tags).map(function() {
             return this.type + "=" + escape(this.tag);
         }).get().join("&");

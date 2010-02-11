@@ -38,9 +38,9 @@
     }
     
     var create_popup = function(map, marker) {
-        var tags_backup = list_widget.current_tags.Tags.concat(marker.tags);
+        var tags_backup = list_widget.current_tags.get_active_tags().concat(marker.tags);
 
-        var json_url = list_widget.build_search_query(offers_uri, tags_backup);
+        var json_url = list_widget.current_tags.decorate_url(offers_uri, tags_backup);
         $.getJSON(json_url, function(raw_data) {
             var messages = new Array();
             //make sure that only the messages with the exact same number of tags are included
