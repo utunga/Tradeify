@@ -68,8 +68,7 @@ namespace Offr.Location
             if (previouslyFound != null) return previouslyFound;
 
             GoogleResultSet resultSet = GetResultSet(addressText);
-            //make sure the name isnt coordinates
-            resultSet.name = addressText;
+            
             return GetNewLocation(addressText, scopeLocation, resultSet);
         }
 
@@ -93,7 +92,10 @@ namespace Offr.Location
         {
             string requestURI = string.Format(GOOGLE_REVERSE_URI, placemark.Point.coordinates[1],placemark.Point.coordinates[0]);
             string responseData = WebRequest.RetrieveContent(requestURI);
-            return JSON.Deserialize<GoogleResultSet>(responseData);
+            //make sure the name isnt coordinates
+            GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
+            resultSet.name = text;
+            return resultSet;
         }
         protected GoogleResultSet GetResultSet(string addressText)
         {
