@@ -5,20 +5,16 @@ function Tag() {
     this.type = "tag";
     this.active = false;
     this.fixed = false;
-}
+};
 
 function Tags() {
 
     if (!(this instanceof arguments.callee))
         return new Tags(); //ensure context even if someone forgets to create via 'new'
 
-    var tags;
+    var tags = [];
     
-    var init = function() {
-        tags = [];
-    }
-    
-    var init_from_simple_array = function(tags_array, tag_type) {
+    var load_from_simple_array = function(tags_array, tag_type) {
         tags = [];
         $.each(tags_array, function() {
             add_tag(this.toString(), tag_type, false);
@@ -110,7 +106,7 @@ function Tags() {
     }
     
     var get_active_tags = function() {
-        var active_tags = new Array();
+        var active_tags = [];
         $.each(tags, function() {
             if (this.active) active_tags.push(this.tag.toString());
         });
@@ -141,8 +137,8 @@ function Tags() {
     }
 
     var decorate_url = function(baseUrl) {
-        var tags = (arguments.length > 1) ? arguments[1] : tags;
-        var query = $(tags).map(function() {
+        var arg_tags = (arguments.length > 1) ? arguments[1] : tags;
+        var query = $(arg_tags).map(function() {
             return this.type + "=" + escape(this.tag);
         }).get().join("&");
         return baseUrl + "?" + query + "&jsoncallback=?";
@@ -174,14 +170,6 @@ function Tags() {
         });
         return tagString;
     }
-
-    // madness but if you want multiple 'constructors' you kinda have to do this???
-    if (arguments.length ==0 ) {
-        init();
-    }
-    else {
-        init_from_simple_array(arguments[0], arguments[1]);
-    }
     
     // make all methods public
     this.find_tag = find_tag;
@@ -198,11 +186,12 @@ function Tags() {
     this.get_active_tags_text = get_active_tags_text;
     this.get_all_tags_text = get_all_tags_text;
     this.get_fixed_tags = get_fixed_tags;
+    this.load_from_simple_array = load_from_simple_array;
     this.get_tags_array = function() {
         return tags;
     }
 
-}
+};
 
 //////////////////////////////////////////////////////////////////////
 
@@ -213,15 +202,14 @@ function TagsWidget(selector) {
    
     var init = function() {
         tags = new Tags();
-        _tag_click_ref = function() {} //no-op
     }
     
     var init_from = function(initial_tags, active_tags, tag_type) 
     {
         tags = new Tags();
         $.each(initial_tags, function() {
-            var active = active_tags.has_tag(this);
-            tags.add_tag(this, tag_type, active);
+            var active = ($.inArray(this.toString(), active_tags) > -1);
+            tags.add_tag(this.toString(), tag_type, active);
         });
         update_view();
     }
@@ -283,10 +271,8 @@ function TagsWidget(selector) {
         tagString = tagString + "</div>";
         return tagString;
     }
-     
 
     init();
-
 
     // public methods
     this.reset = function() {
@@ -300,20 +286,27 @@ function TagsWidget(selector) {
    
     // note the external caller has to remember to call update_view() after
     // calling these methods if they want the rendered html to change
-    this.find_tag = tags.find_tag;
-    this.has_tag = tags.has_tag;
-    this.toggle_filter = tags.toggle_filter;
-    this.add_tag = tags.add_tag;
-    this.add_fixed_tag = tags.add_fixed_tag;
-    this.remove_tag = tags.remove_tag;
-    this.get_active_tags = tags.get_active_tags;
-    this.remove_fixed_tag = tags.remove_fixed_tag;
-    this.toggle_active = tags.toggle_active;
-    this.get_fixed_tags = tags.get_fixed_tags;
-    this.decorate_url = tags.decorate_url;
-    this.decorate_active_url = tags.decorate_active_url;
-    this.get_active_tags_text = tags.get_active_tags_text;
-    this.get_all_tags_text = tags.get_all_tags_text;
+    
+    //ARGH! OK here was the bug the next line is *NOT* the same as below
+    //this.get_active_tags = return tags.get_active_tags;
+        
+    this.get_active_tags = function() {
+        return tags.get_active_tags();
+    };
+    
+    this.find_tag = function(text) { return tags.find_tag(text); };
+    this.has_tag = function(text) { return tags.has_tag(text); };
+    this.toggle_filter = function(text) { return tags.toggle_filter(text) };
+    this.add_tag = function(text, type, active) { return tags.add_tag(text, type, active); }; //return tags.add_tag.apply(tags, arguments); }; //uhm is this right? FIXME
+    this.add_fixed_tag = function(text, type, active) { return tags.add_fixed_tag(text,type, active); }; //return tags.add_fixed_tag.apply(tags, arguments); }; //uhm is this right for variable args //FIXME
+    this.remove_tag = function(text) { return tags.remove_tag(text); };
+    this.remove_fixed_tag = function(text) { return tags.remove_fixed_tag(text); };
+    this.toggle_active = function(text) { return tags.toggle_active(text); };
+    this.get_fixed_tags = function() { return tags.get_fixed_tags(); };
+    this.decorate_url = function(baseUrl) { return tags.decorate_url(baseUrl); };
+    this.decorate_active_url = function(baseUrl) { return tags.decorate_active_url(baseUrl); };
+    this.get_active_tags_text = function() { return tags.get_active_tags_text(); };
+    this.get_all_tags_text = function() { return tags.get_all_tags_text(); };
 };
 
 ////////////////////////////////////////////////////////////////////////
@@ -329,19 +322,18 @@ function SuggestedTagsWidget(selector, general_tagset) {
     var init = function() {
         tags_widget = new TagsWidget(selector);
         tags_widget.on_tag_click(tags_widget_click);
-        set_suggested_from_array(tags_widget, general_tagset);
+        set_suggested_from_array(general_tagset);
     }
     
-    var set_suggested_from_array = function(tags_widget_tmp, suggested_tags) {
+    var set_suggested_from_array = function(suggested_tags) {
 
-        var tag_string_before = tags_widget_tmp.get_all_tags_text();
-        var active_tags = new Tags(tags_widget_tmp.get_active_tags());
-        //tags_widget = new TagsWidget(selector);
-        tags_widget_tmp.init_from(suggested_tags, active_tags, tag_type);
+        var tag_string_before = tags_widget.get_all_tags_text();
+       
+        tags_widget.init_from(suggested_tags, tags_widget.get_active_tags(), tag_type);
         
-        tags_widget_tmp.update_view();
-        tags_widget_tmp.on_tag_click(tags_widget_click);
-        var tag_string_after = tags_widget_tmp.get_all_tags_text();
+        tags_widget.update_view();
+        //tags_widget.on_tag_click(tags_widget_click);
+        var tag_string_after = tags_widget.get_all_tags_text();
         if (tag_string_before!=tag_string_after) {
             $(selector).effect("highlight", {}, 3000);
         }
@@ -351,21 +343,29 @@ function SuggestedTagsWidget(selector, general_tagset) {
     
         if (tags_widget.get_active_tags().length == 0) {
             // if no tags currently, just set to the main categories
-            set_suggested_from_array(tags_widget, general_tagset);
+            set_suggested_from_array(general_tagset);
         }
         else {
         
             // otherwise, get suggested tags based on currently active tags
             var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
-            var tags_widget_tmp = tags_widget;
             $.getJSON(json_url, function(data) {
                 var suggested_tags = [];
+
+                // make sure all the currently active tags are included
+                // (this would be ensured by the data, except for the faking out by fake tags)
+                $.each(tags_widget.get_active_tags(), function() {
+                    suggested_tags.push(this.toString());
+                });
+
                 $.each(data, function() {
                     if (this.type == tag_type) {
                         suggested_tags.push(this.tag);
                     }
                 });
-                set_suggested_from_array(tags_widget_tmp,suggested_tags);
+                
+                
+                set_suggested_from_array(suggested_tags);
             });
         }
     };

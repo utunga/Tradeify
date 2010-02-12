@@ -102,7 +102,6 @@
     
     /* 'public' methods */
     this.toggle_filter = toggle_filter;
-    this.current_tags = current_tags;
     this.update_offers = update_offers;
     this.on_offers_updated = on_offers_updated;
     this.add_filter = add_filter;
@@ -113,6 +112,9 @@
     }
     this.get_tags = function() {
         return tags;
+    }
+    this.current_tags = function() {
+        return current_tags;
     }
 }
 

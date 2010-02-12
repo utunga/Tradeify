@@ -34,45 +34,9 @@
     var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
 , "seedlings", "garden_supplies", "garden_services", "books", "workshops");
 
-    function default_tag_setup() {
-        $(".defaultText").focus(function(srcc) {
-            if ($(this).val() == $(this)[0].title) {
-                $(this).removeClass("defaultTextActive");
-                $(this).val("");
-            }
-        });
-
-        $(".defaultText").blur(function() {
-            if ($(this).val() == "") {
-                $(this).addClass("defaultTextActive");
-                $(this).val($(this)[0].title);
-            }
-        });
-
-        $(".defaultText").blur();      
-
-    }
-
-
     $(document).ready(function() {
-        $("#typed_tag").autocomplete(container.tags_ahead_uri + "?type=tag");
-
-        $("#add_typed_tag").click(function() {
-            var typed_tag_text = $("#typed_tag").val();
-            suggested_tags_widget.add_tag(typed_tag_text, "tag", true);
-            tags_widget_click();
-        });
-
-        default_tag_setup();
-        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset, [], "tag", tags_widget_click);
-
-    });         //end document.ready
-
-
-function update_and_dont_parse() {
-    //no op to allow testing
-    console.log("updating offer");
-}
+        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
+    });        
 
 
 </script>

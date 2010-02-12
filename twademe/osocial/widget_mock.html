@@ -257,15 +257,15 @@
 
         var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
         filter_general_tags = new TagsWidget("#filter_general_tags");
-        filter_general_tags.init_from(general_tags, list_widget.current_tags, "tag");
+        filter_general_tags.init_from(general_tags, list_widget.current_tags(), "tag");
         filter_general_tags.on_tag_click(update_filter);
         
         filter_currency_tags = new TagsWidget("#filter_currency_tags");
-        filter_currency_tags.init_from(currency_tags, list_widget.current_tags, "currency");
+        filter_currency_tags.init_from(currency_tags, list_widget.current_tags(), "currency");
         filter_currency_tags.on_tag_click(update_filter);
         
         filter_location_tags = new TagsWidget("#filter_location_tags");
-        filter_location_tags.init_from( location_tags, list_widget.current_tags, "loc");
+        filter_location_tags.init_from( location_tags, list_widget.current_tags(), "loc");
         filter_location_tags.on_tag_click(update_filter);
     }
 
@@ -358,7 +358,7 @@
         $("#by_parts input").change(update_offer);
         default_tag_setup();
         post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags");
-        post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags, "type");
+        post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
         post_your_own_currency_tags.on_tag_click(update_offer);
 
         suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
