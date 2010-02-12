@@ -20,6 +20,8 @@ namespace Offr.Location
 
         public const string GOOGLE_API_KEY= "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&gl=NZ";
+        public const string GOOGLE_REVERSE_URI = "http://maps.google.com/maps/geo?output=json&oe=utf-8&ll={0}%2C{1}";
+        
 
        private readonly List<IRawMessageReceiver> _receivers;
 
@@ -66,6 +68,7 @@ namespace Offr.Location
             if (previouslyFound != null) return previouslyFound;
 
             GoogleResultSet resultSet = GetResultSet(addressText);
+            
             return GetNewLocation(addressText, scopeLocation, resultSet);
         }
 
@@ -85,7 +88,15 @@ namespace Offr.Location
             newlyFound.AddressText = addressText;
             LocationRepository.Save(newlyFound);
         }
-
+        private static GoogleResultSet reverseGeocodeCoordinates(string text, GoogleResultSet.PlacemarkType placemark)
+        {
+            string requestURI = string.Format(GOOGLE_REVERSE_URI, placemark.Point.coordinates[1],placemark.Point.coordinates[0]);
+            string responseData = WebRequest.RetrieveContent(requestURI);
+            //make sure the name isnt coordinates
+            GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
+            resultSet.name = text;
+            return resultSet;
+        }
         protected GoogleResultSet GetResultSet(string addressText)
         {
             try
@@ -93,6 +104,9 @@ namespace Offr.Location
                 string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
                 string responseData = WebRequest.RetrieveContent(requestURI);
                 GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
+                GoogleResultSet.PlacemarkType placemark = resultSet.Placemark[0];
+                int accuracy = int.Parse(placemark.AddressDetails.accuracy);
+                if (accuracy == 0) resultSet=reverseGeocodeCoordinates(addressText, placemark);
                 return resultSet;
             }
             catch (System.Net.WebException ex)

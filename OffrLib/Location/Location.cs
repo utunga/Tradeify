@@ -87,6 +87,9 @@ namespace Offr.Location
             // At the moment we are just taking the first result as definitieve
             // We might want to do something about multiple matches to the geo code query 
             GoogleResultSet.PlacemarkType placemark = googleResultSet.Placemark[0];
+
+
+
             return From(googleResultSet.name, placemark);
         }
         
@@ -130,12 +133,14 @@ namespace Offr.Location
 
         private static Location From(string addressText, GoogleResultSet.PlacemarkType placemark)
         {
+            int accuracy = int.Parse(placemark.AddressDetails.accuracy);
+
             Location loc = new Location
                                {
                                    Address = addressText,
                                    GeoLat = placemark.Point.coordinates[1],
                                    GeoLong = placemark.Point.coordinates[0],
-                                   Accuracy = int.Parse(placemark.AddressDetails.accuracy)
+                                   Accuracy = accuracy
                                };
             // not sure whether we should get the latitude and longitude from LatLonBox or the Point field of the json.
             // the longitude appears slightly different in each - going with Point for now
@@ -200,6 +205,8 @@ namespace Offr.Location
             }
             return loc;
         }
+
+ 
 
         private static void AddTags(string countryName, Location loc, string countryCode, string region, string localityName)
         {
