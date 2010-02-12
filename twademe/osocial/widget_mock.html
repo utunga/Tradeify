@@ -61,10 +61,10 @@
                         
                     <div class="offerPart">
                         <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
-                            id="offer" title="(explain here what are you offering or wanting, eg 'delicous small tomatoes')"></textarea>
+                            id="offer" title="(what are you offering? - e.g. 'delicous small tomatoes')"></textarea>
                     </div>
                     <div>
-                        <p>(tags, to find your message by)</p>
+                        <p>(add tags, to find your message by)</p>
                         <span id="suggested_tags_widget"></span>
                         <span>
                             <a class=" tag fg-button-icon-left  ui-corner-tag">
@@ -256,16 +256,13 @@
         });
 
         var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
-        filter_general_tags = new TagsWidget("#filter_general_tags");
-        filter_general_tags.init_from(general_tags, list_widget.current_tags(), "tag");
+        filter_general_tags.init_from(general_tags, list_widget.current_tags().get_all_tags(), "tag");
         filter_general_tags.on_tag_click(update_filter);
         
-        filter_currency_tags = new TagsWidget("#filter_currency_tags");
-        filter_currency_tags.init_from(currency_tags, list_widget.current_tags(), "currency");
+        filter_currency_tags.init_from(currency_tags, list_widget.current_tags().get_all_tags(), "currency");
         filter_currency_tags.on_tag_click(update_filter);
         
-        filter_location_tags = new TagsWidget("#filter_location_tags");
-        filter_location_tags.init_from( location_tags, list_widget.current_tags(), "loc");
+        filter_location_tags.init_from( location_tags, list_widget.current_tags().get_all_tags(), "loc");
         filter_location_tags.on_tag_click(update_filter);
     }
 
@@ -303,24 +300,13 @@
         $(".help_icon").click(function() {
             $("#" + $(this)[0].title).dialog("open");
         });
-        /*
-        var active_prompt = false;
-        $("#typed_tag").autocomplete(container.tags_ahead_uri + "&type=tag", {
-        formatItem: function(row) { active_prompt = true; return row[0]; },
-        //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
-        });
-        $("#typed_tag").result(function(){active_prompt=false});
-        */
         list_widget = new ListWidget("#results-1", "#current_tags");
         list_widget.add_fixed_filter("ooooby", "group");
         map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
-        /*
-        $("#add_typed_tag").click(function() {
-        var typed_tag_text = $("#typed_tag").val();
-        suggested_tags_widget.Tags.add_tag(typed_tag_text, "tag", true);
-        tags_widget_click();
-        });
-        */
+        filter_general_tags = new TagsWidget("#filter_general_tags");
+        filter_currency_tags = new TagsWidget("#filter_currency_tags");
+        filter_location_tags = new TagsWidget("#filter_location_tags");
+        
         list_widget.on_offers_updated(createRHSTags);
         //easiest way to reconcile the autocomplete and wish to submit after timeout
         var previous_tag = "";
@@ -353,16 +339,6 @@
             spinner: spinner_message
         });
 
-        $("#by_parts input").keyup(update_offer);
-        $("#by_parts textarea").keyup(update_offer);
-        $("#by_parts input").change(update_offer);
-        default_tag_setup();
-        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags");
-        post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
-        post_your_own_currency_tags.on_tag_click(update_offer);
-
-        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
-
         $("#post_your_own_form #until").datepicker({
             defaultDate: +14,
             minDate: 0,
@@ -370,6 +346,16 @@
             constrainInput: true,
             showOn: "focus"
         });
+
+        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
+        suggested_tags_widget.on_tags_updated(update_offer);
+        post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags");
+        post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
+        post_your_own_currency_tags.on_tag_click(update_offer);
+        $("#by_parts input").keyup(update_offer);
+        $("#by_parts textarea").keyup(update_offer);
+        $("#by_parts input").change(update_offer);
+        default_tag_setup();
 
         $(".send_message").click(function() {
             var message = $("#message_to_send").val();

@@ -122,7 +122,7 @@ function get_offer() {
     return (offer.length == 0) ? " .." : " "+offer;
 }
 
-function get_category_tags() {
+function get_tags() {
     if (suggested_tags_widget.get_active_tags().length == 0) 
         return "";
     else 
@@ -146,20 +146,19 @@ function get_prefix() {
 //}
 
 function update_offer() {
-	
     update_and_dont_parse();
     //make sure the updated message to send is parsed again
     parse_offer();
 }
+
 function update_and_dont_parse() {
     var concatMessage =
             get_prefix() +
-             get_category_tags() + 
              get_offer() +
 			 get_location() + 
              get_currency() +
              get_until() +             
-    //			 get_tags() +  //SUGGESTED TAGS (NOT USED FOR NOW)
+             get_tags() +  
 //			 get_imagelink() +
 			 " #"+group;
     $("#message_to_send").val(concatMessage);

@@ -105,13 +105,6 @@ function Tags() {
         return found_tag_to_remove;
     }
     
-    var get_active_tags = function() {
-        var active_tags = [];
-        $.each(tags, function() {
-            if (this.active) active_tags.push(this.tag.toString());
-        });
-        return active_tags;
-    }
     
     var remove_fixed_tag = function(text) {
         var existing = find_tag(text)
@@ -128,6 +121,22 @@ function Tags() {
         }
     }
 
+    var get_all_tags = function() {
+        var all_tags = [];
+        $.each(tags, function() {
+            all_tags.push(this.tag.toString());
+        });
+        return all_tags;
+    }
+  
+    var get_active_tags = function() {
+        var active_tags = [];
+        $.each(tags, function() {
+            if (this.active) active_tags.push(this.tag.toString());
+        });
+        return active_tags;
+    }
+  
     var get_fixed_tags = function() {
         var fixed_tags = new Array();
         $.each(tags, function() {
@@ -163,7 +172,7 @@ function Tags() {
         return tagString;
     }
     
-     var get_all_tags_text = function() {
+    var get_all_tags_text = function() {
         var tagString = "";
         $.each(tags, function() {
             tagString = tagString + " #" + this.tag;
@@ -185,6 +194,7 @@ function Tags() {
     this.decorate_active_url = decorate_active_url;
     this.get_active_tags_text = get_active_tags_text;
     this.get_all_tags_text = get_all_tags_text;
+    this.get_all_tags = get_all_tags;
     this.get_fixed_tags = get_fixed_tags;
     this.load_from_simple_array = load_from_simple_array;
     this.get_tags_array = function() {
@@ -294,6 +304,7 @@ function TagsWidget(selector) {
         return tags.get_active_tags();
     };
     
+    this.get_all_tags = function() { return tags.get_all_tags(); }
     this.find_tag = function(text) { return tags.find_tag(text); };
     this.has_tag = function(text) { return tags.has_tag(text); };
     this.toggle_filter = function(text) { return tags.toggle_filter(text) };
@@ -318,6 +329,7 @@ function SuggestedTagsWidget(selector, general_tagset) {
 
     var tags_widget;
     var tag_type = "tag";
+    var _tags_updated_fn = new Array();
     
     var init = function() {
         tags_widget = new TagsWidget(selector);
@@ -337,8 +349,18 @@ function SuggestedTagsWidget(selector, general_tagset) {
         if (tag_string_before!=tag_string_after) {
             $(selector).effect("highlight", {}, 3000);
         }
-    }
+        
+        if (!!_tags_updated_fn) {
+            $.each(_tags_updated_fn, function() {
+                this(tags_widget);
+            });
+        }
+     }
     
+     var on_tags_updated = function(functionRef) {
+        _tags_updated_fn.push(functionRef);
+    }
+
     var update_suggested_tags = function(source) {
     
         if (tags_widget.get_active_tags().length == 0) {
@@ -371,7 +393,6 @@ function SuggestedTagsWidget(selector, general_tagset) {
     };
 
     var tags_widget_click = function(tag_text, tag_type) {
-        //update_and_dont_parse();
         update_suggested_tags();
     }
 
@@ -401,6 +422,8 @@ function SuggestedTagsWidget(selector, general_tagset) {
     this.update_view = function() {
         tags_widget.update_view();
     }
+    
+    this.on_tags_updated = on_tags_updated;
     
 };
 
