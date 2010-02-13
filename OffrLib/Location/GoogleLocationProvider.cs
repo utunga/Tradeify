@@ -104,9 +104,12 @@ namespace Offr.Location
                 string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
                 string responseData = WebRequest.RetrieveContent(requestURI);
                 GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
-                GoogleResultSet.PlacemarkType placemark = resultSet.Placemark[0];
-                int accuracy = int.Parse(placemark.AddressDetails.accuracy);
-                if (accuracy == 0) resultSet=reverseGeocodeCoordinates(addressText, placemark);
+                if (resultSet.Placemark != null && resultSet.Placemark.Length > 0)
+                {
+                    GoogleResultSet.PlacemarkType placemark = resultSet.Placemark[0];
+                    int accuracy = int.Parse(placemark.AddressDetails.accuracy);
+                    if (accuracy == 0) resultSet = reverseGeocodeCoordinates(addressText, placemark);
+                }
                 return resultSet;
             }
             catch (System.Net.WebException ex)
