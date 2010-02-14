@@ -112,7 +112,8 @@ function get_currency() {
 }
 
 function get_location() {
-    var location =$("#location").val().trim();
+    var location = $("#location").val().trim();
+    if(location==
     return (location.length == 0) ?  "" : locationPrefix + location + locationSuffix;
 }
 
@@ -184,7 +185,7 @@ function display_results_of_parse_offer(response) {
     }
     else $("#too_long").remove();
     switchStatus("NeedsCurrencyTag","currency_detail",reasons);
-    switchStatus("NeedsLocation","location_detail",reasons);
+    switchLocationStatus("NeedsLocation", "location_detail", reasons);
     switchStatus("NeedsGroupTag","group_detail",reasons);  
 }
 function switchStatus(value,selector,array){
@@ -192,10 +193,13 @@ function switchStatus(value,selector,array){
         $("."+selector).css({"background-image": "url('"+container.cross_uri+"')"});
     else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
 }
+function switchLocationStatus(value, selector, array) {
 
-
-       /* form support for styling */
-	   
+    if ($.inArray(value, array) > -1 || $("#message_to_send").val().search("l:(suburb):")==-1)
+        $("." + selector).css({ "background-image": "url('" + container.cross_uri + "')" });
+    else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
+    /* form support for styling */
+}	   
 $(function() {
     /* Bind  functions for handling css jquery-ui class to jQuery events */
     $(".send_message").attr("disabled","disabled");
