@@ -30,7 +30,7 @@ namespace Offr.Tests
             _messageRepository = new MessageRepository();
             _tagRepository = new TagRepository();
             IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, _tagRepository, realMessageParser);
-            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider(target, MessageType.offer);
+            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider((IRawMessageReceiver) target);
             twitterProvider.Update();
         }
 
