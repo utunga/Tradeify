@@ -41,9 +41,9 @@ function mock_container() {
        
         callback = (arguments.length>1) ? arguments[1] : function() {}
         
-        var name = "utunga";
-        var thumbnail= "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1";
-        var profileUrl ="http://utunga.ning.com/profile/MilesThompson";
+        var name = "just_a_test"
+        var thumbnail= "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg";
+        var profileUrl ="http://twitter.com/just_a_test";
 
         var message_data = {
             message:message,
