@@ -63,7 +63,7 @@ namespace Offr.Tests
             JSON.WriteProperty(serializer, writer, "provide_name_space", ProviderNameSpace);
             JSON.WriteProperty(serializer, writer, "profile_pic_url", ProfilePicUrl);
             JSON.WriteProperty(serializer, writer, "screen_name", ScreenName);
-            JSON.WriteProperty(serializer, writer, "more_info_url", MoreInfoUrl);
+            JSON.WriteProperty(serializer, writer, "profile_url", MoreInfoUrl);
             JSON.WriteProperty(serializer, writer, "match_tag", MatchTag);
         }
 

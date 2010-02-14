@@ -111,7 +111,7 @@ namespace Offr.Twitter
                 return new List<IRawMessage>();
             }
 
-            List<IRawMessage> newStatusUpdates = new List<IRawMessage>();
+            List<IRawMessage> newStatusUpdates = new List<IRawMessage>();   
             foreach (TwitterStatus status in resultSet.results)
             {
                 newStatusUpdates.Add(new TwitterRawMessage(status));

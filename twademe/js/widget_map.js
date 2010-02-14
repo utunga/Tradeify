@@ -82,7 +82,7 @@
         $.each(offers, function() {
             var post = new google.maps.LatLng(this.location.geo_lat, this.location.geo_long);
             latlng.push(post);
-            var title = this.address; //this.offer_text + " " + this.user.more_info_url;
+            var title = this.address; //this.offer_text + " " + this.user.profile_url;
             var tags = new Array();
             $.each(this.tags, function() {
                 if (this.type == "loc") tags.push(this);

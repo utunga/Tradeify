@@ -147,7 +147,7 @@ namespace Offr.Message
             StringBuilder builder = new StringBuilder();
             builder.Append(base.ToString());
             builder.Append(":offer_text:").Append(MessageText);
-            builder.Append(":more_info_url:").Append(MoreInfoURL);
+            builder.Append(":profile_url:").Append(MoreInfoURL);
             builder.Append(":thumbnail:").Append(Thumbnail);
             builder.Append(":end_by:").Append(EndBy);
             builder.Append(":location:").Append(Location);

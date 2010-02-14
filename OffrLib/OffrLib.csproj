@@ -180,7 +180,7 @@
     <None Include="Query\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\Newtonsoft.Json\src\Newtonsoft.Json.csproj">
+    <ProjectReference Include="..\lib\Newtonsoft.Json\Src\Newtonsoft.Json.csproj">
       <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
       <Name>Newtonsoft.Json</Name>
     </ProjectReference>

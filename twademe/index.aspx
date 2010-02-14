@@ -106,7 +106,7 @@
         var offers = $('#results_by_date  .template').mapDirective({
             'div.offer': 'offer <- messages',
             '.date': 'offer.date',
-            '.user a[href]': 'offer.user.more_info_url',
+            '.user a[href]': 'offer.user.profile_url',
             // '.msg a.thumb[href]': '#{offer.thumbnail_url}',
             '.msg img[src]': 'offer.thumbnail_url',
             '.user img[src]': 'offer.user.profile_pic_url',
