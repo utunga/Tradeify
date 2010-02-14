@@ -35,50 +35,6 @@ namespace Newtonsoft.Json.Utilities
 {
   internal static class JavaScriptUtils
   {
-    public static void WriteEscapedJavaScriptChar(TextWriter writer, char c, char delimiter)
-    {
-      switch (c)
-      {
-        case '\t':
-          writer.Write(@"\t");
-          break;
-        case '\n':
-          writer.Write(@"\n");
-          break;
-        case '\r':
-          writer.Write(@"\r");
-          break;
-        case '\f':
-          writer.Write(@"\f");
-          break;
-        case '\b':
-          writer.Write(@"\b");
-          break;
-        case '\\':
-          writer.Write(@"\\");
-          break;
-        //case '<':
-        //case '>':
-        //case '\'':
-        //  StringUtils.WriteCharAsUnicode(writer, c);
-        //  break;
-        case '\'':
-          // only escape if this charater is being used as the delimiter
-          writer.Write((delimiter == '\'') ? @"\'" : @"'");
-          break;
-        case '"':
-          // only escape if this charater is being used as the delimiter
-          writer.Write((delimiter == '"') ? "\\\"" : @"""");
-          break;
-        default:
-          if (c > '\u001f')
-            writer.Write(c);
-          else
-            StringUtils.WriteCharAsUnicode(writer, c);
-          break;
-      }
-    }
-
     public static void WriteEscapedJavaScriptString(TextWriter writer, string value, char delimiter, bool appendDelimiters)
     {
       // leading delimiter
@@ -87,9 +43,86 @@ namespace Newtonsoft.Json.Utilities
 
       if (value != null)
       {
+        int lastWritePosition = 0;
+        int skipped = 0;
+        char[] chars = null;
+
         for (int i = 0; i < value.Length; i++)
         {
-          WriteEscapedJavaScriptChar(writer, value[i], delimiter);
+          char c = value[i];
+          string escapedValue;
+
+          switch (c)
+          {
+            case '\t':
+              escapedValue = @"\t";
+              break;
+            case '\n':
+              escapedValue = @"\n";
+              break;
+            case '\r':
+              escapedValue = @"\r";
+              break;
+            case '\f':
+              escapedValue = @"\f";
+              break;
+            case '\b':
+              escapedValue = @"\b";
+              break;
+            case '\\':
+              escapedValue = @"\\";
+              break;
+            case '\u0085': // Next Line
+              escapedValue = @"\u0085";
+              break;
+            case '\u2028': // Line Separator
+              escapedValue = @"\u2028";
+              break;
+            case '\u2029': // Paragraph Separator
+              escapedValue = @"\u2029";
+              break;
+            case '\'':
+              // only escape if this charater is being used as the delimiter
+              escapedValue = (delimiter == '\'') ? @"\'" : null;
+              break;
+            case '"':
+              // only escape if this charater is being used as the delimiter
+              escapedValue = (delimiter == '"') ? "\\\"" : null;
+              break;
+            default:
+              escapedValue = (c <= '\u001f') ? StringUtils.ToCharAsUnicode(c) : null;
+              break;
+          }
+
+          if (escapedValue != null)
+          {
+            if (chars == null)
+              chars = value.ToCharArray();
+
+            // write skipped text
+            if (skipped > 0)
+            {
+              writer.Write(chars, lastWritePosition, skipped);
+              skipped = 0;
+            }
+
+            // write escaped value and note position
+            writer.Write(escapedValue);
+            lastWritePosition = i + 1;
+          }
+          else
+          {
+            skipped++;
+          }
+        }
+
+        // write any remaining skipped text
+        if (skipped > 0)
+        {
+          if (lastWritePosition == 0)
+            writer.Write(value);
+          else
+            writer.Write(chars, lastWritePosition, skipped);
         }
       }
 

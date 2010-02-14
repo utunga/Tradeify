@@ -23,7 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Reflection;
+using System;
 
 namespace Newtonsoft.Json.Serialization
 {
@@ -39,10 +39,23 @@ namespace Newtonsoft.Json.Serialization
     public string PropertyName { get; set; }
 
     /// <summary>
-    /// Gets the member.
+    /// Gets the <see cref="IValueProvider"/> that will get and set the <see cref="JsonProperty"/> during serialization.
     /// </summary>
-    /// <value>The member.</value>
-    public MemberInfo Member { get; set; }
+    /// <value>The <see cref="IValueProvider"/> that will get and set the <see cref="JsonProperty"/> during serialization.</value>
+    public IValueProvider ValueProvider { get; set; }
+
+    /// <summary>
+    /// Gets or sets the type of the property.
+    /// </summary>
+    /// <value>The type of the property.</value>
+    public Type PropertyType { get; set; }
+
+    /// <summary>
+    /// Gets or sets the <see cref="JsonConverter" /> for the property.
+    /// If set this converter takes presidence over the contract converter for the property type.
+    /// </summary>
+    /// <value>The converter.</value>
+    public JsonConverter Converter { get; set; }
 
     /// <summary>
     /// Gets a value indicating whether this <see cref="JsonProperty"/> is ignored.
@@ -77,8 +90,8 @@ namespace Newtonsoft.Json.Serialization
     /// <summary>
     /// Gets a value indicating whether this <see cref="JsonProperty"/> is required.
     /// </summary>
-    /// <value><c>true</c> if required; otherwise, <c>false</c>.</value>
-    public bool Required { get; set; }
+    /// <value>A value indicating whether this <see cref="JsonProperty"/> is required.</value>
+    public Required Required { get; set; }
 
     /// <summary>
     /// Gets a value indicating whether this property preserves object references.
@@ -105,5 +118,11 @@ namespace Newtonsoft.Json.Serialization
     /// </summary>
     /// <value>The reference loop handling.</value>
     public ReferenceLoopHandling? ReferenceLoopHandling { get; set; }
+
+    /// <summary>
+    /// Gets the property object creation handling.
+    /// </summary>
+    /// <value>The object creation handling.</value>
+    public ObjectCreationHandling? ObjectCreationHandling { get; set; }
   }
 }

@@ -32,6 +32,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
 using System.ComponentModel;
+using System.Collections.Specialized;
 #if !SILVERLIGHT
 using Newtonsoft.Json.Linq.ComponentModel;
 #endif
@@ -45,7 +46,7 @@ namespace Newtonsoft.Json.Linq
 #if !SILVERLIGHT
     , ITypedList, IBindingList
 #else
-    , IList
+    , IList, INotifyCollectionChanged
 #endif
   {
 #if !SILVERLIGHT
@@ -58,6 +59,11 @@ namespace Newtonsoft.Json.Linq
     /// Occurs before an item is added to the collection.
     /// </summary>
     public event AddingNewEventHandler AddingNew;
+#else
+    /// <summary>
+    /// Occurs when the items list of the collection has changed, or the collection is reset.
+    /// </summary>
+    public event NotifyCollectionChangedEventHandler CollectionChanged;
 #endif
 
     private JToken _content;
@@ -93,7 +99,7 @@ namespace Newtonsoft.Json.Linq
     internal void CheckReentrancy()
     {
       if (_busy)
-        throw new InvalidOperationException("ObservableCollection_CannotChangeObservableCollection");
+        throw new InvalidOperationException("Cannot change {0} during a collection change event.".FormatWith(CultureInfo.InvariantCulture, GetType()));
     }
 
  #if !SILVERLIGHT
@@ -115,6 +121,28 @@ namespace Newtonsoft.Json.Linq
     protected virtual void OnListChanged(ListChangedEventArgs e)
     {
       ListChangedEventHandler handler = ListChanged;
+
+      if (handler != null)
+      {
+        _busy = true;
+        try
+        {
+          handler(this, e);
+        }
+        finally
+        {
+          _busy = false;
+        }
+      }
+    }
+#else
+    /// <summary>
+    /// Raises the <see cref="CollectionChanged"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
+    protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+    {
+      NotifyCollectionChangedEventHandler handler = CollectionChanged;
 
       if (handler != null)
       {
@@ -219,8 +247,7 @@ namespace Newtonsoft.Json.Linq
       {
         yield return current;
       }
-      while (current != null
-        && ((current = current.Next) != null));
+      while ((current = current.Next) != null);
     }
 
     /// <summary>
@@ -257,7 +284,7 @@ namespace Newtonsoft.Json.Linq
 
     internal bool IsMultiContent(object content)
     {
-      return (content is IEnumerable && !(content is string) && !(content is JToken));
+      return (content is IEnumerable && !(content is string) && !(content is JToken) && !(content is byte[]));
     }
 
     internal virtual void AddItem(bool isLast, JToken previous, JToken item)
@@ -282,6 +309,9 @@ namespace Newtonsoft.Json.Linq
 #if !SILVERLIGHT
       if (ListChanged != null)
         OnListChanged(new ListChangedEventArgs(ListChangedType.ItemAdded, IndexOfItem(item)));
+#else
+      if (CollectionChanged != null)
+        OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, IndexOfItem(item)));
 #endif
     }
 
@@ -371,6 +401,8 @@ namespace Newtonsoft.Json.Linq
 
 #if !SILVERLIGHT
           OnListChanged(new ListChangedEventArgs(ListChangedType.ItemDeleted, index));
+#else
+          OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, token, index));
 #endif
 
           return;
@@ -415,6 +447,8 @@ namespace Newtonsoft.Json.Linq
 
 #if !SILVERLIGHT
       OnListChanged(new ListChangedEventArgs(ListChangedType.ItemDeleted, itemIndex));
+#else
+      OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, itemIndex));
 #endif
 
       return true;
@@ -434,6 +468,8 @@ namespace Newtonsoft.Json.Linq
 
 #if !SILVERLIGHT
       OnListChanged(new ListChangedEventArgs(ListChangedType.ItemChanged, index));
+#else
+      OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, item, token, index));
 #endif
     }
 
@@ -460,6 +496,8 @@ namespace Newtonsoft.Json.Linq
 
 #if !SILVERLIGHT
       OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
+#else
+      OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
 #endif
     }
 
@@ -509,6 +547,8 @@ namespace Newtonsoft.Json.Linq
 
 #if !SILVERLIGHT
       OnListChanged(new ListChangedEventArgs(ListChangedType.ItemChanged, itemIndex));
+#else
+      OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, replacement, existing, itemIndex));
 #endif
     }
 
@@ -681,6 +721,7 @@ namespace Newtonsoft.Json.Linq
           case JsonToken.Float:
           case JsonToken.Date:
           case JsonToken.Boolean:
+          case JsonToken.Bytes:
             JValue v = new JValue(r.Value);
             v.SetLineInfo(lineInfo);
             parent.Add(v);

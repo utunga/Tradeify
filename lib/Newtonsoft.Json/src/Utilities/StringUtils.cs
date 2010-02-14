@@ -325,11 +325,12 @@ namespace Newtonsoft.Json.Utilities
 
     public static string ToCharAsUnicode(char c)
     {
-      using (StringWriter w = new StringWriter(CultureInfo.InvariantCulture))
-      {
-        WriteCharAsUnicode(w, c);
-        return w.ToString();
-      }
+      char h1 = MathUtils.IntToHex((c >> 12) & '\x000f');
+      char h2 = MathUtils.IntToHex((c >> 8) & '\x000f');
+      char h3 = MathUtils.IntToHex((c >> 4) & '\x000f');
+      char h4 = MathUtils.IntToHex(c & '\x000f');
+
+      return new string(new[] { '\\', 'u', h1, h2, h3, h4 });
     }
 
     public static void WriteCharAsUnicode(TextWriter writer, char c)

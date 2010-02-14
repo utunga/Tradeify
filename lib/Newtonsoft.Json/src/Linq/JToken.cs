@@ -400,6 +400,11 @@ namespace Newtonsoft.Json.Linq
       return (o.Type == JTokenType.String || o.Type == JTokenType.Comment || o.Type == JTokenType.Raw || IsNullable(o));
     }
 
+    private static bool ValidateBytes(JToken o)
+    {
+      return (o.Type == JTokenType.Bytes || IsNullable(o));
+    }
+
     private static string GetType(JToken t)
     {
       return (t != null) ? t.Type.ToString() : "{null}";
@@ -420,6 +425,7 @@ namespace Newtonsoft.Json.Linq
       return (bool)v.Value;
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Performs an explicit conversion from <see cref="Newtonsoft.Json.Linq.JToken"/> to <see cref="System.DateTimeOffset"/>.
     /// </summary>
@@ -433,6 +439,7 @@ namespace Newtonsoft.Json.Linq
 
       return (DateTimeOffset)v.Value;
     }
+#endif
 
     /// <summary>
     /// Performs an explicit conversion from <see cref="Newtonsoft.Json.Linq.JToken"/> to <see cref="Nullable{Boolean}"/>.
@@ -482,6 +489,7 @@ namespace Newtonsoft.Json.Linq
       return (DateTime?)v.Value;
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Performs an explicit conversion from <see cref="Newtonsoft.Json.Linq.JToken"/> to <see cref="Nullable{DateTimeOffset}"/>.
     /// </summary>
@@ -498,6 +506,7 @@ namespace Newtonsoft.Json.Linq
 
       return (DateTimeOffset?)v.Value;
     }
+#endif
 
     /// <summary>
     /// Performs an explicit conversion from <see cref="Newtonsoft.Json.Linq.JToken"/> to <see cref="Nullable{Decimal}"/>.
@@ -732,6 +741,20 @@ namespace Newtonsoft.Json.Linq
 
       return Convert.ToUInt64(v.Value, CultureInfo.InvariantCulture);
     }
+
+    /// <summary>
+    /// Performs an explicit conversion from <see cref="Newtonsoft.Json.Linq.JToken"/> to <see cref="T:System.Byte[]"/>.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    /// <returns>The result of the conversion.</returns>
+    public static explicit operator byte[](JToken value)
+    {
+      JValue v = EnsureValue(value);
+      if (v == null || !ValidateBytes(v))
+        throw new ArgumentException("Can not convert {0} to byte array.".FormatWith(CultureInfo.InvariantCulture, GetType(v)));
+
+      return (byte[])v.Value;
+    }
     #endregion
 
     #region Cast to operators
@@ -745,6 +768,7 @@ namespace Newtonsoft.Json.Linq
       return new JValue(value);
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Performs an implicit conversion from <see cref="DateTimeOffset"/> to <see cref="JToken"/>.
     /// </summary>
@@ -754,6 +778,7 @@ namespace Newtonsoft.Json.Linq
     {
       return new JValue(value);
     }
+#endif
 
     /// <summary>
     /// Performs an implicit conversion from <see cref="Nullable{Boolean}"/> to <see cref="JToken"/>.
@@ -785,6 +810,7 @@ namespace Newtonsoft.Json.Linq
       return new JValue(value);
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Performs an implicit conversion from <see cref="Nullable{DateTimeOffset}"/> to <see cref="JToken"/>.
     /// </summary>
@@ -794,6 +820,7 @@ namespace Newtonsoft.Json.Linq
     {
       return new JValue(value);
     }
+#endif
 
     /// <summary>
     /// Performs an implicit conversion from <see cref="Nullable{Decimal}"/> to <see cref="JToken"/>.
@@ -964,6 +991,16 @@ namespace Newtonsoft.Json.Linq
     {
       return new JValue(value);
     }
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="T:System.Byte[]"/> to <see cref="Newtonsoft.Json.Linq.JToken"/>.
+    /// </summary>
+    /// <param name="value">The value to create a <see cref="JValue"/> from.</param>
+    /// <returns>The <see cref="JValue"/> initialized with the specified value.</returns>
+    public static implicit operator JToken(byte[] value)
+    {
+      return new JValue(value);
+    }
     #endregion
 
     IEnumerator IEnumerable.GetEnumerator()
@@ -1094,6 +1131,38 @@ namespace Newtonsoft.Json.Linq
     int IJsonLineInfo.LinePosition
     {
       get { return _linePosition ?? 0; }
+    }
+
+    /// <summary>
+    /// Selects the token that matches the object path.
+    /// </summary>
+    /// <param name="path">
+    /// The object path from the current <see cref="JToken"/> to the <see cref="JToken"/>
+    /// to be returned. This must be a string of property names or array indexes separated
+    /// by periods, such as <code>Tables[0].DefaultView[0].Price</code> in C# or
+    /// <code>Tables(0).DefaultView(0).Price</code> in Visual Basic.
+    /// </param>
+    /// <returns>The <see cref="JToken"/> that matches the object path or a null reference if no matching token is found.</returns>
+    public JToken SelectToken(string path)
+    {
+      return SelectToken(path, false);
+    }
+
+    /// <summary>
+    /// Selects the token that matches the object path.
+    /// </summary>
+    /// <param name="path">
+    /// The object path from the current <see cref="JToken"/> to the <see cref="JToken"/>
+    /// to be returned. This must be a string of property names or array indexes separated
+    /// by periods, such as <code>Tables[0].DefaultView[0].Price</code> in C# or
+    /// <code>Tables(0).DefaultView(0).Price</code> in Visual Basic.
+    /// </param>
+    /// <param name="errorWhenNoMatch">A flag to indicate whether an error should be thrown if no token is found.</param>
+    /// <returns>The <see cref="JToken"/> that matches the object path.</returns>
+    public JToken SelectToken(string path, bool errorWhenNoMatch)
+    {
+      JPath p = new JPath(path);
+      return p.Evaluate(this, errorWhenNoMatch);
     }
   }
 }

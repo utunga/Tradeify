@@ -53,10 +53,13 @@ namespace Newtonsoft.Json.Serialization
     /// <value>Whether this type contract is serialized as a reference.</value>
     public bool? IsReference { get; set; }
 
-    private static readonly StreamingContext SerializationStreamingContextParameter = new StreamingContext(StreamingContextStates.All);
-    private static readonly object[] SerializationEventParameterValues = new object[] { SerializationStreamingContextParameter };
+    /// <summary>
+    /// Gets or sets the default <see cref="JsonConverter" /> for this contract.
+    /// </summary>
+    /// <value>The converter.</value>
+    public JsonConverter Converter { get; set; }
 
-#if !PocketPC && !SILVERLIGHT
+#if !PocketPC
     /// <summary>
     /// Gets or sets the method called immediately after deserialization of the object.
     /// </summary>
@@ -80,10 +83,16 @@ namespace Newtonsoft.Json.Serialization
 #endif
 
     /// <summary>
-    /// Gets or sets the default contstructor used to create the object.
+    /// Gets or sets the default creator.
     /// </summary>
-    /// <value>The default contstructor.</value>
-    public ConstructorInfo DefaultContstructor { get; set; }
+    /// <value>The default creator.</value>
+    public Func<object> DefaultCreator { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether [default creator non public].
+    /// </summary>
+    /// <value><c>true</c> if the default object creator is non-public; otherwise, <c>false</c>.</value>
+    public bool DefaultCreatorNonPublic { get; set; }
 
     /// <summary>
     /// Gets or sets the method called when an error is thrown during the serialization of the object.
@@ -91,42 +100,42 @@ namespace Newtonsoft.Json.Serialization
     /// <value>The method called when an error is thrown during the serialization of the object.</value>
     public MethodInfo OnError { get; set; }
 
-    internal void InvokeOnSerializing(object o)
+    internal void InvokeOnSerializing(object o, StreamingContext context)
     {
-#if !PocketPC && !SILVERLIGHT
+#if !PocketPC
       if (OnSerializing != null)
-        OnSerializing.Invoke(o, SerializationEventParameterValues);
+        OnSerializing.Invoke(o, new object[] { context });
 #endif
     }
 
-    internal void InvokeOnSerialized(object o)
+    internal void InvokeOnSerialized(object o, StreamingContext context)
     {
-#if !PocketPC && !SILVERLIGHT
+#if !PocketPC
       if (OnSerialized != null)
-        OnSerialized.Invoke(o, SerializationEventParameterValues);
+        OnSerialized.Invoke(o, new object[] { context });
 #endif
     }
 
-    internal void InvokeOnDeserializing(object o)
+    internal void InvokeOnDeserializing(object o, StreamingContext context)
     {
-#if !PocketPC && !SILVERLIGHT
+#if !PocketPC
       if (OnDeserializing != null)
-        OnDeserializing.Invoke(o, SerializationEventParameterValues);
+        OnDeserializing.Invoke(o, new object[] { context });
 #endif
     }
 
-    internal void InvokeOnDeserialized(object o)
+    internal void InvokeOnDeserialized(object o, StreamingContext context)
     {
-#if !PocketPC && !SILVERLIGHT
+#if !PocketPC
       if (OnDeserialized != null)
-        OnDeserialized.Invoke(o, SerializationEventParameterValues);
+        OnDeserialized.Invoke(o, new object[] { context });
 #endif
     }
 
-    internal void InvokeOnError(object o, ErrorContext errorContext)
+    internal void InvokeOnError(object o, StreamingContext context, ErrorContext errorContext)
     {
       if (OnError != null)
-        OnError.Invoke(o, new object[] { SerializationStreamingContextParameter, errorContext });
+        OnError.Invoke(o, new object[] { context, errorContext });
     }
 
     internal JsonContract(Type underlyingType)

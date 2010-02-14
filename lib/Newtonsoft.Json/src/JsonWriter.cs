@@ -101,22 +101,23 @@ namespace Newtonsoft.Json
       Array,
       ConstructorStart,
       Constructor,
+      Bytes,
       Closed,
       Error
     }
 
     // array that gives a new state based on the current state an the token being written
-    private static readonly State[,] stateArray = {
+    private static readonly State[][] stateArray = new[] {
 //                      Start                   PropertyName            ObjectStart         Object            ArrayStart              Array                   ConstructorStart        Constructor             Closed          Error
 //                        
-/* None             */{ State.Error,            State.Error,            State.Error,        State.Error,      State.Error,            State.Error,            State.Error,            State.Error,            State.Error,    State.Error },
-/* StartObject      */{ State.ObjectStart,      State.ObjectStart,      State.Error,        State.Error,      State.ObjectStart,      State.ObjectStart,      State.ObjectStart,      State.ObjectStart,      State.Error,    State.Error },
-/* StartArray       */{ State.ArrayStart,       State.ArrayStart,       State.Error,        State.Error,      State.ArrayStart,       State.ArrayStart,       State.ArrayStart,       State.ArrayStart,       State.Error,    State.Error },
-/* StartConstructor */{ State.ConstructorStart, State.ConstructorStart, State.Error,        State.Error,      State.ConstructorStart, State.ConstructorStart, State.ConstructorStart, State.ConstructorStart, State.Error,    State.Error },
-/* StartProperty    */{ State.Property,         State.Error,            State.Property,     State.Property,   State.Error,            State.Error,            State.Error,            State.Error,            State.Error,    State.Error },
-/* Comment          */{ State.Start,            State.Property,         State.ObjectStart,  State.Object,     State.ArrayStart,       State.Array,            State.Constructor,      State.Constructor,      State.Error,    State.Error },
-/* Raw              */{ State.Start,            State.Property,         State.ObjectStart,  State.Object,     State.ArrayStart,       State.Array,            State.Constructor,      State.Constructor,      State.Error,    State.Error },
-/* Value            */{ State.Start,            State.Object,           State.Error,        State.Error,      State.Array,            State.Array,            State.Constructor,      State.Constructor,      State.Error,    State.Error },
+/* None             */new[]{ State.Error,            State.Error,            State.Error,        State.Error,      State.Error,            State.Error,            State.Error,            State.Error,            State.Error,    State.Error },
+/* StartObject      */new[]{ State.ObjectStart,      State.ObjectStart,      State.Error,        State.Error,      State.ObjectStart,      State.ObjectStart,      State.ObjectStart,      State.ObjectStart,      State.Error,    State.Error },
+/* StartArray       */new[]{ State.ArrayStart,       State.ArrayStart,       State.Error,        State.Error,      State.ArrayStart,       State.ArrayStart,       State.ArrayStart,       State.ArrayStart,       State.Error,    State.Error },
+/* StartConstructor */new[]{ State.ConstructorStart, State.ConstructorStart, State.Error,        State.Error,      State.ConstructorStart, State.ConstructorStart, State.ConstructorStart, State.ConstructorStart, State.Error,    State.Error },
+/* StartProperty    */new[]{ State.Property,         State.Error,            State.Property,     State.Property,   State.Error,            State.Error,            State.Error,            State.Error,            State.Error,    State.Error },
+/* Comment          */new[]{ State.Start,            State.Property,         State.ObjectStart,  State.Object,     State.ArrayStart,       State.Array,            State.Constructor,      State.Constructor,      State.Error,    State.Error },
+/* Raw              */new[]{ State.Start,            State.Property,         State.ObjectStart,  State.Object,     State.ArrayStart,       State.Array,            State.Constructor,      State.Constructor,      State.Error,    State.Error },
+/* Value            */new[]{ State.Start,            State.Object,           State.Error,        State.Error,      State.Array,            State.Array,            State.Constructor,      State.Constructor,      State.Error,    State.Error },
 		};
 
     private int _top;
@@ -578,13 +579,14 @@ namespace Newtonsoft.Json
         case JsonToken.Null:
         case JsonToken.Undefined:
         case JsonToken.Date:
+        case JsonToken.Bytes:
           // a value is being written
           token = 7;
           break;
       }
 
       // gets new state based on the current state and what is being written
-      State newState = stateArray[token, (int)_currentState];
+      State newState = stateArray[token][(int)_currentState];
 
       if (newState == State.Error)
         throw new JsonWriterException("Token {0} in state {1} would result in an invalid JavaScript object.".FormatWith(CultureInfo.InvariantCulture, tokenBeingWritten.ToString(), _currentState.ToString()));
@@ -599,9 +601,11 @@ namespace Newtonsoft.Json
           WriteIndentSpace();
       }
 
+      WriteState writeState = WriteState;
+
       // don't indent a property when it is the first token to be written (i.e. at the start)
-      if ((tokenBeingWritten == JsonToken.PropertyName && WriteState != WriteState.Start) ||
-        WriteState == WriteState.Array || WriteState == WriteState.Constructor)
+      if ((tokenBeingWritten == JsonToken.PropertyName && writeState != WriteState.Start) ||
+        writeState == WriteState.Array || writeState == WriteState.Constructor)
       {
         WriteIndent();
       }
@@ -780,6 +784,7 @@ namespace Newtonsoft.Json
       AutoComplete(JsonToken.Date);
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Writes a <see cref="DateTimeOffset"/> value.
     /// </summary>
@@ -788,6 +793,7 @@ namespace Newtonsoft.Json
     {
       AutoComplete(JsonToken.Date);
     }
+#endif
 
     /// <summary>
     /// Writes a <see cref="Nullable{Int32}"/> value.
@@ -957,6 +963,7 @@ namespace Newtonsoft.Json
         WriteValue(value.Value);
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Writes a <see cref="Nullable{DateTimeOffset}"/> value.
     /// </summary>
@@ -967,6 +974,19 @@ namespace Newtonsoft.Json
         WriteNull();
       else
         WriteValue(value.Value);
+    }
+#endif
+
+    /// <summary>
+    /// Writes a <see cref="T:Byte[]"/> value.
+    /// </summary>
+    /// <param name="value">The <see cref="T:Byte[]"/> value to write.</param>
+    public virtual void WriteValue(byte[] value)
+    {
+      if (value == null)
+        WriteNull();
+      else
+        AutoComplete(JsonToken.Bytes);
     }
 
     /// <summary>
@@ -1037,9 +1057,16 @@ namespace Newtonsoft.Json
             return;
         }
       }
+#if !PocketPC && !NET20
       else if (value is DateTimeOffset)
       {
         WriteValue((DateTimeOffset)value);
+        return;
+      }
+#endif
+      else if (value is byte[])
+      {
+        WriteValue((byte[])value);
         return;
       }
 

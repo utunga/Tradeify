@@ -25,8 +25,6 @@
 
 #if !SILVERLIGHT && !PocketPC
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 namespace Newtonsoft.Json.Converters
@@ -56,7 +54,7 @@ namespace Newtonsoft.Json.Converters
     /// </returns>
     public override bool CanConvert(Type valueType)
     {
-      return typeof(Color).IsAssignableFrom(valueType);
+      return (valueType == typeof(Color));
     }
 
     /// <summary>

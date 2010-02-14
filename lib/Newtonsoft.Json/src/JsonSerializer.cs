@@ -53,14 +53,7 @@ namespace Newtonsoft.Json
     private IContractResolver _contractResolver;
     private IReferenceResolver _referenceResolver;
     private SerializationBinder _binder;
-
-    private static readonly IList<JsonConverter> BuiltInConverters = new List<JsonConverter>
-      {
-#if !PocketPC && !SILVERLIGHT && !NET20
-          ////REMOVED FOR MONO COMPATABILITY
-        //new EntityKeyMemberConverter()
-#endif
-      };
+    private StreamingContext _context;
 
     /// <summary>
     /// Occurs when the <see cref="JsonSerializer"/> errors during serialization and deserialization.
@@ -258,6 +251,16 @@ namespace Newtonsoft.Json
       }
       set { _contractResolver = value; }
     }
+
+    /// <summary>
+    /// Gets or sets the <see cref="StreamingContext"/> used by the serializer when invoking serialization callback methods.
+    /// </summary>
+    /// <value>The context.</value>
+    public virtual StreamingContext Context
+    {
+      get { return _context; }
+      set { _context = value; }
+    }
     #endregion
 
     /// <summary>
@@ -273,6 +276,8 @@ namespace Newtonsoft.Json
       _preserveReferencesHandling = JsonSerializerSettings.DefaultPreserveReferencesHandling;
       _constructorHandling = JsonSerializerSettings.DefaultConstructorHandling;
       _typeNameHandling = JsonSerializerSettings.DefaultTypeNameHandling;
+      _context = JsonSerializerSettings.DefaultContext;
+
       _binder = DefaultSerializationBinder.Instance;
     }
 
@@ -298,6 +303,7 @@ namespace Newtonsoft.Json
         jsonSerializer.NullValueHandling = settings.NullValueHandling;
         jsonSerializer.DefaultValueHandling = settings.DefaultValueHandling;
         jsonSerializer.ConstructorHandling = settings.ConstructorHandling;
+        jsonSerializer.Context = settings.Context;
 
         if (settings.Error != null)
           jsonSerializer.Error += settings.Error;
@@ -369,6 +375,18 @@ namespace Newtonsoft.Json
     /// into an instance of the specified type.
     /// </summary>
     /// <param name="reader">The <see cref="JsonReader"/> containing the object.</param>
+    /// <typeparam name="T">The type of the object to deserialize.</typeparam>
+    /// <returns>The instance of <typeparamref name="T"/> being deserialized.</returns>
+    public T Deserialize<T>(JsonReader reader)
+    {
+      return (T)Deserialize(reader, typeof(T));
+    }
+
+    /// <summary>
+    /// Deserializes the Json structure contained by the specified <see cref="JsonReader"/>
+    /// into an instance of the specified type.
+    /// </summary>
+    /// <param name="reader">The <see cref="JsonReader"/> containing the object.</param>
     /// <param name="objectType">The <see cref="Type"/> of object being deserialized.</param>
     /// <returns>The instance of <paramref name="objectType"/> being deserialized.</returns>
     public object Deserialize(JsonReader reader, Type objectType)
@@ -414,20 +432,9 @@ namespace Newtonsoft.Json
       serializerWriter.Serialize(jsonWriter, value);
     }
 
-    internal bool HasClassConverter(Type objectType, out JsonConverter converter)
-    {
-      if (objectType == null)
-        throw new ArgumentNullException("objectType");
-
-      converter = JsonTypeReflector.GetConverter(objectType, objectType);
-      return (converter != null);
-    }
-
     internal bool HasMatchingConverter(Type type, out JsonConverter matchingConverter)
     {
       if (HasMatchingConverter(_converters, type, out matchingConverter))
-        return true;
-      if (HasMatchingConverter(BuiltInConverters, type, out matchingConverter))
         return true;
 
       return false;

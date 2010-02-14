@@ -26,7 +26,6 @@
 #if !SILVERLIGHT
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 using Newtonsoft.Json.Utilities;
 using System.Linq;
@@ -146,7 +145,7 @@ namespace Newtonsoft.Json.Converters
         else
         {
           string elementNames = nodeNameGroup.Key;
-          writer.WritePropertyName(nodeNameGroup.Key);
+          writer.WritePropertyName(elementNames);
           writer.WriteStartArray();
 
           for (int i = 0; i < groupedNodes.Count; i++)
@@ -522,6 +521,9 @@ namespace Newtonsoft.Json.Converters
               DeserializeValue(reader, document, manager, "-" + constructorName, currentNode);
             }
             break;
+          case JsonToken.Comment:
+            currentNode.AppendChild(document.CreateComment((string)reader.Value));
+            break;
           case JsonToken.EndObject:
           case JsonToken.EndArray:
             return;
@@ -570,11 +572,6 @@ namespace Newtonsoft.Json.Converters
     private IEnumerable<XmlAttribute> ValueAttributes(XmlAttributeCollection c)
     {
       return c.OfType<XmlAttribute>().Where(a => a.NamespaceURI != JsonNamespaceUri);
-    }
-
-    private IEnumerable<XmlNode> ValueNodes(XmlNodeList c)
-    {
-      return c.OfType<XmlNode>().Where(n => n.NamespaceURI != JsonNamespaceUri);
     }
     #endregion
 
