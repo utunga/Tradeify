@@ -366,7 +366,7 @@
                 //alert("message posted");
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
-                container.adjustHeight(600);
+                //container.adjustHeight(600);
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });

@@ -72,7 +72,7 @@
                             </a>
                             <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="add your own tag"/>
                         </span>
-                        <a style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="custom_tag_help" />What are tags?</a>
+                        <a style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" class="help_icon" title="custom_tag_help" />What are tags?</a>
                     </div>
                     <div class="location">
                         <label for="location">
@@ -98,7 +98,7 @@
                             until
                         </label>
                         <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
-                        <img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="until_help" />
+                        <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" class="help_icon" title="until_help" />
                     </div>
                     <!-- <div class="tags" style="width: 430px;">
             <label> Tags </label>
@@ -364,7 +364,7 @@
                 //alert("message posted");
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
-                container.adjustHeight(600);
+                //container.adjustHeight(600);
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
