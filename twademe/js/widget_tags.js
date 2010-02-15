@@ -318,7 +318,9 @@ function TagsWidget(selector) {
     this.remove_fixed_tag = function(text) { return tags.remove_fixed_tag(text); };
     this.toggle_active = function(text) { return tags.toggle_active(text); };
     this.get_fixed_tags = function() { return tags.get_fixed_tags(); };
-    this.decorate_url = function(baseUrl) { return tags.decorate_url(baseUrl); };
+    this.decorate_url = function(baseUrl) {
+    return (arguments.length > 1) ? tags.decorate_url(baseUrl, arguments[1]) : tags.decorate_url(baseUrl);
+     };
     this.decorate_active_url = function(baseUrl) { return tags.decorate_active_url(baseUrl); };
     this.get_active_tags_text = function() { return tags.get_active_tags_text(); };
     this.get_all_tags_text = function() { return tags.get_all_tags_text(); };
