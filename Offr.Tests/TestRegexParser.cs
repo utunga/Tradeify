@@ -189,6 +189,14 @@ namespace Offr.Tests
             //type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.tag, "Iwant") });
             //Assert.AreEqual(MessageType.wanted, type);
         }
+        [Test]
+        public void TestHashStopsIn()
+        {
+            string text = "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer #ooooby #free #kiwifoo2010 ";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new GoogleLocationProvider());
+            ILocation l = regexMessageParser.TEST_GetLocation(text);
+            Assert.That(l.Tags.Contains(new Tag(TagType.loc,"new_zealand")));
+        }
     }
 
 
