@@ -108,7 +108,7 @@ namespace Offr.Message
 
             if (result != null) return result;
             //in  bounded by "."    
-            Regex reIn = new Regex(" in (.*)\\.", RegexOptions.IgnoreCase);
+            Regex reIn = new Regex(" in (([^#])*)\\.", RegexOptions.IgnoreCase);
             Match matchIn = reIn.Match(sourceText);
             if (matchIn.Groups.Count >= 1)
             {
@@ -119,7 +119,7 @@ namespace Offr.Message
             }
             if (result != null) return result;
 
-            Regex reOpenIn = new Regex(" in (.*)", RegexOptions.IgnoreCase);
+            Regex reOpenIn = new Regex(" in (([^#])*)", RegexOptions.IgnoreCase);
             Match matchOpenIn = reOpenIn.Match(sourceText);
             if (matchOpenIn.Groups.Count >= 1)
             {
@@ -283,6 +283,10 @@ namespace Offr.Message
 
         #region Test
 #if DEBUG
+        public ILocation TEST_GetLocation(string offerText)
+        {
+            return ParseLocation(offerText);
+        }
         //Test accessors
         public string TEST_GetMoreInfoUrl(string offerText)
         {

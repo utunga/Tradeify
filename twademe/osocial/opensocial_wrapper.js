@@ -30,6 +30,7 @@
          sending data from form
        ------------------------------*/
     this.get_user_location = function() {
+    /*
         var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
         var location;
@@ -42,6 +43,8 @@
                 location = viewerlocation.getField(opensocial.Address.Field.UNSTRUCTURED_ADDRESS, null);
             }
         });
+        */
+        var location;
         return location;
     };
 

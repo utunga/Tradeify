@@ -57,11 +57,12 @@
                     <h4>
                         <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked=""/>OFFER:
                         <input type="radio" name="message_type" value="WANT" onclick="update_offer()"/>WANTED:
+                        <a class="help_icon" title="type_help" style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif"  /></a>
                     </h4>
                         
                     <div class="offerPart">
                         <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
-                            id="offer" title="(what are you offering? - e.g. 'delicous small tomatoes')"></textarea>
+                            id="offer" title="(what are you offering or wanting? - e.g. 'delicous small tomatoes')"></textarea>
                     </div>
                     <div>
                         <p>(add tags, to find your message by)</p>
@@ -72,11 +73,12 @@
                             </a>
                             <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="add your own tag"/>
                         </span>
-                        <a style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="custom_tag_help" />What are tags?</a>
+                        <a class="help_icon" title="custom_tag_help" style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif"  />What are tags?</a>
                     </div>
                     <div class="location">
                         <label for="location">
                             in
+                        <a class="help_icon" title="location_help" style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif"  /></a>
                         </label>
                         <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post" tabindex="1" name="location"
                             id="location" title="(suburb)" />
@@ -89,16 +91,17 @@
                     <div class="currency">
                         <label for="for" class="desc">
                             for
+                       <a class="help_icon" title="currency_help" style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif"  /></a>
                         </label>
                         <div id="post_your_own_currency_tags">
                         </div>
-                    </div>
+                     </div>
                     <div class="until">
                         <label for="until" class="desc">
                             until
+                            <a class="help_icon" title="until_help" style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif"  /></a>
                         </label>
                         <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
-                        <img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="until_help" />
                     </div>
                     <!-- <div class="tags" style="width: 430px;">
             <label> Tags </label>
@@ -134,6 +137,7 @@
                         <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
                             class="currency_detail status"><a>Type of Trade</a> </a><a class="group_detail status">
                                 <a>Ooooby tag</a> </a></a>
+                        <a class="help_icon" title="post_help" style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif"  /></a>
                     </fieldset>
                 </div>
             </div>
@@ -175,6 +179,10 @@
 </div>
 <div id="custom_tag_help" class="help">help</div>
 <div id="until_help" class="help">until</div>
+<div id="currency_help" class="help">for</div>
+<div id="location_help" class="help">location</div>
+<div id="post_help" class="help">post</div>
+<div id="type_help" class="help">type</div>
 <div id="map_popup" style="padding-bottom: 30px;">
     <span class="template">
         <div class="map_offer" style="padding-bottom: 20px;">
@@ -299,6 +307,7 @@
         $(".help").dialog({ autoOpen: false });
         $(".help_icon").click(function() {
             $("#" + $(this)[0].title).dialog("open");
+            return false;
         });
         list_widget = new ListWidget("#results-1", "#current_tags");
         list_widget.add_fixed_filter("ooooby", "group");
@@ -306,7 +315,7 @@
         filter_general_tags = new TagsWidget("#filter_general_tags");
         filter_currency_tags = new TagsWidget("#filter_currency_tags");
         filter_location_tags = new TagsWidget("#filter_location_tags");
-        
+
         list_widget.on_offers_updated(createRHSTags);
         //easiest way to reconcile the autocomplete and wish to submit after timeout
         var previous_tag = "";
@@ -342,7 +351,7 @@
         $("#post_your_own_form #until").datepicker({
             defaultDate: +14,
             minDate: 0,
-            dateFormat: "dd M yy",
+            dateFormat: "dd/mm/yy",
             constrainInput: true,
             showOn: "focus"
         });
@@ -364,13 +373,15 @@
                 //alert("message posted");
                 list_widget.update_offers();
                 $("#results").tabs('select', 0);
-                container.adjustHeight(600);
+                //container.adjustHeight(600);
                 $(".clear_on_post").each(function() {
                     $(this).val($(this).attr("title"));
                 });
                 post_your_own_currency_tags.reset();
-                suggested_tags_widget.reset();
-
+                // post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
+                suggested_tags_widget.reset() //= new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
+                google_initialize();
+                reset_parse_offer();
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -402,7 +413,7 @@
         parse_offer();
 
 
-    });                           //end document.ready
+    });                              //end document.ready
 
 
 
