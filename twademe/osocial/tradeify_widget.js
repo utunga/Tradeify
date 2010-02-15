@@ -113,14 +113,13 @@ function get_currency() {
 
 function get_location() {
     var location = $("#location").val().trim();
-    if(location==
     return (location.length == 0) ?  "" : locationPrefix + location + locationSuffix;
 }
 
 function get_offer() {
 
     var offer = $("#offer").val().trim();
-    return (offer.length == 0) ? " .." : " "+offer;
+    return (offer == $("#offer")[0].title) ? "" : " " + offer;
 }
 
 function get_tags() {
@@ -195,7 +194,7 @@ function switchStatus(value,selector,array){
 }
 function switchLocationStatus(value, selector, array) {
 
-    if ($.inArray(value, array) > -1 || $("#message_to_send").val().search("l:(suburb):")==-1)
+    if ($.inArray(value, array) > -1 || $("#message_to_send").val().search("(suburb)") > -1)
         $("." + selector).css({ "background-image": "url('" + container.cross_uri + "')" });
     else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
     /* form support for styling */
