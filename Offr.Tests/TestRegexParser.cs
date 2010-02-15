@@ -197,6 +197,24 @@ namespace Offr.Tests
             ILocation l = regexMessageParser.TEST_GetLocation(text);
             Assert.That(l.Tags.Contains(new Tag(TagType.loc,"new_zealand")));
         }
+        [Test]
+        public void TestAtSymbolGroup()
+        {
+            string text = "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer @ooooby #free #kiwifoo2010 ";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new GoogleLocationProvider());
+             MockRawMessage raw = new MockRawMessage(0)
+             {
+                 Timestamp = DateTime.Now.AddHours(-5),
+                 CreatedBy = MockData.User0,
+                 Location = MockData.Location0,
+                 MoreInfoURL = "http://bit.ly/message0Info",
+                 Text = text,
+                 EndByText = null,
+                 EndBy = null
+             };
+            IMessage message = regexMessageParser.Parse(raw);
+            Assert.That(message.IsValid());
+        }
     }
 
 
