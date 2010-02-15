@@ -89,7 +89,7 @@ namespace Offr.Message
             {
                 Regex re = new Regex("@"+tag.Text, RegexOptions.IgnoreCase);
                 Match matchGroup = re.Match(sourceText);
-                if (matchGroup.Groups.Count >= 1)
+                if (matchGroup.Groups.Count >= 1 && !matchGroup.Groups[0].Value.Equals(""))
                 {
                     return tag;
                 }
