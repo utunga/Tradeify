@@ -8,13 +8,12 @@
   <!-- Content section for canvas view -->
   <Content type="html" view="canvas,profile">
     <![CDATA[
-    
-<link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-<link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
+<link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
     media="all" />
-<link href="http://www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
+<link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
     media="all" />
-<link href="http://www.tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+<link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
 <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
 <div id="current_tags">
@@ -63,7 +62,7 @@
                         
                     <div class="offerPart">
                         <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
-                            id="offer" title="(what are you offering? - e.g. 'delicous small tomatoes')"></textarea>
+                            id="offer" title="(what are you offering or wanting? - e.g. 'delicous small tomatoes')"></textarea>
                     </div>
                     <div>
                         <p>(add tags, to find your message by)</p>
@@ -74,7 +73,7 @@
                             </a>
                             <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"  title="add your own tag"/>
                         </span>
-                        <a style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="custom_tag_help" />What are tags?</a>
+                        <a style="font-size:smaller;"><img width="12" hspace="4" height="11" border="0" src="http://tradeify.org/images/help_icon.gif" class="help_icon" title="custom_tag_help" />What are tags?</a>
                     </div>
                     <div class="location">
                         <label for="location">
@@ -100,7 +99,7 @@
                             until
                         </label>
                         <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
-                        <img width="12" hspace="4" height="11" border="0" src="/images/help_icon.gif" class="help_icon" title="until_help" />
+                        <img width="12" hspace="4" height="11" border="0" src="http://tradeify.org/images/help_icon.gif" class="help_icon" title="until_help" />
                     </div>
                     <!-- <div class="tags" style="width: 430px;">
             <label> Tags </label>
@@ -203,22 +202,22 @@
 <![endif]-->
 <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
 
-<script type="text/javascript" src="http://www.tradeify.org/js/jquery-1.3.2.js">      </script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js">      </script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript" src="http://www.tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
-<script type="text/javascript" src="http://www.tradeify.org/js/quickpager.jquery.js"></script>
-<script type="text/javascript" src="http://www.tradeify.org/js/jquery.pager.js"></script>
-<script type="text/javascript" src="http://www.tradeify.org/js/jquery.autocomplete.js"></script>
-<!--<script type="text/javascript" src="http://www.tradeify.org/js/jquery.tools.min.js"></script>-->
-<script type="text/javascript" src="http://www.tradeify.org/js/pure_packed_v2.js"></script>
-<script type="text/javascript" src="http://www.tradeify.org/js/widget_tags.js"></script>
-<script type="text/javascript" src="http://www.tradeify.org/osocial/tradeify_widget.js"></script>
-<script type="text/javascript" src="http://www.tradeify.org/osocial/opensocial_wrapper.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/jquery.autocomplete.js"></script>
+<!--<script type="text/javascript" src="http://tradeify.org/js/jquery.tools.min.js"></script>-->
+<script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/widget_tags.js"></script>
+<script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
+<script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
 <!--uncomment for running on ning as part of tradiefy_widget.xml-->
-<!--<script type="text/javascript" src="http://www.tradeify.org/osocial/mock_wrapper.js"></script>-->
+<!--<script type="text/javascript" src="http://tradeify.org/osocial/mock_wrapper.js"></script>-->
 <!-- uncomment above when running as part of widget_mock.html-->
-<script type="text/javascript" src="http://www.tradeify.org/js/widget_list.js"></script>
-<script type="text/javascript" src="http://www.tradeify.org/js/widget_map.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/widget_list.js"></script>
+<script type="text/javascript" src="http://tradeify.org/js/widget_map.js"></script>
 
 <script type="text/javascript">
 
