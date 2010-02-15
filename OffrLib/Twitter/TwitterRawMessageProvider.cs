@@ -13,6 +13,7 @@ namespace Offr.Twitter
     public class TwitterRawMessageProvider : IRawMessageProvider
     {
         private readonly IRawMessageReceiver _receiver;
+        public const string QUERY_FOR_GROUPS = "ooooby";
 
         public TwitterRawMessageProvider(IRawMessageReceiver receiver)
         {
@@ -130,7 +131,8 @@ namespace Offr.Twitter
                     return "%23" + _forType;
             }
              */
-            return "%23offer+OR+%23offr+OR+%23wanted+OR+%23want+OR+%23wants";
+            //"%23offer+OR+%23offr+OR+%23wanted+OR+%23want+OR+%23wants";
+            return QUERY_FOR_GROUPS;
         }
     }
 }

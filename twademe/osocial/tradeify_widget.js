@@ -170,7 +170,11 @@ function parse_offer() {
         };
         $.getJSON(container.parse_uri,message_data, display_results_of_parse_offer);
      }
-
+function reset_parse_offer(){
+    $(".send_message").attr("disabled", "disabled");
+    $(".status").css({ "background-image": "url('" + container.cross_uri + "')" });
+    
+}
 function display_results_of_parse_offer(response) {
     var reasons = response.validationFailReasons;
     if(reasons.length==0){
