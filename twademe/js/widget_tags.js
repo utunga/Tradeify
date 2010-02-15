@@ -219,8 +219,7 @@ function TagsWidget(selector) {
 
     var init_from = function(initial_tags, active_tags, tag_type) {
         tags = new Tags();
-        _initial_tags = initial_tags;
-        _active_tags = active_tags;
+        if (!_initial_tags) _initial_tags = initial_tags;
         _tag_type = tag_type;
         $.each(initial_tags, function() {
             var active = ($.inArray(this.toString(), active_tags) > -1);
@@ -291,7 +290,7 @@ function TagsWidget(selector) {
 
     // public methods
     this.reset = function() {
-        init_from(_initial_tags, _active_tags, _tag_type);
+        init_from(_initial_tags, [], _tag_type);
         update_view();
     }
     
