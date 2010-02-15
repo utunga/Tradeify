@@ -54,7 +54,7 @@ namespace Offr.Twitter
 
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
-            JSON.ReadProperty<string>(serializer, reader, "provider_name_space");
+            //JSON.ReadProperty<string>(serializer, reader, "provider_name_space");
             this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "message_id");
             
         }
