@@ -240,10 +240,12 @@ $(function() {
 
 var geocoder;
 var map;
-var adress_marker;
-var keyup_threshold = 200;
+var address_marker;
+var keyup_threshold = 300;
+var details_keyup_threshold = 500;
 var address_keyup_stack = 0;
 var message_keyup_stack = 0;
+var details_keyup_stack = 0;
 var post_your_own_form_initialized = false;
 
 // this function called on tab show()
@@ -282,31 +284,10 @@ function google_initialize() {
         geo_code_address();
     }
     
-	$(".location  #location").keyup(function() { address_keyup(); });
+	$("#post_your_own_form .location  #location").keyup(address_keyup);
+	$("#post_your_own_form textarea#offer").keyup(details_keyup);
+	
 	post_your_own_form_initialized = true;
-}
-
-function geo_code_address(adress) {
-	var address = $(".location #location").val();
-	//map.clearOverlays();
-	if (geocoder) {
-	    geocoder.geocode({ 'address': address, 'region': region }, function(results, status) {
-			 if (status == google.maps.GeocoderStatus.OK) {
-				 map.setCenter(results[0].geometry.location);
-				 if (adress_marker!=null) {
-					 adress_marker.setMap(null); //remove any existing marker
-				 }
-				 adress_marker = new google.maps.Marker({
-					 map: map,
-					 position: results[0].geometry.location
-				 });
-			 } else {
-				if (adress_marker!=null) {
-					 adress_marker.setMap(null); //remove any existing marker
-				}
-			 }
-	 	})
-	}
 }
 
 function address_keyup() {
@@ -319,6 +300,16 @@ function address_keyup() {
 	}, keyup_threshold);
 }
 
+function details_keyup() {
+	details_keyup_stack++;
+	setTimeout(function() {
+		details_keyup_stack--;
+		if (details_keyup_stack == 0) {
+			parse_details_for_tags()
+		}
+	}, details_keyup_threshold);
+}
+
 function message_keyup() {
     message_keyup_stack++;
 	setTimeout(function() {
@@ -328,6 +319,44 @@ function message_keyup() {
 	    }
 	}, keyup_threshold);
 }
+
+function geo_code_address() {
+	var address = $(".location #location").val();
+	//map.clearOverlays();
+	if (geocoder) {
+	    geocoder.geocode({ 'address': address, 'region': region }, function(results, status) {
+			 if (status == google.maps.GeocoderStatus.OK) {
+				 map.setCenter(results[0].geometry.location);
+				 if (address_marker!=null) {
+					 address_marker.setMap(null); //remove any existing marker
+				 }
+				 address_marker = new google.maps.Marker({
+					 map: map,
+					 position: results[0].geometry.location
+				 });
+			 } else {
+				if (address_marker!=null) {
+					 address_marker.setMap(null); //remove any existing marker
+				}
+			 }
+	 	})
+	}
+}
+
+
+function parse_details_for_tags() {
+	var details = $("#post_your_own_form textarea#offer").val();
+	var hashTagsRegex = /#([A-Za-z0-9_]+)(\s|$)/;
+    var matches = hashTagsRegex.exec(details);
+    var i=0;
+    var results = "results for:" + details + "\n\n";
+    for (i=0; i< matches.length; i++) {
+        results = results + "match[" + i + "] :" + matches[i] +"\n";   
+    }
+    alert(results);
+}
+
+
 /*
 var tag_keyup_stack = 0;
 function tag_keyup() {

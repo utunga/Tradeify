@@ -19,8 +19,8 @@
                 
                 'span.tags': {
                     'tag <- offer.tags': {
-                        'a': 'tag.tag'/*,
-                        '+a@class': 'tag.type'*/
+                        'a': 'tag.tag',
+                        '+a@class': 'tag.type'
                     }
                 },
                 '.when': 'offer.timestamp'
