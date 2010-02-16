@@ -47,6 +47,7 @@
 
     var update_offers = function() {
         var json_url = current_tags.decorate_url(offers_uri);
+        if (arguments.length > 0) json_url += "&username=" + arguments[1] + "&namespace=ooooby";
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 var overall = this.timestamp.split("T");
@@ -56,7 +57,7 @@
                 var date = dates[2] + "-" + dates[1] + "-" + dates[0];
                 this.timestamp = time + " " + date;
                 //this.timestamp = Date.parse(this.timestamp);
-            }   
+            }
             );
             $(offers_selector + ' .template').render(data, offers_render_fn);
             $(offers_selector + ' .tags a').click(function() {
@@ -79,7 +80,9 @@
         current_tags.update_view();
         update_offers();
     };
-    
+    var filter_by_user = function(username) {
+        update_offers(username);
+    };
     var toggle_filter = function(tag_text, tag_type) {
         current_tags.toggle_filter(tag_text, tag_type);
         current_tags.update_view();

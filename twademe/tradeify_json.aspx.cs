@@ -38,7 +38,7 @@ namespace twademe
 
         private IUserPointer GetUserPointer(NameValueCollection nameVals)
         {
-            if(Request.Form["username"]!=null && Request.Form["namespace"]!=null)
+            if (Request["username"] != null && Request["namespace"] != null)
             {
                 return new OpenSocialUserPointer()
                 {
