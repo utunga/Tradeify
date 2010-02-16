@@ -106,7 +106,7 @@ namespace Offr.Tests
             {
                 foreach (Tag tag in MockData.UsedTags)
                 {
-                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTagsCreatedByUser(new ITag[] { tag }, user));
+                    List<IMessage> results = new List<IMessage>(_target.GetMessagesForTagsAndCreatedByUser(new ITag[] { tag }, user));
                     Console.Out.WriteLine("For " + user.ToString() + " && " + tag.ToString() + ":");
                     foreach (IMessage message in results)
                     {

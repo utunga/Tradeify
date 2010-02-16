@@ -153,7 +153,7 @@
             </a>
         </a>
         </h3>
-        
+       <div id="filter_by_user">filter_by_user</div> 
 <!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
         <div style="margin-top:10px">
         <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
@@ -316,7 +316,10 @@
         filter_general_tags = new TagsWidget("#filter_general_tags");
         filter_currency_tags = new TagsWidget("#filter_currency_tags");
         filter_location_tags = new TagsWidget("#filter_location_tags");
-
+        $("#filter_by_user").click(function() {
+            container.filter_by_user_name(list_widget);
+            return false;
+        });
         list_widget.on_offers_updated(createRHSTags);
         //easiest way to reconcile the autocomplete and wish to submit after timeout
         var previous_tag = "";
@@ -382,7 +385,7 @@
                 // post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
                 suggested_tags_widget.reset() //= new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
                 google_initialize();
-                $(".send_message").attr("disabled", "disabled");
+                reset_parse_offer();
                 //it is possible that the first child will not be the message posted however this is unlikely
                 setTimeout(function() {
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -414,7 +417,7 @@
         parse_offer();
 
 
-    });                             //end document.ready
+    });                               //end document.ready
 
 
 

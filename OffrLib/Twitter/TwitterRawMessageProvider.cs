@@ -6,6 +6,7 @@ using Ninject.Core;
 using NLog;
 using Offr.Json;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Twitter
@@ -13,7 +14,7 @@ namespace Offr.Twitter
     public class TwitterRawMessageProvider : IRawMessageProvider
     {
         private readonly IRawMessageReceiver _receiver;
-        public const string QUERY_FOR_GROUPS = "ooooby";
+        //public const string QUERY_FOR_GROUPS = "ooooby";
 
         public TwitterRawMessageProvider(IRawMessageReceiver receiver)
         {
@@ -132,7 +133,19 @@ namespace Offr.Twitter
             }
              */
             //"%23offer+OR+%23offr+OR+%23wanted+OR+%23want+OR+%23wants";
-            return QUERY_FOR_GROUPS;
+            ITagRepository tags=Global.Kernel.Get<ITagRepository>();
+            List<ITag> groups=tags.GetGroups();
+            string request="";
+            if(groups.Count>=1)
+            {
+                request = groups[0].Text;
+                for(int i=1;i<groups.Count;i++)
+                {
+                    request += "+OR+" + groups[i].Text;
+                }
+            }
+            return request;
+            //return QUERY_FOR_GROUPS;
         }
     }
 }

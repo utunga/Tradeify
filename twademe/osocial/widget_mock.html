@@ -152,7 +152,7 @@
             </a>
         </a>
         </h3>
-        
+       <div id="filter_by_user">filter_by_user</div> 
 <!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
         <div style="margin-top:10px">
         <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
@@ -315,7 +315,10 @@
         filter_general_tags = new TagsWidget("#filter_general_tags");
         filter_currency_tags = new TagsWidget("#filter_currency_tags");
         filter_location_tags = new TagsWidget("#filter_location_tags");
-
+        $("#filter_by_user").click(function() {
+            container.filter_by_user_name(list_widget);
+            return false;
+        });
         list_widget.on_offers_updated(createRHSTags);
         //easiest way to reconcile the autocomplete and wish to submit after timeout
         var previous_tag = "";
@@ -413,7 +416,7 @@
         parse_offer();
 
 
-    });                              //end document.ready
+    });                               //end document.ready
 
 
 

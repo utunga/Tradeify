@@ -38,7 +38,7 @@
     }
     
     var create_popup = function(map, marker) {
-        var tags_backup = list_widget.current_tags().get_active_tags().concat(marker.tags);
+        var tags_backup = list_widget.current_tags().get_all_tags().concat(marker.tags);
 
         var json_url = list_widget.current_tags().decorate_url(offers_uri, tags_backup);
         $.getJSON(json_url, function(raw_data) {

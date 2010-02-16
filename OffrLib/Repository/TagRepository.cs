@@ -88,7 +88,19 @@ namespace Offr.Repository
             }
             return null;
         }
-
+        public List<ITag> GetGroups()
+        {
+            List<ITag>groups=new List<ITag>();
+            foreach (KeyValuePair<string, ITag> tagpair in _list)
+            {
+                ITag tag = tagpair.Value;
+                if(tag.Type==TagType.group)
+                {
+                    groups.Add(tag);
+                }
+            }
+            return groups;
+        }
         /*        public void Initialize()
                 {
                     foreach (MessageType msgType in Enum.GetValues(typeof(MessageType)))
