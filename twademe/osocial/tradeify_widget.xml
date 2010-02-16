@@ -153,7 +153,6 @@
             </a>
         </a>
         </h3>
-       <div id="filter_by_user">filter_by_user</div> 
 <!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
         <div style="margin-top:10px">
         <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
@@ -175,7 +174,10 @@
             Location</h4>
         <div id="filter_location_tags">
         </div>
-
+        <div></div>
+        <h4>User: <a id="filter_by_user">My trades</a></h4>
+        <!--<a id="filter_by_everyone">Everyones trades</a>|-->
+              
     </div>
 </div>
 <div id="custom_tag_help" class="help">help</div>
@@ -316,8 +318,17 @@
         filter_general_tags = new TagsWidget("#filter_general_tags");
         filter_currency_tags = new TagsWidget("#filter_currency_tags");
         filter_location_tags = new TagsWidget("#filter_location_tags");
+        var my_posts = false;
         $("#filter_by_user").click(function() {
-            container.filter_by_user_name(list_widget);
+            my_posts = !my_posts;
+            if (my_posts) {
+                $('#filter_by_user').addClass('ui-state-active')
+                container.filter_by_user_name(list_widget);
+            }
+            else {
+                $('#filter_by_user').removeClass('ui-state-active');
+                list_widget.update_offers();
+            }
             return false;
         });
         list_widget.on_offers_updated(createRHSTags);
@@ -417,7 +428,7 @@
         parse_offer();
 
 
-    });                               //end document.ready
+    });                                     //end document.ready
 
 
 
