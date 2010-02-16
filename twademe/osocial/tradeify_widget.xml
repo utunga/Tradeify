@@ -175,7 +175,7 @@
         <div id="filter_location_tags">
         </div>
         <div></div>
-        <h4>User: <a id="filter_by_user">My trades</a></h4>
+        <!--<h4>User: <a id="filter_by_user">My trades</a></h4>-->
         <!--<a id="filter_by_everyone">Everyones trades</a>|-->
               
     </div>
