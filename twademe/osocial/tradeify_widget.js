@@ -350,17 +350,44 @@ function geo_code_address() {
 	}
 }
 
-
+var lastTagsFromText;
 function parse_details_for_tags() {
 	var details = $("#post_your_own_form textarea#offer").val();
-	var hashTagsRegex = /#([A-Za-z0-9_]+)(\s|$)/;
-    var matches = hashTagsRegex.exec(details);
-    var i=0;
-    var results = "results for:" + details + "\n\n";
-    for (i=0; i< matches.length; i++) {
-        results = results + "match[" + i + "] :" + matches[i] +"\n";   
+	var hashTagsRegex = /#([A-Za-z0-9_\-]+)/g; ///[\s^]#([A-Za-z0-9_\-]+)/g;  ///#(\S)+/g; 
+    var matches = details.match(hashTagsRegex);
+    if (matches == null) return;
+    
+    var tagsFromText = new Tags();
+    $.each(matches, function() {
+        tagsFromText.add_tag(this.toString());
+    });
+    
+    if (lastTagsFromText==null || 
+        lastTagsFromText.get_all_tags_text() != tagsFromText.get_all_tags_text()) {
+        
+        // remove any tags that we added based on typing last time, 
+        // that are no longer in the list
+        if (lastTagsFromText !=null ) {
+            $.each(lastTagsFromText.get_all_tags(), function() {
+                var tagtext = this.toString();
+                if (!tagsFromText.has_tag(tagtext) &&
+                    suggested_tags_widget.has_tag(tagtext)) {
+                    //remove tag from type ahead
+                    suggested_tags_widget.remove_tag(tagtext);
+                }
+            });
+        }
+        
+        $.each(tagsFromText.get_all_tags(), function() {
+            var tagtext = this.toString();
+            if (!suggested_tags_widget.has_tag(this.toString())) {
+                suggested_tags_widget.add_tag(tagtext, "tag", true);           
+            }
+        });
+        
+        suggested_tags_widget.update_view();
+        lastTagsFromText = tagsFromText;
     }
-    alert(results);
 }
 
 
