@@ -57,7 +57,7 @@ namespace Offr.Message
         {
             get
             {
-                 if (MessagePointer != null) return MessagePointer.MatchTag;
+                if (MessagePointer != null) return MessagePointer.MatchTag;
                 else return null;
             }
         }
