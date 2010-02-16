@@ -47,7 +47,7 @@
 
     var update_offers = function() {
         var json_url = current_tags.decorate_url(offers_uri);
-        if (arguments.length > 0) json_url += "&username=" + arguments[1] + "&namespace=ooooby";
+        if (arguments.length > 0) json_url += "&username=" + arguments[0] + "&namespace=ooooby";
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 var overall = this.timestamp.split("T");
