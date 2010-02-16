@@ -48,14 +48,14 @@
         return location;
     };
     this.filter_by_user_name = function(list_widget) {
-         var req = opensocial.newDataRequest();
-         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
+        var req = opensocial.newDataRequest();
+        req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
         req.send(function(response) {
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);
             var name = viewer.getDisplayName();
             list_widget.filter_by_user(name);
-            }
+        });
     };
     this.post_message = function(message) {
 
