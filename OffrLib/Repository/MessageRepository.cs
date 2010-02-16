@@ -66,14 +66,17 @@ namespace Offr.Repository
 
         public MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags)
         {
+            return GetMessagesWithTagCounts(tags, null);
+        }
+        public MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags,IUserPointer userPointer)
+        {
             if (tags.Count() == 1 && tags.First().Type == TagType.group && cache.ContainsKey(tags.First()))
                 return cache[tags.First()];
-            MessagesWithTagCounts messages = new MessagesWithTagCounts(QueryMessagesImpl(tags, null));
-            if (tags.Count() == 1 && tags.First().Type == TagType.group) 
+            MessagesWithTagCounts messages = new MessagesWithTagCounts(QueryMessagesImpl(tags, userPointer));
+            if (tags.Count() == 1 && tags.First().Type == TagType.group)
                 cache[tags.First()] = messages;
             return messages;
         }
-
         public IEnumerable<TagWithCount> GetSuggestedTags(IEnumerable<ITag> tags, TagType? tagType)
         {
             //immediately processs message source and count the number of instances of each tag
@@ -110,7 +113,7 @@ namespace Offr.Repository
             return QueryMessagesImpl(new ITag[] { }, user);
         }
 
-        public IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer user)
+        public IEnumerable<IMessage> GetMessagesForTagsAndCreatedByUser(IEnumerable<ITag> tags, IUserPointer user)
         {
             return QueryMessagesImpl(tags, user);
         }

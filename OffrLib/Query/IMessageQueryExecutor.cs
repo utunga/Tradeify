@@ -11,10 +11,11 @@ namespace Offr.Query
     public interface IMessageQueryExecutor
     {
         TagCounts GetAllTagCounts();
+        MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags, IUserPointer userPointer);
         MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags);
         IEnumerable<TagWithCount> GetSuggestedTags(IEnumerable<ITag> tags, TagType? tagType);
         IEnumerable<IMessage> GetMessagesForTags(IEnumerable<ITag> tags);
-        IEnumerable<IMessage> GetMessagesForTagsCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer);
+        IEnumerable<IMessage> GetMessagesForTagsAndCreatedByUser(IEnumerable<ITag> tags, IUserPointer userPointer);
         IEnumerable<IMessage> GetMessagesCreatedByUser(IUserPointer userPointer);
     }
 }

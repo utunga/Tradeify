@@ -26,7 +26,8 @@ namespace twademe
             ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
             IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
             List<ITag> tags = tagProvider.GetTagsFromNameValueCollection(request);
-            MessagesWithTagCounts messagesWithTags = queryExecutor.GetMessagesWithTagCounts(tags);
+            IUserPointer user = GetUserPointer(request);
+            MessagesWithTagCounts messagesWithTags = queryExecutor.GetMessagesWithTagCounts(tags,user);
             
             //string offers = offers_json.GetOffersJson(messagesWithTags);
             //string tagString = tags_json.GetTagJson(tags,messagesWithTags);
@@ -34,7 +35,20 @@ namespace twademe
             //                tagString + "}";
             SendJSON(JSON.Serialize(messagesWithTags));
         }
-            
+
+        private IUserPointer GetUserPointer(NameValueCollection nameVals)
+        {
+            if(Request.Form["username"]!=null && Request.Form["namespace"]!=null)
+            {
+                return new OpenSocialUserPointer()
+                {
+                    ProviderNameSpace = Request["namespace"],
+                    ProviderUserName =  Request["username"]
+                };
+            }
+            else return null;
+        }
+
         private void SendJSON(string message)
         {
             if (null != Request.Params["jsoncallback"])
