@@ -102,8 +102,9 @@
     };
 
     init();
-    
+
     /* 'public' methods */
+    this.filter_by_user = filter_by_user;
     this.toggle_filter = toggle_filter;
     this.update_offers = update_offers;
     this.on_offers_updated = on_offers_updated;
