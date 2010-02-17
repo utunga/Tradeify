@@ -13,6 +13,7 @@ namespace Offr
         IMessage Get(string id);
         void Save(IMessage instance);
         void Remove(IMessage instance);
+        void Remove(string id);
         IEnumerable<IMessage> AllMessages();
         int MessageCount { get; }
     }
