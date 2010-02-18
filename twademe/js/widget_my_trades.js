@@ -38,7 +38,7 @@
     }
     
     var update_offers = function(username) {
-        var json_url = offers_uri;
+        var json_url = offers_uri+"?jsoncallback=?";
         if (!!username) json_url += "&username=" + arguments[0] + "&namespace=ooooby";
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
