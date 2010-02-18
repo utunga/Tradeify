@@ -12,9 +12,11 @@
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
-    $.getJSON(this.remove_message_uri + "&id=" + "osocial/" + id, function(data) {
-        setTimeout(callback,2000);
-    });
+    this.remove_id = function(id, callback) {
+        $.getJSON(this.remove_message_uri + "?id=" + "osocial/" + id, function(data) {
+            setTimeout(callback, 2000);
+        });
+    }
     this.autocomplete_suggested_tags=function(selector){
     $(selector).autocomplete(this.tags_ahead_uri + "&type=tag", {
             dataType: "json",
