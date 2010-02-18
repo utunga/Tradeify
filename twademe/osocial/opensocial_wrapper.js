@@ -13,7 +13,7 @@
         gadgets.window.adjustHeight(height);
     }
     this.remove_id = function(id, callback) {
-        $.getJSON(this.remove_message_uri + "&id=" + "osocial/" + id, function(data) {
+        $.getJSON(this.remove_message_uri + "&id=" + escape("osocial/") + id, function(data) {
             setTimeout(callback, 2000);
         });
     }
