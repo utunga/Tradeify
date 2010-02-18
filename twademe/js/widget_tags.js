@@ -397,7 +397,10 @@ function SuggestedTagsWidget(selector, general_tagset) {
     };
 
     var tags_widget_click = function(tag_text, tag_type) {
+        //ensure that active tags are in the details box
+        ensure_details_includes_active_tags();
         update_suggested_tags();
+        
     }
 
     init();
@@ -429,7 +432,14 @@ function SuggestedTagsWidget(selector, general_tagset) {
 
     this.has_tag = function(text) { return tags_widget.has_tag(text); };
 
+    this.remove_tag = function(text) { return tags_widget.remove_tag(text); };
+
     this.add_tag = function(text, type, active) { return tags_widget.add_tag(text, type, active); }; //return tags.add_tag.apply(tags, arguments); }; //uhm is this right? FIXME
+    
+    this.set_active = function(text) {
+        var tag = tags_widget.find_tag(text);
+        tag.active = true;
+    }
         
     this.on_tags_updated = on_tags_updated;
     

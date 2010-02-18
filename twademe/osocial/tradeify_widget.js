@@ -21,6 +21,55 @@ String.prototype.rtrim = function() {
 //    }
 //}
 
+var keyup_threshold = 200;
+var details_keyup_threshold = 200;
+var message_change_threshold = 800;
+var address_keyup_stack = 0;
+var message_keyup_stack = 0;
+var details_keyup_stack = 0;
+var message_change_stack = 0;
+var tags_change_stack = 0;
+
+function address_keyup() {
+	address_keyup_stack++;
+	setTimeout(function() {
+		address_keyup_stack--;
+		if (address_keyup_stack == 0) {
+			geo_code_address()
+		}
+	}, keyup_threshold);
+}
+
+function details_keyup() {
+	details_keyup_stack++;
+	setTimeout(function() {
+		details_keyup_stack--;
+		if (details_keyup_stack == 0) {
+			parse_details_for_tags()
+		}
+	}, details_keyup_threshold);
+}
+
+function message_keyup() {
+    message_keyup_stack++;
+	setTimeout(function() {
+	    message_keyup_stack--;
+	    if (message_keyup_stack == 0) {
+	        parse_offer();
+	    }
+	}, keyup_threshold);
+}
+
+function message_change() {
+    message_change_stack++;
+	setTimeout(function() {
+	    message_change_stack--;
+	    if (message_change_stack == 0) {
+	        parse_offer();
+	    }
+	}, message_change_threshold);
+}
+
 
 /* ------------------------------
      search
@@ -148,7 +197,7 @@ function get_prefix() {
 function update_offer() {
     update_and_dont_parse();
     //make sure the updated message to send is parsed again
-    parse_offer();
+    message_change();
 }
 
 function update_and_dont_parse() {
@@ -158,23 +207,37 @@ function update_and_dont_parse() {
 			 get_location() + 
              get_currency() +
              get_until() +             
-             get_tags() +  
-//			 get_imagelink() +
+            //           get_tags() +  
+            //			 get_imagelink() +
 			 " #"+group;
     $("#message_to_send").val(concatMessage);
 }
+
 /* tag selection code */
 function parse_offer() {
-        var message_data = {
-            message: $("#message_to_send").val()
-        };
-        $.getJSON(container.parse_uri,message_data, display_results_of_parse_offer);
-     }
+    var message_data = {
+        message: $("#message_to_send").val()
+    };
+    $.getJSON(container.parse_uri,message_data, display_results_of_parse_offer);
+}
+
+function details_keyup() {
+	details_keyup_stack++;
+	setTimeout(function() {
+		details_keyup_stack--;
+		if (details_keyup_stack == 0) {
+			parse_details_for_tags()
+		}
+	}, details_keyup_threshold);
+}
+
+
+     
 function reset_parse_offer(){
     $(".send_message").attr("disabled", "disabled");
     $(".status").css({ "background-image": "url('" + container.cross_uri + "')" });
-    
 }
+
 function display_results_of_parse_offer(response) {
     var reasons = response.validationFailReasons;
     if(reasons.length==0){
@@ -240,19 +303,10 @@ $(function() {
 /* ------------------------------
    Google API stuff
    ------------------------------*/
-//called from widget 
-//google.load("maps", "2");
-//google.setOnLoadCallback(google_initialize);
-
 
 var geocoder;
 var map;
 var address_marker;
-var keyup_threshold = 300;
-var details_keyup_threshold = 500;
-var address_keyup_stack = 0;
-var message_keyup_stack = 0;
-var details_keyup_stack = 0;
 var post_your_own_form_initialized = false;
 
 // this function called on tab show()
@@ -297,36 +351,6 @@ function google_initialize() {
 	post_your_own_form_initialized = true;
 }
 
-function address_keyup() {
-	address_keyup_stack++;
-	setTimeout(function() {
-		address_keyup_stack--;
-		if (address_keyup_stack == 0) {
-			geo_code_address()
-		}
-	}, keyup_threshold);
-}
-
-function details_keyup() {
-	details_keyup_stack++;
-	setTimeout(function() {
-		details_keyup_stack--;
-		if (details_keyup_stack == 0) {
-			parse_details_for_tags()
-		}
-	}, details_keyup_threshold);
-}
-
-function message_keyup() {
-    message_keyup_stack++;
-	setTimeout(function() {
-	    message_keyup_stack--;
-	    if (message_keyup_stack == 0) {
-	        parse_offer();
-	    }
-	}, keyup_threshold);
-}
-
 function geo_code_address() {
 	var address = $(".location #location").val();
 	//map.clearOverlays();
@@ -350,17 +374,26 @@ function geo_code_address() {
 	}
 }
 
-var lastTagsFromText;
-function parse_details_for_tags() {
-	var details = $("#post_your_own_form textarea#offer").val();
+//////////////////////////////////
+
+function get_tags_from_text() {
+    var tags_from_text = new Tags();
+    var details = $("#post_your_own_form textarea#offer").val();
 	var hashTagsRegex = /#([A-Za-z0-9_\-]+)/g; ///[\s^]#([A-Za-z0-9_\-]+)/g;  ///#(\S)+/g; 
     var matches = details.match(hashTagsRegex);
-    if (matches == null) return;
-    
-    var tagsFromText = new Tags();
+    if (matches == null) return tags_from_text;
     $.each(matches, function() {
-        tagsFromText.add_tag(this.toString());
+        var tag_text = this.toString().substring(1);
+        tags_from_text.add_tag(tag_text);
     });
+    return tags_from_text;
+}
+
+var lastTagsFromText;
+function parse_details_for_tags() {
+	
+    var tagsFromText = get_tags_from_text();
+    if (tagsFromText.get_all_tags_text() == "") return;
     
     if (lastTagsFromText==null || 
         lastTagsFromText.get_all_tags_text() != tagsFromText.get_all_tags_text()) {
@@ -383,6 +416,9 @@ function parse_details_for_tags() {
             if (!suggested_tags_widget.has_tag(this.toString())) {
                 suggested_tags_widget.add_tag(tagtext, "tag", true);           
             }
+            else {
+                suggested_tags_widget.set_active(tagtext);
+            }
         });
         
         suggested_tags_widget.update_view();
@@ -390,27 +426,21 @@ function parse_details_for_tags() {
     }
 }
 
-
-/*
-var tag_keyup_stack = 0;
-function tag_keyup() {
-    tag_keyup_stack++;
-    setTimeout(function() {
-        tag_keyup_stack--;
-        if (tag_keyup_stack == 0) {
-            custom_tag();
+function ensure_details_includes_active_tags() {
+    var tagsFromText = get_tags_from_text();
+    var not_included = [];
+    $.each(suggested_tags_widget.get_active_tags(), function() {
+        var tag_text= this.toString();
+        if (!tagsFromText.has_tag(tag_text)) {
+            not_included.push(tag_text);
         }
-    }, 4000);
-}
-function custom_tag() {
-    var tag=$("#typed_tag").val();
-    if (tag.trim() != "") {
-        suggested_tags_widget.add_tag("tag", true);
-        tags_widget_click();
-    }
-    $("#typed_tag").val("");
+    });
+    var append_text = "";
+    $.each(not_included, function()  {
+        append_text = append_text + " #" + this.toString();
+    });
     
+    var details = $("#post_your_own_form textarea#offer");
+    details.val( details.val() + append_text);
 }
-
-*/
 
