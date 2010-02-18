@@ -8,12 +8,12 @@
   <!-- Content section for canvas view -->
   <Content type="html" view="canvas,profile">
     <![CDATA[
-        <link href="www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
+        <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
             media="all" />
-        <link href="www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
+        <link href="http://www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
             media="all" />
-        <link href="www.tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://www.tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
         <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
         <div id="current_tags">
@@ -60,7 +60,7 @@
                                 <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="" />OFFER:
                                 <input type="radio" name="message_type" value="WANT" onclick="update_offer()" />WANTED:
                                 <a class="help_icon" title="type_help" style="font-size: smaller;">
-                                    <img width="12" hspace="4" height="11" border="0" src="www.tradeify.org/images/help_icon.gif" /></a>
+                                    <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                             </h4>
                             <div class="offerPart">
                                 <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
@@ -74,13 +74,13 @@
                                     <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
                                         title="add your own tag" />
                                 </span><a class="help_icon" title="custom_tag_help" style="font-size: smaller;">
-                                    <img width="12" hspace="4" height="11" border="0" src="www.tradeify.org/images/help_icon.gif" />What
+                                    <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" />What
                                     are tags?</a>
                             </div>
                             <div class="location">
                                 <label for="location">
                                     in <a class="help_icon" title="location_help" style="font-size: smaller;">
-                                        <img width="12" hspace="4" height="11" border="0" src="www.tradeify.org/images/help_icon.gif" /></a>
+                                        <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                                 </label>
                                 <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     tabindex="1" name="location" id="location" title="(suburb)" />
@@ -93,7 +93,7 @@
                             <div class="currency">
                                 <label for="for" class="desc">
                                     for <a class="help_icon" title="currency_help" style="font-size: smaller;">
-                                        <img width="12" hspace="4" height="11" border="0" src="www.tradeify.org/images/help_icon.gif" /></a>
+                                        <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                                 </label>
                                 <div id="post_your_own_currency_tags">
                                 </div>
@@ -101,7 +101,7 @@
                             <div class="until">
                                 <label for="until" class="desc">
                                     until <a class="help_icon" title="until_help" style="font-size: smaller;">
-                                        <img width="12" hspace="4" height="11" border="0" src="www.tradeify.org/images/help_icon.gif" /></a>
+                                        <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                                 </label>
                                 <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
                             </div>
@@ -139,7 +139,7 @@
                                 <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
                                     class="currency_detail status"><a>Type of Trade</a> </a><a class="group_detail status">
                                         <a>Ooooby tag</a> </a></a><a class="help_icon" title="post_help" style="font-size: smaller;">
-                                            <img width="12" hspace="4" height="11" border="0" src="www.tradeify.org/images/help_icon.gif" /></a>
+                                            <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                             </fieldset>
                         </div>
                     </div>
@@ -236,38 +236,38 @@
 <![endif]-->
         <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
 
-        <script type="text/javascript" src="www.tradeify.org/js/jquery-1.3.2.js">      </script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery-1.3.2.js">      </script>
 
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/js/quickpager.jquery.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/quickpager.jquery.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/js/jquery.pager.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.pager.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/js/jquery.autocomplete.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.autocomplete.js"></script>
 
-        <!--<script type="text/javascript" src="www.tradeify.org/js/jquery.tools.min.js"></script>-->
+        <!--<script type="text/javascript" src="http://www.tradeify.org/js/jquery.tools.min.js"></script>-->
 
-        <script type="text/javascript" src="www.tradeify.org/js/pure_packed_v2.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/pure_packed_v2.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/js/widget_tags.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_tags.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/osocial/tradeify_widget.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/osocial/tradeify_widget.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/osocial/opensocial_wrapper.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/osocial/opensocial_wrapper.js"></script>
         <!--uncomment for running on ning as part of tradiefy_widget.xml-->
 
-        <!--<script type="text/javascript" src="www.tradeify.org/osocial/mock_wrapper.js"></script>-->
+        <!--<script type="text/javascript" src="http://www.tradeify.org/osocial/mock_wrapper.js"></script>-->
 
         <!-- uncomment above when running as part of widget_mock.html-->
 
-        <script type="text/javascript" src="www.tradeify.org/js/widget_list.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_list.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/js/widget_my_trades.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_my_trades.js"></script>
 
-        <script type="text/javascript" src="www.tradeify.org/js/widget_map.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_map.js"></script>
 
         <script type="text/javascript">
 
