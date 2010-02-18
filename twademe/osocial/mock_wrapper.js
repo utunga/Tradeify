@@ -19,7 +19,11 @@ function mock_container() {
     this.adjustHeight = function(height) {    
         //does nothing in test
 }
-this.filter_by_user_name = function() { }
+this.add_remove_links = function(callback) {
+
+}
+
+this.filter_by_user_name = function(callback) { callback(); }
     this.autocomplete_suggested_tags=function(selector){
        // var active_prompt = false;
     $(selector).autocomplete(this.tags_ahead_uri, {

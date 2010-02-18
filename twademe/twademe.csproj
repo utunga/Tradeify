@@ -246,6 +246,7 @@
     <Content Include="css\ooooby_theme\jquery.autocomplete.css" />
     <Content Include="data\initial_tags.json" />
     <Content Include="images\help_icon.gif" />
+    <Content Include="js\widget_my_trades.js" />
     <Content Include="js\widget_tags.js" />
     <Content Include="js\widget_map.js" />
     <Content Include="js\jquery-ui-1.7.2.custom.min.js" />

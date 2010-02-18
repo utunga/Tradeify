@@ -62,7 +62,7 @@ function pageClick(currentPage) {
                 return;
             }
             //selector.after("<div id=\"pager\" ></div>");
-            $("#pager").pager({ pagenumber: 1, pagecount: pageCount, buttonClickCallback: pageClick });
+            $(pageSelector).pager({ pagenumber: 1, pagecount: pageCount, buttonClickCallback: pageClick });
         });
 
 
