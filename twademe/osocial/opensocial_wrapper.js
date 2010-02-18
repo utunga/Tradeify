@@ -6,12 +6,17 @@
     this.parse_uri = "http://tradeify.org/parse.aspx?jsoncallback=?";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
     this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx?jsoncallback=?";
+    this.remove_message_uri = "http://tradeify.org/remove_message.aspx?jsoncallback=?";
     this.active_prompt = false;
     
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
-
+    this.remove_id = function(id, callback) {
+        $.getJSON(this.remove_message_uri + "&id=" + "ooooby/" + id, function(data) {
+            setTimeout(callback, 2000);
+        });
+    }
     this.autocomplete_suggested_tags=function(selector){
     $(selector).autocomplete(this.tags_ahead_uri + "&type=tag", {
             dataType: "json",
@@ -47,14 +52,14 @@
         var location;
         return location;
     };
-    this.filter_by_user_name = function(list_widget) {
+    this.filter_by_user_name = function(callback) {
         var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
         req.send(function(response) {
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);
             var name = viewer.getDisplayName();
-            list_widget.filter_by_user(name);
+            callback(name);
         });
     };
     this.post_message = function(message) {

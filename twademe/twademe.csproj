@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{66B5FC71-7D50-4DBA-ACAC-77B17E3E05DE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -174,6 +174,13 @@
     <Compile Include="tags_ahead.aspx.designer.cs">
       <DependentUpon>tags_ahead.aspx</DependentUpon>
     </Compile>
+    <Compile Include="remove_message.aspx.cs">
+      <DependentUpon>remove_message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="remove_message.aspx.designer.cs">
+      <DependentUpon>remove_message.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OffrLib\OffrLib.csproj">
@@ -239,6 +246,7 @@
     <Content Include="css\ooooby_theme\jquery.autocomplete.css" />
     <Content Include="data\initial_tags.json" />
     <Content Include="images\help_icon.gif" />
+    <Content Include="js\widget_my_trades.js" />
     <Content Include="js\widget_tags.js" />
     <Content Include="js\widget_map.js" />
     <Content Include="js\jquery-ui-1.7.2.custom.min.js" />
@@ -264,6 +272,7 @@
     <Content Include="test\standalone_widget_test.html" />
     <Content Include="test\tag_suggest_test.htm" />
     <Content Include="tags_ahead.aspx" />
+    <Content Include="remove_message.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_GlobalResources\" />
@@ -288,6 +297,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

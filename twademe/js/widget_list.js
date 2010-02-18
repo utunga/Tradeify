@@ -44,7 +44,7 @@
     var on_offers_updated = function(functionRef) {
         _offers_updated.push(functionRef);
     }
-
+    
     var update_offers = function() {
         var json_url = current_tags.decorate_url(offers_uri);
         if (arguments.length > 0) json_url += "&username=" + arguments[0] + "&namespace=ooooby";
@@ -56,6 +56,7 @@
                 var time = times[0] + ":" + times[1];
                 var date = dates[2] + "-" + dates[1] + "-" + dates[0];
                 this.timestamp = time + " " + date;
+
                 //this.timestamp = Date.parse(this.timestamp);
             }
             );
