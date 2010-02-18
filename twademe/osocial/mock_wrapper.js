@@ -14,13 +14,16 @@ function mock_container() {
     this.tags_ahead_uri = "/tags_ahead.aspx";
     //assumes test is running in local web
     this.accept_post_url = "/accept_post.aspx";
+    this.remove_message_uri = "/remove_message.aspx"
     this.active_prompt = false;
    
     this.adjustHeight = function(height) {    
         //does nothing in test
 }
-this.add_remove_links = function(callback) {
-
+this.remove_id = function(id, callback) {
+    $.getJSON(this.remove_message_uri + "?id=" + "twitter/" + id, function(data) {
+        setTimeout(callback, 2000);
+    });
 }
 
 this.filter_by_user_name = function(callback) { callback(); }

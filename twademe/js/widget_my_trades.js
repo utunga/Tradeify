@@ -24,8 +24,8 @@
                         '+a@class': 'tag.type'*/
                 }
             },
-            '.when': 'offer.timestamp'
-                
+            '.when': 'offer.timestamp',
+            '.id': 'offer.message_pointer.message_id'    
             }
         }
     };
@@ -38,9 +38,9 @@
         
         //current_tags = new TagsWidget(current_tags_selector);
     }
-    
+
     var update_offers = function(username) {
-        var json_url = offers_uri+"?jsoncallback=?";
+        var json_url = offers_uri + "?jsoncallback=?";
         if (!!username) json_url += "&username=" + arguments[0] + "&namespace=ooooby";
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
@@ -57,8 +57,8 @@
             $(offers_selector + ' .template').render(data, offers_render_fn);
             /*
             $(offers_selector + ' .tags a').click(function() {
-                //add a filter when tags under a message are clicked
-                add_filter($(this).text(), $(this).css());
+            //add a filter when tags under a message are clicked
+            add_filter($(this).text(), $(this).css());
             });
             */
             offers = data.Messages;
@@ -69,7 +69,12 @@
                 });
             }
             $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#my_pager");
+            $(".remove").click(function() {
+                container.remove_id($(this).parent().children(".id").text(),this.update);               
+                return false;
+            });
         });
+
     };
 
     this.update = function() {

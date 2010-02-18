@@ -70,8 +70,8 @@ namespace Offr.Repository
         }
         public MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags,IUserPointer userPointer)
         {
-            if (tags.Count() == 1 && tags.First().Type == TagType.group && cache.ContainsKey(tags.First()))
-                return cache[tags.First()];
+            //if (tags.Count() == 1 && tags.First().Type == TagType.group && cache.ContainsKey(tags.First()))
+                //return cache[tags.First()];
             MessagesWithTagCounts messages = new MessagesWithTagCounts(QueryMessagesImpl(tags, userPointer));
             if (tags.Count() == 1 && tags.First().Type == TagType.group)
                 cache[tags.First()] = messages;

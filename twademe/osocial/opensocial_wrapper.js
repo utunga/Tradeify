@@ -6,21 +6,15 @@
     this.parse_uri = "http://tradeify.org/parse.aspx?jsoncallback=?";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
     this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx?jsoncallback=?";
+    this.remove_message_uri = "http://tradeify.org/remove_message.aspx?jsoncallback=?";
     this.active_prompt = false;
     
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
-    this.add_remove_links = function(callback) {
-        var req = opensocial.newDataRequest();
-        req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
-        req.send(function(response) {
-            var viewer = response.get('viewer').getData();
-            //var viewerJson = gadgets.json.stringify(viewer);
-            var name = viewer.getDisplayName();
-            callback();
-        });
-    }
+    $.getJSON(this.remove_message_uri + "&id=" + "osocial/" + id, function(data) {
+        setTimeout(callback,2000);
+    });
     this.autocomplete_suggested_tags=function(selector){
     $(selector).autocomplete(this.tags_ahead_uri + "&type=tag", {
             dataType: "json",
