@@ -11,19 +11,21 @@
 
     var offers_directives = {
         'div.my_offer': {
-            'my_offer <- Messages': {
-                'a.my_username@href': 'my_offer.created_by.profile_url',
-                'a.my_avatar@href': 'my_offer.created_by.profile_url',
-                'a.my_username': 'my_offer.created_by.provider_user_name',
-                '.my_avatar img@src': 'my_offer.created_by.profile_pic_url',
-                '.my_msg .my_text': 'my_offer.offer_text',
-                'span.my_tags': {
-                    'my_tag <- my_offer.tags': {
-                        'a': 'my_tag.tag',
-                        '+a@class': 'my_tag.type'
-                    }
-                },
-                '.my_when': 'offer.timestamp'
+            'offer <- Messages': {
+            'a.username@href': 'offer.created_by.profile_url',
+            'a.avatar@href': 'offer.created_by.profile_url',
+            'a.username': 'offer.created_by.provider_user_name',
+            '.avatar img@src': 'offer.created_by.profile_pic_url',
+            '.msg .text': 'offer.offer_text',
+
+            'span.tags': {
+                'tag <- offer.tags': {
+                    'a': 'tag.tag'/*,
+                        '+a@class': 'tag.type'*/
+                }
+            },
+            '.when': 'offer.timestamp'
+                
             }
         }
     };

@@ -37,7 +37,7 @@ a.tag
 }
 /** OFFERS **/
 
-.offer 
+.offers 
 {
 	border-bottom:1px solid #C7CCC5;
 	min-height:85px;
@@ -46,7 +46,7 @@ a.tag
 	position:relative;
 }
 
-.offer a.avatar {
+.offers a.avatar {
 	position:absolute;
 	left:0px;
 	top:15px;
@@ -55,7 +55,7 @@ a.tag
 	background:transparent url(frame.png) no-repeat scroll 0 0px;
 }
 
-.offer a.avatar img {
+.offers a.avatar img {
 	margin-top:6px;
 	margin-left:6px;
 	width:48px;
@@ -63,7 +63,7 @@ a.tag
 	border:0px;
 }
 
-.offer a.username {
+.offers a.username {
 	position:absolute;
 	left:3px;
 	top:75px;
@@ -74,26 +74,26 @@ a.tag
 	text-decoration:none;
 }
 
-.offer a.username:hover 
+.offers a.username:hover 
 {
 	text-decoration:underline;
 }
 	
-.offer p.msg 
+.offers p.msg 
 {
 	margin-left:75px;
 	margin-top:20px;
 	margin-right:10px;
 }
 
-.offer p.msg .text {
+.offers p.msg .text {
 	color:#333F31;
 	font-family:Georgia,'Times New Roman',Times,serif;
 	font-size:13px;
 	line-height:18px;
 }
 
-.offer p.msg .tags 
+.offers p.msg .tags 
 {
 	color:#333F31;
 	font-family:Helvetica, Arial;
@@ -101,24 +101,24 @@ a.tag
 	line-height:18px;
 }
 
-.offer .tag a
+.offers .tag a
 {
 	text-decoration:none;
 }
 
-.offer .tag a:hover
+.offers .tag a:hover
 {
 	text-decoration:underline;
 }
 
-.offer p.msg a.more_info_link {
+.offers p.msg a.more_info_link {
 	float:right;
 	font-size:11px;
 	font-weight:bold;
 	text-decoration:none;
 }
 
-.offer a.user 
+.offers a.user 
 {
 	color:#161B1F;
 	font-family:'Trebuchet MS',Trebuchet,Tahoma,Arial,sans-serif;
@@ -128,12 +128,12 @@ a.tag
 	text-decoration:none;
 }
 
-.offer a:hover 
+.offers a:hover 
 {
 	text-decoration:underline;
 }
 
-.offer .meta 
+.offers .meta 
 {
 	right:0px;
 	top:6px;
@@ -141,7 +141,7 @@ a.tag
 	position:absolute;
 }
 
-.offer .meta a.when 
+.offers .meta a.when 
 {
 	display:inline-box;
 	font-size:9px;
