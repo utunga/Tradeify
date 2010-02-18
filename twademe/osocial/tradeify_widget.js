@@ -439,8 +439,10 @@ function ensure_details_includes_active_tags() {
     $.each(not_included, function()  {
         append_text = append_text + " #" + this.toString();
     });
-    
+
     var details = $("#post_your_own_form textarea#offer");
-    details.val( details.val() + append_text);
+    var details_text = details.val();
+    var new_text = (details_text == $("#offer")[0].title) ? append_text : details_text + append_text;
+    details.val(new_text);
 }
 
