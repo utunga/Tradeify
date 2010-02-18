@@ -405,6 +405,7 @@
                     if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
                         suggested_tags_widget.add_custom_tag(tag);
                         suggested_tags_widget.update_view();
+                        ensure_details_includes_active_tags();
                         $("#typed_tag").val("");
                     }
                     previous_tag = tag;
