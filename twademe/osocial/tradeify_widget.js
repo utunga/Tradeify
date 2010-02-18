@@ -199,7 +199,6 @@ function update_offer() {
     //make sure the updated message to send is parsed again
     message_change();
 }
-
 function update_and_dont_parse() {
     var concatMessage =
             get_prefix() +
