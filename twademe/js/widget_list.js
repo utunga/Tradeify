@@ -72,7 +72,7 @@
                     this(offers);
                 });
             }
-            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager");
+            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager", offers_selector + " .template");
         });
     };
 

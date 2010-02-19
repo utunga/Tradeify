@@ -68,7 +68,7 @@
                     this(offers);
                 });
             }
-            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#my_pager");
+            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#my_pager", offers_selector + " .template");
             $(".remove").click(function() {
                 container.remove_id($(this).parent().children(".id").text(),this.update);               
                 return false;

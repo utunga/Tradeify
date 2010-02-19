@@ -6,21 +6,18 @@
 //		v1.1
 //		18/09/09 * bug fix by John V - http://blog.geekyjohn.com/
 //-------------------------------------------------
-var pageCount=-2;
-var selector;
-var options;
-var pageSelector;
-function initialPageClick(currentPage) {
-    $(".pagerPage").hide();
-    $(".simplePagerPage" + currentPage).show();
+//var pageCount=-2;
+//var selector;
+//var options;
+//var pageSelector;
+function initialPageClick(currentPage, pager) {
+    $(pager+".pagerPage").hide();
+    $(pager+".simplePagerPage" + currentPage).show();
 }
-function pageClick(currentPage) {
-    initialPageClick(currentPage);
-    $(pageSelector).pager({ pagenumber: currentPage, pagecount: pageCount, buttonClickCallback: pageClick });
-}
+
 (function($) {
 
-    $.fn.quickPager = function(options, pager) {
+    $.fn.quickPager = function(options, pager,selector) {
 
         var defaults = {
             pageSize: 10,
@@ -28,15 +25,15 @@ function pageClick(currentPage) {
             holder: null,
             pagerLocation: "after"
         };
-        pageCount = -2;
-        pageSelector = pager;
-        options = $.extend(defaults, options);
+        var pageCount = -2;
+        var pageSelector = pager;
+        var options = $.extend(defaults, options);
 
         //pageCount = (((this)[0]).firstChild.length / options.pageSize).toFixed(0) + 1;
         return this.each(function() {
 
 
-            selector = $(this);
+            var selector = $(this);
             var pageCounter = 1;
 
             //selector.wrap("<div class='simplePagerContainer'></div>");
@@ -61,7 +58,14 @@ function pageClick(currentPage) {
             if (pageCount < 1) {
                 return;
             }
+            var pageClick= function (currentPage) {
+                $(selector).children(".pagerPage").hide();
+                $(selector).children(".simplePagerPage" + currentPage).show();
+                $(pageSelector).pager({ pagenumber: currentPage, pagecount: pageCount, buttonClickCallback: pageClick });
+            }
             //selector.after("<div id=\"pager\" ></div>");
+            $(selector).children(".pagerPage").hide();
+            $(selector).children(".simplePagerPage" + 1).show();
             $(pageSelector).pager({ pagenumber: 1, pagecount: pageCount, buttonClickCallback: pageClick });
         });
 
