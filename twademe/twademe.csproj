@@ -273,6 +273,7 @@
     <Content Include="test\tag_suggest_test.htm" />
     <Content Include="tags_ahead.aspx" />
     <Content Include="remove_message.aspx" />
+    <Content Include="test\Tests.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_GlobalResources\" />
