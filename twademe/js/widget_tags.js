@@ -120,7 +120,13 @@ function Tags() {
             existing.active = !existing.active;
         }
     }
-
+    var is_active = function(text) {
+        var existing = find_tag(text)
+        if (!!existing) {
+            return existing.active;
+        }
+    }
+    
     var get_all_tags = function() {
         var all_tags = [];
         $.each(tags, function() {
@@ -182,6 +188,7 @@ function Tags() {
     
     // make all methods public
     this.find_tag = find_tag;
+    this.is_active = is_active;
     this.has_tag = has_tag;
     this.toggle_filter = toggle_filter;
     this.add_tag = add_tag;
@@ -307,7 +314,7 @@ function TagsWidget(selector) {
     this.get_active_tags = function() {
         return tags.get_active_tags();
     };
-    
+    this.is_active = function(text) { return tags.is_active(text); }
     this.get_all_tags = function() { return tags.get_all_tags(); }
     this.find_tag = function(text) { return tags.find_tag(text); };
     this.has_tag = function(text) { return tags.has_tag(text); };
@@ -398,9 +405,10 @@ function SuggestedTagsWidget(selector, general_tagset) {
 
     var tags_widget_click = function(tag_text, tag_type) {
         //ensure that active tags are in the details box
+        if (tags_widget.is_active(tag_text) == false) remove_tag_from_details(tag_text);
         ensure_details_includes_active_tags();
         update_suggested_tags();
-        
+
     }
 
     init();

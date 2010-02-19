@@ -15,10 +15,14 @@ namespace twademe
             if (Request["id"] != null)
             {
                 IMessageRepository messageRepository = Global.Kernel.Get<IMessageRepository>();
-                messageRepository.Remove(Request["id"]);
-                Response.Write("success");
+                if (messageRepository.Get(Request["id"]) != null)
+                {
+                    messageRepository.Remove(Request["id"]);
+                    Response.Write("success");
+                }
+                else Response.Write("id not found");
             }
-            else Response.Write("failure");
+            else Response.Write("id is null");
         }
     }
 }

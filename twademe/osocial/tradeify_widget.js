@@ -445,3 +445,9 @@ function ensure_details_includes_active_tags() {
     details.val(new_text);
 }
 
+function remove_tag_from_details(tag_text) {
+    var details = $("#post_your_own_form textarea#offer");
+    var details_text = details.val();
+    details_text = details_text.replace("#" + tag_text, "");
+    details.val(details_text);
+}

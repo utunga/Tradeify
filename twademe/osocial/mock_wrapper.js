@@ -21,7 +21,7 @@ function mock_container() {
         //does nothing in test
 }
 this.remove_id = function(id, callback) {
-    $.getJSON(this.remove_message_uri + "?id=" + "twitter/" + id, function(data) {
+    $.getJSON(this.remove_message_uri + "?id=" + "ooooby/" + id, function(data) {
         setTimeout(callback, 2000);
     });
 }
