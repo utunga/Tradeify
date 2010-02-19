@@ -36,7 +36,24 @@ function test_tag_click() {
     }, 4000);
 
 };
-/*
+
+function deselect_removes_tags() {
+    var suggested_tags_selector = $('#suggested_tags_widget .tag[class~=ui-state-active]:first');
+    suggested_tags_selector.trigger('click');
+    var suggested_tags_val = suggested_tags_selector.text();
+    suggested_tags_val = suggested_tags_val.replace("\n", "").trim();
+    setTimeout(function() {
+     var isSelected = $("#suggested_tags_widget .tag:contains('"+suggested_tags_val+"')").attr("class").search("ui-state-active");
+        fireunit.ok(isSelected == -1, "Testing if tag is deselected");
+        var details = $('#offer').val();
+        //look for the tag in details
+        var details_result = details.search("#" + suggested_tags_val);
+        fireunit.ok(details_result == -1, "Testing if tag click removes item from details");
+        var message_to_send = $("#message_to_send").val();
+        var message_result = message_to_send.search("#" + suggested_tags_val);
+        fireunit.ok(message_result == -1, "Testing if suggested tag is removeed from to message_to_send");        
+    }, 4000);    
+} /*
 function test_tag_click() {
     var suggested_tags_selector = $('#suggested_tags_widget .tag:first');
     var suggested_tags_val = suggested_tags_selector.text();
@@ -65,3 +82,4 @@ function test_tag_click() {
 */
 setTimeout(test_add_your_own_tag, 10000);
 setTimeout(test_tag_click, 18000);
+setTimeout(deselect_removes_tags, 25000);
