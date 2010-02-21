@@ -266,6 +266,7 @@ function TagsWidget(selector) {
         for (var i = 0; i < tags_array.length && i < max_tag_count; i++) {
             var tag = tags_array[i];
             var ui_state_class = (tag.active) ? "ui-state-active" : "";
+            var ui_tag_close = (!tag.fixed && tag.active) ? "ui-tag-close" : "";
             var ui_icon_class;
             switch (tag.type) {
                 case ("group"):
@@ -286,7 +287,7 @@ function TagsWidget(selector) {
 
             tagString = tagString + "\n" +
             "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n" +
-                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + tag.tag + "</a>";
+                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + tag.tag + "<span class=" + ui_tag_close + "></span></a>";
         }
 
         tagString = tagString + "</div>";
