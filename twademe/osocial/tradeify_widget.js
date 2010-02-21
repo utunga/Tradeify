@@ -245,10 +245,11 @@ function display_results_of_parse_offer(response) {
     else $(".send_message").attr("disabled","disabled");
     //"NeedsCurrencyTag", "NeedsLocation", "NeedsGroupTag"
     if ($.inArray("TooLong", reasons) > -1) {
-        if($("#too_long").length==0)
-            $('<div id="too_long" style="color: red;">Message is too long</div>').insertAfter("#message_to_send");
+        //$("#too_long").removeClass();
+        //$('<div id="too_long" style="color: red;">Your message is too long. Your message is '+ $("#message_to_send").val().length + ' characters, messages cannot be longer than 200 characters.</div>').insertAfter("#message_to_send");
+        $("#too_long").text('Your message is too long. Your message is '+ $("#message_to_send").val().length + ' characters, messages cannot be longer than 200 characters.');
     }
-    else $("#too_long").remove();
+    else $("#too_long").text("");
     switchStatus("NeedsCurrencyTag","currency_detail",reasons);
     switchLocationStatus("NeedsLocation", "location_detail", reasons);
     switchStatus("NeedsGroupTag","group_detail",reasons);  
