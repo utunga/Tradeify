@@ -394,7 +394,10 @@ function parse_details_for_tags() {
 	
     var tagsFromText = get_tags_from_text();
     if (tagsFromText.get_all_tags_text() == "") return;
-    
+    $.each(suggested_tags_widget.get_active_tags(), function() {
+        var tag_is_present = $("#post_your_own_form textarea#offer").val().search("#" + this.toString() + " ");
+        if (tag_is_present == -1) suggested_tags_widget.set_active(this.toString(), false);
+    });
     if (lastTagsFromText==null || 
         lastTagsFromText.get_all_tags_text() != tagsFromText.get_all_tags_text()) {
         
@@ -422,10 +425,7 @@ function parse_details_for_tags() {
         });
         suggested_tags_widget.update_view();
         lastTagsFromText = tagsFromText;
-        $.each(suggested_tags_widget.get_active_tags(), function() {
-            var tag_is_present = $("#post_your_own_form textarea#offer").val().search("#" + this.toString() + " ");
-            if (tag_is_present == -1) suggested_tags_widget.set_active(this.toString(), false);
-        });
+
     }
 }
 
