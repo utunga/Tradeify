@@ -70,7 +70,6 @@
             var name = viewer.getDisplayName();
             callback(name);
             });           
-        });
     };
     this.post_message = function(message) {
 
