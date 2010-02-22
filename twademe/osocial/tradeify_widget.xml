@@ -389,7 +389,7 @@
                 filter_location_tags = new TagsWidget("#filter_location_tags");
                 var rubbish;
                 var user;
-                container.get_user(function(response) {
+                container.get_user_name(function(response) {
                     user = response;
                     my_list_widget = new ListWidget("#results-4", rubbish, user);
                 });
