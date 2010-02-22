@@ -63,7 +63,7 @@
         var location;
         return location;
     };
-    this.filter_by_user_name = function(callback) {
+    this.get_user_name = function(callback) {
             this.get_user(function(response){
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);

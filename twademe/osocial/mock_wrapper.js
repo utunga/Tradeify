@@ -28,7 +28,7 @@ this.remove_id = function(id, callback) {
 this.get_user = function(callback) {
     callback();
 }
-this.filter_by_user_name = function(callback) { callback(); }
+this.get_user_name = function(callback) { callback(); }
 this.autocomplete_suggested_tags = function(selector) {
     // var active_prompt = false;
     var active_prompt = this.active_prompt;
