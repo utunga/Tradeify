@@ -27,16 +27,22 @@ this.remove_id = function(id, callback) {
 }
 
 this.filter_by_user_name = function(callback) { callback(); }
-    this.autocomplete_suggested_tags=function(selector){
-       // var active_prompt = false;
+this.autocomplete_suggested_tags = function(selector) {
+    // var active_prompt = false;
+    var active_prompt = this.active_prompt;
     $(selector).autocomplete(this.tags_ahead_uri, {
-            dataType:"json",
-            formatItem: function(row) { this.active_prompt = true; return row[0]; },
-            extraParams: {type:"tag"}
-            //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
-        });
-        $(selector).result(function(){active_prompt=false});
-    }
+        dataType: "json",
+        formatItem: function(row) {
+            active_prompt = true;
+            return row[0];
+        },
+        extraParams: { type: "tag" }
+        //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
+    });
+    $(selector).result(function() {
+        active_prompt = false
+    });
+}
 
     this.autocomplete_tag_search = function(selector) {
         var sel = $(selector);

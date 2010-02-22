@@ -334,7 +334,6 @@
 
                 var update_filter = function(tag_text, tag_type) {
                     list_widget.toggle_filter(tag_text, tag_type);
-                    $("#current_tags .tag:contains('" + tag_text + "')").children(".ui-tag-noclose").addClass("ui-tag-close");
                 }
                 filter_general_tags.init_from(general_tags, list_widget.current_tags().get_all_tags(), "tag");
                 filter_general_tags.on_tag_click(update_filter);

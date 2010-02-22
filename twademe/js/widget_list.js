@@ -87,6 +87,7 @@
     var toggle_filter = function(tag_text, tag_type) {
         current_tags.toggle_filter(tag_text, tag_type);
         current_tags.update_view();
+        $("#current_tags .tag-unfixed").addClass("ui-tag-close");
         update_offers();
     };
     
