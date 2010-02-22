@@ -41,7 +41,8 @@
                                 </p>
 
                                 <div class="meta">
-                                    <a class="when" href="source_uri">Today, 10:50 am</a>
+                                    <a class="when" href="source_uri">Today, 10:50 am</a
+                                    <a class="id" style="visibility:hidden;"></a>
                                 </div>
                             </span></a>
                         </div>
@@ -158,7 +159,7 @@
                 </div>
                 <div id="results-4">
                     <span class="template">
-                        <div class="my_offer offers" style="padding-bottom: 20px;width:600px;">
+                        <div class="offer offers" style="padding-bottom: 20px;width:600px;">
                            <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
 
                                 <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
@@ -384,7 +385,8 @@
                 filter_general_tags = new TagsWidget("#filter_general_tags");
                 filter_currency_tags = new TagsWidget("#filter_currency_tags");
                 filter_location_tags = new TagsWidget("#filter_location_tags");
-                my_list_widget = new MyTrades("#results-4");
+                var rubbish;
+                my_list_widget = new ListWidget("#results-4", rubbish, container.get_user());
                 var my_posts = false;
                 $("#filter_by_user").click(function() {
                     my_posts = !my_posts;
@@ -417,6 +419,7 @@
                     fx: { height: 'toggle', opacity: 'toggle' },
                     show: function(event, ui) {
                         if (ui.panel.id == "results-1") {
+                            list_widget.update_offers();
                             $(".right_col").show();
                         }
                         else if (ui.panel.id == "results-2") {
@@ -429,7 +432,7 @@
                             post_your_own_form_init(); //need to create the google map for the form *after* tab shown
                         }
                         else if (ui.panel.id == "results-4") {
-                            my_list_widget.update()
+                            my_list_widget.update_offers()
                             $(".right_col").hide();
 
                             //need to create the google map for the form *after* tab shown
@@ -503,7 +506,7 @@
                 message_change();
 
 
-            });                                           //end document.ready
+            });                                            //end document.ready
 
 
 

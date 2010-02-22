@@ -25,7 +25,9 @@ this.remove_id = function(id, callback) {
         setTimeout(callback, 2000);
     });
 }
+this.get_user = function(callback) {
 
+}
 this.filter_by_user_name = function(callback) { callback(); }
 this.autocomplete_suggested_tags = function(selector) {
     // var active_prompt = false;
