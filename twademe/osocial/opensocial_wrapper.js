@@ -80,7 +80,7 @@
         /*var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
         req.send(function(response) {*/
-        this.getUser(function(reponse){
+        this.get_user(function(reponse) {
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);
             var name = viewer.getDisplayName();
