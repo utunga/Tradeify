@@ -55,8 +55,8 @@
         return time + " " + date;
     }
     var update_offers = function() {
-        var json_url = current_tags.decorate_url(offers_uri);
-        if (!!username) json_url += "&username=" + arguments[0] + "&namespace=ooooby";
+    var json_url = (!username) ? current_tags.decorate_url(offers_uri) :
+         offers_uri + "?jsoncallback=?"+"&username=" + username + "&namespace=ooooby" ;
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 this.timestamp = formatTimestamp(this.timestamp);

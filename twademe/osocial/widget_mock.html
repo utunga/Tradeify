@@ -386,7 +386,11 @@
                 filter_currency_tags = new TagsWidget("#filter_currency_tags");
                 filter_location_tags = new TagsWidget("#filter_location_tags");
                 var rubbish;
-                my_list_widget = new ListWidget("#results-4", rubbish, container.get_user());
+                var user;
+                container.get_user(function(response) {
+                    user = response;
+                    my_list_widget = new ListWidget("#results-4", rubbish, user);
+                });
                 var my_posts = false;
                 $("#filter_by_user").click(function() {
                     my_posts = !my_posts;
@@ -506,7 +510,7 @@
                 message_change();
 
 
-            });                                            //end document.ready
+            });                                             //end document.ready
 
 
 

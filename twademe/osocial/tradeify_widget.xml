@@ -8,11 +8,12 @@
   <!-- Content section for canvas view -->
   <Content type="html" view="canvas,profile">
     <![CDATA[
-        <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+         <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
             media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
             media="all" />
+
         <link href="http://www.tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
         <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
@@ -22,6 +23,7 @@
         <div id="results">
             <ul>
                 <li><a href="#results-1">List</a></li>
+
                 <li><a href="#results-2">Map</a></li>
                 <li><a href="#results-3">Post your own</a></li>
                 <li><a href="#results-4">My Trades</a></li>
@@ -29,6 +31,7 @@
             <div class="left_col">
                 <div id="results-1">
                     <span class="template" id="offer_template">
+
                         <div class="offer offers" style="padding-bottom: 20px;">
                             <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
                                 <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
@@ -38,14 +41,17 @@
                                     <br />
                                     <span class="tags"><span class="tag"><a href="#" onclick=""></a>, </span></span>
                                 </p>
+
                                 <div class="meta">
-                                    <a class="when" href="source_uri">Today, 10:50 am</a>
+                                    <a class="when" href="source_uri">Today, 10:50 am</a
+                                    <a class="id" style="visibility:hidden;"></a>
                                 </div>
                             </span></a>
                         </div>
                     </span>
                     <div id="pager" class="pager">
                     </div>
+
                 </div>
                 <div id="results-2">
                     <div id="offer_map">
@@ -55,6 +61,7 @@
                     <div id="post_your_own_form">
                         <div class="tooltip">
                         </div>
+
                         <fieldset id="by_parts" class="ui-corner-all">
                             <h4>
                                 <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="" />OFFER:
@@ -65,6 +72,7 @@
                             <div class="offerPart">
                                 <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     id="offer" title="(what are you offering or wanting? - e.g. 'delicous small tomatoes')"></textarea>
+
                             </div>
                             <div>
                                 <p>
@@ -74,6 +82,7 @@
                                     <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
                                         title="add your own tag" />
                                 </span><a class="help_icon" title="custom_tag_help" style="font-size: smaller;">
+
                                     <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" />What
                                     are tags?</a>
                             </div>
@@ -84,6 +93,7 @@
                                 </label>
                                 <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     tabindex="1" name="location" id="location" title="(suburb)" />
+
                                 <div id="map_canvas">
                                 </div>
                                 <!--map goes here -->
@@ -93,6 +103,7 @@
                             <div class="currency">
                                 <label for="for" class="desc">
                                     for <a class="help_icon" title="currency_help" style="font-size: smaller;">
+
                                         <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                                 </label>
                                 <div id="post_your_own_currency_tags">
@@ -101,6 +112,7 @@
                             <div class="until">
                                 <label for="until" class="desc">
                                     until <a class="help_icon" title="until_help" style="font-size: smaller;">
+
                                         <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                                 </label>
                                 <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
@@ -131,14 +143,17 @@
                         </fieldset>
                         <div class="rawMessage">
                             <fieldset>
+
                                 <!--<legend>Your offer</legend>	-->
                                 <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all clear_on_post"
                                     id="message_to_send" title="(Details)"></textarea>
+                                <div id=too_long style="color: red;""></div>    
                                 <button class="send_message ui-button ui-state-default ui-corner-all">
                                     Post</button>
                                 <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
                                     class="currency_detail status"><a>Type of Trade</a> </a><a class="group_detail status">
                                         <a>Ooooby tag</a> </a></a><a class="help_icon" title="post_help" style="font-size: smaller;">
+
                                             <img width="12" hspace="4" height="11" border="0" src="http://www.tradeify.org/images/help_icon.gif" /></a>
                             </fieldset>
                         </div>
@@ -146,8 +161,9 @@
                 </div>
                 <div id="results-4">
                     <span class="template">
-                        <div class="my_offer offers" style="padding-bottom: 20px;width:600px;">
+                        <div class="offer offers" style="padding-bottom: 20px;width:600px;">
                            <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
+
                                 <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
                                     target="_top" class="username"></a>
                                 <p class="msg">
@@ -157,7 +173,7 @@
                                 </p>
                                 <div class="meta">
                                     <a class="when" href="source_uri">Today, 10:50 am</a>
-                                    <div class="remove" style="float:right">Remove</div>
+                                    <a class="remove" href="" style="float:right">Remove</a>
                                     <a class="id" style="visibility:hidden;"></a>
                                 </div>
                                 
@@ -166,6 +182,7 @@
                     </span>
                     <div id="my_pager" class="pager">
                     </div>
+
                 </div>
             </div>
             <div class="right_col">
@@ -181,6 +198,7 @@
             Search tags</button>
         </div>    
 -->
+
                 <h4>
                     Most Common Tags</h4>
                 <div id="filter_general_tags">
@@ -191,6 +209,7 @@
                 <h4>
                     Type of trade</h4>
                 <div id="filter_currency_tags">
+
                 </div>
                 <h4>
                     Location</h4>
@@ -199,6 +218,7 @@
                 <div>
                 </div>
                 <!--<h4>User: <a id="filter_by_user">My trades</a></h4>-->
+
                 <!--<a id="filter_by_everyone">Everyones trades</a>|-->
             </div>
         </div>
@@ -207,6 +227,7 @@
         <div id="until_help" class="help">
             until</div>
         <div id="currency_help" class="help">
+
             for</div>
         <div id="location_help" class="help">
             location</div>
@@ -214,6 +235,7 @@
             post</div>
         <div id="type_help" class="help">
             type</div>
+
         <div id="map_popup" style="padding-bottom: 30px;">
             <span class="template">
                 <div class="map_offer" style="padding-bottom: 20px;">
@@ -224,6 +246,7 @@
                         <p class="map_msg">
                             <span class="map_text"></span>
                             <br />
+
                             <span class="map_tags"><span class="map_tag"><a href="#" onclick=""></a>, </span>
                             </span>
                         </p>
@@ -232,6 +255,7 @@
                         </div>
                     </span></a>
                 </div>
+
             </span>
         </div>
         <!--[if lt IE 7]>
@@ -290,7 +314,7 @@
             var list_widget;
             var map_widget;
 
-            //RHS Tags 
+            //RHS Tags
             var createRHSTags = function() {
 
                 var general_tags = new Array();
@@ -310,7 +334,9 @@
                     }
                 });
 
-                var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
+                var update_filter = function(tag_text, tag_type) {
+                    list_widget.toggle_filter(tag_text, tag_type);
+                }
                 filter_general_tags.init_from(general_tags, list_widget.current_tags().get_all_tags(), "tag");
                 filter_general_tags.on_tag_click(update_filter);
 
@@ -361,7 +387,12 @@
                 filter_general_tags = new TagsWidget("#filter_general_tags");
                 filter_currency_tags = new TagsWidget("#filter_currency_tags");
                 filter_location_tags = new TagsWidget("#filter_location_tags");
-                my_list_widget = new MyTrades("#results-4");
+                var rubbish;
+                var user;
+                container.get_user(function(response) {
+                    user = response;
+                    my_list_widget = new ListWidget("#results-4", rubbish, user);
+                });
                 var my_posts = false;
                 $("#filter_by_user").click(function() {
                     my_posts = !my_posts;
@@ -384,6 +415,7 @@
                     if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
                         suggested_tags_widget.add_custom_tag(tag);
                         suggested_tags_widget.update_view();
+                        ensure_details_includes_active_tags();
                         $("#typed_tag").val("");
                     }
                     previous_tag = tag;
@@ -393,6 +425,7 @@
                     fx: { height: 'toggle', opacity: 'toggle' },
                     show: function(event, ui) {
                         if (ui.panel.id == "results-1") {
+                            list_widget.update_offers();
                             $(".right_col").show();
                         }
                         else if (ui.panel.id == "results-2") {
@@ -405,7 +438,7 @@
                             post_your_own_form_init(); //need to create the google map for the form *after* tab shown
                         }
                         else if (ui.panel.id == "results-4") {
-                            my_list_widget.update()
+                            my_list_widget.update_offers()
                             $(".right_col").hide();
 
                             //need to create the google map for the form *after* tab shown
@@ -476,10 +509,10 @@
                 });
 
                 //parse offer just in case there is infromation already there
-                parse_offer();
+                message_change();
 
 
-            });                                           //end document.ready
+            });                                             //end document.ready
 
 
 
