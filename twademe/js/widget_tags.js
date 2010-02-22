@@ -266,7 +266,7 @@ function TagsWidget(selector) {
         for (var i = 0; i < tags_array.length && i < max_tag_count; i++) {
             var tag = tags_array[i];
             var ui_state_class = (tag.active) ? "ui-state-active" : "";
-            var ui_tag_close = (!tag.fixed && tag.active) ? "ui-tag-close" : "";
+            var ui_tag_close = (!tag.fixed && tag.active) ? "ui-tag-close" : "ui-tag-noclose";
             var ui_icon_class;
             switch (tag.type) {
                 case ("group"):
