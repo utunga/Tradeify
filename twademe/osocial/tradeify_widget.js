@@ -85,50 +85,49 @@ function set_form_text() {
     if (val == "(details)") $("#offer").val("");
 }
 
-var toggle_wanted_on = true;
-var toggle_offered_on = true;
-function toggle_wanted() {
-    toggle_wanted_on = !toggle_wanted_on;
-    if (!toggle_wanted_on && !toggle_offered_on) {
-        // neither toggle is on, not legal
-        // set this one back to 'on' and return
-        toggle_wanted_on = true;
-        return;
-    }
-    $("#wanted_filter").toggleClass("ui-state-active");
-    update_type_filters();
-}
+//var toggle_wanted_on = true;
+//var toggle_offered_on = true;
+//function toggle_wanted() {
+//    toggle_wanted_on = !toggle_wanted_on;
+//    if (!toggle_wanted_on && !toggle_offered_on) {
+//        // neither toggle is on, not legal
+//        // set this one back to 'on' and return
+//        toggle_wanted_on = true;
+//        return;
+//    }
+//    $("#wanted_filter").toggleClass("ui-state-active");
+//    update_type_filters();
+//}
 
-function toggle_offered() {
-    toggle_offered_on = !toggle_offered_on;
-    if (!toggle_wanted_on && !toggle_offered_on) {
-        // neither toggle is on, not legal
-        // set this one back to 'on' and return
-        toggle_offered_on = true;
-        return;
-    }
-    $("#offered_filter").toggleClass("ui-state-active");
-    update_type_filters();
-}
+//function toggle_offered() {
+//    toggle_offered_on = !toggle_offered_on;
+//    if (!toggle_wanted_on && !toggle_offered_on) {
+//        // neither toggle is on, not legal
+//        // set this one back to 'on' and return
+//        toggle_offered_on = true;
+//        return;
+//    }
+//    $("#offered_filter").toggleClass("ui-state-active");
+//    update_type_filters();
+//}
 
-function update_type_filters() {
-    if (toggle_offered_on && toggle_wanted_on) {
-        list_widget.remove_filter("offer", "msg_type");
-        list_widget.remove_filter("wanted", "msg_type");
-    }
-    else if (toggle_offered_on && !toggle_wanted_on) {
+
+function update_message_type() {
+    
+    if ($("#message_type_offer").attr(":checked")) {
         list_widget.add_filter("offer", "msg_type");
         list_widget.remove_filter("wanted", "msg_type");
     }
-    else if (!toggle_offered_on && toggle_wanted_on) {
+    else if ($("#message_type_wanted").attr(":checked")) {
         list_widget.add_filter("wanted", "msg_type");
         list_widget.remove_filter("offer", "msg_type");
     }
-    //bit counterintuitve but we want no messages shown and adding both filters works
-    else {
-        list_widget.add_filter("wanted","msg_type");
-        list_widget.add_filter("offer","msg_type");
+    else { //if ($("#message_type_both").isChecked()) 
+        //show all types of message
+        list_widget.remove_filter("offer", "msg_type");
+        list_widget.remove_filter("wanted", "msg_type");
     }
+    return true;
 }
 
 

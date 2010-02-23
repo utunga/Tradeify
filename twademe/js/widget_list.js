@@ -2,6 +2,7 @@
 
     var offers;
     var tags;
+    var username_filter;
     var offers_render_fn;
     var current_tags;
     var offers_uri;
@@ -30,7 +31,7 @@
     }; 
    
     var init = function() {
-       
+        username_filter = null;
         offers_uri = container.offers_uri;
         //compile to a function as soon as possible (ie in 'constructor')
         offers_render_fn = $(offers_selector + ' .template').compile(offers_directives);
@@ -45,9 +46,25 @@
         _offers_updated.push(functionRef);
     }
     
+    var update_offers_change_threshold = 50; //50 milliseconds
+    var update_offers_stack =0;
+    
+    var queue_update_offers = function() {
+	    update_offers_stack++;
+	    setTimeout(function() {
+		    update_offers_stack--;
+		    if (update_offers_stack == 0) {
+			    update_offers()
+		    }
+	    }, update_offers_change_threshold);
+    }
+    
     var update_offers = function() {
         var json_url = current_tags.decorate_url(offers_uri);
-        if (arguments.length > 0) json_url += "&username=" + arguments[0] + "&namespace=ooooby";
+        if (username_filter!=null) {
+             json_url += "&username=" + username_filter + "&namespace=ooooby";
+        }
+        
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 var overall = this.timestamp.split("T");
@@ -79,27 +96,30 @@
     var add_filter = function(tag_text, tag_type) {
         current_tags.add_tag(tag_text, tag_type);
         current_tags.update_view();
-        update_offers();
+        queue_update_offers();
     };
+    
     var filter_by_user = function(username) {
-        update_offers(username);
+        username_filter = username;
+        queue_update_offers();
     };
+    
     var toggle_filter = function(tag_text, tag_type) {
         current_tags.toggle_filter(tag_text, tag_type);
         current_tags.update_view();
-        update_offers();
+        queue_update_offers();
     };
     
     var remove_filter = function(tag_text) {
         current_tags.remove_tag(tag_text);
         current_tags.update_view();
-        update_offers();
+        queue_update_offers();
     };
 
     var add_fixed_filter = function(tag_text, tag_type) {
         current_tags.add_fixed_tag(tag_text, tag_type, false);
         current_tags.update_view();
-        update_offers();
+        queue_update_offers();
     };
 
     init();

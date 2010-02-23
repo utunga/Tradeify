@@ -15,16 +15,14 @@
         <link href="../css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
         <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
-        <div id="current_tags">
-            <br />
-        </div>
+        <h3><div id="current_tags">
+        </div></h3>
         <div id="results">
             <ul>
                 <li><a href="#results-1">List</a></li>
-
                 <li><a href="#results-2">Map</a></li>
                 <li><a href="#results-3">Post your own</a></li>
-                <li><a href="#results-4">My Trades</a></li>
+                <li><a href="#results-4">Your Messages</a></li>
             </ul>
             <div class="left_col">
                 <div id="results-1">
@@ -61,8 +59,8 @@
 
                         <fieldset id="by_parts" class="ui-corner-all">
                             <h4>
-                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="" />OFFER:
-                                <input type="radio" name="message_type" value="WANT" onclick="update_offer()" />WANTED:
+                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="" />I am offering:
+                                <input type="radio" name="message_type" value="WANT" onclick="update_offer()" />I want:
                                 <a class="help_icon" title="type_help" style="font-size: smaller;">
                                     <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
                             </h4>
@@ -107,36 +105,11 @@
                                 </div>
                             </div>
                             <div class="until">
-                                <label for="until" class="desc">
-                                    until <a class="help_icon" title="until_help" style="font-size: smaller;">
-
+                                <label for="until" class="desc">until <a class="help_icon" title="until_help" style="font-size: smaller;">
                                         <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
                                 </label>
                                 <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
                             </div>
-                            <!-- <div class="tags" style="width: 430px;">
-            <label> Tags </label>
-            <ul id="selected_tags">
-                <li><a href="#" class="tag"></a></li>
-            </ul>
-            <blockquote>
-                <h4>Suggested Tags (click to select)</h4> 
-                <div id="suggested_tags">
-                    <span class="template">
-                        <ul class="select_tag_container">
-                            <li><a href="#" class="tag"></a></li>
-                        </ul>
-                    </span>
-                </div>
-                <h4>Or type to add more</h4> 
-                <input id="tags" name="tags" onkeyup="timeoutKeyChange()" class="ui-state-default ui-corner-all" tabindex="8" maxlength="255" style="width: 360px;"/>
-            </blockquote>
-        
-        </div>-->
-                            <!--       <div class="thumbnail">
-            <label for="picture_thumbnail"> Link to picture? </label>
-            <input type="text" tabindex="8" maxlength="255" class="ui-state-default ui-corner-all" name="picture" id="picture" >
-        </div>-->
                         </fieldset>
                         <div class="rawMessage">
                             <fieldset>
@@ -183,12 +156,9 @@
                 </div>
             </div>
             <div class="right_col">
-                <h3>
-                    <a id="type_filter" style="font-size: 150%"><a id="offered_filter" class="tag type_filter fg-button ui-state-active"
-                        onclick="toggle_offered()">Offered </a>| <a id="wanted_filter" class="tag type_filter fg-button ui-state-active"
-                            onclick="toggle_wanted()">Wanted </a></a>
-                </h3>
-                <!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
+
+
+<!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
         <div style="margin-top:10px">
         <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
         <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
@@ -203,15 +173,25 @@
                 <!-- <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryGeneralTag()">search</button>
 -->
-                <h4>
-                    Type of trade</h4>
+                <h4>Type of trade</h4>
                 <div id="filter_currency_tags">
 
                 </div>
-                <h4>
-                    Location</h4>
-                <div id="filter_location_tags">
-                </div>
+                    <h4>Location</h4>
+                    <div id="filter_location_tags">
+                    </div>
+                    <div>
+                        <h3>Show</h3>
+                        <input type="radio" value="wanted" name="message_type_filter" onchange="return update_message_type();" id="message_type_offer">Offer messages only.</input><br />
+                        <input type="radio" value="offers" name="message_type_filter" onchange="return update_message_type();" id="message_type_wanted">Wanted messages only.</input><br />
+                        <input type="radio" value="both" name="message_type_filter" onchange="return update_message_type();"  id="message_type_both" checked="checked">Both offers and wanted.</input><br />
+<!--                        <h3>
+                        <a id="type_filter" style="font-size: 150%"><a id="offered_filter" class="tag type_filter fg-button ui-state-active"
+                        onclick="toggle_offered()">Offered </a>| <a id="wanted_filter" class="tag type_filter fg-button ui-state-active"
+                        onclick="toggle_wanted()">Wanted </a></a>
+                        </h3>
+-->                    </div>
+
                 <div>
                 </div>
                 <!--<h4>User: <a id="filter_by_user">My trades</a></h4>-->
@@ -378,6 +358,7 @@
                 });
                 list_widget = new ListWidget("#results-1", "#current_tags");
                 list_widget.add_fixed_filter("ooooby", "group");
+                list_widget.update_offers();
                 map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
                 filter_general_tags = new TagsWidget("#filter_general_tags");
                 filter_currency_tags = new TagsWidget("#filter_currency_tags");
