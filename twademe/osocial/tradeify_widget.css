@@ -9,6 +9,14 @@ a:active {
   -moz-outline-style:none;
 }
 
+.info 
+{
+	margin-top:0px;
+	font-weight:normal;
+	font-style:italic;
+	font-size:8pt;
+}
+
 #results 
 {
 	float:left;
@@ -26,6 +34,12 @@ a:active {
 	width:30%;
 }
 
+
+#results .right_col H3,
+#results .right_col H4
+{
+	margin-bottom:0.5em;
+}
 #offer_map 
 {
 	width:450px;

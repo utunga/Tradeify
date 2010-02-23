@@ -60,8 +60,8 @@
 
                         <fieldset id="by_parts" class="ui-corner-all">
                             <h4>
-                                <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="" />I am offering:
-                                <input type="radio" name="message_type" value="WANT" onclick="update_offer()" />I want:
+                               <label><input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="checked" />I am offering:</label>
+                               <label><input type="radio" name="message_type" value="WANT" onclick="update_offer()" />I want:</label>
                                 <a class="help_icon" title="type_help" style="font-size: smaller;">
                                     <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
                             </h4>
@@ -167,8 +167,9 @@
         </div>    
 -->
 
-                <h4>
-                    Most Common Tags</h4>
+                <h3>Filter Messages By.. <p class="info">(click to select or remove)</p>
+                </h3>
+                <h4>Common Tags</h4>
                 <div id="filter_general_tags">
                 </div>
                 <!-- <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
@@ -180,18 +181,13 @@
                 </div>
                     <h4>Location</h4>
                     <div id="filter_location_tags">
-                    </div>
-                    <div>
-                        <h3>Show</h3>
-                        <input type="radio" value="wanted" name="message_type_filter" onchange="return update_message_type();" id="message_type_offer">Offer messages only.</input><br />
-                        <input type="radio" value="offers" name="message_type_filter" onchange="return update_message_type();" id="message_type_wanted">Wanted messages only.</input><br />
-                        <input type="radio" value="both" name="message_type_filter" onchange="return update_message_type();"  id="message_type_both" checked="checked">Both offers and wanted.</input><br />
-<!--                        <h3>
-                        <a id="type_filter" style="font-size: 150%"><a id="offered_filter" class="tag type_filter fg-button ui-state-active"
-                        onclick="toggle_offered()">Offered </a>| <a id="wanted_filter" class="tag type_filter fg-button ui-state-active"
-                        onclick="toggle_wanted()">Wanted </a></a>
-                        </h3>
--->                    </div>
+                </div>
+                <div>
+                        <h4>Message Type</h4>
+                        <label for="message_type_offer"><input type="radio" value="offer" name="message_type_filter" onclick="return update_message_type(this);" id="message_type_offer" />Offer messages only.</label><br />
+                        <label for="message_type_wanted"><input type="radio" value="wanted" name="message_type_filter" onclick="return update_message_type(this);" id="message_type_wanted" />Wanted messages only.</label><br />
+                        <label for="message_type_both"><input type="radio" value="both" name="message_type_filter" onclick="return update_message_type(this);"  id="message_type_both" checked="checked" />Both offers and wanted.</label><br />
+                </div>
 
                 <div>
                 </div>
