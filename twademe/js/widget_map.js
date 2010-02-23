@@ -55,7 +55,7 @@
             });
             $('.map_tag').click(function() {
                 //add a filter when tags under a message are clicked
-                add_filter($(this).text(), $(this).attr("class"));//store the 'type' as the class (see above)
+                add_filter($(this).text(), $(this).attr("class"));
             });
             $(map_popup_selector + ' .template').hide();
             infowindow.open(map, marker);

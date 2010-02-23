@@ -146,13 +146,13 @@ function MessagePart(type, field) {
     this.field = field;
 }
 
-var offerPrefix = "OFFER: ";
-var wantedPrefix = "WANTED: ";
+var group = "ooooby";
+var offerPrefix = "offer: ";
+var wantedPrefix = "wanted: ";
 var locationPrefix = " in l:";
 var locationSuffix = ":";
 var forPrefix = " for ";
 var untilPrefix = " until ";
-var group = "ooooby";
 
 function get_until() {
 	var until =$("#until").val().trim();
@@ -183,10 +183,12 @@ function get_tags() {
 }
 
 function get_prefix() {
-   
-    var prefix = $("input[@name='message_type']:checked").val();
-    return(prefix == "OFFER") ? offerPrefix : wantedPrefix;
+    var msg_type = $("input[@name='message_type']:checked").val();
 
+    if (msg_type == "OFFER") 
+        return "@" + group + " " + offerPrefix;
+    else
+        return "@" + group + " " + wantedPrefix;
 }
 //function get_tags() {
 //	if (selected_tags.length == 0) return "";
@@ -205,14 +207,13 @@ function update_offer() {
 }
 function update_and_dont_parse() {
     var concatMessage =
-            get_prefix() +
+             get_prefix() +
              get_offer() +
 			 get_location() + 
              get_currency() +
-             get_until() +             
+             get_until();             
             //           get_tags() +  
             //			 get_imagelink() +
-			 " #"+group;
     $("#message_to_send").val(concatMessage);
 }
 
@@ -233,8 +234,6 @@ function details_keyup() {
 		}
 	}, details_keyup_threshold);
 }
-
-
      
 function reset_parse_offer(){
     $(".send_message").attr("disabled", "disabled");
