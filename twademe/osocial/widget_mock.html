@@ -280,8 +280,7 @@
         <script type="text/javascript" src="../js/pure_packed_v2.js"></script>
 
         <script type="text/javascript" src="../js/widget_tags.js"></script>
-
-        <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
+        <script type="text/javascript" src="../js/jquery.blockUI.js"></script>
 
         <!--<script type="text/javascript" src="../osocial/opensocial_wrapper.js"></script>-->
         <!--uncomment for running on ning as part of tradiefy_widget.xml-->
@@ -295,9 +294,12 @@
         <script type="text/javascript" src="../js/widget_my_trades.js"></script>
 
         <script type="text/javascript" src="../js/widget_map.js"></script>
+        
+        <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
             //$("#loading").dialog();
+            $.blockUI();
             var suggested_tags_widget;
             //var message_type;
             var post_your_own_currency_tags;
@@ -519,11 +521,12 @@
             google.load("maps", "3", { other_params: "sensor=false" });
 
             var interval_id = setInterval(function() {
-                if ($(".offer").length > 1) {
+                if ($(".msg .tag").length > 2) {
                     $(".unhide_on_load").show();
                     clearTimeout(interval_id);
+                    $.unblockUI();
                 }
-            });
+            },50);
         </script>
 
         <!-- end copy to tradeify_widget.xml -->
