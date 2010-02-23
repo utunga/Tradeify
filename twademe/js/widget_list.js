@@ -58,8 +58,13 @@
         return time + " " + date;
     }
     var update_offers = function() {
-        var json_url = (!username) ? current_tags.decorate_url(offers_uri) :
-         offers_uri + "?jsoncallback=?" + "&username=" + username + "&namespace=ooooby";
+        var json_url;
+        //list widget
+        if (!username && !!current_tags_selector) json_url = current_tags.decorate_url(offers_uri);
+        //my list widget
+        else if (!!username & !current_tags_selector) json_url = offers_uri + "?jsoncallback=?" + "&username=" + username + "&namespace=ooooby";
+        //admin list widget
+        else json_url = current_tags.decorate_url(offers_uri) + "&username=" + username + "&namespace=ooooby";
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 this.timestamp = formatTimestamp(this.timestamp);
@@ -79,13 +84,15 @@
                     this(offers);
                 });
             }
-            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager", offers_selector + " .template");
+            $(offers_selector + " .template").quickPager({ pageSize: 4 }, offers_selector + " .pager", offers_selector + " .template");
             if (!!username) {
                 $(".remove").click(function() {
-                    $(this).parent().effect("highlight", {});
+                    $(this).parent().parent().effect("highlight", {});
                     var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
                     if (answer)
-                        container.remove_id($(this).parent().children(".id").text(), this.update);
+                        container.remove_id($(this).parent().children(".id").text(), function() {
+                            update_offers();
+                        });
                     return false;
                 });
             }
