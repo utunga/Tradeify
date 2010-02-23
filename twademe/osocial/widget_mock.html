@@ -18,14 +18,14 @@
         <h3><div id="current_tags">
         </div></h3>
         <div id="results">
-            <ul>
+            <ul style="display:none;" class="unhide_on_load">
                 <li><a href="#results-1">List</a></li>
                 <li><a href="#results-2">Map</a></li>
                 <li><a href="#results-3">Post your own</a></li>
                 <li><a href="#results-4">Your Messages</a></li>
             </ul>
             <div class="left_col">
-                <div id="results-1">
+                <div id="results-1" style="display:none;" class="unhide_on_load">
                     <span class="template" id="offer_template">
 
                         <div class="offer offers" style="padding-bottom: 20px;">
@@ -39,7 +39,7 @@
                                 </p>
 
                                 <div class="meta">
-                                    <a class="when" href="source_uri">Today, 10:50 am</a
+                                    <a class="when" href="source_uri">Today, 10:50 am</a>
                                     <a class="id" style="visibility:hidden;"></a>
                                 </div>
                             </span></a>
@@ -49,11 +49,11 @@
                     </div>
 
                 </div>
-                <div id="results-2">
+                <div id="results-2" style="display:none;">
                     <div id="offer_map">
                     </div>
                 </div>
-                <div id="results-3">
+                <div id="results-3" style="display:none;">
                     <div id="post_your_own_form">
                         <div class="tooltip">
                         </div>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="results-4">
+                <div id="results-4" style="display:none;">
                     <span class="template">
                         <div class="offer offers" style="padding-bottom: 20px;width:600px;">
                            <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
@@ -156,9 +156,12 @@
 
                 </div>
             </div>
-            <div class="right_col">
-
-
+            <div class="right_col" style="display:none;" class="unhide_on_load">
+                <h3>
+                    <a id="type_filter" style="font-size: 150%"><a id="offered_filter" class="tag type_filter fg-button ui-state-active"
+                        onclick="toggle_offered()">Offered </a>| <a id="wanted_filter" class="tag type_filter fg-button ui-state-active"
+                            onclick="toggle_wanted()">Wanted </a></a>
+                </h3>
 <!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
         <div style="margin-top:10px">
         <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
@@ -196,6 +199,7 @@
                 <!--<a id="filter_by_everyone">Everyones trades</a>|-->
             </div>
         </div>
+        <div style="display:none;">
         <div id="custom_tag_help" class="help">
             help</div>
         <div id="until_help" class="help">
@@ -209,7 +213,8 @@
             post</div>
         <div id="type_help" class="help">
             type</div>
-
+         <!--<div id="loading">Loading...</div>-->
+         </div>   
         <div id="map_popup" style="padding-bottom: 30px;">
             <span class="template">
                 <div class="map_offer" style="padding-bottom: 20px;">
@@ -254,8 +259,7 @@
         <script type="text/javascript" src="../js/pure_packed_v2.js"></script>
 
         <script type="text/javascript" src="../js/widget_tags.js"></script>
-
-        <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
+        <script type="text/javascript" src="../js/jquery.blockUI.js"></script>
 
         <!--<script type="text/javascript" src="../osocial/opensocial_wrapper.js"></script>-->
         <!--uncomment for running on ning as part of tradiefy_widget.xml-->
@@ -269,9 +273,12 @@
         <script type="text/javascript" src="../js/widget_my_trades.js"></script>
 
         <script type="text/javascript" src="../js/widget_map.js"></script>
+        
+        <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
-
+            //$("#loading").dialog();
+            $.blockUI();
             var suggested_tags_widget;
             //var message_type;
             var post_your_own_currency_tags;
@@ -490,10 +497,16 @@
             });                                             //end document.ready
 
 
-
+            
             google.load("maps", "3", { other_params: "sensor=false" });
 
-
+            var interval_id = setInterval(function() {
+                if ($(".msg .tag").length > 2) {
+                    $(".unhide_on_load").show();
+                    clearTimeout(interval_id);
+                    $.unblockUI();
+                }
+            },50);
         </script>
 
         <!-- end copy to tradeify_widget.xml -->

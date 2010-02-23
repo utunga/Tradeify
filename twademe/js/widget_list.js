@@ -1,4 +1,4 @@
-﻿function ListWidget(offers_selector, current_tags_selector,username) {
+﻿function ListWidget(offers_selector, current_tags_selector, username) {
 
     var offers;
     var tags;
@@ -31,12 +31,15 @@
     };
 
     var init = function() {
-        username_filter = null;
+        username_filter = username;
         offers_uri = container.offers_uri;
         //compile to a function as soon as possible (ie in 'constructor')
         offers_render_fn = $(offers_selector + ' .template').compile(offers_directives);
-        if (!username) {
+        if (!username_filter) {
             current_tags = new TagsWidget(current_tags_selector);
+            current_tags.set_add_close_button_ref(function(tag_active, tag_fixed) {
+                return !tag_fixed;
+            });
             current_tags.on_tag_click(function(tag_text, tag_type) {
                 remove_filter(tag_text);
                 return false;
@@ -72,11 +75,18 @@
     }
     
     var update_offers = function() {
-        var json_url = current_tags.decorate_url(offers_uri);
-        if (username_filter!=null) {
-             json_url += "&username=" + username_filter + "&namespace=ooooby";
-        }
-        
+
+        var json_url;
+        //list widget
+        $(".left_col").block({ message: "" });
+        $(".right_col .fg-buttonset").block({ message: "" });
+        if (!username_filter && !!current_tags_selector) 
+            json_url = current_tags.decorate_url(offers_uri); //standard
+        else if (!!username_filter & !current_tags_selector) 
+            json_url = offers_uri + "?jsoncallback=?" + "&username=" + username_filter + "&namespace=ooooby"; //my list widget
+        else 
+            json_url = current_tags.decorate_url(offers_uri) + "&username=" + username_filter + "&namespace=ooooby"; //admin list widget
+
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 this.timestamp = formatTimestamp(this.timestamp);
@@ -85,7 +95,7 @@
             if (username_filter==null) {
                 $(offers_selector + ' .tags a').click(function() {
                     //add a filter when tags under a message are clicked
-                    add_filter($(this).text(), $(this).css());
+                    add_filter($(this).text(), $(this).attr("class"));
                 });
             }
             offers = data.Messages;
@@ -95,14 +105,21 @@
                     this(offers);
                 });
             }
-            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager", offers_selector + " .template");
-            if (username_filter!=null) {
+
+            $(offers_selector + " .template").quickPager({ pageSize: 4 }, offers_selector + " .pager", offers_selector + " .template");
+            if (!!username_filter) {
                 $(".remove").click(function() {
+                    $(this).parent().parent().effect("highlight", {});
                     var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
-                    if (answer) container.remove_id($(this).parent().children(".id").text(), this.update);
+                    if (answer)
+                        container.remove_id($(this).parent().children(".id").text(), function() {
+                            update_offers();
+                        });
                     return false;
                 });
             }
+            $(".left_col").unblock();
+            $(".right_col .fg-buttonset").unblock();
         });
     };
 

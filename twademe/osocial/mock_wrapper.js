@@ -22,13 +22,15 @@ function mock_container() {
 }
 this.remove_id = function(id, callback) {
     $.getJSON(this.remove_message_uri + "?id=" + "ooooby/" + id, function(data) {
-        setTimeout(callback, 2000);
+        callback();
     });
 }
 this.get_user = function(callback) {
     callback();
 }
-this.get_user_name = function(callback) { callback(); }
+this.get_user_name = function(callback) {
+    callback("just_a_test");
+}
 this.autocomplete_suggested_tags = function(selector) {
     // var active_prompt = false;
     var active_prompt = this.active_prompt;
