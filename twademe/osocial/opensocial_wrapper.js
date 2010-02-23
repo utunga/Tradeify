@@ -8,13 +8,24 @@
     this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx?jsoncallback=?";
     this.remove_message_uri = "http://tradeify.org/remove_message.aspx?jsoncallback=?";
     this.active_prompt = false;
-    
+
+    var user;
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
     this.remove_id = function(id, callback) {
         $.getJSON(this.remove_message_uri + "&id=" + "ooooby/" + id, function(data) {
             setTimeout(callback, 2000);
+        });
+    }
+    this.get_user = function(callback) {
+        if (!!user) callback(user);
+        var req = opensocial.newDataRequest();
+        req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
+        req.send(function(response) {
+            var user = response
+            //var viewerJson = gadgets.json.stringify(viewer);
+            if(!!callback)callback(user);
         });
     }
     this.autocomplete_suggested_tags=function(selector){
@@ -52,15 +63,13 @@
         var location;
         return location;
     };
-    this.filter_by_user_name = function(callback) {
-        var req = opensocial.newDataRequest();
-        req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
-        req.send(function(response) {
+    this.get_user_name = function(callback) {
+            this.get_user(function(response){
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);
             var name = viewer.getDisplayName();
             callback(name);
-        });
+            });           
     };
     this.post_message = function(message) {
 
@@ -68,10 +77,10 @@
 
         var message = message;
         var url = this.accept_post_url;
-        var req = opensocial.newDataRequest();
+        /*var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
-        req.send(function(response) {
-
+        req.send(function(response) {*/
+        this.get_user(function(response) {
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);
             var name = viewer.getDisplayName();

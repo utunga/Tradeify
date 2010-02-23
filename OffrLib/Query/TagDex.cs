@@ -16,7 +16,7 @@ namespace Offr.Query
     {
         private readonly List<ITag> _seenTags;
         private readonly SortedList<string, List<IMessage>> _index;
-        private readonly IEnumerable<IMessage> _allMessageSource;
+        private IEnumerable<IMessage> _allMessageSource;
         
         public TagDex(IEnumerable<IMessage> allMessageSource)
         {
@@ -25,7 +25,13 @@ namespace Offr.Query
             _allMessageSource = allMessageSource;
             Process(allMessageSource);
         }
-
+        public void Reprocess(IEnumerable<IMessage> allMessageSource)
+        {
+             _seenTags.Clear();
+            _index.Clear();
+            _allMessageSource = allMessageSource;
+            Process(allMessageSource);
+        }
         /// <summary>
         /// From 
         /// </summary>
@@ -65,7 +71,6 @@ namespace Offr.Query
                 }
             }
         }
-
         public IEnumerable<IMessage> QueryMessages(IEnumerable<ITag> tags, IUserPointer user)
         {
             List<string> matchTags = tags.Select(tag => tag.MatchTag).ToList();

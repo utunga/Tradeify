@@ -18,11 +18,22 @@ namespace twademe
                 if (messageRepository.Get(Request["id"]) != null)
                 {
                     messageRepository.Remove(Request["id"]);
-                    Response.Write("success");
+                    Response.Write("{\"status\":\"success\"}");
                 }
-                else Response.Write("id not found");
+                else SendJSON("{\"status\":\"id not found\"}");
             }
-            else Response.Write("id is null");
+            else SendJSON("{\"status\":\"id is empty\"}");
+        }
+        private void SendJSON(string message)
+        {
+            if (null != Request.Params["jsoncallback"])
+            {
+                Response.Write(Request.Params["jsoncallback"] + "(" + message + ")");
+            }
+            else
+            {
+                Response.Write(message);
+            }
         }
     }
 }

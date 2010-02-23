@@ -266,6 +266,8 @@ function TagsWidget(selector) {
         for (var i = 0; i < tags_array.length && i < max_tag_count; i++) {
             var tag = tags_array[i];
             var ui_state_class = (tag.active) ? "ui-state-active" : "";
+            var ui_tag_close = (tag.active) ? "ui-tag-close" : "";
+            var tag_fixed = (tag.fixed) ? "tag-fixed" : "tag-unfixed";
             var ui_icon_class;
             switch (tag.type) {
                 case ("group"):
@@ -286,7 +288,7 @@ function TagsWidget(selector) {
 
             tagString = tagString + "\n" +
             "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n" +
-                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + tag.tag + "</a>";
+                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + tag.tag + "<span class=\"" + tag_fixed + " " + ui_tag_close + "\"></span></a>";
         }
 
         tagString = tagString + "</div>";
@@ -443,12 +445,16 @@ function SuggestedTagsWidget(selector, general_tagset) {
     this.remove_tag = function(text) { return tags_widget.remove_tag(text); };
 
     this.add_tag = function(text, type, active) { return tags_widget.add_tag(text, type, active); }; //return tags.add_tag.apply(tags, arguments); }; //uhm is this right? FIXME
-    
+
     this.set_active = function(text) {
+        var setActive = (arguments.length > 1) ? arguments[1] : true;
         var tag = tags_widget.find_tag(text);
-        tag.active = true;
+        if (!setActive) tags_widget.toggle_active(text);
+        else tag.active = true;
     }
-        
+    this.get_active_tags = function() {
+    return tags_widget.get_active_tags();
+    };    
     this.on_tags_updated = on_tags_updated;
     
 };

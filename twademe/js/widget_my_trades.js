@@ -70,7 +70,9 @@
             }
             $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#my_pager", offers_selector + " .template");
             $(".remove").click(function() {
-                container.remove_id($(this).parent().children(".id").text(),this.update);               
+            var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
+                if(answer)
+                    container.remove_id($(this).parent().children(".id").text(), this.update);
                 return false;
             });
         });

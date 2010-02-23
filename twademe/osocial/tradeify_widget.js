@@ -244,10 +244,11 @@ function display_results_of_parse_offer(response) {
     else $(".send_message").attr("disabled","disabled");
     //"NeedsCurrencyTag", "NeedsLocation", "NeedsGroupTag"
     if ($.inArray("TooLong", reasons) > -1) {
-        if($("#too_long").length==0)
-            $('<div id="too_long" style="color: red;">Message is too long</div>').insertAfter("#message_to_send");
+        //$("#too_long").removeClass();
+        //$('<div id="too_long" style="color: red;">Your message is too long. Your message is '+ $("#message_to_send").val().length + ' characters, messages cannot be longer than 200 characters.</div>').insertAfter("#message_to_send");
+        $("#too_long").text('Your message is too long. Your message is '+ $("#message_to_send").val().length + ' characters, messages cannot be longer than 200 characters.');
     }
-    else $("#too_long").remove();
+    else $("#too_long").text("");
     switchStatus("NeedsCurrencyTag","currency_detail",reasons);
     switchLocationStatus("NeedsLocation", "location_detail", reasons);
     switchStatus("NeedsGroupTag","group_detail",reasons);  
@@ -392,7 +393,10 @@ function parse_details_for_tags() {
 	
     var tagsFromText = get_tags_from_text();
     if (tagsFromText.get_all_tags_text() == "") return;
-    
+    $.each(suggested_tags_widget.get_active_tags(), function() {
+        var tag_is_present = $("#post_your_own_form textarea#offer").val().search("#" + this.toString() + " ");
+        if (tag_is_present == -1) suggested_tags_widget.set_active(this.toString(), false);
+    });
     if (lastTagsFromText==null || 
         lastTagsFromText.get_all_tags_text() != tagsFromText.get_all_tags_text()) {
         
@@ -418,9 +422,9 @@ function parse_details_for_tags() {
                 suggested_tags_widget.set_active(tagtext);
             }
         });
-        
         suggested_tags_widget.update_view();
         lastTagsFromText = tagsFromText;
+
     }
 }
 
@@ -441,12 +445,14 @@ function ensure_details_includes_active_tags() {
     var details = $("#post_your_own_form textarea#offer");
     var details_text = details.val();
     var new_text = (details_text == $("#offer")[0].title) ? append_text : details_text + append_text;
-    details.val(new_text);
+
+    details.val(new_text.trim());
 }
 
 function remove_tag_from_details(tag_text) {
     var details = $("#post_your_own_form textarea#offer");
     var details_text = details.val();
-    details_text = details_text.replace("#" + tag_text, "");
+    details_text = details_text.replace("#" + tag_text, "").trim();
     details.val(details_text);
+    
 }

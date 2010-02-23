@@ -39,7 +39,8 @@
                                 </p>
 
                                 <div class="meta">
-                                    <a class="when" href="source_uri">Today, 10:50 am</a>
+                                    <a class="when" href="source_uri">Today, 10:50 am</a
+                                    <a class="id" style="visibility:hidden;"></a>
                                 </div>
                             </span></a>
                         </div>
@@ -117,6 +118,7 @@
                                 <!--<legend>Your offer</legend>	-->
                                 <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all clear_on_post"
                                     id="message_to_send" title="(Details)"></textarea>
+                                <div id=too_long style="color: red;""></div>    
                                 <button class="send_message ui-button ui-state-default ui-corner-all">
                                     Post</button>
                                 <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
@@ -130,7 +132,7 @@
                 </div>
                 <div id="results-4">
                     <span class="template">
-                        <div class="my_offer offers" style="padding-bottom: 20px;width:600px;">
+                        <div class="offer offers" style="padding-bottom: 20px;width:600px;">
                            <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
 
                                 <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
@@ -142,8 +144,7 @@
                                 </p>
                                 <div class="meta">
                                     <a class="when" href="source_uri">Today, 10:50 am</a>
-
-                                    <div class="remove" style="float:right">Remove</div>
+                                    <a class="remove" href="" style="float:right">Remove</a>
                                     <a class="id" style="visibility:hidden;"></a>
                                 </div>
                                 
@@ -291,7 +292,7 @@
             var list_widget;
             var map_widget;
 
-            //RHS Tags 
+            //RHS Tags
             var createRHSTags = function() {
 
                 var general_tags = new Array();
@@ -311,7 +312,9 @@
                     }
                 });
 
-                var update_filter = function(tag_text, tag_type) { list_widget.toggle_filter(tag_text, tag_type); }
+                var update_filter = function(tag_text, tag_type) {
+                    list_widget.toggle_filter(tag_text, tag_type);
+                }
                 filter_general_tags.init_from(general_tags, list_widget.current_tags().get_all_tags(), "tag");
                 filter_general_tags.on_tag_click(update_filter);
 
@@ -363,7 +366,12 @@
                 filter_general_tags = new TagsWidget("#filter_general_tags");
                 filter_currency_tags = new TagsWidget("#filter_currency_tags");
                 filter_location_tags = new TagsWidget("#filter_location_tags");
-                my_list_widget = new MyTrades("#results-4");
+                var rubbish;
+                var user;
+                container.get_user_name(function(response) {
+                    user = response;
+                    my_list_widget = new ListWidget("#results-4", rubbish, user);
+                });
                 var my_posts = false;
                 $("#filter_by_user").click(function() {
                     my_posts = !my_posts;
@@ -396,6 +404,7 @@
                     fx: { height: 'toggle', opacity: 'toggle' },
                     show: function(event, ui) {
                         if (ui.panel.id == "results-1") {
+                            list_widget.update_offers();
                             $(".right_col").show();
                         }
                         else if (ui.panel.id == "results-2") {
@@ -408,7 +417,7 @@
                             post_your_own_form_init(); //need to create the google map for the form *after* tab shown
                         }
                         else if (ui.panel.id == "results-4") {
-                            my_list_widget.update()
+                            my_list_widget.update_offers()
                             $(".right_col").hide();
 
                             //need to create the google map for the form *after* tab shown
@@ -482,7 +491,7 @@
                 message_change();
 
 
-            });                                           //end document.ready
+            });                                             //end document.ready
 
 
 

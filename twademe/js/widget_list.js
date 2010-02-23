@@ -1,4 +1,4 @@
-﻿function ListWidget(offers_selector, current_tags_selector) {
+﻿function ListWidget(offers_selector, current_tags_selector,username) {
 
     var offers;
     var tags;
@@ -24,22 +24,24 @@
                         '+a@class': 'tag.type'
                     }
                 },
-                '.when': 'offer.timestamp'
-                
+                '.when': 'offer.timestamp',
+                '.id': 'offer.message_pointer.message_id'  
             }
         }
-    }; 
-   
+    };
+
     var init = function() {
         username_filter = null;
         offers_uri = container.offers_uri;
         //compile to a function as soon as possible (ie in 'constructor')
         offers_render_fn = $(offers_selector + ' .template').compile(offers_directives);
-        current_tags = new TagsWidget(current_tags_selector);
-        current_tags.on_tag_click(function(tag_text, tag_type) {
-            remove_filter(tag_text);
-            return false;
-        });
+        if (!username) {
+            current_tags = new TagsWidget(current_tags_selector);
+            current_tags.on_tag_click(function(tag_text, tag_type) {
+                remove_filter(tag_text);
+                return false;
+            });
+        }
     }
 
     var on_offers_updated = function(functionRef) {
@@ -59,6 +61,16 @@
 	    }, update_offers_change_threshold);
     }
     
+
+    var formatTimestamp=function(timestamp){
+        var overall = timestamp.split("T");
+        var dates = overall[0].split("-");
+        var times = overall[1].split(":");
+        var time = times[0] + ":" + times[1];
+        var date = dates[2] + "-" + dates[1] + "-" + dates[0];
+        return time + " " + date;
+    }
+    
     var update_offers = function() {
         var json_url = current_tags.decorate_url(offers_uri);
         if (username_filter!=null) {
@@ -67,21 +79,15 @@
         
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
-                var overall = this.timestamp.split("T");
-                var dates = overall[0].split("-");
-                var times = overall[1].split(":");
-                var time = times[0] + ":" + times[1];
-                var date = dates[2] + "-" + dates[1] + "-" + dates[0];
-                this.timestamp = time + " " + date;
-
-                //this.timestamp = Date.parse(this.timestamp);
-            }
-            );
-            $(offers_selector + ' .template').render(data, offers_render_fn);
-            $(offers_selector + ' .tags a').click(function() {
-                //add a filter when tags under a message are clicked
-                add_filter($(this).text(), $(this).css());
+                this.timestamp = formatTimestamp(this.timestamp);
             });
+            $(offers_selector + ' .template').render(data, offers_render_fn);
+            if (username_filter==null) {
+                $(offers_selector + ' .tags a').click(function() {
+                    //add a filter when tags under a message are clicked
+                    add_filter($(this).text(), $(this).css());
+                });
+            }
             offers = data.Messages;
             tags = data.Tags;
             if (!!_offers_updated) {
@@ -90,6 +96,13 @@
                 });
             }
             $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager", offers_selector + " .template");
+            if (username_filter!=null) {
+                $(".remove").click(function() {
+                    var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
+                    if (answer) container.remove_id($(this).parent().children(".id").text(), this.update);
+                    return false;
+                });
+            }
         });
     };
 
@@ -108,6 +121,9 @@
         current_tags.toggle_filter(tag_text, tag_type);
         current_tags.update_view();
         queue_update_offers();
+
+        $("#current_tags .tag-unfixed").addClass("ui-tag-close");
+        update_offers();
     };
     
     var remove_filter = function(tag_text) {
