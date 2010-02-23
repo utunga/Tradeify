@@ -18,7 +18,7 @@ namespace twademe
                 if (messageRepository.Get(Request["id"]) != null)
                 {
                     messageRepository.Remove(Request["id"]);
-                    Response.Write("{\"status\":\"success\"}");
+                    SendJSON("{\"status\":\"success\"}");
                 }
                 else SendJSON("{\"status\":\"id not found\"}");
             }
