@@ -57,6 +57,12 @@ namespace Offr.Repository
             cache.Clear();
             dirty = true;
         }
+        public override void Remove(string id)
+        {
+            base.Remove(id);
+            _globalTagIndex.Reprocess(AllMessages());
+        }
+
         public override void Save(IMessage message)
         {
             base.Save(message);
