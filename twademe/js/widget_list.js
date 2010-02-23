@@ -60,6 +60,8 @@
     var update_offers = function() {
         var json_url;
         //list widget
+        $(".left_col").block({ message: "" });
+        $(".right_col .fg-buttonset").block({ message: "" });
         if (!username && !!current_tags_selector) json_url = current_tags.decorate_url(offers_uri);
         //my list widget
         else if (!!username & !current_tags_selector) json_url = offers_uri + "?jsoncallback=?" + "&username=" + username + "&namespace=ooooby";
@@ -96,7 +98,8 @@
                     return false;
                 });
             }
-
+            $(".left_col").unblock();
+            $(".right_col .fg-buttonset").unblock();
         });
     };
 

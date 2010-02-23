@@ -387,6 +387,7 @@ function SuggestedTagsWidget(selector, general_tagset) {
         
             // otherwise, get suggested tags based on currently active tags
             var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
+            $(selector).block();
             $.getJSON(json_url, function(data) {
                 var suggested_tags = [];
 
@@ -401,9 +402,10 @@ function SuggestedTagsWidget(selector, general_tagset) {
                         suggested_tags.push(this.tag);
                     }
                 });
-                
-                
+
+
                 set_suggested_from_array(suggested_tags);
+                $(selector).unblock();
             });
         }
     };
@@ -411,7 +413,7 @@ function SuggestedTagsWidget(selector, general_tagset) {
     var tags_widget_click = function(tag_text, tag_type) {
         //ensure that active tags are in the details box
         if (tags_widget.is_active(tag_text) == false) remove_tag_from_details(tag_text);
-        ensure_details_includes_active_tags();
+        ensure_details_includes_active_tags();       
         update_suggested_tags();
 
     }
