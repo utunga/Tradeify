@@ -15,7 +15,7 @@
     }
     this.remove_id = function(id, callback) {
         $.getJSON(this.remove_message_uri + "&id=" + "ooooby/" + id, function(data) {
-            setTimeout(callback, 2000);
+            setTimeout(callback, 5000);
         });
     }
     this.get_user = function(callback) {

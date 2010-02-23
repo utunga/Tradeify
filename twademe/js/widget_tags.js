@@ -258,7 +258,9 @@ function TagsWidget(selector) {
         update_view();
         return false;
     }
-
+    var add_close_button_ref = function(tag_active, tag_fixed) {
+        return tag_active;
+    }
     var _get_html = function() {
         var max_tag_count = 15;
         var tagString = "<div class=\"fg-buttonset fg-buttonset-multi\">";
@@ -266,8 +268,8 @@ function TagsWidget(selector) {
         for (var i = 0; i < tags_array.length && i < max_tag_count; i++) {
             var tag = tags_array[i];
             var ui_state_class = (tag.active) ? "ui-state-active" : "";
-            var ui_tag_close = (tag.active) ? "ui-tag-close" : "";
-            var tag_fixed = (tag.fixed) ? "tag-fixed" : "tag-unfixed";
+            var ui_tag_close = (add_close_button_ref(tag.active,tag.fixed)) ? "ui-tag-close" : "";
+            //var tag_fixed = (tag.fixed) ? "tag-fixed" : "tag-unfixed";
             var ui_icon_class;
             switch (tag.type) {
                 case ("group"):
@@ -288,7 +290,7 @@ function TagsWidget(selector) {
 
             tagString = tagString + "\n" +
             "<a href=\"#\" class=\"tag fg-button fg-button-icon-left " + ui_state_class + " ui-corner-tag\">\n" +
-                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + tag.tag + "<span class=\"" + tag_fixed + " " + ui_tag_close + "\"></span></a>";
+                "<span class=\"ui-icon " + ui_icon_class + "\"></span>" + tag.tag + "<span class=\"" + ui_tag_close + "\"></span></a>";
         }
 
         tagString = tagString + "</div>";
@@ -316,6 +318,7 @@ function TagsWidget(selector) {
     this.get_active_tags = function() {
         return tags.get_active_tags();
     };
+    this.set_add_close_button_ref = function(ref) { add_close_button_ref=ref }
     this.is_active = function(text) { return tags.is_active(text); }
     this.get_all_tags = function() { return tags.get_all_tags(); }
     this.find_tag = function(text) { return tags.find_tag(text); };

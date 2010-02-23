@@ -36,6 +36,9 @@
         offers_render_fn = $(offers_selector + ' .template').compile(offers_directives);
         if (!username) {
             current_tags = new TagsWidget(current_tags_selector);
+            current_tags.set_add_close_button_ref(function(tag_active, tag_fixed) {
+                return !tag_fixed;
+            });
             current_tags.on_tag_click(function(tag_text, tag_type) {
                 remove_filter(tag_text);
                 return false;
@@ -55,8 +58,8 @@
         return time + " " + date;
     }
     var update_offers = function() {
-    var json_url = (!username) ? current_tags.decorate_url(offers_uri) :
-         offers_uri + "?jsoncallback=?"+"&username=" + username + "&namespace=ooooby" ;
+        var json_url = (!username) ? current_tags.decorate_url(offers_uri) :
+         offers_uri + "?jsoncallback=?" + "&username=" + username + "&namespace=ooooby";
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
                 this.timestamp = formatTimestamp(this.timestamp);
@@ -79,6 +82,7 @@
             $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#pager", offers_selector + " .template");
             if (!!username) {
                 $(".remove").click(function() {
+                    $(this).parent().effect("highlight", {});
                     var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
                     if (answer)
                         container.remove_id($(this).parent().children(".id").text(), this.update);
