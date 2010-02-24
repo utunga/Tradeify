@@ -364,6 +364,7 @@
                 filter_general_tags = new TagsWidget("#filter_general_tags");
                 filter_currency_tags = new TagsWidget("#filter_currency_tags");
                 filter_location_tags = new TagsWidget("#filter_location_tags");
+                update_message_type_from_val($("input[@name='message_type_filter']:checked:last").val());
                 var rubbish;
                 var user;
                 container.get_user_name(function(response) {

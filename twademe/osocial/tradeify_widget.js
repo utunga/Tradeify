@@ -110,20 +110,12 @@ function set_form_text() {
 //    $("#offered_filter").toggleClass("ui-state-active");
 //    update_type_filters();
 //}
-
-
-function update_message_type(clicked) {
-
-    var message_type = $(clicked).val();
-//    var prefix = $("input[@name='message_type_filter']:checked").val();
-//    alert(prefix);
-     //alert($("input[@name=message_type_filter]:checked").val());
-    
-    if (message_type=="offer") {
+function update_message_type_from_val(message_type) {
+    if (message_type == "offer") {
         list_widget.add_filter("offer", "msg_type");
         list_widget.remove_filter("wanted", "msg_type");
     }
-    else if (message_type=="wanted") {
+    else if (message_type == "wanted") {
         list_widget.add_filter("wanted", "msg_type");
         list_widget.remove_filter("offer", "msg_type");
     }
@@ -133,6 +125,17 @@ function update_message_type(clicked) {
         list_widget.remove_filter("wanted", "msg_type");
     }
     return true;
+}
+
+function update_message_type(clicked) {
+
+    var message_type = $(clicked).val();
+    return update_message_type_from_val(message_type);
+//    var prefix = $("input[@name='message_type_filter']:checked").val();
+//    alert(prefix);
+     //alert($("input[@name=message_type_filter]:checked").val());
+    
+
 }
 
 
