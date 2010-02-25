@@ -48,9 +48,10 @@
     }
 
     var on_offers_updated = function(functionRef) {
-     //ensure no duplicate functions are added
-        if(!!$.inArray(functionRef,_offers_updated))
+        //ensure no duplicate functions are added
+        if (!!$.inArray(functionRef, _offers_updated)) {
             _offers_updated.push(functionRef);
+        }
     }
     
     var update_offers_change_threshold = 50; //50 milliseconds
@@ -75,18 +76,18 @@
         var date = dates[2] + "-" + dates[1] + "-" + dates[0];
         return time + " " + date;
     }
-    
-    var update_offers = function() {
+
+    var update_offers = function(onUpdateCallback) {
 
         var json_url;
         //list widget
         $(".left_col").block({ message: "" });
         $(".right_col .fg-buttonset").block({ message: "" });
-        if (!username_filter && !!current_tags_selector) 
+        if (!username_filter && !!current_tags_selector)
             json_url = current_tags.decorate_url(offers_uri); //standard
-        else if (!!username_filter & !current_tags_selector) 
+        else if (!!username_filter & !current_tags_selector)
             json_url = offers_uri + "?jsoncallback=?" + "&username=" + username_filter + "&namespace=ooooby"; //my list widget
-        else 
+        else
             json_url = current_tags.decorate_url(offers_uri) + "&username=" + username_filter + "&namespace=ooooby"; //admin list widget
 
         $.getJSON(json_url, function(data) {
@@ -94,7 +95,7 @@
                 this.timestamp = formatTimestamp(this.timestamp);
             });
             $(offers_selector + ' .template').render(data, offers_render_fn);
-            if (username_filter==null) {
+            if (username_filter == null) {
                 $(offers_selector + ' .tags a').click(function() {
                     //add a filter when tags under a message are clicked
                     add_filter($(this).text(), $(this).attr("class"));
@@ -122,6 +123,7 @@
             }
             $(".left_col").unblock();
             $(".right_col .fg-buttonset").unblock();
+            if (!!onUpdateCallback) onUpdateCallback();
         });
     };
 

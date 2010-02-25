@@ -60,10 +60,10 @@
 
                         <fieldset id="by_parts" class="ui-corner-all">
                             <h4>
-                               <label><input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="checked" />I am offering:</label>
-                               <label><input type="radio" name="message_type" value="WANT" onclick="update_offer()" />I want:</label>
-                                <a class="help_icon" title="type_help" style="font-size: smaller;">
-                                    <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                               <label><input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="checked" />I am offering</label>
+                               <label><input type="radio" name="message_type" value="WANT" onclick="update_offer()" />I want<a class="help_icon" title="type_help" style="font-size: smaller;">
+                                    <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a></label>
+                                
                             </h4>
                             <div class="offerPart">
                                 <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
@@ -409,8 +409,11 @@
                         else if (ui.panel.id == "results-2") {
                             $(".right_col").show();
                             $(ui.panel).css("height", "100%");
-                            list_widget.update_offers();
-                            map_widget.update_map(); //need to create the google map *after* tab shown
+                            //make sure offers have update already!
+                            list_widget.update_offers(function() {
+                                map_widget.update_map();
+                            });
+                            //need to create the google map *after* tab shown
                         }
                         else if (ui.panel.id == "results-3") {
                             $(".right_col").hide();
@@ -418,10 +421,9 @@
                         }
                         else if (ui.panel.id == "results-4") {
                             my_list_widget.update_offers()
-                            $(".right_col").hide();
-
-                            //need to create the google map for the form *after* tab shown
+                            $(".right_col").hide();                                                        //need to create the google map for the form *after* tab shown
                         }
+                        $(".help").dialog('close');
                     },
                     spinner: spinner_message
                 });
@@ -491,7 +493,7 @@
                 message_change();
 
 
-            });                                             //end document.ready
+            });                                                //end document.ready
 
 
             
