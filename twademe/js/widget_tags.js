@@ -5,6 +5,7 @@ function Tag() {
     this.type = "tag";
     this.active = false;
     this.fixed = false;
+    this.on_remove;
 };
 
 function Tags() {
@@ -49,7 +50,7 @@ function Tags() {
             add_tag(text, (arguments.length > 1) ? arguments[1] : "tag", (arguments.length > 2) ? arguments[2] : false);
         }
     };
-    
+
     var add_tag = function(text) {
         if (!!find_tag(text)) {
             console.log("refuse to add tag " + text + " as it already exists");
@@ -57,12 +58,13 @@ function Tags() {
         }
         var type = (arguments.length > 1) ? arguments[1] : "tag";
         var active = (arguments.length > 2) ? arguments[2] : false;
-
+        var on_remove_tag = (arguments.length > 3) ? arguments[3] : null;
         var tag = new Tag();
+        tag.on_remove = on_remove_tag;
         tag.type = type;
         tag.tag = text;
         tag.active = active;
-        
+
         tags.push(tag);
         return tag;
     }
@@ -98,6 +100,7 @@ function Tags() {
                 }
                 else {
                     found_tag_to_remove = true;
+                    if ($.isFunction(this.on_remove)) this.on_remove();
                 }
             }
         });
@@ -332,7 +335,7 @@ function TagsWidget(selector) {
     this.find_tag = function(text) { return tags.find_tag(text); };
     this.has_tag = function(text) { return tags.has_tag(text); };
     this.toggle_filter = function(text) { return tags.toggle_filter(text) };
-    this.add_tag = function(text, type, active) { return tags.add_tag(text, type, active); }; //return tags.add_tag.apply(tags, arguments); }; //uhm is this right? FIXME
+    this.add_tag = function(text, type, active, on_remove_tag) { return tags.add_tag(text, type, active, on_remove_tag); }; //return tags.add_tag.apply(tags, arguments); }; //uhm is this right? FIXME
     this.add_fixed_tag = function(text, type, active) { return tags.add_fixed_tag(text,type, active); }; //return tags.add_fixed_tag.apply(tags, arguments); }; //uhm is this right for variable args //FIXME
     this.remove_tag = function(text) { return tags.remove_tag(text); };
     this.remove_fixed_tag = function(text) { return tags.remove_fixed_tag(text); };

@@ -127,8 +127,8 @@
         });
     };
 
-    var add_filter = function(tag_text, tag_type) {
-        current_tags.add_tag(tag_text, tag_type);
+    var add_filter = function(tag_text, tag_type,onRemoveFilter) {
+        current_tags.add_tag(tag_text, tag_type,false,onRemoveFilter);
         current_tags.update_view();
         queue_update_offers();
     };

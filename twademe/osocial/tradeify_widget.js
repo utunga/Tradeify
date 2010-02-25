@@ -112,11 +112,19 @@ function set_form_text() {
 //}
 function update_message_type_from_val(message_type) {
     if (message_type == "offer") {
-        list_widget.add_filter("offer", "msg_type");
+        list_widget.add_filter("offer", "msg_type", function() {
+            //$("#message_type_offer").attr('checked', true);
+            if($("#message_type_offer").attr('checked'))
+                $("#message_type_both").attr('checked', true);
+        });
         list_widget.remove_filter("wanted", "msg_type");
     }
     else if (message_type == "wanted") {
-        list_widget.add_filter("wanted", "msg_type");
+        list_widget.add_filter("wanted", "msg_type", function() {
+        //$("#message_type_wanted").attr('checked', true);
+            if($("#message_type_wanted").attr('checked'))
+                $("#message_type_both").attr('checked', true);
+        });
         list_widget.remove_filter("offer", "msg_type");
     }
     else { //    if (message_type=="both") {
