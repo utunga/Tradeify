@@ -409,6 +409,7 @@
                         else if (ui.panel.id == "results-2") {
                             $(".right_col").show();
                             $(ui.panel).css("height", "100%");
+                            list_widget.update_offers();
                             map_widget.update_map(); //need to create the google map *after* tab shown
                         }
                         else if (ui.panel.id == "results-3") {

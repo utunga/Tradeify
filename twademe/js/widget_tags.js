@@ -134,6 +134,13 @@ function Tags() {
         });
         return all_tags;
     }
+    var get_all_tags_objects = function() {
+        var all_tags = [];
+        $.each(tags, function() {
+            all_tags.push(this);
+        });
+        return all_tags;
+    }
   
     var get_active_tags = function() {
         var active_tags = [];
@@ -202,6 +209,7 @@ function Tags() {
     this.get_active_tags_text = get_active_tags_text;
     this.get_all_tags_text = get_all_tags_text;
     this.get_all_tags = get_all_tags;
+    this.get_all_tags_objects = get_all_tags_objects;
     this.get_fixed_tags = get_fixed_tags;
     this.load_from_simple_array = load_from_simple_array;
     this.get_tags_array = function() {
@@ -334,6 +342,7 @@ function TagsWidget(selector) {
     this.decorate_active_url = function(baseUrl) { return tags.decorate_active_url(baseUrl); };
     this.get_active_tags_text = function() { return tags.get_active_tags_text(); };
     this.get_all_tags_text = function() { return tags.get_all_tags_text(); };
+    this.get_all_tags_objects = function() { return tags.get_all_tags_objects(); };
 };
 
 ////////////////////////////////////////////////////////////////////////

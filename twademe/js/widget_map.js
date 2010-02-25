@@ -38,7 +38,7 @@
     }
     
     var create_popup = function(map, marker) {
-        var tags_backup = list_widget.current_tags().get_all_tags().concat(marker.tags);
+        var tags_backup = list_widget.current_tags().get_all_tags_objects().concat(marker.tags);
 
         var json_url = list_widget.current_tags().decorate_url(offers_uri, tags_backup);
         $.getJSON(json_url, function(raw_data) {
@@ -65,8 +65,8 @@
     var update_map = function() {
 
         if (typeof google == 'undefined') return; //do nothing
-
-        if (map == undefined) {
+        //always create map for now, it stops inconsistencies with remove messages having markers
+        //if (map == undefined) {
             //var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
             var myOptions = {
                 zoom: 2,
@@ -75,7 +75,7 @@
             }
             map = new google.maps.Map(document.getElementById(map_selector), myOptions);
             list_widget.on_offers_updated(update_map);
-        }
+        //}
 
         var offers = list_widget.get_offers();
         var latlng = new Array();
@@ -118,7 +118,7 @@
             // latlngbounds.extend(latlng[i]);
             latlngbounds.extend(latlng[i]);
         }
-        map.fitBounds(latlngbounds);
+        if (!latlng.length==0) map.fitBounds(latlngbounds);
         if (map.getZoom() > 15) { map.setZoom(15) };
     }
 
