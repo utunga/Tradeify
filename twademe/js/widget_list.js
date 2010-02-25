@@ -123,7 +123,7 @@
             }
             $(".left_col").unblock();
             $(".right_col .fg-buttonset").unblock();
-            if (!!onUpdateCallback) onUpdateCallback();
+            if (onUpdateCallback>-1) onUpdateCallback();
         });
     };
 
