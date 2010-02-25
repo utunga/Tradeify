@@ -27,7 +27,7 @@
         map_popup_render_fn = $(map_popup_selector + ' .template').compile(map_directives);
         $(map_popup_selector + ' .template').hide();
         offers_uri = container.offers_uri;
-        
+        list_widget.on_offers_updated(update_map);
     }
     
     function count_location_tags(tags) {
