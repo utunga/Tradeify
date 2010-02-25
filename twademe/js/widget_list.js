@@ -87,8 +87,8 @@
             json_url = current_tags.decorate_url(offers_uri); //standard
         else if (!!username_filter & !current_tags_selector)
             json_url = offers_uri + "?jsoncallback=?" + "&username=" + username_filter + "&namespace=ooooby"; //my list widget
-        else
-            json_url = current_tags.decorate_url(offers_uri) + "&username=" + username_filter + "&namespace=ooooby"; //admin list widget
+        //else
+          //  json_url = current_tags.decorate_url(offers_uri) + "&username=" + username_filter + "&namespace=ooooby"; //admin list widget
 
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {

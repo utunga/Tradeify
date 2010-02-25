@@ -63,7 +63,12 @@ namespace Offr.Message
             if (!containsGroup)
             {
                 ITag possibleGroup = checkForAtSymbolGroup(sourceText);
-                if(possibleGroup != null) msg.AddTag(possibleGroup);
+                if(possibleGroup != null)
+                {
+                    //remove the ooooby tag from the messages
+                    sourceText=sourceText.Replace("@" + possibleGroup.Text, "");
+                    msg.AddTag(possibleGroup);
+                }
             }
             //source.Pointer.
             ILocation location = ParseLocation(sourceText);

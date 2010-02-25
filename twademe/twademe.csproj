@@ -263,6 +263,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="osocial\admin_widget.html" />
     <Content Include="osocial\offer_map.html" />
     <Content Include="osocial\mock_wrapper.js" />
     <Content Include="osocial\opensocial_wrapper.js" />
