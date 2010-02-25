@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Widget</title>
+</head>
+<body>
+    <div style="width: 737px; padding: 5px">
+        <!-- copy to tradeify_widget.xml starts below here -->
+        <link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
+            media="all" />
+        <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
+            media="all" />
+
+        <link href="../css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+        <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
+<button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
+        <h3><div id="current_tags">
+        </div></h3>
+        <div id="results">
+            <ul style="display:none;" class="unhide_on_load">
+                <li><a href="#results-1">List</a></li>
+                <li><a href="#results-2">Map</a></li>
+                <li><a href="#results-3">Post your own</a></li>
+                <li><a href="#results-4">Your Messages</a></li>
+            </ul>
+            <div class="left_col">
+                <div id="results-1" style="display:none;" class="unhide_on_load">
+                    <span class="template" id="offer_template">
+
+                        <div class="offer offers" style="padding-bottom: 20px;">
+                            <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
+                                <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
+                                    target="_top" class="username"></a>
+                                <p class="msg">
+                                    <span class="text"></span>
+                                    <br />
+                                    <span class="tags"><span class="tag"><a href="#" onclick=""></a>, </span></span>
+                                </p>
+
+                                <div class="meta">
+                                    <a class="when" href="source_uri">Today, 10:50 am</a>
+                                    <!-- Add for admin-->
+                                    <a class="remove" href="" style="float:right">Remove</a>
+                                    <a class="id" style="visibility:hidden;"></a>
+                                </div>
+                            </span></a>
+                        </div>
+                    </span>
+                    <div id="pager" class="pager">
+                    </div>
+
+                </div>
+                <div id="results-2" style="display:none;">
+                    <div id="offer_map" style="margin-right: 10px;">
+                    </div>
+                </div>
+                <div id="results-3" style="display:none;">
+                    <div id="post_your_own_form">
+                        <div class="tooltip">
+                        </div>
+
+                        <fieldset id="by_parts" class="ui-corner-all">
+                            <h4>
+                               <label><input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="checked" />I am offering</label>
+                               <label><input type="radio" name="message_type" value="WANT" onclick="update_offer()" />I want<a class="help_icon" title="type_help" style="font-size: smaller;">
+                                    <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a></label>
+                                
+                            </h4>
+                            <div class="offerPart">
+                                <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
+                                    id="offer" title="(what are you offering or wanting? - e.g. 'delicous small tomatoes')"></textarea>
+
+                            </div>
+                            <div>
+                                <p>
+                                    (add tags, to find your message by)</p>
+                                <span id="suggested_tags_widget"></span><span><a class=" tag fg-button-icon-left  ui-corner-tag">
+                                    <span class="ui-icon ui-icon-tag"></span></a>
+                                    <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
+                                        title="add your own tag" />
+                                </span><a class="help_icon" title="custom_tag_help" style="font-size: smaller;">
+
+                                    <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" />What
+                                    are tags?</a>
+                            </div>
+                            <div class="location">
+                                <label for="location">
+                                    in <a class="help_icon" title="location_help" style="font-size: smaller;">
+                                        <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                </label>
+                                <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post"
+                                    tabindex="1" name="location" id="location" title="(suburb)" />
+
+                                <div id="map_canvas">
+                                </div>
+                                <!--map goes here -->
+                                <div class="infobox">
+                                </div>
+                            </div>
+                            <div class="currency">
+                                <label for="for" class="desc">
+                                    for <a class="help_icon" title="currency_help" style="font-size: smaller;">
+
+                                        <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                </label>
+                                <div id="post_your_own_currency_tags">
+                                </div>
+                            </div>
+                            <div class="until">
+                                <label for="until" class="desc">until <a class="help_icon" title="until_help" style="font-size: smaller;">
+                                        <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                </label>
+                                <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
+                            </div>
+                        </fieldset>
+                        <div class="rawMessage">
+                            <fieldset>
+
+                                <!--<legend>Your offer</legend>	-->
+                                <textarea title="" cols="42" rows="6" onkeyup="message_keyup()" name="message" class="ui-state-default ui-corner-all clear_on_post"
+                                    id="message_to_send" title="(Details)"></textarea>
+                                <div id=too_long style="color: red;""></div>    
+                                <button class="send_message ui-button ui-state-default ui-corner-all">
+                                    Post</button>
+                                <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
+                                    class="currency_detail status"><a>Type of Trade</a> </a><a class="group_detail status">
+                                        <a>Ooooby tag</a> </a></a><a class="help_icon" title="post_help" style="font-size: smaller;">
+
+                                            <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div id="results-4" style="display:none;">
+                    <span class="template">
+                        <div class="offer offers" style="padding-bottom: 20px;width:600px;">
+                           <a href="#" class="offer_overall"><span><a href="user_uri" class="avatar" target="_top">
+
+                                <img src="user_thumb" width="16" height="16" alt="username" /></a> <a href="user_uri"
+                                    target="_top" class="username"></a>
+                                <p class="msg">
+                                    <span class="text"></span>
+                                    <br />
+                                    <span class="tags"><span class="tag"><a href="#" onclick=""></a>, </span></span>
+                                </p>
+                                <div class="meta">
+                                    <a class="when" href="source_uri">Today, 10:50 am</a>
+                                    <a class="remove" href="" style="float:right">Remove</a>
+                                    <a class="id" style="visibility:hidden;"></a>
+                                </div>
+                                
+                            </span></a>
+                        </div>
+                    </span>
+                    <div id="my_pager" class="pager">
+                    </div>
+
+                </div>
+            </div>
+            <div class="right_col" style="display:none;" class="unhide_on_load">
+
+<!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
+        <div style="margin-top:10px">
+        <input type="text" class="ui-state-default ui-corner-all" id="search_location_tag" style="width:100px;"/>
+        <button class="ui-button ui-state-default ui-corner-all" onclick="queryLocationTag()">
+            Search tags</button>
+        </div>    
+-->
+
+                <h3>Filter Messages By.. <p class="info">(click to select or remove)</p>
+                </h3>
+                <h4>Common Tags</h4>
+                <div id="filter_general_tags">
+                </div>
+                <!-- <input type="text" class="ui-state-default ui-corner-all" id="search_general_tag"/>
+<button class="ui-button ui-state-default ui-corner-all" onclick="queryGeneralTag()">search</button>
+-->
+                <h4>Type of trade</h4>
+                <div id="filter_currency_tags">
+
+                </div>
+                    <h4>Location</h4>
+                    <div id="filter_location_tags">
+                </div>
+                <div>
+                        <h4>Message Type</h4>
+                        <label for="message_type_offer"><input type="radio" value="offer" name="message_type_filter" onclick="return update_message_type(this);" id="message_type_offer" />Offer messages only.</label><br />
+                        <label for="message_type_wanted"><input type="radio" value="wanted" name="message_type_filter" onclick="return update_message_type(this);" id="message_type_wanted" />Wanted messages only.</label><br />
+                        <label for="message_type_both"><input type="radio" value="both" name="message_type_filter" onclick="return update_message_type(this);"  id="message_type_both" checked="checked" />Both offers and wanted.</label><br />
+                </div>
+
+                <div>
+                </div>
+                <!--<h4>User: <a id="filter_by_user">My trades</a></h4>-->
+
+                <!--<a id="filter_by_everyone">Everyones trades</a>|-->
+            </div>
+        </div>
+        <div style="display:none;">
+        <div id="custom_tag_help" class="help">
+            help</div>
+        <div id="until_help" class="help">
+            until</div>
+        <div id="currency_help" class="help">
+
+            for</div>
+        <div id="location_help" class="help">
+            location</div>
+        <div id="post_help" class="help">
+            post</div>
+        <div id="type_help" class="help">
+            type</div>
+         <!--<div id="loading">Loading...</div>-->
+         </div>   
+        <div id="map_popup" style="padding-bottom: 30px;">
+            <span class="template">
+                <div class="map_offer" style="padding-bottom: 20px;">
+                    <a href="#" class="map_offer_overall"><span><a href="user_uri" class="map_avatar"
+                        target="_top">
+                        <img src="map_user_thumb" width="16" height="16" alt="username" /></a> <a href="map_user_uri"
+                            target="_top" class="map_username"></a>
+                        <p class="map_msg">
+                            <span class="map_text"></span>
+                            <br />
+
+                            <span class="map_tags"><span class="map_tag"><a href="#" onclick=""></a>, </span>
+                            </span>
+                        </p>
+                        <div class="meta">
+                            <a class="map_when" href="source_uri">Today, 10:50 am</a>
+                        </div>
+                    </span></a>
+                </div>
+
+            </span>
+        </div>
+        <!--[if lt IE 7]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
+<![endif]-->
+        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>-->
+
+        <script type="text/javascript" src="../js/jquery-1.3.2.js">      </script>
+
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+        <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
+
+        <script type="text/javascript" src="../js/quickpager.jquery.js"></script>
+
+        <script type="text/javascript" src="../js/jquery.pager.js"></script>
+
+        <script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
+
+        <!--<script type="text/javascript" src="../js/jquery.tools.min.js"></script>-->
+
+        <script type="text/javascript" src="../js/pure_packed_v2.js"></script>
+
+        <script type="text/javascript" src="../js/widget_tags.js"></script>
+        <script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+
+        <!--<script type="text/javascript" src="../osocial/opensocial_wrapper.js"></script>-->
+        <!--uncomment for running on ning as part of tradiefy_widget.xml-->
+
+        <script type="text/javascript" src="../osocial/mock_wrapper.js"></script>
+
+        <!-- uncomment above when running as part of widget_mock.html-->
+
+        <script type="text/javascript" src="../js/widget_list.js"></script>
+
+        <script type="text/javascript" src="../js/widget_my_trades.js"></script>
+
+        <script type="text/javascript" src="../js/widget_map.js"></script>
+        
+        <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
+
+        <script type="text/javascript">
+            $.blockUI();
+            var suggested_tags_widget;
+            //var message_type;
+            var post_your_own_currency_tags;
+            var currency_tagset = new Array("free", "barter", "cash");
+            var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
+, "seedlings", "garden_supplies", "garden_services", "books", "workshops");
+
+            var filter_general_tags;
+            var filter_currency_tags;
+            var filter_location_tags;
+
+            //var current_tags;
+            var my_list_widget;
+            var list_widget;
+            var map_widget;
+
+            //RHS Tags
+            var createRHSTags = function() {
+
+                var general_tags = new Array();
+                var currency_tags = new Array();
+                var location_tags = new Array();
+                $.each(list_widget.get_tags(), function() {
+                    switch (this.type) {
+                        case "tag":
+                            general_tags.push(this.tag);
+                            break;
+                        case "currency":
+                            currency_tags.push(this.tag);
+                            break;
+                        case "loc":
+                            location_tags.push(this.tag);
+                            break;
+                    }
+                });
+
+                var update_filter = function(tag_text, tag_type) {
+                    list_widget.toggle_filter(tag_text, tag_type);
+                }
+                filter_general_tags.init_from(general_tags, list_widget.current_tags().get_all_tags(), "tag");
+                filter_general_tags.on_tag_click(update_filter);
+
+                filter_currency_tags.init_from(currency_tags, list_widget.current_tags().get_all_tags(), "currency");
+                filter_currency_tags.on_tag_click(update_filter);
+
+                filter_location_tags.init_from(location_tags, list_widget.current_tags().get_all_tags(), "loc");
+                filter_location_tags.on_tag_click(update_filter);
+            }
+
+            function default_tag_setup() {
+                $(".defaultText").focus(function(srcc) {
+                    if ($(this).val() == $(this)[0].title) {
+                        $(this).removeClass("defaultTextActive");
+                        $(this).val("");
+                    }
+                });
+
+                $(".defaultText").blur(function() {
+                    if ($(this).val() == "") {
+                        $(this).addClass("defaultTextActive");
+                        $(this).val($(this)[0].title);
+                    }
+                });
+
+                $(".defaultText").blur();
+
+            }
+
+            $(document).ready(function() {
+
+
+                // adjusts height in ning, does nothing in test
+                container.adjustHeight(1200);
+                //$("#search_location_tag").autocomplete(container.tags_ahead_uri);
+                container.autocomplete_suggested_tags("#typed_tag");
+
+                //
+                container.autocomplete_tag_search("#search_location_tag");
+                $(".help").dialog({ autoOpen: false });
+                $(".help_icon").click(function() {
+                    $("#" + $(this)[0].title).dialog("open");
+                    return false;
+                });
+                list_widget = new ListWidget("#results-1", "#current_tags");
+                list_widget.add_fixed_filter("ooooby", "group");
+                list_widget.update_offers();
+                //add remove clicks to normal list_widget for admins
+                list_widget.on_offers_updated(function() {
+                    $(".remove").click(function() {
+                        $(this).parent().parent().effect("highlight", {});
+                        var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
+                        if (answer)
+                            container.remove_id($(this).parent().children(".id").text(), function() {
+                                list_widget.update_offers();
+                            });
+                        return false;
+                    });
+                });
+                //end admin code here
+                map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
+                filter_general_tags = new TagsWidget("#filter_general_tags");
+                filter_currency_tags = new TagsWidget("#filter_currency_tags");
+                filter_location_tags = new TagsWidget("#filter_location_tags");
+                update_message_type_from_val($("input[@name='message_type_filter']:checked:last").val());
+                var rubbish;
+                var user;
+                container.get_user_name(function(response) {
+                    user = response;
+                    my_list_widget = new ListWidget("#results-4", rubbish, user);
+                });
+                var my_posts = false;
+                $("#filter_by_user").click(function() {
+                    my_posts = !my_posts;
+                    if (my_posts) {
+                        $('#filter_by_user').addClass('ui-state-active')
+                        container.filter_by_user_name(list_widget);
+                    }
+                    else {
+                        $('#filter_by_user').removeClass('ui-state-active');
+                        list_widget.update_offers();
+                    }
+                    return false;
+                });
+                list_widget.on_offers_updated(createRHSTags);
+                //easiest way to reconcile the autocomplete and wish to submit after timeout
+                var previous_tag = "";
+                //need to check whether autocomplete is currently open
+                setInterval(function() {
+                    var tag = $("#typed_tag").val();
+                    if (tag == previous_tag && tag.trim() != "" && tag != $("#typed_tag")[0].title && !container.active_prompt) {
+                        suggested_tags_widget.add_custom_tag(tag);
+                        suggested_tags_widget.update_view();
+                        ensure_details_includes_active_tags();
+                        $("#typed_tag").val("");
+                    }
+                    previous_tag = tag;
+                }, 3000);
+                var spinner_message = "Retrieving data..."
+                $("#results").tabs({
+                    fx: { height: 'toggle', opacity: 'toggle' },
+                    show: function(event, ui) {
+                        if (ui.panel.id == "results-1") {
+                            list_widget.update_offers();
+                            $(".right_col").show();
+                        }
+                        else if (ui.panel.id == "results-2") {
+                            $(".right_col").show();
+                            $(ui.panel).css("height", "100%");
+                            //make sure offers have update already!
+                            list_widget.update_offers(function() {
+                                map_widget.update_map();
+                            });
+                            //need to create the google map *after* tab shown
+                        }
+                        else if (ui.panel.id == "results-3") {
+                            $(".right_col").hide();
+                            post_your_own_form_init(); //need to create the google map for the form *after* tab shown
+                        }
+                        else if (ui.panel.id == "results-4") {
+                            my_list_widget.update_offers()
+                            $(".right_col").hide();                                                        //need to create the google map for the form *after* tab shown
+                        }
+                        $(".help").dialog('close');
+                    },
+                    spinner: spinner_message
+                });
+
+                $("#post_your_own_form #until").datepicker({
+                    defaultDate: +14,
+                    minDate: 0,
+                    dateFormat: "dd/mm/yy",
+                    constrainInput: true,
+                    showOn: "focus"
+                });
+
+                suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
+                suggested_tags_widget.on_tags_updated(update_offer);
+                post_your_own_currency_tags = new TagsWidget("#post_your_own_currency_tags");
+                post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
+                post_your_own_currency_tags.on_tag_click(update_offer);
+                $("#by_parts input").keyup(update_offer);
+                $("#by_parts textarea").keyup(update_offer);
+                $("#by_parts input").change(update_offer);
+                default_tag_setup();
+
+                $(".send_message").click(function() {
+                    var message = $("#message_to_send").val();
+                    container.post_message(message, function(response_data) {
+                        console.log("post_message result:" + response_data);
+                        //alert("message posted");
+                        list_widget.update_offers();
+                        $("#results").tabs('select', 0);
+                        //container.adjustHeight(600);
+                        $(".clear_on_post").each(function() {
+                            $(this).val($(this).attr("title"));
+                        });
+                        post_your_own_currency_tags.reset();
+                        // post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
+                        suggested_tags_widget.reset() //= new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
+                        google_initialize();
+                        reset_parse_offer();
+                        //it is possible that the first child will not be the message posted however this is unlikely
+                        setTimeout(function() {
+                            $('html, body').animate({ scrollTop: 0 }, 'slow');
+                            $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
+                        }, 300);
+
+                    });
+
+                    // how long to wait after submit for the form to load?
+                    setTimeout(list_widget.update_offers, 300);
+
+                    // reset / clear the form
+                    // scrolIntoView the top tab
+                    // set tab to list view
+                    // check that filters wont hide the message
+                });
+
+                $("#post_your_own_form form").submit(function(e) {
+
+                    // FIXME: this looks a heck of a lot like a no-op to me
+                    var input = $(".rawMessage #message_to_send", this).val();
+                    $("#message_to_send").val(input);
+
+                    // do not submit the form
+                    return e.preventDefault();
+                });
+
+                //parse offer just in case there is infromation already there
+                message_change();
+
+
+            });                                                  //end document.ready
+
+
+            
+            google.load("maps", "3", { other_params: "sensor=false" });
+
+            var interval_id = setInterval(function() {
+                if ($(".msg .tag").length > 2) {
+                    $(".unhide_on_load").show();
+                    clearTimeout(interval_id);
+                    $.unblockUI();
+                }
+            },50);
+        </script>
+
+        <!-- end copy to tradeify_widget.xml -->
+        
+<!--<script type="text/javascript" src="../Test/Tests.js">      </script>
+-->    </div>
+</body>
+</html>
