@@ -48,7 +48,9 @@
     }
 
     var on_offers_updated = function(functionRef) {
-        _offers_updated.push(functionRef);
+     //ensure no duplicate functions are added
+        if(!!$.inArray(functionRef,_offers_updated))
+            _offers_updated.push(functionRef);
     }
     
     var update_offers_change_threshold = 50; //50 milliseconds
