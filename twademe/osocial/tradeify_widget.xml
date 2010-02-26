@@ -453,7 +453,7 @@
                     container.post_message(message, function(response_data) {
                         console.log("post_message result:" + response_data);
                         //alert("message posted");
-                                                                     
+                         $("#results").tabs('select', 0);                                             
                         //container.adjustHeight(600);
                         $(".clear_on_post").each(function() {
                             $(this).val($(this).attr("title"));
@@ -464,8 +464,7 @@
                         google_initialize();
                         reset_parse_offer();
                         //it is possible that the first child will not be the message posted however this is unlikely
-                        setTimeout(function() {
-                            $("#results").tabs('select', 0);
+                        setTimeout(function() {                           
                             $('html, body').animate({ scrollTop: 0 }, 'slow');
                             $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
                         }, 500);
