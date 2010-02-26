@@ -276,7 +276,7 @@
         <script type="text/javascript" src="http://www.tradeify.org/osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
-            var block_message = { message: $("busy), css: {
+            var block_message = { message: $("busy"), css: {
                 backgroundColor: '#FFFFFF'
             }, overlayCSS: {
                 backgroundColor: '#FFFFFF',
@@ -428,6 +428,7 @@
                         else if (ui.panel.id == "results-3") {
                             $(".right_col").hide();
                             post_your_own_form_init(); //need to create the google map for the form *after* tab shown
+                        
                         }
                         else if (ui.panel.id == "results-4") {
                             my_list_widget.update_offers()
@@ -475,8 +476,8 @@
                         setTimeout(function() {
                             $('html, body').animate({ scrollTop: 0 }, 'slow');
                             $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
-                            google_initialize();
-                        }, 300);                       
+                            
+                        }, 500);                       
                     });
 
                     // how long to wait after submit for the form to load?

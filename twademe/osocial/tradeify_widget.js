@@ -329,9 +329,8 @@ var post_your_own_form_initialized = false;
 function post_your_own_form_init() {
     
     if (post_your_own_form_initialized) return; //already initalized
-    if (typeof google !== 'undefined') {
-        google_initialize();
-    }
+    google_initialize();
+
 }
 
 var region="NZ"

@@ -273,7 +273,7 @@
         <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
-            var block_message = { message: '<img src="' + container.busy_uri + '/>', css: {
+            var block_message = { message: '<img src="' + container.busy_uri + '/>'/*$("busy") <-put in instead for osocial*/, css: {
                 backgroundColor: '#FFFFFF'
             }, overlayCSS: {
                 backgroundColor: '#FFFFFF',
@@ -471,9 +471,8 @@
                         //it is possible that the first child will not be the message posted however this is unlikely
                         setTimeout(function() {
                             $('html, body').animate({ scrollTop: 0 }, 'slow');
-                            $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
-                            google_initialize();
-                        }, 300);                       
+                            $("#offer_template").children(":first-child").effect("highlight", {}, 3000)                            
+                        }, 500);                       
                     });
 
                     // how long to wait after submit for the form to load?
