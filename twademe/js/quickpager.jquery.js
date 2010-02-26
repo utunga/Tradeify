@@ -45,7 +45,8 @@
                 $(selector).children(".simplePagerPage" + currentPage).show();
                 $(pager).pager({ pagenumber: currentPage, pagecount: pageCounter, buttonClickCallback: pageClick });
             }
-            pageClick(1);
+            var page = (options.currentPage <= pageCounter) ? options.currentPage : pageCounter;
+            pageClick(page);
         });
 
     }

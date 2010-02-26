@@ -77,7 +77,7 @@
         var date = dates[2] + "-" + dates[1] + "-" + dates[0];
         return time + " " + date;
     }
-
+    var current_page = 1;
     var update_offers = function(onUpdateCallback) {
 
         var json_url;
@@ -110,14 +110,17 @@
                 });
             }
 
-            $(offers_selector + " .template").quickPager({ pageSize: 4 }, offers_selector + " .pager", offers_selector + " .template");
+            $(offers_selector + " .template").quickPager({ pageSize: 4, currentPage: current_page }, offers_selector + " .pager", offers_selector + " .template");
+            current_page = 1;
             if (!!username_filter) {
                 $(".remove").click(function() {
                     $(this).parent().parent().effect("highlight", {});
                     var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
                     if (answer) {
-                        container.remove_id($(this).parent().children(".id").text(),$(this).parent().children(".namespace").text(), function() {
+                        container.remove_id($(this).parent().children(".id").text(), $(this).parent().children(".namespace").text(), function() {
+                            current_page = $(offers_selector + " .pgCurrent").text();
                             update_offers();
+                            //$(offers_selector + " .template").quickPager({ pageSize: 4,currentPage:pageNum}, offers_selector + " .pager", offers_selector + " .template");
                         });
                     }
                     return false;
