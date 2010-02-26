@@ -13,8 +13,8 @@
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
-    this.remove_id = function(id, callback) {
-        $.getJSON(this.remove_message_uri + "&id=" + "ooooby/" + id, function(data) {
+    this.remove_id = function(id,name_space, callback) {
+        $.getJSON(this.remove_message_uri + "&id=" + name_space+"/" + id, function(data) {
             callback();
         });
     }

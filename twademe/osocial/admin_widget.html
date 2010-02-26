@@ -41,6 +41,7 @@
                                     <!-- Add for admin-->
                                     <a class="remove" href="" style="float:right">Remove</a>
                                     <a class="id" style="visibility:hidden;"></a>
+                                    <a class="namepsace" style="visibility:hidden;"></a>
                                 </div>
                             </span></a>
                         </div>
@@ -202,14 +203,15 @@
                 list_widget.update_offers();
                 //add remove clicks to normal list_widget for admins
                 list_widget.on_offers_updated(function() {
-                    $(".remove").click(function() {
-                        $(this).parent().parent().effect("highlight", {});
-                        var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
-                        if (answer)
-                            container.remove_id($(this).parent().children(".id").text(), function() {
-                                list_widget.update_offers();
-                            });
-                        return false;
+                $(".remove").click(function() {
+                    $(this).parent().parent().effect("highlight", {});
+                    var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
+                    if (answer) {
+                        container.remove_id($(this).parent().children(".id").text(), $(this).parent().children(".namespace").text(), function() {
+                            update_offers();
+                        });
+                    }
+                    return false;
                     });
                 });
                 //end admin code here

@@ -25,7 +25,8 @@
                     }
                 },
                 '.when': 'offer.timestamp',
-                '.id': 'offer.message_pointer.message_id'  
+                '.id': 'offer.message_pointer.message_id',
+                '.namespace':'offer.message_pointer.provider_name_space' 
             }
         }
     };
@@ -88,7 +89,7 @@
         else if (!!username_filter & !current_tags_selector)
             json_url = offers_uri + "?jsoncallback=?" + "&username=" + username_filter + "&namespace=ooooby"; //my list widget
         //else
-          //  json_url = current_tags.decorate_url(offers_uri) + "&username=" + username_filter + "&namespace=ooooby"; //admin list widget
+        //  json_url = current_tags.decorate_url(offers_uri) + "&username=" + username_filter + "&namespace=ooooby"; //admin list widget
 
         $.getJSON(json_url, function(data) {
             $.each(data.Messages, function() {
@@ -114,10 +115,11 @@
                 $(".remove").click(function() {
                     $(this).parent().parent().effect("highlight", {});
                     var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
-                    if (answer)
-                        container.remove_id($(this).parent().children(".id").text(), function() {
+                    if (answer) {
+                        container.remove_id($(this).parent().children(".id").text(),$(this).parent().children(".namespace").text(), function() {
                             update_offers();
                         });
+                    }
                     return false;
                 });
             }
