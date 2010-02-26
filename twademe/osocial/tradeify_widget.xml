@@ -200,7 +200,7 @@
         </div>
         
         <div style="display: none;">
-            <div id=busy><img src="http://tradeify.org/images/busy.gif"/></div>
+            <img src="http://tradeify.org/images/busy.gif" name="busy"/>
             <div id="custom_tag_help" class="help">
                 help</div>
             <div id="until_help" class="help">
@@ -276,7 +276,7 @@
         <script type="text/javascript" src="http://www.tradeify.org/osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
-            var block_message = { message: $("#busy"), css: {
+            var block_message = { message: $("busy), css: {
                 backgroundColor: '#FFFFFF'
             }, overlayCSS: {
                 backgroundColor: '#FFFFFF',
