@@ -82,8 +82,18 @@
 
         var json_url;
         //list widget
-        $(".left_col").block({ message: "" });
-        $(".right_col .fg-buttonset").block({ message: "" });
+        $(".left_col").block({ message: '<img src="../images/busy.gif />', css: {
+            backgroundColor: '#FFFFFF'
+        }, overlayCSS: {
+            backgroundColor: '#FFFFFF',
+            opacity: 0.8}
+        });
+        $(".right_col .fg-buttonset").block({ message: '<img src="../images/busy.gif />', css: {
+            backgroundColor: '#FFFFFF'
+        }, overlayCSS: {
+            backgroundColor: '#FFFFFF',
+            opacity: 0.8}
+        });
         if (!username_filter && !!current_tags_selector)
             json_url = current_tags.decorate_url(offers_uri); //standard
         else if (!!username_filter & !current_tags_selector)
