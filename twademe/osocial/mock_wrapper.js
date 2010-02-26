@@ -14,8 +14,9 @@ function mock_container() {
     this.tags_ahead_uri = "/tags_ahead.aspx";
     //assumes test is running in local web
     this.accept_post_url = "/accept_post.aspx";
-    this.remove_message_uri = "/remove_message.aspx"
+    this.remove_message_uri = "/remove_message.aspx";
     this.active_prompt = false;
+    this.busy_uri = "../images/busy.gif";
    
     this.adjustHeight = function(height) {    
         //does nothing in test

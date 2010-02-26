@@ -272,10 +272,14 @@
         <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
-            $.blockUI({ message: '<img src="../images/busy.gif />' , css: { 
-            backgroundColor:'#FFFFFF' },overlayCSS:  { 
-            backgroundColor: '#FFFFFF', 
-            opacity:         0.8 }});
+            var block_message = { message: '<img src="' + container.busy_uri + '/>', css: {
+                backgroundColor: '#FFFFFF'
+            }, overlayCSS: {
+                backgroundColor: '#FFFFFF',
+                opacity: 0.8
+            }
+            };
+            $.blockUI(block_message);
             var suggested_tags_widget;
             //var message_type;
             var post_your_own_currency_tags;

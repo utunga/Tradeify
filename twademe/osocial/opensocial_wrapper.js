@@ -8,6 +8,7 @@
     this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx?jsoncallback=?";
     this.remove_message_uri = "http://tradeify.org/remove_message.aspx?jsoncallback=?";
     this.active_prompt = false;
+    this.busy_uri = "http://tradeify.org/images/busy.gif";
 
     var user;
     this.adjustHeight = function(height) {

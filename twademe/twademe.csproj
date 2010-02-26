@@ -245,6 +245,7 @@
     <Content Include="css\ooooby_theme\jquery-ui-1.7.2.custom.css" />
     <Content Include="css\ooooby_theme\jquery.autocomplete.css" />
     <Content Include="data\initial_tags.json" />
+    <Content Include="images\busy.gif" />
     <Content Include="images\help_icon.gif" />
     <Content Include="images\window-close.png" />
     <Content Include="js\jquery.blockUI.js" />

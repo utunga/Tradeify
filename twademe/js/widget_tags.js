@@ -399,7 +399,7 @@ function SuggestedTagsWidget(selector, general_tagset) {
         
             // otherwise, get suggested tags based on currently active tags
             var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
-            $(selector).block();
+            $(selector).parent().block(block_message);
             $.getJSON(json_url, function(data) {
                 var suggested_tags = [];
 
@@ -417,7 +417,7 @@ function SuggestedTagsWidget(selector, general_tagset) {
 
 
                 set_suggested_from_array(suggested_tags);
-                $(selector).unblock();
+                $(selector).parent().unblock();
             });
         }
     };
