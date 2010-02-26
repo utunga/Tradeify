@@ -129,13 +129,14 @@
         <script type="text/javascript" src="../osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
-            $.blockUI({ message: '<img src="../images/busy.gif />', css: {
+            var block_message = { message: '<img src="' + container.busy_uri + '/>', css: {
                 backgroundColor: '#FFFFFF'
             }, overlayCSS: {
                 backgroundColor: '#FFFFFF',
                 opacity: 0.8
             }
-            });
+            };
+            $.blockUI(block_message);
             //var message_type;
             var filter_general_tags;
             var filter_currency_tags;
