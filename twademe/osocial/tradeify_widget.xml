@@ -200,7 +200,7 @@
         </div>
         
         <div style="display: none;">
-            <div id=busy img src="http://tradeify.org/images/busy.gif"/></div>
+            <div id=busy><img src="http://tradeify.org/images/busy.gif"/></div>
             <div id="custom_tag_help" class="help">
                 help</div>
             <div id="until_help" class="help">
