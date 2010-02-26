@@ -8,12 +8,21 @@
   <!-- Content section for canvas view -->
   <Content type="html" view="canvas,profile">
     <![CDATA[
-       <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
             media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
             media="all" />
         <link href="http://www.tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+        <style type="text/css">
+            .ui-tag-close
+            {
+                background-image: url('http://www.tradeify.org/images/window-close.png'); /*padding:.4em 30px .4em 0;*/
+                padding-right: 15px;
+                background-repeat: no-repeat;
+                display: inline;
+            }
+        </style>
         <!--<input type="text" class="ui-state-default ui-corner-all" name="searchdata" id="searchdata"/>
 <button class="ui-button ui-state-default ui-corner-all" onclick="queryServer()">search</button>-->
         <h3>
@@ -198,9 +207,13 @@
                 <!--<a id="filter_by_everyone">Everyones trades</a>|-->
             </div>
         </div>
-        
         <div style="display: none;">
-            <div id="busy"><img src="http://tradeify.org/images/busy.gif" /></div>
+            <!-- for ie noobness-->
+            <div id="busy">
+                <img src="http://www.tradeify.org/images/busy.gif" /></div>
+            <img src="http://www.tradeify.org/osocial/Tick.png" />
+            <img src="http://www.tradeify.org/osocial/Cross.png" />
+            <img src="http://www.tradeify.org/images/window-close.png" />
             <div id="custom_tag_help" class="help">
                 help</div>
             <div id="until_help" class="help">
@@ -428,7 +441,6 @@
                         else if (ui.panel.id == "results-3") {
                             $(".right_col").hide();
                             post_your_own_form_init(); //need to create the google map for the form *after* tab shown
-                        
                         }
                         else if (ui.panel.id == "results-4") {
                             my_list_widget.update_offers()
@@ -470,14 +482,13 @@
                         post_your_own_currency_tags.reset();
                         // post_your_own_currency_tags.init_from(currency_tagset, list_widget.current_tags(), "type");
                         suggested_tags_widget.reset() //= new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
-                        
+
                         reset_parse_offer();
                         //it is possible that the first child will not be the message posted however this is unlikely
                         setTimeout(function() {
                             $('html, body').animate({ scrollTop: 0 }, 'slow');
                             $("#offer_template").children(":first-child").effect("highlight", {}, 3000)
-                            
-                        }, 500);                       
+                        }, 500);
                     });
 
                     // how long to wait after submit for the form to load?
@@ -506,7 +517,7 @@
             });                                                //end document.ready
 
 
-            
+
             google.load("maps", "3", { other_params: "sensor=false" });
 
             var interval_id = setInterval(function() {
@@ -515,7 +526,7 @@
                     clearTimeout(interval_id);
                     $.unblockUI();
                 }
-            },50);
+            }, 50);
         </script>
 
 

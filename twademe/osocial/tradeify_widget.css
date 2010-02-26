@@ -346,14 +346,6 @@ div.tooltip {
     -moz-box-shadow:0 0 10px #000; 
     -webkit-box-shadow:0 0 10px #000; 
 }
-.ui-tag-close
-{
-	background-image:url('../images/window-close.png');
-	/*padding:.4em 30px .4em 0;*/ 
-	padding-right:15px; 
-	background-repeat:no-repeat;
-	display:inline;
-}
 #typed_tag 
 {
 	width:100px;
