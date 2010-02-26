@@ -208,7 +208,7 @@
                     var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
                     if (answer) {
                         container.remove_id($(this).parent().children(".id").text(), $(this).parent().children(".namespace").text(), function() {
-                            update_offers();
+                            list_widget.update_offers();
                         });
                     }
                     return false;
