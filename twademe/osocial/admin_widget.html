@@ -52,7 +52,7 @@
                 </div>
                 
             </div>
-            <div class="right_col" style="display:none;" class="unhide_on_load">
+            <div id="rhs_buttons" class="right_col unhide_on_load" style="display:none;">
 
 <!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
         <div style="margin-top:10px">
@@ -243,13 +243,13 @@
                 //easiest way to reconcile the autocomplete and wish to submit after timeout
                 //need to check whether autocomplete is currently open
                 $("#results").tabs();
-                $(".right_col").show();
+                $("#rhs_buttons").show();
 
             });
-            var interval_id = setInterval(function() {
+            var check_loading_complete = setInterval(function() {
                 if ($(".msg .tag").length > 2) {
                     $(".unhide_on_load").show();
-                    clearTimeout(interval_id);
+                    clearTimeout(check_loading_complete);
                     $.unblockUI();
                 }
             },50);

@@ -83,7 +83,7 @@
         var json_url;
         //list widget
         $(".left_col").block(block_message);
-        $(".right_col .fg-buttonset").block(block_message);
+        $("#rhs_buttons .fg-buttonset").block(block_message);
         if (!username_filter && !!current_tags_selector)
             json_url = current_tags.decorate_url(offers_uri); //standard
         else if (!!username_filter & !current_tags_selector)

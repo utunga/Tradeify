@@ -9,13 +9,18 @@
 <link href="../css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
 
-<div>
-<span id="suggested_tags_widget"></span>
-    <div id="type_tag_div style="margin-bottom:15px">
-        <input type="text" class="ui-state-default ui-corner-all" id="typed_tag"/>
-        <button class="ui-button ui-state-default ui-corner-all" id="add_typed_tag">add</button>
+   <div class="offerPart">
+        <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
+            id="offer" title="(what are you offering? - e.g. 'delicous small tomatoes')"></textarea>
     </div>
-</div>
+    <div>
+        <p>(add tags, to find your message by)</p>
+        <span id="test_suggested_tags"></span>
+            <span><a class="tag fg-button-icon-left  ui-corner-tag"><span class="ui-icon ui-icon-tag"></span></a>
+            <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
+                title="add your own tag" />
+        </span>
+    </div>
 
 <script type="text/javascript" src="../js/jquery-1.3.2.js"></script>
 <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
@@ -34,8 +39,15 @@
     var general_tagset = new Array("veges", "fruit", "eggs", "honey", "nuts", "grains", "seeds"
 , "seedlings", "garden_supplies", "garden_services", "books", "workshops");
 
+    function update_offer() {
+        alert("updated offer");
+    }
+    
     $(document).ready(function() {
-        suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
+    
+         suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
+         suggested_tags_widget.on_tags_updated(update_offer);
+     
     });        
 
 

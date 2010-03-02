@@ -172,7 +172,7 @@ namespace Offr.Tests
             // a specific real example for which i know the query was failing
             string text = "#offr_test #ooooby mulch available now in L:Paekakariki: for #free until 17 Jan 2010";
             RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
-            DateTime? date = regexMessageParser.TEST_GetEndByInfo(text);
+            DateTime? date = regexMessageParser.TEST_ParseUntil(text);
             DateTime expected = new DateTime(2010,1,17);
             Assert.AreEqual(expected,date);
          }

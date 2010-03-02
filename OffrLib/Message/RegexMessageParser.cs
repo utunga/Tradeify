@@ -62,7 +62,7 @@ namespace Offr.Message
             
             if (!containsGroup)
             {
-                ITag possibleGroup = checkForAtSymbolGroup(sourceText);
+                ITag possibleGroup = CheckForAtSymbolGroup(sourceText);
                 if(possibleGroup != null)
                 {
                     //remove the ooooby tag from the messages
@@ -82,12 +82,18 @@ namespace Offr.Message
             }
             msg.MessageText = sourceText;
             msg.MoreInfoURL = GetMoreInfoUrl(sourceText);
-            msg.SetEndBy("", GetEndByInfo(sourceText));
+
+            string untilText;
+            DateTime until;
+            if (ParseUntil(sourceText, out untilText, out until))
+            {
+                msg.SetEndBy(untilText, until);
+            }
             msg.AddThumbnail(GetImageUrl(sourceText));
             return msg;
         }
 
-        private ITag checkForAtSymbolGroup(string sourceText)
+        private ITag CheckForAtSymbolGroup(string sourceText)
         {
             List<ITag> groups = TagProvider.GetGroups();
             foreach (ITag tag in groups)
@@ -229,31 +235,35 @@ namespace Offr.Message
             return null;
         }
 
-        private DateTime? GetEndByInfo(string offerText)
+        private bool ParseUntil(string offerText, out string untilText, out DateTime until)
         {
             Regex EndBy = new Regex(" until (.*)", RegexOptions.IgnoreCase);
             Match matchEndBy = EndBy.Match(offerText);
-            string untilText = matchEndBy.Groups[1].Value;
+            string candidateText = matchEndBy.Groups[1].Value;
             if (matchEndBy.Groups.Count >= 1)
             {
-                while (untilText.Length >= 1)
+                while (candidateText.Length >= 1)
                 {
                     DateTime result;
-                    if (DateTime.TryParse(untilText, out result))
+                    if (DateTime.TryParse(candidateText, out result))
                     {
-                        return result;
+                        untilText = candidateText;
+                        until = result;
+                        return true;
                     }
                     Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
-                    Match endMatch = endRegex.Match(untilText);
+                    Match endMatch = endRegex.Match(candidateText);
                     if (endMatch.Groups.Count > 1)
                     {
-                        untilText = untilText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
-                        untilText = untilText.Trim();
+                        candidateText = candidateText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
+                        candidateText = candidateText.Trim();
                     }
                     else break;
                 }
             }
-            return null;
+            untilText = "";
+            until = DateTime.MaxValue;
+            return false;
         }
 
         private string GetImageUrl(string offerText)
@@ -319,9 +329,15 @@ namespace Offr.Message
         {
             return GetImageUrl(offerText);
         }
-        public DateTime? TEST_GetEndByInfo(string offerText)
+        public DateTime? TEST_ParseUntil(string offerText)
         {
-            return GetEndByInfo(offerText);
+            DateTime until;
+            string untilText;
+            if (ParseUntil(offerText, out untilText, out until))
+            {
+                return until;
+            }
+            return null;
         }
         public MessageType TEST_GetMessageType(string offerText, IEnumerable<ITag> tags)
         {
