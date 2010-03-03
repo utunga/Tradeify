@@ -400,6 +400,11 @@ function SuggestedTagsWidget(selector, general_tagset) {
             // otherwise, get suggested tags based on currently active tags
             var json_url = tags_widget.decorate_active_url(container.tags_uri + "?type=tag");
             $(selector).parent().block(block_message);
+            
+            setTimeout(function() {
+                $(selector).parent().unblock();
+            }, 2000);
+            
             $.getJSON(json_url, function(data) {
                 var suggested_tags = [];
 
