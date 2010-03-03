@@ -65,7 +65,7 @@ namespace Offr.Message
                 ITag possibleGroup = CheckForAtSymbolGroup(sourceText);
                 if(possibleGroup != null)
                 {
-                    //remove the ooooby tag from the messages
+                    //remove the @ooooby tag from the messages
                     sourceText=sourceText.Replace("@" + possibleGroup.Text, "");
                     msg.AddTag(possibleGroup);
                 }
@@ -290,8 +290,12 @@ namespace Offr.Message
         {
             offerText = offerText.Trim();
             //string REGEX = @"([\w]+\s+){" + 0 + "}";
-            string firstWord = Regex.Split(offerText, @"\s+")[0];
-            firstWord = firstWord.ToLowerInvariant();
+            string[] words = Regex.Split(offerText, @"\s+");
+
+            if (words.Length<2) return MessageType.offer;
+            string firstWord = words[0].ToLowerInvariant();
+            string secondWord = words[1].ToLowerInvariant();
+
             if (firstWord.Contains("offer"))
             {
                 return MessageType.offer;
@@ -300,7 +304,16 @@ namespace Offr.Message
             {
                 return MessageType.wanted;
             }
+            else if (secondWord.Contains("offer"))
+            {
+                return MessageType.offer;
+            }
+            else if (secondWord.Contains("want"))
+            {
+                return MessageType.wanted;
+            }
 
+            //otherwise look for "#offer" / "#wanted" tags
             foreach (ITag tag in tags)
             {
                 if (tag.Text.Equals(MessageType.offer.ToString())) return MessageType.offer;
