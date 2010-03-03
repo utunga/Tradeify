@@ -208,10 +208,13 @@ span.on
 }
 
 #post_your_own_form textarea,
-#post_your_own_form div.location input,
 #post_your_own_form div.thumbnail input
 {
 	width:430px;
+}
+#post_your_own_form div.location input 
+{
+	width:405px; /* shorter to allow room for questino mark at end */
 }
 
 #post_your_own_form div.offerPart,
@@ -363,3 +366,17 @@ div.tooltip {
     background-repeat: no-repeat;
     display: inline;
 }
+
+.help_icon 
+{
+	background-image: url(../images/help_icon.jpg); /*FIXME really really should be a GIF with transparaency */
+	background-repeat:no-repeat;
+	background-position:top right;
+	width:20px;
+	height:20px;
+	font-size:smaller;
+	float:right;
+	display:inline-block;
+	
+}
+

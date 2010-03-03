@@ -10,9 +10,12 @@
             media="all" />
         <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
             media="all" />
+        <link href="../css/ooooby_theme/jquery.cluetip.css" rel="stylesheet" type="text/css"
+            media="all" />
+        
         <link href="../css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
         <link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-        <h4>Ooooby Growers Market is a place where you can buy, sell and barter local food and gardening supplies.</h4>
+        <h4>Ooooby Grower's Market - Buy, sell and barter local food and gardening supplies.</h4>
         <div id="results">
             <ul style="display: none;" class="unhide_on_load">
                 <li><a href="#results-1">List</a></li>
@@ -48,56 +51,61 @@
                 </div>
                 <div id="results-3" style="display: none;">
                     <div id="post_your_own_form">
-                        <div class="tooltip">
-                        </div>
                         <fieldset id="by_parts" class="ui-corner-all">
                             <legend>Create your message</legend>
-                            <h4>
-                                <label>
-                                    <input type="radio" name="message_type" value="OFFER" onclick="update_offer()" checked="checked" />I
-                                    am offering</label>
-                                <label>
-                                    <input type="radio" name="message_type" value="WANT" onclick="update_offer()" />I
-                                    want<a class="help_icon" title="type_help" style="font-size: smaller;">
-                                        <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a></label>
-                            </h4>
                             <div class="offerPart">
-                                <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
+                                <div><b>
+                                    <label style="float:left;" for="msg_type_offer"><input type="radio" name="message_type" id="msg_type_offer" value="OFFER" onclick="update_offer()" checked="checked" />
+                                    I am offering..</label>
+                                 
+                                    <label style="float:left;" for="msg_type_want"><input type="radio" name="message_type" id="msg_type_want" value="WANT" onclick="update_offer()" />
+                                    I want..</label>
+                                    </b>
+                                    <a class="help_icon" href="http://ooooby.wikispaces.com/Help" rel="#msg_help" target="Creating your message"></a>
+                                </div>
+                                    <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     id="offer" title="(what are you offering or wanting? - e.g. 'delicous small tomatoes')"></textarea>
                             </div>
                             <div>
-                                <p>
-                                    (add tags, to find your message by)</p>
+                                <p>tags <i>to help categorize your message so others can find it)</i></p>
                                 <span id="suggested_tags_widget"></span><span><a class=" tag fg-button-icon-left  ui-corner-tag">
                                     <span class="ui-icon ui-icon-tag"></span></a>
                                     <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
                                         title="add your own tag" />
-                                </span><a class="help_icon" title="custom_tag_help" style="font-size: smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                </span>
+                                <a class="help_icon" href="http://ooooby.wikispaces.com/Help" rel="#custom_tag_help" target="Creating your message"></a>
                             </div>
                             <div class="location">
                                 <label for="location">
-                                    in <a class="help_icon" title="location_help" style="font-size: smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                    <b>in </b>
                                 </label>
+                                <div>
                                 <input type="text" class="ui-state-default ui-corner-all defaultText clear_on_post"
                                     tabindex="1" name="location" id="location" title="(suburb)" />
+                                <a class="help_icon" href="http://ooooby.wikispaces.com/Help" rel="#location_help" target="Creating your message"></a>
+                                </div>
                                 <div id="map_canvas">
                                 </div>
                                 <!--map goes here -->
                                 <div class="infobox">
                                 </div>
+                                
                             </div>
                             <div class="currency">
                                 <label for="for" class="desc">
-                                    for <a class="help_icon" title="currency_help" style="font-size: smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                    <b>for</b> 
+                                <a class="help_icon" href="http://ooooby.wikispaces.com/Help" rel="#currency_help" target="Creating your message"></a>
                                 </label>
                                 <div id="post_your_own_currency_tags">
+                                
                                 </div>
                             </div>
                             <div class="until">
                                 <label for="until" class="desc">
-                                    until <a class="help_icon" title="until_help" style="font-size: smaller;"><img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                    <b>until </b>
                                 </label>
                                 <input type="text" name="until" id="until" class="ui-state-default ui-corner-all clear_on_post" />
+                                <a class="help_icon" href="http://ooooby.wikispaces.com/Help" rel="#until_help" target="Creating your message"></a>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -110,8 +118,8 @@
                                 Post Your Message</button>
                             <a class="message_details"><a class="location_detail status"><a>Location</a> </a><a
                                 class="currency_detail status"><a>Type of Trade</a> </a><a class="group_detail status">
-                                    <a>Ooooby tag</a> </a></a><a class="help_icon" title="post_help" style="font-size: smaller;">
-                                        <img width="12" hspace="4" height="11" border="0" src="../images/help_icon.gif" /></a>
+                                    <a>Ooooby tag</a> </a></a>
+                                    <a class="help_icon" href="http://ooooby.wikispaces.com/Help" rel="#post_help" target="Creating your message"></a>
                         </fieldset>
                     
                     </div>
@@ -141,17 +149,24 @@
             </div>
             <div id="welcome_message" class="right_col" style="display:none">
                 <h3>Get started!</h3>
-                <p>The best way to get started with the Growers Market is to post your own messages.</p>
+                <p></p>
+                <p>The best way to get going with the Growers Market is to post some of your own messages.</p>
                 <p>Try to think of all the things you might be able to offer. Or what might you want?</p>
-                <p>Here are some suggestions that might get you thinking..</p>
-                <p>Do you have any extra 
-                <a href="#" class="add_tag">Fruit</a>, <a href="#" class="add_tag">Veges</a>, <a href="#" class="add_tag">Leafy_Greens</a> or <a href="#" class="add_tag">Herbs</a> in your garden?</p>
-                <p>How about <a href="#" class="add_tag">Chickens</a>, <a href="#" class="add_tag">Honey</a>, <a href="#" class="add_tag">Milk</a>, <a href="#" class="add_tag">Nuts</a>_<a href="#" class="add_tag">Grains</a> or <a href="#" class="add_tag">Prepared_Food</a>?</p>
-                <p>Do you have any <a href="#" class="add_tag">Seeds</a>, <a href="#" class="add_tag">Seedlings</a>, <a href="#" class="add_tag">Trees</a>, <a href="#" class="add_tag">Garden_Supplies</a> or <a href="#" class="add_tag">Garden_Services</a> you can offer?</p>
-                <p>If not that, how about <a href="#" class="add_tag">Books</a>, <a href="#" class="add_tag">Workshops</a>, even <a href="#" class="add_tag">Consultant_Advice</a> or <a href="#" class="add_tag">Transport</a>. </p>
-                <p>And if you can't offer any of those things, maybe you <b>want</b> some. </p>
+                <p></p>
+                <p>Here are some suggestions to get you thinking..</p>
+                <p>Do you have any extra fruit, veges, leafy greens or herbs in your garden?</p>
+                <p>How about honey, milk, nuts, grains, chickens or prepared food like jams or soups?</p>
+                <p>Do you have any seeds, seedlings, trees, or garden supplies to offer? Worm tea?</p>
+                <p>Or can you offer gardening services?</p>
+                <p>Advice, planning or labour?</p>
+                <p>If not that, how about food growing and seasonal recipe books and magazines?</p>
+                <p>Or could you provide food growing workshops?  </p>
+                <p>And what about transport for that load of horse manure?</p>
+                <p></p>
+                <p>If you can't offer any of those things, maybe you want some.</p>
                 <p>Don't be shy - if you speak up to say what you need and where, someone in your community might just come forward and offer it.</p>
-                <h4>Whatever you do - have fun!</h4>
+                <p></p>
+                <p>Whatever you do - have fun</p>
             </div>
             <div id="rhs_buttons" class="right_col unhide_on_load" style="display:none;">
                 <!--  NOTE2JOAV: Don't be upset we're only hiding this temporarily due to confusion whilst we build up the number of offers    
@@ -162,8 +177,9 @@
         </div>    
 -->
                 <h3>
+                    <a class="help_icon" rel="#filter_msg_help"></a>
                     Filter Messages By..
-                    <p class="info">(click to select and to clear from filter)</p>
+                    <p class="info">(click tags below to select and clear)</p>
                 </h3>
                 <h4>Common Tags</h4>
                 <div id="filter_general_tags">
@@ -207,25 +223,39 @@
             <img src="../images/window-close.png" />
             
             <div id="custom_tag_help" class="help" title="What are tags">
-                <p>When you add a tag to your message e.g. '#herbs' it makes it easy for people who are looking for herbs to find your message. To add a tag to your message you write a word after a hash - #like_this, or just click on the suggested tags. Tags cannot contain spaces.</p>
-                <p>Tags are like categories, except *you* get to make up the categories.</p></div>
+                <p>When you add a tag to your message e.g. '#herbs' it makes it easy for people who are looking for herbs to find your message. </p>
+                <p>To add a tag to your message click on one of the suggested tags, or add your own.</p>
+                <p>Tags are like categories, only you can have more than one tag per message, and <strong>you</strong> get to pick the tags.</p></div>
             <div id="until_help" class="help" title="Until Date">
                 <p>The 'until date' is simply the date that you are making your offer or want available until. Eg. If you have plums for offer, you already know that they will rot within a few days so you can choose a date a few days hence. The until date is optional.</p>
             </div>
             <div id="currency_help" class="help" title="What does Free / Barter / Cash mean?">
-                <p>This is where you indicate what method you are willing to trade with. If you just want to give your offer away, then click Free. If you would be open to swap for something else, then click Barter. If you only want cash then click Cash. If you're happy with either Barter or Cash, then click both Barter and Cash.</p></div>
+                <p>This is where you indicate what method you are willing to trade with. </p>
+                <p>For instance, if you just want to give your offer away, then click <b>free</b>. If you would be open to swap for something else, then click <b>barter</b>.</p>
+                <p>If you only want cash then click <b>cash</b>. If you're happy with either barter or cash, then click both <b>barter</b> and <b>cash</b>.</p></div> 
             <div id="location_help" class="help" title="How do I add my location">
-                <p>Simply write your suburb name in the box. If the map shows the wrong location, try typing your country name in after your suburb. eg. Titirangi, New Zealand. </p>
-                <p>You'll notice that your address is surrounded by colons in the message below, - "L :&lt;your address&gt;:" this helps the system know where your adress starts and stops, but is not absolutely required. For instance you can also just write "in Titirangi" and it will take a best guess as to where that is.</p>
+                <p>Simply write your suburb in the location box eg. "Titirangi". Check that the map shows the correct location, and include more information if it does not eg. "Titirangi, NZ".</p>
+                <p>If you wish, you may include your exact address, but we ask only for your general locality or town at this time.</p>
             </div>
             <div id="post_help" class="help" title="Post your message">
-                <p>Here is where you can preview the message before it gets posted. The message will appear on the activity timeline as you see it here and you can edit it for sense there.</p>
-                <p>The '@ooooby' tag is required. If you also have twitter, yuo can also tweet this message exactly as it appears here and have it show up in the ooooby grower's marketplace.</p>
-                <p>Give it a go!</p>
+                <p>Here you can preview and edit your message one more time before it gets posted.</p>
+                <p>You can edit the message any way you like provided you include a location and a type of transaction tag (#free, #barter or #cash).</p>
+                <p>Also the '@ooooby' tag is required at the start of the message. That way, if you have twitter, you can post a message formatted like this and have it show up in the marketplace.</p>
             </div>
-            <div id="type_help" class="help">
-                type</div>
-            <!--<div id="loading">Loading...</div>-->
+            <div id="msg_help" class="help" >
+                <p>This form helps you construct a message to post to the marketplace.</p>
+                <p>Something like:</p>
+                    <p><b>I am offering </b><i>what you are offering</i><b> in </b>
+                    <i>your locality or town</i><b> for </b><i>#free, #barter or #cash</i> 
+                    until <i>an end date (optional)</i></p>
+            </div>
+             <div id="filter_msg_help" class="help" >
+                <p>On this page you see all 'offers' or 'wanted messages' other people from Ooooby have made</p>
+                <p>Click a persons name to go to their profile page where you can post a message on their wall asking them about the offer.
+                <i>(If you are already 'friends' you will be able to message them directly. Otherwise, perhaps just leave your phone number in your message?)</i></p>
+                <p>Messages are listed by date on the <b>list</b> tab, but click on the tags to drill down into more specific areas or locations.</p>
+                <p>On the <b>map</b> tab click the red badges to see offers tagged for that area. Wanted messages are in blue.</p>
+            </div>
         </div>
         <div id="map_popup" style="padding-bottom: 30px;">
             <span class="template">
@@ -247,8 +277,9 @@
                 </div>
             </span>
         </div>
-        
-
+        <p>&nbsp;</p>
+        <h4>Please note: This market place is in it's 'beta' testing phase at the moment. Undoubtedly some things won't work right. Please accept our apologies for any frustrations.</h4>
+        <p>We would however, really appreciate your help in making it better for those who come next. Please do let us know your frustrations, thoughts and ideas on the <a href="http://ooooby.ning.com/group/growersmarket?xg_source=activity">Grower's Market Group</a> pages.</p>
         <!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
 <![endif]-->
@@ -266,7 +297,8 @@
 
         <script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
 
-        <!--<script type="text/javascript" src="../js/jquery.tools.min.js"></script>-->
+        <script type="text/javascript" src="../js/jquery.hoverIntent.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.cluetip.min.js"></script>
 
         <script type="text/javascript" src="../js/pure_packed_v2.js"></script>
 
@@ -376,11 +408,20 @@
 
                 //
                 container.autocomplete_tag_search("#search_location_tag");
-                $(".help").dialog({ autoOpen: false });
-                $(".help_icon").click(function() {
-                    $("#" + $(this)[0].title).dialog("open");
-                    return false;
+//                $(".help").dialog({ autoOpen: false });
+//                $(".help_icon").click(function() {
+//                    $("#" + $(this)[0].title).dialog("open");
+//                    return false;
+//                });
+//                
+                $(".help_icon").cluetip({
+                    cluetipClass: 'jtip', 
+                    local: true,
+                    positionBy: "mouse",
+                    leftOffset: 40,
+                    arrows: true
                 });
+ 
                 list_widget = new ListWidget("#results-1", "#current_tags");
                 list_widget.add_fixed_filter("ooooby", "group");
                 list_widget.update_offers();

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{66B5FC71-7D50-4DBA-ACAC-77B17E3E05DE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -244,11 +244,14 @@
     <Content Include="css\ooooby_theme\images\validyes.png" />
     <Content Include="css\ooooby_theme\jquery-ui-1.7.2.custom.css" />
     <Content Include="css\ooooby_theme\jquery.autocomplete.css" />
+    <Content Include="css\ooooby_theme\jquery.cluetip.css" />
     <Content Include="data\initial_tags.json" />
     <Content Include="images\busy.gif" />
     <Content Include="images\help_icon.gif" />
     <Content Include="images\window-close.png" />
     <Content Include="js\jquery.blockUI.js" />
+    <Content Include="js\jquery.cluetip.min.js" />
+    <Content Include="js\jquery.hoverIntent.min.js" />
     <Content Include="js\widget_my_trades.js" />
     <Content Include="js\widget_tags.js" />
     <Content Include="js\widget_map.js" />
@@ -302,9 +305,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

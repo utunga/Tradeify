@@ -5,21 +5,30 @@
 </head>
 <body>
 
-<link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
 
+<div style="width:300px">
    <div class="offerPart">
         <textarea tabindex="0" cols="42" rows="3" type="text" name="offer" class="ui-state-default ui-corner-all defaultText clear_on_post"
             id="offer" title="(what are you offering? - e.g. 'delicous small tomatoes')"></textarea>
     </div>
     <div>
         <p>(add tags, to find your message by)</p>
+        <a class="help_icon" title="tags_help"></a>
+        <div id="custom_tag_help" class="help_text" title="What are tags">
+                <p>When you add a tag to your message e.g. '#herbs' it makes it easy for people who are looking for herbs to find your message. To add a tag to your message you write a word after a hash - #like_this, or just click on the suggested tags. Tags cannot contain spaces.</p>
+                <p>Tags are like categories, except *you* get to make up the categories.</p>
+        </div>
+
+        <div class="help_text" id="tags_help" title="Help about tags"><p>Tags are neat, but you have to watch out for the thing</p></div>
         <span id="test_suggested_tags"></span>
             <span><a class="tag fg-button-icon-left  ui-corner-tag"><span class="ui-icon ui-icon-tag"></span></a>
             <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
                 title="add your own tag" />
         </span>
+    </div>
     </div>
 
 <script type="text/javascript" src="../js/jquery-1.3.2.js"></script>
@@ -47,8 +56,32 @@
     
          suggested_tags_widget = new SuggestedTagsWidget("#suggested_tags_widget", general_tagset);
          suggested_tags_widget.on_tags_updated(update_offer);
-     
-    });        
+         
+        $(".help_text").dialog({ autoOpen: false });
+        //$(".help_text").
+        var close_dialog;
+        $(".help_icon").hover(
+            //mouse over
+            function() {
+                $("#" + $(this)[0].title).dialog("open");
+            },
+            //mouse out
+            function() {
+                var dialogRef=$("#" + $(this)[0].title);
+                close_dialog = setTimeout(function() {
+                    dialogRef.dialog("close");
+                    clearTimeout(close_dialog);
+                }, 1500);
+            }
+        );    
+        
+        $(".help_icon").click(
+            function() {
+                $("#" + $(this)[0].title).dialog("open");
+            }
+        );
+        
+    });
 
 
 </script>
