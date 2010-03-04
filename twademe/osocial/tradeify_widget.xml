@@ -18,7 +18,8 @@
         <link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
         <h4>Buy, sell and barter local food and gardening supplies.</h4>
-        <div id="results">
+<h4><a href="http://ooooby.ning.com/group/growersmarket?xg_source=activity" target="_top">ASK QUESTIONS HERE</a> | <a href="http://ooooby.uservoice.com/forums/43545-general" target="_top">GIVE SUGGESTIONS HERE</a></h4>
+<div id="results">
             <ul style="display: none;" class="unhide_on_load">
                 <li><a href="#results-1">List</a></li>
                 <li><a href="#results-2">Map</a></li>
@@ -69,7 +70,7 @@
                                     id="offer" title="(what are you offering or wanting? - e.g. 'delicous small tomatoes')"></textarea>
                             </div>
                             <div>
-                                <p>tags <i>to help categorize your message so others can find it)</i></p>
+                                <p>tags <i>(categorize your message so others can find it)</i><br /><b>be sure to add at least one tag</b></p>
                                 <span id="suggested_tags_widget"></span><span><a class=" tag fg-button-icon-left  ui-corner-tag">
                                     <span class="ui-icon ui-icon-tag"></span></a>
                                     <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
