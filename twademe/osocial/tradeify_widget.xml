@@ -8,16 +8,16 @@
   <!-- Content section for canvas view -->
   <Content type="html" view="canvas,profile">
     <![CDATA[
-        <link href="http://tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
+       <link href="http://www.tradeify.org/css/ooooby_theme/jquery.autocomplete.css" rel="stylesheet" type="text/css"
             media="all" />
-        <link href="http://tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
+        <link href="http://www.tradeify.org/css/ooooby_theme/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css"
             media="all" />
-        <link href="http://tradeify.org/css/ooooby_theme/jquery.cluetip.css" rel="stylesheet" type="text/css"
+        <link href="http://www.tradeify.org/css/ooooby_theme/jquery.cluetip.css" rel="stylesheet" type="text/css"
             media="all" />
         
-        <link href="http://tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="http://tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
-        <h4>Buy, sell and barter local food and gardening supplies.</h4>
+        <link href="http://www.tradeify.org/css/ooooby_theme/Pager.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://www.tradeify.org/osocial/tradeify_widget.css" rel="stylesheet" type="text/css" media="all" />
+                <h4>Buy, sell and barter local food and gardening supplies.</h4>
 <h4><a href="http://ooooby.ning.com/group/growersmarket?xg_source=activity" target="_top">ASK QUESTIONS HERE</a> | <a href="http://ooooby.uservoice.com/forums/43545-general" target="_top">GIVE SUGGESTIONS HERE</a></h4>
 <div id="results">
             <ul style="display: none;" class="unhide_on_load">
@@ -70,12 +70,16 @@
                                     id="offer" title="(what are you offering or wanting? - e.g. 'delicous small tomatoes')"></textarea>
                             </div>
                             <div>
-                                <p>tags <i>(categorize your message so others can find it)</i><br /><b>be sure to add at least one tag</b></p>
-                                <span id="suggested_tags_widget"></span><span><a class=" tag fg-button-icon-left  ui-corner-tag">
-                                    <span class="ui-icon ui-icon-tag"></span></a>
-                                    <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
-                                        title="add your own tag" />
-                                </span>
+                                <p style="margin:0 0 2px 0;"><b>tags</b><i> click to select, below &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (or, you can put '#' in front of key words, above)</i></p>
+                                <div class="ui-state-default ui-corner-all" style="padding:5px;">
+                                    <span id="suggested_tags_widget"></span>
+                                    
+                                    <span style="white-space:nowrap;">
+                                        <a class="tag fg-button-icon-left ui-corner-tag"><span class="ui-icon ui-icon-tag"></span></a>
+                                        <input type="text" class="ui-state-default ui-corner-all defaultText" id="typed_tag"
+                                            title="add your own tag" />
+                                    </span>
+                                </div>
                                 <a class="help_icon" href="http://ooooby.wikispaces.com/Help" rel="#custom_tag_help" target="Creating your message"></a>
                             </div>
                             <div class="location">
@@ -289,40 +293,40 @@
 <![endif]-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
 
-        <!--<script type="text/javascript" src="http://tradeify.org/js/jquery-1.3.2.js">      </script>-->
+        <!--<script type="text/javascript" src="http://www.tradeify.org/js/jquery-1.3.2.js">      </script>-->
 
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery-ui-1.7.2.custom.min.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/quickpager.jquery.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/quickpager.jquery.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.pager.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.pager.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.autocomplete.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.autocomplete.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.hoverIntent.min.js"></script>
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.cluetip.min.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.hoverIntent.min.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.cluetip.min.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/pure_packed_v2.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/pure_packed_v2.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/widget_tags.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_tags.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/jquery.blockUI.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/osocial/opensocial_wrapper.js"></script>
-        <!--uncomment for running on ning as part of tradiefy_widget.xml-->
+        <script type="text/javascript" src="http://www.tradeify.org/osocial/opensocial_wrapper.js"></script>
+        <!--uncomment for running on ning as part of tradeify_widget.xml-->
 
-        <!--<script type="text/javascript" src="http://tradeify.org/osocial/mock_wrapper.js"></script>-->
+        <!--<script type="text/javascript" src="http://www.tradeify.org/osocial/mock_wrapper.js"></script>-->
         <!-- uncomment above when running as part of widget_mock.html-->
 
-        <script type="text/javascript" src="http://tradeify.org/js/widget_list.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_list.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/widget_my_trades.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_my_trades.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/js/widget_map.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/js/widget_map.js"></script>
 
-        <script type="text/javascript" src="http://tradeify.org/osocial/tradeify_widget.js"></script>
+        <script type="text/javascript" src="http://www.tradeify.org/osocial/tradeify_widget.js"></script>
 
         <script type="text/javascript">
             var block_message = { message: $("#busy"), css: {
