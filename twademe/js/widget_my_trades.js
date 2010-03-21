@@ -68,7 +68,7 @@
                     this(offers);
                 });
             }
-            $(offers_selector + " .template").quickPager({ pageSize: 4 }, "#my_pager", offers_selector + " .template");
+            $(offers_selector + " .template").quickPager({ pageSize: 10 }, "#my_pager", offers_selector + " .template");
             $(".remove").click(function() {
             var answer = confirm("This message will be removed permanently, are you sure you want to remove this message?");
                 if(answer)

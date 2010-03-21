@@ -110,7 +110,7 @@
                 });
             }
 
-            $(offers_selector + " .template").quickPager({ pageSize: 4, currentPage: current_page }, offers_selector + " .pager", offers_selector + " .template");
+            $(offers_selector + " .template").quickPager({ pageSize: 10, currentPage: current_page }, offers_selector + " .pager", offers_selector + " .template");
             current_page = 1;
             if (!!username_filter) {
                 $(".remove").click(function() {
@@ -120,7 +120,7 @@
                         container.remove_id($(this).parent().children(".id").text(), $(this).parent().children(".namespace").text(), function() {
                             current_page = $(offers_selector + " .pgCurrent").text();
                             update_offers();
-                            //$(offers_selector + " .template").quickPager({ pageSize: 4,currentPage:pageNum}, offers_selector + " .pager", offers_selector + " .template");
+                            //$(offers_selector + " .template").quickPager({ pageSize: 10,currentPage:pageNum}, offers_selector + " .pager", offers_selector + " .template");
                         });
                     }
                     return false;
