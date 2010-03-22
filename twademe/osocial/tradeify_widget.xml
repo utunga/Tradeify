@@ -409,7 +409,7 @@
 
 
                 // adjusts height in ning, does nothing in test
-                container.adjustHeight(1200);
+                container.adjustHeight(2000);
                 //$("#search_location_tag").autocomplete(container.tags_ahead_uri);
                 container.autocomplete_suggested_tags("#typed_tag");
 
