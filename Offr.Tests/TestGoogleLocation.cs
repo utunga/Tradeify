@@ -272,5 +272,26 @@ namespace Offr.Tests
             ILocation location = locationProvider.ParseFromApproxText("Paekakariki for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch");
             Assert.AreEqual("Paekakariki", location.AddressText);
         }
+        [Test]
+        public void TestLandMarkLocation()
+        {
+            String address = "Little Oneroa";
+            ILocation expected = new Location.Location
+            {
+                GeoLat = (decimal)-36.7845550,
+                GeoLong = (decimal)175.0187010,
+                Address = address,
+                Tags = new List<ITag>
+                              {
+                                  (new Tag(TagType.loc, "New Zealand")),
+                                  (new Tag(TagType.loc, "Oneroa")),
+                                  //(new Tag(TagType.loc, "United Kingdom"))/*,
+                                  //(new Tag(TagType.loc, "GB"))*/
+                              }
+            };
+            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            ILocation location = locationProvider.Parse(address);
+            AssertLocationEquality(address, expected, location);
+        }
     }
 }

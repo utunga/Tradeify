@@ -305,6 +305,20 @@ namespace Newtonsoft.Json
     }
 
     /// <summary>
+    /// Reads the next JSON token from the stream as a <see cref="T:Byte[]"/>.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="T:Byte[]"/> or a null reference if the next JSON token is null.
+    /// </returns>
+    public override byte[] ReadAsBytes()
+    {
+      byte[] data = _reader.ReadAsBytes();
+
+      ValidateCurrentToken();
+      return data;
+    }
+
+    /// <summary>
     /// Reads the next JSON token from the stream.
     /// </summary>
     /// <returns>
@@ -318,7 +332,13 @@ namespace Newtonsoft.Json
       if (_reader.TokenType == JsonToken.Comment)
         return true;
 
-      // first time Read has been called. build model
+      ValidateCurrentToken();
+      return true;
+    }
+
+    private void ValidateCurrentToken()
+    {
+      // first time validate has been called. build model
       if (_model == null)
       {
         JsonSchemaModelBuilder builder = new JsonSchemaModelBuilder();
@@ -330,15 +350,15 @@ namespace Newtonsoft.Json
         case JsonToken.StartObject:
           ProcessValue();
           JsonSchemaModel objectSchema = (ValidateObject(CurrentMemberSchema))
-            ? CurrentMemberSchema 
-            : null;
+                                           ? CurrentMemberSchema 
+                                           : null;
           Push(new SchemaScope(JTokenType.Object, objectSchema));
           break;
         case JsonToken.StartArray:
           ProcessValue();
           JsonSchemaModel arraySchema = (ValidateArray(CurrentMemberSchema))
-            ? CurrentMemberSchema
-            : null;
+                                          ? CurrentMemberSchema
+                                          : null;
           Push(new SchemaScope(JTokenType.Array, arraySchema));
           break;
         case JsonToken.StartConstructor:
@@ -387,8 +407,6 @@ namespace Newtonsoft.Json
         default:
           throw new ArgumentOutOfRangeException();
       }
-
-      return true;
     }
 
     private void ValidateEndObject(JsonSchemaModel schema)

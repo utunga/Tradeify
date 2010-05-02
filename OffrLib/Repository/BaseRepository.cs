@@ -78,16 +78,20 @@ namespace Offr.Repository
         public virtual void Remove(T instance)
         {
             //Note2Miles we should probably lock this one too
+            Remove(instance.ID);
+        }
+        public virtual void Remove(string id)
+        {
+            //Note2Miles we should probably lock this one too
             lock (this)
             {
-                if (_list.ContainsKey(instance.ID))
+                if (_list.ContainsKey(id))
                 {
-                    _list.Remove(instance.ID);
-                    dirty = true;
+                    _list.Remove(id);
+                    SetDirty();
                 }
             }
         }
-
         public virtual void SerializeToFile()
         {
             if (FilePath == null) throw new ApplicationException("Please set the FilePath before calling this method");

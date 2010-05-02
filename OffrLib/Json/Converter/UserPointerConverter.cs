@@ -14,7 +14,6 @@ namespace Offr.Json.Converter
         public override IUserPointer Create(JsonReader reader, JsonSerializer serializer)
         {
             string type = JSON.ReadProperty<string>(serializer, reader, "type");
-            log.Info("Trying to create object of type: "+ type);
             if (type.Equals("OpenSocialUserPointer"))
                 return new OpenSocialUserPointer();
             else if (type.Equals("TwitterUserPointer") || type.Equals("MockUserPointer"))

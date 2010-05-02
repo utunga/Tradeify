@@ -1,8 +1,8 @@
-﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{66B5FC71-7D50-4DBA-ACAC-77B17E3E05DE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -174,6 +174,13 @@
     <Compile Include="tags_ahead.aspx.designer.cs">
       <DependentUpon>tags_ahead.aspx</DependentUpon>
     </Compile>
+    <Compile Include="remove_message.aspx.cs">
+      <DependentUpon>remove_message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="remove_message.aspx.designer.cs">
+      <DependentUpon>remove_message.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OffrLib\OffrLib.csproj">
@@ -237,18 +244,30 @@
     <Content Include="css\ooooby_theme\images\validyes.png" />
     <Content Include="css\ooooby_theme\jquery-ui-1.7.2.custom.css" />
     <Content Include="css\ooooby_theme\jquery.autocomplete.css" />
+    <Content Include="css\ooooby_theme\jquery.cluetip.css" />
     <Content Include="data\initial_tags.json" />
+    <Content Include="images\busy.gif" />
+    <Content Include="images\help_icon.gif" />
+    <Content Include="images\window-close.png" />
+    <Content Include="js\jquery.blockUI.js" />
+    <Content Include="js\jquery.cluetip.min.js" />
+    <Content Include="js\jquery.hoverIntent.min.js" />
+    <Content Include="js\widget_my_trades.js" />
+    <Content Include="js\widget_tags.js" />
+    <Content Include="js\widget_map.js" />
     <Content Include="js\jquery-ui-1.7.2.custom.min.js" />
+    <Content Include="js\jquery.autocomplete.js" />
     <Content Include="js\jquery.autocomplete.min.js" />
     <Content Include="js\jquery.pager.js" />
     <Content Include="js\jquery.tools.min.js" />
     <Content Include="css\ooooby_theme\Pager.css" />
     <Content Include="js\pure_packed_v2.js" />
     <Content Include="js\pure_v2.js" />
-    <Content Include="js\tag_support.js" />
+    <Content Include="js\widget_list.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="osocial\admin_widget.html" />
     <Content Include="osocial\offer_map.html" />
     <Content Include="osocial\mock_wrapper.js" />
     <Content Include="osocial\opensocial_wrapper.js" />
@@ -256,14 +275,46 @@
     <Content Include="osocial\tabs_test.html" />
     <Content Include="osocial\widget_mock.html" />
     <Content Include="osocial\widget_support.js" />
+    <Content Include="test\closure_testing.htm" />
     <Content Include="test\standalone_widget_test.html" />
     <Content Include="test\tag_suggest_test.htm" />
-    <Content Include="test\tag_support_test.html" />
     <Content Include="tags_ahead.aspx" />
+    <Content Include="remove_message.aspx" />
+    <Content Include="test\Tests.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_GlobalResources\" />
   </ItemGroup>
+
+   <Import Project="$(MSBuildExtensionsPath)\Microsoft\MicrosoftAjax\ajaxmin.tasks" />
+ 
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <JS Include="js\*.js;osocial\*.js"
+          Exclude="**\*.min.js" />
+    </ItemGroup>
+    <ItemGroup>
+      <CSS Include="css\*.css;osocial\*.css"
+           Exclude="**\*.min.css" />
+    </ItemGroup>
+
+    <AjaxMin JsSourceFiles="@(JS)"
+             JsSourceExtensionPattern="\.js$"
+             JsTargetExtension=".min.js"
+             CssSourceFiles="@(CSS)"
+             CssSourceExtensionPattern="\.css$"
+             CssTargetExtension=".min.css" />
+
+    <ItemGroup>
+      <!-- remove our own bespoke files as they are replace with the minified/combined version -->
+      <!--<DeleteAfterBuild Include="$(OutputPath)web-site_mvc.csproj.user" />
+      <DeleteAfterBuild Include="$(OutputPath)web-site_mvc.sln" />
+      <DeleteAfterBuild Include="$(OutputPath)web-site_mvc.csproj" />-->
+    </ItemGroup>
+    <!--<Delete Files="@(DeleteAfterBuild)" />
+    <RemoveDir Directories="$(OutputPath)\obj" />-->
+  </Target>
+
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -284,9 +335,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

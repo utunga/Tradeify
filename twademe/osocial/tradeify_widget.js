@@ -1,16 +1,17 @@
+
 /* ------------------------------
-     couple useful bits and pieces  
-   ------------------------------*/
-//   
-//String.prototype.trim = function() {
-//	return this.replace(/^\s+|\s+$/g,"");
-//}
-//String.prototype.ltrim = function() {
-//	return this.replace(/^\s+/,"");
-//}
-//String.prototype.rtrim = function() {
-//	return this.replace(/\s+$/,"");
-//}
+couple useful bits and pieces  
+------------------------------*/
+
+String.prototype.trim = function() {
+    return this.replace(/^\s+|\s+$/g, "");
+}
+String.prototype.ltrim = function() {
+    return this.replace(/^\s+/, "");
+}
+String.prototype.rtrim = function() {
+    return this.replace(/\s+$/, "");
+}
 
 ////define console.log so that we can log to firebug console, but not get errors if people don't have firebug installed
 //if (!console) {
@@ -20,81 +21,132 @@
 //    }
 //}
 
+var keyup_threshold = 200;
+var details_keyup_threshold = 200;
+var message_change_threshold = 800;
+var address_keyup_stack = 0;
+var message_keyup_stack = 0;
+var details_keyup_stack = 0;
+var message_change_stack = 0;
+var tags_change_stack = 0;
+
+function address_keyup() {
+	address_keyup_stack++;
+	setTimeout(function() {
+		address_keyup_stack--;
+		if (address_keyup_stack == 0) {
+			geo_code_address()
+		}
+	}, keyup_threshold);
+}
+
+function details_keyup() {
+	details_keyup_stack++;
+	setTimeout(function() {
+		details_keyup_stack--;
+		if (details_keyup_stack == 0) {
+			parse_details_for_tags()
+		}
+	}, details_keyup_threshold);
+}
+
+function message_keyup() {
+    message_keyup_stack++;
+	setTimeout(function() {
+	    message_keyup_stack--;
+	    if (message_keyup_stack == 0) {
+	        parse_offer();
+	    }
+	}, keyup_threshold);
+}
+
+function message_change() {
+    message_change_stack++;
+	setTimeout(function() {
+	    message_change_stack--;
+	    if (message_change_stack == 0) {
+	        parse_offer();
+	    }
+	}, message_change_threshold);
+}
 
 
 /* ------------------------------
      search
    ------------------------------*/
-   
-//function queryGeneralTag(){
-//    var query = $("#search_general_tag").val();
-//    /*var queryIdx=$.inArray(query,search_tags);
-//    if(queryIdx!=-1){	
-//        return;
-//    }*/
-//    list_widget.add_filter(query, "tag");
-//    //update_offers();
-//}
 
 function queryLocationTag() {
     var query = $("#search_location_tag").val();
-    /*var queryIdx=$.inArray(query,search_tags);
-    if(queryIdx!=-1){	
-    return;
-    }*/
     list_widget.add_filter(query, "tag");
-    //update_offers();
 }
+
 function set_form_text() {
     var val = $("#offer").val();
     if (val == "(details)") $("#offer").val("");
 }
-var toggle_wanted_on = true;
-var toggle_offered_on = true;
 
-function toggle_wanted() {
-    toggle_wanted_on = !toggle_wanted_on;
-    if (!toggle_wanted_on && !toggle_offered_on) {
-        // neither toggle is on, not legal
-        // set this one back to 'on' and return
-        toggle_wanted_on = true;
-        return;
+//var toggle_wanted_on = true;
+//var toggle_offered_on = true;
+//function toggle_wanted() {
+//    toggle_wanted_on = !toggle_wanted_on;
+//    if (!toggle_wanted_on && !toggle_offered_on) {
+//        // neither toggle is on, not legal
+//        // set this one back to 'on' and return
+//        toggle_wanted_on = true;
+//        return;
+//    }
+//    $("#wanted_filter").toggleClass("ui-state-active");
+//    update_type_filters();
+//}
+
+//function toggle_offered() {
+//    toggle_offered_on = !toggle_offered_on;
+//    if (!toggle_wanted_on && !toggle_offered_on) {
+//        // neither toggle is on, not legal
+//        // set this one back to 'on' and return
+//        toggle_offered_on = true;
+//        return;
+//    }
+//    $("#offered_filter").toggleClass("ui-state-active");
+//    update_type_filters();
+//}
+function update_message_type_from_val(message_type) {
+    if (message_type == "offer") {
+        list_widget.add_filter("offer", "msg_type", function() {
+            //$("#message_type_offer").attr('checked', true);
+            if($("#message_type_offer").attr('checked'))
+                $("#message_type_both").attr('checked', true);
+        });
+        list_widget.remove_filter("wanted", "msg_type");
     }
-    $("#wanted_filter").toggleClass("ui-state-active");
-    update_type_filters();
-}
-
-function toggle_offered() {
-    toggle_offered_on = !toggle_offered_on;
-    if (!toggle_wanted_on && !toggle_offered_on) {
-        // neither toggle is on, not legal
-        // set this one back to 'on' and return
-        toggle_offered_on = true;
-        return;
+    else if (message_type == "wanted") {
+        list_widget.add_filter("wanted", "msg_type", function() {
+        //$("#message_type_wanted").attr('checked', true);
+            if($("#message_type_wanted").attr('checked'))
+                $("#message_type_both").attr('checked', true);
+        });
+        list_widget.remove_filter("offer", "msg_type");
     }
-    $("#offered_filter").toggleClass("ui-state-active");
-    update_type_filters();
-}
-
-function update_type_filters() {
-    if (toggle_offered_on && toggle_wanted_on) {
+    else { //    if (message_type=="both") {
+        //show all types of message
         list_widget.remove_filter("offer", "msg_type");
         list_widget.remove_filter("wanted", "msg_type");
     }
-    else if (toggle_offered_on && !toggle_wanted_on) {
-        list_widget.add_filter("offer", "msg_type");
-        list_widget.remove_filter("wanted", "msg_type");
-    }
-    else if (!toggle_offered_on && toggle_wanted_on) {
-        list_widget.add_filter("wanted", "msg_type");
-        list_widget.remove_filter("offer", "msg_type");
-    }
-    //bit counterintuitve but we want no messages shown and adding both filters works
-    else {
-        list_widget.add_filter("wanted","msg_type");
-        list_widget.add_filter("offer","msg_type");
-    }
+    return true;
 }
+
+function update_message_type(clicked) {
+
+    var message_type = $(clicked).val();
+    return update_message_type_from_val(message_type);
+//    var prefix = $("input[@name='message_type_filter']:checked").val();
+//    alert(prefix);
+     //alert($("input[@name=message_type_filter]:checked").val());
+    
+
+}
+
+
 /* ------------------------------
      form related function
    ------------------------------*/
@@ -105,13 +157,13 @@ function MessagePart(type, field) {
     this.field = field;
 }
 
-var offerPrefix = "OFFER: ";
-var wantedPrefix = "WANTED: ";
+var group = "ooooby";
+var offerPrefix = "offer: ";
+var wantedPrefix = "wanted: ";
 var locationPrefix = " in l:";
 var locationSuffix = ":";
 var forPrefix = " for ";
 var untilPrefix = " until ";
-var group = "ooooby";
 
 function get_until() {
 	var until =$("#until").val().trim();
@@ -124,22 +176,31 @@ function get_currency() {
 }
 
 function get_location() {
-    var location =$("#location").val().trim();
+    var location = $("#location").val().trim();
     return (location.length == 0) ?  "" : locationPrefix + location + locationSuffix;
 }
 
 function get_offer() {
+
     var offer = $("#offer").val().trim();
-    var prefix = $("input[@name='message_type']:checked").val();
-    prefix = (prefix == "OFFER") ? offerPrefix : wantedPrefix;
-    return (offer.length == 0) ?  prefix + ".." : prefix + offer;
+    return (offer == $("#offer")[0].title) ? "" : " " + offer;
 }
 
-function get_category_tags() {
-    var categories = post_your_own_general_tags.get_active_tags_text();
-    return (post_your_own_general_tags.length == 0) ? "" : categories;
+function get_tags() {
+    if (suggested_tags_widget.get_active_tags().length == 0) 
+        return "";
+    else 
+       return suggested_tags_widget.get_active_tags_text();
 }
 
+function get_prefix() {
+    var msg_type = $("input[@name='message_type']:checked").val();
+
+    if (msg_type == "OFFER") 
+        return "@" + group + " " + offerPrefix;
+    else
+        return "@" + group + " " + wantedPrefix;
+}
 //function get_tags() {
 //	if (selected_tags.length == 0) return "";
 //	return " #" + selected_tags.join(" #");
@@ -151,30 +212,44 @@ function get_category_tags() {
 //}
 
 function update_offer() {
-	
     update_and_dont_parse();
     //make sure the updated message to send is parsed again
-    parse_offer();
+    message_change();
 }
 function update_and_dont_parse() {
     var concatMessage =
+             get_prefix() +
              get_offer() +
 			 get_location() + 
              get_currency() +
-             get_until() +
-             get_category_tags() +
-    //			 get_tags() +  //SUGGESTED TAGS (NOT USED FOR NOW)
-//			 get_imagelink() +
-			 " #"+group;
+             get_until();             
+            //           get_tags() +  
+            //			 get_imagelink() +
     $("#message_to_send").val(concatMessage);
 }
+
 /* tag selection code */
 function parse_offer() {
-        var message_data = {
-            message: $("#message_to_send").val()
-        };
-        $.getJSON(container.parse_uri,message_data, display_results_of_parse_offer);
-     }
+    var message_data = {
+        message: $("#message_to_send").val()
+    };
+    $.getJSON(container.parse_uri,message_data, display_results_of_parse_offer);
+}
+
+function details_keyup() {
+	details_keyup_stack++;
+	setTimeout(function() {
+		details_keyup_stack--;
+		if (details_keyup_stack == 0) {
+			parse_details_for_tags()
+		}
+	}, details_keyup_threshold);
+}
+     
+function reset_parse_offer(){
+    $(".send_message").attr("disabled", "disabled");
+    $(".status").css({ "background-image": "url('" + container.cross_uri + "')" });
+}
 
 function display_results_of_parse_offer(response) {
     var reasons = response.validationFailReasons;
@@ -183,8 +258,14 @@ function display_results_of_parse_offer(response) {
     }
     else $(".send_message").attr("disabled","disabled");
     //"NeedsCurrencyTag", "NeedsLocation", "NeedsGroupTag"
+    if ($.inArray("TooLong", reasons) > -1) {
+        //$("#too_long").removeClass();
+        //$('<div id="too_long" style="color: red;">Your message is too long. Your message is '+ $("#message_to_send").val().length + ' characters, messages cannot be longer than 200 characters.</div>').insertAfter("#message_to_send");
+        $("#too_long").text('Your message is too long. Your message is '+ $("#message_to_send").val().length + ' characters, messages cannot be longer than 200 characters.');
+    }
+    else $("#too_long").text("");
     switchStatus("NeedsCurrencyTag","currency_detail",reasons);
-    switchStatus("NeedsLocation","location_detail",reasons);
+    switchLocationStatus("NeedsLocation", "location_detail", reasons);
     switchStatus("NeedsGroupTag","group_detail",reasons);  
 }
 function switchStatus(value,selector,array){
@@ -192,10 +273,13 @@ function switchStatus(value,selector,array){
         $("."+selector).css({"background-image": "url('"+container.cross_uri+"')"});
     else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
 }
+function switchLocationStatus(value, selector, array) {
 
-
-       /* form support for styling */
-	   
+    if ($.inArray(value, array) > -1 || $("#message_to_send").val().search($("#location")[0].title) > -1)
+        $("." + selector).css({ "background-image": "url('" + container.cross_uri + "')" });
+    else $("." + selector).css({ "background-image": "url('" + container.tick_uri + "')" });
+    /* form support for styling */
+}	   
 $(function() {
     /* Bind  functions for handling css jquery-ui class to jQuery events */
     $(".send_message").attr("disabled","disabled");
@@ -233,17 +317,10 @@ $(function() {
 /* ------------------------------
    Google API stuff
    ------------------------------*/
-//called from widget 
-//google.load("maps", "2");
-//google.setOnLoadCallback(google_initialize);
-
 
 var geocoder;
 var map;
-var adress_marker;
-var keyup_threshold = 200;
-var address_keyup_stack = 0;
-var message_keyup_stack = 0;
+var address_marker;
 var post_your_own_form_initialized = false;
 
 // this function called on tab show()
@@ -252,9 +329,8 @@ var post_your_own_form_initialized = false;
 function post_your_own_form_init() {
     
     if (post_your_own_form_initialized) return; //already initalized
-    if (typeof google !== 'undefined') {
-        google_initialize();
-    }
+    google_initialize();
+
 }
 
 var region="NZ"
@@ -282,99 +358,115 @@ function google_initialize() {
         geo_code_address();
     }
     
-	$(".location  #location").keyup(function() { address_keyup(geo_code_address, keyup_threshold); });
+	$("#post_your_own_form .location  #location").keyup(address_keyup);
+	$("#post_your_own_form textarea#offer").keyup(details_keyup);
+	
 	post_your_own_form_initialized = true;
 }
 
-function geo_code_address(adress) {
+function geo_code_address() {
 	var address = $(".location #location").val();
 	//map.clearOverlays();
 	if (geocoder) {
 	    geocoder.geocode({ 'address': address, 'region': region }, function(results, status) {
 			 if (status == google.maps.GeocoderStatus.OK) {
 				 map.setCenter(results[0].geometry.location);
-				 if (adress_marker!=null) {
-					 adress_marker.setMap(null); //remove any existing marker
+				 if (address_marker!=null) {
+					 address_marker.setMap(null); //remove any existing marker
 				 }
-				 adress_marker = new google.maps.Marker({
+				 address_marker = new google.maps.Marker({
 					 map: map,
 					 position: results[0].geometry.location
 				 });
 			 } else {
-				if (adress_marker!=null) {
-					 adress_marker.setMap(null); //remove any existing marker
+				if (address_marker!=null) {
+					 address_marker.setMap(null); //remove any existing marker
 				}
 			 }
 	 	})
 	}
 }
 
-function address_keyup() {
-	address_keyup_stack++;
-	setTimeout(function() {
-		address_keyup_stack--;
-		if (address_keyup_stack == 0) {
-			geo_code_address()
-		}
-	}, keyup_threshold);
+//////////////////////////////////
+
+function get_tags_from_text() {
+    var tags_from_text = new Tags();
+    var details = $("#post_your_own_form textarea#offer").val();
+	var hashTagsRegex = /#([A-Za-z0-9_\-]+)/g; ///[\s^]#([A-Za-z0-9_\-]+)/g;  ///#(\S)+/g; 
+    var matches = details.match(hashTagsRegex);
+    if (matches == null) return tags_from_text;
+    $.each(matches, function() {
+        var tag_text = this.toString().substring(1);
+        tags_from_text.add_tag(tag_text);
+    });
+    return tags_from_text;
 }
 
-function message_keyup() {
-    message_keyup_stack++;
-	setTimeout(function() {
-	    message_keyup_stack--;
-	    if (message_keyup_stack == 0) {
-	        parse_offer();
-	    }
-	}, keyup_threshold);
-}
-
-
-
-
-
-
-
-
-
-/* ------------------------------
- Support for suggested tags 
- SUGGESTED TAGS (NOT USED FOR NOW)
-------------------------------*/
-
-
-/* dont need suggested tags for now */
-var update_suggested_tags = function() {
-    var selected_tags = post_your_own_general_tags.get_active_tags();
-    if (selected_tags.length > 0) {
-        var tags = post_your_own_general_tags.Tags;
-        var json_url = tags.decorate_active_url(container.tags_uri + "?type=tag");
-        var suggested_tags = new Array();
-        $.getJSON(json_url, function(data) {
-            $.each(data, function() {
-                if (this.type == "tag")
-                    suggested_tags.push(this.tag);
+var lastTagsFromText;
+function parse_details_for_tags() {
+	
+    var tagsFromText = get_tags_from_text();
+    if (tagsFromText.get_all_tags_text() == "") return;
+    $.each(suggested_tags_widget.get_active_tags(), function() {
+        var tag_is_present = $("#post_your_own_form textarea#offer").val().search("#" + this.toString() + " ");
+        if (tag_is_present == -1) suggested_tags_widget.set_active(this.toString(), false);
+    });
+    if (lastTagsFromText==null || 
+        lastTagsFromText.get_all_tags_text() != tagsFromText.get_all_tags_text()) {
+        
+        // remove any tags that we added based on typing last time, 
+        // that are no longer in the list
+        if (lastTagsFromText !=null ) {
+            $.each(lastTagsFromText.get_all_tags(), function() {
+                var tagtext = this.toString();
+                if (!tagsFromText.has_tag(tagtext) &&
+                    suggested_tags_widget.has_tag(tagtext)) {
+                    //remove tag from type ahead
+                    suggested_tags_widget.remove_tag(tagtext);
+                }
             });
-
-            //rebuild the whole widget
-            $.each(selected_tags, function() {
-                if ($.inArray(this, suggested_tags) < 0) suggested_tags.push(this);
-            });
-            post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", suggested_tags, selected_tags, "tag", tags_widget_click);
+        }
+        
+        $.each(tagsFromText.get_all_tags(), function() {
+            var tagtext = this.toString();
+            if (!suggested_tags_widget.has_tag(this.toString())) {
+                suggested_tags_widget.add_tag(tagtext, "tag", true);           
+            }
+            else {
+                suggested_tags_widget.set_active(tagtext);
+            }
         });
+        suggested_tags_widget.update_view();
+        lastTagsFromText = tagsFromText;
+
     }
-    else post_your_own_general_tags = new SuggestedTagsWidget("#post_your_own_general_tags", general_tagset, [], "tag", tags_widget_click);
+}
 
+function ensure_details_includes_active_tags() {
+    var tagsFromText = get_tags_from_text();
+    var not_included = [];
+    $.each(suggested_tags_widget.get_active_tags(), function() {
+        var tag_text= this.toString();
+        if (!tagsFromText.has_tag(tag_text)) {
+            not_included.push(tag_text);
+        }
+    });
+    var append_text = "";
+    $.each(not_included, function()  {
+        append_text = append_text + " #" + this.toString();
+    });
 
-};
+    var details = $("#post_your_own_form textarea#offer");
+    var details_text = details.val();
+    var new_text = (details_text == $("#offer")[0].title) ? append_text : details_text + append_text;
 
-var tags_widget_click = function(tag_text, tag_type) {
-    /*if (selected_tags.has_tag(tag_text)) {
-        selected_tags.remove_tag(tag_text);
-    }
-    else {
-        selected_tags.add_tag(tag_text, tag_type);
-    }*/
-    update_and_dont_parse();
-    update_suggested_tags();
+    details.val(new_text.trim());
+}
+
+function remove_tag_from_details(tag_text) {
+    var details = $("#post_your_own_form textarea#offer");
+    var details_text = details.val();
+    details_text = details_text.replace("#" + tag_text, "").trim();
+    details.val(details_text);
+    
 }

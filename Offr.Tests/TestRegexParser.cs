@@ -172,7 +172,7 @@ namespace Offr.Tests
             // a specific real example for which i know the query was failing
             string text = "#offr_test #ooooby mulch available now in L:Paekakariki: for #free until 17 Jan 2010";
             RegexMessageParser regexMessageParser = new RegexMessageParser(null, null);
-            DateTime? date = regexMessageParser.TEST_GetEndByInfo(text);
+            DateTime? date = regexMessageParser.TEST_ParseUntil(text);
             DateTime expected = new DateTime(2010,1,17);
             Assert.AreEqual(expected,date);
          }
@@ -188,6 +188,32 @@ namespace Offr.Tests
             Assert.AreEqual(MessageType.wanted, type);
             //type = regexMessageParser.TEST_GetMessageType(text, new List<ITag> { new Tag(TagType.tag, "Iwant") });
             //Assert.AreEqual(MessageType.wanted, type);
+        }
+        [Test]
+        public void TestHashStopsIn()
+        {
+            string text = "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer #ooooby #free #kiwifoo2010 ";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new GoogleLocationProvider());
+            ILocation l = regexMessageParser.TEST_GetLocation(text);
+            Assert.That(l.Tags.Contains(new Tag(TagType.loc,"new_zealand")));
+        }
+        [Test]
+        public void TestAtSymbolGroup()
+        {
+            string text = "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer @ooooby #free #kiwifoo2010 ";
+            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new GoogleLocationProvider());
+             MockRawMessage raw = new MockRawMessage(0)
+             {
+                 Timestamp = DateTime.Now.AddHours(-5),
+                 CreatedBy = MockData.User0,
+                 Location = MockData.Location0,
+                 MoreInfoURL = "http://bit.ly/message0Info",
+                 Text = text,
+                 EndByText = null,
+                 EndBy = null
+             };
+            IMessage message = regexMessageParser.Parse(raw);
+            Assert.That(message.IsValid());
         }
     }
 

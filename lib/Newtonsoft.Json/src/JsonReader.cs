@@ -102,6 +102,7 @@ namespace Newtonsoft.Json
     private Type _valueType;
     private char _quoteChar;
     private State _currentState;
+    private JTokenType _currentTypeContext;
 
     /// <summary>
     /// Gets the current reader state.
@@ -110,7 +111,6 @@ namespace Newtonsoft.Json
     protected State CurrentState
     {
       get { return _currentState; }
-      private set { _currentState = value; }
     }
 
     private int _top;
@@ -169,12 +169,10 @@ namespace Newtonsoft.Json
     /// <summary>
     /// Initializes a new instance of the <see cref="JsonReader"/> class with the specified <see cref="TextReader"/>.
     /// </summary>
-    public JsonReader()
+    protected JsonReader()
     {
-      //_testBuffer = new StringBuilder();
       _currentState = State.Start;
       _stack = new List<JTokenType>();
-      _top = 0;
       Push(JTokenType.None);
     }
 
@@ -182,6 +180,7 @@ namespace Newtonsoft.Json
     {
       _stack.Add(value);
       _top++;
+      _currentTypeContext = value;
     }
 
     private JTokenType Pop()
@@ -189,13 +188,14 @@ namespace Newtonsoft.Json
       JTokenType value = Peek();
       _stack.RemoveAt(_stack.Count - 1);
       _top--;
+      _currentTypeContext = _stack[_top - 1];
 
       return value;
     }
 
     private JTokenType Peek()
     {
-      return _stack[_top - 1];
+      return _currentTypeContext;
     }
 
     /// <summary>
@@ -203,6 +203,12 @@ namespace Newtonsoft.Json
     /// </summary>
     /// <returns>true if the next token was read successfully; false if there are no more tokens to read.</returns>
     public abstract bool Read();
+
+    /// <summary>
+    /// Reads the next JSON token from the stream as a <see cref="T:Byte[]"/>.
+    /// </summary>
+    /// <returns>A <see cref="T:Byte[]"/> or a null reference if the next JSON token is null.</returns>
+    public abstract byte[] ReadAsBytes();
 
     /// <summary>
     /// Skips the children of the current token.
@@ -275,6 +281,7 @@ namespace Newtonsoft.Json
         case JsonToken.Date:
         case JsonToken.String:
         case JsonToken.Raw:
+        case JsonToken.Bytes:
           _currentState = State.PostValue;
           break;
       }
@@ -351,6 +358,7 @@ namespace Newtonsoft.Json
         case JsonToken.EndConstructor:
         case JsonToken.Date:
         case JsonToken.Raw:
+        case JsonToken.Bytes:
           return false;
         default:
           throw MiscellaneousUtils.CreateArgumentOutOfRangeException("token", token, "Unexpected JsonToken value.");

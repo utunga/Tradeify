@@ -37,6 +37,18 @@ namespace Newtonsoft.Json.Serialization
   /// </summary>
   public class JsonPropertyCollection : KeyedCollection<string, JsonProperty>
   {
+    private readonly JsonObjectContract _contract;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="JsonPropertyCollection"/> class.
+    /// </summary>
+    /// <param name="contract">The contract.</param>
+    public JsonPropertyCollection(JsonObjectContract contract)
+    {
+      ValidationUtils.ArgumentNotNull(contract, "contract");
+      _contract = contract;
+    }
+
     /// <summary>
     /// When implemented in a derived class, extracts the key from the specified element.
     /// </summary>
@@ -63,7 +75,7 @@ namespace Newtonsoft.Json.Serialization
 
         if (!existingProperty.Ignored)
           throw new JsonSerializationException(
-            "A member with the name '{0}' already exists on '{1}'. Use the JsonPropertyAttribute to specify another name.".FormatWith(CultureInfo.InvariantCulture, property.PropertyName, property.Member.DeclaringType));
+            "A member with the name '{0}' already exists on '{1}'. Use the JsonPropertyAttribute to specify another name.".FormatWith(CultureInfo.InvariantCulture, property.PropertyName, _contract.UnderlyingType));
 
         // remove ignored property so it can be replaced in collection
         Remove(existingProperty);
@@ -73,43 +85,38 @@ namespace Newtonsoft.Json.Serialization
     }
 
     /// <summary>
-    /// Tries to get the closest matching <see cref="JsonProperty"/> object.
+    /// Gets the closest matching <see cref="JsonProperty"/> object.
     /// First attempts to get an exact case match of propertyName and then
     /// a case insensitive match.
     /// </summary>
     /// <param name="propertyName">Name of the property.</param>
-    /// <param name="property">A matching property if found.</param>
-    /// <returns>A flag indicating whether a match was found.</returns>
-    public bool TryGetClosestMatchProperty(string propertyName, out JsonProperty property)
+    /// <returns>A matching property if found.</returns>
+    public JsonProperty GetClosestMatchProperty(string propertyName)
     {
-      if (TryGetProperty(propertyName, StringComparison.Ordinal, out property))
-        return true;
-      if (TryGetProperty(propertyName, StringComparison.OrdinalIgnoreCase, out property))
-        return true;
+      JsonProperty property = GetProperty(propertyName, StringComparison.Ordinal);
+      if (property == null)
+        property = GetProperty(propertyName, StringComparison.OrdinalIgnoreCase);
 
-      return false;
+      return property;
     }
 
     /// <summary>
-    /// Tries to get a property by property name.
+    /// Gets a property by property name.
     /// </summary>
     /// <param name="propertyName">The name of the property to get.</param>
     /// <param name="comparisonType">Type property name string comparison.</param>
-    /// <param name="matchingProperty">A matching property if found.</param>
-    /// <returns>A flag indicating whether a match was found.</returns>
-    public bool TryGetProperty(string propertyName, StringComparison comparisonType, out JsonProperty matchingProperty)
+    /// <returns>A matching property if found.</returns>
+    public JsonProperty GetProperty(string propertyName, StringComparison comparisonType)
     {
       foreach (JsonProperty property in this)
       {
-        if (string.Compare(propertyName, property.PropertyName, comparisonType) == 0)
+        if (string.Equals(propertyName, property.PropertyName, comparisonType))
         {
-          matchingProperty = property;
-          return true;
+          return property;
         }
       }
 
-      matchingProperty = default(JsonProperty);
-      return false;
+      return null;
     }
   }
 }

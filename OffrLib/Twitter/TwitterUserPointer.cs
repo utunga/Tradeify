@@ -86,7 +86,7 @@ namespace Offr.Text
             JSON.WriteProperty(serializer, writer, "provide_name_space", ProviderNameSpace);
             JSON.WriteProperty(serializer, writer,"profile_pic_url",ProfilePicUrl);
             JSON.WriteProperty(serializer, writer, "screen_name", ScreenName);
-            JSON.WriteProperty(serializer, writer, "more_info_url", MoreInfoUrl);
+            JSON.WriteProperty(serializer, writer, "profile_url", MoreInfoUrl);
             JSON.WriteProperty(serializer, writer, "match_tag", MatchTag);
         }
 
@@ -96,7 +96,7 @@ namespace Offr.Text
             ProviderNameSpace = JSON.ReadProperty<string>(serializer, reader, "provide_name_space");
             ProfilePicUrl = JSON.ReadProperty<string>(serializer, reader, "profile_pic_url");
             ScreenName = JSON.ReadProperty<string>(serializer, reader, "screen_name");
-            JSON.ReadProperty<string>(serializer, reader, "more_info_url");
+            JSON.ReadProperty<string>(serializer, reader, "profile_url");
             JSON.ReadProperty<string>(serializer, reader, "match_tag");
             
         }

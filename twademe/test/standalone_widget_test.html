@@ -55,9 +55,10 @@
 <script type="text/javascript" src="../js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript" src="../js/jquery.tools.min.js"></script>
 <script type="text/javascript" src="../js/pure_packed_v2.js"></script>
-<script type="text/javascript" src="../js/tag_support.js"></script>
+ <script type="text/javascript" src="../js/widget_tags.js"></script>
 <script type="text/javascript" src="../osocial/mock_wrapper.js"></script>
-<script type="text/javascript" src="../osocial/widget_support.js"></script>
+<script type="text/javascript" src="../js/widget_list.js"></script>
+<script type="text/javascript" src="../js/widget_map.js"></script>
 <script type="text/javascript">
 
 var main_widget;
@@ -65,9 +66,9 @@ var main_widget;
 
 $(document).ready(function() {
 
-    main_widget = new TradeifyWidget("#main_offers", "#main_offers_tags");
+    main_widget = new ListWidget("#main_offers", "#main_offers_tags");
     main_widget.add_fixed_filter("ooooby", "group");
-//    free_widget = new TradeifyWidget("#free_offers", "#free_offers_tags");
+//    free_widget = new ListWidget("#free_offers", "#free_offers_tags");
 //    free_widget.add_fixed_filter("free", "currency");
 
 });

@@ -13,5 +13,6 @@ namespace Offr.Repository
         ITag GetAndAddTagIfAbsent(string tagString, TagType type);
         List<ITag> GetTagsFromNameValueCollection(NameValueCollection nameVals);
         List<string> GetTagsFromTypeAhead(string query, TagType? type, int count);
+        List<ITag> GetGroups();
     }
 }

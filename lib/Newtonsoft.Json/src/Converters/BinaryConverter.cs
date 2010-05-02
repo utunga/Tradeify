@@ -24,25 +24,30 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-#if !SILVERLIGHT && !PocketPC && !NET20
-using System.Data.Linq;
-#endif
 #if !SILVERLIGHT
 using System.Data.SqlTypes;
 #endif
-using System.Linq;
-using System.Text;
 using System.Globalization;
 using Newtonsoft.Json.Utilities;
 
 namespace Newtonsoft.Json.Converters
 {
+#if !SILVERLIGHT && !PocketPC && !NET20
+  internal interface IBinary
+  {
+    byte[] ToArray();
+  }
+#endif
+
   /// <summary>
   /// Converts a binary value to and from a base 64 string value.
   /// </summary>
   public class BinaryConverter : JsonConverter
   {
+#if !SILVERLIGHT && !PocketPC && !NET20
+    private const string BinaryTypeName = "System.Data.Linq.Binary";
+#endif
+
     /// <summary>
     /// Writes the JSON representation of the object.
     /// </summary>
@@ -57,19 +62,19 @@ namespace Newtonsoft.Json.Converters
         return;
       }
 
-      byte[] data = value as byte[];
+      byte[] data = GetByteArray(value);
 
-      if (data == null)
-        data = GetByteArray(value);
-
-      writer.WriteValue(Convert.ToBase64String(data));
+      writer.WriteValue(data);
     }
 
     private byte[] GetByteArray(object value)
     {
 #if !SILVERLIGHT && !PocketPC && !NET20
-      if (value is Binary)
-        return ((Binary)value).ToArray();
+      if (value.GetType().AssignableToTypeName(BinaryTypeName))
+      {
+        IBinary binary = DynamicWrapper.CreateWrapper<IBinary>(value);
+        return binary.ToArray();
+      }
 #endif
 #if !SILVERLIGHT
       if (value is SqlBinary)
@@ -102,19 +107,17 @@ namespace Newtonsoft.Json.Converters
       if (reader.TokenType != JsonToken.String)
         throw new Exception("Unexpected token parsing binary. Expected String, got {0}.".FormatWith(CultureInfo.InvariantCulture, reader.TokenType));
 
+      // current token is already at base64 string
+      // unable to call ReadAsBytes so do it the old fashion way
       string encodedData = reader.Value.ToString();
-
       byte[] data = Convert.FromBase64String(encodedData);
 
-      if (t == typeof(byte[]))
-        return data;
-
 #if !SILVERLIGHT && !PocketPC && !NET20
-      if (typeof(Binary).IsAssignableFrom(t))
-        return new Binary(data);
+      if (t.AssignableToTypeName(BinaryTypeName))
+        return Activator.CreateInstance(t, data);
 #endif
 #if !SILVERLIGHT
-      if (typeof(SqlBinary).IsAssignableFrom(t))
+      if (t == typeof(SqlBinary))
         return new SqlBinary(data);
 #endif
       throw new Exception("Unexpected object type when writing binary: {0}".FormatWith(CultureInfo.InvariantCulture, objectType));
@@ -129,19 +132,12 @@ namespace Newtonsoft.Json.Converters
     /// </returns>
     public override bool CanConvert(Type objectType)
     {
-      Type t = (ReflectionUtils.IsNullableType(objectType))
-        ? Nullable.GetUnderlyingType(objectType)
-        : objectType;
-
-      if (t == typeof(byte[]))
-        return true;
-
 #if !SILVERLIGHT && !PocketPC && !NET20
-      if (typeof(Binary).IsAssignableFrom(t))
+      if (objectType.AssignableToTypeName(BinaryTypeName))
         return true;
 #endif
 #if !SILVERLIGHT
-      if (typeof(SqlBinary).IsAssignableFrom(t))
+      if (objectType == typeof(SqlBinary) || objectType == typeof(SqlBinary?))
         return true;
 #endif
       return false;

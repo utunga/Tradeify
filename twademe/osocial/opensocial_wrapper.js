@@ -5,17 +5,49 @@
     this.tags_uri = "http://tradeify.org/tags_json.aspx";
     this.parse_uri = "http://tradeify.org/parse.aspx?jsoncallback=?";
     this.accept_post_url = "http://tradeify.org/accept_post.aspx";
-    this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx";
-    
+    this.tags_ahead_uri = "http://tradeify.org/tags_ahead.aspx?jsoncallback=?";
+    this.remove_message_uri = "http://tradeify.org/remove_message.aspx?jsoncallback=?";
+    this.active_prompt = false;
+    this.busy_uri = "http://tradeify.org/images/busy.gif";
+
+    var user;
     this.adjustHeight = function(height) {
         gadgets.window.adjustHeight(height);
     }
+    this.remove_id = function(id,name_space, callback) {
+        $.getJSON(this.remove_message_uri + "&id=" + name_space+"/" + id, function(data) {
+            callback();
+        });
+    }
+    this.get_user = function(callback) {
+        if (!!user) callback(user);
+        var req = opensocial.newDataRequest();
+        req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
+        req.send(function(response) {
+            var user = response
+            //var viewerJson = gadgets.json.stringify(viewer);
+            if(!!callback)callback(user);
+        });
+    }
+    this.autocomplete_suggested_tags=function(selector){
+    $(selector).autocomplete(this.tags_ahead_uri + "&type=tag", {
+            dataType: "json",
+            formatItem: function(row) { this.active_prompt = true; return row[0]; },
+            extraParams: {/*type:"tag", jsoncallback:"?"*/
+        }
+            //formatResult: function(row) { alert("format match"); active_prompt = false; return row[0]; }
+        });
+        $(selector).result(function(){active_prompt=false});
+    }
 
-  
+    this.autocomplete_tag_search = function(selector) {
+    $(selector).autocomplete(this.tags_ahead_uri, { dataType: "json"}/*, { extraParams: { jsoncallback: "?"} }*/);
+    }
     /* ------------------------------
          sending data from form
        ------------------------------*/
     this.get_user_location = function() {
+    /*
         var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
         var location;
@@ -28,19 +60,28 @@
                 location = viewerlocation.getField(opensocial.Address.Field.UNSTRUCTURED_ADDRESS, null);
             }
         });
+        */
+        var location;
         return location;
     };
-
+    this.get_user_name = function(callback) {
+            this.get_user(function(response){
+            var viewer = response.get('viewer').getData();
+            //var viewerJson = gadgets.json.stringify(viewer);
+            var name = viewer.getDisplayName();
+            callback(name);
+            });           
+    };
     this.post_message = function(message) {
 
         callback = (arguments.length > 1) ? arguments[1] : function() { }
 
         var message = message;
         var url = this.accept_post_url;
-        var req = opensocial.newDataRequest();
+        /*var req = opensocial.newDataRequest();
         req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
-        req.send(function(response) {
-
+        req.send(function(response) {*/
+        this.get_user(function(response) {
             var viewer = response.get('viewer').getData();
             //var viewerJson = gadgets.json.stringify(viewer);
             var name = viewer.getDisplayName();

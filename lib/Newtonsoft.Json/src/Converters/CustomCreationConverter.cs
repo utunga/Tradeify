@@ -24,9 +24,6 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Newtonsoft.Json.Converters
 {
@@ -59,6 +56,7 @@ namespace Newtonsoft.Json.Converters
       T value = Create(objectType);
       if (value == null)
         throw new JsonSerializationException("No object created.");
+
       serializer.Populate(reader, value);
       return value;
     }

@@ -9,6 +9,14 @@ a:active {
   -moz-outline-style:none;
 }
 
+.info 
+{
+	margin-top:0px;
+	font-weight:normal;
+	font-style:italic;
+	font-size:8pt;
+}
+
 #results 
 {
 	float:left;
@@ -26,6 +34,12 @@ a:active {
 	width:30%;
 }
 
+
+#results .right_col H3,
+#results .right_col H4
+{
+	margin-bottom:0.5em;
+}
 #offer_map 
 {
 	width:450px;
@@ -37,7 +51,7 @@ a.tag
 }
 /** OFFERS **/
 
-.offer 
+.offers 
 {
 	border-bottom:1px solid #C7CCC5;
 	min-height:85px;
@@ -46,7 +60,7 @@ a.tag
 	position:relative;
 }
 
-.offer a.avatar {
+.offers a.avatar {
 	position:absolute;
 	left:0px;
 	top:15px;
@@ -55,7 +69,7 @@ a.tag
 	background:transparent url(frame.png) no-repeat scroll 0 0px;
 }
 
-.offer a.avatar img {
+.offers a.avatar img {
 	margin-top:6px;
 	margin-left:6px;
 	width:48px;
@@ -63,7 +77,7 @@ a.tag
 	border:0px;
 }
 
-.offer a.username {
+.offers a.username {
 	position:absolute;
 	left:3px;
 	top:75px;
@@ -74,26 +88,26 @@ a.tag
 	text-decoration:none;
 }
 
-.offer a.username:hover 
+.offers a.username:hover 
 {
 	text-decoration:underline;
 }
 	
-.offer p.msg 
+.offers p.msg 
 {
 	margin-left:75px;
 	margin-top:20px;
 	margin-right:10px;
 }
 
-.offer p.msg .text {
+.offers p.msg .text {
 	color:#333F31;
 	font-family:Georgia,'Times New Roman',Times,serif;
 	font-size:13px;
 	line-height:18px;
 }
 
-.offer p.msg .tags 
+.offers p.msg .tags 
 {
 	color:#333F31;
 	font-family:Helvetica, Arial;
@@ -101,24 +115,24 @@ a.tag
 	line-height:18px;
 }
 
-.offer .tag a
+.offers .tag a
 {
 	text-decoration:none;
 }
 
-.offer .tag a:hover
+.offers .tag a:hover
 {
 	text-decoration:underline;
 }
 
-.offer p.msg a.more_info_link {
+.offers p.msg a.more_info_link {
 	float:right;
 	font-size:11px;
 	font-weight:bold;
 	text-decoration:none;
 }
 
-.offer a.user 
+.offers a.user 
 {
 	color:#161B1F;
 	font-family:'Trebuchet MS',Trebuchet,Tahoma,Arial,sans-serif;
@@ -128,12 +142,12 @@ a.tag
 	text-decoration:none;
 }
 
-.offer a:hover 
+.offers a:hover 
 {
 	text-decoration:underline;
 }
 
-.offer .meta 
+.offers .meta 
 {
 	right:0px;
 	top:6px;
@@ -141,7 +155,7 @@ a.tag
 	position:absolute;
 }
 
-.offer .meta a.when 
+.offers .meta a.when 
 {
 	display:inline-box;
 	font-size:9px;
@@ -194,10 +208,13 @@ span.on
 }
 
 #post_your_own_form textarea,
-#post_your_own_form div.location input,
 #post_your_own_form div.thumbnail input
 {
 	width:430px;
+}
+#post_your_own_form div.location input 
+{
+	width:405px; /* shorter to allow room for questino mark at end */
 }
 
 #post_your_own_form div.offerPart,
@@ -333,3 +350,37 @@ div.tooltip {
     -webkit-box-shadow:0 0 10px #000; 
 }
 
+#typed_tag 
+{
+	width:100px;
+}
+
+#suggested_tags_widget div.fg-buttonset 
+{
+	display:inline;
+}
+
+.ui-tag-close
+{
+    background-image: url('../images/window-close.png'); /*padding:.4em 30px .4em 0;*/
+    padding-right: 15px;
+    background-repeat: no-repeat;
+    display: inline;
+}
+
+.help_icon 
+{
+	background-image: url(../images/help_icon.jpg); /*FIXME really really should be a GIF with transparaency */
+	background-repeat:no-repeat;
+	background-position:top right;
+	width:20px;
+	height:20px;
+	font-size:smaller;
+	float:right;
+	display:inline-block;
+	
+}
+
+.help {
+    font-size:small;
+}

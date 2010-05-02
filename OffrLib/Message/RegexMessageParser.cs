@@ -15,12 +15,12 @@ namespace Offr.Message
         private readonly ILocationProvider _locationProvider;
         public
         ITagRepository TagProvider
-    {
-        get
         {
-            return _tagProvider;
+            get
+            {
+                return _tagProvider;
+            }
         }
-    } 
 
         public RegexMessageParser(ITagRepository tagProvider, ILocationProvider locationProvider)
         {
@@ -34,28 +34,41 @@ namespace Offr.Message
         {
             string sourceText = rawMessage.Text;
             IEnumerable<ITag> tags = ParseTags(sourceText, rawMessage);
-            
+
             BaseMarketMessage msg;
             switch (GetMessageType(sourceText, tags))
             {
                 case MessageType.wanted:
-                    msg= new WantedMessage();
+                    msg = new WantedMessage();
                     break;
 
                 case MessageType.offer:
                 default:
-                    msg= new OfferMessage();
+                    msg = new OfferMessage();
                     break;
             }
 
             msg.CreatedBy = rawMessage.CreatedBy;
             msg.Timestamp = rawMessage.Timestamp;
             msg.MessagePointer = rawMessage.Pointer;
-            msg.RawText = rawMessage.Text;                        
+            msg.RawText = rawMessage.Text;
+            bool containsGroup = false;
             foreach (ITag tag in tags)
             {
                 if (tag.Type == TagType.msg_type) continue; //skip messages of this Type
+                if(tag.Type==TagType.group) containsGroup = true;
                 msg.AddTag(tag);
+            }
+            
+            if (!containsGroup)
+            {
+                ITag possibleGroup = CheckForAtSymbolGroup(sourceText);
+                if(possibleGroup != null)
+                {
+                    //remove the @ooooby tag from the messages
+                    sourceText=sourceText.Replace("@" + possibleGroup.Text, "");
+                    msg.AddTag(possibleGroup);
+                }
             }
             //source.Pointer.
             ILocation location = ParseLocation(sourceText);
@@ -69,9 +82,30 @@ namespace Offr.Message
             }
             msg.MessageText = sourceText;
             msg.MoreInfoURL = GetMoreInfoUrl(sourceText);
-            msg.SetEndBy("", GetEndByInfo(sourceText));
+
+            string untilText;
+            DateTime until;
+            if (ParseUntil(sourceText, out untilText, out until))
+            {
+                msg.SetEndBy(untilText, until);
+            }
             msg.AddThumbnail(GetImageUrl(sourceText));
             return msg;
+        }
+
+        private ITag CheckForAtSymbolGroup(string sourceText)
+        {
+            List<ITag> groups = TagProvider.GetGroups();
+            foreach (ITag tag in groups)
+            {
+                Regex re = new Regex("@"+tag.Text, RegexOptions.IgnoreCase);
+                Match matchGroup = re.Match(sourceText);
+                if (matchGroup.Groups.Count >= 1 && !matchGroup.Groups[0].Value.Equals(""))
+                {
+                    return tag;
+                }
+            }
+            return null;
         }
 
         #endregion
@@ -108,7 +142,7 @@ namespace Offr.Message
 
             if (result != null) return result;
             //in  bounded by "."    
-            Regex reIn = new Regex(" in (.*)\\.", RegexOptions.IgnoreCase);
+            Regex reIn = new Regex(" in (([^#])*)\\.", RegexOptions.IgnoreCase);
             Match matchIn = reIn.Match(sourceText);
             if (matchIn.Groups.Count >= 1)
             {
@@ -119,7 +153,7 @@ namespace Offr.Message
             }
             if (result != null) return result;
 
-            Regex reOpenIn = new Regex(" in (.*)", RegexOptions.IgnoreCase);
+            Regex reOpenIn = new Regex(" in (([^#])*)", RegexOptions.IgnoreCase);
             Match matchOpenIn = reOpenIn.Match(sourceText);
             if (matchOpenIn.Groups.Count >= 1)
             {
@@ -168,16 +202,9 @@ namespace Offr.Message
                 string tagString = match.Groups[0].Value;
                 tagString = tagString.Replace("#", "");
                 tagString = SubstituteTagIfSubstituteExists(tagString);
-                //Dont do this only for message parsing!
-                /*
-                if(!(message is TextWrapperRawMessage))
-                    yield return _tagProvider.GetAndAddTagIfAbsent(tagString, TagType.tag);
-                else
-                {
-                 */
-                    ITag tag = _tagProvider.GetTagIfExists(tagString, TagType.tag);
-                    yield return tag ?? new Tag(TagType.tag, tagString);
-                
+                ITag tag = _tagProvider.GetTagIfExists(tagString, TagType.tag);
+                yield return tag ?? new Tag(TagType.tag, tagString);
+
             }
         }
 
@@ -188,11 +215,11 @@ namespace Offr.Message
                 s.Equals("want", StringComparison.OrdinalIgnoreCase) ||
                 s.Equals("wanting", StringComparison.OrdinalIgnoreCase))
                 return MessageType.wanted.ToString();
-            
+
             if (s.Equals("offering", StringComparison.OrdinalIgnoreCase) ||
-                s.Equals("ioffer", StringComparison.OrdinalIgnoreCase)) 
+                s.Equals("ioffer", StringComparison.OrdinalIgnoreCase))
                 return MessageType.offer.ToString();
-            
+
             return s;
         }
 
@@ -208,31 +235,35 @@ namespace Offr.Message
             return null;
         }
 
-        private DateTime? GetEndByInfo(string offerText)
+        private bool ParseUntil(string offerText, out string untilText, out DateTime until)
         {
             Regex EndBy = new Regex(" until (.*)", RegexOptions.IgnoreCase);
             Match matchEndBy = EndBy.Match(offerText);
-            string untilText = matchEndBy.Groups[1].Value;
+            string candidateText = matchEndBy.Groups[1].Value;
             if (matchEndBy.Groups.Count >= 1)
             {
-                while (untilText.Length >= 1)
+                while (candidateText.Length >= 1)
                 {
                     DateTime result;
-                    if (DateTime.TryParse(untilText, out result))
+                    if (DateTime.TryParse(candidateText, out result))
                     {
-                        return result;
+                        untilText = candidateText;
+                        until = result;
+                        return true;
                     }
                     Regex endRegex = new Regex("([ |,][^( |,)]+$$)");
-                    Match endMatch = endRegex.Match(untilText);
+                    Match endMatch = endRegex.Match(candidateText);
                     if (endMatch.Groups.Count > 1)
                     {
-                        untilText = untilText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
-                        untilText = untilText.Trim();
+                        candidateText = candidateText.TrimEnd(endMatch.Groups[0].Value.ToCharArray());
+                        candidateText = candidateText.Trim();
                     }
                     else break;
                 }
             }
-            return null;
+            untilText = "";
+            until = DateTime.MaxValue;
+            return false;
         }
 
         private string GetImageUrl(string offerText)
@@ -255,12 +286,16 @@ namespace Offr.Message
 
             return null;
         }
-        private MessageType GetMessageType(string offerText,IEnumerable<ITag> tags)
+        private MessageType GetMessageType(string offerText, IEnumerable<ITag> tags)
         {
-            offerText=offerText.Trim();
+            offerText = offerText.Trim();
             //string REGEX = @"([\w]+\s+){" + 0 + "}";
-            string firstWord = Regex.Split(offerText, @"\s+")[0];
-            firstWord = firstWord.ToLowerInvariant();
+            string[] words = Regex.Split(offerText, @"\s+");
+
+            if (words.Length<2) return MessageType.offer;
+            string firstWord = words[0].ToLowerInvariant();
+            string secondWord = words[1].ToLowerInvariant();
+
             if (firstWord.Contains("offer"))
             {
                 return MessageType.offer;
@@ -269,11 +304,20 @@ namespace Offr.Message
             {
                 return MessageType.wanted;
             }
-                
-            foreach(ITag tag in tags)
+            else if (secondWord.Contains("offer"))
+            {
+                return MessageType.offer;
+            }
+            else if (secondWord.Contains("want"))
+            {
+                return MessageType.wanted;
+            }
+
+            //otherwise look for "#offer" / "#wanted" tags
+            foreach (ITag tag in tags)
             {
                 if (tag.Text.Equals(MessageType.offer.ToString())) return MessageType.offer;
-                else if(tag.Text.Equals(MessageType.wanted.ToString())) return MessageType.wanted;
+                else if (tag.Text.Equals(MessageType.wanted.ToString())) return MessageType.wanted;
             }
             //Default to offer for now?
             return MessageType.offer;
@@ -283,6 +327,10 @@ namespace Offr.Message
 
         #region Test
 #if DEBUG
+        public ILocation TEST_GetLocation(string offerText)
+        {
+            return ParseLocation(offerText);
+        }
         //Test accessors
         public string TEST_GetMoreInfoUrl(string offerText)
         {
@@ -294,13 +342,19 @@ namespace Offr.Message
         {
             return GetImageUrl(offerText);
         }
-        public DateTime? TEST_GetEndByInfo(string offerText)
+        public DateTime? TEST_ParseUntil(string offerText)
         {
-            return GetEndByInfo(offerText);
+            DateTime until;
+            string untilText;
+            if (ParseUntil(offerText, out untilText, out until))
+            {
+                return until;
+            }
+            return null;
         }
         public MessageType TEST_GetMessageType(string offerText, IEnumerable<ITag> tags)
         {
-            return GetMessageType(offerText,tags);
+            return GetMessageType(offerText, tags);
         }
 #endif
         #endregion Test

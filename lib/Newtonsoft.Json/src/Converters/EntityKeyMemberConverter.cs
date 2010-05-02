@@ -25,18 +25,25 @@
 
 #if !PocketPC && !SILVERLIGHT && !NET20
 using System;
-using System.Data;
 using Newtonsoft.Json.Serialization;
 using System.Globalization;
 using Newtonsoft.Json.Utilities;
 
 namespace Newtonsoft.Json.Converters
 {
+  internal interface IEntityKeyMember
+  {
+    string Key { get; set; }
+    object Value { get; set; }
+  }
+
   /// <summary>
   /// Converts an Entity Framework EntityKey to and from JSON.
   /// </summary>
   public class EntityKeyMemberConverter : JsonConverter
   {
+    private const string EntityKeyMemberFullTypeName = "System.Data.EntityKeyMember";
+
     /// <summary>
     /// Writes the JSON representation of the object.
     /// </summary>
@@ -45,7 +52,7 @@ namespace Newtonsoft.Json.Converters
     /// <param name="serializer">The calling serializer.</param>
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     {
-      EntityKeyMember entityKeyMember = (EntityKeyMember) value;
+      IEntityKeyMember entityKeyMember = DynamicWrapper.CreateWrapper<IEntityKeyMember>(value);
       Type keyType = (entityKeyMember.Value != null) ? entityKeyMember.Value.GetType() : null;
 
       writer.WriteStartObject();
@@ -95,7 +102,7 @@ namespace Newtonsoft.Json.Converters
     /// <returns>The object value.</returns>
     public override object ReadJson(JsonReader reader, Type objectType, JsonSerializer serializer)
     {
-      EntityKeyMember entityKeyMember = new EntityKeyMember();
+      IEntityKeyMember entityKeyMember = DynamicWrapper.CreateWrapper<IEntityKeyMember>(Activator.CreateInstance(objectType));
 
       ReadAndAssertProperty(reader, "Key");
       ReadAndAssert(reader);
@@ -113,7 +120,7 @@ namespace Newtonsoft.Json.Converters
 
       ReadAndAssert(reader);
 
-      return entityKeyMember;
+      return DynamicWrapper.GetUnderlyingObject(entityKeyMember);
     }
 
     /// <summary>
@@ -125,7 +132,7 @@ namespace Newtonsoft.Json.Converters
     /// </returns>
     public override bool CanConvert(Type objectType)
     {
-      return typeof(EntityKeyMember).IsAssignableFrom(objectType);
+      return (objectType.AssignableToTypeName(EntityKeyMemberFullTypeName));
     }
   }
 }

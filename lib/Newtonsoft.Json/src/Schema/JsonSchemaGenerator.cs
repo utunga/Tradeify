@@ -79,21 +79,14 @@ namespace Newtonsoft.Json.Schema
     private JsonSchemaResolver _resolver;
     private IList<TypeSchema> _stack = new List<TypeSchema>();
     private JsonSchema _currentSchema;
-    private Type _currentType;
 
     private JsonSchema CurrentSchema
     {
       get { return _currentSchema; }
     }
 
-    private Type CurrentType
-    {
-      get { return _currentType; }
-    }
-
     private void Push(TypeSchema typeSchema)
     {
-      _currentType = typeSchema.Type;
       _currentSchema = typeSchema.Schema;
       _stack.Add(typeSchema);
       _resolver.LoadedSchemas.Add(typeSchema.Schema);
@@ -106,12 +99,10 @@ namespace Newtonsoft.Json.Schema
       TypeSchema newValue = _stack.LastOrDefault();
       if (newValue != null)
       {
-        _currentType = newValue.Type;
         _currentSchema = newValue.Schema;
       }
       else
       {
-        _currentType = null;
         _currentSchema = null;
       }
 
@@ -164,7 +155,7 @@ namespace Newtonsoft.Json.Schema
 
       _resolver = resolver;
 
-      return GenerateInternal(type, !rootSchemaNullable);
+      return GenerateInternal(type, (!rootSchemaNullable) ? Required.Always : Required.Default);
     }
 
     private string GetTitle(Type type)
@@ -214,7 +205,7 @@ namespace Newtonsoft.Json.Schema
       }
     }
 
-    private JsonSchema GenerateInternal(Type type, bool valueRequired)
+    private JsonSchema GenerateInternal(Type type, Required valueRequired)
     {
       ValidationUtils.ArgumentNotNull(type, "type");
 
@@ -256,7 +247,7 @@ namespace Newtonsoft.Json.Schema
           // can be converted to a string
           if (typeof (IConvertible).IsAssignableFrom(keyType))
           {
-            CurrentSchema.AdditionalProperties = GenerateInternal(valueType, false);
+            CurrentSchema.AdditionalProperties = GenerateInternal(valueType, Required.Default);
           }
         }
       }
@@ -265,6 +256,8 @@ namespace Newtonsoft.Json.Schema
         // TODO: include null
         CurrentSchema.Type = JsonSchemaType.Array;
 
+        CurrentSchema.Id = GetTypeId(type, false);
+
         JsonArrayAttribute arrayAttribute = JsonTypeReflector.GetJsonContainerAttribute(type) as JsonArrayAttribute;
         bool allowNullItem = (arrayAttribute != null) ? arrayAttribute.AllowNullItems : false;
 
@@ -272,7 +265,7 @@ namespace Newtonsoft.Json.Schema
         if (collectionItemType != null)
         {
           CurrentSchema.Items = new List<JsonSchema>();
-          CurrentSchema.Items.Add(GenerateInternal(collectionItemType, !allowNullItem));
+          CurrentSchema.Items.Add(GenerateInternal(collectionItemType, (!allowNullItem) ? Required.Always : Required.Default));
         }
       }
       else
@@ -293,8 +286,7 @@ namespace Newtonsoft.Json.Schema
           {
             if (!property.Ignored)
             {
-              Type propertyMemberType = ReflectionUtils.GetMemberUnderlyingType(property.Member);
-              JsonSchema propertySchema = GenerateInternal(propertyMemberType, property.Required);
+              JsonSchema propertySchema = GenerateInternal(property.PropertyType, property.Required);
 
               if (property.DefaultValue != null)
                 propertySchema.Default = JToken.FromObject(property.DefaultValue);
@@ -334,10 +326,10 @@ namespace Newtonsoft.Json.Schema
       return ((value & flag) == flag);
     }
 
-    private JsonSchemaType GetJsonSchemaType(Type type, bool valueRequired)
+    private JsonSchemaType GetJsonSchemaType(Type type, Required valueRequired)
     {
       JsonSchemaType schemaType = JsonSchemaType.None;
-      if (!valueRequired && ReflectionUtils.IsNullable(type))
+      if (valueRequired != Required.Always && ReflectionUtils.IsNullable(type))
       {
         schemaType = JsonSchemaType.Null;
         if (ReflectionUtils.IsNullableType(type))

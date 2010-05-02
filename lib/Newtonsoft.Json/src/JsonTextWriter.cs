@@ -37,11 +37,23 @@ namespace Newtonsoft.Json
   /// </summary>
   public class JsonTextWriter : JsonWriter
   {
-    private TextWriter _writer;
+    private readonly TextWriter _writer;
+    private Base64Encoder _base64Encoder;
     private char _indentChar;
     private int _indentation;
     private char _quoteChar;
     private bool _quoteName;
+
+    private Base64Encoder Base64Encoder
+    {
+      get
+      {
+        if (_base64Encoder == null)
+          _base64Encoder = new Base64Encoder(_writer);
+
+        return _base64Encoder;
+      }
+    }
 
     /// <summary>
     /// Gets or sets how many IndentChars to write for each level in the hierarchy when <paramref name="Formatting"/> is set to <c>Formatting.Indented</c>.
@@ -276,7 +288,10 @@ namespace Newtonsoft.Json
     public override void WriteValue(string value)
     {
       base.WriteValue(value);
-      WriteValueInternal((value != null) ? JsonConvert.ToString(value, _quoteChar) : JsonConvert.Null, JsonToken.String);
+      if (value == null)
+        WriteValueInternal(JsonConvert.Null, JsonToken.Null);
+      else
+        JavaScriptUtils.WriteEscapedJavaScriptString(_writer, value, _quoteChar, true);
     }
 
     /// <summary>
@@ -416,9 +431,27 @@ namespace Newtonsoft.Json
     public override void WriteValue(DateTime value)
     {
       base.WriteValue(value);
-      WriteValueInternal(JsonConvert.ToString(value), JsonToken.Date);
+      JsonConvert.WriteDateTimeString(_writer, value);
     }
 
+    /// <summary>
+    /// Writes a <see cref="T:Byte[]"/> value.
+    /// </summary>
+    /// <param name="value">The <see cref="T:Byte[]"/> value to write.</param>
+    public override void WriteValue(byte[] value)
+    {
+      base.WriteValue(value);
+
+      if (value != null)
+      {
+        _writer.Write(_quoteChar);
+        Base64Encoder.Encode(value, 0, value.Length);
+        Base64Encoder.Flush();
+        _writer.Write(_quoteChar);
+      }
+    }
+
+#if !PocketPC && !NET20
     /// <summary>
     /// Writes a <see cref="DateTimeOffset"/> value.
     /// </summary>
@@ -428,6 +461,7 @@ namespace Newtonsoft.Json
       base.WriteValue(value);
       WriteValueInternal(JsonConvert.ToString(value), JsonToken.Date);
     }
+#endif
     #endregion
 
     /// <summary>

@@ -29,6 +29,7 @@ using System.Globalization;
 using Newtonsoft.Json.Utilities;
 using System.Xml;
 using Newtonsoft.Json.Converters;
+using System.Text;
 
 namespace Newtonsoft.Json
 {
@@ -40,54 +41,39 @@ namespace Newtonsoft.Json
     /// <summary>
     /// Represents JavaScript's boolean value true as a string. This field is read-only.
     /// </summary>
-    public static readonly string True;
+    public static readonly string True = "true";
 
     /// <summary>
     /// Represents JavaScript's boolean value false as a string. This field is read-only.
     /// </summary>
-    public static readonly string False;
+    public static readonly string False = "false";
 
     /// <summary>
     /// Represents JavaScript's null as a string. This field is read-only.
     /// </summary>
-    public static readonly string Null;
+    public static readonly string Null = "null";
 
     /// <summary>
     /// Represents JavaScript's undefined as a string. This field is read-only.
     /// </summary>
-    public static readonly string Undefined;
+    public static readonly string Undefined = "undefined";
 
     /// <summary>
     /// Represents JavaScript's positive infinity as a string. This field is read-only.
     /// </summary>
-    public static readonly string PositiveInfinity;
+    public static readonly string PositiveInfinity = "Infinity";
 
     /// <summary>
     /// Represents JavaScript's negative infinity as a string. This field is read-only.
     /// </summary>
-    public static readonly string NegativeInfinity;
+    public static readonly string NegativeInfinity = "-Infinity";
 
     /// <summary>
     /// Represents JavaScript's NaN as a string. This field is read-only.
     /// </summary>
-    public static readonly string NaN;
+    public static readonly string NaN = "NaN";
 
-    internal static long InitialJavaScriptDateTicks;
-    internal static DateTime MinimumJavaScriptDate;
-
-    static JsonConvert()
-    {
-      True = "true";
-      False = "false";
-      Null = "null";
-      Undefined = "undefined";
-      PositiveInfinity = "Infinity";
-      NegativeInfinity = "-Infinity";
-      NaN = "NaN";
-
-      InitialJavaScriptDateTicks = (new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).Ticks;
-      MinimumJavaScriptDate = new DateTime(100, 1, 1);
-    }
+    internal static readonly long InitialJavaScriptDateTicks = 621355968000000000;
 
     /// <summary>
     /// Converts the <see cref="DateTime"/> to its JSON string representation.
@@ -96,16 +82,14 @@ namespace Newtonsoft.Json
     /// <returns>A JSON string representation of the <see cref="DateTime"/>.</returns>
     public static string ToString(DateTime value)
     {
-      TimeSpan utcOffset;
-#if !PocketPC && !NET20
-      utcOffset = TimeZoneInfo.Local.GetUtcOffset(value);
-#else
-      utcOffset = TimeZone.CurrentTimeZone.GetUtcOffset(value);
-#endif
-
-      return ToStringInternal(value, utcOffset, value.Kind);
+      using (StringWriter writer = StringUtils.CreateStringWriter(64))
+      {
+        WriteDateTimeString(writer, value, GetUtcOffset(value), value.Kind);
+        return writer.ToString();
+      }
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Converts the <see cref="DateTimeOffset"/> to its JSON string representation.
     /// </summary>
@@ -113,32 +97,95 @@ namespace Newtonsoft.Json
     /// <returns>A JSON string representation of the <see cref="DateTimeOffset"/>.</returns>
     public static string ToString(DateTimeOffset value)
     {
-      return ToStringInternal(value.UtcDateTime, value.Offset, DateTimeKind.Local);
+      using (StringWriter writer = StringUtils.CreateStringWriter(64))
+      {
+        WriteDateTimeString(writer, value.UtcDateTime, value.Offset, DateTimeKind.Local);
+        return writer.ToString();
+      }
+    }
+#endif
+
+    private static TimeSpan GetUtcOffset(DateTime dateTime)
+    {
+#if SILVERLIGHT
+      return TimeZoneInfo.Local.GetUtcOffset(dateTime);
+#else
+      return TimeZone.CurrentTimeZone.GetUtcOffset(dateTime);
+#endif
     }
 
-    internal static string ToStringInternal(DateTime value, TimeSpan offset, DateTimeKind kind)
+    internal static void WriteDateTimeString(TextWriter writer, DateTime value)
     {
-      long javaScriptTicks = ConvertDateTimeToJavaScriptTicks(value);
+      WriteDateTimeString(writer, value, GetUtcOffset(value), value.Kind);
+    }
 
-      string timezoneOffset;
+    internal static void WriteDateTimeString(TextWriter writer, DateTime value, TimeSpan offset, DateTimeKind kind)
+    {
+      long javaScriptTicks = ConvertDateTimeToJavaScriptTicks(value, offset);
+
+      writer.Write(@"""\/Date(");
+      writer.Write(javaScriptTicks);
+      
       switch (kind)
       {
         case DateTimeKind.Local:
         case DateTimeKind.Unspecified:
-          timezoneOffset = offset.Hours.ToString("+00;-00", CultureInfo.InvariantCulture) + offset.Minutes.ToString("00;00", CultureInfo.InvariantCulture);
-          break;
-        default:
-          timezoneOffset = string.Empty;
+          writer.Write((offset.Ticks >= 0L) ? "+" : "-");
+
+          int absHours = Math.Abs(offset.Hours);
+          if (absHours < 10)
+            writer.Write(0);
+          writer.Write(absHours);
+          int absMinutes = Math.Abs(offset.Minutes);
+          if (absMinutes < 10)
+            writer.Write(0);
+          writer.Write(absMinutes);
           break;
       }
-      return @"""\/Date(" + javaScriptTicks.ToString(CultureInfo.InvariantCulture) + timezoneOffset + @")\/""";
+
+      writer.Write(@")\/""");
+    }
+
+    private static long ToUniversalTicks(DateTime dateTime)
+    {
+      if (dateTime.Kind == DateTimeKind.Utc)
+        return dateTime.Ticks;
+
+      return ToUniversalTicks(dateTime, GetUtcOffset(dateTime));
+    }
+
+    private static long ToUniversalTicks(DateTime dateTime, TimeSpan offset)
+    {
+      if (dateTime.Kind == DateTimeKind.Utc)
+        return dateTime.Ticks;
+
+      long ticks = dateTime.Ticks - offset.Ticks;
+      if (ticks > 3155378975999999999L)
+        return 3155378975999999999L;
+
+      if (ticks < 0L)
+        return 0L;
+
+      return ticks;
+    }
+
+    internal static long ConvertDateTimeToJavaScriptTicks(DateTime dateTime, TimeSpan offset)
+    {
+      long universialTicks = ToUniversalTicks(dateTime, offset);
+
+      return UniversialTicksToJavaScriptTicks(universialTicks);
     }
 
     internal static long ConvertDateTimeToJavaScriptTicks(DateTime dateTime)
     {
-      DateTime utcDateTime = dateTime.ToUniversalTime();
+      long universialTicks = ToUniversalTicks(dateTime);
 
-      long javaScriptTicks = (utcDateTime.Ticks - InitialJavaScriptDateTicks) / 10000;
+      return UniversialTicksToJavaScriptTicks(universialTicks);
+    }
+
+    private static long UniversialTicksToJavaScriptTicks(long universialTicks)
+    {
+      long javaScriptTicks = (universialTicks - InitialJavaScriptDateTicks) / 10000;
 
       return javaScriptTicks;
     }
@@ -347,10 +394,10 @@ namespace Newtonsoft.Json
       if (value == null)
         return Null;
 
-      if (value is IConvertible)
-      {
-        IConvertible convertible = (IConvertible)value;
+      IConvertible convertible = value as IConvertible;
 
+      if (convertible != null)
+      {
         switch (convertible.GetTypeCode())
         {
           case TypeCode.String:
@@ -387,12 +434,52 @@ namespace Newtonsoft.Json
             return Null;
         }
       }
+#if !PocketPC && !NET20
       else if (value is DateTimeOffset)
       {
         return ToString((DateTimeOffset)value);
       }
+#endif
 
       throw new ArgumentException("Unsupported type: {0}. Use the JsonSerializer class to get the object's JSON representation.".FormatWith(CultureInfo.InvariantCulture, value.GetType()));
+    }
+
+    private static bool IsJsonPrimitiveTypeCode(TypeCode typeCode)
+    {
+      switch (typeCode)
+      {
+        case TypeCode.String:
+        case TypeCode.Char:
+        case TypeCode.Boolean:
+        case TypeCode.SByte:
+        case TypeCode.Int16:
+        case TypeCode.UInt16:
+        case TypeCode.Int32:
+        case TypeCode.Byte:
+        case TypeCode.UInt32:
+        case TypeCode.Int64:
+        case TypeCode.UInt64:
+        case TypeCode.Single:
+        case TypeCode.Double:
+        case TypeCode.DateTime:
+        case TypeCode.Decimal:
+        case TypeCode.DBNull:
+          return true;
+        default:
+          return false;
+      }
+    }
+
+    internal static bool IsJsonPrimitiveType(Type type)
+    {
+#if !PocketPC && !NET20
+     if (type == typeof(DateTimeOffset))
+        return true;
+#endif
+      if (type == typeof(byte[]))
+        return true;
+
+      return IsJsonPrimitiveTypeCode(Type.GetTypeCode(type));
     }
 
     internal static bool IsJsonPrimitive(object value)
@@ -400,35 +487,17 @@ namespace Newtonsoft.Json
       if (value == null)
         return true;
 
-      if (value is IConvertible)
-      {
-        IConvertible convertible = (IConvertible)value;
+      IConvertible convertible = value as IConvertible;
 
-        switch (convertible.GetTypeCode())
-        {
-          case TypeCode.String:
-          case TypeCode.Char:
-          case TypeCode.Boolean:
-          case TypeCode.SByte:
-          case TypeCode.Int16:
-          case TypeCode.UInt16:
-          case TypeCode.Int32:
-          case TypeCode.Byte:
-          case TypeCode.UInt32:
-          case TypeCode.Int64:
-          case TypeCode.UInt64:
-          case TypeCode.Single:
-          case TypeCode.Double:
-          case TypeCode.DateTime:
-          case TypeCode.Decimal:
-          case TypeCode.DBNull:
-            return true;
-          default:
-            return false;
-        }
-      }
-      
+      if (convertible != null)
+        return IsJsonPrimitiveTypeCode(convertible.GetTypeCode());
+
+#if !PocketPC && !NET20
       if (value is DateTimeOffset)
+        return true;
+#endif
+
+      if (value is byte[])
         return true;
 
       return false;
@@ -498,7 +567,8 @@ namespace Newtonsoft.Json
     {
       JsonSerializer jsonSerializer = JsonSerializer.Create(settings);
 
-      StringWriter sw = new StringWriter(CultureInfo.InvariantCulture);
+      StringBuilder sb = new StringBuilder(128);
+      StringWriter sw = new StringWriter(sb, CultureInfo.InvariantCulture);
       using (JsonTextWriter jsonWriter = new JsonTextWriter(sw))
       {
         jsonWriter.Formatting = formatting;
@@ -621,7 +691,7 @@ namespace Newtonsoft.Json
       {
         deserializedValue = jsonSerializer.Deserialize(jsonReader, type);
 
-        if (jsonReader.Read() && jsonReader.TokenType != JsonToken.Comment) 
+        if (jsonReader.Read() && jsonReader.TokenType != JsonToken.Comment)
           throw new JsonSerializationException("Additional text found in JSON string after finishing deserializing object.");
       }
 

@@ -6,27 +6,27 @@ using Ninject.Core;
 using NLog;
 using Offr.Json;
 using Offr.Message;
+using Offr.Repository;
 using Offr.Text;
 
 namespace Offr.Twitter
 {
     public class TwitterRawMessageProvider : IRawMessageProvider
     {
-        private MessageType _forType;
         private readonly IRawMessageReceiver _receiver;
+        //public const string QUERY_FOR_GROUPS = "ooooby";
 
-        public TwitterRawMessageProvider(IRawMessageReceiver receiver, MessageType forType)
+        public TwitterRawMessageProvider(IRawMessageReceiver receiver)
         {
-            _forType = forType;
             _receiver = receiver;
         }
-        
+        /*
         [Inject]
-        public TwitterRawMessageProvider(IRawMessageReceiver receiver) : this(receiver, MessageType.offer)
+        public TwitterRawMessageProvider(IRawMessageReceiver receiver) : this(receiver)
         {
            
         }
-
+        */
         #region Implementation of IRawMessageProvider
 
         // not sure how useful this is
@@ -48,7 +48,7 @@ namespace Offr.Twitter
         public IEnumerable<IRawMessage> ForQueryText(string keywordQuery)
         {
             // always require the "hash tag of the messages we are interested in "
-            string query = GetQuery(_forType);
+            string query = GetQuery();
             if (keywordQuery != null)
             {
                 query += "+" + HttpUtility.UrlEncode(keywordQuery);
@@ -83,7 +83,7 @@ namespace Offr.Twitter
         {
 
             // always require the "hash tag of the messages we are interested in "
-            string query = GetQuery(_forType);
+            string query = GetQuery();
             string url = _last_id == 0 ? 
                 String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query) :
                 String.Format(WebRequest.TWITTER_SEARCH_POLL_URI, _last_id, query);
@@ -111,7 +111,7 @@ namespace Offr.Twitter
                 return new List<IRawMessage>();
             }
 
-            List<IRawMessage> newStatusUpdates = new List<IRawMessage>();
+            List<IRawMessage> newStatusUpdates = new List<IRawMessage>();   
             foreach (TwitterStatus status in resultSet.results)
             {
                 newStatusUpdates.Add(new TwitterRawMessage(status));
@@ -119,8 +119,9 @@ namespace Offr.Twitter
             return newStatusUpdates;
         }
 
-        private string GetQuery(MessageType forType)
+        private string GetQuery()
         {
+            /*
             switch (forType)
             {
                 case MessageType.offer:
@@ -130,6 +131,21 @@ namespace Offr.Twitter
                 default:
                     return "%23" + _forType;
             }
+             */
+            //"%23offer+OR+%23offr+OR+%23wanted+OR+%23want+OR+%23wants";
+            ITagRepository tags=Global.Kernel.Get<ITagRepository>();
+            List<ITag> groups=tags.GetGroups();
+            string request="";
+            if(groups.Count>=1)
+            {
+                request = groups[0].Text;
+                for(int i=1;i<groups.Count;i++)
+                {
+                    request += "+OR+" + groups[i].Text;
+                }
+            }
+            return request;
+            //return QUERY_FOR_GROUPS;
         }
     }
 }

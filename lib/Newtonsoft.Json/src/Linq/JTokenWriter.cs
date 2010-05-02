@@ -180,8 +180,17 @@ namespace Newtonsoft.Json.Linq
     public override void WriteRaw(string json)
     {
       base.WriteRaw(json);
-      // hack
-      AddValue(JValue.CreateRaw(json), JsonToken.Raw);
+      AddValue(new JRaw(json), JsonToken.Raw);
+    }
+
+    /// <summary>
+    /// Writes out a comment <code>/*...*/</code> containing the specified text.
+    /// </summary>
+    /// <param name="text">Text to place inside the comment.</param>
+    public override void WriteComment(string text)
+    {
+      base.WriteComment(text);
+      AddValue(JValue.CreateComment(text), JsonToken.Comment);
     }
 
     /// <summary>
@@ -334,6 +343,7 @@ namespace Newtonsoft.Json.Linq
       AddValue(value, JsonToken.Date);
     }
 
+#if !PocketPC && !NET20
     /// <summary>
     /// Writes a <see cref="DateTimeOffset"/> value.
     /// </summary>
@@ -342,6 +352,17 @@ namespace Newtonsoft.Json.Linq
     {
       base.WriteValue(value);
       AddValue(value, JsonToken.Date);
+    }
+#endif
+
+    /// <summary>
+    /// Writes a <see cref="T:Byte[]"/> value.
+    /// </summary>
+    /// <param name="value">The <see cref="T:Byte[]"/> value to write.</param>
+    public override void WriteValue(byte[] value)
+    {
+      base.WriteValue(value);
+      AddValue(value, JsonToken.Bytes);
     }
     #endregion
   }
