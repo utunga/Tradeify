@@ -142,7 +142,7 @@ namespace Offr.Message
 
             if (result != null) return result;
             //in  bounded by "."    
-            Regex reIn = new Regex(" in (([^#])*)\\.", RegexOptions.IgnoreCase);
+            Regex reIn = new Regex("in (([^#|^\\.])*)", RegexOptions.IgnoreCase);
             Match matchIn = reIn.Match(sourceText);
             if (matchIn.Groups.Count >= 1)
             {

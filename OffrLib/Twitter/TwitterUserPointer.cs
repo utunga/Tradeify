@@ -52,32 +52,6 @@ namespace Offr.Text
 
         #endregion Constructor
 
-        #region Equals
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return ((obj is IUserPointer) ? this.Equals((IUserPointer)obj) : false);
-        }
-        public bool Equals(IUserPointer userPointer)
-        {
-            if (userPointer == null)
-            {
-                return false;
-            }
-            return Equals(MatchTag,userPointer.MatchTag);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = (MatchTag != null ? MatchTag.GetHashCode() : 0);
-                return result;
-            }
-        }
-        #endregion Equals
-
         #region JSON
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
@@ -101,5 +75,39 @@ namespace Offr.Text
             
         }
         #endregion JSON
+
+
+        #region Equals/ToString
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return ((obj is IUserPointer) ? this.Equals((IUserPointer)obj) : false);
+        }
+        public bool Equals(IUserPointer userPointer)
+        {
+            if (userPointer == null)
+            {
+                return false;
+            }
+            return Equals(MatchTag, userPointer.MatchTag);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int result = (MatchTag != null ? MatchTag.GetHashCode() : 0);
+                return result;
+            }
+        }
+        
+        public override string ToString()
+        {
+            return "TwitterUserPointer(" + MatchTag + ")";
+        }
+        
+        #endregion
+        
     }
 }

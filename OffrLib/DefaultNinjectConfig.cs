@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Ninject.Core;
 using Ninject.Core.Behavior;
+using Offr.Common;
 using Offr.Location;
 using Offr.Message;
 using Offr.Query;
@@ -25,6 +26,7 @@ namespace Offr
             Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
             //Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
             Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
+            Bind<WebRequest.WebRequestMethod>().To<WebRequest>();
         }
     }
 }

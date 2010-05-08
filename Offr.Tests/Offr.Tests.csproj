@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestRSSProvider.cs" />
     <Compile Include="DemoMessageProvider.cs" />
     <Compile Include="MockData.cs" />
     <Compile Include="MockLocationProvider.cs" />

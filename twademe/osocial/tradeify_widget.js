@@ -330,7 +330,7 @@ function post_your_own_form_init() {
     
     if (post_your_own_form_initialized) return; //already initalized
     google_initialize();
-
+	post_your_own_form_initialized = true;
 }
 
 var region="NZ"
@@ -361,7 +361,6 @@ function google_initialize() {
 	$("#post_your_own_form .location  #location").keyup(address_keyup);
 	$("#post_your_own_form textarea#offer").keyup(details_keyup);
 	
-	post_your_own_form_initialized = true;
 }
 
 function geo_code_address() {

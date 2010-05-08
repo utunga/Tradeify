@@ -1,429 +1,4663 @@
-{
-  "twitter/1": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
+﻿{
+  "ooooby/3a2b1303-2161-4695-b0c7-42b8354003f8": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T11:39:15",
     "tags": [
       {
-        "currency": "nzd"
+        "tag": "offer",
+        "type": "msg_type"
       },
       {
-        "currency": "barter"
+        "tag": "eggs",
+        "type": "tag"
       },
       {
-        "group": "freecycle"
+        "tag": "free",
+        "type": "currency"
       },
       {
-        "loc": "new zealand"
-      },
-      {
-        "loc": "nz"
-      },
-      {
-        "loc": "paekakariki"
+        "tag": "ooooby",
+        "type": "group"
       }
     ],
-    "raw_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
+    "raw_text": "@ooooby offer:  ds #eggs in l:fiii: for  #free until 15/04/2010",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "3a2b1303-2161-4695-b0c7-42b8354003f8"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer:  ds #eggs in l:fiii: for  #free until 15/04/2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-04-15T00:00:00",
+    "end_by_text": "15/04/2010",
+    "location": {
+      "geo_lat": 35.1666667,
+      "geo_long": 138.6833333,
+      "address": "fiii",
+      "tags": []
+    }
+  },
+  "ooooby/510b927c-1275-42b3-887b-8c144fefa617": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T11:43:37",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "usa",
+        "type": "loc"
+      },
+      {
+        "tag": "nc",
+        "type": "loc"
+      },
+      {
+        "tag": "cary",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby veges  in wellington for #free no really",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "510b927c-1275-42b3-887b-8c144fefa617"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " veges  in wellington for #free no really",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 35.7480664,
+      "geo_long": -78.7582474,
+      "address": "wellington for ",
+      "tags": [
+        {
+          "tag": "usa",
+          "type": "loc"
+        },
+        {
+          "tag": "nc",
+          "type": "loc"
+        },
+        {
+          "tag": "cary",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/5c28db7a-5542-4d7c-b559-c3477e33b54b": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T10:40:36",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "garden_supplies",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby offer:  rwar #garden_supplies in l:wellington: for  #free until 01/04/2010",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "5c28db7a-5542-4d7c-b559-c3477e33b54b"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer:  rwar #garden_supplies in l:wellington: for  #free until 01/04/2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-04-01T00:00:00",
+    "end_by_text": "01/04/2010",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/5de198bc-9626-48f7-a5d4-26abc0da0b40": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T10:26:48",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "garden_supplies",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby offer:  rwar #garden_supplies in l:wellington: for  #free until 01/04/2010",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "5de198bc-9626-48f7-a5d4-26abc0da0b40"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer:  rwar #garden_supplies in l:wellington: for  #free until 01/04/2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-04-01T00:00:00",
+    "end_by_text": "01/04/2010",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/66d217a3-e828-4eec-91fe-dff8dd18866d": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T11:35:56",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "garden_services",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby offer:  c #garden_services in l:wellington: for #free",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "66d217a3-e828-4eec-91fe-dff8dd18866d"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer:  c #garden_services in l:wellington: for #free",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/6a7260bd-a6c3-48af-8dcf-a08d7da5911b": {
+    "message_type": "offer",
+    "timestamp": "2010-04-06T09:01:29",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      }
+    ],
+    "raw_text": "@ooooby offer:  stuff #fruit in l:wherver: for  #free",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "6a7260bd-a6c3-48af-8dcf-a08d7da5911b"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer:  stuff #fruit in l:wherver: for  #free",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 0.0,
+      "geo_long": 0.0,
+      "address": "wherver",
+      "tags": []
+    }
+  },
+  "ooooby/84e4fb9c-b1f1-49a5-8159-79609d9fa32b": {
+    "message_type": "offer",
+    "timestamp": "2010-04-06T09:05:07",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      }
+    ],
+    "raw_text": "@ooooby offer: veges in Wellington for #free ",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "84e4fb9c-b1f1-49a5-8159-79609d9fa32b"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer: veges in Wellington for #free ",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 0.0,
+      "geo_long": 0.0,
+      "address": "Wellington for ",
+      "tags": []
+    }
+  },
+  "ooooby/85cbb513-3dd1-4f5d-b489-307d4852e90b": {
+    "message_type": "offer",
+    "timestamp": "2010-03-03T09:02:32",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby wanted:  a test #veges in l:wellington: for  #free",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "85cbb513-3dd1-4f5d-b489-307d4852e90b"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " wanted:  a test #veges in l:wellington: for  #free",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/968c9aff-4e95-4a2c-96c7-38b967c87559": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T10:43:30",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "usa",
+        "type": "loc"
+      },
+      {
+        "tag": "nc",
+        "type": "loc"
+      },
+      {
+        "tag": "cary",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby test in wellington for #free",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "968c9aff-4e95-4a2c-96c7-38b967c87559"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " test in wellington for #free",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 35.7480664,
+      "geo_long": -78.7582474,
+      "address": "wellington for ",
+      "tags": [
+        {
+          "tag": "usa",
+          "type": "loc"
+        },
+        {
+          "tag": "nc",
+          "type": "loc"
+        },
+        {
+          "tag": "cary",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/a3ea3c4d-e430-400e-a3d2-5a786a0bd251": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T11:44:14",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "usa",
+        "type": "loc"
+      },
+      {
+        "tag": "nc",
+        "type": "loc"
+      },
+      {
+        "tag": "cary",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby veges  in wellington for #free no really",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "a3ea3c4d-e430-400e-a3d2-5a786a0bd251"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " veges  in wellington for #free no really",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 35.7480664,
+      "geo_long": -78.7582474,
+      "address": "wellington for ",
+      "tags": [
+        {
+          "tag": "usa",
+          "type": "loc"
+        },
+        {
+          "tag": "nc",
+          "type": "loc"
+        },
+        {
+          "tag": "cary",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/d6b3f1f4-1bf9-4ad8-b959-8b85e750e7ab": {
+    "message_type": "wanted",
+    "timestamp": "2010-03-03T09:07:57",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby wanted:  some thing to test #fruit in l:wellington: for  #free",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "d6b3f1f4-1bf9-4ad8-b959-8b85e750e7ab"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " wanted:  some thing to test #fruit in l:wellington: for  #free",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/dda45823-4450-4d10-a183-9942d4c78a06": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T11:43:16",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "usa",
+        "type": "loc"
+      },
+      {
+        "tag": "nc",
+        "type": "loc"
+      },
+      {
+        "tag": "cary",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby veges  in wellington for #free no really",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "dda45823-4450-4d10-a183-9942d4c78a06"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " veges  in wellington for #free no really",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 35.7480664,
+      "geo_long": -78.7582474,
+      "address": "wellington for ",
+      "tags": [
+        {
+          "tag": "usa",
+          "type": "loc"
+        },
+        {
+          "tag": "nc",
+          "type": "loc"
+        },
+        {
+          "tag": "cary",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/dfc576f4-e50b-41fe-9198-728c4db38c20": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T11:41:35",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby offer:  some stuff #veges in l:wellington: for  #free until 07/04/2010",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "dfc576f4-e50b-41fe-9198-728c4db38c20"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer:  some stuff #veges in l:wellington: for  #free until 07/04/2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-04-07T00:00:00",
+    "end_by_text": "07/04/2010",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "ooooby/fd74c8ed-0bd3-40ba-aa2e-2f692f9ec0b6": {
+    "message_type": "offer",
+    "timestamp": "2010-03-22T10:22:11",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "garden_supplies",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby offer:  rwar #garden_supplies in l:wellington: for  #free until 01/04/2010",
+    "message_pointer": {
+      "provider_name_space": "ooooby",
+      "message_id": "fd74c8ed-0bd3-40ba-aa2e-2f692f9ec0b6"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": "http://twitter.com/just_a_test"
+    },
+    "offer_text": " offer:  rwar #garden_supplies in l:wellington: for  #free until 01/04/2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-04-01T00:00:00",
+    "end_by_text": "01/04/2010",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/00497f28-2406-4560-8d68-5f10eb313774": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T16:52:21",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "warkworth",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  Room Cleaning Services in l:warkworth, auckland: for  #free until 6am 14 Feb 2010 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "00497f28-2406-4560-8d68-5f10eb313774"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Alastair Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/On97HN1tDNTdTFZGw8rsYtnjlFqlNNGGtO3Y8jL0RfAivSzi6dHLaZO3I2t8WgzWT6NdVWRYaFeIY49aqIbVooaAsv3nm6Ey/773086504.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/AlastairThompson"
+    },
+    "offer_text": "OFFER:  Room Cleaning Services in l:warkworth, auckland: for  #free until 6am 14 Feb 2010 #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.401726,
+      "geo_long": 174.660769,
+      "address": "warkworth, auckland",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "warkworth",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/015250f2-d858-4a5d-b803-94ac3bfce2e9": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T03:28:55",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "015250f2-d858-4a5d-b803-94ac3bfce2e9"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/03d4e18b-43d3-407a-91e0-d4796ba8a12c": {
+    "message_type": "offer",
+    "timestamp": "2010-02-10T22:20:04",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  #fruit (details) in l:(suburb): for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "03d4e18b-43d3-407a-91e0-d4796ba8a12c"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "OFFER:  #fruit (details) in l:(suburb): for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/0559029d-0403-4971-a485-6983bc9fd7ac": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T02:32:01",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "0559029d-0403-4971-a485-6983bc9fd7ac"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/089f0a15-d56b-4e32-a7d8-cc9385b341f8": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-03T19:28:44",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "books",
+        "type": "tag"
+      },
+      {
+        "tag": "permaculture",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "oneroa",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: A basic get started book would be great. Just for a week or two in l:1 Tawa St, waiheke: for  #free until 18 Feb 2010 #books #permaculture #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "089f0a15-d56b-4e32-a7d8-cc9385b341f8"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/HKI*94m966l1Ipz-wmuUHxCaBVrxclmoTNlA5HJS-kJ47gheie4vGF9zim4hPYj29m8-B8meXv*uDaQ9IBZTdTAkR0h4yxKd/jmsbw_med.jpg?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "WANTED: A basic get started book would be great. Just for a week or two in l:1 Tawa St, waiheke: for  #free until 18 Feb 2010 #books #permaculture #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-18T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.785358,
+      "geo_long": 175.016953,
+      "address": "1 Tawa St, waiheke",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "oneroa",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/1": {
+    "message_type": "offer",
+    "timestamp": "2009-06-23T12:00:00",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "nzd",
+        "type": "currency"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "freecycle",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      },
+      {
+        "tag": "paekakariki",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "#offer For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "1"
     },
     "created_by": {
-      "provider_user_name": "twooooby",
-      "provide_name_space": "twitter",
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
       "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
-      "screen_name": "twooooby",
-      "profile_url": "http://www.twitter.com/twooooby",
-      "match_tag": "twitter/twooooby"
+      "profile_url": ""
     },
-    "offer_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
+    "offer_text": "#offer For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
     "more_info_url": "http://bit.ly/234",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
+      "address": "Paekakariki",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "paekakariki",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/11682657853": {
+    "message_type": "offer",
+    "timestamp": "2010-04-06T05:08:19",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "Offer: one pre loved glass of water available #free in Wellington @ooooby http://post.ly/Y8dA",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "11682657853"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "utunga",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/626218661/miles_normal.jpg",
+      "screen_name": "utunga",
+      "profile_url": "http://www.twitter.com/utunga",
+      "match_tag": "twitter/utunga"
+    },
+    "offer_text": "Offer: one pre loved glass of water available #free in Wellington  http://post.ly/Y8dA",
+    "more_info_url": null,
     "thumbnail": null,
     "end_by": null,
     "end_by_text": null,
     "location": {
-      "geo_lat": -40.9827820,
-      "geo_long": 174.9561080,
-      "address": "Paekakariki",
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "Wellington",
       "tags": [
         {
-          "loc": "new zealand"
+          "tag": "new_zealand",
+          "type": "loc"
         },
         {
-          "loc": "nz"
+          "tag": "wellington",
+          "type": "loc"
         },
         {
-          "loc": "paekakariki"
+          "tag": "wellington",
+          "type": "loc"
         }
       ]
     }
   },
   "twitter/2": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
+    "message_type": "offer",
+    "timestamp": "2009-06-23T12:00:00",
     "tags": [
       {
-        "tag": "wood"
+        "tag": "offer",
+        "type": "msg_type"
       },
       {
-        "currency": "barter"
+        "tag": "wood",
+        "type": "tag"
       },
       {
-        "currency": "barter"
+        "tag": "barter",
+        "type": "currency"
       },
       {
-        "tag": "wood"
+        "tag": "ooooby",
+        "type": "group"
       },
       {
-        "group": "ooooby"
+        "tag": "new_zealand",
+        "type": "loc"
       },
       {
-        "loc": "new zealand"
+        "tag": "wellington",
+        "type": "loc"
       },
       {
-        "loc": "nz"
-      },
-      {
-        "loc": "paekakariki"
+        "tag": "paekakariki",
+        "type": "loc"
       }
     ],
-    "raw_text": "#offr Huge pile of already split #wood will gladly #barter for whatever you have got L:Paekakariki: http://bit.ly/1231 #barter #wood #ooooby",
+    "raw_text": "#offer Huge pile of already split #wood will gladly #barter for whatever you have got L:Paekakariki: http://bit.ly/1231 #barter #wood #ooooby",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "2"
     },
     "created_by": {
-      "provider_user_name": "twooooby",
-      "provide_name_space": "twitter",
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
       "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
-      "screen_name": "twooooby",
-      "profile_url": "http://www.twitter.com/twooooby",
-      "match_tag": "twitter/twooooby"
+      "profile_url": ""
     },
-    "offer_text": "#offr Huge pile of already split #wood will gladly #barter for whatever you have got L:Paekakariki: http://bit.ly/1231 #barter #wood #ooooby",
+    "offer_text": "#offer Huge pile of already split #wood will gladly #barter for whatever you have got L:Paekakariki: http://bit.ly/1231 #barter #wood #ooooby",
     "more_info_url": "http://bit.ly/1231",
     "thumbnail": null,
     "end_by": null,
-    "end_by_text": null,
+    "end_by_text": "",
     "location": {
-      "geo_lat": -40.9827820,
-      "geo_long": 174.9561080,
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
       "address": "Paekakariki",
       "tags": [
         {
-          "loc": "new zealand"
+          "tag": "new_zealand",
+          "type": "loc"
         },
         {
-          "loc": "nz"
+          "tag": "wellington",
+          "type": "loc"
         },
         {
-          "loc": "paekakariki"
+          "tag": "paekakariki",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/215c31be-e93c-4430-a351-95fe28349df1": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-03T22:04:55",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "honey",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "glen_innes",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: manuka preferrably in l:Glen Innes: for  #cash until 19 Feb 2010 #honey #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "215c31be-e93c-4430-a351-95fe28349df1"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Alastair Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/On97HN1tDNTdTFZGw8rsYtnjlFqlNNGGtO3Y8jL0RfAivSzi6dHLaZO3I2t8WgzWT6NdVWRYaFeIY49aqIbVooaAsv3nm6Ey/773086504.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/AlastairThompson"
+    },
+    "offer_text": "WANTED: manuka preferrably in l:Glen Innes: for  #cash until 19 Feb 2010 #honey #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-19T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.875862,
+      "geo_long": 174.860366,
+      "address": "Glen Innes",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "glen_innes",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/23bea09f-dad7-42d8-ae04-c7fa6b53b227": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T21:34:19",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "warkworth",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  sanjovese grape juice in l:warkworth 0982: for  #cash #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "23bea09f-dad7-42d8-ae04-c7fa6b53b227"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "OFFER:  sanjovese grape juice in l:warkworth 0982: for  #cash #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.401726,
+      "geo_long": 174.660769,
+      "address": "warkworth 0982",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "warkworth",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/2545110d-abae-463a-9087-8f20cbe465fc": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T19:47:48",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "herbs",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "oneroa",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  Stingy Nettle has great nutritional properties. I have a couple of healthy bushes. Come harvest. in l:Oneroa: for  #free #barter #herbs #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "2545110d-abae-463a-9087-8f20cbe465fc"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/HKI*94m966l1Ipz-wmuUHxCaBVrxclmoTNlA5HJS-kJ47gheie4vGF9zim4hPYj29m8-B8meXv*uDaQ9IBZTdTAkR0h4yxKd/jmsbw_med.jpg?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "OFFER:  Stingy Nettle has great nutritional properties. I have a couple of healthy bushes. Come harvest. in l:Oneroa: for  #free #barter #herbs #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.783433,
+      "geo_long": 175.010831,
+      "address": "Oneroa",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "oneroa",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/28e0e309-75c5-4750-9602-32e798dc0a98": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-11T10:19:59",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "pumpkin",
+        "type": "tag"
+      },
+      {
+        "tag": "chicken",
+        "type": "tag"
+      },
+      {
+        "tag": "eggplant",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "mount_albert",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED:  #pumpkin #pumpkin #pumpkin #pumpkin #chicken #eggplant preferrably plump in l:mt albert: for  #free until 12 Feb 2010 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "28e0e309-75c5-4750-9602-32e798dc0a98"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Alastair Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/On97HN1tDNTdTFZGw8rsYtnjlFqlNNGGtO3Y8jL0RfAivSzi6dHLaZO3I2t8WgzWT6NdVWRYaFeIY49aqIbVooaAsv3nm6Ey/773086504.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/AlastairThompson"
+    },
+    "offer_text": "WANTED:  #pumpkin #pumpkin #pumpkin #pumpkin #chicken #eggplant preferrably plump in l:mt albert: for  #free until 12 Feb 2010 #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-12T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.884061,
+      "geo_long": 174.71555,
+      "address": "mt albert",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "mount_albert",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/2916b392-9672-4e6f-aaec-18b0bb375355": {
+    "message_type": "offer",
+    "timestamp": "2010-02-02T06:20:38",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "eggs",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "south_africa",
+        "type": "loc"
+      },
+      {
+        "tag": "gauteng",
+        "type": "loc"
+      },
+      {
+        "tag": "kempton_park",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: web based, excellent rates in l:wellington CBD: for  #barter #cash until 05 Feb 2011 #eggs # #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "2916b392-9672-4e6f-aaec-18b0bb375355"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "OFFER: web based, excellent rates in l:wellington CBD: for  #barter #cash until 05 Feb 2011 #eggs # #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2011-02-05T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -26.1242898,
+      "geo_long": 28.2288992,
+      "address": "wellington CBD",
+      "tags": [
+        {
+          "tag": "south_africa",
+          "type": "loc"
+        },
+        {
+          "tag": "gauteng",
+          "type": "loc"
+        },
+        {
+          "tag": "kempton_park",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/29963e7c-5152-4dae-a413-b7fe569bd0eb": {
+    "message_type": "offer",
+    "timestamp": "2010-02-09T04:23:37",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eggs",
+        "type": "tag"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      }
+    ],
+    "raw_text": "OFFER:  #eggs #eggs Ready to pop under your clucky hens. in l:Little Oneroa: for  #barter #cash until 23 Feb 2010 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "29963e7c-5152-4dae-a413-b7fe569bd0eb"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/HKI*94m966l1Ipz-wmuUHxCaBVrxclmoTNlA5HJS-kJ47gheie4vGF9zim4hPYj29m8-B8meXv*uDaQ9IBZTdTAkR0h4yxKd/jmsbw_med.jpg?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "OFFER:  #eggs #eggs Ready to pop under your clucky hens. in l:Little Oneroa: for  #barter #cash until 23 Feb 2010 #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-23T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.784449,
+      "geo_long": 175.017926,
+      "address": "Little Oneroa",
+      "tags": []
+    }
+  },
+  "twitter/2c11e9f1-1524-454d-9b7c-525b23bc3a07": {
+    "message_type": "offer",
+    "timestamp": "2010-02-04T07:50:48",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "compost",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "garden_supplies",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: #compost take away our surplus compost (which will be at various stages of maturity) in l:wellington, nz: for  #free #garden_supplies #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "2c11e9f1-1524-454d-9b7c-525b23bc3a07"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "OFFER: #compost take away our surplus compost (which will be at various stages of maturity) in l:wellington, nz: for  #free #garden_supplies #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington, nz",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/2d24b6ce-7541-4306-bfd7-bd4e984116c3": {
+    "message_type": "offer",
+    "timestamp": "2010-02-12T23:58:58",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "prepared_food",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  Plum Jam in l:Waiheke Island: for  #barter until 16 Feb 2010 #prepared_food #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "2d24b6ce-7541-4306-bfd7-bd4e984116c3"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Pete Russell",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/-wn5XIwWY4*ikuGHDOktuvt0q9v0XzhuDchm-qNntRcyELYh08IxToKbpALH-qXURZvZ1XNoFnOf0yxvyjmI8p0k2BAVaIcU/Twittershot.jpg?crop=1%3A1",
+      "profile_url": "http://ooooby.ning.com/profile/PeteRussell"
+    },
+    "offer_text": "OFFER:  Plum Jam in l:Waiheke Island: for  #barter until 16 Feb 2010 #prepared_food #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-16T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.799514,
+      "geo_long": 175.0960576,
+      "address": "Waiheke Island",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/2dfd2d68-efd6-44b7-a568-878236564660": {
+    "message_type": "offer",
+    "timestamp": "2010-02-07T21:55:52",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  #veges (details) in l:(suburb): for  #free #cash #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "2dfd2d68-efd6-44b7-a568-878236564660"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "OFFER:  #veges (details) in l:(suburb): for  #free #cash #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
         }
       ]
     }
   },
   "twitter/3": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
+    "message_type": "offer",
+    "timestamp": "2009-06-23T12:00:00",
     "tags": [
       {
-        "type": "free"
+        "tag": "offer",
+        "type": "msg_type"
       },
       {
-        "group": "freecycle"
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "freecycle",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      },
+      {
+        "tag": "petone",
+        "type": "loc"
       }
     ],
-    "raw_text": "#offr Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:home: #freecycle",
+    "raw_text": "#offer Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:Petone, Lower Hutt: #freecycle",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "3"
     },
     "created_by": {
-      "provider_user_name": "twooooby",
-      "provide_name_space": "twitter",
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
       "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
-      "screen_name": "twooooby",
-      "profile_url": "http://www.twitter.com/twooooby",
-      "match_tag": "twitter/twooooby"
+      "profile_url": ""
     },
-    "offer_text": "#offr Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:home: #freecycle",
+    "offer_text": "#offer Everything including the kitchen sink.. old wood, formica, etc. #free to a good home. L:Petone, Lower Hutt: #freecycle",
     "more_info_url": null,
     "thumbnail": null,
     "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/4": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
-    "tags": [
-      {
-        "type": "free"
-      },
-      {
-        "tag": "lemons"
-      },
-      {
-        "type": "free"
-      },
-      {
-        "tag": "lemons"
-      },
-      {
-        "group": "ooooby"
-      }
-    ],
-    "raw_text": "#offr Big lemon tree, #free #lemons L:Paekakariki http://bit.ly/1231 #free #lemons #ooooby",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "4"
-    },
-    "created_by": {
-      "provider_user_name": "twooooby",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
-      "screen_name": "twooooby",
-      "profile_url": "http://www.twitter.com/twooooby",
-      "match_tag": "twitter/twooooby"
-    },
-    "offer_text": "#offr Big lemon tree, #free #lemons L:Paekakariki http://bit.ly/1231 #free #lemons #ooooby",
-    "more_info_url": "http://bit.ly/1231",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/5": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
-    "tags": [
-      {
-        "tag": "pumpkin"
-      },
-      {
-        "currency": "barter"
-      },
-      {
-        "tag": "waiheke"
-      },
-      {
-        "group": "ooooby"
-      }
-    ],
-    "raw_text": "#offr Come get some of our beautiful #pumpkin #barter for other veges L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #ooooby",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "5"
-    },
-    "created_by": {
-      "provider_user_name": "twooooby",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
-      "screen_name": "twooooby",
-      "profile_url": "http://www.twitter.com/twooooby",
-      "match_tag": "twitter/twooooby"
-    },
-    "offer_text": "#offr Come get some of our beautiful #pumpkin #barter for other veges L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #ooooby",
-    "more_info_url": "http://bit.ly/1234",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
-    "location": null
-  },
-  "twitter/6": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
-    "tags": [
-      {
-        "group": "ooooby"
-      },
-      {
-        "loc": "new zealand"
-      },
-      {
-        "loc": "nz"
-      },
-      {
-        "loc": "paekakariki"
-      }
-    ],
-    "raw_text": "#offr Corn L:55 Wellington Road, Paekakariki: for http://bit.ly/234 #ooooby",
-    "message_pointer": {
-      "provider_name_space": "twitter",
-      "message_id": "6"
-    },
-    "created_by": {
-      "provider_user_name": "twollar_test_1",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
-      "screen_name": "twollar_test_1",
-      "profile_url": "http://www.twitter.com/twollar_test_1",
-      "match_tag": "twitter/twollar_test_1"
-    },
-    "offer_text": "#offr Corn L:55 Wellington Road, Paekakariki: for http://bit.ly/234 #ooooby",
-    "more_info_url": "http://bit.ly/234",
-    "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
+    "end_by_text": "",
     "location": {
-      "geo_lat": -40.9852300,
-      "geo_long": 174.9537790,
-      "address": "55 Wellington Road, Paekakariki",
+      "geo_lat": -41.225468,
+      "geo_long": 174.87915,
+      "address": "Petone, Lower Hutt",
       "tags": [
         {
-          "loc": "new zealand"
+          "tag": "new_zealand",
+          "type": "loc"
         },
         {
-          "loc": "nz"
+          "tag": "wellington",
+          "type": "loc"
         },
         {
-          "loc": "paekakariki"
+          "tag": "petone",
+          "type": "loc"
         }
       ]
     }
   },
-  "twitter/7": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
+  "twitter/30db633c-165d-49aa-9be5-d3f19580fc98": {
+    "message_type": "offer",
+    "timestamp": "2010-02-07T22:38:34",
     "tags": [
       {
-        "group": "freecycle"
+        "tag": "offer",
+        "type": "msg_type"
       },
       {
-        "loc": "new zealand"
+        "tag": "eggs",
+        "type": "tag"
       },
       {
-        "loc": "nz"
+        "tag": "free",
+        "type": "currency"
       },
       {
-        "loc": "auckland"
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "ostend",
+        "type": "loc"
       }
     ],
-    "raw_text": "#offr Kitchen jug, works great, in L:K Road, Auckland: http://bit.ly/1231 #freecycle",
+    "raw_text": "OFFER:  #eggs Yummy triple yolkers in l:ostend, waiheke: for  #free until 17 Feb 2010 #ooooby",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "7"
+      "message_id": "30db633c-165d-49aa-9be5-d3f19580fc98"
     },
     "created_by": {
-      "provider_user_name": "twollar_test_1",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
-      "screen_name": "twollar_test_1",
-      "profile_url": "http://www.twitter.com/twollar_test_1",
-      "match_tag": "twitter/twollar_test_1"
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Pete Russell",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/Vyi5t-fJXoOMz7xKWjeU5Eu7VHDbEAnsTlhIqEJVeiY_/721778968.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/PeteRussell"
     },
-    "offer_text": "#offr Kitchen jug, works great, in L:K Road, Auckland: http://bit.ly/1231 #freecycle",
-    "more_info_url": "http://bit.ly/1231",
+    "offer_text": "OFFER:  #eggs Yummy triple yolkers in l:ostend, waiheke: for  #free until 17 Feb 2010 #ooooby",
+    "more_info_url": null,
     "thumbnail": null,
-    "end_by": null,
-    "end_by_text": null,
+    "end_by": "2010-02-17T00:00:00",
+    "end_by_text": "",
     "location": {
-      "geo_lat": -36.8576850,
-      "geo_long": 174.7577040,
-      "address": "K Road, Auckland",
+      "geo_lat": -36.795923,
+      "geo_long": 175.048087,
+      "address": "ostend, waiheke",
       "tags": [
         {
-          "loc": "new zealand"
+          "tag": "new_zealand",
+          "type": "loc"
         },
         {
-          "loc": "nz"
+          "tag": "auckland",
+          "type": "loc"
         },
         {
-          "loc": "auckland"
+          "tag": "ostend",
+          "type": "loc"
         }
       ]
     }
   },
-  "twitter/8": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
+  "twitter/48ce1f96-af37-4e64-893b-b3c197b01e63": {
+    "message_type": "offer",
+    "timestamp": "2010-02-04T07:51:47",
     "tags": [
       {
-        "currency": "barter"
+        "tag": "offer",
+        "type": "msg_type"
       },
       {
-        "tag": "waiheke"
+        "tag": "compost",
+        "type": "tag"
       },
       {
-        "tag": "household"
+        "tag": "free",
+        "type": "currency"
       },
       {
-        "group": "freecycle"
+        "tag": "garden_supplies",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
       }
     ],
-    "raw_text": "#offr Keen to swap our old fridge for anything smaller #barter in L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #household #freecycle",
+    "raw_text": "OFFER: #compost regularly pick up of compostable material (food scraps and guinea pig waste and bedding) in l:wellington, nz: for  #free #garden_supplies #ooooby",
     "message_pointer": {
       "provider_name_space": "twitter",
-      "message_id": "8"
+      "message_id": "48ce1f96-af37-4e64-893b-b3c197b01e63"
     },
     "created_by": {
-      "provider_user_name": "twollar_test_1",
-      "provide_name_space": "twitter",
-      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
-      "screen_name": "twollar_test_1",
-      "profile_url": "http://www.twitter.com/twollar_test_1",
-      "match_tag": "twitter/twollar_test_1"
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
     },
-    "offer_text": "#offr Keen to swap our old fridge for anything smaller #barter in L:Whitehead bay, Waiheke: http://bit.ly/1234 #waiheke #household #freecycle",
-    "more_info_url": "http://bit.ly/1234",
+    "offer_text": "OFFER: #compost regularly pick up of compostable material (food scraps and guinea pig waste and bedding) in l:wellington, nz: for  #free #garden_supplies #ooooby",
+    "more_info_url": null,
     "thumbnail": null,
     "end_by": null,
-    "end_by_text": null,
-    "location": null
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "wellington, nz",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/4d88dde2-eaf9-4f2b-b1f2-c550129b23c3": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T02:13:10",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "permaculture",
+        "type": "tag"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "waikato",
+        "type": "loc"
+      },
+      {
+        "tag": "cambridge",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:cambridge: for  #free until 11 Feb 2010 #permaculture #veges #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "4d88dde2-eaf9-4f2b-b1f2-c550129b23c3"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:cambridge: for  #free until 11 Feb 2010 #permaculture #veges #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-11T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -37.891488,
+      "geo_long": 175.46974,
+      "address": "cambridge",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "waikato",
+          "type": "loc"
+        },
+        {
+          "tag": "cambridge",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/6a877123-ae28-45cc-922b-0c06bc76aa09": {
+    "message_type": "offer",
+    "timestamp": "2010-02-09T21:14:06",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "rhubarb",
+        "type": "tag"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "glen_innes",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  #veges #veges #veges #rhubarb Huge crisp stems available all year round. in l:Glen Innes: for  #barter #cash until 31 Mar 2010 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "6a877123-ae28-45cc-922b-0c06bc76aa09"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Earl Mardle",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/QoDM-fQm3pyJYGLsaMx-beu4UEAeSyaZywf8ly2mw6wI3*nfRvTRiKQKjEw4SAyaVrjRfa*qeE4XIrOAuAGFmeT9wNa2Za*i/922867174.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/EarlMardle"
+    },
+    "offer_text": "OFFER:  #veges #veges #veges #rhubarb Huge crisp stems available all year round. in l:Glen Innes: for  #barter #cash until 31 Mar 2010 #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-03-31T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.875862,
+      "geo_long": 174.860366,
+      "address": "Glen Innes",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "glen_innes",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/744b3023-c816-4f09-b24b-4c3873aaf39b": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T02:12:15",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "waikato",
+        "type": "loc"
+      },
+      {
+        "tag": "cambridge",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:cambridge: for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "744b3023-c816-4f09-b24b-4c3873aaf39b"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:cambridge: for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -37.891488,
+      "geo_long": 175.46974,
+      "address": "cambridge",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "waikato",
+          "type": "loc"
+        },
+        {
+          "tag": "cambridge",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/751660dc-93d4-4454-b3ba-4e3eed6d0170": {
+    "message_type": "offer",
+    "timestamp": "2010-02-03T18:06:35",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "eggs",
+        "type": "tag"
+      },
+      {
+        "tag": "bantam",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "oneroa",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: Just too many eggs for our family in l:1 Tawa St, waiheke: for  #barter #cash until 11 Feb 2010 #eggs #bantam #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "751660dc-93d4-4454-b3ba-4e3eed6d0170"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/HKI*94m966l1Ipz-wmuUHxCaBVrxclmoTNlA5HJS-kJ47gheie4vGF9zim4hPYj29m8-B8meXv*uDaQ9IBZTdTAkR0h4yxKd/jmsbw_med.jpg?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "OFFER: Just too many eggs for our family in l:1 Tawa St, waiheke: for  #barter #cash until 11 Feb 2010 #eggs #bantam #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-11T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.785358,
+      "geo_long": 175.016953,
+      "address": "1 Tawa St, waiheke",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "oneroa",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/770f490a-391b-49ff-8100-1a5a9a7c6cb2": {
+    "message_type": "offer",
+    "timestamp": "2010-02-12T20:08:44",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "lemons",
+        "type": "tag"
+      },
+      {
+        "tag": "tangelos",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      },
+      {
+        "tag": "paekakariki",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  lovely #lemons and #tangelos ripening on the tree in l:paekakariki, nz: for  #free until 23 Feb 2010 #fruit #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "770f490a-391b-49ff-8100-1a5a9a7c6cb2"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "OFFER:  lovely #lemons and #tangelos ripening on the tree in l:paekakariki, nz: for  #free until 23 Feb 2010 #fruit #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-23T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
+      "address": "paekakariki, nz",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "paekakariki",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/7de7f4c7-3f53-4355-a664-2282326d6555": {
+    "message_type": "offer",
+    "timestamp": "2010-02-04T08:47:27",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "seeds",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "ostend",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: A sometimes hard to obtain seed for an awesomely valuable plant. Coca Cola is buyin all the Stevia they can find, and I wonder what happens if I keep typing beyond the Twitter limit of characters? in l:Ostend, Waiheke: for  #free #barter until 11 Feb 2010 #seeds #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "7de7f4c7-3f53-4355-a664-2282326d6555"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/HKI*94m966l1Ipz-wmuUHxCaBVrxclmoTNlA5HJS-kJ47gheie4vGF9zim4hPYj29m8-B8meXv*uDaQ9IBZTdTAkR0h4yxKd/jmsbw_med.jpg?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "OFFER: A sometimes hard to obtain seed for an awesomely valuable plant. Coca Cola is buyin all the Stevia they can find, and I wonder what happens if I keep typing beyond the Twitter limit of characters? in l:Ostend, Waiheke: for  #free #barter until 11 Feb 2010 #seeds #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-11T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.795923,
+      "geo_long": 175.048087,
+      "address": "Ostend, Waiheke",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "ostend",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/8532845683": {
+    "message_type": "offer",
+    "timestamp": "2010-02-02T06:37:55",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "advertising",
+        "type": "tag"
+      },
+      {
+        "tag": "offr",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: web based, excellent rates in l:brandon street wellington: for  #cash until 05 Feb 2011 #Advertising #offr #ooooby #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "8532845683"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "althecat",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/384076446/twitterProfilePhoto_normal.jpg",
+      "screen_name": "althecat",
+      "profile_url": "http://www.twitter.com/althecat",
+      "match_tag": "twitter/althecat"
+    },
+    "offer_text": "OFFER: web based, excellent rates in l:brandon street wellington: for  #cash until 05 Feb 2011 #Advertising #offr #ooooby #offer",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2011-02-05T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.2835,
+      "geo_long": 174.776854,
+      "address": "brandon street wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/86b19c51-abef-49d0-9228-4fbded5e3397": {
+    "message_type": "offer",
+    "timestamp": "2010-02-12T20:09:29",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "lemons",
+        "type": "tag"
+      },
+      {
+        "tag": "tangelos",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      },
+      {
+        "tag": "paekakariki",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  lovely #lemons and #tangelos ripening on the tree in l:paekakariki, nz: for  #free until 23 Feb 2010 #fruit #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "86b19c51-abef-49d0-9228-4fbded5e3397"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "OFFER:  lovely #lemons and #tangelos ripening on the tree in l:paekakariki, nz: for  #free until 23 Feb 2010 #fruit #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-23T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
+      "address": "paekakariki, nz",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "paekakariki",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/893404c6-f286-493a-be72-74a6c92ba7f0": {
+    "message_type": "offer",
+    "timestamp": "2010-02-10T06:10:28",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "plants",
+        "type": "tag"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      }
+    ],
+    "raw_text": "OFFER:  #veges #veges #veges #Plants French Sorrel. Makes a lovely addition to salads and can be used for soups. in l:Little oneroa: for  #barter until 28 Feb 2010 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "893404c6-f286-493a-be72-74a6c92ba7f0"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/ajmktWgHMpK9RHwLtg6tX3a8LksW3r4Fxso*lJYqPa5xTeYEeRMtkvOGZuG1P0*OO412nOVB5SrpZrKaibST08Txaxex9uZQ/jmsbw_med_closeup.jpg?crop=1%3A1",
+      "profile_url": "http://ooooby.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "OFFER:  #veges #veges #veges #Plants French Sorrel. Makes a lovely addition to salads and can be used for soups. in l:Little oneroa: for  #barter until 28 Feb 2010 #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-28T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.784449,
+      "geo_long": 175.017926,
+      "address": "Little oneroa",
+      "tags": []
+    }
+  },
+  "twitter/8955935677": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-11T10:34:47",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "happiness",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "offr",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "mount_albert",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: #happiness preferrably inspired in l:mt albert: for #free until 12 Feb 2010 #offr #ooooby #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "8955935677"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "althecat",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/384076446/twitterProfilePhoto_normal.jpg",
+      "screen_name": "althecat",
+      "profile_url": "http://www.twitter.com/althecat",
+      "match_tag": "twitter/althecat"
+    },
+    "offer_text": "WANTED: #happiness preferrably inspired in l:mt albert: for #free until 12 Feb 2010 #offr #ooooby #offer",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-12T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.884061,
+      "geo_long": 174.71555,
+      "address": "mt albert",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "mount_albert",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/8ad7a073-edb2-4587-aab1-0a1e322c230f": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T03:27:32",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "8ad7a073-edb2-4587-aab1-0a1e322c230f"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
   },
   "twitter/9": {
-    "message_type": "offr",
-    "timestamp": "2009-06-23T12:00:00Z",
+    "message_type": "offer",
+    "timestamp": "2009-06-23T12:00:00",
     "tags": [
       {
-        "currency": "nzd"
+        "tag": "offer",
+        "type": "msg_type"
       },
       {
-        "currency": "barter"
+        "tag": "nzd",
+        "type": "currency"
       },
       {
-        "group": "freecycle"
+        "tag": "barter",
+        "type": "currency"
       },
       {
-        "loc": "new zealand"
+        "tag": "freecycle",
+        "type": "group"
       },
       {
-        "loc": "nz"
+        "tag": "new_zealand",
+        "type": "loc"
       },
       {
-        "loc": "christchurch"
+        "tag": "canterbury",
+        "type": "loc"
+      },
+      {
+        "tag": "christchurch",
+        "type": "loc"
       }
     ],
-    "raw_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Christchurch, NZ: http://bit.ly/234 #freecycle",
+    "raw_text": "#offer For sale: Kitchen jug. #nzd or #barter L:Christchurch, NZ: http://bit.ly/234 #freecycle",
     "message_pointer": {
       "provider_name_space": "twitter",
       "message_id": "9"
     },
     "created_by": {
-      "provider_user_name": "twollar_test_1",
-      "provide_name_space": "twitter",
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
       "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/228862942/YinD_ContactSheet-003_normal.jpg",
-      "screen_name": "twollar_test_1",
-      "profile_url": "http://www.twitter.com/twollar_test_1",
-      "match_tag": "twitter/twollar_test_1"
+      "profile_url": ""
     },
-    "offer_text": "#offr For sale: Kitchen jug. #nzd or #barter L:Christchurch, NZ: http://bit.ly/234 #freecycle",
+    "offer_text": "#offer For sale: Kitchen jug. #nzd or #barter L:Christchurch, NZ: http://bit.ly/234 #freecycle",
     "more_info_url": "http://bit.ly/234",
     "thumbnail": null,
     "end_by": null,
-    "end_by_text": null,
+    "end_by_text": "",
     "location": {
-      "geo_lat": -43.5316370,
-      "geo_long": 172.6366450,
+      "geo_lat": -43.531637,
+      "geo_long": 172.636645,
       "address": "Christchurch, NZ",
       "tags": [
         {
-          "loc": "new zealand"
+          "tag": "new_zealand",
+          "type": "loc"
         },
         {
-          "loc": "nz"
+          "tag": "canterbury",
+          "type": "loc"
         },
         {
-          "loc": "christchurch"
+          "tag": "christchurch",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9032688026": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T00:23:11",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "usa",
+        "type": "loc"
+      },
+      {
+        "tag": "ny",
+        "type": "loc"
+      },
+      {
+        "tag": "new_york",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby I have some lovely testing #veges and #fruit available for #free in Midtwon NYC, NY, USA. #ooooby #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9032688026"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "utunga",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/626218661/miles_normal.jpg",
+      "screen_name": "utunga",
+      "profile_url": "http://www.twitter.com/utunga",
+      "match_tag": "twitter/utunga"
+    },
+    "offer_text": "@ooooby I have some lovely testing #veges and #fruit available for #free in Midtwon NYC, NY, USA. #ooooby #offer",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 40.769081,
+      "geo_long": -73.977126,
+      "address": "Midtwon NYC, NY,",
+      "tags": [
+        {
+          "tag": "usa",
+          "type": "loc"
+        },
+        {
+          "tag": "ny",
+          "type": "loc"
+        },
+        {
+          "tag": "new_york",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9069843172": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T20:54:21",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "kiwifoo2010",
+        "type": "tag"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "warkworth",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "@ooooby I have some lovely lightning talks for #free room A9 at 11.20am in l:warkworth, new zealand: #ooooby #offer #kiwifoo2010",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9069843172"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "althecat",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/384076446/twitterProfilePhoto_normal.jpg",
+      "screen_name": "althecat",
+      "profile_url": "http://www.twitter.com/althecat",
+      "match_tag": "twitter/althecat"
+    },
+    "offer_text": "@ooooby I have some lovely lightning talks for #free room A9 at 11.20am in l:warkworth, new zealand: #ooooby #offer #kiwifoo2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.401726,
+      "geo_long": 174.660769,
+      "address": "warkworth, new zealand",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "warkworth",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9070447269": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T21:14:30",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "kiwifoo2010",
+        "type": "tag"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "warkworth",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: @ooooby I have a new twitter ap to demo for  #free in room A9 at 11.20am in l:warkworth, new zealand: #ooooby #offer #kiwifoo2010",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9070447269"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "althecat",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/384076446/twitterProfilePhoto_normal.jpg",
+      "screen_name": "althecat",
+      "profile_url": "http://www.twitter.com/althecat",
+      "match_tag": "twitter/althecat"
+    },
+    "offer_text": "OFFER: @ooooby I have a new twitter ap to demo for  #free in room A9 at 11.20am in l:warkworth, new zealand: #ooooby #offer #kiwifoo2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.401726,
+      "geo_long": 174.660769,
+      "address": "warkworth, new zealand",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "warkworth",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9073571215": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-13T22:59:03",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "kiwifoo2010",
+        "type": "tag"
+      },
+      {
+        "tag": "india",
+        "type": "loc"
+      },
+      {
+        "tag": "madhya_pradesh",
+        "type": "loc"
+      },
+      {
+        "tag": "thandla",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer #ooooby #free #kiwifoo2010",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9073571215"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "althecat",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/384076446/twitterProfilePhoto_normal.jpg",
+      "screen_name": "althecat",
+      "profile_url": "http://www.twitter.com/althecat",
+      "match_tag": "twitter/althecat"
+    },
+    "offer_text": "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer #ooooby #free #kiwifoo2010",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 23.0134476,
+      "geo_long": 74.5802325,
+      "address": "New",
+      "tags": [
+        {
+          "tag": "india",
+          "type": "loc"
+        },
+        {
+          "tag": "madhya_pradesh",
+          "type": "loc"
+        },
+        {
+          "tag": "thandla",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9158882225": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-15T22:28:32",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": ":-) l:Wellington: #free #ooooby #want",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9158882225"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "JoavBeerman",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1265999168/images/default_profile_2_normal.png",
+      "screen_name": "JoavBeerman",
+      "profile_url": "http://www.twitter.com/JoavBeerman",
+      "match_tag": "twitter/JoavBeerman"
+    },
+    "offer_text": ":-) l:Wellington: #free #ooooby #want",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "Wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9159129438": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-15T22:38:24",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "&gt;.&gt; l:Wellington: #free @ooooby #want",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9159129438"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "JoavBeerman",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1265999168/images/default_profile_2_normal.png",
+      "screen_name": "JoavBeerman",
+      "profile_url": "http://www.twitter.com/JoavBeerman",
+      "match_tag": "twitter/JoavBeerman"
+    },
+    "offer_text": "&gt;.&gt; l:Wellington: #free @ooooby #want",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "Wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9159699665": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-15T23:28:09",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": ":O l:Wellington: #free @ooooby #want",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9159699665"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "JoavBeerman",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://s.twimg.com/a/1265999168/images/default_profile_2_normal.png",
+      "screen_name": "JoavBeerman",
+      "profile_url": "http://www.twitter.com/JoavBeerman",
+      "match_tag": "twitter/JoavBeerman"
+    },
+    "offer_text": ":O l:Wellington: #free @ooooby #want",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.28648,
+      "geo_long": 174.776217,
+      "address": "Wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9496485178": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-22T22:28:14",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "offr",
+        "type": "tag"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      },
+      {
+        "tag": "karori",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED:  celery in exchange for potatoes in l:karori wellington: for  #barter until 03/03/2010 #ooooby #offr #offer",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9496485178"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "althecat",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/701938230/alastair_small_normal.jpg",
+      "screen_name": "althecat",
+      "profile_url": "http://www.twitter.com/althecat",
+      "match_tag": "twitter/althecat"
+    },
+    "offer_text": "WANTED:  celery in exchange for potatoes in l:karori wellington: for  #barter until 03/03/2010 #ooooby #offr #offer",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-03-03T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.284878,
+      "geo_long": 174.73693,
+      "address": "karori wellington",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "karori",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/97f7732e-8c74-452b-a025-2a13b2bbcdbb": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T02:33:16",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:(suburb): for  #free #barter #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "97f7732e-8c74-452b-a025-2a13b2bbcdbb"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:(suburb): for  #free #barter #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/9cfe62c4-587b-4bae-9eb4-5cc520ee3d65": {
+    "message_type": "offer",
+    "timestamp": "2010-02-05T03:36:11",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "eggs",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "belgique",
+        "type": "loc"
+      },
+      {
+        "tag": "vlaams_gewest",
+        "type": "loc"
+      },
+      {
+        "tag": "oostende",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: double yolkers in l:ostend: for  #barter until 10 Feb 2010 #eggs #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "9cfe62c4-587b-4bae-9eb4-5cc520ee3d65"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Pete Russell",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/Vyi5t-fJXoOMz7xKWjeU5Eu7VHDbEAnsTlhIqEJVeiY_/721778968.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/PeteRussell"
+    },
+    "offer_text": "OFFER: double yolkers in l:ostend: for  #barter until 10 Feb 2010 #eggs #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-10T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 51.2254102,
+      "geo_long": 2.9133725,
+      "address": "ostend",
+      "tags": [
+        {
+          "tag": "belgique",
+          "type": "loc"
+        },
+        {
+          "tag": "vlaams_gewest",
+          "type": "loc"
+        },
+        {
+          "tag": "oostende",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/b10c8997-ad5a-4d35-96dc-08c886f877ae": {
+    "message_type": "offer",
+    "timestamp": "2010-02-10T22:18:05",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "rhubarb",
+        "type": "tag"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  #rhubarb (details) in l:(suburb): for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "b10c8997-ad5a-4d35-96dc-08c886f877ae"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "OFFER:  #rhubarb (details) in l:(suburb): for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/b3c4f96e-164c-4bd7-aba7-abdc2af746e2": {
+    "message_type": "offer",
+    "timestamp": "2010-02-04T06:03:35",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "tomatoes",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "ostend",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: Cherry tomatoes, ripened on the vine. Yumm! in l:Ostend, Waiheke: for  #cash until 11 Feb 2010 #veges #Tomatoes #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "b3c4f96e-164c-4bd7-aba7-abdc2af746e2"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/HKI*94m966l1Ipz-wmuUHxCaBVrxclmoTNlA5HJS-kJ47gheie4vGF9zim4hPYj29m8-B8meXv*uDaQ9IBZTdTAkR0h4yxKd/jmsbw_med.jpg?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "OFFER: Cherry tomatoes, ripened on the vine. Yumm! in l:Ostend, Waiheke: for  #cash until 11 Feb 2010 #veges #Tomatoes #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-11T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.795923,
+      "geo_long": 175.048087,
+      "address": "Ostend, Waiheke",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "ostend",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/b86760a6-7d1c-49b5-85d7-5d20d218013a": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-02T06:17:55",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "eggs",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: preferrably homegrown in l:16 Tisdall Street, Karori: for  #barter until 05 Feb 2010 #eggs # #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "b86760a6-7d1c-49b5-85d7-5d20d218013a"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "WANTED: preferrably homegrown in l:16 Tisdall Street, Karori: for  #barter until 05 Feb 2010 #eggs # #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-05T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -41.288832,
+      "geo_long": 174.737415,
+      "address": "16 Tisdall Street, Karori",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/ba7c6481-cba8-4767-86d4-b18ad10f690f": {
+    "message_type": "offer",
+    "timestamp": "2010-02-02T06:05:02",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "eggs",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      },
+      {
+        "tag": "paekakariki",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: eggs in l:paekakariki: for  #free #eggs #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "ba7c6481-cba8-4767-86d4-b18ad10f690f"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "OFFER: eggs in l:paekakariki: for  #free #eggs #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
+      "address": "paekakariki",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "paekakariki",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/c5f34af3-9aec-437f-a5ae-adf36c5186f1": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T19:43:57",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "herbs",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "oneroa",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  Stevia cuttings. Apparently late winter is best. Get in touch if you want some. Exchange negotiable. in l:Oneroa: for  #free #barter #cash until 31 Aug 2010 #Herbs #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "c5f34af3-9aec-437f-a5ae-adf36c5186f1"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "James Samuel",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/HKI*94m966l1Ipz-wmuUHxCaBVrxclmoTNlA5HJS-kJ47gheie4vGF9zim4hPYj29m8-B8meXv*uDaQ9IBZTdTAkR0h4yxKd/jmsbw_med.jpg?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/JamesSamuel"
+    },
+    "offer_text": "OFFER:  Stevia cuttings. Apparently late winter is best. Get in touch if you want some. Exchange negotiable. in l:Oneroa: for  #free #barter #cash until 31 Aug 2010 #Herbs #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-08-31T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.783433,
+      "geo_long": 175.010831,
+      "address": "Oneroa",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "oneroa",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/c5f6374c-9507-4c2e-ab51-8447ba33994f": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T03:54:54",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "c5f6374c-9507-4c2e-ab51-8447ba33994f"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/deaec864-0461-4e34-b3c4-e07a4d20d7ef": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-02T06:10:58",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "waikato",
+        "type": "loc"
+      },
+      {
+        "tag": "taupo",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: cherries in l:taupo: for  #free #fruit #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "deaec864-0461-4e34-b3c4-e07a4d20d7ef"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: cherries in l:taupo: for  #free #fruit #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -38.686594,
+      "geo_long": 176.069694,
+      "address": "taupo",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "waikato",
+          "type": "loc"
+        },
+        {
+          "tag": "taupo",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/e1c67c7f-af3f-4631-abf1-73757a489d13": {
+    "message_type": "wanted",
+    "timestamp": "2010-02-04T03:31:23",
+    "tags": [
+      {
+        "tag": "wanted",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "中国",
+        "type": "loc"
+      },
+      {
+        "tag": "广东省",
+        "type": "loc"
+      },
+      {
+        "tag": "中山市",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "e1c67c7f-af3f-4631-abf1-73757a489d13"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Joav",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/nG3dXyOECRi5xd0hXQc2x2s0cNADBghorO6qDSSTlEDDyiuhBmkx5SXgW5DoCqAJo3ZTRH9U4WDqj86mpJLP0hFUlTnOSR3r/705320230.png?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/Joav"
+    },
+    "offer_text": "WANTED: (details) in l:(suburb): for  #free #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 22.533866,
+      "geo_long": 113.37565,
+      "address": "(suburb)",
+      "tags": [
+        {
+          "tag": "中国",
+          "type": "loc"
+        },
+        {
+          "tag": "广东省",
+          "type": "loc"
+        },
+        {
+          "tag": "中山市",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/e611128d-e705-4097-a187-c04c705523f4": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T16:51:38",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "free",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "warkworth",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  Room Cleaning Services in l:warkworth, auckland: for  #free until 6am 14 Feb 2010 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "e611128d-e705-4097-a187-c04c705523f4"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Alastair Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/On97HN1tDNTdTFZGw8rsYtnjlFqlNNGGtO3Y8jL0RfAivSzi6dHLaZO3I2t8WgzWT6NdVWRYaFeIY49aqIbVooaAsv3nm6Ey/773086504.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/AlastairThompson"
+    },
+    "offer_text": "OFFER:  Room Cleaning Services in l:warkworth, auckland: for  #free until 6am 14 Feb 2010 #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.401726,
+      "geo_long": 174.660769,
+      "address": "warkworth, auckland",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "warkworth",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/e9a24284-45cc-4b7e-b827-1ec05f4551dd": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T13:22:39",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "warkworth",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  delicious small tomatoes in l:warkworth: for  #barter until 14 Feb 2010 #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "e9a24284-45cc-4b7e-b827-1ec05f4551dd"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Alastair Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/On97HN1tDNTdTFZGw8rsYtnjlFqlNNGGtO3Y8jL0RfAivSzi6dHLaZO3I2t8WgzWT6NdVWRYaFeIY49aqIbVooaAsv3nm6Ey/773086504.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/AlastairThompson"
+    },
+    "offer_text": "OFFER:  delicious small tomatoes in l:warkworth: for  #barter until 14 Feb 2010 #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-14T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.401726,
+      "geo_long": 174.660769,
+      "address": "warkworth",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "warkworth",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/ea2d434c-831e-4374-9b52-655d02851f09": {
+    "message_type": "offer",
+    "timestamp": "2010-02-02T06:25:28",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "eggs",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "usa",
+        "type": "loc"
+      },
+      {
+        "tag": "ca",
+        "type": "loc"
+      },
+      {
+        "tag": "temecula",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: web based, excellent rates in for  #cash until 05 Feb 2011 #eggs # #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "ea2d434c-831e-4374-9b52-655d02851f09"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "OFFER: web based, excellent rates in for  #cash until 05 Feb 2011 #eggs # #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2011-02-05T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": 33.4957175,
+      "geo_long": -117.0456136,
+      "address": "for  #cash",
+      "tags": [
+        {
+          "tag": "usa",
+          "type": "loc"
+        },
+        {
+          "tag": "ca",
+          "type": "loc"
+        },
+        {
+          "tag": "temecula",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/fa39cdc8-2057-491f-a83c-248450ab64bf": {
+    "message_type": "offer",
+    "timestamp": "2010-02-13T22:24:34",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "fruit",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "warkworth",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER:  jewellry one bird pendant in l:warkworth, new zealand: for  #barter #cash #fruit #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "fa39cdc8-2057-491f-a83c-248450ab64bf"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Miles Thompson",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com/files/e8j55wYy8dOF4G2Tc2xlF2SnUpF9HbyUgbsCA43rqCZ5eNG2TFQu5zb7JfXErTROYhPch5PaDGwsxuXMwwZSXSQtPap9zCDd/267662688.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/MilesThompson"
+    },
+    "offer_text": "OFFER:  jewellry one bird pendant in l:warkworth, new zealand: for  #barter #cash #fruit #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.401726,
+      "geo_long": 174.660769,
+      "address": "warkworth, new zealand",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "warkworth",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/fb9af3b3-a1d1-4c00-80dd-92df4073258e": {
+    "message_type": "offer",
+    "timestamp": "2010-02-04T23:15:39",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "cash",
+        "type": "currency"
+      },
+      {
+        "tag": "veges",
+        "type": "tag"
+      },
+      {
+        "tag": "ooooby",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "ostend",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "OFFER: beefsteak tomatoes 5kg available.  $2 per kilo. pick up only. in l:ostend, waiheke: for  #cash until 10 Feb 2010 #veges #ooooby",
+    "message_pointer": {
+      "provider_name_space": "twitter",
+      "message_id": "fb9af3b3-a1d1-4c00-80dd-92df4073258e"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "Pete Russell",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://api.ning.com:80/files/Vyi5t-fJXoOMz7xKWjeU5Eu7VHDbEAnsTlhIqEJVeiY_/721778968.bin?crop=1%3A1",
+      "profile_url": "http://utunga.ning.com/profile/PeteRussell"
+    },
+    "offer_text": "OFFER: beefsteak tomatoes 5kg available.  $2 per kilo. pick up only. in l:ostend, waiheke: for  #cash until 10 Feb 2010 #veges #ooooby",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": "2010-02-10T00:00:00",
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -36.795923,
+      "geo_long": 175.048087,
+      "address": "ostend, waiheke",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "ostend",
+          "type": "loc"
         }
       ]
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ninject.Core;
 using Offr.Common;
 using Offr.Text;
 using Offr.Twitter;
@@ -11,6 +12,9 @@ namespace Offr.Users
 {
     public class UserProvider : IUserProvider, IMemCache
     {
+        [Inject]
+        public WebRequest.WebRequestMethod RetrieveWebContent { get; set; }
+
         //fixme should use a proper cache thing
         private Dictionary<IUserPointer, User> _users;
         private readonly object[] _syncLock = new object[0];
@@ -59,11 +63,11 @@ namespace Offr.Users
             _users = new Dictionary<IUserPointer, User>();
         }
 
-        private static User RetrieveTwitterUser(TwitterUserPointer pointer)
+        private User RetrieveTwitterUser(TwitterUserPointer pointer)
         {
             //FIXME the problem with this is rapid using up of rate limiting.. grr
-            string url = String.Format(WebRequest.TWITTER_USER_URI, pointer.ProviderUserName);
-            string xml = WebRequest.RetrieveContent(url);
+            string url = String.Format(TwitterRawMessageProvider.TWITTER_USER_URI, pointer.ProviderUserName);
+            string xml = RetrieveWebContent(url);
             User user = XmlTwitterParser.ParseUser(xml);
             return user;
         }

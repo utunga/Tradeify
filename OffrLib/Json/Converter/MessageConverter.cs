@@ -14,9 +14,9 @@ namespace Offr.Json.Converter
         {
             string type = JSON.ReadProperty<string>(serializer, reader, "message_type");
             log.Info("Trying to create object of type: " + type);
-            if (type.Equals("offer"))
+            if (type.Equals(MessageType.offer.ToString()))
                 return new OfferMessage();
-            else if (type.Equals("wanted"))
+            else if (type.Equals(MessageType.wanted.ToString()))
                 return new WantedMessage();
            throw new JsonReaderException("Failed to recognize Message of type:" + type);
         }

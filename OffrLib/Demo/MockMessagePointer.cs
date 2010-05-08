@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Offr.Json;
 using Offr.Message;
 using Offr.Text;
@@ -19,7 +21,7 @@ namespace Offr.Demo
         public string SourceURL { get; private set; }
         public IResolvedURI ResolvedURL { get; private set; }
         public string ProviderMessageID { get; private set; }
-        public string ProviderNameSpace { get { return "twitter"; }}
+        public string ProviderNameSpace { get { return "mock"; }}
         
         public MockMessagePointer(int id)
         {
@@ -43,19 +45,21 @@ namespace Offr.Demo
             return (MatchTag != null ? MatchTag.GetHashCode() : 0);
         }
 
-        #region Implementation of ICanJson
+        #region Implementation of ICanJsonObject
 
         public void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
-            TwitterMessagePointer messagePointer = new TwitterMessagePointer(long.Parse(ProviderMessageID));
-            messagePointer.WriteJson(writer,serializer);
+            JSON.WriteProperty(serializer, writer, "type", this.GetType().Name);
+            JSON.WriteProperty(serializer, writer, "provider_name_space", ProviderNameSpace);
+            JSON.WriteProperty(serializer, writer, "message_id", ProviderMessageID);
         }
 
-        public void ReadJson(JsonReader reader, JsonSerializer serializer)
+        public void ReadJson(JObject jObject, JsonSerializer serializer)
         {
-            throw new NotSupportedException();          
+            string providerNameSpace = JSON.ReadProperty<string>(jObject, "provider_name_space");
+            Debug.Assert("mock".Equals(providerNameSpace), "Expect name space to be 'mock' for this type");
+            this.ProviderMessageID = JSON.ReadProperty<string>(jObject, "message_id");
         }
-
         #endregion
     }
 }

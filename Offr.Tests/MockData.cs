@@ -27,7 +27,7 @@ namespace Offr.Tests
             MSG_COUNT = 6;
             Offers = new List<string> { "mulch", "car", "vegetables", "garden supplies", "yams", "squash"};
             DateTime fixedStart = DateTime.Now.Subtract(TimeSpan.FromDays(365)).ToUniversalTime();
-            User0 = new MockUserPointer("test", "utunga" );
+            User0 = new TwitterUserPointer("utunga" );
             User0.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg";
 
             Location0 = new Location.Location
@@ -41,7 +41,7 @@ namespace Offr.Tests
 
                             };
 
-            User1 = new MockUserPointer("test", "utunga");
+            User1 = new TwitterUserPointer("utunga");
             User1.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg";
             Location1 = new Location.Location
             {
@@ -53,7 +53,7 @@ namespace Offr.Tests
             };
 
             //http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Waiheke+Island&sll=-40.985341,174.95394&sspn=0.012424,0.027895&ie=UTF8&ll=-36.79609,175.095978&spn=0.204268,0.44632&t=h&z=12
-            User1 = new MockUserPointer("test", "shelly");
+            User1 = new TwitterUserPointer("shelly");
             User1.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/140759410/avatar_bigger.jpg";
 
             Location2 = new Location.Location
@@ -66,7 +66,7 @@ namespace Offr.Tests
             };
 
 
-            User2 = new MockUserPointer("test", "utunga");
+            User2 = new TwitterUserPointer("utunga");
             User2.ProfilePicUrl = "http://s3.amazonaws.com/twitter_production/profile_images/82440779/miles_bigger.jpg";
           
             // -- setup facets 

@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Newtonsoft.Json;
-using Offr.Json;
 using Offr.Json.Converter;
 using Offr.Message;
 using Offr.Text;
 
 namespace Offr.Twitter
 {
-    public class TwitterMessagePointer :IMessagePointer 
+    public class TwitterMessagePointer : MessagePointerBase 
     {
-        public string MatchTag
+        public override string ProviderNameSpace
         {
-            get { return ProviderNameSpace + "/" + ProviderMessageID; }
+            get { return "twitter"; }
+            protected set
+            {
+                if (!"twitter".Equals(value))
+                {
+                    throw new ApplicationException("expect namespace for TwitterMessagePointer to be 'twitter' only");
+                }
+            }
         }
-        public string ProviderNameSpace { get { return "twitter"; } }
-        public string ProviderMessageID { get; private set; }
-     
+
         public TwitterMessagePointer()
         {
         }
@@ -28,36 +31,10 @@ namespace Offr.Twitter
         {
             ProviderMessageID = status_id.ToString();
         }
-        #region equals
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return ((obj is IMessagePointer) ? this.Equals((IMessagePointer)obj) : false);
-        }
-        public bool Equals(IMessagePointer messagePointer)
-        {
-            return Equals(MatchTag,messagePointer.MatchTag);
-        }
 
-        public override int GetHashCode()
+        public override string ToString()
         {
-            return (MatchTag != null ? MatchTag.GetHashCode() : 0);
+            return "TwitterMessagePointer(" + MatchTag + ")";
         }
-        #endregion equals
-        #region JSON
-        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
-        {
-            JSON.WriteProperty(serializer,writer,"provider_name_space", ProviderNameSpace);
-            JSON.WriteProperty(serializer, writer, "message_id", ProviderMessageID);
-        }
-
-        public void ReadJson(JsonReader reader, JsonSerializer serializer)
-        {
-            //JSON.ReadProperty<string>(serializer, reader, "provider_name_space");
-            this.ProviderMessageID = JSON.ReadProperty<string>(serializer, reader, "message_id");
-            
-        }
-        #endregion JSON
     }
 }

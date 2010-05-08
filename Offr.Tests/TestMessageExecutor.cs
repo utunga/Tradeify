@@ -213,12 +213,12 @@ namespace Offr.Tests
             Console.Out.WriteLine("ran " + queryCount + " queries in " + stopwatch.ElapsedMilliseconds + "ms - average:" + stopwatch.ElapsedMilliseconds / queryCount + "ms or " + stopwatch.ElapsedTicks / queryCount + "ticks");
         }
         [Test]
-        public void testBlankQuery()
+        public void TestBlankQuery()
         {
             //Is this desirable behaviour?
             List<ITag> multiTags = new List<ITag>();
             MessagesWithTagCounts results =  _target.GetMessagesWithTagCounts(multiTags);
-            Assert.That(results.TagCount == 0);
+            Assert.That(results.MessageCount == MockData.RawMessages.Count);
         }
 
         [Test]
@@ -251,7 +251,7 @@ namespace Offr.Tests
             List<IMessage> oldResults=new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }));
             ITag expiredTag=tag;
             OfferMessage message = new OfferMessage();
-            message.CreatedBy = new MockUserPointer("x", "jim"); ;
+            message.CreatedBy = new TwitterUserPointer("jim"); ;
             ////msg.Source = source; //Remove this
             message.Timestamp = DateTime.MinValue;
             message.MessagePointer = new OpenSocialMessagePointer("ooooby");
@@ -264,7 +264,7 @@ namespace Offr.Tests
             List<IMessage>  newResults = new List<IMessage>(_target.GetMessagesForTags(new ITag[] { tag }));
             Assert.AreEqual(newResults,oldResults);
             OfferMessage message2 = new OfferMessage();
-            message2.CreatedBy = new MockUserPointer("x", "jim"); 
+            message2.CreatedBy = new TwitterUserPointer("jim"); 
             ////msg.Source = source; //Remove this
             message2.Timestamp = DateTime.MinValue;
             message2.MessagePointer = new OpenSocialMessagePointer("ooooby2");

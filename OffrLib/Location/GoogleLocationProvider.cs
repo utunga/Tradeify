@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using Ninject.Core;
 using NLog;
+using Offr.Common;
 using Offr.Json;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
-using Offr.Twitter;
 
 namespace Offr.Location
 {
@@ -21,9 +22,11 @@ namespace Offr.Location
         public const string GOOGLE_API_KEY= "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&gl=NZ";
         public const string GOOGLE_REVERSE_URI = "http://maps.google.com/maps/geo?output=json&oe=utf-8&ll={0}%2C{1}";
-        
 
-       private readonly List<IRawMessageReceiver> _receivers;
+        [Inject]
+        public WebRequest.WebRequestMethod RetrieveWebContent { get; set; }
+ 
+        private readonly List<IRawMessageReceiver> _receivers;
 
         public GoogleLocationProvider()
         {
@@ -42,6 +45,7 @@ namespace Offr.Location
             ILocation best = null;
             while (address.Length >= 1)
             {
+                address = address.Trim();
                 ILocation newLocation = Parse(address);
                 if (newLocation != null)
                 {
@@ -88,21 +92,23 @@ namespace Offr.Location
             newlyFound.AddressText = addressText;
             LocationRepository.Save(newlyFound);
         }
-        private static GoogleResultSet reverseGeocodeCoordinates(string text, GoogleResultSet.PlacemarkType placemark)
+        
+        private GoogleResultSet reverseGeocodeCoordinates(string text, GoogleResultSet.PlacemarkType placemark)
         {
             string requestURI = string.Format(GOOGLE_REVERSE_URI, placemark.Point.coordinates[1],placemark.Point.coordinates[0]);
-            string responseData = WebRequest.RetrieveContent(requestURI);
+            string responseData = RetrieveWebContent(requestURI);
             //make sure the name isnt coordinates
             GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
             resultSet.name = text;
             return resultSet;
-        }
+        }
+
         protected GoogleResultSet GetResultSet(string addressText)
         {
             try
             {
                 string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
-                string responseData = WebRequest.RetrieveContent(requestURI);
+                string responseData = RetrieveWebContent(requestURI);
                 GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
                 if (resultSet.Placemark != null && resultSet.Placemark.Length > 0)
                 {
@@ -112,7 +118,7 @@ namespace Offr.Location
                 }
                 return resultSet;
             }
-            catch (System.Net.WebException ex)
+            catch (Exception ex)
             {
                 _log.ErrorException("Failure during parsing of address will just return null", ex);
                 GoogleResultSet blankResult = new GoogleResultSet();

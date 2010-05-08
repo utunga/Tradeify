@@ -1,4 +1,4 @@
-﻿function OSocialContainer() {
+﻿    function OSocialContainer() {
     this.cross_uri = "http://tradeify.org/osocial/Cross.png";
     this.tick_uri = "http://tradeify.org/osocial/Tick.png";
     this.offers_uri = "http://tradeify.org/tradeify_json.aspx";

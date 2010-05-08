@@ -42,7 +42,7 @@ namespace Offr.Demo
 
         public MockRawMessage(int id)
         {
-            Pointer = new MockMessagePointer(id);
+            Pointer = new TwitterMessagePointer(id);
             _tags = new TagList();
         }
 

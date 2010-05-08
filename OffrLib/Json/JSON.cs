@@ -8,7 +8,9 @@ using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using Offr.Json.Converter;
+using Offr.Json.JObjectConverter;
 using Offr.Text;
 
 namespace Offr.Json
@@ -94,6 +96,14 @@ namespace Offr.Json
             ReadAndAssert(reader);
             //if (reader.TokenType == JsonToken.Null) return null as T;
             return (T)serializer.Deserialize(reader, typeof(T));
+        }
+
+        public static T ReadProperty<T>(JObject jObject, string propertyName)// where  T : Nullable
+        {
+            var token = jObject[propertyName];
+            return (token == null) ? default(T) : token.Value<T>();
+            //if (reader.TokenType == JsonToken.Null) return null as T;
+            //return (T)serializer.Deserialize(reader, typeof(T));
         }
 
         public static void WriteProperty(JsonSerializer serializer, JsonWriter writer, string property, object value)

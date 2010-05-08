@@ -8,32 +8,27 @@ using Offr.Json;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
+using WebRequest=Offr.Common.WebRequest;
 
 namespace Offr.Twitter
 {
     public class TwitterRawMessageProvider : IRawMessageProvider
     {
-        private readonly IRawMessageReceiver _receiver;
-        //public const string QUERY_FOR_GROUPS = "ooooby";
-
-        public TwitterRawMessageProvider(IRawMessageReceiver receiver)
-        {
-            _receiver = receiver;
-        }
-        /*
         [Inject]
-        public TwitterRawMessageProvider(IRawMessageReceiver receiver) : this(receiver)
-        {
-           
-        }
-        */
-        #region Implementation of IRawMessageProvider
+        public WebRequest.WebRequestMethod RetrieveWebContent { get; set; }
 
-        // not sure how useful this is
+        private readonly IRawMessageReceiver _receiver;
         public string ProviderNameSpace
         {
             get { return "twitter"; }
         }
+     
+        public TwitterRawMessageProvider(IRawMessageReceiver receiver)
+        {
+            _receiver = receiver;
+        }
+     
+        #region Implementation of IRawMessageProvider
 
 
         public void Update()
@@ -45,6 +40,9 @@ namespace Offr.Twitter
             }
         }
 
+        #endregion
+
+        [Obsolete("not part of IRawMessageProvider any more")]
         public IEnumerable<IRawMessage> ForQueryText(string keywordQuery)
         {
             // always require the "hash tag of the messages we are interested in "
@@ -53,10 +51,10 @@ namespace Offr.Twitter
             {
                 query += "+" + HttpUtility.UrlEncode(keywordQuery);
             }
-            string url = String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query); // query back as far as we can go for these keywords 
+            string url = String.Format((string) TWITTER_SEARCH_INIT_URI, (object) query); // query back as far as we can go for these keywords 
             LogManager.GetLogger("Global").Info("Polling twitter now");
             //Console.WriteLine("url =" + url);
-            string responseData = WebRequest.RetrieveContent(url);
+            string responseData = RetrieveWebContent(url);
             Console.WriteLine("responseData =" + responseData);
             TwitterResultSet resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
             //note that we don't update _last_id in this case (we're not caching this data)
@@ -68,15 +66,14 @@ namespace Offr.Twitter
             return statusUpdatesForQuery;
         }
 
+        [Obsolete("not part of IRawMessageProvider any more")]
         public IRawMessage ByID(string providerMessageID)
         {
-            string url = String.Format(WebRequest.TWITTER_STATUS_URI, providerMessageID); // query back to beginning of time
-            string responseData = WebRequest.RetrieveContent(url);
+            string url = String.Format((string) TWITTER_STATUS_URI, (object) providerMessageID); // query back to beginning of time
+            string responseData = RetrieveWebContent(url);
             TwitterStatusXml xmlStatus = XmlTwitterParser.ParseStatus(responseData);
             return new TwitterRawMessage(xmlStatus);
         }
-
-        #endregion
 
         private long _last_id = 0;
         private IList<IRawMessage> GetNewUpdates()
@@ -85,13 +82,13 @@ namespace Offr.Twitter
             // always require the "hash tag of the messages we are interested in "
             string query = GetQuery();
             string url = _last_id == 0 ? 
-                String.Format(WebRequest.TWITTER_SEARCH_INIT_URI, query) :
-                String.Format(WebRequest.TWITTER_SEARCH_POLL_URI, _last_id, query);
+                String.Format((string) TWITTER_SEARCH_INIT_URI, (object) query) :
+                String.Format(TWITTER_SEARCH_POLL_URI, _last_id, query);
             
             TwitterResultSet resultSet = null;
             try
             {
-                string responseData = WebRequest.RetrieveContent(url);
+                string responseData = RetrieveWebContent(url);
                 resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
                 _last_id = resultSet.max_id;
             }
@@ -147,5 +144,10 @@ namespace Offr.Twitter
             return request;
             //return QUERY_FOR_GROUPS;
         }
+
+        public const string TWITTER_SEARCH_INIT_URI = "http://search.twitter.com/search.json?q={0}&rpp=100";
+        public const string TWITTER_SEARCH_POLL_URI = "http://search.twitter.com/search.json?since_id={0}&q={1}";
+        public const string TWITTER_USER_URI = "http://twitter.com/users/show/{0}.xml";
+        public const string TWITTER_STATUS_URI = "http://twitter.com/statuses/show/{0}.xml";
     }
 }
