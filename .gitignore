@@ -12,4 +12,12 @@ _ReSharper*
 *.db
 Offr.Tests/bin
 OffrLib/bin
-lib/Newtonsoft.Json/src/bin
+twademe/nlog*
+twademe/Bin/x86/Debug/*
+twademe/Bin/x86/Release/*
+twademe/Bin/*
+twademe/data/*
+*vsp
+lib/Newtonsoft.Json/Src/bin/**
+lib/lokad**
+lib/NCouch**
