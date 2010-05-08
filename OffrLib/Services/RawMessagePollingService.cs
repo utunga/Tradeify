@@ -24,7 +24,7 @@ namespace Offr.Services
         {
             _syncLock = new object[0];
             //FIXME this will need to change (if we want to support multiple providers) also makes it hard to test
-            _provider = Global.Kernel.Get<IRawMessageProvider>();
+            _provider = Global.GetRawMessageProvider();
         }
 
         public static void Start(IBackgroundExceptionReceiver exceptionReceiver)

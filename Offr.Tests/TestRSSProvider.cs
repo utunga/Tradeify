@@ -29,9 +29,9 @@ namespace Offr.Tests
 
              
         [Test]
-        public void TestGetMessages()
+        public void TestGetRawMessages()
         {
-            RSSRawMessageProvider rssProvider = new RSSRawMessageProvider("ooooby", "http://localhost:60600/data/activity.rss",this);
+            RSSRawMessageProvider rssProvider = new RSSRawMessageProvider("ooooby", "http://localhost:60600/data/activity.rss", this, new MockWebRequestFactory());
             rssProvider.Update();
 
             // somewhat of an integration test, but gets us some of the way there
@@ -44,7 +44,7 @@ namespace Offr.Tests
                  Console.Out.WriteLine();
             }
 
-            Assert.AreEqual(1, _receivedMessages.Count);
+            Assert.AreEqual(10, _receivedMessages.Count);
         }
 
         //[Test]

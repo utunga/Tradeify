@@ -18,7 +18,7 @@ namespace twademe
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
+            ITagRepository _tagProvider = Global.GetTagRepository();
 
             if (Request.Params["type"] != null || Request.Params["q"] !=null)
             {

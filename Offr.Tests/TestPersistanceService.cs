@@ -25,7 +25,7 @@ namespace Offr.Tests
         public void SetUp()
         {
             // if the IMessageRepository being provided by kernal is *not* a MessageRepository none of this test is going to work
-            _messageRepository = (MessageRepository) Global.Kernel.Get<IMessageRepository>();
+            _messageRepository = (MessageRepository) Global.GetMessageRepository();
             _receiver = new BackgroundExceptionReceiver();
             _filePath = "data/empty_offer.json";
             _messageRepository.FilePath = _filePath;

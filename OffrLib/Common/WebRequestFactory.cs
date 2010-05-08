@@ -8,10 +8,9 @@ using System.Text;
 namespace Offr.Common
 {
 
-    public class WebRequest
+    public class WebRequestFactory : IWebRequestFactory
     {
-        public delegate string WebRequestMethod(string uri);
-    
+
         /// <summary>
         /// Web Request Wrapper
         /// </summary>

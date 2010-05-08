@@ -193,7 +193,7 @@ namespace Offr.Tests
         public void TestHashStopsIn()
         {
             string text = "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer #ooooby #free #kiwifoo2010 ";
-            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new GoogleLocationProvider());
+            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new MockLocationProvider());
             ILocation l = regexMessageParser.TEST_GetLocation(text);
             Assert.AreEqual("New Zealand", l.AddressText, "failed to stop at # tag or at . in parsing address");
         }
@@ -201,7 +201,7 @@ namespace Offr.Tests
         public void TestAtSymbolGroup()
         {
             string text = "WANTED: People to help frank.march@curmudgeon.net.nz with removing data caps in New Zealand #offer @ooooby #free #kiwifoo2010 ";
-            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new GoogleLocationProvider());
+            RegexMessageParser regexMessageParser = new RegexMessageParser(tagRepository, new MockLocationProvider());
              MockRawMessage raw = new MockRawMessage(0)
              {
                  Timestamp = DateTime.Now.AddHours(-5),

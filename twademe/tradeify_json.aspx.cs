@@ -22,9 +22,9 @@ namespace twademe
         {
             Response.ContentType = "application/json";
             NameValueCollection request = Request.QueryString;
-            
-            ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
-            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
+
+            ITagRepository tagProvider = Global.GetTagRepository();
+            IMessageQueryExecutor queryExecutor = Global.GetMessageRepository();
             List<ITag> tags = tagProvider.GetTagsFromNameValueCollection(request);
             IUserPointer user = GetUserPointer(request);
             MessagesWithTagCounts messagesWithTags = queryExecutor.GetMessagesWithTagCounts(tags,user);

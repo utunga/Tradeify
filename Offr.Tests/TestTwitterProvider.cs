@@ -25,12 +25,12 @@ namespace Offr.Tests
             singletonTagProvider.FilePath = "data/initial_tags.json";
             singletonTagProvider.InitializeFromFile();
             
-            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
+            ILocationProvider locationProvider = new MockLocationProvider();
             RegexMessageParser realMessageParser = new RegexMessageParser(singletonTagProvider, locationProvider);
             _messageRepository = new MessageRepository();
             _tagRepository = new TagRepository();
             IncomingMessageProcessor target = new IncomingMessageProcessor(_messageRepository, _tagRepository, realMessageParser);
-            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider((IRawMessageReceiver) target);
+            TwitterRawMessageProvider twitterProvider = new TwitterRawMessageProvider((IRawMessageReceiver)target, new MockWebRequestFactory());
             twitterProvider.Update();
         }
 

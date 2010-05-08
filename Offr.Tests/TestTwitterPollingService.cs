@@ -17,7 +17,7 @@ namespace Offr.Tests
         [SetUp]
         public void SetUp()
         {
-            _target = new TwitterRawMessageProvider(this);
+            _target = new TwitterRawMessageProvider(this, new MockWebRequestFactory());
         }
 
         [Test]

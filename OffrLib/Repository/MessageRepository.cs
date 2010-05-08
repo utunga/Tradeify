@@ -26,7 +26,7 @@ namespace Offr.Repository
         private readonly IUserPointerRepository _ignoredUsers;
         private Dictionary<ITag, MessagesWithTagCounts> cache;
 
-        public MessageRepository(IUserPointerRepository ignoredUsers)
+        public MessageRepository(IgnoredUserRepository ignoredUsers)
         {
             _ignoredUsers = ignoredUsers;
             _globalTagIndex = new TagDex(this);

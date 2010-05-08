@@ -22,7 +22,7 @@ namespace twademe
         {
             Response.ContentType = "application/json";
             NameValueCollection request = Request.QueryString;
-            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
+            ITagRepository _tagProvider = Global.GetTagRepository();
 
             TagType? tagType = null;
             if (Request["type"] != null)
@@ -35,7 +35,7 @@ namespace twademe
             }
 
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
-            IMessageQueryExecutor _queryExecutor = Global.Kernel.Get<IMessageRepository>();
+            IMessageQueryExecutor _queryExecutor = Global.GetMessageRepository();
             IEnumerable<TagWithCount> suggestedTags = _queryExecutor.GetSuggestedTags(tags, tagType);
             SendJSON(JSON.Serialize(suggestedTags));
         }

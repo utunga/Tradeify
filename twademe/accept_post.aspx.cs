@@ -73,11 +73,10 @@ namespace twademe
             wrapper.Thumbnail = thumbnail;
             _posts.Add(wrapper);
 
-            IRawMessageReceiver messageReceiver = Global.Kernel.Get<IRawMessageReceiver>();
             if (!string.IsNullOrEmpty(message))
             {
                 _log.Info("Request received:" + wrapper);
-                messageReceiver.Notify(new OpenSocialRawMessage(nameSpace, message, username, thumbnail, profileUrl));
+                Global.NotifyRawMessage(new OpenSocialRawMessage(nameSpace, message, username, thumbnail, profileUrl));
             }
 
         }

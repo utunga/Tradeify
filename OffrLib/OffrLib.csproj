@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E2C87F3A-170E-4F3A-9C45-3DF87188B582}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -14,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>Offr.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,9 +55,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject.Core, Version=1.0.0.82, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+    <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\ninject\Ninject.Core.dll</HintPath>
+      <HintPath>..\lib\ninject\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=1.0.0.505, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -63,7 +65,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
-    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Net, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\system\System.Net.dll</HintPath>
@@ -89,6 +93,7 @@
     <Compile Include="BackgroundExceptionReceiver.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\IMemCache.cs" />
+    <Compile Include="Common\IWebRequestFactory.cs" />
     <Compile Include="Common\Util.cs" />
     <Compile Include="Demo\DemoData.cs" />
     <Compile Include="Demo\MockMessagePointer.cs" />
@@ -178,7 +183,7 @@
     <Compile Include="Twitter\TwitterMessagePointer.cs" />
     <Compile Include="Twitter\TwitterResultSet.cs" />
     <Compile Include="Twitter\TwitterStatus.cs" />
-    <Compile Include="Common\WebRequest.cs" />
+    <Compile Include="Common\WebRequestFactory.cs" />
     <Compile Include="Twitter\XmlTwitterParser.cs" />
     <Compile Include="Users\IEnhancedUserPointer.cs" />
     <Compile Include="Users\IUserProvider.cs" />
@@ -186,6 +191,7 @@
     <Compile Include="Users\UserProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Offr.snk" />
     <None Include="Query\ClassDiagram1.cd" />

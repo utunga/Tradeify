@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Web;
-using Ninject.Core;
+using Ninject;
 using NLog;
+using Offr.Common;
 using Offr.Json;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
-using WebRequest=Offr.Common.WebRequest;
 
 namespace Offr.Twitter
 {
     public class TwitterRawMessageProvider : IRawMessageProvider
     {
-        [Inject]
-        public WebRequest.WebRequestMethod RetrieveWebContent { get; set; }
+        private readonly IWebRequestFactory _webRequest;
 
         private readonly IRawMessageReceiver _receiver;
         public string ProviderNameSpace
@@ -23,9 +22,10 @@ namespace Offr.Twitter
             get { return "twitter"; }
         }
      
-        public TwitterRawMessageProvider(IRawMessageReceiver receiver)
+        public TwitterRawMessageProvider(IRawMessageReceiver receiver, IWebRequestFactory requestFactory)
         {
             _receiver = receiver;
+            _webRequest = requestFactory;
         }
      
         #region Implementation of IRawMessageProvider
@@ -54,7 +54,7 @@ namespace Offr.Twitter
             string url = String.Format((string) TWITTER_SEARCH_INIT_URI, (object) query); // query back as far as we can go for these keywords 
             LogManager.GetLogger("Global").Info("Polling twitter now");
             //Console.WriteLine("url =" + url);
-            string responseData = RetrieveWebContent(url);
+            string responseData = _webRequest.RetrieveContent(url);
             Console.WriteLine("responseData =" + responseData);
             TwitterResultSet resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
             //note that we don't update _last_id in this case (we're not caching this data)
@@ -70,7 +70,7 @@ namespace Offr.Twitter
         public IRawMessage ByID(string providerMessageID)
         {
             string url = String.Format((string) TWITTER_STATUS_URI, (object) providerMessageID); // query back to beginning of time
-            string responseData = RetrieveWebContent(url);
+            string responseData = _webRequest.RetrieveContent(url);
             TwitterStatusXml xmlStatus = XmlTwitterParser.ParseStatus(responseData);
             return new TwitterRawMessage(xmlStatus);
         }
@@ -88,7 +88,7 @@ namespace Offr.Twitter
             TwitterResultSet resultSet = null;
             try
             {
-                string responseData = RetrieveWebContent(url);
+                string responseData = _webRequest.RetrieveContent(url);
                 resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
                 _last_id = resultSet.max_id;
             }
@@ -130,7 +130,7 @@ namespace Offr.Twitter
             }
              */
             //"%23offer+OR+%23offr+OR+%23wanted+OR+%23want+OR+%23wants";
-            ITagRepository tags=Global.Kernel.Get<ITagRepository>();
+            ITagRepository tags = Global.GetTagRepository();
             List<ITag> groups=tags.GetGroups();
             string request="";
             if(groups.Count>=1)

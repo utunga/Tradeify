@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Offr.Common;
 using Offr.Json;
 using Offr.Location;
 using Offr.Message;
@@ -62,11 +63,13 @@ namespace Offr.Tests
         #endregion
 
         private SortedList<string, ILocation> _addressToExpectedTags;
+        private ILocationProvider _target;
 
         [TestFixtureSetUp]
         public void SetupTestData()
         {
             _addressToExpectedTags = new SortedList<string, ILocation>();
+            _target = new GoogleLocationProvider(new WebRequestFactory());
 
             string address = "1600 Amphitheatre Parkway, Mountain View, CA";
             ILocation google = new Location.Location
@@ -207,39 +210,38 @@ namespace Offr.Tests
         public void TestLiveGoogleParse()
         {
             // also did Dubai move a few kilometers to the left or something? can you fix the test?
-            GoogleLocationProvider locationProvider = new MockLocationProvider();
             foreach (string address in _addressToExpectedTags.Keys)
             {
-                ILocation location = locationProvider.Parse(address);
+                ILocation location = _target.Parse(address);
                 ILocation expected = _addressToExpectedTags[address];
                 AssertLocationEquality(address, expected, location);
             }
 
         }
-        [Test]
-        public void TestLiveGoogleParseWithTwitterLocation()
-        {
-            String address = "30 Borough Rd";
-            ILocation nonSpecific = new Location.Location
-            {
-                GeoLat = (decimal)51.4989035,
-                GeoLong = (decimal)-0.101,
-                Address = address,
-                Tags = new List<ITag>
-                              {
-                                  (new Tag(TagType.loc, "Camberwell")),
-                                  (new Tag(TagType.loc, "Greater London")),
-                                  (new Tag(TagType.loc, "United Kingdom"))/*,
-                                  (new Tag(TagType.loc, "GB"))*/
-                              }
-            };
 
-            // Normally the result london is not the first result for this query
-            GoogleLocationProvider locationProvider = new MockLocationProvider();
-            ILocation location = locationProvider.Parse(address, "Greater London");
-            ILocation expected = nonSpecific;
-            AssertLocationEquality(address, expected, location);
-        }
+        //[Test]
+        //public void TestLiveGoogleParseWithTwitterLocation()
+        //{
+        //    String address = "30 Borough Rd";
+        //    ILocation nonSpecific = new Location.Location
+        //    {
+        //        GeoLat = (decimal)51.4989035,
+        //        GeoLong = (decimal)-0.101,
+        //        Address = address,
+        //        Tags = new List<ITag>
+        //                      {
+        //                          (new Tag(TagType.loc, "Camberwell")),
+        //                          (new Tag(TagType.loc, "Greater London")),
+        //                          (new Tag(TagType.loc, "United Kingdom"))/*,
+        //                          (new Tag(TagType.loc, "GB"))*/
+        //                      }
+        //    };
+
+        //    // Normally the result london is not the first result for this query
+        //    ILocation location = _target.Parse(address, "Greater London");
+        //    ILocation expected = nonSpecific;
+        //    AssertLocationEquality(address, expected, location);
+        //}
 
 
         private static void AssertLocationEquality(string forAddress, ILocation expected, ILocation actual)
@@ -267,9 +269,8 @@ namespace Offr.Tests
         public void TestNonStrictLColon()
         {
 
-            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
             // a specific real example for which i know the query was failing
-            ILocation location = locationProvider.ParseFromApproxText("Paekakariki for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch");
+            ILocation location = _target.ParseFromApproxText("Paekakariki for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch");
             Assert.AreEqual("Paekakariki", location.AddressText);
         }
         [Test]
@@ -289,8 +290,7 @@ namespace Offr.Tests
                                   //(new Tag(TagType.loc, "GB"))*/
                               }
             };
-            GoogleLocationProvider locationProvider = new GoogleLocationProvider();
-            ILocation location = locationProvider.Parse(address);
+            ILocation location = _target.Parse(address);
             AssertLocationEquality(address, expected, location);
         }
     }

@@ -55,7 +55,7 @@ namespace Offr.Demo
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(6);
-            raw = new MockRawMessage("#offer Corn L:55 Wellington Road, Paekakariki: for #swap http://bit.ly/234 #ooooby", msgPointer, User1, "2009-06-24");
+            raw = new MockRawMessage("#offer Corn L:55 Wellington Road, Paekakariki: for #barter http://bit.ly/234 #ooooby", msgPointer, User1, "2009-06-24");
             RawMessages.Add(raw);
             
             msgPointer = new TwitterMessagePointer(7);

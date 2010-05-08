@@ -25,7 +25,7 @@ namespace twademe
                 messageCount = DEFAULT_COUNT;
             }
              */
-            ITagRepository _tagProvider = Global.Kernel.Get<ITagRepository>();
+            ITagRepository _tagProvider = Global.GetTagRepository();
             List<ITag> tags = _tagProvider.GetTagsFromNameValueCollection(request);
             SendJSON(GetOffersJson(tags));
         }
@@ -44,7 +44,7 @@ namespace twademe
 
         public static string GetOffersJson(List<ITag> tags)
         {
-            IMessageQueryExecutor queryExecutor = Global.Kernel.Get<IMessageRepository>();
+            IMessageQueryExecutor queryExecutor = Global.GetMessageRepository();
             IEnumerable<IMessage> messages = queryExecutor.GetMessagesForTags(tags);
             return JSON.Serialize(messages);
         }

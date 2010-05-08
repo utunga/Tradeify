@@ -60,7 +60,7 @@ namespace Offr.Tests
         [Ignore("Only do this when you want to update initial_offers.json")]
         public void SerializeDemoMessagesToFile()
         {
-            ILocationProvider locationProvider = new GoogleLocationProvider();
+            ILocationProvider locationProvider = new MockLocationProvider();
             IMessageParser realMessageParser = new RegexMessageParser(_singletonTagProvider, locationProvider);
             MessageRepository tempMessageRepository = new MessageRepository();
             TagRepository tempTagRepository = new TagRepository();
@@ -169,7 +169,7 @@ namespace Offr.Tests
         {
             
             TagList orig = new TagList();
-            ITagRepository tagProvider = Global.Kernel.Get<ITagRepository>();
+            ITagRepository tagProvider = Global.GetTagRepository();
             orig.Add(tagProvider.GetAndAddTagIfAbsent("foo", TagType.tag));
             orig.Add(tagProvider.GetAndAddTagIfAbsent("freecycle", TagType.tag));
             orig.Add(tagProvider.GetAndAddTagIfAbsent("barter", TagType.tag));

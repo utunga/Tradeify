@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ninject.Core;
+using Ninject;
 using Offr.Demo;
 using Offr.Text;
 

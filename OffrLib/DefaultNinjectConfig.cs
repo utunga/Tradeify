@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Ninject.Core;
-using Ninject.Core.Behavior;
+using Ninject;
+using Ninject.Modules;
 using Offr.Common;
 using Offr.Location;
 using Offr.Message;
@@ -14,19 +14,19 @@ using Offr.Twitter;
 
 namespace Offr  
 {
-    public class DefaultNinjectConfig : StandardModule
+    public class DefaultNinjectConfig : NinjectModule
     {
         public override void Load()
         {
-            Bind<IgnoredUserRepository>().ToSelf().Using<SingletonBehavior>();
+            Bind<IgnoredUserRepository>().ToSelf().InSingletonScope();
             Bind<IMessageParser>().To<RegexMessageParser>();
-            Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
-            Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().Using<SingletonBehavior>();
-            Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().Using<SingletonBehavior>();
-            Bind<ILocationProvider>().To<GoogleLocationProvider>().Using<SingletonBehavior>();
+            Bind<IMessageRepository>().To<MessageRepository>().InSingletonScope();
+            Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().InSingletonScope();
+            Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().InSingletonScope();
+            Bind<ILocationProvider>().To<GoogleLocationProvider>().InSingletonScope();
             //Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
-            Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
-            Bind<WebRequest.WebRequestMethod>().To<WebRequest>();
+            Bind<ITagRepository>().To<TagRepository>().InSingletonScope(); ;
+            //Bind<WebRequestFactory.WebRequestMethod>().To<WebRequestFactory>();
         }
     }
 }
