@@ -7,13 +7,13 @@ using Offr.Location;
 
 namespace Offr.Tests
 {
-   public  class MockLocationProvider:GoogleLocationProvider
+   public  class MockLocationProvider : GoogleLocationProvider
     {
 
        #region json GooglResultSets
        #region cali
-       private string cali =
-           @"{
+       private string cali =@"
+           {
   ""name"": ""1600 Amphitheatre Parkway, Mountain View, CA"",
   ""Status"": {
     ""code"": 200,
@@ -46,14 +46,14 @@ namespace Offr.Tests
 },
     ""ExtendedData"": {
       ""LatLonBox"": {
-        ""north"": 37.4251466,
-        ""south"": 37.4188514,
-        ""east"": -122.0811574,
-        ""west"": -122.0874526
+        ""north"": 37.4251799,
+        ""south"": 37.4188847,
+        ""east"": -122.0813633,
+        ""west"": -122.0876585
       }
     },
     ""Point"": {
-      ""coordinates"": [ -122.0843700, 37.4217590, 0 ]
+      ""coordinates"": [ -122.0845109, 37.4220323, 0 ]
     }
   } ]
 }";
@@ -972,7 +972,8 @@ namespace Offr.Tests
        #endregion json resultset
        
        private Dictionary<string, GoogleResultSet> dummyResultSetMap;
-       public MockLocationProvider()
+
+       public MockLocationProvider() : base(new MockWebRequestFactory())
        {
            dummyResultSetMap=new Dictionary<string, GoogleResultSet>();
            dummyResultSetMap.Add("1600 Amphitheatre Parkway, Mountain View, CA",Deserialize(cali));

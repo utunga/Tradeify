@@ -18,10 +18,8 @@ namespace twademe
 {
     public partial class parse : System.Web.UI.Page
     {
-        private IMessageParser _messageParser;
         public parse()
         {
-            _messageParser = Global.Kernel.Get<IMessageParser>();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +28,7 @@ namespace twademe
             if (messageText != null)
             {
                 var messageWrapper = new TextWrapperRawMessage(messageText);
-                IMessage message = _messageParser.Parse(messageWrapper);
+                IMessage message = Global.Parse(messageWrapper);
                 SendJSON(message);
             }
         }

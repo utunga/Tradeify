@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using Ninject.Core;
+using Ninject;
 using NLog;
 using Offr.Common;
 using Offr.Json;
@@ -23,13 +23,12 @@ namespace Offr.Location
         public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&gl=NZ";
         public const string GOOGLE_REVERSE_URI = "http://maps.google.com/maps/geo?output=json&oe=utf-8&ll={0}%2C{1}";
 
-        [Inject]
-        public WebRequest.WebRequestMethod RetrieveWebContent { get; set; }
- 
         private readonly List<IRawMessageReceiver> _receivers;
+        private readonly IWebRequestFactory _webRequest;
 
-        public GoogleLocationProvider()
+        public GoogleLocationProvider(IWebRequestFactory webRequestFactory)
         {
+            _webRequest = webRequestFactory;
             _receivers = new List<IRawMessageReceiver>();
             LocationRepository=new LocationRepository();
         }
@@ -96,19 +95,20 @@ namespace Offr.Location
         private GoogleResultSet reverseGeocodeCoordinates(string text, GoogleResultSet.PlacemarkType placemark)
         {
             string requestURI = string.Format(GOOGLE_REVERSE_URI, placemark.Point.coordinates[1],placemark.Point.coordinates[0]);
-            string responseData = RetrieveWebContent(requestURI);
+            string responseData = _webRequest.RetrieveContent(requestURI);
             //make sure the name isnt coordinates
             GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
             resultSet.name = text;
             return resultSet;
-        }
+        }
+
 
         protected GoogleResultSet GetResultSet(string addressText)
         {
             try
             {
                 string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
-                string responseData = RetrieveWebContent(requestURI);
+                string responseData = _webRequest.RetrieveContent(requestURI);
                 GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
                 if (resultSet.Placemark != null && resultSet.Placemark.Length > 0)
                 {

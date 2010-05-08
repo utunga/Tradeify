@@ -207,7 +207,7 @@ namespace Offr.Location
 
         private static void AddTags(string countryName, Location loc, string countryCode, string region, string localityName)
         {
-            ITagRepository tagRepository = Global.Kernel.Get<ITagRepository>();
+            ITagRepository tagRepository = Global.GetTagRepository();
 
             if (!string.IsNullOrEmpty(countryName))
             {

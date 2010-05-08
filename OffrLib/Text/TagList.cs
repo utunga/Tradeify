@@ -207,7 +207,7 @@ namespace Offr.Text
         public void ReadJson(JsonReader reader, JsonSerializer serializer)
         {
 
-            ITagRepository provider = Global.Kernel.Get<ITagRepository>(); //FIXME gotta figure out if this is correct thing to happen
+            ITagRepository provider = Global.GetTagRepository(); //FIXME gotta figure out if this is correct thing to happen
             List<ITag> temp = JSON.ReadProperty<List<ITag>>(serializer, reader, "tags");
             foreach (ITag tag in temp)
             {

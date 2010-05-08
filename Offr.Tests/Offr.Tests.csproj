@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FCA5EA32-593A-4D3B-90EC-9B36D9380C98}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -12,6 +12,8 @@
     <AssemblyName>Offr.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,9 +53,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject.Core, Version=1.0.0.82, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+    <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\ninject\Ninject.Core.dll</HintPath>
+      <HintPath>..\lib\ninject\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=1.0.0.505, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -77,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockWebRequestFactory.cs" />
     <Compile Include="TestRSSProvider.cs" />
     <Compile Include="DemoMessageProvider.cs" />
     <Compile Include="MockData.cs" />
@@ -105,12 +108,16 @@
     <Compile Include="TestXMLTwitterParser.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="data\demo_offers.json" />
     <None Include="data\empty_offer.json" />
     <None Include="data\initial_offers.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="data\initial_tags.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\offline_web_requests">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="NLog.config">

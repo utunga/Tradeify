@@ -5,20 +5,20 @@ using System.Net;
 using System.ServiceModel.Syndication;
 using System.Web;
 using System.Xml;
-using Ninject.Core;
+using Ninject;
 using NLog;
 using Offr.Json;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
 using Offr.Common;
-using WebRequest=Offr.Common.WebRequest;
 
 namespace Offr.RSS
 {
     public class RSSRawMessageProvider : IRawMessageProvider
     {
         private readonly IRawMessageReceiver _receiver;
+        private readonly IWebRequestFactory _webRequest;
         private readonly string _rssFeedURI;
         private readonly string _providerNameSpace;
 
@@ -26,12 +26,10 @@ namespace Offr.RSS
         {
             get { return _providerNameSpace; }
         }
-        
-        [Inject]
-        public WebRequest.WebRequestMethod RetrieveWebContent { get; set; }
-
-        public RSSRawMessageProvider(string providerNameSpace, string rssFeedURI, IRawMessageReceiver receiver)
+  
+        public RSSRawMessageProvider(string providerNameSpace, string rssFeedURI, IRawMessageReceiver receiver, IWebRequestFactory webRequestFactory)
         {
+            _webRequest = webRequestFactory;
             _providerNameSpace = providerNameSpace;
             _rssFeedURI = rssFeedURI;
             _receiver = receiver;
@@ -57,7 +55,7 @@ namespace Offr.RSS
             long updatedTime = 0;
             try
             {
-                string responseData = RetrieveWebContent(_rssFeedURI);
+                string responseData = _webRequest.RetrieveContent(_rssFeedURI);
                 XmlReader xmlReader = XmlReader.Create(new StringReader(responseData));
                 feed = SyndicationFeed.Load(xmlReader);
                 updatedTime = feed.LastUpdatedTime.Ticks;

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Ninject.Core;
+using Ninject;
 using Offr.Demo;
 using Offr.Message;
 using Offr.Text;

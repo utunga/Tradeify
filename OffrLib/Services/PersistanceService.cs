@@ -45,7 +45,7 @@ namespace Offr.Services
         {
             get
             {
-                var messages = Global.Kernel.Get<MessageRepository>();
+                var messages = Global.GetMessageRepository();
                 if (messages is IPersistedRepository)
                     yield return messages as IPersistedRepository;
             }
@@ -73,24 +73,13 @@ namespace Offr.Services
             
         }
 
-        //public static void EnsureStarted(IBackgroundExceptionReceiver exceptionReceiver)
-        //{
-        //    //hopefully 99.999% of the time we return straight away..
-        //    if (_busy) return;
-
-        //    //_log.Error("PersistanceService not started, will force it to start");
-        //    lock (_syncLock)
-        //    {
-        //        Start(exceptionReceiver);
-        //    }
-        //}
-
         public static void Stop()
         {
             _stopped = true;
             //wait while still busy
-            while (_busy) ;
+            while (_busy);
         }
+
         #endregion
 
         #region run method (and sleep intervals etc)

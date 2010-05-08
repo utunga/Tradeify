@@ -14,7 +14,7 @@ namespace twademe
         {
             if (Request["id"] != null)
             {
-                IMessageRepository messageRepository = Global.Kernel.Get<IMessageRepository>();
+                IMessageRepository messageRepository = Global.GetMessageRepository();
                 if (messageRepository.Get(Request["id"]) != null)
                 {
                     messageRepository.Remove(Request["id"]);

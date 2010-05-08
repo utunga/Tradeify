@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
-using Ninject.Core;
+using Ninject;
 using NLog;
 using Offr;
 using Offr.Demo;
@@ -146,5 +146,31 @@ namespace twademe
         }
 
         #endregion
+
+        #region rergion of leaky abstractions
+
+        public static IMessageRepository GetMessageRepository()
+        {
+            return Kernel.Get<IMessageRepository>();
+        }
+
+        public static ITagRepository GetTagRepository()
+        {
+            return Kernel.Get<ITagRepository>();
+        }
+
+        public static IMessage Parse(IRawMessage rawMessage)
+        {
+            return Kernel.Get<IMessageParser>().Parse(rawMessage);
+        }
+
+        public static void NotifyRawMessage(IRawMessage message)
+        {
+            Kernel.Get<IRawMessageReceiver>().Notify(message);
+        }
+
+        #endregion
+
+
     }
 }

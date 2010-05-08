@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Ninject.Core;
-using Ninject.Core.Behavior;
+using Ninject;
+using Ninject.Modules;
 using Offr;
 using Offr.Message;
 using Offr.Query;
@@ -12,19 +12,19 @@ using Offr.Text;
 
 namespace twademe
 {
-    public class NinjectKernelConfig :  StandardModule
+    public class NinjectKernelConfig : NinjectModule
     {
 
         public override void Load()
         {
             // use live data
             Bind<IMessageParser>().To<RegexMessageParser>();
-            Bind<IRawMessageProvider>().To<Offr.Twitter.TwitterRawMessageProvider>().Using<SingletonBehavior>();
-            Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().Using<SingletonBehavior>();
+            Bind<IRawMessageProvider>().To<Offr.Twitter.TwitterRawMessageProvider>().InSingletonScope();
+            Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().InSingletonScope();
 
             //ugly but it works - since messageRepository also implements 
-             Bind<IMessageRepository>().To<MessageRepository>().Using<SingletonBehavior>();
-            Bind<ITagRepository>().To<TagRepository>().Using<SingletonBehavior>();
+            Bind<IMessageRepository>().To<MessageRepository>().InSingletonScope();
+            Bind<ITagRepository>().To<TagRepository>().InSingletonScope();
             
         }
     }

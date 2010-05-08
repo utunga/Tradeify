@@ -92,6 +92,7 @@ namespace Offr.Repository
                 }
             }
         }
+
         public virtual void SerializeToFile()
         {
             if (FilePath == null) throw new ApplicationException("Please set the FilePath before calling this method");

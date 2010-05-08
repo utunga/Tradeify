@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using Offr.Common;
 using Offr.Demo;
+using Offr.Location;
 using Offr.Message;
 using Offr.Repository;
 using Offr.Text;
@@ -22,7 +23,7 @@ namespace Offr.Tests
             TagRepository tagRepository = new TagRepository();
             tagRepository.FilePath = "data/initial_tags.json";
             tagRepository.InitializeFromFile();
-            MockLocationProvider locationProvider = new MockLocationProvider();
+            ILocationProvider locationProvider = new MockLocationProvider();
             _parser = new RegexMessageParser(tagRepository, locationProvider);
         }
 
