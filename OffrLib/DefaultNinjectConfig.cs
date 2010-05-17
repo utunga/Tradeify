@@ -9,6 +9,7 @@ using Offr.Location;
 using Offr.Message;
 using Offr.Query;
 using Offr.Repository;
+using Offr.RSS;
 using Offr.Text;
 using Offr.Twitter;
 
@@ -18,15 +19,17 @@ namespace Offr
     {
         public override void Load()
         {
-            Bind<IgnoredUserRepository>().ToSelf().InSingletonScope();
             Bind<IMessageParser>().To<RegexMessageParser>();
             Bind<IMessageRepository>().To<MessageRepository>().InSingletonScope();
             Bind<IRawMessageProvider>().To<TwitterRawMessageProvider>().InSingletonScope();
             Bind<IRawMessageReceiver>().To<IncomingMessageProcessor>().InSingletonScope();
             Bind<ILocationProvider>().To<GoogleLocationProvider>().InSingletonScope();
+            Bind<IgnoredUserRepository>().ToSelf().InSingletonScope();
+            Bind<IRSSRawMessageRepository>().To<RSSRawMessageRepository>().InSingletonScope();
+            Bind<RSSRawMessageProvider>().ToSelf().InSingletonScope(); //seen updates
             //Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
-            Bind<ITagRepository>().To<TagRepository>().InSingletonScope(); ;
-            //Bind<WebRequestFactory.WebRequestMethod>().To<WebRequestFactory>();
+            Bind<ITagRepository>().To<TagRepository>().InSingletonScope();
+            Bind<IWebRequestFactory>().To<WebRequestFactory>();
         }
     }
 }

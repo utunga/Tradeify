@@ -19,20 +19,22 @@ namespace Offr.RSS
     {
         private readonly IRawMessageReceiver _receiver;
         private readonly IWebRequestFactory _webRequest;
+        private readonly IRSSRawMessageRepository _seenRSSUpdates;
         private readonly string _rssFeedURI;
         private readonly string _providerNameSpace;
-
+        
         public string ProviderNameSpace
         {
             get { return _providerNameSpace; }
         }
   
-        public RSSRawMessageProvider(string providerNameSpace, string rssFeedURI, IRawMessageReceiver receiver, IWebRequestFactory webRequestFactory)
+        public RSSRawMessageProvider(string providerNameSpace, string rssFeedURI, IRawMessageReceiver receiver, IRSSRawMessageRepository seenRSSUpdates, IWebRequestFactory webRequestFactory)
         {
             _webRequest = webRequestFactory;
             _providerNameSpace = providerNameSpace;
             _rssFeedURI = rssFeedURI;
             _receiver = receiver;
+            _seenRSSUpdates = seenRSSUpdates;
         }
     
         #region Implementation of IRawMessageProvider
@@ -79,7 +81,15 @@ namespace Offr.RSS
             List<IRawMessage> newStatusUpdates = new List<IRawMessage>();   
             foreach (SyndicationItem rssItem in feed.Items)
             {
-                newStatusUpdates.Add(new RSSRawMessage(_rssFeedURI, rssItem));
+                RSSRawMessage tmp = new RSSRawMessage(_rssFeedURI, rssItem);
+                if (!_seenRSSUpdates.Has(tmp.ID))
+                {
+                    // this GUID hasn't been seen before
+                    // so notify (note this doesn't mean its a valid message)
+                    // might also be a semantic duplicate of something posted in another way
+                    _seenRSSUpdates.Save(tmp);
+                    newStatusUpdates.Add(tmp);
+                }
             }
             _lastUpdatedTime = updatedTime; 
             return newStatusUpdates;

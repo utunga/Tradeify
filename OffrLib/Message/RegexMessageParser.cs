@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Offr.Location;
 using Offr.Repository;
+using Offr.RSS;
 using Offr.Text;
 
 namespace Offr.Message
@@ -33,6 +34,7 @@ namespace Offr.Message
         public IMessage Parse(IRawMessage rawMessage)
         {
             string sourceText = rawMessage.Text;
+
             IEnumerable<ITag> tags = ParseTags(sourceText, rawMessage);
 
             BaseMarketMessage msg;
@@ -92,6 +94,7 @@ namespace Offr.Message
             msg.AddThumbnail(GetImageUrl(sourceText));
             return msg;
         }
+
 
         private ITag CheckForAtSymbolGroup(string sourceText)
         {

@@ -27,11 +27,11 @@ namespace Offr.Tests
             _receivedMessages.Add(message);
         }
 
-             
         [Test]
         public void TestGetRawMessages()
         {
-            RSSRawMessageProvider rssProvider = new RSSRawMessageProvider("ooooby", "http://localhost:60600/data/activity.rss", this, new MockWebRequestFactory());
+            RSSRawMessageRepository seenUpdates = new RSSRawMessageRepository();
+            RSSRawMessageProvider rssProvider = new RSSRawMessageProvider("ooooby", "http://localhost:60600/data/activity_test0.rss", this, seenUpdates, new MockWebRequestFactory());
             rssProvider.Update();
 
             // somewhat of an integration test, but gets us some of the way there
@@ -44,7 +44,14 @@ namespace Offr.Tests
                  Console.Out.WriteLine();
             }
 
-            Assert.AreEqual(10, _receivedMessages.Count);
+            Assert.AreEqual(10, _receivedMessages.Count, "Expect 10 messages because 10 messages, including some non valid ones, are in the tests data");
+
+            //reset recieved messages
+            _receivedMessages = new List<IRawMessage>();
+            rssProvider = new RSSRawMessageProvider("ooooby", "http://localhost:60600/data/activity_test1.rss", this, seenUpdates, new MockWebRequestFactory());
+            rssProvider.Update();
+            Assert.AreEqual(0, _receivedMessages.Count, "Expect no messages on this update, because there are no new updates");
+
         }
 
         //[Test]

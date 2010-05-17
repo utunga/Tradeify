@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E2C87F3A-170E-4F3A-9C45-3DF87188B582}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -144,8 +144,10 @@
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\NullRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
+    <Compile Include="RSS\RSSMessagePointer.cs" />
     <Compile Include="RSS\RSSRawMessageProvider.cs" />
     <Compile Include="RSS\RSSRawMessage.cs" />
+    <Compile Include="RSS\RSSRawMessageRepository.cs" />
     <Compile Include="Services\PersistanceService.cs" />
     <Compile Include="Services\RawMessagePollingService.cs" />
     <Compile Include="Text\DateUtils.cs" />
@@ -191,12 +193,15 @@
     <Compile Include="Users\UserProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Offr.snk" />
     <None Include="Query\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\lib\HtmlAgilityPack\src\HtmlAgilityPack.csproj">
+      <Project>{193BB801-054F-4729-9D5D-FCE1E32594BF}</Project>
+      <Name>HtmlAgilityPack</Name>
+    </ProjectReference>
     <ProjectReference Include="..\lib\Newtonsoft.Json\Src\Newtonsoft.Json.csproj">
       <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
       <Name>Newtonsoft.Json</Name>
