@@ -427,7 +427,12 @@
                     arrows: true
                 });
  
-                list_widget = new ListWidget("#results-1", "#current_tags");
+                list_widget = new ListWidget({ offers_uri: container.offers_uri }, "#results-1", "#current_tags");
+                list_widget.on_offers_updating(function() {
+                    $(".left_col").block(block_message);
+                    $("#rhs_buttons .fg-buttonset").block(block_message);
+                });
+
                 list_widget.add_fixed_filter("ooooby", "group");
                 list_widget.update_offers();
                 map_widget = new MapWidget("offer_map", "#map_popup", list_widget);
@@ -439,7 +444,7 @@
                 var user;
                 container.get_user_name(function(response) {
                     user = response;
-                    my_list_widget = new ListWidget("#results-4", rubbish, user);
+                    my_list_widget = new ListWidget({ offers_uri: container.offers_uri, username: user }, "#results-4", rubbish);
                 });
                 var my_posts = false;
                 $("#filter_by_user").click(function() {

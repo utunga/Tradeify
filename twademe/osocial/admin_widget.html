@@ -201,15 +201,11 @@
 
 
                 // adjusts height in ning, does nothing in test
-<<<<<<< HEAD
                 container.adjustHeight(3200);
-=======
-                container.adjustHeight(2500);
->>>>>>> f054ea1cd70a47bca72f8d62f9ab49efd3c908d3
                 //$("#search_location_tag").autocomplete(container.tags_ahead_uri);
                 //
                 //container.autocomplete_tag_search("#search_location_tag");
-                list_widget = new ListWidget("#results-1", "#current_tags");
+                list_widget = new ListWidget({ offers_uri: container.offers_uri }, "#results-1", "#current_tags" );
                 list_widget.add_fixed_filter("ooooby", "group");
                 list_widget.update_offers();
                 //add remove clicks to normal list_widget for admins

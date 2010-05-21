@@ -251,6 +251,7 @@ function TagsWidget(selector) {
             $(selector).html(_get_html());
             //fix the onclick (again) as html has been reset
             $(selector + " .fg-buttonset a.tag").click(_tag_click);
+            //$("#current_tags .tag-unfixed").addClass("ui-tag-close");
         }
     }
 
@@ -280,7 +281,6 @@ function TagsWidget(selector) {
             var tag = tags_array[i];
             var ui_state_class = (tag.active) ? "ui-state-active" : "";
             var ui_tag_close = (add_close_button_ref(tag.active,tag.fixed)) ? "ui-tag-close" : "";
-            //var tag_fixed = (tag.fixed) ? "tag-fixed" : "tag-unfixed";
             var ui_icon_class;
             switch (tag.type) {
                 case ("group"):
