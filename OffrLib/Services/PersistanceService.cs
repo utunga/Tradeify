@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using NLog;
 using Offr.Repository;
 
 namespace Offr.Services
@@ -18,6 +19,8 @@ namespace Offr.Services
             ConfigurationManager.AppSettings["PersistenceService_PollingInterval"] == null ?
             1000 : // 1 second
             int.Parse(ConfigurationManager.AppSettings["PersistenceService_PollingInterval"]);
+
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         #region private properties
 
@@ -91,11 +94,18 @@ namespace Offr.Services
             {
                 while (!_stopped) //continue till the end of time or until the thread dies
                 {
-                    _busy = true;
-                  
-                    EnsurePersisted();
-                    
-                    Thread.Sleep(POLLING_INTERVAL);
+                    try
+                    {
+                        _busy = true;
+
+                        EnsurePersisted();
+                        Thread.Sleep(POLLING_INTERVAL);
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.ErrorException("Exception in persistence polling service", ex);
+                        _exceptionReceiver.NotifyException(ex);
+                    }
                 }
             }
             finally
