@@ -42,39 +42,6 @@ namespace Offr.Twitter
 
         #endregion
 
-        [Obsolete("not part of IRawMessageProvider any more")]
-        public IEnumerable<IRawMessage> ForQueryText(string keywordQuery)
-        {
-            // always require the "hash tag of the messages we are interested in "
-            string query = GetQuery();
-            if (keywordQuery != null)
-            {
-                query += "+" + HttpUtility.UrlEncode(keywordQuery);
-            }
-            string url = String.Format((string) TWITTER_SEARCH_INIT_URI, (object) query); // query back as far as we can go for these keywords 
-            LogManager.GetLogger("Global").Info("Polling twitter now");
-            //Console.WriteLine("url =" + url);
-            string responseData = _webRequest.RetrieveContent(url);
-            Console.WriteLine("responseData =" + responseData);
-            TwitterResultSet resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
-            //note that we don't update _last_id in this case (we're not caching this data)
-            List<IRawMessage> statusUpdatesForQuery = new List<IRawMessage>();
-            foreach (TwitterStatus status in resultSet.results)
-            {
-                statusUpdatesForQuery.Add(new TwitterRawMessage(status));
-            }
-            return statusUpdatesForQuery;
-        }
-
-        [Obsolete("not part of IRawMessageProvider any more")]
-        public IRawMessage ByID(string providerMessageID)
-        {
-            string url = String.Format((string) TWITTER_STATUS_URI, (object) providerMessageID); // query back to beginning of time
-            string responseData = _webRequest.RetrieveContent(url);
-            TwitterStatusXml xmlStatus = XmlTwitterParser.ParseStatus(responseData);
-            return new TwitterRawMessage(xmlStatus);
-        }
-
         private long _last_id = 0;
         private IList<IRawMessage> GetNewUpdates()
         {
@@ -87,7 +54,7 @@ namespace Offr.Twitter
             //string query = "(%23chch+OR+%23eqnz)+(offer+OR+need+OR+want+OR+wanted+OR+needed)";
             
             //(#chch OR #eqnz) (#offer OR #need)"
-            string query = "(%23chch+OR+%23eqnz)+(%23offer+OR+%23need)";
+            string query = "(%23chch+OR+%23eqnz)+(%23offer+OR+%23need+OR+%23helpme)";
             string url = _last_id == 0 ? 
                 String.Format((string) TWITTER_SEARCH_INIT_URI, (object) query) :
                 String.Format(TWITTER_SEARCH_POLL_URI, _last_id, query);
@@ -123,25 +90,25 @@ namespace Offr.Twitter
             return newStatusUpdates;
         }
 
-        private string GetQuery()
-        {
+        //private string GetQuery()
+        //{
 
-            return "%23chch+OR+%23eqnz+OR+%23christchurch+OR+chchneeds";
-            //ITagRepository tags = Global.GetTagRepository();
-            //List<ITag> groups=tags.GetGroups();
+        //    return "%23chch+OR+%23eqnz+OR+%23christchurch+OR+chchneeds";
+        //    //ITagRepository tags = Global.GetTagRepository();
+        //    //List<ITag> groups=tags.GetGroups();
 
-            //string request="";
-            //if(groups.Count>=1)
-            //{
-            //    request = groups[0].Text;
-            //    for(int i=1;i<groups.Count;i++)
-            //    {
-            //        request += "+OR+" + groups[i].Text;
-            //    }
-            //}
-            //return request;
-            //return QUERY_FOR_GROUPS;
-        }
+        //    //string request="";
+        //    //if(groups.Count>=1)
+        //    //{
+        //    //    request = groups[0].Text;
+        //    //    for(int i=1;i<groups.Count;i++)
+        //    //    {
+        //    //        request += "+OR+" + groups[i].Text;
+        //    //    }
+        //    //}
+        //    //return request;
+        //    //return QUERY_FOR_GROUPS;
+        //}
 
         public const string TWITTER_SEARCH_INIT_URI = "http://search.twitter.com/search.json?q={0}&rpp=100";
         public const string TWITTER_SEARCH_POLL_URI = "http://search.twitter.com/search.json?since_id={0}&q={1}";
