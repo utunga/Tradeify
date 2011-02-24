@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
+using NLog;
 using Offr.Repository;
 
 namespace Offr.Services
@@ -18,6 +20,8 @@ namespace Offr.Services
             ConfigurationManager.AppSettings["PersistenceService_PollingInterval"] == null ?
             1000 : // 1 second
             int.Parse(ConfigurationManager.AppSettings["PersistenceService_PollingInterval"]);
+
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         #region private properties
 
@@ -92,9 +96,8 @@ namespace Offr.Services
                 while (!_stopped) //continue till the end of time or until the thread dies
                 {
                     _busy = true;
-                  
+
                     EnsurePersisted();
-                    
                     Thread.Sleep(POLLING_INTERVAL);
                 }
             }
@@ -123,7 +126,7 @@ namespace Offr.Services
                         repository.SerializeToFile();
                     }
                 }
-                catch (Exception ex)
+                catch (WebException ex)
                 {
                     // _log.Error("Failure to save data for "+ repository, ex);
 

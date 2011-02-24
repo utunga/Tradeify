@@ -69,5 +69,614 @@
         }
       ]
     }
+  },
+  "twitter/40483129529614336": {
+    "message_type": "offer",
+    "timestamp": "2011-02-23T18:48:24Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "loc",
+        "type": "tag"
+      },
+      {
+        "tag": "contact",
+        "type": "tag"
+      },
+      {
+        "tag": "more",
+        "type": "tag"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "canterbury",
+        "type": "loc"
+      },
+      {
+        "tag": "burnside",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "#offer large spare oom w dbl bed #loc Mangere, AKL #contact @rustyscalpels #more 5 min drive 2 airport. Close 2 bus/train depot #eqnz #chch",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40483129529614336"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "kate30_dev",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1195899264/flood_icon_normal.png",
+      "screen_name": "kate30_dev",
+      "profile_url": "http://www.twitter.com/kate30_dev",
+      "match_tag": "twitter/kate30_dev"
+    },
+    "offer_text": "#offer large spare oom w dbl bed #loc Mangere, AKL #contact @rustyscalpels #more 5 min drive 2 airport. Close 2 bus/train depot #eqnz #chch",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -43.4933526,
+      "geo_long": 172.5739442,
+      "address": "drive 2",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "canterbury",
+          "type": "loc"
+        },
+        {
+          "tag": "burnside",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40483940154347520": {
+    "message_type": "offer",
+    "timestamp": "2011-02-23T18:51:38Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chchaid",
+        "type": "tag"
+      },
+      {
+        "tag": "south_africa",
+        "type": "loc"
+      },
+      {
+        "tag": "ec",
+        "type": "loc"
+      },
+      {
+        "tag": "uitenhage",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "AGAIN accom. offer, Rolleston, empty 3 bdrm home, safe water, power, hot showers. Need 2 DM me ASAP before we leave! #chch #eqnz #chchAID",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40483940154347520"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "7point1squared",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a0.twimg.com/profile_images/1203643093/7point1squared_normal.jpg",
+      "screen_name": "7point1squared",
+      "profile_url": "http://www.twitter.com/7point1squared",
+      "match_tag": "twitter/7point1squared"
+    },
+    "offer_text": "AGAIN accom. offer, Rolleston, empty 3 bdrm home, safe water, power, hot showers. Need 2 DM me ASAP before we leave! #chch #eqnz #chchAID",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -33.7559849,
+      "geo_long": 25.374153,
+      "address": "accom",
+      "tags": [
+        {
+          "tag": "south_africa",
+          "type": "loc"
+        },
+        {
+          "tag": "ec",
+          "type": "loc"
+        },
+        {
+          "tag": "uitenhage",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40517581118898176": {
+    "message_type": "offer",
+    "timestamp": "2011-02-23T21:05:18Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "canterbury",
+        "type": "loc"
+      },
+      {
+        "tag": "riccarton",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "Trainee Interns at Otago Uni ChCh campus check with yr med teams &amp; offer assistance if u are able. Campus updates http://bit.ly/haZbFM #eqnz",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40517581118898176"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "OtagoUniCHCH",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a0.twimg.com/profile_images/1252632590/UOC_icon_normal.jpg",
+      "screen_name": "OtagoUniCHCH",
+      "profile_url": "http://www.twitter.com/OtagoUniCHCH",
+      "match_tag": "twitter/OtagoUniCHCH"
+    },
+    "offer_text": "Trainee Interns at Otago Uni ChCh campus check with yr med teams &amp; offer assistance if u are able. Campus updates http://bit.ly/haZbFM #eqnz",
+    "more_info_url": "http://bit.ly/haZbFM",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -43.5288041,
+      "geo_long": 172.6115336,
+      "address": "Otago Uni ChCh",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "canterbury",
+          "type": "loc"
+        },
+        {
+          "tag": "riccarton",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40572873600925696": {
+    "message_type": "offer",
+    "timestamp": "2011-02-24T00:45:01Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "india",
+        "type": "loc"
+      },
+      {
+        "tag": "maharashtra",
+        "type": "loc"
+      },
+      {
+        "tag": "mumbai",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "People affected by the #eqnz in #chch have a great new resource: request or offer help via www.QuakeAid.co.nz / @QuakeAidNZ",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40572873600925696"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "sarallenconsult",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a2.twimg.com/profile_images/1038245712/sar_normal.jpg",
+      "screen_name": "sarallenconsult",
+      "profile_url": "http://www.twitter.com/sarallenconsult",
+      "match_tag": "twitter/sarallenconsult"
+    },
+    "offer_text": "People affected by the #eqnz in #chch have a great new resource: request or offer help via www.QuakeAid.co.nz / @QuakeAidNZ",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 19.046013,
+      "geo_long": 72.909307,
+      "address": "new resource:",
+      "tags": [
+        {
+          "tag": "india",
+          "type": "loc"
+        },
+        {
+          "tag": "maharashtra",
+          "type": "loc"
+        },
+        {
+          "tag": "mumbai",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40573089830010880": {
+    "message_type": "offer",
+    "timestamp": "2011-02-24T00:45:53Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "india",
+        "type": "loc"
+      },
+      {
+        "tag": "maharashtra",
+        "type": "loc"
+      },
+      {
+        "tag": "mumbai",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "People affected by the #eqnz in #chch have a great new resource: request or offer help via www.QuakeAid.co.nz / @QuakeAidNZ",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40573089830010880"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "BewleyFansNZ",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1252807952/187148_100000709113757_5184386_n_normal.jpg",
+      "screen_name": "BewleyFansNZ",
+      "profile_url": "http://www.twitter.com/BewleyFansNZ",
+      "match_tag": "twitter/BewleyFansNZ"
+    },
+    "offer_text": "People affected by the #eqnz in #chch have a great new resource: request or offer help via www.QuakeAid.co.nz / @QuakeAidNZ",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 19.046013,
+      "geo_long": 72.909307,
+      "address": "new resource:",
+      "tags": [
+        {
+          "tag": "india",
+          "type": "loc"
+        },
+        {
+          "tag": "maharashtra",
+          "type": "loc"
+        },
+        {
+          "tag": "mumbai",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40584860925952000": {
+    "message_type": "offer",
+    "timestamp": "2011-02-24T01:32:39Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "canterbury",
+        "type": "loc"
+      },
+      {
+        "tag": "christchurch",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "We have been contacted by a mechanic wanting to offer his services in Chch - if you know of anyone or way in which he can help DM us #eqnz",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40584860925952000"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "LGOLNZ",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a0.twimg.com/profile_images/566159743/roundel_normal.png",
+      "screen_name": "LGOLNZ",
+      "profile_url": "http://www.twitter.com/LGOLNZ",
+      "match_tag": "twitter/LGOLNZ"
+    },
+    "offer_text": "We have been contacted by a mechanic wanting to offer his services in Chch - if you know of anyone or way in which he can help DM us #eqnz",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -43.5320544,
+      "geo_long": 172.6362254,
+      "address": "Chch",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "canterbury",
+          "type": "loc"
+        },
+        {
+          "tag": "christchurch",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40640560049954816": {
+    "message_type": "offer",
+    "timestamp": "2011-02-24T05:13:59Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "For anyone in New Zealand, @quakeaidnz is now live: http://www.quakeaid.co.nz Log on and offer help to earthquake victims.  #eqnz #chch",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40640560049954816"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "deloitteonline",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1079575891/D_bigger_normal.gif",
+      "screen_name": "deloitteonline",
+      "profile_url": "http://www.twitter.com/deloitteonline",
+      "match_tag": "twitter/deloitteonline"
+    },
+    "offer_text": "For anyone in New Zealand, @quakeaidnz is now live: http://www.quakeaid.co.nz Log on and offer help to earthquake victims.  #eqnz #chch",
+    "more_info_url": "http://www.quakeaid.co.nz",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -40.900557,
+      "geo_long": 174.885971,
+      "address": "New Zealand,",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40673788479815680": {
+    "message_type": "offer",
+    "timestamp": "2011-02-24T07:26:01Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "india",
+        "type": "loc"
+      },
+      {
+        "tag": "maharashtra",
+        "type": "loc"
+      },
+      {
+        "tag": "mumbai",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "People affected by the #eqnz in #chch have a great new resource: request or offer help via www.QuakeAid.co.nz / @QuakeAidNZ",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40673788479815680"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "IntrepidAllen",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a2.twimg.com/profile_images/1095213440/ChrisCropped_normal.jpg",
+      "screen_name": "IntrepidAllen",
+      "profile_url": "http://www.twitter.com/IntrepidAllen",
+      "match_tag": "twitter/IntrepidAllen"
+    },
+    "offer_text": "People affected by the #eqnz in #chch have a great new resource: request or offer help via www.QuakeAid.co.nz / @QuakeAidNZ",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 19.046013,
+      "geo_long": 72.909307,
+      "address": "new resource:",
+      "tags": [
+        {
+          "tag": "india",
+          "type": "loc"
+        },
+        {
+          "tag": "maharashtra",
+          "type": "loc"
+        },
+        {
+          "tag": "mumbai",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40683145904787457": {
+    "message_type": "offer",
+    "timestamp": "2011-02-24T08:03:12Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "canterbury",
+        "type": "loc"
+      },
+      {
+        "tag": "hornby",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "A bore with pure drinking water available at corner of Shands and Marshes Roads in Hornby http://bit.ly/hQKYHe #chch #offer /via @trademe",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40683145904787457"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "chchneeds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1252800770/chch_normal.jpeg",
+      "screen_name": "chchneeds",
+      "profile_url": "http://www.twitter.com/chchneeds",
+      "match_tag": "twitter/chchneeds"
+    },
+    "offer_text": "A bore with pure drinking water available at corner of Shands and Marshes Roads in Hornby http://bit.ly/hQKYHe #chch #offer /via @trademe",
+    "more_info_url": "http://bit.ly/hQKYHe",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -43.5432865,
+      "geo_long": 172.5271215,
+      "address": "Hornby",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "canterbury",
+          "type": "loc"
+        },
+        {
+          "tag": "hornby",
+          "type": "loc"
+        }
+      ]
+    }
   }
 }

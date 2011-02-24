@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
+using NLog;
 using Offr.Repository;
 using Offr.Text;
 
@@ -15,7 +16,9 @@ namespace Offr.Services
         public static readonly int POLLING_INTERVAL =ConfigurationManager.AppSettings["RawMessagePollingService_PollingInterval"] == null ?
                     3500 ://every 3.5 seconds
                     int.Parse(ConfigurationManager.AppSettings["RawMessagePollingService_PollingInterval"]);
-       
+
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         private static readonly object[] _syncLock;
         private static IRawMessageProvider _provider;
         private static IBackgroundExceptionReceiver _exceptionReceiver;
@@ -58,8 +61,9 @@ namespace Offr.Services
                     _provider.Update();
                      Thread.Sleep(POLLING_INTERVAL);
                 }
-                catch (WebException ex)
+                catch (Exception ex)
                 {
+                    _log.ErrorException("Exception in raw message polling service", ex);
                     _exceptionReceiver.NotifyException(ex);
                 }
             }
