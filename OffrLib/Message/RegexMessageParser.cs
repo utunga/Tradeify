@@ -155,7 +155,7 @@ namespace Offr.Message
             if (result != null) return result;
 
             //in  bounded by "."    
-            Regex reIn = new Regex("in (([^#|^\\.])*)", RegexOptions.IgnoreCase);
+            Regex reIn = new Regex(" in (([^#|^\\.])*)", RegexOptions.IgnoreCase);
             Match matchIn = reIn.Match(sourceText);
             if (matchIn.Groups.Count >= 1)
             {
@@ -167,7 +167,7 @@ namespace Offr.Message
             if (result != null) return result;
 
             //at  bounded by "."    
-            Regex reAt = new Regex("at (([^#|^\\.])*)", RegexOptions.IgnoreCase);
+            Regex reAt = new Regex(" at (([^#|^\\.])*)", RegexOptions.IgnoreCase);
             Match matchAt = reAt.Match(sourceText);
             if (matchAt.Groups.Count >= 1)
             {
@@ -244,14 +244,17 @@ namespace Offr.Message
 
         private string SubstituteTagIfSubstituteExists(string s)
         {
-            if (s.Equals("wants", StringComparison.OrdinalIgnoreCase) ||
-                s.Equals("iwant", StringComparison.OrdinalIgnoreCase) ||
-                s.Equals("want", StringComparison.OrdinalIgnoreCase) ||
+            if (s.Equals("want", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("need", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("needed", StringComparison.OrdinalIgnoreCase) ||
                 s.Equals("wanting", StringComparison.OrdinalIgnoreCase))
                 return MessageType.wanted.ToString();
 
             if (s.Equals("offering", StringComparison.OrdinalIgnoreCase) ||
-                s.Equals("ioffer", StringComparison.OrdinalIgnoreCase))
+                s.Equals("offer", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("available", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("avail", StringComparison.OrdinalIgnoreCase) ||
+                s.Equals("offer", StringComparison.OrdinalIgnoreCase))
                 return MessageType.offer.ToString();
 
             return s;

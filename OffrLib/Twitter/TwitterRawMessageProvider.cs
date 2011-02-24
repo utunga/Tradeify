@@ -80,7 +80,14 @@ namespace Offr.Twitter
         {
 
             // always require the "hash tag of the messages we are interested in "
-            string query = GetQuery();
+            //string query = GetQuery();
+
+            // bit to general for testing
+            //"(#chch OR #eqnz) (offer OR need OR want OR wanted OR needed)"
+            //string query = "(%23chch+OR+%23eqnz)+(offer+OR+need+OR+want+OR+wanted+OR+needed)";
+            
+            //(#chch OR #eqnz) (#offer OR #need)"
+            string query = "(%23chch+OR+%23eqnz)+(%23offer+OR+%23need)";
             string url = _last_id == 0 ? 
                 String.Format((string) TWITTER_SEARCH_INIT_URI, (object) query) :
                 String.Format(TWITTER_SEARCH_POLL_URI, _last_id, query);

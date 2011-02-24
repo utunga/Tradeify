@@ -20,6 +20,14 @@
     "tag": "wanted",
     "type": "msg_type"
   },
+  "chch": {
+    "tag": "chch",
+    "type": "group"
+  },
+  "eqnz": {
+    "tag": "eqnz",
+    "type": "group"
+  },
   "chchneeds": {
     "tag": "chchneeds",
     "type": "group"
