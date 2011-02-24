@@ -66,8 +66,10 @@ namespace Offr.Repository
         public override void Save(IMessage message)
         {
             base.Save(message);
-            _log.Info("Save:" + message);
-            _globalTagIndex.Process(message);
+            //_log.Info("Save:" + message);
+
+            if (!Global.DisableIndex)
+                _globalTagIndex.Process(message);
         }
 
         public MessagesWithTagCounts GetMessagesWithTagCounts(IEnumerable<ITag> tags)

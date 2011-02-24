@@ -16,14 +16,18 @@ namespace Offr.Message
         private readonly IMessageRepository _messageRepository; 
         private readonly IMessageParser _messageParser;
         private readonly ITagRepository _tagRepository;
+        private readonly IValidMessageReceiver _validMessageReceiver;
 
-
-        public IncomingMessageProcessor(IMessageRepository messageRepository, ITagRepository tagRepository, IMessageParser messageParser)
+        public IncomingMessageProcessor(IMessageRepository messageRepository, ITagRepository tagRepository, IMessageParser messageParser, IValidMessageReceiver validMessageReceiver)
         {
             _messageRepository = messageRepository;
             _messageParser = messageParser;
             _tagRepository = tagRepository;
-            //_sourceProvider.Update();
+            _validMessageReceiver = validMessageReceiver;
+        }
+
+        public IncomingMessageProcessor(IMessageRepository messageRepository, ITagRepository tagRepository, IMessageParser messageParser) : this( messageRepository, tagRepository, messageParser, null)
+        {
         }
 
         public IList<IMessage> AllMessages
@@ -45,6 +49,10 @@ namespace Offr.Message
             List<IMessage> parsedMessages = new List<IMessage>();
             foreach (IRawMessage rawMessage in updatedMessages)
             {
+                //bypass Retweets *hack FIXME
+                if (rawMessage.Text.Trim().StartsWith("RT"))
+                    continue;
+
                 IMessage message = _messageParser.Parse(rawMessage);
                 if (message.IsValid())
                 {
@@ -52,7 +60,8 @@ namespace Offr.Message
                 }
                 else
                 {
-                    _log.Info("Rejected invalid message:" + Util.ConcatStringArray(message.ValidationFailReasons()) + " \"" + message + "\"");
+                    if (message.ValidationFailReasons().Length <= 1)
+                        _log.Info("Rejected almost valid message:" + Util.ConcatStringArray(message.ValidationFailReasons()) + " \"" + ((BaseMarketMessage)message).MessageText + "\"");
                 }
             }
             Notify(parsedMessages);
@@ -77,13 +86,18 @@ namespace Offr.Message
                         foreach (ITag tag in parsedMessage.Tags)
                             _tagRepository.GetAndAddTagIfAbsent(tag.Text, tag.Type);
                     }
+
+                    if (_validMessageReceiver!=null)
+                    {
+                        _validMessageReceiver.Push(parsedMessage);
+                    }
                 }
                 else
                 {
-                    _log.Info("Rejected invalid message:" + Util.ConcatStringArray(parsedMessage.ValidationFailReasons()));
+                    if (parsedMessage.ValidationFailReasons().Length <=1) 
+                        _log.Info("Rejected almost valid message:" + Util.ConcatStringArray(parsedMessage.ValidationFailReasons()));
                 }
             }
         }
     }
-
 }

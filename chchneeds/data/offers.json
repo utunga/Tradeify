@@ -1,0 +1,73 @@
+{
+  "twitter/1": {
+    "message_type": "offer",
+    "timestamp": "2009-06-23T12:00:00",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "nzd",
+        "type": "currency"
+      },
+      {
+        "tag": "barter",
+        "type": "currency"
+      },
+      {
+        "tag": "freecycle",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "wellington",
+        "type": "loc"
+      },
+      {
+        "tag": "paekakariki",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "#offer For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "1"
+    },
+    "created_by": {
+      "type": "OpenSocialUserPointer",
+      "provider_user_name": "just_a_test",
+      "provide_name_space": "ooooby",
+      "profile_pic_url": "http://s3.amazonaws.com/twitter_production/profile_images/255244783/n581121541_991717_2060_normal.jpg",
+      "profile_url": ""
+    },
+    "offer_text": "#offer For sale: Kitchen jug. #nzd or #barter L:Paekakariki: http://bit.ly/234 #freecycle",
+    "more_info_url": "http://bit.ly/234",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": "",
+    "location": {
+      "geo_lat": -40.982782,
+      "geo_long": 174.956108,
+      "address": "Paekakariki",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "wellington",
+          "type": "loc"
+        },
+        {
+          "tag": "paekakariki",
+          "type": "loc"
+        }
+      ]
+    }
+  }
+}

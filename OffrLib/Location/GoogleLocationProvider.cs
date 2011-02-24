@@ -19,8 +19,28 @@ namespace Offr.Location
         protected ILocationRepository LocationRepository;
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        public const string GOOGLE_API_KEY= "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
-        public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&gl=NZ";
+        //old urls (v2 of API with generic address lookup (preferring NZ))
+        
+        //public const string GOOGLE_SEARCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&gl=NZ"; 
+        //public const string GOOGLE_API_KEY = "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
+        //public const string GOOGLE_REVERSE_URI = "http://maps.google.com/maps/geo?output=json&oe=utf-8&ll={0}%2C{1}";
+
+        //v3 api - not consistent with our parser or summint
+        //southwest->northeast of Canterbury is the following two points:
+        //var sw = new GLatLng(-43.64, 172.24);
+        //var ne = new GLatLng(-43.315, 172.99);
+        //bounds=-43.64,172.24|-43.315,172.99
+        //public const string GOOGLE_SEARCH_URI = "http://maps.googleapis.com/maps/api/geocode/json?address={0}&bounds=-43.64,172.24|-43.315,172.99&sensor=false";
+
+
+        
+        public const string GOOGLE_API_KEY = "ABQIAAAABEpdHyPr3QztCREcH5edthQy_El0usyvt1K1GNmivQtTj-_axBQHCZxNbRJdVxkhdKuz2qe7aUF3hQ";
+        //v2 style url
+        //center of chch ll=-43.489,172.76
+        //span for area of chch spn=0.354193,0.854187
+        public static string GOOGLE_SEARCH_CHCH_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&ll=" + HttpUtility.UrlEncode("-43.489,172.76") + "&spn=" + HttpUtility.UrlEncode("0.354193,0.854187") + "&gl=NZ";
+        public static string GOOGLE_SEARCH_FALLBACK_URI = "http://maps.google.com/maps/geo?q={0}&output=json&oe=utf8&sensor=false&key={1}&gl=NZ";  // try for somewhere in NZ, but will give addresses outside of there OK
+        //v2 style url with bounds to prefer Canterbury addresses
         public const string GOOGLE_REVERSE_URI = "http://maps.google.com/maps/geo?output=json&oe=utf-8&ll={0}%2C{1}";
 
         private readonly List<IRawMessageReceiver> _receivers;
@@ -107,15 +127,24 @@ namespace Offr.Location
         {
             try
             {
-                string requestURI = string.Format(GOOGLE_SEARCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
+                string requestURI = string.Format(GOOGLE_SEARCH_CHCH_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
                 string responseData = _webRequest.RetrieveContent(requestURI);
                 GoogleResultSet resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
-                if (resultSet.Placemark != null && resultSet.Placemark.Length > 0)
+
+                if (resultSet.Placemark == null) //failed to parse with boundingbox on Christchurch, fallback to more general
                 {
-                    GoogleResultSet.PlacemarkType placemark = resultSet.Placemark[0];
-                    int accuracy = int.Parse(placemark.AddressDetails.accuracy);
-                    if (accuracy == 0) resultSet = reverseGeocodeCoordinates(addressText, placemark);
+                    
+                    requestURI = string.Format(GOOGLE_SEARCH_FALLBACK_URI, HttpUtility.UrlEncode(addressText), GOOGLE_API_KEY);
+                    responseData = _webRequest.RetrieveContent(requestURI);
+                    resultSet = JSON.Deserialize<GoogleResultSet>(responseData);
+                    if (resultSet.Placemark != null && resultSet.Placemark.Length > 0)
+                    {
+                        GoogleResultSet.PlacemarkType placemark = resultSet.Placemark[0];
+                        int accuracy = int.Parse(placemark.AddressDetails.accuracy);
+                        if (accuracy == 0) resultSet = reverseGeocodeCoordinates(addressText, placemark);
+                    }
                 }
+
                 return resultSet;
             }
             catch (Exception ex)

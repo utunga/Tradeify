@@ -40,11 +40,15 @@ namespace Offr.Message
             BaseMarketMessage msg;
             switch (GetMessageType(sourceText, tags))
             {
+                case MessageType.need:
+                case MessageType.needed:
+                case MessageType.want:
                 case MessageType.wanted:
                     msg = new WantedMessage();
                     break;
 
                 case MessageType.offer:
+                case MessageType.available:
                 default:
                     msg = new OfferMessage();
                     break;
@@ -57,7 +61,7 @@ namespace Offr.Message
             bool containsGroup = false;
             foreach (ITag tag in tags)
             {
-                if (tag.Type == TagType.msg_type) continue; //skip messages of this Type
+                if (tag.Type == TagType.msg_type) continue; //skip tags of this Type
                 if(tag.Type==TagType.group) containsGroup = true;
                 msg.AddTag(tag);
             }
@@ -67,19 +71,24 @@ namespace Offr.Message
                 ITag possibleGroup = CheckForAtSymbolGroup(sourceText);
                 if(possibleGroup != null)
                 {
-                    //remove the @ooooby tag from the messages
+                    //remove the @chchneeds tag from the messages
                     sourceText=sourceText.Replace("@" + possibleGroup.Text, "");
                     msg.AddTag(possibleGroup);
                 }
             }
-            //source.Pointer.
-            ILocation location = ParseLocation(sourceText);
-            if (location != null)
+
+            if (msg.HasValidTags())
             {
-                msg.Location = location;
-                foreach (ITag s in location.Tags)
+                // for efficiency don't even both trying to parse the google address
+                // unless it at least has some valid tags
+                ILocation location = ParseLocation(sourceText);
+                if (location != null)
                 {
-                    msg.AddTag(s);
+                    msg.Location = location;
+                    foreach (ITag s in location.Tags)
+                    {
+                        msg.AddTag(s);
+                    }
                 }
             }
             msg.MessageText = sourceText;
@@ -144,6 +153,7 @@ namespace Offr.Message
             }
 
             if (result != null) return result;
+
             //in  bounded by "."    
             Regex reIn = new Regex("in (([^#|^\\.])*)", RegexOptions.IgnoreCase);
             Match matchIn = reIn.Match(sourceText);
@@ -152,6 +162,27 @@ namespace Offr.Message
                 string afterL = matchIn.Groups[1].Value;
                 //string address = afterL;
                 //address = address.TrimStart(" in ".ToCharArray());
+                result = _locationProvider.ParseFromApproxText(afterL);
+            }
+            if (result != null) return result;
+
+            //at  bounded by "."    
+            Regex reAt = new Regex("at (([^#|^\\.])*)", RegexOptions.IgnoreCase);
+            Match matchAt = reAt.Match(sourceText);
+            if (matchAt.Groups.Count >= 1)
+            {
+                string afterL = matchAt.Groups[1].Value;
+                //string address = afterL;
+                //address = address.TrimStart(" in ".ToCharArray());
+                result = _locationProvider.ParseFromApproxText(afterL);
+            }
+            if (result != null) return result;
+
+            Regex reOpenAt = new Regex(" in (([^#])*)", RegexOptions.IgnoreCase);
+            Match matchOpenAt = reOpenAt.Match(sourceText);
+            if (matchOpenAt.Groups.Count >= 1)
+            {
+                string afterL = matchOpenAt.Groups[1].Value;
                 result = _locationProvider.ParseFromApproxText(afterL);
             }
             if (result != null) return result;

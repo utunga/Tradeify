@@ -8,10 +8,10 @@ namespace Offr.Message
     public enum MessageType
     {
         offer,
-        takedown,
+        available,
         wanted,
-        recipient_feedback,
-        supplier_feedback,
-        etc
+        need,
+        needed,
+        want
     }
 }

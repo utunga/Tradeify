@@ -89,6 +89,9 @@ namespace Offr.Message
         /// </summary>
 
         public abstract bool IsValid();
+
+        public abstract bool HasValidTags();
+
         public abstract string[] ValidationFailReasons();
 
         #region public modifier methods

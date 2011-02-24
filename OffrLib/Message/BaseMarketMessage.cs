@@ -55,6 +55,12 @@ namespace Offr.Message
             return ValidationFailReasons().Length == 0;
         }
 
+        //useful for short circuiting the parsing process
+        public override bool HasValidTags()
+        {
+            return (_tags.TagsOfType(TagType.group).Count > 0);
+        }
+
         /// <summary>
         /// 
         /// to be a valid offer message it needs
@@ -70,17 +76,18 @@ namespace Offr.Message
             {
                 validationFails.Add(ValidationFailReason.TooLong.ToString());
             }
-            if (_tags.TagsOfType(TagType.currency).Count == 0)
-            {
-                validationFails.Add(ValidationFailReason.NeedsCurrencyTag.ToString());
-            }
-            if (Location==null)
-            {
-                validationFails.Add(ValidationFailReason.NeedsLocation.ToString());
-            }
+            //OK not to have any currency tags
+            //if (_tags.TagsOfType(TagType.currency).Count == 0)
+            //{
+            //    validationFails.Add(ValidationFailReason.NeedsCurrencyTag.ToString());
+            //}
             if (_tags.TagsOfType(TagType.group).Count == 0) 
             {
                 validationFails.Add(ValidationFailReason.NeedsGroupTag.ToString());
+            }
+            if (Location == null)
+            {
+                validationFails.Add(ValidationFailReason.NeedsLocation.ToString());
             }
             if (string.IsNullOrEmpty(MessageText))
             {

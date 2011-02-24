@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,13 @@ namespace Offr
     {
         static readonly object[] _syncLock = new object[0];
         static IKernel _ninjectKernel;
-      
+
+        public static bool DisableIndex
+        {
+            get { return (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["DisableIndex"]) && 
+                          bool.Parse(ConfigurationManager.AppSettings["DisableIndex"])); }
+        }
+
         public static void Initialize(INinjectModule configuration)
         {
             lock (_syncLock)

@@ -19,6 +19,7 @@ namespace Offr.Message
         IUserPointer CreatedBy { get;}
         MessageType MessageType { get; }
         bool IsValid();
+        bool HasValidTags();
         string[] ValidationFailReasons();
         IEnumerable<ITag> Tags { get; }
         bool MatchesMatchTag(ITag tag);

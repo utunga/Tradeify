@@ -112,8 +112,8 @@ namespace Offr.Tests
                                         Tags = new List<ITag>
                                                            {
                                                                (new Tag(TagType.loc, "Wellington")),
-                                                               (new Tag(TagType.loc, "Pipitea")),
-                                                               (new Tag(TagType.loc, "New Zealand"))/*,
+                                                               (new Tag(TagType.loc, "Wellington Central")),
+                                                               (new Tag(TagType.loc, "New Zealand")),/*,
                                                                (new Tag(TagType.loc, "NZ"))*/
                                                            }
                                     };
@@ -121,12 +121,12 @@ namespace Offr.Tests
             address = "20 Pitt Street,Sydney";
             ILocation sydney = new Location.Location
                                    {
-                                       GeoLat = (decimal)-33.8621871,
-                                       GeoLong = (decimal)151.2091189,
+                                       GeoLat = (decimal)-33.816636,
+                                       GeoLong = (decimal)150.997453,
                                        Address = address,
                                        Tags = new List<ITag>
                                                           {
-                                                              (new Tag(TagType.loc, "NSW")),
+                                                              (new Tag(TagType.loc, "New South Wales")),
                                                               (new Tag(TagType.loc, "Sydney")),
                                                               (new Tag(TagType.loc, "Australia"))/*,
                                                               (new Tag(TagType.loc, "AU"))*/
@@ -137,8 +137,8 @@ namespace Offr.Tests
 
             ILocation uae = new Location.Location
                                 {
-                                    GeoLat = (decimal) /*25.2286509*/25.1270151,
-                                    GeoLong = (decimal) /*55.2876798*/55.2071978,
+                                    GeoLat = (decimal) /*25.2286509*/25.0621743,
+                                    GeoLong = (decimal) /*55.2876798*/55.1302461,
                                     Address = address,
                                     Tags = new List<ITag>
                                                        {
@@ -152,34 +152,19 @@ namespace Offr.Tests
             address = "30+Rue+Baudin,+Paris,+France";
             ILocation france = new Location.Location
                                    {
-                                       GeoLat = (decimal)48.8960244,
-                                       GeoLong = (decimal)2.2514747,
+                                       GeoLat = (decimal)48.895,
+                                       GeoLong = (decimal)2.2520471,
                                        Address = address,
                                        Tags = new List<ITag>
                                                           {
                                                               (new Tag(TagType.loc, "Courbevoie")),
-                                                              (new Tag(TagType.loc, "Ile-de-France")),
+                                                              (new Tag(TagType.loc, "île-de-france")),
                                                               (new Tag(TagType.loc, "France"))/*,
                                                               (new Tag(TagType.loc, "Fr"))*/
                                                           }
                                    };
             _addressToExpectedTags.Add(address, france);
-            address = "1 Tawa St, 1081, New Zealand";
-            ILocation waiheke = new Location.Location
-            {
-                GeoLat = (decimal)-36.7853580,
-                GeoLong = (decimal)175.0169530,
-                Address = address,
-                Tags = new List<ITag>
-                              {
-                                  (new Tag(TagType.loc, "New Zealand")),
-                                  (new Tag(TagType.loc, "Oneroa")),
-/*,
-                                  (new Tag(TagType.loc, "GB"))*/
-                              }
-            };
-
-            _addressToExpectedTags.Add(address, waiheke);
+           
             address = "30 Borough Rd, London";
             ILocation uk = new Location.Location
                        {
@@ -190,13 +175,65 @@ namespace Offr.Tests
                               {
                                   (new Tag(TagType.loc, "Camberwell")),
                                   (new Tag(TagType.loc, "Greater London")),
-                                  (new Tag(TagType.loc, "United Kingdom"))/*,
+                                  (new Tag(TagType.loc, "UK"))/*,
                                   (new Tag(TagType.loc, "GB"))*/
                               }
                        };
 
             _addressToExpectedTags.Add(address, uk);
 
+
+
+
+            address = "halswell";
+            ILocation halswell = new Location.Location
+            {
+                GeoLat = (decimal)-43.5854361,
+                GeoLong = (decimal)172.5710715,
+                Address = address,
+                Tags = new List<ITag>
+                              {
+                                  (new Tag(TagType.loc, "Halswell")),
+                                  (new Tag(TagType.loc, "Canterbury")),
+                                  (new Tag(TagType.loc, "New Zealand"))
+                                  /*,
+                                  (new Tag(TagType.loc, "GB"))*/
+                              }
+            };
+            _addressToExpectedTags.Add(address, halswell);
+
+            address = "Dilworth street";
+            ILocation dilworth = new Location.Location
+            {
+                GeoLat = (decimal)-43.5317993,
+                GeoLong = (decimal)172.6019896,
+                Address = address,
+                Tags = new List<ITag>
+                              {
+                                  
+                                  (new Tag(TagType.loc, "Riccarton")),
+                                  (new Tag(TagType.loc, "Canterbury")),
+                                  (new Tag(TagType.loc, "New Zealand"))/*,
+                                  (new Tag(TagType.loc, "GB"))*/
+                              }
+            };
+            _addressToExpectedTags.Add(address, dilworth);
+
+            address = "Saint Martins";
+            ILocation stMartins = new Location.Location
+            {
+                GeoLat = (decimal)-43.555463,
+                GeoLong = (decimal)172.6517792,
+                Address = address,
+                Tags = new List<ITag>
+                              {
+                                  (new Tag(TagType.loc, "St Martins")),
+                                  (new Tag(TagType.loc, "Canterbury")),
+                                  (new Tag(TagType.loc, "New Zealand"))/*,
+                                  (new Tag(TagType.loc, "GB"))*/
+                              }
+            };
+            _addressToExpectedTags.Add(address, stMartins);
         }
 
         [Test]
@@ -209,10 +246,12 @@ namespace Offr.Tests
         [Test]
         public void TestLiveGoogleParse()
         {
-            // also did Dubai move a few kilometers to the left or something? can you fix the test?
             foreach (string address in _addressToExpectedTags.Keys)
             {
                 ILocation location = _target.Parse(address);
+                Console.Out.WriteLine("Parsed:");
+                Console.Out.WriteLine(JSON.Serialize(location));
+
                 ILocation expected = _addressToExpectedTags[address];
                 AssertLocationEquality(address, expected, location);
             }
@@ -251,6 +290,14 @@ namespace Offr.Tests
 
             foreach (ITag locationTag in expected.Tags)
             {
+
+                if (!actual.Tags.Contains(locationTag))
+                {
+                    Console.Out.WriteLine("Expected:");
+                    Console.Out.WriteLine(JSON.Serialize(expected));
+                    Console.Out.WriteLine("Actual:");
+                    Console.Out.WriteLine(JSON.Serialize(actual));
+                }
                 Assert.That(actual.Tags.Contains(locationTag), "Expected tag " + locationTag + " was not contained in result for " + forAddress);
             }
 
@@ -273,6 +320,7 @@ namespace Offr.Tests
             ILocation location = _target.ParseFromApproxText("Paekakariki for #free http://bit.ly/message0Info pic http://twitpic.com/r5aon #mulch");
             Assert.AreEqual("Paekakariki", location.AddressText);
         }
+
         [Test]
         public void TestLandMarkLocation()
         {
@@ -280,11 +328,12 @@ namespace Offr.Tests
             ILocation expected = new Location.Location
             {
                 GeoLat = (decimal)-36.7845550,
-                GeoLong = (decimal)175.0187010,
+                GeoLong = (decimal)175.027010,
                 Address = address,
                 Tags = new List<ITag>
                               {
                                   (new Tag(TagType.loc, "New Zealand")),
+                                  (new Tag(TagType.loc, "Auckland")),
                                   (new Tag(TagType.loc, "Oneroa")),
                                   //(new Tag(TagType.loc, "United Kingdom"))/*,
                                   //(new Tag(TagType.loc, "GB"))*/

@@ -118,30 +118,21 @@ namespace Offr.Twitter
 
         private string GetQuery()
         {
-            /*
-            switch (forType)
-            {
-                case MessageType.offer:
-                    // filter to include any of these hash tags 
-                    //return "%23ihave+OR+%23offer+OR+%23offr";
-                    return "%23offer+OR+%23offr";
-                default:
-                    return "%23" + _forType;
-            }
-             */
-            //"%23offer+OR+%23offr+OR+%23wanted+OR+%23want+OR+%23wants";
-            ITagRepository tags = Global.GetTagRepository();
-            List<ITag> groups=tags.GetGroups();
-            string request="";
-            if(groups.Count>=1)
-            {
-                request = groups[0].Text;
-                for(int i=1;i<groups.Count;i++)
-                {
-                    request += "+OR+" + groups[i].Text;
-                }
-            }
-            return request;
+
+            return "%23chch+OR+%23eqnz+OR+%23christchurch+OR+chchneeds";
+            //ITagRepository tags = Global.GetTagRepository();
+            //List<ITag> groups=tags.GetGroups();
+
+            //string request="";
+            //if(groups.Count>=1)
+            //{
+            //    request = groups[0].Text;
+            //    for(int i=1;i<groups.Count;i++)
+            //    {
+            //        request += "+OR+" + groups[i].Text;
+            //    }
+            //}
+            //return request;
             //return QUERY_FOR_GROUPS;
         }
 
