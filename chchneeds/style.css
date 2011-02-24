@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+font-family: helvetica, arial, verdana;
+color: #000;
+font-size: 14px;
+text-align: center;
+padding: 0px;
+margin: 0px;
+}
+
+.clear {
+clear: both;
+}
+
+p {
+margin: 0px 0px 15px 0px;
+}
+
+
+.mainbody {
+background: #efefef;
+border-top: 1px solid #ccc;
+padding: 30px 0px;
+}
+
+
+.header {
+background: #D4E8F4; /* for non-css3 browsers */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4E8F4', endColorstr='#B0DAF5'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#D4E8F4), to(#B0DAF5)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #D4E8F4,  #B0DAF5); /* for firefox 3.6+ */
+padding: 10px 0px 30px 0px;
+}
+
+ul, li, ol {
+margin: 0px;
+padding: 0px;
+}
+
+.container {
+width: 1000px;
+margin: 0px auto;
+text-align: left;
+}
+
+.logo {
+float: left;
+width: 247px;
+margin: 25px 0px 0px 0px;
+}
+
+.navigation {
+float: right;
+width: 300px;
+text-align: right;
+margin-top: 0px;
+}
+
+.navigation ul li {
+display: inline;
+margin: 0px 7px;
+}
+
+.navigation ul li a, .navigation ul li a:visited {
+color: #666;
+text-decoration: none;
+font-size: 0.95em;
+}
+
+h1, h2, h3, h4, h5 {
+font-family: myriad pro, tahoma;
+font-size: 2em;
+margin: 0px;
+padding: 0px;
+}
+
+h1 {
+color: #163F58;
+}
+
+h2 {
+font-size: 1.6em;
+}
+
+h3 {
+font-size: 1.3em;
+margin-bottom: 7px;
+color: #666; 
+}
+
+
+a {
+color: #163F58;
+}
+
+
+.maincolumn {
+float: left;
+width: 680px;
+}
+
+.rightcolumn {
+width: 300px;
+float: right;
+}
+
+.rightcolumn ul {
+list-style: none;
+}
+
+.map {
+border: 10px solid #ccc;
+margin-bottom: 30px;
+}
+
+.filter {
+margin-bottom: 10px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+padding: 20px;
+background: #fff;
+}
+
+.filter ul li {
+display: inline;
+padding-bottom: 5px;
+height: 20px;
+line-height: 20px;
+}
+
+.filter ul li a, .filter ul li a:visited {
+text-decoration: none;
+padding: 3px 7px;
+height: 20px;
+line-height: 20px;
+color: #666;
+}
+
+.filter ul li a.current, .filter ul li a.current:visited {
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+background: #D4E8F4;
+color: #163F58;
+}
+
+.filter ul li a:hover, .filter ul li a.current:hover {
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+background: #D4E8F4;
+color: #163F58;
+}
+
+
+.addyours {
+background: #58B0EB; /* for non-css3 browsers */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9CD1F3', endColorstr='#58B0EB'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#9CD1F3), to(#58B0EB)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #9CD1F3,  #58B0EB); /* for firefox 3.6+ */
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+padding: 20px;
+}
+
+.addyours h2 {
+color: #092435;
+}
+
+
+.addyours ol {
+margin: 0px 0px 5px 25px;
+}
+
+.addyours ol li {
+font-size: 1.2em;
+color: #092435;
+margin-left: 0px;
+padding: 0px;
+}
+
+p.offers {
+font-size: 1.4em;
+}
+
+p.offers a, p.offers a:visited {
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+background: #D4E8F4;
+color: #163F58;
+padding: 3px 7px;
+text-decoration: none;
+}
+
+.listings {
+
+}
+
+.listing {
+border-top: 1px solid #E6E6E6;
+border-bottom: 1px solid #E6E6E6;
+padding: 10px 0px;
+margin-bottom: 5px;
+background: #F7F7F7;
+}
+
+.profilepic {
+float: left;
+width: 48px;
+border: 3px solid #ccc;
+margin-left: 10px;
+}
+
+.need {
+float: right;
+width: 600px;
+margin-right: 10px;
+}
+
+.datetime {
+color: #666;
+font-weight: bold;
+}
