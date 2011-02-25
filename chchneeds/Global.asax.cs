@@ -34,20 +34,6 @@ namespace twademe
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    IUserPointerRepository ignoredUserRepository = Kernel.Get<IUserPointerRepository>();
-            //    if (ignoredUserRepository is IPersistedRepository)
-            //    {
-            //        ((IPersistedRepository)ignoredUserRepository).FilePath = Server.MapPath(IGNORED_USERS);
-            //        ((IPersistedRepository)ignoredUserRepository).InitializeFromFile();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    NotifyException(new ApplicationException("Failed during message initialization from file", ex));
-            //}
-
             try
             {
                 ITagRepository tagRepository = Kernel.Get<ITagRepository>();
@@ -61,42 +47,6 @@ namespace twademe
             {
                 NotifyException(new ApplicationException("Failed during tag initialization", ex));
             }
-
-            try
-            {
-                IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
-                if (messageRepository is IPersistedRepository)
-                {
-                    ((IPersistedRepository)messageRepository).FilePath = Server.MapPath(OFFERS_FILE);
-                    ((IPersistedRepository)messageRepository).InitializeFromFile();
-                }
-            }
-            catch (Exception ex)
-            {
-                NotifyException(new ApplicationException("Failed during message initialization from file", ex));
-            }
-
-            //try
-            //{
-            //    IMessageRepository messageRepository = Kernel.Get<IMessageRepository>();
-            //    if (messageRepository.MessageCount == 0)
-            //    {
-            //        IList<IRawMessage> messages = new List<IRawMessage>();
-            //        foreach (IRawMessage rawMessage in DemoData.RawMessages)
-            //        {
-            //            messages.Add(rawMessage);
-            //        }
-            //        IRawMessageReceiver messageReceiver = Kernel.Get<IRawMessageReceiver>();
-            //        messageReceiver.Notify(messages);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    NotifyException(new ApplicationException("Failed during demo initialization", ex));
-            //}
-
-            PersistanceService.Start(this);
-            RawMessagePollingService.Start(this);
         }
 
         protected void Session_Start(object sender, EventArgs e)
