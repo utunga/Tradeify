@@ -12,35 +12,32 @@ using Offr.Message;
 
 namespace Offr.CouchDB
 {
-    public class PushToCouchDBReceiver : IValidMessageReceiver
+    public class PushToCouchDBReceiver : IValidMessageReceiver, IAllMessageReceiver
     {
         private static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
         public string CouchServer { get; set; }
-
         public string CouchDB { get; set; }
 
         public PushToCouchDBReceiver()
-        {
-            CouchServer = ConfigurationManager.AppSettings["CouchServer"] ?? "http://chchneeds.couchone.com"; //actually this won't work because it needs user/pass in the url
-            CouchDB = ConfigurationManager.AppSettings["CouchDB"] ?? "testing"; //unless set explicitly don't write to the db            
+        {          
         }
 
-        public void Push(IMessage validMessage )
+        public void Push(IMessage message)
         {
-            string messageAsJSON = JSON.Serialize(validMessage);
-            _log.Info("Pushing message " + validMessage.RawText + " to " + CouchServer + ":" + CouchDB);
-            int networkAttempts = 3;
-            while (networkAttempts>0) {
+            string messageAsJSON = JSON.Serialize(message);
+            _log.Info("Pushing message to |" + CouchDB + "| '" + message.RawText + "' /" + CouchServer  );
+            int networkAttempts = 5;
+            while (--networkAttempts>0) {
                 try
                 {
                     new DB().CreateDocument(CouchServer, CouchDB, messageAsJSON);
                 }
                 catch (WebException ex)
                 {
-                    networkAttempts--;
+                    
                     _log.ErrorException("Failure to push message to " + CouchServer + ":" + CouchDB + " will try again " + networkAttempts + " times.", ex);
-                    Thread.Sleep(1000); //wait for one second
+                    Thread.Sleep(500); //wait for half a second
                 }
             }
             //failed, but hopefully didn't bring the whole service down

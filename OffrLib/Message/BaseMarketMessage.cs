@@ -89,10 +89,15 @@ namespace Offr.Message
             {
                 validationFails.Add(ValidationFailReason.NeedsLocation.ToString());
             }
+            else if (!Location.Tags.Contains(new Tag(TagType.loc, "new zealand")))
+            {
+                validationFails.Add(ValidationFailReason.NotInNewZealand.ToString());
+            }
             if (string.IsNullOrEmpty(MessageText))
             {
                 validationFails.Add(ValidationFailReason.NeedsOfferMessage.ToString());
             }
+            
             return validationFails.ToArray();
         }
 

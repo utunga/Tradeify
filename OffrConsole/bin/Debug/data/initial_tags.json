@@ -1,0 +1,35 @@
+{
+
+  "offer": {
+    "tag": "offer",
+    "type": "msg_type"
+  },
+  "need": {
+    "tag": "need",
+    "type": "msg_type"
+  },
+  "wanted": {
+    "tag": "needed",
+    "type": "msg_type"
+  },
+  "want": {
+    "tag": "want",
+    "type": "msg_type"
+  },
+  "want": {
+    "tag": "wanted",
+    "type": "msg_type"
+  },
+  "chch": {
+    "tag": "chch",
+    "type": "group"
+  },
+  "eqnz": {
+    "tag": "eqnz",
+    "type": "group"
+  },
+  "chchneeds": {
+    "tag": "chchneeds",
+    "type": "group"
+  }
+}

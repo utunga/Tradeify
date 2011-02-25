@@ -12,6 +12,9 @@ _ReSharper*
 *.db
 Offr.Tests/bin
 OffrLib/bin
+nlog*
+*.vshost.exe*
+*.vshost.exe
 twademe/nlog*
 twademe/Bin/x86/Debug/*
 twademe/Bin/x86/Release/*

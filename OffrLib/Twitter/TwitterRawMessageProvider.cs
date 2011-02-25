@@ -14,6 +14,8 @@ namespace Offr.Twitter
 {
     public class TwitterRawMessageProvider : IRawMessageProvider
     {
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         private readonly IWebRequestFactory _webRequest;
 
         private readonly IRawMessageReceiver _receiver;
@@ -64,6 +66,7 @@ namespace Offr.Twitter
             {
                 string responseData = _webRequest.RetrieveContent(url);
                 resultSet = JSON.Deserialize<TwitterResultSet>(responseData);
+                _log.Info("Found {0} new tweets matching filter", resultSet.results.Length);
                 _last_id = resultSet.max_id;
             }
             catch (WebException ex)
@@ -110,7 +113,7 @@ namespace Offr.Twitter
         //    //return QUERY_FOR_GROUPS;
         //}
 
-        public const string TWITTER_SEARCH_INIT_URI = "http://search.twitter.com/search.json?q={0}&rpp=100";
+        public const string TWITTER_SEARCH_INIT_URI = "http://search.twitter.com/search.json?q={0}&rpp=500";
         public const string TWITTER_SEARCH_POLL_URI = "http://search.twitter.com/search.json?since_id={0}&q={1}";
         public const string TWITTER_USER_URI = "http://twitter.com/users/show/{0}.xml";
         public const string TWITTER_STATUS_URI = "http://twitter.com/statuses/show/{0}.xml";

@@ -1,0 +1,432 @@
+{
+  "twitter/40584860925952000": {
+    "message_type": "offer",
+    "doc_type": "message",
+    "timestamp": "2011-02-24T01:32:39Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "canterbury",
+        "type": "loc"
+      },
+      {
+        "tag": "christchurch",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "We have been contacted by a mechanic wanting to offer his services in Chch - if you know of anyone or way in which he can help DM us #eqnz",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40584860925952000"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "LGOLNZ",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a0.twimg.com/profile_images/566159743/roundel_normal.png",
+      "screen_name": "LGOLNZ",
+      "profile_url": "http://www.twitter.com/LGOLNZ",
+      "match_tag": "twitter/LGOLNZ"
+    },
+    "offer_text": "We have been contacted by a mechanic wanting to offer his services in Chch - if you know of anyone or way in which he can help DM us #eqnz",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -43.5320544,
+      "geo_long": 172.6362254,
+      "address": "Chch",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "canterbury",
+          "type": "loc"
+        },
+        {
+          "tag": "christchurch",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40640560049954816": {
+    "message_type": "offer",
+    "doc_type": "message",
+    "timestamp": "2011-02-24T05:13:59Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "For anyone in New Zealand, @quakeaidnz is now live: http://www.quakeaid.co.nz Log on and offer help to earthquake victims.  #eqnz #chch",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40640560049954816"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "deloitteonline",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1079575891/D_bigger_normal.gif",
+      "screen_name": "deloitteonline",
+      "profile_url": "http://www.twitter.com/deloitteonline",
+      "match_tag": "twitter/deloitteonline"
+    },
+    "offer_text": "For anyone in New Zealand, @quakeaidnz is now live: http://www.quakeaid.co.nz Log on and offer help to earthquake victims.  #eqnz #chch",
+    "more_info_url": "http://www.quakeaid.co.nz",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -40.900557,
+      "geo_long": 174.885971,
+      "address": "New Zealand,",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40683145904787457": {
+    "message_type": "offer",
+    "doc_type": "message",
+    "timestamp": "2011-02-24T08:03:12Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "canterbury",
+        "type": "loc"
+      },
+      {
+        "tag": "hornby",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "A bore with pure drinking water available at corner of Shands and Marshes Roads in Hornby http://bit.ly/hQKYHe #chch #offer /via @trademe",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40683145904787457"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "chchneeds",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1252800770/chch_normal.jpeg",
+      "screen_name": "chchneeds",
+      "profile_url": "http://www.twitter.com/chchneeds",
+      "match_tag": "twitter/chchneeds"
+    },
+    "offer_text": "A bore with pure drinking water available at corner of Shands and Marshes Roads in Hornby http://bit.ly/hQKYHe #chch #offer /via @trademe",
+    "more_info_url": "http://bit.ly/hQKYHe",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -43.5432865,
+      "geo_long": 172.5271215,
+      "address": "Hornby",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "canterbury",
+          "type": "loc"
+        },
+        {
+          "tag": "hornby",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40784308754972673": {
+    "message_type": "offer",
+    "doc_type": "message",
+    "timestamp": "2011-02-24T14:45:11Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "usa",
+        "type": "loc"
+      },
+      {
+        "tag": "ca",
+        "type": "loc"
+      },
+      {
+        "tag": "corte_madera",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "Christchurch lost and found pets: http://tinyurl.com/4ekkkvn -you can also offer your help via that site if you are in that area! #eqnz",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40784308754972673"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "mcmerkus",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1251721514/Screen_shot_2011-02-23_at_12.25.08_AM_normal.png",
+      "screen_name": "mcmerkus",
+      "profile_url": "http://www.twitter.com/mcmerkus",
+      "match_tag": "twitter/mcmerkus"
+    },
+    "offer_text": "Christchurch lost and found pets: http://tinyurl.com/4ekkkvn -you can also offer your help via that site if you are in that area! #eqnz",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 37.93385,
+      "geo_long": -122.517501,
+      "address": "that area!",
+      "tags": [
+        {
+          "tag": "usa",
+          "type": "loc"
+        },
+        {
+          "tag": "ca",
+          "type": "loc"
+        },
+        {
+          "tag": "corte_madera",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40790932999643136": {
+    "message_type": "offer",
+    "doc_type": "message",
+    "timestamp": "2011-02-24T15:11:30Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "For anyone in New Zealand, @quakeaidnz is now live: http://www.quakeaid.co.nz Log on and offer help to earthquake victims. #eqnz #chch",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40790932999643136"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "jalmeida315",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/sticky/default_profile_images/default_profile_4_normal.png",
+      "screen_name": "jalmeida315",
+      "profile_url": "http://www.twitter.com/jalmeida315",
+      "match_tag": "twitter/jalmeida315"
+    },
+    "offer_text": "For anyone in New Zealand, @quakeaidnz is now live: http://www.quakeaid.co.nz Log on and offer help to earthquake victims. #eqnz #chch",
+    "more_info_url": "http://www.quakeaid.co.nz",
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -40.900557,
+      "geo_long": 174.885971,
+      "address": "New Zealand,",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40865933199147009": {
+    "message_type": "offer",
+    "doc_type": "message",
+    "timestamp": "2011-02-24T20:09:32Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "new_zealand",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland",
+        "type": "loc"
+      },
+      {
+        "tag": "auckland_airport",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "If anyone frm #Chch needs a break in Akl I can offer a couple of couches and a spare bed at my kid + pet friendly flat #eqnz",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40865933199147009"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "jenpotocki",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a3.twimg.com/profile_images/1180442003/eyes_normal.jpg",
+      "screen_name": "jenpotocki",
+      "profile_url": "http://www.twitter.com/jenpotocki",
+      "match_tag": "twitter/jenpotocki"
+    },
+    "offer_text": "If anyone frm #Chch needs a break in Akl I can offer a couple of couches and a spare bed at my kid + pet friendly flat #eqnz",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": -37.0065284,
+      "geo_long": 174.791682,
+      "address": "Akl",
+      "tags": [
+        {
+          "tag": "new_zealand",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland",
+          "type": "loc"
+        },
+        {
+          "tag": "auckland_airport",
+          "type": "loc"
+        }
+      ]
+    }
+  },
+  "twitter/40888315930480640": {
+    "message_type": "offer",
+    "doc_type": "message",
+    "timestamp": "2011-02-24T21:38:28Z",
+    "tags": [
+      {
+        "tag": "offer",
+        "type": "msg_type"
+      },
+      {
+        "tag": "chch",
+        "type": "group"
+      },
+      {
+        "tag": "eqnz",
+        "type": "group"
+      },
+      {
+        "tag": "ประเทศไทย",
+        "type": "loc"
+      }
+    ],
+    "raw_text": "National system established for people wanting to offer free accommodation to #CHCH people in the wake of #eqnz http://bit.ly/eRWW4A",
+    "message_pointer": {
+      "type": "TwitterMessagePointer",
+      "provider_name_space": "twitter",
+      "message_id": "40888315930480640"
+    },
+    "created_by": {
+      "type": "TwitterUserPointer",
+      "provider_user_name": "TaranakiEM",
+      "provide_name_space": "twitter",
+      "profile_pic_url": "http://a1.twimg.com/profile_images/1152557849/TaranakiEM-w_normal.jpg",
+      "screen_name": "TaranakiEM",
+      "profile_url": "http://www.twitter.com/TaranakiEM",
+      "match_tag": "twitter/TaranakiEM"
+    },
+    "offer_text": "National system established for people wanting to offer free accommodation to #CHCH people in the wake of #eqnz http://bit.ly/eRWW4A",
+    "more_info_url": null,
+    "thumbnail": null,
+    "end_by": null,
+    "end_by_text": null,
+    "location": {
+      "geo_lat": 15.870032,
+      "geo_long": 100.992541,
+      "address": "th",
+      "tags": [
+        {
+          "tag": "ประเทศไทย",
+          "type": "loc"
+        }
+      ]
+    }
+  }
+}

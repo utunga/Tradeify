@@ -186,6 +186,7 @@ namespace Offr.Message
         public virtual void WriteJson(JsonWriter writer, JsonSerializer serializer)
         {
             JSON.WriteProperty(serializer, writer, "message_type", MessageType.ToString());
+            JSON.WriteProperty(serializer, writer, "doc_type", "message");
             JSON.WriteProperty(serializer, writer, "timestamp", Timestamp);
 
             //JSON.WriteProperty(serializer, writer, "tags", _tags);
@@ -198,7 +199,8 @@ namespace Offr.Message
 
         public virtual void ReadJson(JsonReader reader, JsonSerializer serializer){
  
-            //_messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type");
+            //_messageType = JSON.ReadProperty<MessageType>(serializer, reader, "message_type"); //read by outer thingo
+            string dontCare = JSON.ReadProperty<string>(serializer, reader, "doc_type"); 
             Timestamp = JSON.ReadProperty<DateTime>(serializer, reader, "timestamp");
 
             _tags = new TagList(); 

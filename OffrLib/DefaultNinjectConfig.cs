@@ -33,7 +33,8 @@ namespace Offr
             //Bind<IMessageQueryExecutor>().To<TagDexQueryExecutor>().Using<SingletonBehavior>();
             Bind<ITagRepository>().To<TagRepository>().InSingletonScope();
             Bind<IWebRequestFactory>().To<WebRequestFactory>();
-            Bind<IValidMessageReceiver>().To<PushToCouchDBReceiver>();  // added for chchneeds
+            Bind<IValidMessageReceiver>().To<PushToCouchDBReceiver>().InSingletonScope();  // added for chchneeds
+            Bind<IAllMessageReceiver>().To<PushToCouchDBReceiver>().InSingletonScope();  // added for chchneeds
             
         }
     }

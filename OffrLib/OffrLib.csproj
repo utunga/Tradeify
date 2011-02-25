@@ -134,6 +134,7 @@
     <Compile Include="Json\JSON.cs" />
     <Compile Include="Json\MessagesWithTagCounts.cs" />
     <Compile Include="Message\BaseMarketMessage.cs" />
+    <Compile Include="Message\IAllMessageReceiver.cs" />
     <Compile Include="Message\IValidMessageReceiver.cs" />
     <Compile Include="Message\ValidationFailReason.cs" />
     <Compile Include="Message\WantedMessage.cs" />

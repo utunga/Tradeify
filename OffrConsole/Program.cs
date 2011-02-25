@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using Ninject;
+using NLog;
+using Offr;
 using Offr.Json;
+using Offr.Repository;
+using Offr.Services;
 
 namespace OffrConsole
 {
@@ -11,9 +16,8 @@ namespace OffrConsole
     {
         static void Main(string[] args)
         {
-            DateTime time = DateTime.Now;
-            Debug.Assert(time.Equals(JSON.Deserialize<DateTime>(JSON.Serialize(time))));
-            Console.Out.WriteLine("time :" + time.ToLongTimeString() + " JSON.Deserialize<DateTime>(JSON.Serialize(time)):" + JSON.Deserialize<DateTime>(JSON.Serialize(time)).ToLongTimeString());
+            (new PushToCouchService()).Run();
         }
+
     }
 }

@@ -27,7 +27,7 @@ namespace Offr.Tests
         [Test]
         public void TestPushMessage()
         {
-            IncomingMessageProcessor processor = new IncomingMessageProcessor(_messageRepository, _tagRepository,  new MockMessageParser(), _target);
+            IncomingMessageProcessor processor = new IncomingMessageProcessor(_messageRepository, _tagRepository,  new MockMessageParser(), _target, null);
             _mockProvider = new MockRawMessageProvider(processor);
             _mockProvider.Update();
         }
